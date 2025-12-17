@@ -245,7 +245,8 @@
           <div
             class="space-y-4 sm:space-y-0 sm:space-x-6 sm:flex sm:justify-center"
           >
-            <button
+            <a
+              href="#itinerary"
               class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-green-500 to-blue-500 rounded-xl shadow-2xl hover:from-green-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-green-400/50"
             >
               <span data-translate="hero-schedule-btn">Agendar Tour</span>
@@ -262,7 +263,7 @@
                   d="M13 7l5 5m0 0l-5 5m5-5H6"
                 />
               </svg>
-            </button>
+            </a>
           </div>
 
           <!-- Additional Info -->
@@ -297,7 +298,6 @@
               <video
                 src="public/depoimento.mp4"
                 controls
-                poster="public/adriano.avif"
                 class="w-full h-[600px] object-cover rounded-xl"
                 preload="metadata"
               >
@@ -964,6 +964,281 @@
             data-translate="cta-button"
           >
             Reservar Tour Completo
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Itinerário -->
+    <section id="itinerary" class="py-20 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Header -->
+        <div class="text-center mb-16">
+          <span
+            class="inline-block bg-blue-100 text-blue-800 px-6 py-2 rounded-full text-sm font-bold mb-6"
+            data-translate="itinerary-badge"
+          >
+            Roteiro Completo
+          </span>
+          <h2
+            class="text-4xl sm:text-5xl font-bold text-gray-900 mb-6"
+            data-translate="itinerary-title"
+          >
+            O que veremos neste <span class="text-blue-600">tour?</span>
+          </h2>
+        </div>
+
+        <!-- Meeting Point and Itinerary Steps -->
+        <div class="relative">
+          <!-- Linha vertical contínua -->
+          <div
+            class="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-400 z-0"
+          ></div>
+
+          <div class="space-y-8 relative z-10">
+            <!-- Meeting Point -->
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div
+                  class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center border-4 border-white"
+                >
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3
+                  class="text-lg font-semibold text-gray-900 mb-2"
+                  data-translate="itinerary-meeting-title"
+                >
+                  Ponto de Encontro:
+                </h3>
+                <p
+                  class="text-gray-600 font-medium"
+                  data-translate="itinerary-meeting-location"
+                >
+                  Praça Castro Alves - Centro
+                </p>
+                <p
+                  class="text-sm text-gray-500 mt-1"
+                  data-translate="itinerary-meeting-note"
+                >
+                  O guia estará usando uma camisa verde em frente ao Cine
+                  Glauber Rocha.
+                </p>
+              </div>
+            </div>
+            <!-- Stop 1 -->
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div
+                  class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-lg border-4 border-white"
+                >
+                  1
+                </div>
+              </div>
+              <div class="flex-1">
+                <span
+                  class="text-sm text-gray-500"
+                  data-translate="itinerary-outside-visit"
+                  >Visita externa</span
+                >
+                <h3
+                  class="text-lg font-semibold text-gray-900"
+                  data-translate="itinerary-stop1"
+                >
+                  Rua Chile - Centro
+                </h3>
+              </div>
+            </div>
+
+            <!-- Stop 2 -->
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div
+                  class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-lg border-4 border-white"
+                >
+                  2
+                </div>
+              </div>
+              <div class="flex-1">
+                <span
+                  class="text-sm text-gray-500"
+                  data-translate="itinerary-outside-visit"
+                  >Visita externa</span
+                >
+                <h3
+                  class="text-lg font-semibold text-gray-900"
+                  data-translate="itinerary-stop2"
+                >
+                  Palácio Rio Branco - Praça Tomé de Souza - Centro
+                </h3>
+              </div>
+            </div>
+
+            <!-- Stop 3 -->
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div
+                  class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-lg border-4 border-white"
+                >
+                  3
+                </div>
+              </div>
+              <div class="flex-1">
+                <span
+                  class="text-sm text-gray-500"
+                  data-translate="itinerary-outside-visit"
+                  >Visita externa</span
+                >
+                <h3
+                  class="text-lg font-semibold text-gray-900"
+                  data-translate="itinerary-stop3"
+                >
+                  Elevador Lacerda - Praça Tomé de Souza - Centro
+                </h3>
+              </div>
+            </div>
+
+            <!-- Stop 4 -->
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div
+                  class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-lg border-4 border-white"
+                >
+                  4
+                </div>
+              </div>
+              <div class="flex-1">
+                <span
+                  class="text-sm text-gray-500"
+                  data-translate="itinerary-outside-visit"
+                  >Visita externa</span
+                >
+                <h3
+                  class="text-lg font-semibold text-gray-900"
+                  data-translate="itinerary-stop4"
+                >
+                  Monumento da Cruz Caída - Praça da Sé - Pelourinho
+                </h3>
+              </div>
+            </div>
+
+            <!-- Stop 5 -->
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div
+                  class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-lg border-4 border-white"
+                >
+                  5
+                </div>
+              </div>
+              <div class="flex-1">
+                <span
+                  class="text-sm text-gray-500"
+                  data-translate="itinerary-outside-visit"
+                  >Visita externa</span
+                >
+                <h3
+                  class="text-lg font-semibold text-gray-900"
+                  data-translate="itinerary-stop5"
+                >
+                  Largo Terreiro de Jesus - Pelourinho
+                </h3>
+              </div>
+            </div>
+
+            <!-- Stop 6 -->
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div
+                  class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-lg border-4 border-white"
+                >
+                  6
+                </div>
+              </div>
+              <div class="flex-1">
+                <span
+                  class="text-sm text-gray-500"
+                  data-translate="itinerary-outside-visit"
+                  >Visita externa</span
+                >
+                <h3
+                  class="text-lg font-semibold text-gray-900"
+                  data-translate="itinerary-stop6"
+                >
+                  Igreja e Convento de São Francisco - Largo do Cruzeiro de São
+                  Francisco - Pelourinho
+                </h3>
+              </div>
+            </div>
+
+            <!-- Stop 7 -->
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div
+                  class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-lg border-4 border-white"
+                >
+                  7
+                </div>
+              </div>
+              <div class="flex-1">
+                <span
+                  class="text-sm text-gray-500"
+                  data-translate="itinerary-outside-visit"
+                  >Visita externa</span
+                >
+                <h3
+                  class="text-lg font-semibold text-gray-900"
+                  data-translate="itinerary-stop7"
+                >
+                  Fundação Casa de Jorge Amado - Largo do Pelourinho -
+                  Pelourinho
+                </h3>
+              </div>
+            </div>
+
+            <!-- Stop 8 -->
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div
+                  class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-lg border-4 border-white"
+                >
+                  8
+                </div>
+              </div>
+              <div class="flex-1">
+                <span
+                  class="text-sm text-gray-500"
+                  data-translate="itinerary-outside-visit"
+                  >Visita externa</span
+                >
+                <h3
+                  class="text-lg font-semibold text-gray-900"
+                  data-translate="itinerary-stop8"
+                >
+                  Igreja Nossa Senhora do Rosário dos Pretos - Largo do
+                  Pelourinho - Pelourinho
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="text-center mt-12">
+          <button
+            class="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
+            data-translate="itinerary-cta"
+          >
+            Reservar este Tour
           </button>
         </div>
       </div>
@@ -1720,21 +1995,20 @@
             "Conheça o centro histórico de Salvador nessa visita guiada com um guia especializado",
           "hero-title":
             'Descubra <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-green-400 to-blue-400">Salvador</span> conosco',
-          "hero-subtitle":
-            "Roteiros personalizados e experiências únicas para toda família",
+          "hero-subtitle": "Junte-se a nós neste tour guiado pelo Pelourinho.",
           "hero-description":
-            "Criando memórias inesquecíveis através de viagens planejadas com amor e atenção aos detalhes",
+            "Visite o maior complexo arquitetônico do período colonial da América Latina.",
           "hero-cta1": "Falar com Adriano",
           "hero-cta2": "Ver Portfólio",
-          "about-badge": "Fundador & Guia",
+          "about-badge": "O coração da empresa",
           "about-title":
-            'Conheça o <span class="text-green-600">Adriano</span>',
+            'Conheça <span class="text-green-600">nosso trabalho</span>',
           "about-description1":
-            "Adriano é apaixonado por transformar sonhos de viagem em realidade, oferecendo tours personalizados com <strong>fluencia em inglês</strong> para melhor atender visitantes internacionais.",
+            "Descubra a cidade sem pagar nada antecipado. Guias licenciados estão prontos para levá-lo pelas ruas do Pelourinho em um tour gratuito a pé de 2 horas.",
           "about-description2":
-            "Especialista em história nacional brasileira, ele já organizou centenas de experiências autênticas em Salvador, sempre priorizando a satisfação e segurança dos clientes.",
+            "Do período colonial aos dias atuais: você descobrirá os segredos por trás de cada edifício histórico. Você aprenderá sobre a cultura e costumes, conhecerá a culinária local e aprenderá sobre as religiões afro-brasileiras.",
           "about-quote":
-            '"Acredito que cada viagem deve ser única e especial. Meu objetivo é criar experiências que marquem a vida das pessoas para sempre."',
+            '"Um tour guiado no Centro Histórico de qualquer cidade do mundo é essencial para você entender a cultura local, receber dicas de segurança e obter sugestões sobre o que fazer na cidade. É por isso que nosso trabalho tem sido bem-sucedido há anos."',
           "about-skill1": "Free walking tour",
           "about-skill2": "Restaurantes",
           "about-skill3": "Ilhas",
@@ -1814,7 +2088,7 @@
           "testimonial-daniela-date": "17 de agosto de 2025",
           "rating-description": "Baseado em mais de 50 avaliações verificadas",
           "recommendation-stat": "100% dos clientes recomendam nossos tours",
-          "hero-schedule-btn": "Agendar Tour",
+          "hero-schedule-btn": "ROTEIRO",
           "cta-badge": "⭐ Avaliação 5.0 - Mais de 50 clientes satisfeitos",
           "cta-title":
             'Pronto para sua <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-400">próxima aventura?</span>',
@@ -1827,26 +2101,48 @@
           "footer-links": "Links Úteis",
           "footer-home": "Início",
           "about-testimonial-badge": "Depoimento",
+          "itinerary-badge": "Roteiro Completo",
+          "itinerary-title":
+            'O que veremos neste <span class="text-blue-600">tour?</span>',
+          "itinerary-meeting-title": "Ponto de Encontro:",
+          "itinerary-meeting-location": "Praça Castro Alves - Centro",
+          "itinerary-meeting-note":
+            "O guia estará usando uma camisa verde em frente ao Cine Glauber Rocha.",
+          "itinerary-outside-visit": "Visita externa",
+          "itinerary-stop1": "Rua Chile - Centro",
+          "itinerary-stop2":
+            "Palácio Rio Branco - Praça Tomé de Souza - Centro",
+          "itinerary-stop3": "Elevador Lacerda - Praça Tomé de Souza - Centro",
+          "itinerary-stop4":
+            "Monumento da Cruz Caída - Praça da Sé - Pelourinho",
+          "itinerary-stop5": "Largo Terreiro de Jesus - Pelourinho",
+          "itinerary-stop6":
+            "Igreja e Convento de São Francisco - Largo do Cruzeiro de São Francisco - Pelourinho",
+          "itinerary-stop7":
+            "Fundação Casa de Jorge Amado - Largo do Pelourinho - Pelourinho",
+          "itinerary-stop8":
+            "Igreja Nossa Senhora do Rosário dos Pretos - Largo do Pelourinho - Pelourinho",
+          "itinerary-cta": "Reservar este Tour",
         },
         en: {
           "hero-badge":
             "Explore Salvador's historic center with this guided tour by a specialized guide",
           "hero-title":
             'Discover <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-green-400 to-blue-400">Salvador</span> with us',
-          "hero-subtitle":
-            "Personalized itineraries and unique experiences for the whole family",
+          "hero-subtitle": "Join us on this guided tour of Pelourinho.",
           "hero-description":
-            "Creating unforgettable memories through trips planned with love and attention to detail",
+            "Visit the largest architectural complex from the colonial period in Latin America.",
           "hero-cta1": "Talk to Adriano",
           "hero-cta2": "View Portfolio",
-          "about-badge": "Founder & Guide",
-          "about-title": 'Meet <span class="text-green-600">Adriano</span>',
+          "about-badge": "The heart of the company",
+          "about-title":
+            'Get to know <span class="text-green-600">our work</span>',
           "about-description1":
-            "Adriano is passionate about turning travel dreams into reality, offering personalized tours with <strong>English fluency</strong> to better serve international visitors.",
+            "Discover the city without paying anything in advance. Licensed guides are ready to lead you through the streets of Pelourinho on a 2-hour free walking tour.",
           "about-description2":
-            "Specialist in Brazilian national history, he has already organized hundreds of authentic experiences in Salvador, always prioritizing customer satisfaction and safety.",
+            "From the colonial period to the present day: you will discover the secrets behind each historic building. You will learn about the culture and customs, get to know the local cuisine, and learn about Afro-Brazilian religions.",
           "about-quote":
-            '"I believe that every trip should be unique and special. My goal is to create experiences that mark people\'s lives forever."',
+            '"A guided tour in the Historic Center of any city in the world is essential for you to understand the local culture, receive safety tips, and get suggestions on what to do in the city. That\'s why our work has been successful for years."',
           "about-skill1": "Free walking tour",
           "about-skill2": "Restaurants",
           "about-skill3": "Islands",
@@ -1922,7 +2218,7 @@
           "testimonial-daniela-date": "August 17, 2025",
           "rating-description": "Based on more than 50 verified reviews",
           "recommendation-stat": "100% of customers recommend our tours",
-          "hero-schedule-btn": "Schedule Tour",
+          "hero-schedule-btn": "ITINERARY",
           "cta-badge": "⭐ 5.0 Rating - More than 50 satisfied customers",
           "cta-title":
             'Ready for your <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-400">next adventure?</span>',
@@ -1935,6 +2231,27 @@
           "footer-links": "Useful Links",
           "footer-home": "Home",
           "about-testimonial-badge": "Testimonial",
+          "itinerary-badge": "Complete Itinerary",
+          "itinerary-title":
+            'What will we see on this <span class="text-blue-600">tour?</span>',
+          "itinerary-meeting-title": "Meeting Point:",
+          "itinerary-meeting-location": "Praça Castro Alves - Centro",
+          "itinerary-meeting-note":
+            "The guide will be wearing a green shirt in front of Cine Glauber Rocha.",
+          "itinerary-outside-visit": "Outside visit",
+          "itinerary-stop1": "Rua Chile - Centro",
+          "itinerary-stop2":
+            "Palácio Rio Branco - Praça Tomé de Souza - Centro",
+          "itinerary-stop3": "Elevador Lacerda - Praça Tomé de Souza - Centro",
+          "itinerary-stop4": "Fallen Cross Monument - Praça da Sé - Pelourinho",
+          "itinerary-stop5": "Largo Terreiro de Jesus - Pelourinho",
+          "itinerary-stop6":
+            "Igreja e Convento de São Francisco - Largo do Cruzeiro de São Francisco - Pelourinho",
+          "itinerary-stop7":
+            "Fundação Casa de Jorge Amado - Largo do Pelourinho - Pelourinho",
+          "itinerary-stop8":
+            "Igreja Nossa Senhora do Rosário dos Pretos - Largo do Pelourinho - Pelourinho",
+          "itinerary-cta": "Book this Tour",
         },
         es: {
           "hero-badge":
@@ -1942,20 +2259,21 @@
           "hero-title":
             'Descubre <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-green-400 to-blue-400">Salvador</span> con nosotros',
           "hero-subtitle":
-            "Itinerarios personalizados y experiencias únicas para toda la familia",
+            "Únete a nosotros en este tour guiado por Pelourinho.",
           "hero-description":
-            "Creando memorias inolvidables a través de viajes planificados con amor y atención a los detalles",
+            "Visita el complejo arquitectónico más grande del período colonial de América Latina.",
           "hero-cta1": "Hablar con Adriano",
           "hero-cta2": "Ver Portafolio",
-          "hero-schedule-btn": "Programar Tour",
-          "about-badge": "Fundador y Guía",
-          "about-title": 'Conoce a <span class="text-green-600">Adriano</span>',
+          "hero-schedule-btn": "ITINERARIO",
+          "about-badge": "El corazón de la compañía",
+          "about-title":
+            'Conoce <span class="text-green-600">nuestro trabajo</span>',
           "about-description1":
-            "Adriano es apasionado por convertir los sueños de viaje en realidad, ofreciendo tours personalizados con <strong>fluidez en inglés</strong> para atender mejor a los visitantes internacionales.",
+            "Descubre la ciudad sin pagar nada por adelantado. Guías licenciados están listos para llevarte por las calles del Pelourinho en un tour gratuito a pie de 2 horas.",
           "about-description2":
-            "Especialista en historia nacional brasileña, ya ha organizado cientos de experiencias auténticas en Salvador, siempre priorizando la satisfacción y seguridad de los clientes.",
+            "Desde el período colonial hasta la actualidad: descubrirás los secretos detrás de cada edificio histórico. Aprenderás sobre la cultura y las costumbres, conocerás la gastronomía local y aprenderás sobre las religiones afrobrasileñas.",
           "about-quote":
-            '"Creo que cada viaje debe ser único y especial. Mi objetivo es crear experiencias que marquen la vida de las personas para siempre."',
+            '"Un tour guiado en el Centro Histórico de cualquier ciudad del mundo es esencial para que entiendas la cultura local, recibas consejos de seguridad y obtengas sugerencias sobre qué hacer en la ciudad. Por eso nuestro trabajo ha sido exitoso durante años."',
           "about-skill1": "Free walking tour",
           "about-skill2": "Restaurantes",
           "about-skill3": "Islas",
@@ -1963,6 +2281,28 @@
           "about-reservas-title": "Reservas:",
           "footer-rating": "5.0 (50+ reseñas)",
           "about-testimonial-badge": "Testimonio",
+          "itinerary-badge": "Itinerario Completo",
+          "itinerary-title":
+            '¿Qué veremos en este <span class="text-blue-600">tour?</span>',
+          "itinerary-meeting-title": "Punto de Encuentro:",
+          "itinerary-meeting-location": "Praça Castro Alves - Centro",
+          "itinerary-meeting-note":
+            "El guía estará usando una camisa verde frente al Cine Glauber Rocha.",
+          "itinerary-outside-visit": "Visita externa",
+          "itinerary-stop1": "Rua Chile - Centro",
+          "itinerary-stop2":
+            "Palácio Rio Branco - Praça Tomé de Souza - Centro",
+          "itinerary-stop3": "Elevador Lacerda - Praça Tomé de Souza - Centro",
+          "itinerary-stop4":
+            "Monumento da Cruz Caída - Praça da Sé - Pelourinho",
+          "itinerary-stop5": "Largo Terreiro de Jesus - Pelourinho",
+          "itinerary-stop6":
+            "Igreja e Convento de São Francisco - Largo do Cruzeiro de São Francisco - Pelourinho",
+          "itinerary-stop7":
+            "Fundação Casa de Jorge Amado - Largo do Pelourinho - Pelourinho",
+          "itinerary-stop8":
+            "Igreja Nossa Senhora do Rosário dos Pretos - Largo do Pelourinho - Pelourinho",
+          "itinerary-cta": "Reservar este Tour",
           "exp1-badge": "Patrimonio Mundial",
           "exp1-title": "Centro Histórico de Pelourinho",
           "exp1-description":
