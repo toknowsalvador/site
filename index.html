@@ -469,6 +469,7 @@
                 Falar com Adriano
               </a>
               <a
+                id="form-link-1"
                 href="https://forms.gle/7Wwnbjuh36oKJuaV6"
                 target="_blank"
                 class="border-2 border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 text-center"
@@ -965,6 +966,7 @@
             Pronto para viver essas experiências únicas?
           </p>
           <a
+            id="form-link-2"
             href="https://forms.gle/7Wwnbjuh36oKJuaV6"
             target="_blank"
             class="bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
@@ -1242,6 +1244,7 @@
         <!-- CTA Button -->
         <div class="text-center mt-12">
           <a
+            id="form-link-3"
             href="https://forms.gle/7Wwnbjuh36oKJuaV6"
             target="_blank"
             class="bg-gradient-to-r from-blue-500 to-green-500 hover:from-blue-600 hover:to-green-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
@@ -1640,6 +1643,7 @@
           class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
         >
           <a
+            id="form-link-4"
             href="https://forms.gle/7Wwnbjuh36oKJuaV6"
             target="_blank"
             class="w-full sm:w-auto bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 text-white px-10 py-5 rounded-xl font-bold text-xl transition-all duration-200 transform hover:scale-105 shadow-2xl"
@@ -2461,6 +2465,9 @@
 
         // Update WhatsApp links with appropriate message
         updateWhatsAppLinks(lang);
+
+        // Update form links with appropriate language version
+        updateFormLinks(lang);
       }
 
       // Function to update WhatsApp links with language-specific messages
@@ -2480,6 +2487,23 @@
         );
         whatsappLinks.forEach((link) => {
           link.href = whatsappURL;
+        });
+      }
+
+      // Function to update form links with language-specific URLs
+      function updateFormLinks(lang) {
+        const formURLs = {
+          pt: "https://forms.gle/7Wwnbjuh36oKJuaV6", // BR version
+          en: "https://forms.gle/SSPE2Dh2gvwEuR3n7", // EN version
+          es: "https://forms.gle/qSPKMxhPRXjTGAjp6", // ES version
+        };
+
+        const formURL = formURLs[lang] || formURLs.pt;
+
+        // Update all form links
+        const formLinks = document.querySelectorAll('[id^="form-link"]');
+        formLinks.forEach((link) => {
+          link.href = formURL;
         });
       }
 
