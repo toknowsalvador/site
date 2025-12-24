@@ -2016,6 +2016,8 @@
     <script>
       const translations = {
         pt: {
+          "page-title":
+            "Walking Tour em Salvador com Guia Local | To Know Salvador",
           "hero-badge":
             "Conheça o centro histórico de Salvador nessa visita guiada com um guia especializado",
           "hero-title":
@@ -2154,6 +2156,8 @@
           "contact-available-days": "7 dias por semana",
         },
         en: {
+          "page-title":
+            "Salvador Walking Tour with Local Guide | To Know Salvador",
           "hero-badge":
             "Explore Salvador's historic center with this guided tour by a specialized guide",
           "hero-title":
@@ -2287,6 +2291,8 @@
           "contact-available-days": "7 days a week",
         },
         es: {
+          "page-title":
+            "Walking Tour en Salvador con Guía Local | To Know Salvador",
           "hero-badge":
             "Conoce el centro histórico de Salvador en esta visita guiada con un guía especializado",
           "hero-title":
@@ -2475,6 +2481,11 @@
         // Update HTML lang attribute
         document.documentElement.lang =
           lang === "pt" ? "pt-BR" : lang === "en" ? "en" : "es";
+
+        // Update page title
+        if (translations[lang] && translations[lang]["page-title"]) {
+          document.title = translations[lang]["page-title"];
+        }
 
         // Update WhatsApp links with appropriate message
         updateWhatsAppLinks(lang);
