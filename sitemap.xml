@@ -3,7 +3,7 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Portuguese (Default) -->
+  <!-- English (Default) -->
   <url>
     <loc>https://toknowsalvador.com/</loc>
     <lastmod>2025-12-24</lastmod>
@@ -12,13 +12,13 @@
 
     <xhtml:link
       rel="alternate"
-      hreflang="pt"
-      href="https://toknowsalvador.com/" />
+      hreflang="pt-BR"
+      href="https://toknowsalvador.com/pt/" />
 
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://toknowsalvador.com/en/" />
+      href="https://toknowsalvador.com/" />
 
     <xhtml:link
       rel="alternate"
@@ -31,22 +31,22 @@
       href="https://toknowsalvador.com/" />
   </url>
 
-  <!-- English -->
+  <!-- Portuguese -->
   <url>
-    <loc>https://toknowsalvador.com/en/</loc>
+    <loc>https://toknowsalvador.com/pt/</loc>
     <lastmod>2025-12-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
 
     <xhtml:link
       rel="alternate"
-      hreflang="pt"
-      href="https://toknowsalvador.com/" />
+      hreflang="pt-BR"
+      href="https://toknowsalvador.com/pt/" />
 
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://toknowsalvador.com/en/" />
+      href="https://toknowsalvador.com/" />
 
     <xhtml:link
       rel="alternate"
@@ -68,13 +68,13 @@
 
     <xhtml:link
       rel="alternate"
-      hreflang="pt"
-      href="https://toknowsalvador.com/" />
+      hreflang="pt-BR"
+      href="https://toknowsalvador.com/pt/" />
 
     <xhtml:link
       rel="alternate"
       hreflang="en"
-      href="https://toknowsalvador.com/en/" />
+      href="https://toknowsalvador.com/" />
 
     <xhtml:link
       rel="alternate"
