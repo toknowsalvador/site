@@ -324,6 +324,15 @@
       html {
         overflow-x: hidden;
       }
+      @keyframes giftBreathing {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+.gift-breathing {
+  animation: giftBreathing 4s ease-in-out infinite;
+}
     </style>
   </head>
   <body class="font-sans antialiased">
@@ -335,7 +344,7 @@
 
     href="#gift"
 
-    class="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-yellow-400 shadow-lg text-2xl"
+    class="gift-breathing w-12 h-12 flex items-center justify-center ...
 
   >
 
