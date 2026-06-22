@@ -545,12 +545,15 @@ class="h-auto w-[40rem] sm:w-[52rem] md:w-[64rem] object-contain object-center d
       ></video>
     </div>
   </a>
-<a href="/public/converted_video.mp4
-  <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-r from-blue-500 to-green-500 shadow-xl">
+<a href="/public/converted_video.mp4">
+  <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-r from-blue-500 to-green-500 shadow-xl overflow-hidden">
     <video
+      src="/public/converted_video.mp4"
       poster="/public/IMG_5140.jpeg"
       muted
-      class="w-full h-full rounded-full object-cover bg-white"
+      playsinline
+      preload="metadata"
+      class="w-full h-full rounded-full object-cover"
     ></video>
   </div>
 </a>
