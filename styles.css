@@ -10,7 +10,7 @@ html {
 
 .gradient-animate {
   background-size: 200% 200%;
-  animation: gradient-shift 8s ease infinite;
+  
 }
 
 /* Enhanced button hover effects */
