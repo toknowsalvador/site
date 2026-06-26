@@ -419,7 +419,13 @@ html {
         
           <!-- Description -->
           <!-- Description -->
-          
+          <p
+            class="mt-4 text-lg sm:text-xl text-gray-300 ..."
+            data-translate="hero-description"
+          >
+        
+          </p>
+          <!-- CTA Button -->
          
 <div class="fixed bottom-16 left-1/2 -translate-x-1/2 z-50">
   <a
@@ -1044,32 +1050,87 @@ html {
           >
            <span class="text-blue-600"></span>
           </h2>
-       <div class="relative">
-<div class="absolute left-5 top-12 bottom-12 w-0.5 bg-gray-800"></div>
+        </div>
 
-        
-         
-                  <!-- Stop 1 -->
-<div class="flex items-start space-x-4">
-  <div class="flex-shrink-0">
-<div class="relative z-10 w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border-4 border-white shadow-lg">
-      <span class="text-white font-bold text-lg">1</span>
-    </div>
-  </div>
-  <div class="flex-1">
-    <span class="text-sm text-gray-500">2h</span>
-    <h3 class="text-lg font-semibold text-gray-900 mb-2">Old town</h3>
-    <p class="text-sm text-gray-500">
-      African heritage, Pelourinho, Brotherhood of Black People, Mercado Modelo, Elevador Lacerda.
-    </p>
-  </div>
-</div>
-             
+        <!-- Meeting Point and Itinerary Steps -->
+        <div class="relative">
+          <!-- Continuous vertical line -->
+          <div
+            class="absolute left-6 top-0 bottom-0 w-0.5 bg-gray-400 z-0"
+          ></div>
+
+          <div class="space-y-8 relative z-10">
+            <!-- Meeting Point -->
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div
+                  class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center border-4 border-white"
+                >
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3
+                  class="text-lg font-semibold text-gray-900 mb-2"
+                  data-translate="itinerary-meeting-title"
+                >
+                  ACCESSES
+                </h3>
+                <p
+                  class="text-gray-600 font-medium"
+                  data-translate="itinerary-meeting-location"
+                >
+                  
+                </p>
+                <p
+                  class="text-sm text-gray-500 mt-1"
+                  data-translate="itinerary-meeting-note"
+                >
+                  
+                </p>
+              </div>
+            </div>
+            <!-- Stop 1 -->
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div
+                  class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-lg border-4 border-white"
+                >
+                  1
+                </div>
+              </div>
+              <div class="flex-1">
+                <span
+                  class="text-sm text-gray-500"
+                  data-translate="itinerary-outside-visit"
+                  >2h</span
+                >
+                <h3
+                  class="text-lg font-semibold text-gray-900"
+                  data-translate="itinerary-stop1"
+                >
+                  Old town  
+                  <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+  African heritage, Pelourinho,Brotherhood of Black People, Mercado Modelo
+                    elevador Lacerda, 
+</p>
+                </h3>
+              </div>
+            </div>
+
             <!-- Stop 2 -->
             <div class="flex items-start space-x-4">
               <div class="flex-shrink-0">
                 <div
-                  class="relative z-10 w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border-4 border-white shadow-lg"
+                  class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-lg border-4 border-white"
                 >
                   2
                 </div>
@@ -1101,7 +1162,7 @@ Gastronomy after history and context. An educational experience for children as 
             <!-- Stop 3 -->
 <div class="flex items-start space-x-4">
   <div class="flex-shrink-0">
- class="relative z-10 w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center
+    <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold">
       3
     </div>
   </div>
@@ -1125,13 +1186,13 @@ Gastronomy after history and context. An educational experience for children as 
                 
                 </div>
               </div>
-
+<!-- Stop 4 -->
 
            <!-- Stop 4 -->
-            <div class="flex items-start space-x-4 mt-0">
+            <div class="flex items-start space-x-8 mt-6">
               <div class="flex-shrink-0">
                 <div
-                  class="relative z-10 w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center
+                  class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-lg border-4 border-white"
                 >
                   4
                 </div>
@@ -1158,10 +1219,7 @@ and exploration of the bay.
               
 
         
-              </div>
-            
-</div
-       </div>       
+      </div>
     </section>
 
 <div class="bg-white rounded-3xl overflow-hidden">
