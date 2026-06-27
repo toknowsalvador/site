@@ -1610,5 +1610,27 @@ and exploration of the bay.
         window.location.href = "/es/";
       });
     </script>
+    <script>
+const messages = [
+  "This program simplifies your experience in Salvador.",
+  "Choose us as your hosts.",
+  "We'll take care of the details.",
+  "Enjoy quality time in the city."
+];
+
+let current = 0;
+const hero = document.getElementById("hero-text");
+
+setInterval(() => {
+  hero.style.opacity = 0;
+
+  setTimeout(() => {
+    current = (current + 1) % messages.length;
+    hero.textContent = messages[current];
+    hero.style.opacity = 1;
+  }, 400);
+
+}, 4000);
+</script>
   </body>
 </html>
