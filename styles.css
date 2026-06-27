@@ -92,17 +92,3 @@ html {
     content: "...";
   }
 }
-@keyframes marquee {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-.animate-marquee{
-  display:inline-block;
-  white-space:nowrap;
-  animation:marquee 18s linear infinite;
-}
