@@ -347,17 +347,31 @@ html {
 
 </div>
 
-        style="
-background-image: url('/public/IMG_5779.jpeg');
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+<section class="relative min-h-screen flex items-center justify-center">
 
-    <!-- Language Selector -->
-<div class="fixed top-24 right-2 z-50 ...
-      <div
-        class="flex flex-col items-center gap-2"
->
+    <!-- Background -->
+    <div
+        class="absolute inset-0"
+        style="
+            background-image:url('/public/elevador-lacerda.jpg');
+            background-size:cover;
+            background-position:center;
+            background-repeat:no-repeat;
+        ">
+    </div>
+
+    <!-- Escurece a imagem -->
+    <div class="absolute inset-0 bg-black/55"></div>
+
+    <!-- Logo -->
+    <div class="relative z-10">
+        <img
+            src="/public/IMG_5779.jpeg"
+            class="w-72 mx-auto"
+            alt="To Know Salvador">
+    </div>
+
+</section>
         <button
   id="lang-pt"
   class="lang-btn w-11 h-11 rounded-full"
@@ -1039,15 +1053,28 @@ background-repeat: no-repeat;
   <div class="flex-shrink-0">
     <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center border-4 border-white shadow-lg">
       <span class="text-white font-bold text-lg"></span>
+   <div class="flex items-start gap-5 mt-10">
+
+    <div class="w-12 h-12 rounded-full bg-gray-900 flex items-center justify-center flex-shrink-0">
     </div>
-    
-  </div>
-  <div class="flex-1 items-start space-x-4 mt-10">
-    <span class="text-sm text-gray-500">Guidance</span>
-    <h3 class="text-lg font-semibold text-gray-900 mb-2">BANK TRANSFER.</h3>
-    <p class="text-sm text-gray-500">
-      Hassle-Free International Credit Card Payment
-    </p>
+
+    <div class="flex-1">
+
+        <span class="text-sm text-gray-500">
+            Guidance
+        </span>
+
+        <h3 class="text-lg font-semibold text-gray-900 mt-1">
+            BANK TRANSFER
+        </h3>
+
+        <p class="text-sm text-gray-500 mt-2 leading-relaxed">
+            Hassle-Free International Credit Card Payment.
+        </p>
+
+    </div>
+
+</div>
   </div>
 </div>
              
