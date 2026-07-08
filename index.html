@@ -1,1557 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Old town | To know Salvador</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO Meta Tags -->
-    <meta
-      name="robots"
-      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-    />
-    <meta
-      name="googlebot"
-      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-    />
-    <meta
-      name="bingbot"
-      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
-    />
-    <meta name="revisit-after" content="7 days" />
-    <meta name="distribution" content="global" />
-    <meta name="rating" content="general" />
-    <meta name="language" content="pt-BR, en, es" />
-    <meta
-      name="description"
-      content="Pelourinho and Bahian History. Gastronomy, culture and local traditions."
-    />
-    <link rel="icon"
-type="image/png"
-href="/public/IMG_5779.jpeg"
+  <title>To Know Salvador | Cultural Experiences in Salvador, Bahia</title>
 
-    <!-- Performance Optimization -->
-    <link rel="preload" href="/public/public/FD2DE890-31DC-4D48-AFE4-0F37418F2530.jpeg" as="image" />
-    <link rel="preload" href="../styles.css" as="style" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
-    <link rel="dns-prefetch" href="https://wa.me" />
-    <link rel="dns-prefetch" href="https://forms.gle" />
+  <meta name="description" content="Private and curated cultural experiences in Salvador, Bahia. History, Afro-Brazilian culture, food, music, local guides and real connections." />
 
-    <!-- SEO Internacional -->
-    <link
-      rel="alternate"
-      hreflang="pt-BR"
-      href="https://toknowsalvador.com/pt/"
-    />
-    <link rel="alternate" hreflang="en" href="https://toknowsalvador.com/" />
-    <link rel="alternate" hreflang="es" href="https://toknowsalvador.com/es/" />
-    <link
-      rel="alternate"
-      hreflang="x-default"
-      href="https://toknowsalvador.com/"
-    />
-    <link
-      rel="canonical"
-      href="https://toknowsalvador.com/"
-      id="canonical-link"
-    />
+  <meta property="og:title" content="To Know Salvador" />
+  <meta property="og:description" content="Discover Salvador through history, culture and real local connections." />
+  <meta property="og:image" content="https://toknowsalvador.com/public/IMG_3058.png" />
+  <meta property="og:url" content="https://toknowsalvador.com/" />
 
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="🇧🇷 TO KNOW SALVADOR PROGRAMS ."
-    />
-    <meta
-      property="og:description"
-      content="SALVADOR BA Culture, food and roots. - @toknowsalvador"
-    />
-    <meta
-      property="og:image"
-      content="https://toknowsalvador.com/public/experiencias/historia-brasileira.avif"
-    />
-    <meta property="og:url" content="https://toknowsalvador.com/" />
-    <meta property="og:site_name" content="To know Salvador" />
-    <meta property="og:locale" content="en_US" />
+  <link rel="icon" type="image/jpeg" href="/public/IMG_5779.jpeg" />
 
-    <!-- Apple Meta Tags -->
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta
-      name="apple-mobile-web-app-status-bar-style"
-      content="black-translucent"
-    />
-    <meta name="apple-mobile-web-app-title" content="To know Salvador" />
-    <link rel="apple-touch-icon" href="/public/BEE02458-9729-4006-A3E5-5964CD9737FA.png" />
-    <link
-      rel="apple-touch-icon"
-      sizes="72x72"
-      href="/public/E7EAE1FB-BF6E-4FA9-A174-010CE2B2BEE5.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="/public/E7EAE1FB-BF6E-4FA9-A174-010CE2B2BEE5.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="144x144"
-      href="/public/E7EAE1FB-BF6E-4FA9-A174-010CE2B2BEE5.png"
-    />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Twitter Card Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Pelourinho Walking tour"
-    />
-    <meta
-      name="twitter:description"
-      content="For reocmmendations and reservations, visit the website. Everything you need in Salvador in one place - @toknowsalvador"
-    />
-    <meta
-      name="twitter:image"
-      content="https://toknowsalvador.com/public/experiencias/historia-brasileira.avif"
-    />
+  <style>
+    html, body {
+      margin: 0;
+      overflow-x: hidden;
+      background: #050505;
+    }
 
-    <!-- Microsoft Meta Tags -->
-    <meta name="msapplication-TileColor" content="#2563eb" />
-    <meta
-      name="msapplication-TileImage"
-      content="/public/E7EAE1FB-BF6E-4FA9-A174-010CE2B2BEE5.png"
-    />
-    <meta name="msapplication-config" content="browserconfig.xml" />
-    <meta name="theme-color" content="#2563eb" />
+    .watermark-bg {
+      background-image:
+        linear-gradient(rgba(0,0,0,.78), rgba(0,0,0,.92)),
+        url('/public/E7EAE1FB-BF6E-4FA9-A174-010CE2B2BEE5.png');
+      background-size: 80%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
 
-    <!-- Additional Meta Tags -->
-    <meta name="author" content="Adriano Marques - To know Salvador" />
-    <meta name="publisher" content="To know Salvador" />
-    <meta name="copyright" content="© 2025 To know Salvador" />
-    <meta name="reply-to" content="toknowsalvador@gmail.com" />
-    <meta property="article:author" content="Adriano Marques" />
-    <meta
-      property="business:contact_data:phone_number"
-      content="+5571993719791"
-    />
-    <meta
-      property="business:contact_data:email"
-      content="toknowsalvador@gmail.com"
-    />
-    <meta name="geo.region" content="BR-BA" />
-    <meta name="geo.placename" content="Salvador, Bahia, Brazil" />
-    <meta name="ICBM" content="-12.9714,-38.5014" />
-    <meta
-      name="keywords"
-      content="Salvador, Bahia, tourism, guide, Pelourinho, Brazilian history, Bahian gastronomy, Bahian culture, walking tour, free tour"
-    />
-    <link rel="canonical" href="https://toknowsalvador.com/" />
-    <link
-      rel="sitemap"
-      type="application/xml"
-      href="https://toknowsalvador.com/sitemap.xml"
-    />
+    .hero-image {
+      background-image:
+        linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.88)),
+        url('/public/IMG_3058.png');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
 
-    <!-- Structured Data - English -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "TouristTrip",
-        "name": "Pelourinho Walking Tour",
-        "description": "Discover Salvador and Bahian History. Tours through Pelourinho, Bahian gastronomy, culture and local traditions.",
-        "image": "https://toknowsalvador.com/public/BEE02458-9729-4006-A3E5-5964CD9737FA.png",
-        "url": "https://toknowsalvador.com/",
-        "inLanguage": "en",
-        "provider": {
-          "@type": "LocalBusiness",
-          "@id": "https://toknowsalvador.com/#organization",
-          "name": "To know Salvador",
-          "url": "https://toknowsalvador.com/",
-          "logo": "https://toknowsalvador.com/public/BEE02458-9729-4006-A3E5-5964CD9737FA.png",
-          "image": "https://toknowsalvador.com/public/adriano.avif",
-          "telephone": "+5571993719791",
-          "email": "toknowsalvador@gmail.com",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Salvador",
-            "addressRegion": "Bahia",
-            "addressCountry": "BR"
-          },
-          "priceRange": "Tip",
-          "openingHours": "Mo-Su 08:00-18:00"
-        },
-        "touristType": ["Individual", "Family", "Group"],
-        "duration": "PT2H",
-        "startLocation": {
-          "@type": "Place",
-          "name": "Castro Alves Square",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Salvador",
-            "addressRegion": "Bahia",
-            "addressCountry": "BR"
-          }
-        },
-        "itinerary": [
-          {
-            "@type": "Place",
-            "name": "Historic Center of Pelourinho",
-            "description": "UNESCO World Heritage Site"
-          },
-          {
-            "@type": "Place",
-            "name": "Lacerda Elevator",
-            "description": "Historic view of All Saints Bay"
-          },
-          {
-            "@type": "Place",
-            "name": "São Francisco Church",
-            "description": "Colonial architecture and baroque art"
-          }
-        ],
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "BRL",
-          "price": "0",
-          "name": "Old Town",
-          "description": "Historic Tour with local guide",
-          "availability": "https://schema.org/InStock",
-          "validFrom": "2025-01-01"
-        }
-      }
-    </script>
+<body class="text-white font-sans">
 
-    <!-- Structured Data - Organization -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "@id": "https://toknowsalvador.com/#organization",
-        "name": "To know Salvador",
-        "url": "https://toknowsalvador.com/",
-        "logo": "https://toknowsalvador.com/public/public/BEE02458-9729-4006-A3E5-5964CD9737FA.png",
-        "image": "https://toknowsalvador.com/public/adriano.avif",
-        "telephone": "+5571993719791",
-        "email": "toknowsalvador@gmail.com",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Salvador",
-          "addressRegion": "Bahia",
-          "addressCountry": "BR"
-        },
-        "priceRange": "tip",
-        "openingHours": "Mo-Su 08:00-18:00",
-        "sameAs": [
-          "https://wa.me/5571993719791?text=Hello%21%20I%20would%20like%20to%20know%20more%20about%20the%20tours%20in%20Salvador"
-        ]
-      }
-    </script>
+  <!-- HERO -->
+  <section class="relative min-h-screen hero-image flex flex-col justify-end px-6 pb-10">
 
-    <!-- Structured Data - FAQ -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "How much does the tour cost?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The tour is free (free walking tour). It works on an optional tip system at the end of the tour."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "How long does the tour last?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The tour lasts approximately 2 hours, covering the main historical points of Pelourinho."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Where is the meeting point?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "The meeting point is at Castro Alves Square - Centro, in front of Cine Glauber Rocha. The guide will be wearing a green shirt."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Do I need to make a reservation?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, we recommend making a reservation via WhatsApp or form to guarantee your spot on the tour."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does the guide speak English?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes, we have guides who speak Portuguese, English and Spanish to serve national and international visitors."
-            }
-          }
-        ]
-      }
-    </script>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "ui-sans-serif", "system-ui"],
-            },
-          },
-        },
-      };
-    </script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../styles.css" />
-<style>
-body {
-  overflow-x: hidden;
-}
-
-html {
-  overflow-x: hidden;
-}
-
-
-</style>
-
-  </head>
-  <body class="font-sans antialiased">
-    
-
-<div class="fixed top-6 right-4 z-50">
-
-  <a
-
-    href="#gift"
-
-350 class="w-12 h-12 flex items-center justify-center 
-
-  >
-
-
-
-
-  </a>
-
-</div>
-
-<section class="relative min-h-screen flex items-center justify-center">
-
-    <!-- Background -->
-    <div
-        class="absolute inset-0"
-        style="
-            background-image:url('/public/elevador-lacerda.jpg');
-            background-size:cover;
-            background-position:center;
-            background-repeat:no-repeat;
-        ">
+    <!-- logo pequeno -->
+    <div class="absolute top-6 left-0 right-0 flex justify-center">
+      <img
+        src="/public/IMG_5779.jpeg"
+        alt="To Know Salvador"
+        class="w-28 h-28 rounded-full object-cover shadow-2xl"
+      />
     </div>
 
-    <!-- Escurece a imagem -->
-    <div class="absolute inset-0 bg-black/55"></div>
+    <div class="max-w-md mx-auto text-center">
+      <p class="text-sm tracking-[0.35em] uppercase text-yellow-300 mb-3">
+        Salvador · Bahia · Brazil
+      </p>
 
-    <!-- Logo -->
-    <div class="relative z-10">
-        <img
-            src="/public/IMG_5779.jpeg"
-            class="w-72 mx-auto"
-            alt="To Know Salvador">
-    </div>
+      <h1 class="text-4xl font-black leading-tight mb-4">
+        To Know Salvador
+      </h1>
 
-</section>
-        <button
-  id="lang-pt"
-  class="lang-btn w-11 h-11 rounded-full"
-  data-lang="pt"
->
-  🇧🇷
-</button>
+      <p class="text-lg text-gray-200 leading-relaxed mb-6">
+        Discover Salvador through history, Afro-Brazilian culture, food, music and real local connections.
+      </p>
 
-<button
-  id="lang-en"
-  class="lang-btn w-11 h-11 rounded-full"
-  data-lang="en"
->
-  🇺🇸
-</button>
-
-<button
-  id="lang-es"
-  class="lang-btn w-11 h-11 rounded-full"
-  data-lang="es"
->
-  🇪🇸
-</button>
-      </div>
-    </div>
-
-
-
-      <!-- Hero Content Container -->
-
-<div class="relative z-10 flex justify-center items-center w-full">
-
-<div class="max-w-4xl mx-auto text-center">
-
-    
-
-
-        
-          <!-- Description -->
-          
-         
-<div class="fixed top-0 left-0 right-0 z-50 overflow-hidden bg-gradient-to-r from-black via-slate-950 to-amber-700 py-3">
-  <div
-    class="inline-flex gap-16 whitespace-nowrap text-white text-lg font-semibold"
-    style="animation: marquee 45s linear infinite;"
-  >
-    <span>Dona Suzana · Bahia Folkloric Show · Praia do Forte · Morro de São Paulo · Capoeira Lessons · Samba Lessons · To Know Salvador Brazil</span>
-    <span>Dona Suzana · Bahia Folkloric Show · Praia do Forte · Morro de São Paulo · Capoeira Lessons · Samba Lessons · To Know Salvador Brazil</span>
-  </div>
-</div>
-  
-    
-</div>
-
-<style>
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-</style>
-</div>
-    </div>
- 
-      </div>
-    </section>
-    
-
-    <!-- About Adriano Section -->
-  <section class="py-20 bg-gray-50">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <!-- Adriano's Image -->
-          <div class="relative -mt-20">
-      <div class="text-center my-6">
-  <p class="text-gray-400 italic text-lg">
-    
-  </p>
-</div>    
-  <div class="flex gap-6 justify-center items-center">
-<a href="/public/b36a0e5b002c4f769caa2dff38a529f5.mp4">
-    <div class="w-28 h-28 rounded-full p-1 bg-gradient-to-r from-blue-500 to-green-500 shadow-xl">
-      <video
-        poster="/public/IMG_5128.jpeg"
-        muted
-        class="w-20 h-20 rounded-full object-cover bg-white"
-      ></video>
-    </div>
-  </a>
-
-  <a href="/public/7779b4e36b4e4ef39963ff4a349e4d2c.mp4">
-    <div class="w-20 h-20 rounded-full p-1 bg-gradient-to-r from-blue-500 to-green-500 shadow-xl">
-      <video
-        src="/public/7779b4e36b4e4ef39963ff4a349e4d2c.mp4"
-        poster="/public/IMG_5140.jpeg"
-        muted
-        class="w-20 h-20 rounded-full object-cover bg-white"
-      ></video>
-    </div>
-  </a>
-<a href="/public/converted_mp4.mp4">
-  <div class="w-20 h-20 rounded-full p-1 bg-gradient-to-r from-blue-500 to-green-500 shadow-xl overflow-hidden">
-    <video
-      src="/public/converted_video.mp4"
-      poster="/public/IMG_5182.jpeg"
-      muted
-      playsinline
-      preload="metadata"
-      class="w-20 h-20 rounded-full object-cover"
-    ></video>
-  </div>
-</a>
-</div>
-    
-</div>
-            <!-- Experience badge -->
-        
-          </div>
-      <div class="space-y-6 mt-12">
-
-          <!-- About Adriano Description -->
-          <div class="space-y-6">
-         
-              </h2>
-            </div>
-
-            <div class="prose prose-lg text-gray-700">
-              <p
-                class="text-xl leading-relaxed mb-6"
-                data-translate="about-description1"
-              >
-                
-            Salvador BA through local operations at 
-                international standards.
-              </p>
-
-              <p class="mb-6" data-translate="about-description2">
-                Privacy Commitment 
-
-
-
-              <div
-                class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg mb-6"
-              >
-                <p class="italic text-yellow-800" data-translate="about-quote">
-               Information shared through this website is processed securely 
-        and in compliance with Brazil’s General Data Protection Law (LGPD). 
-      
-            
-                </p>
-                
-              </div>
-            </div>
-
-            <!-- Reservas -->
-            <h4
-              class="text-lg font-semibold text-gray-800 mb-4"
-              data-translate="about-reservas-title"
-            >
-              Convenience · Simplicity · Discretion
-            </h4>
-
-          <!-- Especialidades -->
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-
-  <div class="flex items-center space-x-3">
-    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-      💵
-    </div>
-    <span class="font-medium text-gray-800" data-translate="about-skill1">
-      Currency exchange
-    </span>
-  </div>
-
-  <div class="flex items-center space-x-3">
-    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-      🚗
-    </div>
-    <span class="font-medium text-gray-800" data-translate="about-skill2">
-      Vehicle rental
-    </span>
-  </div>
-
-  <div class="flex items-center space-x-3">
-    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center">
-      🏠
-    </div>
-    <span class="font-medium text-gray-800" data-translate="about-skill3">
-      I'm moving to Salvador
-    </span>
-  </div>
-
-  <div class="flex items-center space-x-3">
-    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
-      💬
-    </div>
-    <span class="font-medium text-gray-800" data-translate="about-skill4">
-      Others
-    </span>
-  </div>
-
-</div>
-            <div class="flex flex-col sm:flex-row gap-4 items-center">
-              <a
-                id="whatsapp-link-1"
-                href="https://wa.me/5571993719791?text=Hello%21%20I%20would%20like%20to%20know%20more%20about%20the%20tours%20in%20Salvador"
-                target="_blank"
-                class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg text-center w-full sm:w-auto"
-                data-translate="hero-cta1"
-              >
-                Simple solution
-              </a>
-          
-            
-    <!-- Tour Experiences Section -->
-    <section class="py-20 bg-white">
-      <div class="max-w-7xl mx-auto px-2 sm:px-4 sm:px-6 lg:px-8">
-        <!-- Section Header -->
-        <div class="text-center mb-16">
-          <span
-            class="inline-block bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-4"
-            data-translate="experiences-badge"
-          >
-            Curated by Adriano Marques 
-          </span>
-          <h2
-            class="text-3xl sm:text-4xl lg:text-5xl font-bold ...
-            data-translate="experiences-title"
-          >
-            Full-Day  
-            <span class="text-green-600">Immersion</span>
-          </h2>
-          <p
-  class="mt-6 text-xl text-gray-600 max-w-3xl mx-auto"
-  data-translate="experiences-description"
->
-            
-            People, photography, food, music, and Afro-Brazilian heritage.
-          </p>
-        </div>
-
-        <!-- Slider Container -->
-        <div class="relative">
-         <div class="slider-container overflow-hidden w-full"
-            <div
-              id="experiencias-slider"
-              class="flex transition-transform duration-500"
-              style="touch-action: pan-y pinch-zoom"
-            >
-              <!-- Card 1: Pelourinho -->
-              <div class="flex-shrink-0 w-full lg:w-1/2 xl:w-1/3 px-2 sm:px-4">
-                <div
-                  class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 h-[520px] flex flex-col"
-                >
-                  <div class="relative h-64 overflow-hidden flex-shrink-0">
-                    <img
-                      src="/public/FD2DE890-31DC-4D48-AFE4-0F37418F2530.jpeg"
-                      alt="Historic Center of Pelourinho"
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
-                    ></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                      <span
-                        class="inline-block bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold"
-                        data-translate="exp1-badge"
-                      >
-                        World Heritage
-                      </span>
-                    </div>
-                  </div>
-                  <div class="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3
-                        class="text-2xl font-bold text-gray-900 mb-3"
-                        data-translate="exp1-title"
-                      >
-                      Old town
-                      </h3>
-                      <p
-                        class="text-gray-600 mb-4 leading-relaxed"
-                        data-translate="exp1-description"
-                      >
-                        
-                       The place where three continents met and coexisted. 
-                        The heart of Brazil, where it all began. 
-                        Welcome to Salvador.
-                      </p>
-                    </div>
-                    <div class="flex items-center justify-between mt-auto"> 
-                      <div class="flex items-center space-x-2">
-                        <svg
-                          class="w-5 h-5 text-blue-500"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                          />
-                        </svg>
-                        <span
-                          class="text-sm text-gray-500"
-                          data-translate="exp1-location"
-                          >Pelourinho, Salvador</span
-                        >
-                      </div>
-                      <span
-                        class="hidden text-sm font-semibold text-green-600"
-                        data-translate="exp1-duration"
-                        >2 hours</span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Card 2: Gastronomy -->
-              <div class="flex-shrink-0 w-full lg:w-1/2 xl:w-1/3 px-2 sm:px-4">
-                <div
-                  class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 h-[520px] flex flex-col"
-                >
-                  <div class="relative h-64 overflow-hidden flex-shrink-0">
-                    <img
-    src="/public/D78EAB18-5557-47F6-8C49-1CA2AC3B3318.jpeg"
-  alt="Bahian Gastronomy"
-  class="w-full h-full object-cover"
-/>
-                      alt="Bahian Gastronomy"
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
-                    ></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                      <span
-                        class="inline-block bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold"
-                        data-translate="exp2-badge"
-                      >
-                        Lunch time
-                      </span>
-                    </div>
-                  </div>
-               <div class="p-6 flex-1 flex flex-col gap-3">
-                    <div>
-                      <h3
-                        class="text-2xl font-bold text-gray-900 mb-3"
-                        data-translate="exp2-title"
-                      >
-                        Dona Suzana 
-                      </h3>
-                      <p
-                        class="text-gray-600 mb-4 leading-relaxed"
-                        data-translate="exp2-description"
-                      >
-                       
-                       Bahian Cuisine in the Solar do Unhão Community.
-                       Perfect sequence after exploring Pelourinho
-                        
-                      </p>
-                    </div>
-                    <div class="flex items-center justify-between mt-auto">
-                      <div class="flex items-center space-x-2">
-                        <svg
-                          class="w-5 h-5 text-green-500"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M8.1 13.34l2.83-2.83L3.91 3.5c-1.56 1.56-1.56 4.09 0 5.66l4.19 4.18zm6.78-1.81c1.53.71 3.68.21 5.27-1.38 1.91-1.91 2.28-4.65.81-6.12-1.46-1.46-4.2-1.1-6.12.81-1.59 1.59-2.09 3.74-1.38 5.27L3.7 19.87l1.41 1.41L12 14.41l6.88 6.88 1.41-1.41L13.41 13l1.47-1.47z"
-                          />
-                        </svg>
-                        <span
-                          class="text-sm text-gray-500"
-                          data-translate="exp2-location"
-                          >Bahian foood</span
-                        >
-                      </div>
-                      <span
-                        class="hidden text-sm font-semibold text-green-600"
-                        data-translate="exp2-duration"
-                        >1.5 hours</span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            <!-- Card 5: Cultural Events -->
-              <div class="flex-shrink-0 w-full lg:w-1/2 xl:w-1/3 px-2 sm:px-4">
-                <div
-                  class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 h-[520px] flex flex-col"
-                >
-                  <div class="relative h-64 overflow-hidden flex-shrink-0">
-                    <img
-                      src="/public/IMG_4313.jpeg"
-                      alt="Cultural Events"
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
-                    ></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                      <span
-                        class="inline-block bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold"
-                        data-translate="exp5-badge"
-                      >
-                        Popular Culture
-                      </span>
-                    </div>
-                  </div>
-                  <div class="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3
-                        class="text-2xl font-bold text-gray-900 mb-3"
-                        data-translate="exp5-title"
-                      >
-                      Museum of Modern Art
-                      </h3>
-                      <p
-                        class="text-gray-600 mb-4 leading-relaxed"
-                        data-translate="exp5-description"
-                      >
-                        A look at the art being created in the city today.
-                      </p>
-                    </div>
-                    <div class="flex items-center justify-between mt-auto">
-                      <div class="flex items-center space-x-2">
-                        <svg
-                          class="w-5 h-5 text-green-500"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"
-                          />
-                        </svg>
-                        <span
-                          class="text-sm text-gray-500"
-                          data-translate="exp5-location"
-                          >Contemporary art exhibitions</span
-                        >
-                      </div>
-                      <span
-                        class="hidden text-sm font-semibold text-green-600"
-                        data-translate="exp5-duration"
-                        >30 min</span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-           
-              <!-- Card 3: Baiana Culture -->
-              <div class="flex-shrink-0 w-full lg:w-1/2 xl:w-1/3 px-2 sm:px-4">
-                <div
-                  class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 h-[520px] flex flex-col"
-                >
-                  <div class="relative h-64 overflow-hidden flex-shrink-0">
-                    <img
-                      src="/public/IMG_5116.jpeg"
-                      alt="Capoeira from Terreiro"
-                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    />
-                    <div
-                      class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
-                    ></div>
-                    <div class="absolute bottom-4 left-4 text-white">
-                      <span
-                        class="inline-block bg-yellow-500 text-black px-3 py-1 rounded-full text-xs font-bold"
-                        data-translate="exp3-badge"
-                      >
-                        Ancestry and heritage 
-                      </span>
-                    </div>
-                  </div>
-                  <div class="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3
-                        class="text-2xl font-bold text-gray-900 mb-3"
-                        data-translate="exp3-title"
-                      >
-                        Casa de Yemanjá 
-                      </h3>
-                      <p
-                        class="text-gray-600 mb-4 leading-relaxed"
-                        data-translate="exp3-description"
-                      >
-                        A Respectful Visit to Yemanjá’s House
-                      </p>
-                    </div>
-                    <div class="flex items-center justify-between mt-auto">
-                      <div class="flex items-center space-x-2">
-                        <svg
-                          class="w-5 h-5 text-yellow-500"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                          />
-                        </svg>
-                        <span
-                          class="text-sm text-gray-500"
-                          data-translate="exp3-location"
-                          >A Blue-Gold Opportunity</span
-                        >
-                      </div>
-                      <span
-                        class="hidden text-sm font-semibold text-green-600"
-                        data-translate="exp3-duration"
-                        >45 min</span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              
-                      </span>
-                    </div>
-                  </div>
-                  <div class="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3
-                        class="text-2xl font-bold text-gray-900 mb-3"
-                        data-translate="exp4-title"
-                      >
-                      
-                      </div>
-                      <span
-                        class="hidden text-sm font-semibold text-green-600"
-                        data-translate="exp4-duration"
-                        >3 hours</span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-             
-
-              <!-- Card 6: Brazilian History -->
-              <div class="flex-shrink-0 w-full lg:w-1/2 xl:w-1/3 px-2 sm:px-4">
-                <div
-                  class="bg-white rounded-2xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 h-[520px] flex flex-col"
-                >
-                  <div class="relative h-64 overflow-hidden flex-shrink-0">
-                    
-                      </span>
-                    </div>
-                  </div>
-                  <div class="p-6 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3
-                        class="text-2xl font-bold text-gray-900 mb-3"
-                        data-translate="exp6-title"
-                      >
-                      
-                      </p>
-                    </div>
-                    <div class="flex items-center justify-between mt-auto">
-                      <div class="flex items-center space-x-2">
-                        <svg
-                          class="w-5 h-5 text-blue-500"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                          />
-                        </svg>
-                        <span
-                          class="text-sm text-gray-500"
-                          data-translate="exp6-location"
-                          >Elevador Lacerda</span
-                        >
-                      </div>
-                      <span
-                        class="hidden text-sm font-semibold text-green-600"
-                        data-translate="exp6-duration"
-                        >1 hour</span
-                      >
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Navigation with Arrows for All Sizes -->
-          <div class="flex justify-center mt-8 space-x-4">
-            <button
-              id="prev-btn"
-              class="p-3 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <button
-              id="next-btn"
-              class="p-3 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-200 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <svg
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- CTA Final -->
-        <div class="text-center mt-16">
-          <p class="text-lg text-gray-600 mb-6" data-translate="cta-text">
-            
-          </p>
-          <a
-            id="form-link-2"
-            href="https://forms.gle/SSPE2Dh2gvwEuR3n7"
-            target="_blank"
-            class="bg-gradient-to-r from-black via-gray-900 to-yellow-700 hover:to-blue-600 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg"
-            data-translate="cta-button"
-          >
-                B2B Partnership — Click Here
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Itinerary Section -->
-    <section id="itinerary" class="py-6 bg-gray-50">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Header -->
-       <div class="text-center mb-8">
-          <span
-            class="inline-block bg-yellow-100 text-gray-800 px-6 py-2 rounded-full text-sm font-bold mb-6"
-            data-translate="itinerary-badge"
-          >
-              
-        Seamless International Partnership
-      </span>
-    </div>
-
-    <div class="space-y-8">
-
-      <div class="flex items-start gap-4">
-        <div class="w-12 h-12 bg-gray-800 rounded-full flex-shrink-0"></div>
-        <div>
-          <span class="text-sm text-gray-500">Guidance</span>
-          <h3 class="text-lg font-semibold text-gray-900">BANK TRANSFER</h3>
-          <p class="text-sm text-gray-500 mt-2">Hassle-Free International Credit Card Payment.</p>
-        </div>
-      </div>
-
-      <div class="flex items-start gap-4">
-        <div class="w-12 h-12 bg-gray-800 rounded-full flex-shrink-0"></div>
-        <div>
-          <span class="text-sm text-gray-500">Practical lessons</span>
-          <h3 class="text-lg font-semibold text-gray-900">DIGITAL RESOURCES</h3>
-          <p class="text-sm text-gray-500 mt-2">Digital content for you to share with your travelers.</p>
-        </div>
-      </div>
-
-      <div class="flex items-start gap-4">
-        <div class="w-12 h-12 bg-gray-800 rounded-full flex-shrink-0"></div>
-        <div>
-          <span class="text-sm text-gray-500">Conveniences</span>
-          <h3 class="text-lg font-semibold text-gray-900">LOCAL SUPPORT NETWORK</h3>
-          <p class="text-sm text-gray-500 mt-2">Expand your clients’ experience with events, attractions, tickets and local services.</p>
-        </div>
-      </div>
-
-      <div class="flex items-start gap-4">
-        <div class="w-12 h-12 bg-gray-800 rounded-full flex-shrink-0"></div>
-        <div>
-          <span class="text-sm text-gray-500">Branding</span>
-          <h3 class="text-lg font-semibold text-gray-900">TO KNOW BRAZIL</h3>
-          <p class="text-sm text-gray-500 mt-2">Offer your clients one seamless journey across Brazil with our nationwide hospitality support.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-              </div>
-            </div>
-
-            
-
-  <div class="timeline-content">
-    <span class="timeline-time"></span>
-
-        
-      </div>
-    </section>
-
-
-  
-    <!-- CTA Final com Imagem -->
-    <section class="py-20 bg-gray-900 relative overflow-hidden">
-      <!-- Background Image -->
-      <div
-        class="absolute inset-0"
-        style="
-          background-image: url('/public/FD2DE890-31DC-4D48-AFE4-0F37418F2530.jpeg');
-          background-size: cover;
-    background-position: center +20%;
-          background-repeat: no-repeat;
-        "
-      ></div>
-
-      <!-- Overlay -->
-      <div
-        class="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-green-800/70 to-blue-900/80"
-      ></div>
-
-      <!-- Content -->
-      <div
-        class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      <a
+        href="https://wa.me/5571993719791?text=Hello%20Adriano%2C%20I%20would%20like%20to%20know%20more%20about%20the%20experiences%20in%20Salvador."
+        class="block w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-2xl text-lg shadow-xl"
       >
-        <div class="mb-6">
-          <span
-            class="inline-block bg-yellow-400 text-gray-900 px-6 py-2 rounded-full text-sm font-bold mb-6"
-            data-translate="cta-badge"
-          >
-            Rooted in Afro-Brazilian Leadership
-          </span>
-        </div>
+        Book on WhatsApp
+      </a>
 
-        <h2
-          class="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6"
-          data-translate="cta-title"
-        >
-          
-          <span
-            class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-400"
-          >
-          
-            
-          </span>
-        </h2>
+      <p class="text-xs text-gray-300 mt-4">
+        English · Portuguese · Spanish
+      </p>
+    </div>
+  </section>
 
-        <p
-          class="text-xl sm:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed"
-          data-translate="cta-description"
-        >
-          
-        </p>
+  <!-- WATERMARK SECTION -->
+  <section class="watermark-bg py-16 px-6">
+    <div class="max-w-md mx-auto text-center">
 
-        <div
-          class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
-        >
-          <a
-            id="form-link-4"
-            href="https://forms.gle/SSPE2Dh2gvwEuR3n7"
-            target="_blank"
-            class="w-full sm:w-auto bg-gradient-to-r from-black via-gray-900 to-yellow-700 hover:from-green-600 hover:to-blue-600 text-white px-10 py-5 rounded-xl font-bold text-xl transition-all duration-200 transform hover:scale-105 shadow-2xl"
-          >
-            <span
-              class="flex items-center justify-center"
-              data-translate="cta-reserve-btn"
-            >
-              <span class="mr-3 text-xl">🌐</span>
-                  Network Across Bahia
-            </span>
-          </a>
+      <p class="text-yellow-300 text-sm uppercase tracking-[0.25em] mb-4">
+        Curated by Adriano Marques
+      </p>
 
-          <a
-            id="whatsapp-link-2"
-            href="https://wa.me/5571993719791?text=Hello%21%20I%20would%20like%20to%20know%20more%20about%20the%20tours%20in%20Salvador"
-            target="_blank"
-            class="w-full sm:w-auto bg-white/10 backdrop-blur-sm text-white border-2 border-white/30 hover:bg-white/20 px-10 py-5 rounded-xl font-semibold text-xl transition-all duration-200"
-          >
-            <span class="flex items-center justify-center">
-              <svg
-                class="w-6 h-6 mr-3"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                />
-              </svg>
-              <span data-translate="cta-talk-btn">Talk to Adriano</span>
-            </span>
-          </a>
-        </div>
+      <h2 class="text-3xl font-bold mb-4">
+        Your first local connection in Salvador
+      </h2>
 
-        <!-- Contact Information -->
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-          <div class="text-white/80">
-            <div class="text-2xl font-bold mb-1">WhatsApp</div>
-            <div class="text-sm">+55 71 9 9371-9791</div>
-          </div>
-          <div class="text-white/80">
-            <div class="text-2xl font-bold mb-1">Email</div>
-            <div class="text-sm">toknowsalvador@gmail.com</div>
-          </div>
-          <div class="text-white/80">
-            <div
-              class="text-2xl font-bold mb-1"
-              data-translate="contact-available"
-            >
-              Available
-            </div>
-            <div class="text-sm" data-translate="contact-available-days">
-              now
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+      <p class="text-gray-300 leading-relaxed">
+        To Know Salvador is a local tourism operation created to make your arrival, movement and cultural experience in the city easier, safer and more meaningful.
+      </p>
+    </div>
+  </section>
 
-    <!-- JavaScript do Slider -->
-    <script>
-      const slider = document.getElementById("experiencias-slider");
-      const prevBtn = document.getElementById("prev-btn");
-      const nextBtn = document.getElementById("next-btn");
+  <!-- EXPERIENCES -->
+  <section class="bg-white text-black py-16 px-6">
+    <div class="max-w-md mx-auto">
 
-      let currentSlide = 0;
+      <h2 class="text-3xl font-black text-center mb-10">
+        Main Experiences
+      </h2>
 
-      function getTotalSlides() {
-        const screenWidth = window.innerWidth;
-        const totalCards = 6; // Total de cards
+      <div class="space-y-5">
 
-        if (screenWidth >= 1280) {
-          // xl: 3 cards por slide, 2 slides total
-          return 2;
-        } else if (screenWidth >= 1024) {
-          // lg: 2 cards por slide, 3 slides total
-          return 3;
-        } else {
-          // mobile: 1 card por slide, 6 slides total
-          return 6;
-        }
-      }
-
-      function updateSlider() {
-        const screenWidth = window.innerWidth;
-        const cardWidth = slider.children[0].offsetWidth;
-        let slidesToShow, translateX;
-
-        if (screenWidth >= 1280) {
-          // xl screens: show 3 cards
-          slidesToShow = 3;
-          translateX = -(currentSlide * cardWidth * slidesToShow);
-        } else if (screenWidth >= 1024) {
-          // lg screens: show 2 cards
-          slidesToShow = 2;
-          translateX = -(currentSlide * cardWidth * slidesToShow);
-        } else {
-          // mobile: show 1 card
-          slidesToShow = 1;
-          translateX = -(currentSlide * cardWidth);
-        }
-
-        slider.style.transform = `translateX(${translateX}px)`;
-
-        // Update navigation buttons for all screen sizes
-        const maxSlide = getTotalSlides() - 1;
-        prevBtn.disabled = currentSlide <= 0;
-        nextBtn.disabled = currentSlide >= maxSlide;
-      }
-
-      // Navigation buttons
-      prevBtn.addEventListener("click", () => {
-        if (currentSlide > 0) {
-          currentSlide--;
-          updateSlider();
-        }
-      });
-
-      nextBtn.addEventListener("click", () => {
-        const maxSlide = getTotalSlides() - 1;
-        if (currentSlide < maxSlide) {
-          currentSlide++;
-          updateSlider();
-        }
-      });
-
-      // Update on resize
-      let resizeTimeout;
-      window.addEventListener("resize", () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-          // Reset to first slide on resize to avoid positioning issues
-          currentSlide = 0;
-          updateSlider();
-        }, 100);
-      });
-
-      // Initialize
-      updateSlider();
-
-      // Add touch/swipe support for mobile
-      let startX = 0;
-      let endX = 0;
-      let isDragging = false;
-
-      slider.addEventListener(
-        "touchstart",
-        (e) => {
-          startX = e.touches[0].clientX;
-          isDragging = true;
-          slider.style.transition = "none";
-        },
-        { passive: true }
-      );
-
-      slider.addEventListener(
-        "touchmove",
-        (e) => {
-          if (!isDragging) return;
-
-          endX = e.touches[0].clientX;
-          const diff = startX - endX;
-
-          // Add some visual feedback during drag
-          if (Math.abs(diff) > 10) {
-            e.preventDefault();
-          }
-        },
-        { passive: false }
-      );
-
-      slider.addEventListener("touchend", () => {
-        if (!isDragging) return;
-        isDragging = false;
-
-        slider.style.transition = "transform 0.5s ease-in-out";
-
-        const diff = startX - endX;
-        const threshold = 50; // Minimum swipe distance
-
-        if (Math.abs(diff) > threshold) {
-          if (diff > 0) {
-            // Swipe left (next)
-            const maxSlide = getTotalSlides() - 1;
-            currentSlide = Math.min(currentSlide + 1, maxSlide);
-          } else {
-            // Swipe right (previous)
-            currentSlide = Math.max(currentSlide - 1, 0);
-          }
-          updateSlider();
-        }
-
-        startX = 0;
-        endX = 0;
-      });
-
-      // Prevent scroll on slider when swiping horizontally
-      slider.addEventListener(
-        "touchmove",
-        (e) => {
-          const touch = e.touches[0];
-          const diffX = Math.abs(touch.clientX - startX);
-          const diffY = Math.abs(touch.clientY - (startX || 0));
-
-          if (diffX > diffY) {
-            e.preventDefault();
-          }
-        },
-        { passive: false }
-      );
-    </script>
-
-    <!-- Custom Animations -->
-    <style>
-      .animation-delay-2000 {
-        animation-delay: 2s;
-      }
-      .animation-delay-4000 {
-        animation-delay: 4s;
-      }
-    </style>
-
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-white py-12">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Logo e Info da Empresa -->
-          <div class="text-center md:text-left">
-            <h3 class="text-xl font-bold mb-4">To Know Salvador</h3>
-            <p
-              class="text-gray-400 text-sm leading-relaxed mb-4"
-              data-translate="footer-description"
-            >
-              
-             The #1 ranked tour on Tripadvisor in Salvador
-            </p>
-            <div
-              class="flex items-center justify-center md:justify-start space-x-2"
-            >
-              <div class="flex text-yellow-400">
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                  />
-                </svg>
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                  />
-                </svg>
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                  />
-                </svg>
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                  />
-                </svg>
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                  />
-                </svg>
-              </div>
-              <span class="text-gray-400 text-sm" data-translate="footer-rating"
-                ></span
-              >
-            </div>
-          </div>
-
-          <!-- Contatos -->
-          <div class="text-center">
-            <h4
-              class="text-lg font-semibold mb-4"
-              data-translate="footer-contact"
-            >
-              Contact Us
-            </h4>
-            <div class="space-y-3">
-              <a
-                href="https://wa.me/5571993719791?text=Hello%21%20I%20would%20like%20to%20know%20more%20about%20the%20tours%20in%20Salvador"
-                target="_blank"
-                class="flex items-center justify-center space-x-3 text-gray-300 hover:text-green-400 transition-colors duration-200"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"
-                  />
-                </svg>
-                <span>+55 71 9 9371-9791</span>
-              </a>
-
-              <a
-                href="https://instagram.com/toknowsalvador"
-                target="_blank"
-                class="flex items-center justify-center space-x-3 text-gray-300 hover:text-pink-400 transition-colors duration-200"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
-                  />
-                </svg>
-                <span>@toknowsalvador</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Navigation -->
-          <div class="text-center md:text-right">
-            <h4
-              class="text-lg font-semibold mb-4"
-              data-translate="footer-links"
-            >
-              Useful Links
-            </h4>
-            <div class="space-y-2">
-              <a
-                href="#"
-                onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;"
-                class="block text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
-                data-translate="footer-home"
-                >Home</a
-              >
-              <a
-                href="#"
-                onclick="document.querySelectorAll('section')[1].scrollIntoView({behavior: 'smooth'}); return false;"
-                class="block text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
-                data-translate="footer-about"
-                >About Us</a
-              >
-              <a
-                href="#"
-                onclick="document.querySelectorAll('section')[2].scrollIntoView({behavior: 'smooth'}); return false;"
-                class="block text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
-                data-translate="footer-experiences"
-                >Experiences</a
-              >
-              <a
-                href="#"
-                onclick="document.querySelectorAll('section')[3].scrollIntoView({behavior: 'smooth'}); return false;"
-                class="block text-gray-400 hover:text-white transition-colors duration-200 cursor-pointer"
-                data-translate="footer-testimonials"
-                >Testimonials</a
-              >
-              <a
-                href="https://toknowbrazil.com/salvador"
-                target="_blank"
-                rel="noopener"
-                class="block text-gray-400 hover:text-yellow-400 transition-colors duration-200"
-                data-translate="footer-brazil"
-                >Travel Guide to Salvador</a
-              >
-            </div>
-          </div>
-        </div>
-
-        <!-- Copyright -->
-        <div class="border-t border-gray-800 mt-8 pt-6 text-center">
-          <p class="text-gray-400 text-sm" data-translate="footer-copyright">
-            © 2025 To know Salvador. All rights reserved. | Salvador, Bahia -
-            Brasil
+        <div class="rounded-3xl bg-gray-100 p-6 shadow">
+          <h3 class="text-xl font-bold mb-2">Historic Salvador Walking Tour</h3>
+          <p class="text-gray-700">
+            Pelourinho, colonial history, Afro-Brazilian heritage and the formation of Brazil.
           </p>
         </div>
+
+        <div class="rounded-3xl bg-gray-100 p-6 shadow">
+          <h3 class="text-xl font-bold mb-2">Welcome Walk</h3>
+          <p class="text-gray-700">
+            A simple first-day orientation for travelers arriving in Salvador.
+          </p>
+        </div>
+
+        <div class="rounded-3xl bg-gray-100 p-6 shadow">
+          <h3 class="text-xl font-bold mb-2">One-Day Cultural Immersion</h3>
+          <p class="text-gray-700">
+            History, Bahian food, art, sunset and cultural experiences in one curated day.
+          </p>
+        </div>
+
+        <div class="rounded-3xl bg-gray-100 p-6 shadow">
+          <h3 class="text-xl font-bold mb-2">Private Experiences</h3>
+          <p class="text-gray-700">
+            Custom tours, transfers, beaches, islands, nightlife and special requests.
+          </p>
+        </div>
+
       </div>
-    </footer>
+    </div>
+  </section>
 
-    <!-- Language Translation System -->
-    <script>
-      // Add event listeners for language redirects
-      document.getElementById("lang-pt").addEventListener("click", () => {
-        window.location.href = "/pt/";
-      });
+  <!-- TRUST -->
+  <section class="bg-black py-16 px-6">
+    <div class="max-w-md mx-auto text-center">
 
-      document.getElementById("lang-en").addEventListener("click", () => {
-        // Stay on current page, do nothing
-      });
+      <h2 class="text-3xl font-black mb-6">
+        Local, simple and reliable
+      </h2>
 
-      document.getElementById("lang-es").addEventListener("click", () => {
-        window.location.href = "/es/";
-      });
-    </script>
-    <script>
-const messages = [
-  "This program simplifies your experience in Salvador.",
-  "Choose us as your hosts.",
-  "We'll take care of the details.",
-  "Enjoy quality time in the city."
-];
+      <div class="grid grid-cols-1 gap-4 text-left">
+        <div class="bg-white/10 rounded-2xl p-5">
+          ⭐ Guided by local specialists
+        </div>
+        <div class="bg-white/10 rounded-2xl p-5">
+          🌍 English, Portuguese and Spanish
+        </div>
+        <div class="bg-white/10 rounded-2xl p-5">
+          🤝 Real connections with Salvador
+        </div>
+        <div class="bg-white/10 rounded-2xl p-5">
+          📍 Meeting point: Castro Alves Square
+        </div>
+      </div>
 
-let current = 0;
-const hero = document.getElementById("hero-text");
+    </div>
+  </section>
 
-setInterval(() => {
-  hero.style.opacity = 0;
+  <!-- FINAL CTA -->
+  <section class="bg-yellow-500 text-black py-16 px-6 text-center">
+    <div class="max-w-md mx-auto">
 
-  setTimeout(() => {
-    current = (current + 1) % messages.length;
-    hero.textContent = messages[current];
-    hero.style.opacity = 1;
-  }, 400);
+      <h2 class="text-3xl font-black mb-4">
+        Ready to know Salvador?
+      </h2>
 
-}, 4000);
-</script>
-  </body>
+      <p class="mb-6 text-lg">
+        Send a message and choose the best experience for your time in the city.
+      </p>
+
+      <a
+        href="https://wa.me/5571993719791?text=Hello%20Adriano%2C%20I%20want%20to%20book%20a%20tour%20in%20Salvador."
+        class="block w-full bg-black text-white font-bold py-4 rounded-2xl text-lg"
+      >
+        Talk to Adriano
+      </a>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-gray-400 py-10 px-6 text-center text-sm">
+    <p class="font-bold text-white mb-2">To Know Salvador</p>
+    <p>Salvador, Bahia, Brazil</p>
+    <p class="mt-2">@toknowsalvador</p>
+    <p class="mt-4">© 2026 To Know Salvador</p>
+  </footer>
+
+</body>
 </html>
