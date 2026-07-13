@@ -1,33 +1,69 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>To Know Salvador | Cultural Experiences in Salvador, Bahia</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
 
-  <meta name="description" content="Private and curated cultural experiences in Salvador, Bahia. History, Afro-Brazilian culture, food, music, local guides and real connections." />
+  <title>To Know Salvador | Local Help in Salvador, Bahia</title>
+
+  <meta
+    name="description"
+    content="Local information, practical help and cultural experiences in Salvador, Bahia. Ask about safety, museums, food, beaches, islands, personal care and Salvador's history."
+  />
 
   <meta property="og:title" content="To Know Salvador" />
-  <meta property="og:description" content="Discover Salvador through history, culture and real local connections." />
-  <meta property="og:image" content="https://toknowsalvador.com/public/IMG_3058.png" />
-  <meta property="og:url" content="https://toknowsalvador.com/" />
 
-  <link rel="icon" type="image/jpeg" href="/public/IMG_5779.jpeg" />
+  <meta
+    property="og:description"
+    content="Local information and practical help during your stay in Salvador."
+  />
+
+  <meta
+    property="og:image"
+    content="https://toknowsalvador.com/public/IMG_3058.png"
+  />
+
+  <meta
+    property="og:url"
+    content="https://toknowsalvador.com/"
+  />
+
+  <meta property="og:type" content="website" />
+
+  <link
+    rel="icon"
+    type="image/jpeg"
+    href="/public/IMG_5779.jpeg"
+  />
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    html, body {
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
       margin: 0;
       overflow-x: hidden;
       background: #050505;
     }
 
+    body {
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
     .watermark-bg {
       background-image:
-        linear-gradient(rgba(0,0,0,.78), rgba(0,0,0,.92)),
+        linear-gradient(rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.95)),
         url('/public/E7EAE1FB-BF6E-4FA9-A174-010CE2B2BEE5.png');
+
       background-size: 80%;
       background-repeat: no-repeat;
       background-position: center;
@@ -35,219 +71,738 @@
 
     .hero-image {
       background-image:
-        linear-gradient(to bottom, rgba(0,0,0,.15), rgba(0,0,0,.88)),
+        linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.15) 0%,
+          rgba(0, 0, 0, 0.42) 45%,
+          rgba(0, 0, 0, 0.96) 100%
+        ),
         url('/public/IMG_3058.png');
+
       background-size: cover;
       background-position: center;
+    }
+
+    .question-card {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      width: 100%;
+      min-height: 78px;
+      padding: 20px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 24px;
+      background: #f5f5f5;
+      color: #111111;
+      text-decoration: none;
+      transition:
+        transform 180ms ease,
+        background-color 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .question-card:hover {
+      transform: translateY(-2px);
+      background: #ffffff;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.10);
+    }
+
+    .question-card:active {
+      transform: scale(0.985);
+    }
+
+    .question-arrow {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: #111111;
+      color: #ffffff;
+      font-size: 16px;
+      transition: transform 180ms ease;
+    }
+
+    .question-card:hover .question-arrow {
+      transform: translateX(3px);
+    }
+
+    .dark-question-card {
+      border-color: rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.08);
+      color: #ffffff;
+    }
+
+    .dark-question-card:hover {
+      background: rgba(255, 255, 255, 0.14);
+      box-shadow: none;
+    }
+
+    .dark-question-card .question-arrow {
+      background: #facc15;
+      color: #111111;
+    }
+
+    .story-item {
+      width: 84px;
+      flex-shrink: 0;
+      text-align: center;
+      color: #d1d5db;
+      text-decoration: none;
+    }
+
+    .story-ring {
+      width: 78px;
+      height: 78px;
+      margin: 0 auto 8px;
+      padding: 3px;
+      border-radius: 999px;
+      background: linear-gradient(
+        135deg,
+        #fde047,
+        #f59e0b,
+        #fde047
+      );
+    }
+
+    .story-ring video {
+      width: 100%;
+      height: 100%;
+      border: 3px solid #000000;
+      border-radius: 999px;
+      object-fit: cover;
+      background: #111111;
+    }
+
+    .history-card {
+      background:
+        linear-gradient(
+          140deg,
+          rgba(250, 204, 21, 0.98),
+          rgba(234, 179, 8, 0.98)
+        );
+    }
+
+    .minimal-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 52px;
+      padding: 14px 24px;
+      border: 1px solid #111111;
+      border-radius: 999px;
+      background: #111111;
+      color: #ffffff;
+      font-weight: 800;
+      text-decoration: none;
+      transition:
+        transform 180ms ease,
+        background-color 180ms ease;
+    }
+
+    .minimal-button:hover {
+      transform: translateY(-2px);
+      background: #242424;
+    }
+
+    .minimal-button:active {
+      transform: scale(0.98);
+    }
+
+    @media (min-width: 768px) {
+      .hero-image {
+        background-position: center 35%;
+      }
+
+      .question-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
   </style>
 </head>
 
-<body class="text-white font-sans">
+<body class="font-sans text-white">
 
   <!-- HERO -->
-  <section class="relative min-h-screen hero-image flex flex-col justify-end px-6 pb-10">
+  <section
+    class="hero-image relative flex min-h-screen flex-col justify-end px-6 pb-12 pt-40"
+  >
 
-    <!-- logo pequeno -->
-    <!-- Barra azul clara em degradê -->
-<div class="absolute top-0 left-0 w-full z-20 flex justify-center py-6
-bg-gradient-to-b from-black via-black/95 to-transparent">
-
-    <img
+    <!-- TOP BLACK GRADIENT + LOGO -->
+    <div
+      class="absolute left-0 top-0 z-20 flex w-full justify-center bg-gradient-to-b from-black via-black/95 to-transparent px-6 pb-14 pt-6"
+    >
+      <img
         src="/public/E7EAE1FB-BF6E-4FA9-A174-010CE2B2BEE5.png"
         alt="To Know Salvador"
         class="w-52 object-contain"
-    />
-
-</div>
-        
-</div>
-</div>
-     
+      />
     </div>
 
-    <div class="max-w-md mx-auto text-center">
-      <p class="text-sm tracking-[0.35em] uppercase text-yellow-300 mb-3">
-        
+    <div class="relative z-10 mx-auto w-full max-w-md text-center">
+
+      <p
+        class="mb-3 text-xs font-semibold uppercase tracking-[0.32em] text-yellow-300"
+      >
+        Local help in Salvador
       </p>
 
-      <h1 class="text-4xl font-black leading-tight mb-4">
-        Practical Solutions 
+      <h1 class="mb-4 text-4xl font-black leading-tight sm:text-5xl">
+        How can we help you today?
       </h1>
 
-      <p class="text-lg text-gray-200 leading-relaxed mb-6">
-        Discover Salvador through history, Afro-Brazilian culture, food, music and real local connections.
+      <p class="mb-8 text-lg leading-relaxed text-gray-200">
+        Choose a question and send it directly to us on WhatsApp.
       </p>
+
+      <!-- FIRST QUESTIONS: INFORMATION AND TRUST -->
+      <div class="space-y-3 text-left">
+
+        <a
+          href="#"
+          class="whatsapp-question question-card dark-question-card"
+          data-message="Is the neighborhood I'm staying in safe?"
+          aria-label="Ask if the neighborhood is safe"
+        >
+          <span class="font-bold">
+            Is the neighborhood I'm staying in safe?
+          </span>
+
+          <span class="question-arrow" aria-hidden="true">
+            →
+          </span>
+        </a>
+
+        <a
+          href="#"
+          class="whatsapp-question question-card dark-question-card"
+          data-message="Which museum should I visit?"
+          aria-label="Ask which museum to visit"
+        >
+          <span class="font-bold">
+            Which museum should I visit?
+          </span>
+
+          <span class="question-arrow" aria-hidden="true">
+            →
+          </span>
+        </a>
+
+        <a
+          href="#"
+          class="whatsapp-question question-card dark-question-card"
+          data-message="I need quick help."
+          aria-label="Ask for quick help"
+        >
+          <span class="font-bold">
+            I need quick help.
+          </span>
+
+          <span class="question-arrow" aria-hidden="true">
+            →
+          </span>
+        </a>
+
+      </div>
 
       <a
-        href="https://wa.me/5571993719791?text=Hello%20Adriano%2C%20I%20would%20like%20to%20know%20more%20about%20the%20experiences%20in%20Salvador."
-        class="block w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-2xl text-lg shadow-xl"
+        href="#questions"
+        class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-white/80 transition hover:text-white"
       >
-        Book on WhatsApp
+        See all questions
+        <span aria-hidden="true">↓</span>
       </a>
 
-      <p class="text-xs text-gray-300 mt-4">
+      <p class="mt-7 text-xs tracking-wide text-gray-300">
         English · Portuguese · Spanish
       </p>
+
     </div>
   </section>
-</section>
 
-<!-- STORIES -->
 
-<section class="bg-black py-8">
+  <!-- STORIES -->
+  <section class="bg-black px-5 py-9">
 
-<div class="flex justify-center gap-5">
+    <div class="mx-auto max-w-md">
 
-<a href="/public/b36a0e5b002c4f769caa2dff38a529f5.mp4">
-<video
-poster="/public/IMG_5128.jpeg"
-muted
-playsinline
-class="w-20 h-20 rounded-full object-cover border-2 border-yellow-400">
-</video>
-</a>
+      <div class="mb-5 text-center">
+        <p class="text-xs font-semibold uppercase tracking-[0.3em] text-yellow-300">
+          See Salvador
+        </p>
 
-<a href="/public/7779b4e36b4e4ef39963ff4a349e4d2c.mp4">
-<video
-src="/public/7779b4e36b4e4ef39963ff4a349e4d2c.mp4"
-poster="/public/IMG_5140.jpeg"
-muted
-playsinline
-class="w-20 h-20 rounded-full object-cover border-2 border-yellow-400">
-</video>
-</a>
+        <h2 class="mt-2 text-xl font-bold">
+          Local stories
+        </h2>
+      </div>
 
-<a href="/public/converted_video.mp4">
-<video
-src="/public/converted_video.mp4"
-poster="/public/IMG_5182.jpeg"
-muted
-playsinline
-class="w-20 h-20 rounded-full object-cover border-2 border-yellow-400">
-</video>
-</a>
+      <div class="flex justify-center gap-5 overflow-x-auto">
 
-</div>
+        <a
+          href="/public/b36a0e5b002c4f769caa2dff38a529f5.mp4"
+          class="story-item"
+          aria-label="Watch Salvador story one"
+        >
+          <div class="story-ring">
+            <video
+              poster="/public/IMG_5128.jpeg"
+              muted
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
 
-</section>
+          <span class="text-xs">
+            Salvador
+          </span>
+        </a>
 
-<!-- WATERMARK SECTION -->
-  <!-- WATERMARK SECTION -->
-  <section class="watermark-bg py-16 px-6">
-    <div class="max-w-md mx-auto text-center">
+        <a
+          href="/public/7779b4e36b4e4ef39963ff4a349e4d2c.mp4"
+          class="story-item"
+          aria-label="Watch Salvador story two"
+        >
+          <div class="story-ring">
+            <video
+              src="/public/7779b4e36b4e4ef39963ff4a349e4d2c.mp4"
+              poster="/public/IMG_5140.jpeg"
+              muted
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
 
-      <p class="text-yellow-300 text-sm uppercase tracking-[0.25em] mb-4">
+          <span class="text-xs">
+            Culture
+          </span>
+        </a>
+
+        <a
+          href="/public/converted_video.mp4"
+          class="story-item"
+          aria-label="Watch Salvador story three"
+        >
+          <div class="story-ring">
+            <video
+              src="/public/converted_video.mp4"
+              poster="/public/IMG_5182.jpeg"
+              muted
+              playsinline
+              preload="metadata"
+            ></video>
+          </div>
+
+          <span class="text-xs">
+            Experiences
+          </span>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- LOCAL CONNECTION -->
+  <section class="watermark-bg px-6 py-16">
+
+    <div class="mx-auto max-w-md text-center">
+
+      <p
+        class="mb-4 text-sm uppercase tracking-[0.25em] text-yellow-300"
+      >
         Curated by Adriano Marques
       </p>
 
-      <h2 class="text-3xl font-bold mb-4">
-        Your first local connection in Salvador
+      <h2 class="mb-4 text-3xl font-bold">
+        Your local connection in Salvador
       </h2>
 
-      <p class="text-gray-300 leading-relaxed">
-        To Know Salvador is a local tourism operation created to make your arrival, movement and cultural experience in the city easier, safer and more meaningful.
+      <p class="leading-relaxed text-gray-300">
+        Practical information, trusted local recommendations and real
+        connections to help you experience the city.
       </p>
+
     </div>
   </section>
 
-  <!-- EXPERIENCES -->
-  <section class="bg-white text-black py-16 px-6">
-    <div class="max-w-md mx-auto">
 
-      <h2 class="text-3xl font-black text-center mb-10">
-      Ways We Can Help You 
-      </h2>
+  <!-- ALL QUESTIONS -->
+  <section
+    id="questions"
+    class="bg-white px-6 py-16 text-black"
+  >
 
-      <div class="space-y-5">
+    <div class="mx-auto max-w-2xl">
 
-        <div class="rounded-3xl bg-gray-100 p-6 shadow">
-          <h3 class="text-xl font-bold mb-2">Historic Salvador Walking Tour</h3>
-          <p class="text-gray-700">
-            Pelourinho, colonial history, Afro-Brazilian heritage and the formation of Brazil.
+      <div class="mx-auto mb-10 max-w-md text-center">
+
+        <p
+          class="mb-3 text-xs font-bold uppercase tracking-[0.28em] text-yellow-600"
+        >
+          Ask us
+        </p>
+
+        <h2 class="text-3xl font-black">
+          What do you need in Salvador?
+        </h2>
+
+        <p class="mt-4 leading-relaxed text-gray-600">
+          Tap a question. WhatsApp will open with the message ready to send.
+        </p>
+
+      </div>
+
+
+      <!-- GENERAL HELP -->
+      <div class="question-grid gap-4 space-y-4 md:space-y-0">
+
+        <a
+          href="#"
+          class="whatsapp-question question-card"
+          data-message="Is the neighborhood I'm staying in safe?"
+        >
+          <span class="font-bold">
+            Is the neighborhood I'm staying in safe?
+          </span>
+
+          <span class="question-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a
+          href="#"
+          class="whatsapp-question question-card"
+          data-message="Which museum should I visit?"
+        >
+          <span class="font-bold">
+            Which museum should I visit?
+          </span>
+
+          <span class="question-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a
+          href="#"
+          class="whatsapp-question question-card"
+          data-message="I need quick help."
+        >
+          <span class="font-bold">
+            I need quick help.
+          </span>
+
+          <span class="question-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a
+          href="#"
+          class="whatsapp-question question-card"
+          data-message="Where should I eat?"
+        >
+          <span class="font-bold">
+            Where should I eat?
+          </span>
+
+          <span class="question-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a
+          href="#"
+          class="whatsapp-question question-card"
+          data-message="What can I do tonight?"
+        >
+          <span class="font-bold">
+            What can I do tonight?
+          </span>
+
+          <span class="question-arrow" aria-hidden="true">→</span>
+        </a>
+
+      </div>
+
+
+      <!-- EXPERIENCES -->
+      <div class="mt-14">
+
+        <div class="mb-5">
+
+          <p
+            class="text-xs font-bold uppercase tracking-[0.25em] text-gray-500"
+          >
+            Places and experiences
           </p>
+
         </div>
 
-        <div class="rounded-3xl bg-gray-100 p-6 shadow">
-          <h3 class="text-xl font-bold mb-2">Personal Care & Convenience</h3>
-          <p class="text-gray-700">
-             Barbershops, Nail Salons, Braiding & More 
-          </p>
-        </div>
+        <div class="question-grid gap-4 space-y-4 md:space-y-0">
 
-        <div class="rounded-3xl bg-gray-100 p-6 shadow">
-          <h3 class="text-xl font-bold mb-2">Introductory Classes</h3>
-          <p class="text-gray-700">
-            Capoeira, Portuguese Lessons, Bahian Cooking, Samba, Music Lessons & More.
-          </p>
-        </div>
+          <a
+            href="#"
+            class="whatsapp-question question-card"
+            data-message="I want to go to a beach club."
+          >
+            <span class="font-bold">
+              I want to go to a beach club.
+            </span>
 
-        <div class="rounded-3xl bg-gray-100 p-6 shadow">
-          <h3 class="text-xl font-bold mb-2">Private Experiences</h3>
-          <p class="text-gray-700">
-            Custom tours, transfers, beaches, islands, nightlife and special requests.
-          </p>
+            <span class="question-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a
+            href="#"
+            class="whatsapp-question question-card"
+            data-message="Is Praia do Forte worth visiting?"
+          >
+            <span class="font-bold">
+              Is Praia do Forte worth visiting?
+            </span>
+
+            <span class="question-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a
+            href="#"
+            class="whatsapp-question question-card"
+            data-message="I want to visit the islands."
+          >
+            <span class="font-bold">
+              I want to visit the islands.
+            </span>
+
+            <span class="question-arrow" aria-hidden="true">→</span>
+          </a>
+
         </div>
 
       </div>
+
+
+      <!-- PERSONAL CARE -->
+      <div class="mt-14">
+
+        <div class="mb-5">
+
+          <p
+            class="text-xs font-bold uppercase tracking-[0.25em] text-gray-500"
+          >
+            Personal care and convenience
+          </p>
+
+        </div>
+
+        <div class="question-grid gap-4 space-y-4 md:space-y-0">
+
+          <a
+            href="#"
+            class="whatsapp-question question-card"
+            data-message="Where can I do my hair and makeup?"
+          >
+            <span class="font-bold">
+              Where can I do my hair and makeup?
+            </span>
+
+            <span class="question-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a
+            href="#"
+            class="whatsapp-question question-card"
+            data-message="I need to get my nails done."
+          >
+            <span class="font-bold">
+              I need to get my nails done.
+            </span>
+
+            <span class="question-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a
+            href="#"
+            class="whatsapp-question question-card"
+            data-message="I need a barber."
+          >
+            <span class="font-bold">
+              I need a barber.
+            </span>
+
+            <span class="question-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a
+            href="#"
+            class="whatsapp-question question-card"
+            data-message="I want to take care of my hair."
+          >
+            <span class="font-bold">
+              I want to take care of my hair.
+            </span>
+
+            <span class="question-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a
+            href="#"
+            class="whatsapp-question question-card"
+            data-message="I need to get ready today."
+          >
+            <span class="font-bold">
+              I need to get ready today.
+            </span>
+
+            <span class="question-arrow" aria-hidden="true">→</span>
+          </a>
+
+          <a
+            href="#"
+            class="whatsapp-question question-card"
+            data-message="Where can I get braids?"
+          >
+            <span class="font-bold">
+              Where can I get braids?
+            </span>
+
+            <span class="question-arrow" aria-hidden="true">→</span>
+          </a>
+
+        </div>
+
+      </div>
+
     </div>
   </section>
 
-  <!-- TRUST -->
-  <section class="bg-black py-16 px-6">
-    <div class="max-w-md mx-auto text-center">
 
-      <h2 class="text-3xl font-black mb-6">
+  <!-- FINAL HISTORY BLOCK -->
+  <section class="bg-black px-6 py-16">
+
+    <div
+      class="history-card mx-auto max-w-md rounded-[32px] p-8 text-center text-black shadow-2xl"
+    >
+
+      <p
+        class="mb-4 text-xs font-black uppercase tracking-[0.28em]"
+      >
+        Discover Salvador
+      </p>
+
+      <a
+        href="#"
+        class="whatsapp-question block text-black no-underline"
+        data-message="I want to discover the history of the city."
+      >
+        <h2 class="text-3xl font-black leading-tight">
+          I want to discover the history of the city.
+        </h2>
+
+        <p class="mt-4 leading-relaxed text-black/75">
+          Walk through Salvador with a local guide and understand the city's
+          history, culture and Afro-Brazilian heritage.
+        </p>
+      </a>
+
+      <a
+        href="#"
+        class="whatsapp-question minimal-button mt-7 w-full"
+        data-message="I want to book a Historic Salvador Walking Tour."
+      >
+        Walk with a Local
+        <span aria-hidden="true">→</span>
+      </a>
+
+    </div>
+  </section>
+
+
+  <!-- TRUST -->
+  <section class="bg-black px-6 pb-16">
+
+    <div class="mx-auto max-w-md text-center">
+
+      <h2 class="mb-6 text-2xl font-black">
         Local, simple and reliable
       </h2>
 
       <div class="grid grid-cols-1 gap-4 text-left">
-        <div class="bg-white/10 rounded-2xl p-5">
+
+        <div class="rounded-2xl bg-white/10 p-5">
           ⭐ Real local experience
         </div>
-        <div class="bg-white/10 rounded-2xl p-5">
+
+        <div class="rounded-2xl bg-white/10 p-5">
           🌍 English, Portuguese and Spanish
         </div>
-        <div class="bg-white/10 rounded-2xl p-5">
+
+        <div class="rounded-2xl bg-white/10 p-5">
           🤝 Real connections with Salvador
         </div>
-        <div class="bg-white/10 rounded-2xl p-5">
-          📍 Salvador Bahia Brazil 
+
+        <div class="rounded-2xl bg-white/10 p-5">
+          📍 Salvador, Bahia, Brazil
         </div>
+
       </div>
 
     </div>
   </section>
 
-  <!-- FINAL CTA -->
-  <section class="bg-yellow-500 text-black py-16 px-6 text-center">
-    <div class="max-w-md mx-auto">
-
-      <h2 class="text-3xl font-black mb-4">
-        Ready to know Salvador?
-      </h2>
-
-      <p class="mb-6 text-lg">
-        Send a message and choose the best experience for your time in the city.
-      </p>
-
-      <a
-        href="https://wa.me/5571993719791?text=Hello%20Adriano%2C%20I%20want%20to%20book%20a%20tour%20in%20Salvador."
-        class="block w-full bg-black text-white font-bold py-4 rounded-2xl text-lg"
-      >
-        Talk to Adriano
-      </a>
-
-    </div>
-  </section>
 
   <!-- FOOTER -->
-  <footer class="bg-black text-gray-400 py-10 px-6 text-center text-sm">
-    <p class="font-bold text-white mb-2">To Know Salvador</p>
-    <p>Salvador, Bahia, Brazil</p>
-    <p class="mt-2">@toknowsalvador</p>
-    <p class="mt-4">© 2026 To Know Salvador</p>
+  <footer
+    class="bg-black px-6 py-10 text-center text-sm text-gray-400"
+  >
+
+    <img
+      src="/public/E7EAE1FB-BF6E-4FA9-A174-010CE2B2BEE5.png"
+      alt="To Know Salvador"
+      class="mx-auto mb-5 w-36 object-contain"
+    />
+
+    <p class="font-bold text-white">
+      To Know Salvador
+    </p>
+
+    <p class="mt-1">
+      Salvador, Bahia, Brazil
+    </p>
+
+    <p class="mt-2">
+      @toknowsalvador
+    </p>
+
+    <p class="mt-5 text-xs">
+      © 2026 To Know Salvador
+    </p>
+
   </footer>
+
+
+  <script>
+    const whatsappNumber = "5571993719791";
+
+    document
+      .querySelectorAll(".whatsapp-question")
+      .forEach((link) => {
+        const message = link.dataset.message;
+
+        if (!message) {
+          return;
+        }
+
+        link.href =
+          "https://wa.me/" +
+          whatsappNumber +
+          "?text=" +
+          encodeURIComponent(message);
+
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+      });
+  </script>
 
 </body>
 </html>
