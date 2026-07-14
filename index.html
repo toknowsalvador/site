@@ -12,14 +12,14 @@
 
   <meta
     name="description"
-    content="
+    content="Local information, trusted recommendations and cultural experiences in Salvador, Bahia."
   />
 
   <meta property="og:title" content="To Know Salvador" />
 
   <meta
     property="og:description"
-    content="Your local connection in Salvador."
+    content="Local help, trusted recommendations and cultural experiences in Salvador."
   />
 
   <meta
@@ -188,53 +188,39 @@
       z-index: 3;
       width: min(100% - 36px, 640px);
       margin: 0 auto;
-      padding-bottom: 58px;
+      padding-bottom: 72px;
       text-align: center;
     }
 
-    .hero-title {
-      max-width: 520px;
-      margin: 12px auto 0;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(42px, 11vw, 68px);
-      line-height: 0.98;
-      letter-spacing: -0.035em;
-    }
-
-    .hero-subtitle {
-      max-width: 390px;
-      margin: 18px auto 0;
-      color: rgba(255, 255, 255, 0.83);
-      font-size: 16px;
-      line-height: 1.55;
-    }
-
-    .hero-action {
+    .hero-help {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 10px;
-      min-height: 52px;
-      margin-top: 26px;
-      padding: 0 23px;
-      border: 1px solid rgba(255, 255, 255, 0.34);
+      min-height: 58px;
+      padding: 0 27px;
+      border: 1px solid rgba(255, 255, 255, 0.38);
       border-radius: 999px;
-      background: rgba(0, 0, 0, 0.34);
+      background: rgba(0, 0, 0, 0.3);
       color: var(--white);
-      font-size: 14px;
+      font-size: clamp(14px, 4vw, 17px);
       font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
+      box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
       transition:
         transform 180ms ease,
         border-color 180ms ease,
         background 180ms ease;
     }
 
-    .hero-action:hover {
-      transform: translateY(-2px);
-      border-color: rgba(255, 255, 255, 0.65);
-      background: rgba(0, 0, 0, 0.55);
+    .hero-help:hover {
+      transform: translateY(-3px);
+      border-color: rgba(234, 213, 157, 0.85);
+      background: rgba(0, 0, 0, 0.5);
     }
 
     /* STORIES */
@@ -253,13 +239,16 @@
     }
 
     .stories-title {
+      max-width: 430px;
       margin: 0;
       font-family: "Playfair Display", serif;
-      font-size: 27px;
-      line-height: 1.1;
+      font-size: clamp(27px, 7vw, 38px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
     }
 
     .stories-note {
+      flex-shrink: 0;
       margin: 0;
       color: rgba(255, 255, 255, 0.46);
       font-size: 12px;
@@ -625,9 +614,36 @@
       }
     }
 
+    @media (max-width: 480px) {
+      .stories-header {
+        align-items: flex-start;
+      }
+
+      .stories-note {
+        padding-top: 7px;
+      }
+
+      .story-overlay {
+        padding: 9px;
+      }
+
+      .story-label {
+        font-size: 10px;
+      }
+
+      .story-play {
+        width: 25px;
+        height: 25px;
+        font-size: 9px;
+      }
+    }
+
     @media (max-width: 380px) {
-      .hero-title {
-        font-size: 40px;
+      .hero-help {
+        min-height: 54px;
+        padding: 0 22px;
+        font-size: 13px;
+        letter-spacing: 0.17em;
       }
 
       .question-card {
@@ -663,21 +679,8 @@
 
     <div class="hero-content">
 
-      <p class="eyebrow">
-        Your local connection
-      </p>
-
-      <h1 class="hero-title">
-        Salvador made easier.
-      </h1>
-
-      <p class="hero-subtitle">
-        Local information, trusted recommendations and real experiences.
-      </p>
-
-      <a href="#questions" class="hero-action">
+      <a href="#questions" class="hero-help">
         How can we help?
-        <span aria-hidden="true">↓</span>
       </a>
 
     </div>
@@ -692,13 +695,9 @@
 
       <div class="stories-header">
 
-        <div>
-          <p class="eyebrow">From Salvador</p>
-
-          <h2 class="stories-title">
-            See the city
-          </h2>
-        </div>
+        <h2 class="stories-title">
+          To Know Salvador Experience
+        </h2>
 
         <p class="stories-note">
           Tap to watch
@@ -711,9 +710,10 @@
         <a
           href="/public/b36a0e5b002c4f769caa2dff38a529f5.mp4"
           class="story"
-          aria-label="Watch Salvador story"
+          aria-label="Watch Chaka's experience"
         >
           <video
+            src="/public/b36a0e5b002c4f769caa2dff38a529f5.mp4"
             poster="/public/IMG_5128.jpeg"
             muted
             playsinline
@@ -721,7 +721,7 @@
           ></video>
 
           <div class="story-overlay">
-            <span class="story-label">Salvador</span>
+            <span class="story-label">Chaka</span>
             <span class="story-play">▶</span>
           </div>
         </a>
@@ -729,7 +729,7 @@
         <a
           href="/public/7779b4e36b4e4ef39963ff4a349e4d2c.mp4"
           class="story"
-          aria-label="Watch culture story"
+          aria-label="Watch Nekiah's experience"
         >
           <video
             src="/public/7779b4e36b4e4ef39963ff4a349e4d2c.mp4"
@@ -740,7 +740,7 @@
           ></video>
 
           <div class="story-overlay">
-            <span class="story-label">Culture</span>
+            <span class="story-label">Nekiah</span>
             <span class="story-play">▶</span>
           </div>
         </a>
@@ -748,7 +748,7 @@
         <a
           href="/public/converted_video.mp4"
           class="story"
-          aria-label="Watch local experiences story"
+          aria-label="Watch DC's experience"
         >
           <video
             src="/public/converted_video.mp4"
@@ -759,7 +759,7 @@
           ></video>
 
           <div class="story-overlay">
-            <span class="story-label">Local life</span>
+            <span class="story-label">DC</span>
             <span class="story-play">▶</span>
           </div>
         </a>
