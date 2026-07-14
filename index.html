@@ -12,7 +12,7 @@
 
   <meta
     name="description"
-    content="Local information, trusted recommendations and cultural experiences in Salvador, Bahia."
+    content="Local information, trusted recommendations, premium support and cultural experiences in Salvador, Bahia."
   />
 
   <meta property="og:title" content="To Know Salvador" />
@@ -123,13 +123,6 @@
       letter-spacing: -0.025em;
     }
 
-    .section-copy {
-      margin: 16px 0 0;
-      color: rgba(255, 255, 255, 0.68);
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
     /* HERO */
 
     .hero {
@@ -227,10 +220,76 @@
       background: rgba(0, 0, 0, 0.5);
     }
 
+    /* LANGUAGE AREA */
+
+    .language-section {
+      padding: 25px 0 8px;
+      background: var(--black);
+      text-align: center;
+    }
+
+    .language-label {
+      margin: 0 0 12px;
+      color: rgba(255, 255, 255, 0.42);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .language-switcher {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .language-button {
+      min-height: 38px;
+      padding: 0 15px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.55);
+      font-family: "DM Sans", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        color 180ms ease,
+        background 180ms ease,
+        transform 180ms ease;
+    }
+
+    .language-button:hover {
+      color: var(--white);
+    }
+
+    .language-button.active {
+      background: var(--gold);
+      color: #111111;
+      box-shadow: 0 6px 18px rgba(200, 168, 90, 0.2);
+    }
+
+    .language-button:active {
+      transform: scale(0.97);
+    }
+
+    .language-button:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 3px;
+    }
+
     /* STORIES */
 
     .stories-section {
-      padding: 28px 0 42px;
+      padding: 28px 0 48px;
       background: var(--black);
     }
 
@@ -392,8 +451,7 @@
       border: 1px solid rgba(17, 17, 17, 0.1);
       border-radius: 18px;
       background: rgba(255, 255, 255, 0.72);
-      box-shadow:
-        0 4px 18px rgba(34, 27, 14, 0.035);
+      box-shadow: 0 4px 18px rgba(34, 27, 14, 0.035);
       transition:
         transform 180ms ease,
         background 180ms ease,
@@ -405,8 +463,7 @@
       transform: translateY(-2px);
       border-color: rgba(139, 109, 41, 0.34);
       background: #ffffff;
-      box-shadow:
-        0 12px 30px rgba(34, 27, 14, 0.08);
+      box-shadow: 0 12px 30px rgba(34, 27, 14, 0.08);
     }
 
     .question-icon {
@@ -444,6 +501,129 @@
     .question-card:hover .question-arrow {
       transform: translateX(2px);
       background: #8b6d29;
+    }
+
+    /* PREMIUM */
+
+    .premium-section {
+      padding: 80px 0;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(200, 168, 90, 0.16),
+          transparent 34%
+        ),
+        #0a0a0a;
+    }
+
+    .premium-card {
+      position: relative;
+      overflow: hidden;
+      padding: 36px 22px 24px;
+      border: 1px solid rgba(200, 168, 90, 0.35);
+      border-radius: 30px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.015)
+        );
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.28);
+    }
+
+    .premium-card::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: rgba(200, 168, 90, 0.12);
+      filter: blur(10px);
+    }
+
+    .premium-intro {
+      position: relative;
+      z-index: 2;
+      max-width: 560px;
+      margin-bottom: 26px;
+    }
+
+    .premium-title {
+      margin: 10px 0 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 9vw, 50px);
+      line-height: 1.03;
+      letter-spacing: -0.025em;
+    }
+
+    .premium-copy {
+      margin: 16px 0 0;
+      color: rgba(255, 255, 255, 0.64);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .premium-list {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .premium-question {
+      display: grid;
+      grid-template-columns: 42px 1fr 30px;
+      align-items: center;
+      gap: 13px;
+      min-height: 74px;
+      padding: 13px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.045);
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+    }
+
+    .premium-question:hover {
+      transform: translateY(-2px);
+      border-color: rgba(200, 168, 90, 0.5);
+      background: rgba(255, 255, 255, 0.075);
+    }
+
+    .premium-icon {
+      display: flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 13px;
+      background: rgba(200, 168, 90, 0.16);
+      color: var(--gold-light);
+      font-size: 19px;
+    }
+
+    .premium-text {
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 14px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+
+    .premium-arrow {
+      display: flex;
+      width: 30px;
+      height: 30px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #111111;
+      font-size: 14px;
     }
 
     /* HISTORY */
@@ -560,58 +740,6 @@
       line-height: 1.7;
     }
 
-    /* LANGUAGE SWITCHER */
-
-    .language-switcher {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      margin-top: 24px;
-      padding: 5px;
-      border: 1px solid rgba(255, 255, 255, 0.13);
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
-
-    .language-button {
-      min-height: 38px;
-      padding: 0 15px;
-      border: 0;
-      border-radius: 999px;
-      background: transparent;
-      color: rgba(255, 255, 255, 0.55);
-      font-family: "DM Sans", sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      transition:
-        color 180ms ease,
-        background 180ms ease,
-        transform 180ms ease;
-    }
-
-    .language-button:hover {
-      color: var(--white);
-    }
-
-    .language-button.active {
-      background: var(--gold);
-      color: #111111;
-      box-shadow: 0 6px 18px rgba(200, 168, 90, 0.2);
-    }
-
-    .language-button:active {
-      transform: scale(0.97);
-    }
-
-    .language-button:focus-visible {
-      outline: 2px solid var(--gold-light);
-      outline-offset: 3px;
-    }
-
     /* FOOTER */
 
     footer {
@@ -644,7 +772,8 @@
     }
 
     @media (min-width: 620px) {
-      .question-list {
+      .question-list,
+      .premium-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -655,6 +784,10 @@
 
       .story {
         aspect-ratio: 0.82;
+      }
+
+      .premium-card {
+        padding: 44px 34px 32px;
       }
     }
 
@@ -690,18 +823,21 @@
         letter-spacing: 0.17em;
       }
 
-      .question-card {
+      .question-card,
+      .premium-question {
         grid-template-columns: 38px 1fr 28px;
         gap: 10px;
         padding: 12px;
       }
 
-      .question-icon {
+      .question-icon,
+      .premium-icon {
         width: 38px;
         height: 38px;
       }
 
-      .question-text {
+      .question-text,
+      .premium-text {
         font-size: 14px;
       }
 
@@ -727,14 +863,61 @@
     </div>
 
     <div class="hero-content">
-
       <a href="#questions" class="hero-help">
         How can we help?
       </a>
-
     </div>
 
   </header>
+
+
+  <!-- LANGUAGES -->
+  <section class="language-section">
+
+    <div class="container">
+
+      <p class="language-label">
+        Select your language
+      </p>
+
+      <div
+        class="language-switcher"
+        role="group"
+        aria-label="Select language"
+      >
+
+        <button
+          type="button"
+          class="language-button active"
+          data-language="en"
+          aria-pressed="true"
+        >
+          English
+        </button>
+
+        <button
+          type="button"
+          class="language-button"
+          data-language="pt"
+          aria-pressed="false"
+        >
+          Português
+        </button>
+
+        <button
+          type="button"
+          class="language-button"
+          data-language="es"
+          aria-pressed="false"
+        >
+          Español
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
 
 
   <!-- STORIES -->
@@ -820,7 +1003,7 @@
   </section>
 
 
-  <!-- QUESTIONS -->
+  <!-- MAIN QUESTIONS -->
   <main
     id="questions"
     class="questions-section"
@@ -857,70 +1040,60 @@
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="Is the neighborhood I'm staying in safe?"
+            data-question-key="safeNeighborhood"
           >
             <span class="question-icon">📍</span>
-
             <span class="question-text">
               Is the neighborhood I'm staying in safe?
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="Which museum should I visit?"
+            data-question-key="museum"
           >
             <span class="question-icon">🏛️</span>
-
             <span class="question-text">
               Which museum should I visit?
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="I need quick help."
+            data-question-key="quickHelp"
           >
             <span class="question-icon">⚡</span>
-
             <span class="question-text">
               I need quick help.
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="Where should I eat?"
+            data-question-key="eat"
           >
             <span class="question-icon">🍽️</span>
-
             <span class="question-text">
               Where should I eat?
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="What can I do tonight?"
+            data-question-key="tonight"
           >
             <span class="question-icon">🌙</span>
-
             <span class="question-text">
               What can I do tonight?
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
@@ -941,42 +1114,36 @@
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="I want to go to a beach club."
+            data-question-key="beachClub"
           >
             <span class="question-icon">🌴</span>
-
             <span class="question-text">
               I want to go to a beach club.
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="Is Praia do Forte worth visiting?"
+            data-question-key="praiaDoForte"
           >
             <span class="question-icon">☀️</span>
-
             <span class="question-text">
               Is Praia do Forte worth visiting?
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="I want to visit the islands."
+            data-question-key="islands"
           >
             <span class="question-icon">🏝️</span>
-
             <span class="question-text">
               I want to visit the islands.
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
@@ -997,84 +1164,72 @@
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="Where can I do my hair and makeup?"
+            data-question-key="hairMakeup"
           >
             <span class="question-icon">✨</span>
-
             <span class="question-text">
               Where can I do my hair and makeup?
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="I need to get my nails done."
+            data-question-key="nails"
           >
             <span class="question-icon">💅</span>
-
             <span class="question-text">
               I need to get my nails done.
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="I need a barber."
+            data-question-key="barber"
           >
             <span class="question-icon">💈</span>
-
             <span class="question-text">
               I need a barber.
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="I want to take care of my hair."
+            data-question-key="hairCare"
           >
             <span class="question-icon">💇</span>
-
             <span class="question-text">
               I want to take care of my hair.
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="I need to get ready today."
+            data-question-key="getReady"
           >
             <span class="question-icon">👗</span>
-
             <span class="question-text">
               I need to get ready today.
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
           <a
             href="#"
             class="whatsapp-question question-card"
-            data-message="Where can I get braids?"
+            data-question-key="braids"
           >
             <span class="question-icon">🪮</span>
-
             <span class="question-text">
               Where can I get braids?
             </span>
-
             <span class="question-arrow">→</span>
           </a>
 
@@ -1087,6 +1242,125 @@
   </main>
 
 
+  <!-- PREMIUM SUPPORT -->
+  <section class="premium-section">
+
+    <div class="container">
+
+      <article class="premium-card">
+
+        <div class="premium-intro">
+
+          <p class="eyebrow premium-eyebrow">
+            Premium Support
+          </p>
+
+          <h2 class="premium-title">
+            Local support for agencies and private groups.
+          </h2>
+
+          <p class="premium-copy">
+            For international agencies, companies, institutions and private
+            groups that need trusted local coordination in Salvador.
+          </p>
+
+        </div>
+
+        <div class="premium-list">
+
+          <a
+            href="#"
+            class="whatsapp-question premium-question"
+            data-premium-key="clients"
+          >
+            <span class="premium-icon">🌍</span>
+
+            <span class="premium-text">
+              I need local support for my clients in Salvador.
+            </span>
+
+            <span class="premium-arrow">→</span>
+          </a>
+
+          <a
+            href="#"
+            class="whatsapp-question premium-question"
+            data-premium-key="logistics"
+          >
+            <span class="premium-icon">🚐</span>
+
+            <span class="premium-text">
+              I need help organizing transportation, guides and reservations.
+            </span>
+
+            <span class="premium-arrow">→</span>
+          </a>
+
+          <a
+            href="#"
+            class="whatsapp-question premium-question"
+            data-premium-key="itinerary"
+          >
+            <span class="premium-icon">🗺️</span>
+
+            <span class="premium-text">
+              I need a customized itinerary for my clients.
+            </span>
+
+            <span class="premium-arrow">→</span>
+          </a>
+
+          <a
+            href="#"
+            class="whatsapp-question premium-question"
+            data-premium-key="coordination"
+          >
+            <span class="premium-icon">🤝</span>
+
+            <span class="premium-text">
+              I need on-the-ground coordination during the trip.
+            </span>
+
+            <span class="premium-arrow">→</span>
+          </a>
+
+          <a
+            href="#"
+            class="whatsapp-question premium-question"
+            data-premium-key="lastMinute"
+          >
+            <span class="premium-icon">⚡</span>
+
+            <span class="premium-text">
+              I need support for a last-minute change.
+            </span>
+
+            <span class="premium-arrow">→</span>
+          </a>
+
+          <a
+            href="#"
+            class="whatsapp-question premium-question"
+            data-premium-key="quote"
+          >
+            <span class="premium-icon">📋</span>
+
+            <span class="premium-text">
+              I need a quote for a private group.
+            </span>
+
+            <span class="premium-arrow">→</span>
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
   <!-- HISTORY -->
   <section class="history-section">
 
@@ -1096,7 +1370,7 @@
 
         <div class="history-content">
 
-          <p class="eyebrow">
+          <p class="eyebrow history-eyebrow">
             Walk through Salvador
           </p>
 
@@ -1112,9 +1386,9 @@
           <a
             href="#"
             class="whatsapp-question history-button"
-            data-message="I want to book a Historic Salvador Walking Tour."
+            data-history-link
           >
-            <span>
+            <span class="history-button-text">
               Walk with a Local
             </span>
 
@@ -1137,11 +1411,11 @@
 
     <div class="container">
 
-      <p class="eyebrow">
+      <p class="eyebrow connection-eyebrow">
         Curated by Adriano Marques
       </p>
 
-      <h2 class="section-title">
+      <h2 class="section-title connection-title">
         Your local connection in Salvador.
       </h2>
 
@@ -1149,39 +1423,6 @@
         Practical information, local recommendations and trusted people to
         make your experience in the city easier.
       </p>
-
-      <div
-        class="language-switcher"
-        role="group"
-        aria-label="Select language"
-      >
-        <button
-          type="button"
-          class="language-button active"
-          data-language="en"
-          aria-pressed="true"
-        >
-          English
-        </button>
-
-        <button
-          type="button"
-          class="language-button"
-          data-language="pt"
-          aria-pressed="false"
-        >
-          Português
-        </button>
-
-        <button
-          type="button"
-          class="language-button"
-          data-language="es"
-          aria-pressed="false"
-        >
-          Español
-        </button>
-      </div>
 
     </div>
 
@@ -1215,317 +1456,471 @@
 
     const translations = {
       en: {
-        documentTitle: "To Know Salvador | Local Help in Salvador",
+        documentTitle:
+          "To Know Salvador | Local Help in Salvador",
 
         metaDescription:
-          "Local information, trusted recommendations and cultural experiences in Salvador, Bahia.",
+          "Local information, trusted recommendations, premium support and cultural experiences in Salvador, Bahia.",
 
-        heroHelp: "How can we help?",
+        languageLabel:
+          "Select your language",
 
-        experiencesTitle: "To Know Salvador Experience",
-        tapToWatch: "Tap to watch",
+        languageSelectorLabel:
+          "Select language",
 
-        questionsEyebrow: "Choose a question",
-        questionsTitle: "What do you need today?",
+        heroHelp:
+          "How can we help?",
+
+        experiencesTitle:
+          "To Know Salvador Experience",
+
+        tapToWatch:
+          "Tap to watch",
+
+        questionsEyebrow:
+          "Choose a question",
+
+        questionsTitle:
+          "What do you need today?",
+
         questionsDescription:
           "Tap an option. WhatsApp opens with the question already written.",
 
-        groupInformation: "Information",
-        groupBeaches: "Beaches and places",
-        groupPersonalCare: "Personal care",
+        groupInformation:
+          "Information",
 
-        questions: [
-          {
-            text: "Is the neighborhood I'm staying in safe?",
-            message: "Is the neighborhood I'm staying in safe?"
-          },
-          {
-            text: "Which museum should I visit?",
-            message: "Which museum should I visit?"
-          },
-          {
-            text: "I need quick help.",
-            message: "I need quick help."
-          },
-          {
-            text: "Where should I eat?",
-            message: "Where should I eat?"
-          },
-          {
-            text: "What can I do tonight?",
-            message: "What can I do tonight?"
-          },
-          {
-            text: "I want to go to a beach club.",
-            message: "I want to go to a beach club."
-          },
-          {
-            text: "Is Praia do Forte worth visiting?",
-            message: "Is Praia do Forte worth visiting?"
-          },
-          {
-            text: "I want to visit the islands.",
-            message: "I want to visit the islands."
-          },
-          {
-            text: "Where can I do my hair and makeup?",
-            message: "Where can I do my hair and makeup?"
-          },
-          {
-            text: "I need to get my nails done.",
-            message: "I need to get my nails done."
-          },
-          {
-            text: "I need a barber.",
-            message: "I need a barber."
-          },
-          {
-            text: "I want to take care of my hair.",
-            message: "I want to take care of my hair."
-          },
-          {
-            text: "I need to get ready today.",
-            message: "I need to get ready today."
-          },
-          {
-            text: "Where can I get braids?",
-            message: "Where can I get braids?"
-          }
-        ],
+        groupBeaches:
+          "Beaches and places",
 
-        historyEyebrow: "Walk through Salvador",
-        historyTitle: "I want to discover the history of the city.",
+        groupPersonalCare:
+          "Personal care",
+
+        questions: {
+          safeNeighborhood:
+            "Is the neighborhood I'm staying in safe?",
+
+          museum:
+            "Which museum should I visit?",
+
+          quickHelp:
+            "I need quick help.",
+
+          eat:
+            "Where should I eat?",
+
+          tonight:
+            "What can I do tonight?",
+
+          beachClub:
+            "I want to go to a beach club.",
+
+          praiaDoForte:
+            "Is Praia do Forte worth visiting?",
+
+          islands:
+            "I want to visit the islands.",
+
+          hairMakeup:
+            "Where can I do my hair and makeup?",
+
+          nails:
+            "I need to get my nails done.",
+
+          barber:
+            "I need a barber.",
+
+          hairCare:
+            "I want to take care of my hair.",
+
+          getReady:
+            "I need to get ready today.",
+
+          braids:
+            "Where can I get braids?"
+        },
+
+        premiumEyebrow:
+          "Premium Support",
+
+        premiumTitle:
+          "Local support for agencies and private groups.",
+
+        premiumCopy:
+          "For international agencies, companies, institutions and private groups that need trusted local coordination in Salvador.",
+
+        premium: {
+          clients:
+            "I need local support for my clients in Salvador.",
+
+          logistics:
+            "I need help organizing transportation, guides and reservations.",
+
+          itinerary:
+            "I need a customized itinerary for my clients.",
+
+          coordination:
+            "I need on-the-ground coordination during the trip.",
+
+          lastMinute:
+            "I need support for a last-minute change.",
+
+          quote:
+            "I need a quote for a private group."
+        },
+
+        historyEyebrow:
+          "Walk through Salvador",
+
+        historyTitle:
+          "I want to discover the history of the city.",
+
         historyCopy:
           "Explore Salvador with a local guide and understand its history, culture and Afro-Brazilian heritage.",
-        historyButton: "Walk with a Local",
+
+        historyButton:
+          "Walk with a Local",
+
         historyMessage:
           "I want to book a Historic Salvador Walking Tour.",
 
-        connectionEyebrow: "Curated by Adriano Marques",
-        connectionTitle: "Your local connection in Salvador.",
+        connectionEyebrow:
+          "Curated by Adriano Marques",
+
+        connectionTitle:
+          "Your local connection in Salvador.",
+
         connectionCopy:
           "Practical information, local recommendations and trusted people to make your experience in the city easier.",
 
-        languageSelectorLabel: "Select language",
-        footerLocation: "Salvador, Bahia, Brazil"
+        footerLocation:
+          "Salvador, Bahia, Brazil"
       },
 
       pt: {
-        documentTitle: "To Know Salvador | Ajuda Local em Salvador",
+        documentTitle:
+          "To Know Salvador | Ajuda Local em Salvador",
 
         metaDescription:
-          "Informações locais, recomendações de confiança e experiências culturais em Salvador, Bahia.",
+          "Informações locais, recomendações de confiança, suporte premium e experiências culturais em Salvador, Bahia.",
 
-        heroHelp: "Como podemos ajudar?",
+        languageLabel:
+          "Escolha seu idioma",
 
-        experiencesTitle: "Experiências To Know Salvador",
-        tapToWatch: "Toque para assistir",
+        languageSelectorLabel:
+          "Selecionar idioma",
 
-        questionsEyebrow: "Escolha uma pergunta",
-        questionsTitle: "O que você precisa hoje?",
+        heroHelp:
+          "Como podemos ajudar?",
+
+        experiencesTitle:
+          "Experiências To Know Salvador",
+
+        tapToWatch:
+          "Toque para assistir",
+
+        questionsEyebrow:
+          "Escolha uma pergunta",
+
+        questionsTitle:
+          "O que você precisa hoje?",
+
         questionsDescription:
           "Toque em uma opção. O WhatsApp abrirá com a pergunta já escrita.",
 
-        groupInformation: "Informações",
-        groupBeaches: "Praias e lugares",
-        groupPersonalCare: "Cuidados pessoais",
+        groupInformation:
+          "Informações",
 
-        questions: [
-          {
-            text: "O bairro onde estou hospedado é seguro?",
-            message: "O bairro onde estou hospedado é seguro?"
-          },
-          {
-            text: "Qual museu devo visitar?",
-            message: "Qual museu devo visitar?"
-          },
-          {
-            text: "Preciso de ajuda rápida.",
-            message: "Preciso de ajuda rápida."
-          },
-          {
-            text: "Onde devo comer?",
-            message: "Onde devo comer?"
-          },
-          {
-            text: "O que posso fazer hoje à noite?",
-            message: "O que posso fazer hoje à noite?"
-          },
-          {
-            text: "Quero ir a um beach club.",
-            message: "Quero ir a um beach club."
-          },
-          {
-            text: "Vale a pena visitar a Praia do Forte?",
-            message: "Vale a pena visitar a Praia do Forte?"
-          },
-          {
-            text: "Quero visitar as ilhas.",
-            message: "Quero visitar as ilhas."
-          },
-          {
-            text: "Onde posso fazer cabelo e maquiagem?",
-            message: "Onde posso fazer cabelo e maquiagem?"
-          },
-          {
-            text: "Preciso fazer as unhas.",
-            message: "Preciso fazer as unhas."
-          },
-          {
-            text: "Preciso de um barbeiro.",
-            message: "Preciso de um barbeiro."
-          },
-          {
-            text: "Quero cuidar do meu cabelo.",
-            message: "Quero cuidar do meu cabelo."
-          },
-          {
-            text: "Preciso me arrumar hoje.",
-            message: "Preciso me arrumar hoje."
-          },
-          {
-            text: "Onde posso fazer tranças?",
-            message: "Onde posso fazer tranças?"
-          }
-        ],
+        groupBeaches:
+          "Praias e lugares",
 
-        historyEyebrow: "Caminhe por Salvador",
-        historyTitle: "Quero conhecer a história da cidade.",
+        groupPersonalCare:
+          "Cuidados pessoais",
+
+        questions: {
+          safeNeighborhood:
+            "O bairro onde estou hospedado é seguro?",
+
+          museum:
+            "Qual museu devo visitar?",
+
+          quickHelp:
+            "Preciso de ajuda rápida.",
+
+          eat:
+            "Onde devo comer?",
+
+          tonight:
+            "O que posso fazer hoje à noite?",
+
+          beachClub:
+            "Quero ir a um beach club.",
+
+          praiaDoForte:
+            "Vale a pena visitar a Praia do Forte?",
+
+          islands:
+            "Quero visitar as ilhas.",
+
+          hairMakeup:
+            "Onde posso fazer cabelo e maquiagem?",
+
+          nails:
+            "Preciso fazer as unhas.",
+
+          barber:
+            "Preciso de um barbeiro.",
+
+          hairCare:
+            "Quero cuidar do meu cabelo.",
+
+          getReady:
+            "Preciso me arrumar hoje.",
+
+          braids:
+            "Onde posso fazer tranças?"
+        },
+
+        premiumEyebrow:
+          "Suporte Premium",
+
+        premiumTitle:
+          "Suporte local para agências e grupos privados.",
+
+        premiumCopy:
+          "Para agências internacionais, empresas, instituições e grupos privados que precisam de coordenação local de confiança em Salvador.",
+
+        premium: {
+          clients:
+            "Preciso de suporte local para meus clientes em Salvador.",
+
+          logistics:
+            "Preciso organizar transporte, guias e reservas.",
+
+          itinerary:
+            "Preciso de um roteiro personalizado para meus clientes.",
+
+          coordination:
+            "Preciso de coordenação local durante a viagem.",
+
+          lastMinute:
+            "Preciso de suporte para uma mudança de última hora.",
+
+          quote:
+            "Preciso de uma cotação para um grupo privado."
+        },
+
+        historyEyebrow:
+          "Caminhe por Salvador",
+
+        historyTitle:
+          "Quero conhecer a história da cidade.",
+
         historyCopy:
           "Explore Salvador com um guia local e conheça sua história, cultura e herança afro-brasileira.",
-        historyButton: "Caminhe com um guia local",
+
+        historyButton:
+          "Caminhe com um guia local",
+
         historyMessage:
           "Quero reservar um passeio histórico a pé por Salvador.",
 
-        connectionEyebrow: "Curadoria de Adriano Marques",
-        connectionTitle: "Sua conexão local em Salvador.",
+        connectionEyebrow:
+          "Curadoria de Adriano Marques",
+
+        connectionTitle:
+          "Sua conexão local em Salvador.",
+
         connectionCopy:
           "Informações práticas, recomendações locais e pessoas de confiança para facilitar sua experiência na cidade.",
 
-        languageSelectorLabel: "Selecionar idioma",
-        footerLocation: "Salvador, Bahia, Brasil"
+        footerLocation:
+          "Salvador, Bahia, Brasil"
       },
 
       es: {
-        documentTitle: "To Know Salvador | Ayuda Local en Salvador",
+        documentTitle:
+          "To Know Salvador | Ayuda Local en Salvador",
 
         metaDescription:
-          "Información local, recomendaciones de confianza y experiencias culturales en Salvador, Bahía.",
+          "Información local, recomendaciones de confianza, soporte premium y experiencias culturales en Salvador, Bahía.",
 
-        heroHelp: "¿Cómo podemos ayudarte?",
+        languageLabel:
+          "Elige tu idioma",
 
-        experiencesTitle: "Experiencias To Know Salvador",
-        tapToWatch: "Toca para ver",
+        languageSelectorLabel:
+          "Seleccionar idioma",
 
-        questionsEyebrow: "Elige una pregunta",
-        questionsTitle: "¿Qué necesitas hoy?",
+        heroHelp:
+          "¿Cómo podemos ayudarte?",
+
+        experiencesTitle:
+          "Experiencias To Know Salvador",
+
+        tapToWatch:
+          "Toca para ver",
+
+        questionsEyebrow:
+          "Elige una pregunta",
+
+        questionsTitle:
+          "¿Qué necesitas hoy?",
+
         questionsDescription:
           "Toca una opción. WhatsApp se abrirá con la pregunta ya escrita.",
 
-        groupInformation: "Información",
-        groupBeaches: "Playas y lugares",
-        groupPersonalCare: "Cuidado personal",
+        groupInformation:
+          "Información",
 
-        questions: [
-          {
-            text: "¿Es seguro el barrio donde me hospedo?",
-            message: "¿Es seguro el barrio donde me hospedo?"
-          },
-          {
-            text: "¿Qué museo debería visitar?",
-            message: "¿Qué museo debería visitar?"
-          },
-          {
-            text: "Necesito ayuda rápida.",
-            message: "Necesito ayuda rápida."
-          },
-          {
-            text: "¿Dónde debería comer?",
-            message: "¿Dónde debería comer?"
-          },
-          {
-            text: "¿Qué puedo hacer esta noche?",
-            message: "¿Qué puedo hacer esta noche?"
-          },
-          {
-            text: "Quiero ir a un beach club.",
-            message: "Quiero ir a un beach club."
-          },
-          {
-            text: "¿Vale la pena visitar Praia do Forte?",
-            message: "¿Vale la pena visitar Praia do Forte?"
-          },
-          {
-            text: "Quiero visitar las islas.",
-            message: "Quiero visitar las islas."
-          },
-          {
-            text: "¿Dónde puedo arreglarme el cabello y maquillarme?",
-            message: "¿Dónde puedo arreglarme el cabello y maquillarme?"
-          },
-          {
-            text: "Necesito hacerme las uñas.",
-            message: "Necesito hacerme las uñas."
-          },
-          {
-            text: "Necesito un barbero.",
-            message: "Necesito un barbero."
-          },
-          {
-            text: "Quiero cuidar mi cabello.",
-            message: "Quiero cuidar mi cabello."
-          },
-          {
-            text: "Necesito arreglarme hoy.",
-            message: "Necesito arreglarme hoy."
-          },
-          {
-            text: "¿Dónde puedo hacerme trenzas?",
-            message: "¿Dónde puedo hacerme trenzas?"
-          }
-        ],
+        groupBeaches:
+          "Playas y lugares",
 
-        historyEyebrow: "Camina por Salvador",
-        historyTitle: "Quiero conocer la historia de la ciudad.",
+        groupPersonalCare:
+          "Cuidado personal",
+
+        questions: {
+          safeNeighborhood:
+            "¿Es seguro el barrio donde me hospedo?",
+
+          museum:
+            "¿Qué museo debería visitar?",
+
+          quickHelp:
+            "Necesito ayuda rápida.",
+
+          eat:
+            "¿Dónde debería comer?",
+
+          tonight:
+            "¿Qué puedo hacer esta noche?",
+
+          beachClub:
+            "Quiero ir a un beach club.",
+
+          praiaDoForte:
+            "¿Vale la pena visitar Praia do Forte?",
+
+          islands:
+            "Quiero visitar las islas.",
+
+          hairMakeup:
+            "¿Dónde puedo arreglarme el cabello y maquillarme?",
+
+          nails:
+            "Necesito hacerme las uñas.",
+
+          barber:
+            "Necesito un barbero.",
+
+          hairCare:
+            "Quiero cuidar mi cabello.",
+
+          getReady:
+            "Necesito arreglarme hoy.",
+
+          braids:
+            "¿Dónde puedo hacerme trenzas?"
+        },
+
+        premiumEyebrow:
+          "Soporte Premium",
+
+        premiumTitle:
+          "Soporte local para agencias y grupos privados.",
+
+        premiumCopy:
+          "Para agencias internacionales, empresas, instituciones y grupos privados que necesitan coordinación local de confianza en Salvador.",
+
+        premium: {
+          clients:
+            "Necesito soporte local para mis clientes en Salvador.",
+
+          logistics:
+            "Necesito organizar transporte, guías y reservas.",
+
+          itinerary:
+            "Necesito un itinerario personalizado para mis clientes.",
+
+          coordination:
+            "Necesito coordinación local durante el viaje.",
+
+          lastMinute:
+            "Necesito soporte para un cambio de última hora.",
+
+          quote:
+            "Necesito una cotización para un grupo privado."
+        },
+
+        historyEyebrow:
+          "Camina por Salvador",
+
+        historyTitle:
+          "Quiero conocer la historia de la ciudad.",
+
         historyCopy:
           "Explora Salvador con un guía local y conoce su historia, cultura y herencia afrobrasileña.",
-        historyButton: "Camina con un guía local",
+
+        historyButton:
+          "Camina con un guía local",
+
         historyMessage:
           "Quiero reservar un recorrido histórico a pie por Salvador.",
 
-        connectionEyebrow: "Curado por Adriano Marques",
-        connectionTitle: "Tu conexión local en Salvador.",
+        connectionEyebrow:
+          "Curado por Adriano Marques",
+
+        connectionTitle:
+          "Tu conexión local en Salvador.",
+
         connectionCopy:
           "Información práctica, recomendaciones locales y personas de confianza para facilitar tu experiencia en la ciudad.",
 
-        languageSelectorLabel: "Seleccionar idioma",
-        footerLocation: "Salvador, Bahía, Brasil"
+        footerLocation:
+          "Salvador, Bahía, Brasil"
       }
     };
 
     const languageButtons =
       document.querySelectorAll(".language-button");
 
-    const questionCards =
-      document.querySelectorAll(".question-card");
+    const languageSwitcher =
+      document.querySelector(".language-switcher");
+
+    const languageLabel =
+      document.querySelector(".language-label");
 
     const groupLabels =
       document.querySelectorAll(".group-label");
 
-    const languageSwitcher =
-      document.querySelector(".language-switcher");
+    const standardQuestionLinks =
+      document.querySelectorAll("[data-question-key]");
 
-    function updateWhatsAppLink(element, message) {
-      element.dataset.message = message;
+    const premiumQuestionLinks =
+      document.querySelectorAll("[data-premium-key]");
 
-      element.href =
+    const historyLink =
+      document.querySelector("[data-history-link]");
+
+    function createWhatsAppLink(message) {
+      return (
         "https://wa.me/" +
         whatsappNumber +
         "?text=" +
-        encodeURIComponent(message);
+        encodeURIComponent(message)
+      );
+    }
 
+    function updateWhatsAppElement(element, message) {
+      element.href = createWhatsAppLink(message);
       element.target = "_blank";
       element.rel = "noopener noreferrer";
+    }
+
+    function setText(selector, value) {
+      const element = document.querySelector(selector);
+
+      if (element) {
+        element.textContent = value;
+      }
     }
 
     function changeLanguage(language) {
@@ -1538,9 +1933,8 @@
       document.documentElement.lang = language;
       document.title = content.documentTitle;
 
-      const metaDescription = document.querySelector(
-        'meta[name="description"]'
-      );
+      const metaDescription =
+        document.querySelector('meta[name="description"]');
 
       if (metaDescription) {
         metaDescription.setAttribute(
@@ -1549,58 +1943,36 @@
         );
       }
 
-      const heroHelp =
-        document.querySelector(".hero-help");
-
-      if (heroHelp) {
-        heroHelp.textContent = content.heroHelp;
+      if (languageLabel) {
+        languageLabel.textContent =
+          content.languageLabel;
       }
 
-      const storiesTitle =
-        document.querySelector(".stories-title");
-
-      if (storiesTitle) {
-        storiesTitle.textContent =
-          content.experiencesTitle;
-      }
-
-      const storiesNote =
-        document.querySelector(".stories-note");
-
-      if (storiesNote) {
-        storiesNote.textContent =
-          content.tapToWatch;
-      }
-
-      const questionsEyebrow =
-        document.querySelector(
-          ".questions-intro .eyebrow"
+      if (languageSwitcher) {
+        languageSwitcher.setAttribute(
+          "aria-label",
+          content.languageSelectorLabel
         );
-
-      if (questionsEyebrow) {
-        questionsEyebrow.textContent =
-          content.questionsEyebrow;
       }
 
-      const questionsTitle =
-        document.querySelector(
-          ".questions-intro .section-title"
-        );
+      setText(".hero-help", content.heroHelp);
+      setText(".stories-title", content.experiencesTitle);
+      setText(".stories-note", content.tapToWatch);
 
-      if (questionsTitle) {
-        questionsTitle.textContent =
-          content.questionsTitle;
-      }
+      setText(
+        ".questions-intro .eyebrow",
+        content.questionsEyebrow
+      );
 
-      const questionsDescription =
-        document.querySelector(
-          ".questions-intro p:last-child"
-        );
+      setText(
+        ".questions-intro .section-title",
+        content.questionsTitle
+      );
 
-      if (questionsDescription) {
-        questionsDescription.textContent =
-          content.questionsDescription;
-      }
+      setText(
+        ".questions-intro p:last-child",
+        content.questionsDescription
+      );
 
       if (groupLabels[0]) {
         groupLabels[0].textContent =
@@ -1617,108 +1989,106 @@
           content.groupPersonalCare;
       }
 
-      questionCards.forEach((card, index) => {
-        const question = content.questions[index];
+      standardQuestionLinks.forEach((link) => {
+        const key = link.dataset.questionKey;
+        const translatedQuestion =
+          content.questions[key];
 
-        if (!question) {
+        if (!translatedQuestion) {
           return;
         }
 
-        const questionText =
-          card.querySelector(".question-text");
+        const text =
+          link.querySelector(".question-text");
 
-        if (questionText) {
-          questionText.textContent = question.text;
+        if (text) {
+          text.textContent = translatedQuestion;
         }
 
-        updateWhatsAppLink(
-          card,
-          question.message
+        updateWhatsAppElement(
+          link,
+          translatedQuestion
         );
       });
 
-      const historyEyebrow =
-        document.querySelector(
-          ".history-content .eyebrow"
-        );
+      setText(
+        ".premium-eyebrow",
+        content.premiumEyebrow
+      );
 
-      if (historyEyebrow) {
-        historyEyebrow.textContent =
-          content.historyEyebrow;
-      }
+      setText(
+        ".premium-title",
+        content.premiumTitle
+      );
 
-      const historyTitle =
-        document.querySelector(".history-title");
+      setText(
+        ".premium-copy",
+        content.premiumCopy
+      );
 
-      if (historyTitle) {
-        historyTitle.textContent =
-          content.historyTitle;
-      }
+      premiumQuestionLinks.forEach((link) => {
+        const key = link.dataset.premiumKey;
+        const translatedQuestion =
+          content.premium[key];
 
-      const historyCopy =
-        document.querySelector(".history-copy");
-
-      if (historyCopy) {
-        historyCopy.textContent =
-          content.historyCopy;
-      }
-
-      const historyButton =
-        document.querySelector(".history-button");
-
-      if (historyButton) {
-        const historyButtonText =
-          historyButton.querySelector(
-            "span:first-child"
-          );
-
-        if (historyButtonText) {
-          historyButtonText.textContent =
-            content.historyButton;
+        if (!translatedQuestion) {
+          return;
         }
 
-        updateWhatsAppLink(
-          historyButton,
+        const text =
+          link.querySelector(".premium-text");
+
+        if (text) {
+          text.textContent = translatedQuestion;
+        }
+
+        updateWhatsAppElement(
+          link,
+          translatedQuestion
+        );
+      });
+
+      setText(
+        ".history-eyebrow",
+        content.historyEyebrow
+      );
+
+      setText(
+        ".history-title",
+        content.historyTitle
+      );
+
+      setText(
+        ".history-copy",
+        content.historyCopy
+      );
+
+      setText(
+        ".history-button-text",
+        content.historyButton
+      );
+
+      if (historyLink) {
+        updateWhatsAppElement(
+          historyLink,
           content.historyMessage
         );
       }
 
-      const connectionEyebrow =
-        document.querySelector(
-          ".connection-section .eyebrow"
-        );
+      setText(
+        ".connection-eyebrow",
+        content.connectionEyebrow
+      );
 
-      if (connectionEyebrow) {
-        connectionEyebrow.textContent =
-          content.connectionEyebrow;
-      }
+      setText(
+        ".connection-title",
+        content.connectionTitle
+      );
 
-      const connectionTitle =
-        document.querySelector(
-          ".connection-section .section-title"
-        );
-
-      if (connectionTitle) {
-        connectionTitle.textContent =
-          content.connectionTitle;
-      }
-
-      const connectionCopy =
-        document.querySelector(
-          ".connection-copy"
-        );
-
-      if (connectionCopy) {
-        connectionCopy.textContent =
-          content.connectionCopy;
-      }
-
-      if (languageSwitcher) {
-        languageSwitcher.setAttribute(
-          "aria-label",
-          content.languageSelectorLabel
-        );
-      }
+      setText(
+        ".connection-copy",
+        content.connectionCopy
+      );
 
       const footerCopy =
         document.querySelector(".footer-copy");
