@@ -90,6 +90,10 @@
       -webkit-tap-highlight-color: transparent;
     }
 
+    button {
+      font: inherit;
+    }
+
     img,
     video {
       display: block;
@@ -194,9 +198,9 @@
 
     .hero-help {
       display: inline-flex;
+      min-height: 58px;
       align-items: center;
       justify-content: center;
-      min-height: 58px;
       padding: 0 27px;
       border: 1px solid rgba(255, 255, 255, 0.38);
       border-radius: 999px;
@@ -452,9 +456,9 @@
     .history-card {
       position: relative;
       overflow: hidden;
+      padding: 38px 26px 28px;
       border: 1px solid rgba(200, 168, 90, 0.28);
       border-radius: 30px;
-      padding: 38px 26px 28px;
       background:
         linear-gradient(
           140deg,
@@ -556,16 +560,56 @@
       line-height: 1.7;
     }
 
-    .languages {
+    /* LANGUAGE SWITCHER */
+
+    .language-switcher {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      gap: 6px;
       margin-top: 24px;
-      padding: 11px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      padding: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.13);
       border-radius: 999px;
-      color: rgba(255, 255, 255, 0.72);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .language-button {
+      min-height: 38px;
+      padding: 0 15px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: rgba(255, 255, 255, 0.55);
+      font-family: "DM Sans", sans-serif;
       font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        color 180ms ease,
+        background 180ms ease,
+        transform 180ms ease;
+    }
+
+    .language-button:hover {
+      color: var(--white);
+    }
+
+    .language-button.active {
+      background: var(--gold);
+      color: #111111;
+      box-shadow: 0 6px 18px rgba(200, 168, 90, 0.2);
+    }
+
+    .language-button:active {
+      transform: scale(0.97);
+    }
+
+    .language-button:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 3px;
     }
 
     /* FOOTER */
@@ -659,6 +703,11 @@
 
       .question-text {
         font-size: 14px;
+      }
+
+      .language-button {
+        padding: 0 11px;
+        font-size: 11px;
       }
     }
   </style>
@@ -1101,12 +1150,37 @@
         make your experience in the city easier.
       </p>
 
-      <div class="languages">
-        English
-        <span>·</span>
-        Portuguese
-        <span>·</span>
-        Spanish
+      <div
+        class="language-switcher"
+        role="group"
+        aria-label="Select language"
+      >
+        <button
+          type="button"
+          class="language-button active"
+          data-language="en"
+          aria-pressed="true"
+        >
+          English
+        </button>
+
+        <button
+          type="button"
+          class="language-button"
+          data-language="pt"
+          aria-pressed="false"
+        >
+          Português
+        </button>
+
+        <button
+          type="button"
+          class="language-button"
+          data-language="es"
+          aria-pressed="false"
+        >
+          Español
+        </button>
       </div>
 
     </div>
@@ -1139,25 +1213,577 @@
   <script>
     const whatsappNumber = "5571993719791";
 
-    const whatsappLinks =
-      document.querySelectorAll(".whatsapp-question");
+    const translations = {
+      en: {
+        documentTitle: "To Know Salvador | Local Help in Salvador",
 
-    whatsappLinks.forEach((link) => {
-      const message = link.dataset.message;
+        metaDescription:
+          "Local information, trusted recommendations and cultural experiences in Salvador, Bahia.",
 
-      if (!message) {
-        return;
+        heroHelp: "How can we help?",
+
+        experiencesTitle: "To Know Salvador Experience",
+        tapToWatch: "Tap to watch",
+
+        questionsEyebrow: "Choose a question",
+        questionsTitle: "What do you need today?",
+        questionsDescription:
+          "Tap an option. WhatsApp opens with the question already written.",
+
+        groupInformation: "Information",
+        groupBeaches: "Beaches and places",
+        groupPersonalCare: "Personal care",
+
+        questions: [
+          {
+            text: "Is the neighborhood I'm staying in safe?",
+            message: "Is the neighborhood I'm staying in safe?"
+          },
+          {
+            text: "Which museum should I visit?",
+            message: "Which museum should I visit?"
+          },
+          {
+            text: "I need quick help.",
+            message: "I need quick help."
+          },
+          {
+            text: "Where should I eat?",
+            message: "Where should I eat?"
+          },
+          {
+            text: "What can I do tonight?",
+            message: "What can I do tonight?"
+          },
+          {
+            text: "I want to go to a beach club.",
+            message: "I want to go to a beach club."
+          },
+          {
+            text: "Is Praia do Forte worth visiting?",
+            message: "Is Praia do Forte worth visiting?"
+          },
+          {
+            text: "I want to visit the islands.",
+            message: "I want to visit the islands."
+          },
+          {
+            text: "Where can I do my hair and makeup?",
+            message: "Where can I do my hair and makeup?"
+          },
+          {
+            text: "I need to get my nails done.",
+            message: "I need to get my nails done."
+          },
+          {
+            text: "I need a barber.",
+            message: "I need a barber."
+          },
+          {
+            text: "I want to take care of my hair.",
+            message: "I want to take care of my hair."
+          },
+          {
+            text: "I need to get ready today.",
+            message: "I need to get ready today."
+          },
+          {
+            text: "Where can I get braids?",
+            message: "Where can I get braids?"
+          }
+        ],
+
+        historyEyebrow: "Walk through Salvador",
+        historyTitle: "I want to discover the history of the city.",
+        historyCopy:
+          "Explore Salvador with a local guide and understand its history, culture and Afro-Brazilian heritage.",
+        historyButton: "Walk with a Local",
+        historyMessage:
+          "I want to book a Historic Salvador Walking Tour.",
+
+        connectionEyebrow: "Curated by Adriano Marques",
+        connectionTitle: "Your local connection in Salvador.",
+        connectionCopy:
+          "Practical information, local recommendations and trusted people to make your experience in the city easier.",
+
+        languageSelectorLabel: "Select language",
+        footerLocation: "Salvador, Bahia, Brazil"
+      },
+
+      pt: {
+        documentTitle: "To Know Salvador | Ajuda Local em Salvador",
+
+        metaDescription:
+          "Informações locais, recomendações de confiança e experiências culturais em Salvador, Bahia.",
+
+        heroHelp: "Como podemos ajudar?",
+
+        experiencesTitle: "Experiências To Know Salvador",
+        tapToWatch: "Toque para assistir",
+
+        questionsEyebrow: "Escolha uma pergunta",
+        questionsTitle: "O que você precisa hoje?",
+        questionsDescription:
+          "Toque em uma opção. O WhatsApp abrirá com a pergunta já escrita.",
+
+        groupInformation: "Informações",
+        groupBeaches: "Praias e lugares",
+        groupPersonalCare: "Cuidados pessoais",
+
+        questions: [
+          {
+            text: "O bairro onde estou hospedado é seguro?",
+            message: "O bairro onde estou hospedado é seguro?"
+          },
+          {
+            text: "Qual museu devo visitar?",
+            message: "Qual museu devo visitar?"
+          },
+          {
+            text: "Preciso de ajuda rápida.",
+            message: "Preciso de ajuda rápida."
+          },
+          {
+            text: "Onde devo comer?",
+            message: "Onde devo comer?"
+          },
+          {
+            text: "O que posso fazer hoje à noite?",
+            message: "O que posso fazer hoje à noite?"
+          },
+          {
+            text: "Quero ir a um beach club.",
+            message: "Quero ir a um beach club."
+          },
+          {
+            text: "Vale a pena visitar a Praia do Forte?",
+            message: "Vale a pena visitar a Praia do Forte?"
+          },
+          {
+            text: "Quero visitar as ilhas.",
+            message: "Quero visitar as ilhas."
+          },
+          {
+            text: "Onde posso fazer cabelo e maquiagem?",
+            message: "Onde posso fazer cabelo e maquiagem?"
+          },
+          {
+            text: "Preciso fazer as unhas.",
+            message: "Preciso fazer as unhas."
+          },
+          {
+            text: "Preciso de um barbeiro.",
+            message: "Preciso de um barbeiro."
+          },
+          {
+            text: "Quero cuidar do meu cabelo.",
+            message: "Quero cuidar do meu cabelo."
+          },
+          {
+            text: "Preciso me arrumar hoje.",
+            message: "Preciso me arrumar hoje."
+          },
+          {
+            text: "Onde posso fazer tranças?",
+            message: "Onde posso fazer tranças?"
+          }
+        ],
+
+        historyEyebrow: "Caminhe por Salvador",
+        historyTitle: "Quero conhecer a história da cidade.",
+        historyCopy:
+          "Explore Salvador com um guia local e conheça sua história, cultura e herança afro-brasileira.",
+        historyButton: "Caminhe com um guia local",
+        historyMessage:
+          "Quero reservar um passeio histórico a pé por Salvador.",
+
+        connectionEyebrow: "Curadoria de Adriano Marques",
+        connectionTitle: "Sua conexão local em Salvador.",
+        connectionCopy:
+          "Informações práticas, recomendações locais e pessoas de confiança para facilitar sua experiência na cidade.",
+
+        languageSelectorLabel: "Selecionar idioma",
+        footerLocation: "Salvador, Bahia, Brasil"
+      },
+
+      es: {
+        documentTitle: "To Know Salvador | Ayuda Local en Salvador",
+
+        metaDescription:
+          "Información local, recomendaciones de confianza y experiencias culturales en Salvador, Bahía.",
+
+        heroHelp: "¿Cómo podemos ayudarte?",
+
+        experiencesTitle: "Experiencias To Know Salvador",
+        tapToWatch: "Toca para ver",
+
+        questionsEyebrow: "Elige una pregunta",
+        questionsTitle: "¿Qué necesitas hoy?",
+        questionsDescription:
+          "Toca una opción. WhatsApp se abrirá con la pregunta ya escrita.",
+
+        groupInformation: "Información",
+        groupBeaches: "Playas y lugares",
+        groupPersonalCare: "Cuidado personal",
+
+        questions: [
+          {
+            text: "¿Es seguro el barrio donde me hospedo?",
+            message: "¿Es seguro el barrio donde me hospedo?"
+          },
+          {
+            text: "¿Qué museo debería visitar?",
+            message: "¿Qué museo debería visitar?"
+          },
+          {
+            text: "Necesito ayuda rápida.",
+            message: "Necesito ayuda rápida."
+          },
+          {
+            text: "¿Dónde debería comer?",
+            message: "¿Dónde debería comer?"
+          },
+          {
+            text: "¿Qué puedo hacer esta noche?",
+            message: "¿Qué puedo hacer esta noche?"
+          },
+          {
+            text: "Quiero ir a un beach club.",
+            message: "Quiero ir a un beach club."
+          },
+          {
+            text: "¿Vale la pena visitar Praia do Forte?",
+            message: "¿Vale la pena visitar Praia do Forte?"
+          },
+          {
+            text: "Quiero visitar las islas.",
+            message: "Quiero visitar las islas."
+          },
+          {
+            text: "¿Dónde puedo arreglarme el cabello y maquillarme?",
+            message: "¿Dónde puedo arreglarme el cabello y maquillarme?"
+          },
+          {
+            text: "Necesito hacerme las uñas.",
+            message: "Necesito hacerme las uñas."
+          },
+          {
+            text: "Necesito un barbero.",
+            message: "Necesito un barbero."
+          },
+          {
+            text: "Quiero cuidar mi cabello.",
+            message: "Quiero cuidar mi cabello."
+          },
+          {
+            text: "Necesito arreglarme hoy.",
+            message: "Necesito arreglarme hoy."
+          },
+          {
+            text: "¿Dónde puedo hacerme trenzas?",
+            message: "¿Dónde puedo hacerme trenzas?"
+          }
+        ],
+
+        historyEyebrow: "Camina por Salvador",
+        historyTitle: "Quiero conocer la historia de la ciudad.",
+        historyCopy:
+          "Explora Salvador con un guía local y conoce su historia, cultura y herencia afrobrasileña.",
+        historyButton: "Camina con un guía local",
+        historyMessage:
+          "Quiero reservar un recorrido histórico a pie por Salvador.",
+
+        connectionEyebrow: "Curado por Adriano Marques",
+        connectionTitle: "Tu conexión local en Salvador.",
+        connectionCopy:
+          "Información práctica, recomendaciones locales y personas de confianza para facilitar tu experiencia en la ciudad.",
+
+        languageSelectorLabel: "Seleccionar idioma",
+        footerLocation: "Salvador, Bahía, Brasil"
       }
+    };
 
-      link.href =
+    const languageButtons =
+      document.querySelectorAll(".language-button");
+
+    const questionCards =
+      document.querySelectorAll(".question-card");
+
+    const groupLabels =
+      document.querySelectorAll(".group-label");
+
+    const languageSwitcher =
+      document.querySelector(".language-switcher");
+
+    function updateWhatsAppLink(element, message) {
+      element.dataset.message = message;
+
+      element.href =
         "https://wa.me/" +
         whatsappNumber +
         "?text=" +
         encodeURIComponent(message);
 
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
+      element.target = "_blank";
+      element.rel = "noopener noreferrer";
+    }
+
+    function changeLanguage(language) {
+      const content = translations[language];
+
+      if (!content) {
+        return;
+      }
+
+      document.documentElement.lang = language;
+      document.title = content.documentTitle;
+
+      const metaDescription = document.querySelector(
+        'meta[name="description"]'
+      );
+
+      if (metaDescription) {
+        metaDescription.setAttribute(
+          "content",
+          content.metaDescription
+        );
+      }
+
+      const heroHelp =
+        document.querySelector(".hero-help");
+
+      if (heroHelp) {
+        heroHelp.textContent = content.heroHelp;
+      }
+
+      const storiesTitle =
+        document.querySelector(".stories-title");
+
+      if (storiesTitle) {
+        storiesTitle.textContent =
+          content.experiencesTitle;
+      }
+
+      const storiesNote =
+        document.querySelector(".stories-note");
+
+      if (storiesNote) {
+        storiesNote.textContent =
+          content.tapToWatch;
+      }
+
+      const questionsEyebrow =
+        document.querySelector(
+          ".questions-intro .eyebrow"
+        );
+
+      if (questionsEyebrow) {
+        questionsEyebrow.textContent =
+          content.questionsEyebrow;
+      }
+
+      const questionsTitle =
+        document.querySelector(
+          ".questions-intro .section-title"
+        );
+
+      if (questionsTitle) {
+        questionsTitle.textContent =
+          content.questionsTitle;
+      }
+
+      const questionsDescription =
+        document.querySelector(
+          ".questions-intro p:last-child"
+        );
+
+      if (questionsDescription) {
+        questionsDescription.textContent =
+          content.questionsDescription;
+      }
+
+      if (groupLabels[0]) {
+        groupLabels[0].textContent =
+          content.groupInformation;
+      }
+
+      if (groupLabels[1]) {
+        groupLabels[1].textContent =
+          content.groupBeaches;
+      }
+
+      if (groupLabels[2]) {
+        groupLabels[2].textContent =
+          content.groupPersonalCare;
+      }
+
+      questionCards.forEach((card, index) => {
+        const question = content.questions[index];
+
+        if (!question) {
+          return;
+        }
+
+        const questionText =
+          card.querySelector(".question-text");
+
+        if (questionText) {
+          questionText.textContent = question.text;
+        }
+
+        updateWhatsAppLink(
+          card,
+          question.message
+        );
+      });
+
+      const historyEyebrow =
+        document.querySelector(
+          ".history-content .eyebrow"
+        );
+
+      if (historyEyebrow) {
+        historyEyebrow.textContent =
+          content.historyEyebrow;
+      }
+
+      const historyTitle =
+        document.querySelector(".history-title");
+
+      if (historyTitle) {
+        historyTitle.textContent =
+          content.historyTitle;
+      }
+
+      const historyCopy =
+        document.querySelector(".history-copy");
+
+      if (historyCopy) {
+        historyCopy.textContent =
+          content.historyCopy;
+      }
+
+      const historyButton =
+        document.querySelector(".history-button");
+
+      if (historyButton) {
+        const historyButtonText =
+          historyButton.querySelector(
+            "span:first-child"
+          );
+
+        if (historyButtonText) {
+          historyButtonText.textContent =
+            content.historyButton;
+        }
+
+        updateWhatsAppLink(
+          historyButton,
+          content.historyMessage
+        );
+      }
+
+      const connectionEyebrow =
+        document.querySelector(
+          ".connection-section .eyebrow"
+        );
+
+      if (connectionEyebrow) {
+        connectionEyebrow.textContent =
+          content.connectionEyebrow;
+      }
+
+      const connectionTitle =
+        document.querySelector(
+          ".connection-section .section-title"
+        );
+
+      if (connectionTitle) {
+        connectionTitle.textContent =
+          content.connectionTitle;
+      }
+
+      const connectionCopy =
+        document.querySelector(
+          ".connection-copy"
+        );
+
+      if (connectionCopy) {
+        connectionCopy.textContent =
+          content.connectionCopy;
+      }
+
+      if (languageSwitcher) {
+        languageSwitcher.setAttribute(
+          "aria-label",
+          content.languageSelectorLabel
+        );
+      }
+
+      const footerCopy =
+        document.querySelector(".footer-copy");
+
+      if (footerCopy) {
+        footerCopy.innerHTML =
+          content.footerLocation +
+          "<br />@toknowsalvador<br />© 2026 To Know Salvador";
+      }
+
+      languageButtons.forEach((button) => {
+        const isActive =
+          button.dataset.language === language;
+
+        button.classList.toggle(
+          "active",
+          isActive
+        );
+
+        button.setAttribute(
+          "aria-pressed",
+          String(isActive)
+        );
+      });
+
+      localStorage.setItem(
+        "toKnowSalvadorLanguage",
+        language
+      );
+    }
+
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        changeLanguage(
+          button.dataset.language
+        );
+      });
     });
+
+    const savedLanguage =
+      localStorage.getItem(
+        "toKnowSalvadorLanguage"
+      );
+
+    const browserLanguage =
+      navigator.language.toLowerCase();
+
+    let initialLanguage = "en";
+
+    if (
+      savedLanguage &&
+      translations[savedLanguage]
+    ) {
+      initialLanguage = savedLanguage;
+    } else if (
+      browserLanguage.startsWith("pt")
+    ) {
+      initialLanguage = "pt";
+    } else if (
+      browserLanguage.startsWith("es")
+    ) {
+      initialLanguage = "es";
+    }
+
+    changeLanguage(initialLanguage);
   </script>
 
 </body>
