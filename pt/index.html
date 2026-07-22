@@ -26,7 +26,7 @@
 
   <meta
     property="og:title"
-    content="To Know Salvador - Free Walking Tour e Conveniências em Salvador BA"
+    content="To Know Salvador - Free Walking Tour and Local Services in Salvador, BA"
   />
 
   <meta
@@ -93,7 +93,7 @@
 
   <meta
     name="twitter:title"
-    content="To Know Salvador - Free Walking Tour e Conveniências em Salvador BA"
+    content="To Know Salvador - Free Walking Tour and Local Services in Salvador, BA"
   />
 
   <meta
@@ -671,6 +671,124 @@
       background: #8b6d29;
     }
 
+
+    /* INLINE ANSWERS / ACCORDIONS */
+
+    .info-accordion {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 4px 18px rgba(34, 27, 14, 0.035);
+      overflow: hidden;
+      transition:
+        transform 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .info-accordion:hover {
+      transform: translateY(-2px);
+      border-color: rgba(139, 109, 41, 0.34);
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(34, 27, 14, 0.08);
+    }
+
+    .info-accordion summary {
+      display: grid;
+      grid-template-columns: 42px 1fr 30px;
+      align-items: center;
+      gap: 13px;
+      min-height: 72px;
+      padding: 13px 15px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .info-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .info-accordion .question-arrow {
+      transition:
+        transform 180ms ease,
+        background 180ms ease;
+    }
+
+    .info-accordion[open] .question-arrow {
+      transform: rotate(90deg);
+      background: #8b6d29;
+    }
+
+    .inline-answer {
+      padding: 0 18px 18px 70px;
+      color: #5f5a52;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .inline-answer strong {
+      color: #111111;
+    }
+
+    .inline-answer p {
+      margin: 0 0 10px;
+    }
+
+    .inline-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .language-culture-section {
+      padding: 76px 0 84px;
+      background: #efe8da;
+      color: #111111;
+    }
+
+    .slang-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .slang-card {
+      padding: 20px;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 8px 24px rgba(34, 27, 14, 0.05);
+    }
+
+    .slang-word {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      line-height: 1.1;
+    }
+
+    .slang-meaning {
+      margin: 10px 0 0;
+      color: #5f5a52;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .slang-example {
+      margin: 12px 0 0;
+      padding-top: 12px;
+      border-top: 1px solid rgba(17, 17, 17, 0.09);
+      color: #2f2b26;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    @media (min-width: 620px) {
+      .slang-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     /* PREMIUM */
 
     .premium-section {
@@ -1186,7 +1304,7 @@
         </h2>
 
         <p>
-          Toque em uma opção. O WhatsApp abrirá com a mensagem pronta.
+          Toque em uma opção para ver a resposta ou abrir o WhatsApp com uma mensagem pronta.
         </p>
 
       </div>
@@ -1207,11 +1325,18 @@
             <span class="question-arrow">→</span>
           </a>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="museum">
-            <span class="question-icon">🏛️</span>
-            <span class="question-text">Qual museu devo visitar?</span>
-            <span class="question-arrow">→</span>
-          </a>
+          <details class="info-accordion">
+            <summary>
+              <span class="question-icon">🏛️</span>
+              <span class="question-text">Qual museu devo visitar?</span>
+              <span class="question-arrow">→</span>
+            </summary>
+
+            <div class="inline-answer">
+              <p><strong>MUNCAB</strong> — uma excelente escolha para conhecer a cultura afro-brasileira, a história e a arte negra contemporânea.</p>
+              <p><strong>Cidade da Música</strong> — uma ótima introdução à identidade musical de Salvador. Fechado às segundas-feiras e com entrada gratuita às quartas-feiras.</p>
+            </div>
+          </details>
 
           <a href="#" class="whatsapp-question question-card" data-question-key="quickHelp">
             <span class="question-icon">⚡</span>
@@ -1219,11 +1344,18 @@
             <span class="question-arrow">→</span>
           </a>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="eat">
-            <span class="question-icon">🍽️</span>
-            <span class="question-text">Onde devo comer?</span>
-            <span class="question-arrow">→</span>
-          </a>
+          <details class="info-accordion">
+            <summary>
+              <span class="question-icon">🍽️</span>
+              <span class="question-text">Onde devo comer?</span>
+              <span class="question-arrow">→</span>
+            </summary>
+
+            <div class="inline-answer">
+              <p><strong>Barra — Portal do Mar:</strong> sugestão de entrada: suco de manga e bolinho de bacalhau.</p>
+              <p><strong>Centro Histórico — Cuco Bistrô:</strong> uma opção prática no coração do Centro Histórico.</p>
+            </div>
+          </details>
 
           <a href="#" class="whatsapp-question question-card" data-question-key="tonight">
             <span class="question-icon">🌙</span>
@@ -1432,6 +1564,73 @@
     </div>
 
   </main>
+
+
+
+  <!-- PORTUGUESE STUDENTS AND BAHIAN SLANG -->
+  <section class="language-culture-section">
+
+    <div class="container">
+
+      <p class="eyebrow" style="color:#8b6d29;">
+        Para estudantes de português e viajantes curiosos
+      </p>
+
+      <h2 class="section-title">
+        Gírias baianas que você pode ouvir em Salvador
+      </h2>
+
+      <p style="margin:15px 0 0;color:#68645d;font-size:15px;line-height:1.65;">
+        Expressões curtas que ajudam a compreender conversas do dia a dia, o humor e o ritmo local.
+      </p>
+
+      <div class="slang-grid">
+
+        <article class="slang-card">
+          <h3 class="slang-word">Oxente</h3>
+          <p class="slang-meaning">
+            Uma expressão de surpresa, espanto ou ênfase. Pode equivaler a “uau”, “é mesmo?” ou “como assim?”.
+          </p>
+          <p class="slang-example">
+            <strong>Exemplo:</strong> “Oxente, você já vai embora?”
+          </p>
+        </article>
+
+        <article class="slang-card">
+          <h3 class="slang-word">Ó paí, ó</h3>
+          <p class="slang-meaning">
+            Expressão próxima de “olhe isso” ou “veja só”. É usada para chamar atenção para algo que está acontecendo por perto.
+          </p>
+          <p class="slang-example">
+            <strong>Exemplo:</strong> “Ó paí, ó! A banda está começando.”
+          </p>
+        </article>
+
+        <article class="slang-card">
+          <h3 class="slang-word">Castelar</h3>
+          <p class="slang-meaning">
+            Perceber, entender ou se dar conta de alguma coisa, dependendo do contexto.
+          </p>
+          <p class="slang-example">
+            <strong>Exemplo:</strong> “Você castelou o que ele quis dizer?”
+          </p>
+        </article>
+
+        <article class="slang-card">
+          <h3 class="slang-word">Lá ele</h3>
+          <p class="slang-meaning">
+            Uma resposta bem-humorada usada para rejeitar uma frase ambígua ou sugestiva e se afastar do duplo sentido.
+          </p>
+          <p class="slang-example">
+            <strong>Exemplo:</strong> Alguém fala algo com duplo sentido e a resposta é: “Lá ele!”
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
 
 
   <!-- PREMIUM SUPPORT -->
@@ -1653,7 +1852,7 @@
         tapToWatch: "Toque para assistir",
         questionsEyebrow: "Escolha uma opção",
         questionsTitle: "O que você precisa hoje?",
-        questionsDescription: "Toque em uma opção. O WhatsApp abrirá com a mensagem pronta.",
+        questionsDescription: "Toque em uma opção para ver a resposta ou abrir o WhatsApp com uma mensagem pronta.",
 
         groups: {
           information: "Informações",
@@ -1667,17 +1866,9 @@
             text: "O bairro onde estou hospedado é seguro à noite?",
             message: "Olá! Adriano, da To Know Salvador, indicou seu contato. Gostaria de saber se o bairro onde estou hospedado é seguro à noite."
           },
-          museum: {
-            text: "Qual museu devo visitar?",
-            message: "Olá! Adriano, da To Know Salvador, indicou seu contato. Gostaria de uma recomendação de museu para visitar em Salvador."
-          },
           quickHelp: {
             text: "Preciso de ajuda rápida.",
             message: "Olá! Adriano, da To Know Salvador, indicou seu contato. Preciso de uma ajuda local rápida em Salvador."
-          },
-          eat: {
-            text: "Onde devo comer?",
-            message: "Olá! Adriano, da To Know Salvador, indicou seu contato. Gostaria de uma recomendação de restaurante de confiança em Salvador."
           },
           tonight: {
             text: "O que posso fazer hoje à noite?",
@@ -1693,11 +1884,11 @@
           },
           islands: {
             text: "Quero visitar as ilhas.",
-            message: "Olá! Adriano, da To Know Salvador, indicou seu contato. Tenho interesse em visitar as ilhas. Pode me enviar as opções disponíveis, horários e valores?"
+            message: "Olá! Adriano, da To Know Salvador, indicou seu contato. Tenho interesse em visitar as ilhas. Pode me enviar as opções disponíveis?"
           },
           favelaTour: {
             text: "Quero visitar uma comunidade com um guia local.",
-            message: "Olá! Adriano, da To Know Salvador, indicou seu contato. Tenho interesse em visitar uma comunidade com um guia local. Pode me enviar informações sobre disponibilidade e valores?"
+            message: "Olá! Adriano, da To Know Salvador, indicou seu contato. Tenho interesse em visitar uma comunidade com um guia local. Pode me enviar mais informações sobre disponibilidade e valores?"
           },
           folkloricShow: {
             text: "Quero assistir ao espetáculo folclórico da Bahia.",
