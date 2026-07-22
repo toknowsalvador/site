@@ -359,6 +359,35 @@
       background: rgba(0, 0, 0, 0.5);
     }
 
+    .hero-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .free-tour-button {
+      display: inline-flex;
+      min-height: 58px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 27px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #111111;
+      font-size: clamp(14px, 4vw, 17px);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .free-tour-button:hover {
+      transform: translateY(-3px);
+      background: #d7ba73;
+    }
+
     /* LANGUAGE AREA */
 
     .language-section {
@@ -1002,9 +1031,20 @@
     </div>
 
     <div class="hero-content">
-      <a href="#questions" class="hero-help">
-        How can we help?
-      </a>
+      <div class="hero-actions">
+        <a
+          href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/viewform"
+          class="free-tour-button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Book a Free Walking Tour
+        </a>
+
+        <a href="#questions" class="hero-help">
+          How can we help?
+        </a>
+      </div>
     </div>
 
   </header>
