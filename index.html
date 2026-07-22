@@ -671,6 +671,124 @@
       background: #8b6d29;
     }
 
+
+    /* INLINE ANSWERS / ACCORDIONS */
+
+    .info-accordion {
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: 0 4px 18px rgba(34, 27, 14, 0.035);
+      overflow: hidden;
+      transition:
+        transform 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .info-accordion:hover {
+      transform: translateY(-2px);
+      border-color: rgba(139, 109, 41, 0.34);
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(34, 27, 14, 0.08);
+    }
+
+    .info-accordion summary {
+      display: grid;
+      grid-template-columns: 42px 1fr 30px;
+      align-items: center;
+      gap: 13px;
+      min-height: 72px;
+      padding: 13px 15px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .info-accordion summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .info-accordion .question-arrow {
+      transition:
+        transform 180ms ease,
+        background 180ms ease;
+    }
+
+    .info-accordion[open] .question-arrow {
+      transform: rotate(90deg);
+      background: #8b6d29;
+    }
+
+    .inline-answer {
+      padding: 0 18px 18px 70px;
+      color: #5f5a52;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .inline-answer strong {
+      color: #111111;
+    }
+
+    .inline-answer p {
+      margin: 0 0 10px;
+    }
+
+    .inline-answer p:last-child {
+      margin-bottom: 0;
+    }
+
+    .language-culture-section {
+      padding: 76px 0 84px;
+      background: #efe8da;
+      color: #111111;
+    }
+
+    .slang-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .slang-card {
+      padding: 20px;
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 8px 24px rgba(34, 27, 14, 0.05);
+    }
+
+    .slang-word {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      line-height: 1.1;
+    }
+
+    .slang-meaning {
+      margin: 10px 0 0;
+      color: #5f5a52;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .slang-example {
+      margin: 12px 0 0;
+      padding-top: 12px;
+      border-top: 1px solid rgba(17, 17, 17, 0.09);
+      color: #2f2b26;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    @media (min-width: 620px) {
+      .slang-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
     /* PREMIUM */
 
     .premium-section {
@@ -1186,7 +1304,7 @@
         </h2>
 
         <p>
-          Tap an option. WhatsApp opens with the message already written.
+          Tap an option to see an answer or open WhatsApp with a ready-to-send message.
         </p>
 
       </div>
@@ -1207,11 +1325,18 @@
             <span class="question-arrow">→</span>
           </a>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="museum">
-            <span class="question-icon">🏛️</span>
-            <span class="question-text">Which museum should I visit?</span>
-            <span class="question-arrow">→</span>
-          </a>
+          <details class="info-accordion">
+            <summary>
+              <span class="question-icon">🏛️</span>
+              <span class="question-text">Which museum should I visit?</span>
+              <span class="question-arrow">→</span>
+            </summary>
+
+            <div class="inline-answer">
+              <p><strong>MUNCAB</strong> — a strong choice for Afro-Brazilian culture, history and contemporary Black art.</p>
+              <p><strong>City of Music Museum</strong> — a great introduction to Salvador's musical identity. It is closed on Mondays, and admission is free on Wednesdays.</p>
+            </div>
+          </details>
 
           <a href="#" class="whatsapp-question question-card" data-question-key="quickHelp">
             <span class="question-icon">⚡</span>
@@ -1219,11 +1344,18 @@
             <span class="question-arrow">→</span>
           </a>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="eat">
-            <span class="question-icon">🍽️</span>
-            <span class="question-text">Where should I eat?</span>
-            <span class="question-arrow">→</span>
-          </a>
+          <details class="info-accordion">
+            <summary>
+              <span class="question-icon">🍽️</span>
+              <span class="question-text">Where should I eat?</span>
+              <span class="question-arrow">→</span>
+            </summary>
+
+            <div class="inline-answer">
+              <p><strong>Barra — Portal do Mar:</strong> suggested starter: mango juice and codfish fritters.</p>
+              <p><strong>Historic Center — Cuco Bistrô:</strong> a convenient option in the heart of the Historic Center.</p>
+            </div>
+          </details>
 
           <a href="#" class="whatsapp-question question-card" data-question-key="tonight">
             <span class="question-icon">🌙</span>
@@ -1432,6 +1564,73 @@
     </div>
 
   </main>
+
+
+
+  <!-- PORTUGUESE STUDENTS AND BAHIAN SLANG -->
+  <section class="language-culture-section">
+
+    <div class="container">
+
+      <p class="eyebrow" style="color:#8b6d29;">
+        For Portuguese students and curious travelers
+      </p>
+
+      <h2 class="section-title">
+        Bahian slang you may hear in Salvador
+      </h2>
+
+      <p style="margin:15px 0 0;color:#68645d;font-size:15px;line-height:1.65;">
+        Short expressions that help you understand everyday conversations, humor and local rhythm.
+      </p>
+
+      <div class="slang-grid">
+
+        <article class="slang-card">
+          <h3 class="slang-word">Oxente</h3>
+          <p class="slang-meaning">
+            An expression of surprise, disbelief or emphasis. Similar to “wow,” “really?” or “what?”
+          </p>
+          <p class="slang-example">
+            <strong>Example:</strong> “Oxente, you are already leaving?”
+          </p>
+        </article>
+
+        <article class="slang-card">
+          <h3 class="slang-word">Ó paí, ó</h3>
+          <p class="slang-meaning">
+            Literally close to “look at that.” It is used to call attention to something happening nearby.
+          </p>
+          <p class="slang-example">
+            <strong>Example:</strong> “Ó paí, ó! The band is starting.”
+          </p>
+        </article>
+
+        <article class="slang-card">
+          <h3 class="slang-word">Castelar</h3>
+          <p class="slang-meaning">
+            To notice, understand or realize something, depending on the context.
+          </p>
+          <p class="slang-example">
+            <strong>Example:</strong> “Did you castelar what he meant?”
+          </p>
+        </article>
+
+        <article class="slang-card">
+          <h3 class="slang-word">Lá ele</h3>
+          <p class="slang-meaning">
+            A humorous response used to reject an ambiguous or suggestive phrase and distance yourself from it.
+          </p>
+          <p class="slang-example">
+            <strong>Example:</strong> Someone says something with a double meaning, and the response is: “Lá ele!”
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
 
 
   <!-- PREMIUM SUPPORT -->
@@ -1653,7 +1852,7 @@
         tapToWatch: "Tap to watch",
         questionsEyebrow: "Choose a question",
         questionsTitle: "What do you need today?",
-        questionsDescription: "Tap an option. WhatsApp opens with the message already written.",
+        questionsDescription: "Tap an option to see an answer or open WhatsApp with a ready-to-send message.",
 
         groups: {
           information: "Information",
