@@ -418,22 +418,27 @@
       -webkit-backdrop-filter: blur(12px);
     }
 
-    .language-button {
-      min-height: 38px;
-      padding: 0 15px;
-      border: 0;
-      border-radius: 999px;
-      background: transparent;
-      color: rgba(255, 255, 255, 0.55);
-      font-family: "DM Sans", sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      transition:
+   .language-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    min-height: 38px;
+    padding: 0 15px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(255,255,255,.55);
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
         color 180ms ease,
         background 180ms ease,
         transform 180ms ease;
-    }
+}
 
     .language-button:hover {
       color: var(--white);
@@ -1178,20 +1183,48 @@
       </p>
 
       <div
-        class="language-switcher"
-        role="group"
-        aria-label="Select language"
-      >
+       <a
+  href="/"
+  class="language-button active"
+  data-language="en"
+  aria-current="page"
+>
+  English
+</a>
 
-        <button
-          type="button"
-          class="language-button active"
-          data-language="en"
-          aria-pressed="true"
-        >
-          English
-        </button>
+<a
+  href="/pt/"
+  class="language-button"
+  data-language="pt"
+>
+  Português
+</a>
 
+<a
+  href="/es/"
+  class="language-button"
+  data-language="es"
+>
+  Español
+</a>
+    aria-current="page"
+>
+    English
+</a>
+
+<a
+    href="/pt/"
+    class="language-button"
+>
+    Português
+</a>
+
+<a
+    href="/es/"
+    class="language-button"
+>
+    Español
+</a>
       </div>
 
     </div>
@@ -2202,12 +2235,7 @@
       localStorage.setItem("toKnowSalvadorLanguage", language);
     }
 
-    languageButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        changeLanguage(button.dataset.language);
-      });
-    });
-
+    
     /*
       This file contains English only.
       Ignore old Portuguese or Spanish preferences saved by previous versions,
