@@ -2208,20 +2208,22 @@
       });
     });
 
+    /*
+      This file contains English only.
+      Ignore old Portuguese or Spanish preferences saved by previous versions,
+      otherwise changeLanguage() stops before creating the WhatsApp links.
+    */
     const savedLanguage = localStorage.getItem("toKnowSalvadorLanguage");
-    const browserLanguage = navigator.language.toLowerCase();
+    const initialLanguage =
+      savedLanguage && translations[savedLanguage]
+        ? savedLanguage
+        : "en";
 
-    let initialLanguage = "en";
-
-    if (savedLanguage && translations[savedLanguage]) {
-      initialLanguage = savedLanguage;
-    } else if (browserLanguage.startsWith("pt")) {
-      initialLanguage = "pt";
-    } else if (browserLanguage.startsWith("es")) {
-      initialLanguage = "es";
+    if (!translations[initialLanguage]) {
+      localStorage.removeItem("toKnowSalvadorLanguage");
     }
 
-    changeLanguage(initialLanguage);
+    changeLanguage(translations[initialLanguage] ? initialLanguage : "en");
   </script>
 
 </body>
