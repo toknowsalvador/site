@@ -26,7 +26,7 @@
 
   <meta
     property="og:title"
-    content="To Know Salvador - Free Walking Tour and Local Services in Salvador, BA"
+    content="To Know Salvador - Free Walking Tour y Servicios Locales en Salvador, BA"
   />
 
   <meta
@@ -93,7 +93,7 @@
 
   <meta
     name="twitter:title"
-    content="To Know Salvador - Free Walking Tour and Local Services in Salvador, BA"
+    content="To Know Salvador - Free Walking Tour y Servicios Locales en Salvador, BA"
   />
 
   <meta
@@ -557,7 +557,7 @@
     /* QUESTIONS */
 
     .questions-section {
-      padding: 76px 0 84px;
+      padding: 76px 0 46px;
       background: var(--ivory);
       color: #111111;
     }
@@ -746,7 +746,7 @@
     }
 
     .language-culture-section {
-      padding: 76px 0 84px;
+      padding: 42px 0 44px;
       background: #efe8da;
       color: #111111;
     }
@@ -795,6 +795,38 @@
       }
     }
 
+
+    .premium-video-bg {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.58;
+      pointer-events: none;
+    }
+
+    .premium-card::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5, 5, 5, 0.82) 0%,
+          rgba(5, 5, 5, 0.62) 48%,
+          rgba(5, 5, 5, 0.34) 100%
+        ),
+        linear-gradient(
+          to top,
+          rgba(5, 5, 5, 0.72),
+          rgba(5, 5, 5, 0.08)
+        );
+      pointer-events: none;
+    }
+
     /* PREMIUM */
 
     .premium-section {
@@ -826,6 +858,7 @@
     .premium-card::before {
       content: "";
       position: absolute;
+      z-index: 1;
       top: -100px;
       right: -100px;
       width: 220px;
@@ -917,6 +950,16 @@
       color: #111111;
       font-size: 14px;
     }
+
+    
+    /* RECOMMENDED BOOKS */
+    .books-section{padding:44px 0 52px;background:#f4f0e8;color:#111;}
+    .books-title{text-align:center;font-family:"Playfair Display",serif;font-size:clamp(34px,8vw,48px);margin:0 0 12px;}
+    .books-subtitle{text-align:center;color:#6b655d;max-width:620px;margin:0 auto 34px;line-height:1.7;}
+    .books-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+    .book-image{overflow:hidden;border-radius:22px;box-shadow:0 18px 45px rgba(0,0,0,.18);transition:transform .25s ease;}
+    .book-image:hover{transform:translateY(-6px);}
+    .book-image img{width:100%;aspect-ratio:.72;object-fit:cover;display:block;}
 
     /* HISTORY */
 
@@ -1332,6 +1375,7 @@
               <p><strong>Consejo general:</strong> Reserva las joyas y los relojes costosos para lugares más privados, en vez de caminar por la calle con ellos.</p>
               <p><strong>Centro Histórico:</strong> Después de las 21:00, permanece por el Largo Cruzeiro de São Francisco, donde encontrarás restaurantes, música en vivo y más movimiento.</p>
               <p><strong>Barra:</strong> Evita el Morro do Cristo durante la noche.</p>
+              <p><strong>Rio Vermelho:</strong> Permanece por el Largo do Acarajé da Dinha o por Vila Caramuru. Estas dos plazas están a unos 10 minutos a pie una de la otra. Durante el día, vale la pena visitar la Casa de Yemanjá. Por la noche, el barrio se vuelve más animado a partir de las 19:00.</p>
             </div>
           </details>
 
@@ -1348,12 +1392,6 @@
             </div>
           </details>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="quickHelp">
-            <span class="question-icon">⚡</span>
-            <span class="question-text">Necesito ayuda rápida.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
           <details class="info-accordion">
             <summary>
               <span class="question-icon">🍽️</span>
@@ -1364,6 +1402,8 @@
             <div class="inline-answer">
               <p><strong>Barra — Portal do Mar:</strong> sugerencia de entrada: jugo de mango y bolinhos de bacalao.</p>
               <p><strong>Centro Histórico — Cuco Bistrô:</strong> una opción práctica en el corazón del Centro Histórico.</p>
+              <p><strong>Santo Antônio Além do Carmo — Poró:</strong> una opción encantadora con sabores bahianos y un ambiente agradable con vistas a la ciudad.</p>
+              <p><strong>Rio Vermelho — Boteco do Português:</strong> una opción relajada para platos de inspiración portuguesa, aperitivos y bebidas en uno de los barrios más animados de Salvador.</p>
             </div>
           </details>
 
@@ -1375,8 +1415,19 @@
             </summary>
             <div class="inline-answer">
               <p><strong>Clube do Samba</strong> (Terreiro de Jesus) — un excelente lugar para disfrutar de samba en vivo en el Centro Histórico.</p>
-              <p><strong>Só Shape</strong> — una buena opción si buscas una noche local más alternativa y underground.</p>
+              <p><strong>Só Shape</strong> — una buena opción si buscas una vida nocturna local más alternativa y underground.</p>
               <p><strong>Espectáculo Folclórico de Bahía</strong> — disponible los <strong>lunes, miércoles y sábados</strong>, con música, danza y cultura afrobrasileña.</p>
+            </div>
+          </details>
+
+          <details class="info-accordion">
+            <summary>
+              <span class="question-icon">🎨</span>
+              <span class="question-text">¿Qué son las pinturas que la gente se hace en la calle?</span>
+              <span class="question-arrow">→</span>
+            </summary>
+            <div class="inline-answer">
+              <p><strong>Pintura corporal de Timbalada:</strong> los diseños blancos se inspiran en la identidad visual popularizada por Timbalada, un grupo de percusión nacido en Salvador. Las marcas hacen referencia a la estética afrobrasileña, al arte corporal y al ambiente cultural de Candeal.</p>
             </div>
           </details>
 
@@ -1394,15 +1445,22 @@
 
         <div class="question-list">
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="beachClub">
-            <span class="question-icon">🌴</span>
-            <span class="question-text">Quiero ir a un beach club.</span>
-            <span class="question-arrow">→</span>
-          </a>
+          <details class="info-accordion">
+            <summary>
+              <span class="question-icon">🌴</span>
+              <span class="question-text">Quiero ir a un beach club.</span>
+              <span class="question-arrow">→</span>
+            </summary>
+
+            <div class="inline-answer">
+              <p><strong>Barraca do Lôro — Flamengo:</strong> una popular opción de day use frente al mar, con restaurante y una estructura de playa relajada.</p>
+              <p><strong>Blue Bar — Rio Vermelho:</strong> una elegante opción de day use junto al mar, con comida, bebidas y un ambiente más cuidado.</p>
+            </div>
+          </details>
 
           <a href="#" class="whatsapp-question question-card" data-question-key="praiaDoForte">
             <span class="question-icon">☀️</span>
-            <span class="question-text">¿Vale la pena visitar Praia do Forte?</span>
+            <span class="question-text">Quiero visitar Praia do Forte.</span>
             <span class="question-arrow">→</span>
           </a>
 
@@ -1448,12 +1506,6 @@
             <span class="question-arrow">→</span>
           </a>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="morroTours">
-            <span class="question-icon">⛵</span>
-            <span class="question-text">Quiero ayuda para organizar tours en Morro de São Paulo.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
         </div>
 
       </section>
@@ -1483,12 +1535,6 @@
           <a href="#" class="whatsapp-question question-card" data-question-key="diving">
             <span class="question-icon">🤿</span>
             <span class="question-text">Quiero bucear en Porto da Barra.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="portoTransfer">
-            <span class="question-icon">🚗</span>
-            <span class="question-text">Necesito un traslado desde Porto da Barra hasta Dona Suzana.</span>
             <span class="question-arrow">→</span>
           </a>
 
@@ -1530,12 +1576,6 @@
             <span class="question-arrow">→</span>
           </a>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="getReady">
-            <span class="question-icon">👗</span>
-            <span class="question-text">Necesito ayuda para arreglarme.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
           <a href="#" class="whatsapp-question question-card" data-question-key="braids">
             <span class="question-icon">🪮</span>
             <span class="question-text">Quiero hacerme trenzas afro.</span>
@@ -1571,6 +1611,12 @@
           <a href="#" class="whatsapp-question question-card" data-question-key="chapada">
             <span class="question-icon">⛰️</span>
             <span class="question-text">Necesito un contacto local de confianza en Chapada Diamantina.</span>
+            <span class="question-arrow">→</span>
+          </a>
+
+          <a href="#" class="whatsapp-question question-card" data-question-key="morroTours">
+            <span class="question-icon">⛵</span>
+            <span class="question-text">Necesito un contacto local de confianza en Morro de São Paulo.</span>
             <span class="question-arrow">→</span>
           </a>
 
@@ -1624,22 +1670,12 @@
         </article>
 
         <article class="slang-card">
-          <h3 class="slang-word">Castelar</h3>
-          <p class="slang-meaning">
-            Percibir, entender o darse cuenta de algo, según el contexto.
-          </p>
-          <p class="slang-example">
-            <strong>Ejemplo:</strong> “¿Castelaste lo que quiso decir?”
-          </p>
-        </article>
-
-        <article class="slang-card">
           <h3 class="slang-word">Lá ele</h3>
           <p class="slang-meaning">
             Una respuesta humorística utilizada para rechazar una frase ambigua o sugerente y distanciarse de ella.
           </p>
           <p class="slang-example">
-            <strong>Ejemplo:</strong> Alguien dice algo con doble sentido y la respuesta es: “¡Lá ele!”
+            <strong>Ejemplo:</strong> Alguien dice algo con doble sentido y la respuesta es: “¡Lá ele!”.
           </p>
         </article>
 
@@ -1650,12 +1686,37 @@
   </section>
 
 
+  
+  <!-- RECOMMENDED BOOKS -->
+  <section class="books-section">
+    <div class="container">
+      <h2 class="books-title">Libros recomendados</h2>
+      <p class="books-subtitle">Una selección de libros para comprender mejor Salvador, Bahía, la cultura afrobrasileña y la historia de la ciudad.</p>
+      <div class="books-grid">
+        <div class="book-image"><img src="/public/IMG_6592.jpeg" alt="Libro recomendado"></div>
+        <div class="book-image"><img src="/public/IMG_6591.jpeg" alt="Libro recomendado"></div>
+      </div>
+    </div>
+  </section>
+
+
   <!-- PREMIUM SUPPORT -->
   <section class="premium-section">
 
     <div class="container">
 
       <article class="premium-card">
+
+        <video
+          class="premium-video-bg"
+          src="/public/72fde68d578b4b03afc6052c0becdfc5.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-hidden="true"
+        ></video>
 
         <div class="premium-intro">
 
@@ -1668,8 +1729,7 @@
           </h2>
 
           <p class="premium-copy">
-            For international agencies, companies, institutions and private
-            groups that need trusted local coordination in Salvador.
+            Para agencias internacionales, empresas, instituciones y grupos privados que necesitan coordinación local de confianza en Salvador.
           </p>
 
         </div>
@@ -1739,8 +1799,7 @@
           </h2>
 
           <p class="history-copy">
-            Explore Salvador with a local guide and understand its history,
-            culture and Afro-Brazilian heritage.
+            Explora Salvador con un guía local y conoce su historia, cultura y herencia afrobrasileña.
           </p>
 
           <a href="#" class="whatsapp-question history-button" data-history-link>
@@ -1776,8 +1835,7 @@
       </h2>
 
       <p class="connection-copy">
-        Practical information, local recommendations and trusted people to
-        make your experience in the city easier.
+        Información práctica, recomendaciones locales y personas de confianza para facilitar tu experiencia en la ciudad.
       </p>
 
     </div>
@@ -1820,6 +1878,7 @@
       portoTransfer: "5511965042412",
       dragShow: "5511915110391",
       braids: "5571985511086",
+      barber: "5571992273646",
       islands: "5571992024410",
       capoeiraMusic: "557133220639",
       morroTours: "5575999936313",
@@ -1831,14 +1890,15 @@
 
     const directNumberByQuestion = {
       nails: whatsappNumbers.manicure,
+      barber: whatsappNumbers.barber,
       favelaTour: whatsappNumbers.favelaTour,
       folkloricShow: whatsappNumbers.folkloricShow,
       paddleKayak: whatsappNumbers.paddleKayak,
       beachKit: whatsappNumbers.beachKit,
       diving: whatsappNumbers.diving,
-      portoTransfer: whatsappNumbers.portoTransfer,
       dragShow: whatsappNumbers.dragShow,
       braids: whatsappNumbers.braids,
+      praiaDoForte: whatsappNumbers.islands,
       islands: whatsappNumbers.islands,
       capoeiraMusic: whatsappNumbers.capoeiraMusic,
       morroTours: whatsappNumbers.morroTours,
@@ -1854,7 +1914,6 @@
       "nails",
       "barber",
       "hairCare",
-      "getReady",
       "braids"
     ];
 
@@ -1879,21 +1938,13 @@
         },
 
         questions: {
-          quickHelp: {
-            text: "Necesito ayuda rápida.",
-            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Necesito ayuda local rápida en Salvador."
-          },
-          beachClub: {
-            text: "Quiero ir a un beach club.",
-            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Me interesa visitar un beach club. ¿Puedes enviarme recomendaciones e información para reservar?"
-          },
           praiaDoForte: {
-            text: "¿Vale la pena visitar Praia do Forte?",
-            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Me interesa visitar Praia do Forte y quisiera más información."
+            text: "Quiero visitar Praia do Forte.",
+            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Quiero visitar Praia do Forte. ¿Puedes enviarme las opciones disponibles, horarios y precios?"
           },
           islands: {
             text: "Quiero visitar las islas.",
-            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Me interesa visitar las islas. ¿Puedes enviarme las opciones disponibles?"
+            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Me interesa visitar las islas. ¿Puedes enviarme las opciones disponibles, horarios y precios?"
           },
           favelaTour: {
             text: "Quiero visitar una comunidad con un guía local.",
@@ -1920,8 +1971,8 @@
             message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Me interesa una experiencia de fútbol, incluyendo partidos o una visita a Arena Fonte Nova. ¿Puedes enviarme disponibilidad y precios?"
           },
           morroTours: {
-            text: "Quiero ayuda para organizar tours en Morro de São Paulo.",
-            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Quisiera ayuda para organizar mi viaje y conocer las opciones de tours en Morro de São Paulo. ¿Puedes enviarme disponibilidad y precios?"
+            text: "Necesito un contacto local de confianza en Morro de São Paulo.",
+            message: "¡Hola! Adriano, de To Know Salvador y de To Know Brazil Network, me recomendó tu contacto. Viajo a Morro de São Paulo y quisiera información, recomendaciones o apoyo local."
           },
           paddleKayak: {
             text: "Quiero reservar stand-up paddle o kayak.",
@@ -1935,10 +1986,6 @@
             text: "Quiero bucear en Porto da Barra.",
             message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Me interesa bucear en Porto da Barra. ¿Puedes enviarme información sobre disponibilidad y precios?"
           },
-          portoTransfer: {
-            text: "Necesito un traslado desde Porto da Barra hasta Dona Suzana.",
-            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Necesito un traslado desde Porto da Barra hasta Dona Suzana. ¿Puedes enviarme disponibilidad y precio?"
-          },
           hairMakeup: {
             text: "¿Dónde puedo arreglarme el cabello y maquillarme?",
             message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Me interesan servicios de cabello y maquillaje. ¿Puedes ayudarme con una recomendación de confianza?"
@@ -1949,15 +1996,11 @@
           },
           barber: {
             text: "Necesito un barbero.",
-            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Estoy buscando un barbero en Salvador. ¿Puedes ayudarme con una recomendación de confianza?"
+            message: "¡Hola! Adriano, de To Know Salvador, me recomendó Maestros Barra. Me interesa reservar un servicio de barbería. ¿Puedes enviarme disponibilidad y precios?"
           },
           hairCare: {
             text: "Quiero cuidar mi cabello.",
             message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Me interesan servicios para cuidar mi cabello en Salvador. ¿Puedes ayudarme con una recomendación de confianza?"
-          },
-          getReady: {
-            text: "Necesito ayuda para arreglarme.",
-            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Necesito ayuda para arreglarme y quisiera recomendaciones de servicios de belleza."
           },
           braids: {
             text: "Quiero hacerme trenzas afro.",
@@ -2012,7 +2055,7 @@
         historyTitle: "Quiero conocer la historia de la ciudad.",
         historyCopy: "Explora Salvador con un guía local y conoce su historia, cultura y herencia afrobrasileña.",
         historyButton: "Camina con un guía local",
-        historyMessage: "¡Hola! Me pongo en contacto por recomendación de Adriano, de To Know Salvador. Me interesa reservar un tour histórico a pie por Salvador. ¿Puedes enviarme disponibilidad y precios?",
+        historyMessage: "¡Hola! Adriano, de To Know Salvador, me recomendó este contacto. Me interesa reservar un tour histórico a pie por Salvador. ¿Puedes enviarme disponibilidad y precios?",
         connectionEyebrow: "Curaduría de Adriano Marques",
         connectionTitle: "Tu conexión local en Salvador.",
         connectionCopy: "Información práctica, recomendaciones locales y personas de confianza para facilitar tu experiencia en la ciudad.",
@@ -2177,13 +2220,6 @@
           content.footerLocation +
           "<br />@toknowsalvador<br />© 2026 To Know Salvador";
       }
-
-      languageButtons.forEach((button) => {
-        const isActive = button.dataset.language === language;
-
-        button.classList.toggle("active", isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-      });
 
       localStorage.setItem("toKnowSalvadorLanguage", language);
     }
