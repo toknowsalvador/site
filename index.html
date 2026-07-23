@@ -795,6 +795,38 @@
       }
     }
 
+
+    .premium-video-bg {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.34;
+      pointer-events: none;
+    }
+
+    .premium-card::after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5, 5, 5, 0.96) 0%,
+          rgba(5, 5, 5, 0.82) 48%,
+          rgba(5, 5, 5, 0.58) 100%
+        ),
+        linear-gradient(
+          to top,
+          rgba(5, 5, 5, 0.9),
+          rgba(5, 5, 5, 0.2)
+        );
+      pointer-events: none;
+    }
+
     /* PREMIUM */
 
     .premium-section {
@@ -826,6 +858,7 @@
     .premium-card::before {
       content: "";
       position: absolute;
+      z-index: 1;
       top: -100px;
       right: -100px;
       width: 220px;
@@ -1332,6 +1365,7 @@
               <p><strong>General advice:</strong> Keep jewelry and expensive watches for more private venues instead of walking around with them.</p>
               <p><strong>Historic Center:</strong> After 9:00 PM, stay around Largo Cruzeiro de São Francisco, where you'll find restaurants, live music and more people.</p>
               <p><strong>Barra:</strong> Avoid Morro do Cristo late at night.</p>
+              <p><strong>Rio Vermelho:</strong> Stay around Largo do Acarajé da Dinha or Vila Caramuru. These two public squares are about a 10-minute walk from each other. During the day, Casa de Yemanjá is the main place worth visiting. At night, the neighborhood becomes livelier from around 7:00 PM.</p>
             </div>
           </details>
 
@@ -1394,11 +1428,18 @@
 
         <div class="question-list">
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="beachClub">
-            <span class="question-icon">🌴</span>
-            <span class="question-text">I want to go to a beach club.</span>
-            <span class="question-arrow">→</span>
-          </a>
+          <details class="info-accordion">
+            <summary>
+              <span class="question-icon">🌴</span>
+              <span class="question-text">I want to go to a beach club.</span>
+              <span class="question-arrow">→</span>
+            </summary>
+
+            <div class="inline-answer">
+              <p><strong>Barraca do Lôro — Flamengo:</strong> a popular beachfront day-use option with restaurant service and a relaxed beach structure.</p>
+              <p><strong>Blue Bar — Rio Vermelho:</strong> a stylish seaside day-use option with food, drinks and a more curated atmosphere.</p>
+            </div>
+          </details>
 
           <a href="#" class="whatsapp-question question-card" data-question-key="praiaDoForte">
             <span class="question-icon">☀️</span>
@@ -1530,12 +1571,6 @@
             <span class="question-arrow">→</span>
           </a>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="getReady">
-            <span class="question-icon">👗</span>
-            <span class="question-text">I need help getting ready.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
           <a href="#" class="whatsapp-question question-card" data-question-key="braids">
             <span class="question-icon">🪮</span>
             <span class="question-text">I want to get Afro braids.</span>
@@ -1656,6 +1691,17 @@
     <div class="container">
 
       <article class="premium-card">
+
+        <video
+          class="premium-video-bg"
+          src="/public/72fde68d578b4b03afc6052c0becdfc5.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          aria-hidden="true"
+        ></video>
 
         <div class="premium-intro">
 
@@ -1820,6 +1866,7 @@
       portoTransfer: "5511965042412",
       dragShow: "5511915110391",
       braids: "5571985511086",
+      barber: "5571992273646",
       islands: "5571992024410",
       capoeiraMusic: "557133220639",
       morroTours: "5575999936313",
@@ -1831,6 +1878,7 @@
 
     const directNumberByQuestion = {
       nails: whatsappNumbers.manicure,
+      barber: whatsappNumbers.barber,
       favelaTour: whatsappNumbers.favelaTour,
       folkloricShow: whatsappNumbers.folkloricShow,
       paddleKayak: whatsappNumbers.paddleKayak,
@@ -1970,10 +2018,6 @@
           hairCare: {
             text: "I want to take care of my hair.",
             message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in hair-care services in Salvador. Could you please help me with a trusted recommendation?"
-          },
-          getReady: {
-            text: "I need help getting ready.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I need help getting ready and would like recommendations for beauty services."
           },
           braids: {
             text: "I want to get Afro braids.",
