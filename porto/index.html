@@ -275,6 +275,39 @@
                 gap: 18px;
             }
         }
+
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 22px;
+        }
+
+        .language-selector a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 104px;
+            padding: 11px 15px;
+            border: 1px solid rgba(234, 216, 117, 0.55);
+            border-radius: 999px;
+            background: rgba(23, 21, 20, 0.46);
+            color: var(--amarelo);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+        }
+
+        .language-selector a:hover,
+        .language-selector a:focus,
+        .language-selector a.active {
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+        }
+
     </style>
 </head>
 
@@ -286,6 +319,12 @@
         <h1>Point da Ana</h1>
 
         <p>Praia do Porto da Barra</p>
+
+        <nav class="language-selector" aria-label="Selecionar idioma">
+            <a class="active" href="/porto/point-da-ana/" aria-current="page">Português</a>
+            <a href="/porto/es/point-da-ana/">Español</a>
+            <a href="/porto/en/point-da-ana/">English</a>
+        </nav>
     </header>
 
     <nav class="quick-nav" aria-label="Categorias do cardápio">
@@ -770,11 +809,11 @@
         <aside class="experience">
             <small>Uma recomendação local</small>
 
-            <h2>Conheça o Centro Histórico de Salvador</h2>
+            <h2>Conheça Salvador além da praia</h2>
 
             <p>
-                Caminhada cultural pelo Pelourinho com guia local.
-                Descubra histórias, pessoas e lugares além da praia.
+                Passeios pelas ilhas, caminhada cultural pelo Pelourinho,
+                experiências locais e muito mais para conhecer Salvador.
             </p>
 
             <a
@@ -783,7 +822,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
             >
-                Book a Historic Walking Tour
+                Ver passeios e experiências
             </a>
         </aside>
 
