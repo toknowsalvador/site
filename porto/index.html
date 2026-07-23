@@ -1,1 +1,805 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
 
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Cardápio digital da Point da Ana, na Praia do Porto da Barra, Salvador."
+    >
+
+    <title>Point da Ana | Porto da Barra</title>
+
+    <style>
+        :root {
+            --vinho: #6f2431;
+            --vinho-escuro: #3b151d;
+            --preto: #171514;
+            --amarelo: #ead875;
+            --bege: #f5ecd3;
+            --branco: #fffdf7;
+            --cinza: #d8d1c2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(111, 36, 49, 0.96),
+                    rgba(23, 21, 20, 0.98)
+                );
+            color: var(--branco);
+            min-height: 100vh;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .hero {
+            padding: 42px 20px 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(234, 216, 117, 0.15),
+                    transparent 45%
+                );
+        }
+
+        .hero-small {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--amarelo);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(42px, 12vw, 72px);
+            font-style: italic;
+            font-weight: normal;
+            line-height: 0.95;
+        }
+
+        .hero p {
+            margin: 15px 0 0;
+            color: var(--bege);
+            font-size: 17px;
+        }
+
+        .quick-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: flex;
+            gap: 8px;
+            padding: 12px 14px;
+            overflow-x: auto;
+            background: rgba(23, 21, 20, 0.96);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+        }
+
+        .quick-nav a {
+            flex: 0 0 auto;
+            padding: 9px 14px;
+            border: 1px solid rgba(234, 216, 117, 0.35);
+            border-radius: 999px;
+            color: var(--amarelo);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: min(100% - 28px, 760px);
+            margin: 0 auto;
+            padding: 24px 0 50px;
+        }
+
+        .notice {
+            margin-bottom: 22px;
+            padding: 14px 16px;
+            border: 1px solid rgba(234, 216, 117, 0.3);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--bege);
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .menu-section {
+            margin-bottom: 25px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            background: rgba(17, 15, 14, 0.78);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+        }
+
+        .section-title {
+            margin: 0;
+            padding: 17px 18px;
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--vinho),
+                    var(--vinho-escuro)
+                );
+            color: var(--amarelo);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 23px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .menu-list {
+            margin: 0;
+            padding: 6px 17px 12px;
+            list-style: none;
+        }
+
+        .menu-item {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 16px;
+            align-items: start;
+            padding: 13px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.16);
+        }
+
+        .menu-item:last-child {
+            border-bottom: 0;
+        }
+
+        .item-name {
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 1.35;
+            text-transform: uppercase;
+        }
+
+        .item-description {
+            display: block;
+            margin-top: 4px;
+            color: var(--cinza);
+            font-size: 12px;
+            font-weight: normal;
+            line-height: 1.4;
+            text-transform: none;
+        }
+
+        .item-price {
+            min-width: 58px;
+            padding: 6px 8px;
+            border-radius: 7px;
+            background: var(--bege);
+            color: var(--vinho-escuro);
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .drink-columns {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        .experience {
+            margin-top: 38px;
+            padding: 22px 18px;
+            border: 1px solid rgba(234, 216, 117, 0.3);
+            border-radius: 17px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(111, 36, 49, 0.5),
+                    rgba(23, 21, 20, 0.85)
+                );
+            text-align: center;
+        }
+
+        .experience small {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--amarelo);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .experience h2 {
+            margin: 0 0 8px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 22px;
+        }
+
+        .experience p {
+            margin: 0 auto 17px;
+            color: var(--bege);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .experience-button {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 999px;
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .footer {
+            padding: 0 18px 35px;
+            color: rgba(255, 255, 255, 0.62);
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .footer a {
+            color: var(--amarelo);
+            text-decoration: none;
+        }
+
+        @media (min-width: 680px) {
+            .drink-columns {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="hero">
+        <span class="hero-small">Cardápio digital</span>
+
+        <h1>Point da Ana</h1>
+
+        <p>Praia do Porto da Barra</p>
+    </header>
+
+    <nav class="quick-nav" aria-label="Categorias do cardápio">
+        <a href="#petiscos">Petiscos</a>
+        <a href="#moquecas">Moquecas</a>
+        <a href="#cervejas">Cervejas</a>
+        <a href="#bebidas">Bebidas</a>
+        <a href="#drinks">Caipirinhas</a>
+    </nav>
+
+    <main class="container">
+
+        <div class="notice">
+            Consulte a equipe para confirmar disponibilidade,
+            acompanhamentos e possíveis alterações de preço.
+        </div>
+
+        <!-- PETISCOS -->
+
+        <section class="menu-section" id="petiscos">
+            <h2 class="section-title">Petiscos</h2>
+
+            <ul class="menu-list">
+
+                <li class="menu-item">
+                    <div class="item-name">Peixe vermelho frito</div>
+                    <div class="item-price">R$ 230</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Peixe corvina</div>
+                    <div class="item-price">R$ 210</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Isca de peixe</div>
+                    <div class="item-price">R$ 115</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">
+                        Isca de peixe completa
+
+                        <span class="item-description">
+                            Batata, arroz, farofa e salada
+                        </span>
+                    </div>
+
+                    <div class="item-price">R$ 140</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Camarão ao alho e óleo</div>
+                    <div class="item-price">R$ 155</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Camarão empanado</div>
+                    <div class="item-price">R$ 165</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Pituinga</div>
+                    <div class="item-price">R$ 90</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Salada de polvo</div>
+                    <div class="item-price">R$ 160</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Lagosta grelhada</div>
+                    <div class="item-price">R$ 245</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Lagosta na chapa</div>
+                    <div class="item-price">R$ 245</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Lagosta com legumes</div>
+                    <div class="item-price">R$ 245</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Lambreta — dúzia</div>
+                    <div class="item-price">R$ 60</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Carne do sol completa</div>
+                    <div class="item-price">R$ 140</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Carne do sol</div>
+                    <div class="item-price">R$ 140</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Frango à passarinha completo</div>
+                    <div class="item-price">R$ 140</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Frango à passarinha</div>
+                    <div class="item-price">R$ 110</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Isca de frango completa</div>
+                    <div class="item-price">R$ 140</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Isca de frango</div>
+                    <div class="item-price">R$ 110</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">
+                        Bolinho de bacalhau
+                        <span class="item-description">8 unidades</span>
+                    </div>
+
+                    <div class="item-price">R$ 65</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">
+                        Bolinho de camarão
+                        <span class="item-description">6 unidades</span>
+                    </div>
+
+                    <div class="item-price">R$ 70</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Caldo de camarão</div>
+                    <div class="item-price">R$ 35</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Caldo de sururu</div>
+                    <div class="item-price">R$ 35</div>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- MOQUECAS -->
+
+        <section class="menu-section" id="moquecas">
+            <h2 class="section-title">Moquecas</h2>
+
+            <ul class="menu-list">
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca de vermelho</div>
+                    <div class="item-price">R$ 215</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca de dourado</div>
+                    <div class="item-price">R$ 200</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca de pescada-amarela</div>
+                    <div class="item-price">R$ 200</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca de pescada-branca</div>
+                    <div class="item-price">R$ 200</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca de camarão</div>
+                    <div class="item-price">R$ 210</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca mista</div>
+                    <div class="item-price">R$ 230</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Mariscada</div>
+                    <div class="item-price">R$ 230</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca de lagosta</div>
+                    <div class="item-price">R$ 260</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">
+                        Moqueca de lagosta com camarão
+                    </div>
+
+                    <div class="item-price">R$ 275</div>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- CERVEJAS -->
+
+        <section class="menu-section" id="cervejas">
+            <h2 class="section-title">Cervejas</h2>
+
+            <ul class="menu-list">
+
+                <li class="menu-item">
+                    <div class="item-name">Brahma Chopp latão</div>
+                    <div class="item-price">R$ 12</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Skol latão</div>
+                    <div class="item-price">R$ 12</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Brahma Duplo Malte</div>
+                    <div class="item-price">R$ 10</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Itaipava latão</div>
+                    <div class="item-price">R$ 12</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Original lata</div>
+                    <div class="item-price">R$ 12</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Amstel</div>
+                    <div class="item-price">R$ 10</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Devassa</div>
+                    <div class="item-price">R$ 10</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Heineken long neck</div>
+                    <div class="item-price">R$ 16</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Heineken lata</div>
+                    <div class="item-price">R$ 13</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">
+                        Heineken 0% álcool long neck
+                    </div>
+
+                    <div class="item-price">R$ 16</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Stella Artois long neck</div>
+                    <div class="item-price">R$ 16</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Stella Gold</div>
+                    <div class="item-price">R$ 17</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Budweiser long neck</div>
+                    <div class="item-price">R$ 16</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Corona long neck</div>
+                    <div class="item-price">R$ 17</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Corona 0% álcool</div>
+                    <div class="item-price">R$ 17</div>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- BEBIDAS -->
+
+        <section class="menu-section" id="bebidas">
+            <h2 class="section-title">Bebidas</h2>
+
+            <ul class="menu-list">
+
+                <li class="menu-item">
+                    <div class="item-name">Água mineral</div>
+                    <div class="item-price">R$ 5</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Água com gás</div>
+                    <div class="item-price">R$ 8</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Água de coco</div>
+                    <div class="item-price">R$ 10</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Suco de frutas</div>
+                    <div class="item-price">R$ 25</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Coca-Cola litro</div>
+                    <div class="item-price">R$ 15</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Coca-Cola lata</div>
+                    <div class="item-price">R$ 10</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Guaraná litro</div>
+                    <div class="item-price">R$ 15</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Guaraná lata</div>
+                    <div class="item-price">R$ 10</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Skinka</div>
+                    <div class="item-price">R$ 13</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">H2OH!</div>
+                    <div class="item-price">R$ 12</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Smirnoff Ice</div>
+                    <div class="item-price">R$ 17</div>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- CAIPIRINHAS E CAIPIROSCAS -->
+
+        <section class="menu-section" id="drinks">
+            <h2 class="section-title">Caipirinhas e Caipiroscas</h2>
+
+            <div class="drink-columns">
+
+                <div>
+                    <ul class="menu-list">
+
+                        <li class="menu-item">
+                            <div class="item-name">Caipirinha de limão</div>
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirinha de maracujá
+                            </div>
+
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirinha de siriguela
+                            </div>
+
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirinha de abacaxi
+                            </div>
+
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">Caipirinha de kiwi</div>
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirinha de morango
+                            </div>
+
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">Caipirinha de caju</div>
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div>
+                    <ul class="menu-list">
+
+                        <li class="menu-item">
+                            <div class="item-name">Caipirosca de limão</div>
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirosca de maracujá
+                            </div>
+
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirosca de siriguela
+                            </div>
+
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirosca de abacaxi
+                            </div>
+
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">Caipirosca de kiwi</div>
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirosca de morango
+                            </div>
+
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">Caipirosca de caju</div>
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DIVULGAÇÃO DISCRETA -->
+
+        <aside class="experience">
+            <small>Uma recomendação local</small>
+
+            <h2>Conheça o Centro Histórico de Salvador</h2>
+
+            <p>
+                Caminhada cultural pelo Pelourinho com guia local.
+                Descubra histórias, pessoas e lugares além da praia.
+            </p>
+
+            <a
+                class="experience-button"
+                href="https://toknowsalvador.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Book a Historic Walking Tour
+            </a>
+        </aside>
+
+    </main>
+
+    <footer class="footer">
+        <strong>Point da Ana</strong><br>
+        Praia do Porto da Barra — Salvador, Bahia
+
+        <br><br>
+
+        Cardápio digital desenvolvido por
+        <a href="https://toknowsalvador.com/">
+            To Know Salvador
+        </a>
+    </footer>
+
+</body>
+</html>
