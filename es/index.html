@@ -951,17 +951,149 @@
       font-size: 14px;
     }
 
-    
-    /* RECOMMENDED BOOKS */
-    .books-section{padding:44px 0 52px;background:#f4f0e8;color:#111;}
-    .books-title{text-align:center;font-family:"Playfair Display",serif;font-size:clamp(34px,8vw,48px);margin:0 0 12px;}
-    .books-subtitle{text-align:center;color:#6b655d;max-width:620px;margin:0 auto 34px;line-height:1.7;}
-    .books-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
-    .book-image{overflow:hidden;border-radius:22px;box-shadow:0 18px 45px rgba(0,0,0,.18);transition:transform .25s ease;}
-    .book-image:hover{transform:translateY(-6px);}
-    .book-image img{width:100%;aspect-ratio:.72;object-fit:cover;display:block;}
+    /* LIVROS RECOMENDADOS */
+    .books-section {
+      padding: 44px 0 52px;
+      background: #f4f0e8;
+      color: #111111;
+    }
 
-    /* HISTORY */
+    .books-title {
+      margin: 0 0 12px;
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 8vw, 48px);
+    }
+
+    .books-subtitle {
+      max-width: 620px;
+      margin: 0 auto 34px;
+      color: #6b655d;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      perspective: 1200px;
+    }
+
+    .book-card {
+      position: relative;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      border-radius: 22px;
+      background: transparent;
+      cursor: pointer;
+      perspective: 1200px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .book-card-inner {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 0.72;
+      border-radius: 22px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+      transform-style: preserve-3d;
+      transition: transform 650ms cubic-bezier(.2, .75, .25, 1);
+    }
+
+    .book-card.is-flipped .book-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .book-card-front,
+    .book-card-back {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: 22px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .book-card-front {
+      background: #ded7c9;
+    }
+
+    .book-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .book-card-back {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 4vw, 28px);
+      transform: rotateY(180deg);
+      background:
+        radial-gradient(circle at top right, rgba(200, 168, 90, 0.24), transparent 42%),
+        #111111;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .book-card-back h3 {
+      margin: 0;
+      color: var(--gold-light);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(20px, 5vw, 28px);
+      line-height: 1.1;
+    }
+
+    .book-card-back p {
+      margin: 14px 0 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: clamp(12px, 3.2vw, 14px);
+      line-height: 1.6;
+    }
+
+    .book-card-hint {
+      margin-top: 16px;
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .book-card:hover .book-card-inner {
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.23);
+    }
+
+    .book-card:focus-visible {
+      outline: 3px solid #8b6d29;
+      outline-offset: 5px;
+    }
+
+    @media (max-width: 420px) {
+      .books-grid {
+        gap: 11px;
+      }
+
+      .book-card-back {
+        padding: 13px;
+      }
+
+      .book-card-back p {
+        margin-top: 9px;
+        line-height: 1.45;
+      }
+
+      .book-card-hint {
+        margin-top: 10px;
+        font-size: 8px;
+      }
+    }
+
+/* HISTORY */
 
     .history-section {
       padding: 78px 0;
@@ -1686,18 +1818,81 @@
   </section>
 
 
-  
-  <!-- RECOMMENDED BOOKS -->
+  <!-- LIVROS RECOMENDADOS -->
   <section class="books-section">
     <div class="container">
-      <h2 class="books-title">Libros recomendados</h2>
-      <p class="books-subtitle">Una selección de libros para comprender mejor Salvador, Bahía, la cultura afrobrasileña y la historia de la ciudad.</p>
+
+      <h2 class="books-title">
+        Libros recomendados
+      </h2>
+
+      <p class="books-subtitle">
+        Toca una portada para ver una breve descripción de cada libro.
+      </p>
+
       <div class="books-grid">
-        <div class="book-image"><img src="/public/IMG_6592.jpeg" alt="Libro recomendado"></div>
-        <div class="book-image"><img src="/public/IMG_6591.jpeg" alt="Libro recomendado"></div>
+
+        <button
+          type="button"
+          class="book-card"
+          aria-label="Girar el primer libro y ver su descripción"
+          aria-pressed="false"
+        >
+          <span class="book-card-inner">
+
+            <span class="book-card-front">
+              <img
+                src="/public/IMG_6592.jpeg"
+                alt="Primer libro recomendado"
+              />
+            </span>
+
+            <span class="book-card-back">
+              <h3>Sobre este libro</h3>
+              <p>
+                Una lectura recomendada para comprender la formación histórica, social y cultural de Salvador y Bahía, conectando patrimonio, memoria e identidad.
+              </p>
+              <span class="book-card-hint">
+                Toca para volver
+              </span>
+            </span>
+
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="book-card"
+          aria-label="Girar el segundo libro y ver su descripción"
+          aria-pressed="false"
+        >
+          <span class="book-card-inner">
+
+            <span class="book-card-front">
+              <img
+                src="/public/IMG_6591.jpeg"
+                alt="Segundo libro recomendado"
+              />
+            </span>
+
+            <span class="book-card-back">
+              <h3>Sobre este libro</h3>
+              <p>
+                Una obra recomendada para profundizar en la presencia africana y afrobrasileña en Bahía, destacando cultura, resistencia, espiritualidad y contribuciones a la ciudad.
+              </p>
+              <span class="book-card-hint">
+                Toca para volver
+              </span>
+            </span>
+
+          </span>
+        </button>
+
       </div>
+
     </div>
   </section>
+
 
 
   <!-- PREMIUM SUPPORT -->
@@ -1835,7 +2030,7 @@
       </h2>
 
       <p class="connection-copy">
-        Información práctica, recomendaciones locales y personas de confianza para facilitar tu experiencia en la ciudad.
+        Información práticas, recomendações locais e pessoas de confiança para facilitar sua experiência na cidade.
       </p>
 
     </div>
@@ -1940,11 +2135,11 @@
         questions: {
           praiaDoForte: {
             text: "Quiero visitar Praia do Forte.",
-            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Quiero visitar Praia do Forte. ¿Puedes enviarme las opciones disponibles, horarios y precios?"
+            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Quisiera información sobre qué servicios, tours, experiencias u otras opciones están disponibles para visitar Praia do Forte."
           },
           islands: {
             text: "Quiero visitar las islas.",
-            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Me interesa visitar las islas. ¿Puedes enviarme las opciones disponibles, horarios y precios?"
+            message: "¡Hola! Adriano, de To Know Salvador, me recomendó tu contacto. Quisiera información sobre qué servicios, tours, experiencias u otras opciones están disponibles para visitar las islas."
           },
           favelaTour: {
             text: "Quiero visitar una comunidad con un guía local.",
@@ -1972,7 +2167,7 @@
           },
           morroTours: {
             text: "Necesito un contacto local de confianza en Morro de São Paulo.",
-            message: "¡Hola! Adriano, de To Know Salvador y de To Know Brazil Network, me recomendó tu contacto. Viajo a Morro de São Paulo y quisiera información, recomendaciones o apoyo local."
+            message: "¡Hola! Adriano, de To Know Salvador y de To Know Brazil Network, me recomendó tu contacto. Quisiera información sobre qué servicios, tours, experiencias u otras opciones están disponibles en Morro de São Paulo."
           },
           paddleKayak: {
             text: "Quiero reservar stand-up paddle o kayak.",
@@ -2008,15 +2203,15 @@
           },
           rio: {
             text: "Necesito un contacto local de confianza en Río de Janeiro.",
-            message: "¡Hola! Adriano, de To Know Salvador y de To Know Brazil Network, me recomendó tu contacto. Viajo a Río de Janeiro y quisiera información, recomendaciones o apoyo local."
+            message: "¡Hola! Adriano, de To Know Salvador y de To Know Brazil Network, me recomendó tu contacto. Quisiera información sobre qué servicios, tours, experiencias u otras opciones están disponibles en Río de Janeiro."
           },
           fortaleza: {
             text: "Necesito un contacto local de confianza en Fortaleza.",
-            message: "¡Hola! Adriano, de To Know Salvador y de To Know Brazil Network, me recomendó tu contacto. Viajo a Fortaleza y quisiera información, recomendaciones o apoyo local."
+            message: "¡Hola! Adriano, de To Know Salvador y de To Know Brazil Network, me recomendó tu contacto. Quisiera información sobre qué servicios, tours, experiencias u otras opciones están disponibles en Fortaleza."
           },
           chapada: {
             text: "Necesito un contacto local de confianza en Chapada Diamantina.",
-            message: "¡Hola! Adriano, de To Know Salvador y de To Know Brazil Network, me recomendó tu contacto. Viajo a Chapada Diamantina y quisiera información, recomendaciones o apoyo local."
+            message: "¡Hola! Adriano, de To Know Salvador y de To Know Brazil Network, me recomendó tu contacto. Quisiera información sobre qué servicios, tours, experiencias u otras opciones están disponibles en Chapada Diamantina."
           }
         },
 
@@ -2241,6 +2436,14 @@
     }
 
     changeLanguage(translations[initialLanguage] ? initialLanguage : "es");
+
+    document.querySelectorAll(".book-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const isFlipped = card.classList.toggle("is-flipped");
+        card.setAttribute("aria-pressed", String(isFlipped));
+      });
+    });
+
   </script>
 
 </body>
