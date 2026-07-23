@@ -951,17 +951,149 @@
       font-size: 14px;
     }
 
-    
-    /* RECOMMENDED BOOKS */
-    .books-section{padding:44px 0 52px;background:#f4f0e8;color:#111;}
-    .books-title{text-align:center;font-family:"Playfair Display",serif;font-size:clamp(34px,8vw,48px);margin:0 0 12px;}
-    .books-subtitle{text-align:center;color:#6b655d;max-width:620px;margin:0 auto 34px;line-height:1.7;}
-    .books-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
-    .book-image{overflow:hidden;border-radius:22px;box-shadow:0 18px 45px rgba(0,0,0,.18);transition:transform .25s ease;}
-    .book-image:hover{transform:translateY(-6px);}
-    .book-image img{width:100%;aspect-ratio:.72;object-fit:cover;display:block;}
+    /* LIVROS RECOMENDADOS */
+    .books-section {
+      padding: 44px 0 52px;
+      background: #f4f0e8;
+      color: #111111;
+    }
 
-    /* HISTORY */
+    .books-title {
+      margin: 0 0 12px;
+      text-align: center;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 8vw, 48px);
+    }
+
+    .books-subtitle {
+      max-width: 620px;
+      margin: 0 auto 34px;
+      color: #6b655d;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      perspective: 1200px;
+    }
+
+    .book-card {
+      position: relative;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      border-radius: 22px;
+      background: transparent;
+      cursor: pointer;
+      perspective: 1200px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .book-card-inner {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 0.72;
+      border-radius: 22px;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+      transform-style: preserve-3d;
+      transition: transform 650ms cubic-bezier(.2, .75, .25, 1);
+    }
+
+    .book-card.is-flipped .book-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .book-card-front,
+    .book-card-back {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: 22px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .book-card-front {
+      background: #ded7c9;
+    }
+
+    .book-card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .book-card-back {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(16px, 4vw, 28px);
+      transform: rotateY(180deg);
+      background:
+        radial-gradient(circle at top right, rgba(200, 168, 90, 0.24), transparent 42%),
+        #111111;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    .book-card-back h3 {
+      margin: 0;
+      color: var(--gold-light);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(20px, 5vw, 28px);
+      line-height: 1.1;
+    }
+
+    .book-card-back p {
+      margin: 14px 0 0;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: clamp(12px, 3.2vw, 14px);
+      line-height: 1.6;
+    }
+
+    .book-card-hint {
+      margin-top: 16px;
+      color: rgba(255, 255, 255, 0.46);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .book-card:hover .book-card-inner {
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.23);
+    }
+
+    .book-card:focus-visible {
+      outline: 3px solid #8b6d29;
+      outline-offset: 5px;
+    }
+
+    @media (max-width: 420px) {
+      .books-grid {
+        gap: 11px;
+      }
+
+      .book-card-back {
+        padding: 13px;
+      }
+
+      .book-card-back p {
+        margin-top: 9px;
+        line-height: 1.45;
+      }
+
+      .book-card-hint {
+        margin-top: 10px;
+        font-size: 8px;
+      }
+    }
+
+/* HISTORY */
 
     .history-section {
       padding: 78px 0;
@@ -1342,7 +1474,7 @@
       <div class="questions-intro">
 
         <p class="eyebrow">
-          Choose a question
+          Choose an option
         </p>
 
         <h2 class="section-title">
@@ -1350,7 +1482,7 @@
         </h2>
 
         <p>
-          Tap an option to see an answer or open WhatsApp with a ready-to-send message.
+          Tap an option to see the answer or open WhatsApp with a ready-to-send message.
         </p>
 
       </div>
@@ -1368,14 +1500,14 @@
           <details class="info-accordion">
             <summary>
               <span class="question-icon">📍</span>
-              <span class="question-text">Is the neighborhood I'm staying in safe at night?</span>
+              <span class="question-text">Is the neighborhood where I am staying safe at night?</span>
               <span class="question-arrow">→</span>
             </summary>
             <div class="inline-answer">
               <p><strong>General advice:</strong> Keep jewelry and expensive watches for more private venues instead of walking around with them.</p>
-              <p><strong>Historic Center:</strong> After 9:00 PM, stay around Largo Cruzeiro de São Francisco, where you'll find restaurants, live music and more people.</p>
-              <p><strong>Barra:</strong> Avoid Morro do Cristo late at night.</p>
-              <p><strong>Rio Vermelho:</strong> Stay around Largo do Acarajé da Dinha or Vila Caramuru. These two public squares are about a 10-minute walk from each other. During the day, Casa de Yemanjá is the main place worth visiting. At night, the neighborhood becomes livelier from around 7:00 PM.</p>
+              <p><strong>Historic Center:</strong> After 9:00 PM, stay around Largo Cruzeiro de São Francisco, where you will find restaurants, live music and more people.</p>
+              <p><strong>Barra:</strong> Avoid Morro do Cristo at night.</p>
+              <p><strong>Rio Vermelho:</strong> Stay around Largo do Acarajé da Dinha or Vila Caramuru. These two public squares are about a 10-minute walk from each other. During the day, Casa de Yemanjá is worth visiting. At night, the neighborhood becomes livelier from around 7:00 PM.</p>
             </div>
           </details>
 
@@ -1387,7 +1519,7 @@
             </summary>
 
             <div class="inline-answer">
-              <p><strong>MUNCAB</strong> — a strong choice for Afro-Brazilian culture, history and contemporary Black art.</p>
+              <p><strong>MUNCAB</strong> — an excellent choice for Afro-Brazilian culture, history and contemporary Black art.</p>
               <p><strong>City of Music Museum</strong> — a great introduction to Salvador's musical identity. It is closed on Mondays, and admission is free on Wednesdays.</p>
             </div>
           </details>
@@ -1414,8 +1546,8 @@
               <span class="question-arrow">→</span>
             </summary>
             <div class="inline-answer">
-              <p><strong>Clube do Samba</strong> (Terreiro de Jesus) — a great place to experience live samba in the Historic Center.</p>
-              <p><strong>Só Shape</strong> — a good choice if you're looking for a more underground local nightlife.</p>
+              <p><strong>Clube do Samba</strong> (Terreiro de Jesus) — a great place to enjoy live samba in the Historic Center.</p>
+              <p><strong>Só Shape</strong> — a good choice if you are looking for a more underground local nightlife.</p>
               <p><strong>Bahia Folkloric Show</strong> — available on <strong>Monday, Wednesday and Saturday</strong>, combining music, dance and Afro-Brazilian culture.</p>
             </div>
           </details>
@@ -1472,7 +1604,7 @@
 
           <a href="#" class="whatsapp-question question-card" data-question-key="favelaTour">
             <span class="question-icon">🏘️</span>
-            <span class="question-text">I want to visit a favela with a local guide.</span>
+            <span class="question-text">I want to visit a community with a local guide.</span>
             <span class="question-arrow">→</span>
           </a>
 
@@ -1528,7 +1660,7 @@
 
           <a href="#" class="whatsapp-question question-card" data-question-key="beachKit">
             <span class="question-icon">⛱️</span>
-            <span class="question-text">I want to reserve a beach kit with chairs, table and umbrella.</span>
+            <span class="question-text">I want to reserve a beach kit with chairs, a table and an umbrella.</span>
             <span class="question-arrow">→</span>
           </a>
 
@@ -1560,7 +1692,7 @@
 
           <a href="#" class="whatsapp-question question-card" data-question-key="nails">
             <span class="question-icon">💅</span>
-            <span class="question-text">I am interested in booking a manicure.</span>
+            <span class="question-text">I want to book a manicure.</span>
             <span class="question-arrow">→</span>
           </a>
 
@@ -1640,7 +1772,7 @@
       </p>
 
       <h2 class="section-title">
-        Bahian slang you may hear in Salvador
+        Bahian expressions you may hear in Salvador
       </h2>
 
       <p style="margin:15px 0 0;color:#68645d;font-size:15px;line-height:1.65;">
@@ -1655,7 +1787,7 @@
             An expression of surprise, disbelief or emphasis. Similar to “wow,” “really?” or “what?”
           </p>
           <p class="slang-example">
-            <strong>Example:</strong> “Oxente, you are already leaving?”
+            <strong>Example:</strong> “Oxente, are you leaving already?”
           </p>
         </article>
 
@@ -1686,18 +1818,81 @@
   </section>
 
 
-  
-  <!-- RECOMMENDED BOOKS -->
+  <!-- LIVROS RECOMENDADOS -->
   <section class="books-section">
     <div class="container">
-      <h2 class="books-title">Recommended Books</h2>
-      <p class="books-subtitle">A selection of books to better understand Salvador, Bahia, Afro-Brazilian culture and the city's history.</p>
+
+      <h2 class="books-title">
+        Recommended Books
+      </h2>
+
+      <p class="books-subtitle">
+        Tap a cover to see a brief description of each book.
+      </p>
+
       <div class="books-grid">
-        <div class="book-image"><img src="/public/IMG_6592.jpeg" alt="Recommended book"></div>
-        <div class="book-image"><img src="/public/IMG_6591.jpeg" alt="Recommended book"></div>
+
+        <button
+          type="button"
+          class="book-card"
+          aria-label="Flip the first book and view its description"
+          aria-pressed="false"
+        >
+          <span class="book-card-inner">
+
+            <span class="book-card-front">
+              <img
+                src="/public/IMG_6592.jpeg"
+                alt="First recommended book"
+              />
+            </span>
+
+            <span class="book-card-back">
+              <h3>About this book</h3>
+              <p>
+                A recommended read for understanding the historical, social and cultural formation of Salvador and Bahia, connecting heritage, memory and identity.
+              </p>
+              <span class="book-card-hint">
+                Tap to go back
+              </span>
+            </span>
+
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="book-card"
+          aria-label="Flip the second book and view its description"
+          aria-pressed="false"
+        >
+          <span class="book-card-inner">
+
+            <span class="book-card-front">
+              <img
+                src="/public/IMG_6591.jpeg"
+                alt="Second recommended book"
+              />
+            </span>
+
+            <span class="book-card-back">
+              <h3>About this book</h3>
+              <p>
+                A book recommended for deepening your understanding of the African and Afro-Brazilian presence in Bahia, highlighting culture, resistance, spirituality and contributions to the city.
+              </p>
+              <span class="book-card-hint">
+                Tap to go back
+              </span>
+            </span>
+
+          </span>
+        </button>
+
       </div>
+
     </div>
   </section>
+
 
 
   <!-- PREMIUM SUPPORT -->
@@ -1729,8 +1924,7 @@
           </h2>
 
           <p class="premium-copy">
-            For international agencies, companies, institutions and private
-            groups that need trusted local coordination in Salvador.
+            For international agencies, companies, institutions and private groups that need trusted local coordination in Salvador.
           </p>
 
         </div>
@@ -1800,8 +1994,7 @@
           </h2>
 
           <p class="history-copy">
-            Explore Salvador with a local guide and understand its history,
-            culture and Afro-Brazilian heritage.
+            Explore Salvador with a local guide and understand its history, culture and Afro-Brazilian heritage.
           </p>
 
           <a href="#" class="whatsapp-question history-button" data-history-link>
@@ -1837,8 +2030,7 @@
       </h2>
 
       <p class="connection-copy">
-        Practical information, local recommendations and trusted people to
-        make your experience in the city easier.
+        Information práticas, recomendações locais e pessoas de confiança para facilitar sua experiência na cidade.
       </p>
 
     </div>
@@ -1901,6 +2093,7 @@
       diving: whatsappNumbers.diving,
       dragShow: whatsappNumbers.dragShow,
       braids: whatsappNumbers.braids,
+      praiaDoForte: whatsappNumbers.islands,
       islands: whatsappNumbers.islands,
       capoeiraMusic: whatsappNumbers.capoeiraMusic,
       morroTours: whatsappNumbers.morroTours,
@@ -1916,7 +2109,6 @@
       "nails",
       "barber",
       "hairCare",
-      "getReady",
       "braids"
     ];
 
@@ -1929,9 +2121,9 @@
         heroHelp: "How can we help?",
         experiencesTitle: "To Know Salvador Experience",
         tapToWatch: "Tap to watch",
-        questionsEyebrow: "Choose a question",
+        questionsEyebrow: "Choose an option",
         questionsTitle: "What do you need today?",
-        questionsDescription: "Tap an option to see an answer or open WhatsApp with a ready-to-send message.",
+        questionsDescription: "Tap an option to see the answer or open WhatsApp with a ready-to-send message.",
 
         groups: {
           information: "Information",
@@ -1941,85 +2133,65 @@
         },
 
         questions: {
-          safeNeighborhood: {
-            text: "Is the neighborhood I'm staying in safe at night?",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I would like to know if the neighborhood where I am staying is safe at night."
-          },
-          museum: {
-            text: "Which museum should I visit?",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I would like a recommendation for a museum to visit in Salvador."
-          },
-          eat: {
-            text: "Where should I eat?",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I would like a trusted restaurant recommendation in Salvador."
-          },
-          tonight: {
-            text: "What can I do tonight?",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I would like to know what I can do in Salvador tonight."
-          },
-          beachClub: {
-            text: "I want to go to a beach club.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in visiting a beach club. Could you please send me recommendations and reservation information?"
-          },
           praiaDoForte: {
             text: "I want to visit Praia do Forte.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in visiting Praia do Forte and would like more information."
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I would like information about the available services, tours, experiences or other options for visiting Praia do Forte."
           },
           islands: {
             text: "I want to visit the islands.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in visiting the islands. Could you please send me the available options?"
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I would like information about the available services, tours, experiences or other options for visiting the islands."
           },
           favelaTour: {
-            text: "I want to visit a favela with a local guide.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I’m interested in a favela tour in Salvador. Could you please send me more information about availability and prices?"
+            text: "I want to visit a community with a local guide.",
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in visiting a community with a local guide. Could you please send me information about availability and prices?"
           },
           folkloricShow: {
             text: "I want to watch the Bahia Folkloric Show.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I’m interested in the Bahia Folkloric Show. Could you please send me information about dates, availability and prices?"
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in the Bahia Folkloric Show. Could you please send me information about dates, availability and prices?"
           },
           dragShow: {
             text: "I want to watch a drag queen show.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I’m interested in the drag queen show. Could you please send me information about dates, availability and prices?"
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in the drag queen show. Could you please send me information about dates, availability and prices?"
           },
           capoeiraMusic: {
             text: "I want to take a capoeira and music class.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I’m interested in taking a capoeira and music class. Could you please send me information about availability and prices?"
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in taking a capoeira and music class. Could you please send me information about availability and prices?"
           },
           foodTour: {
             text: "I want to take a traditional food tour.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I’m interested in taking a traditional food tour in Salvador. Could you please send me information about availability and prices?"
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in taking a traditional food tour in Salvador. Could you please send me information about availability and prices?"
           },
           footballTour: {
             text: "I want to take a football tour.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I’m interested in a football experience, including matches or a visit to Arena Fonte Nova. Could you please send me availability and prices?"
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in a football experience, including matches or a visit to Arena Fonte Nova. Could you please send me availability and prices?"
           },
           morroTours: {
             text: "I need a trusted local contact in Morro de São Paulo.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I would like help planning my trip and learning about available tours in Morro de São Paulo. Could you please send me availability and prices?"
+            message: "Hi! Adriano from To Know Salvador and the To Know Brazil Network recommended your contact. I would like information about what services, tours, experiences or other options are available in Morro de São Paulo."
           },
           paddleKayak: {
             text: "I want to book stand-up paddle or kayaking.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I’m interested in booking stand-up paddle or kayaking at Porto da Barra. Could you please send me your availability and prices?"
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in booking stand-up paddle or kayaking at Porto da Barra. Could you please send me your availability and prices?"
           },
           beachKit: {
-            text: "I want to reserve a beach kit with chairs, table and umbrella.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I’m interested in reserving a beach kit at Porto da Barra with chairs, a table and an umbrella. Could you please send me your availability and prices?"
+            text: "I want to reserve a beach kit with chairs, a table and an umbrella.",
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in reserving a beach kit at Porto da Barra with chairs, a table and an umbrella. Could you please send me your availability and prices?"
           },
           diving: {
             text: "I want to go diving at Porto da Barra.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I’m interested in diving at Porto da Barra. Could you please send me information about availability and prices?"
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in diving at Porto da Barra. Could you please send me information about availability and prices?"
           },
           hairMakeup: {
             text: "Where can I do my hair and makeup?",
             message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in hair and makeup services. Could you please help me with a trusted recommendation?"
           },
           nails: {
-            text: "I am interested in booking a manicure.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I’m interested in booking a manicure. Could you please send me your availability and prices?"
+            text: "I want to book a manicure.",
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in booking a manicure. Could you please send me your availability and prices?"
           },
           barber: {
             text: "I need a barber.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I am looking for a barber in Salvador. Could you please help me with a trusted recommendation?"
+            message: "Hi! Adriano from To Know Salvador recommended Maestros Barra. I am interested in booking a barber service. Could you please send me your availability and prices?"
           },
           hairCare: {
             text: "I want to take care of my hair.",
@@ -2027,19 +2199,19 @@
           },
           braids: {
             text: "I want to get Afro braids.",
-            message: "Hi! Adriano from To Know Salvador recommended your contact. I’m interested in getting Afro braids. Could you please send me your availability, styles and prices?"
+            message: "Hi! Adriano from To Know Salvador recommended your contact. I am interested in getting Afro braids. Could you please send me your availability, styles and prices?"
           },
           rio: {
             text: "I need a trusted local contact in Rio de Janeiro.",
-            message: "Hi! Adriano from To Know Salvador and the To Know Brazil Network recommended your contact. I’m traveling to Rio de Janeiro and would like local information, recommendations or assistance."
+            message: "Hi! Adriano from To Know Salvador and the To Know Brazil Network recommended your contact. I would like information about what services, tours, experiences or other options are available in Rio de Janeiro."
           },
           fortaleza: {
             text: "I need a trusted local contact in Fortaleza.",
-            message: "Hi! Adriano from To Know Salvador and the To Know Brazil Network recommended your contact. I’m traveling to Fortaleza and would like local information, recommendations or assistance."
+            message: "Hi! Adriano from To Know Salvador and the To Know Brazil Network recommended your contact. I would like information about what services, tours, experiences or other options are available in Fortaleza."
           },
           chapada: {
             text: "I need a trusted local contact in Chapada Diamantina.",
-            message: "Hi! Adriano from To Know Salvador and the To Know Brazil Network recommended your contact. I’m traveling to Chapada Diamantina and would like local information, recommendations or assistance."
+            message: "Hi! Adriano from To Know Salvador and the To Know Brazil Network recommended your contact. I would like information about what services, tours, experiences or other options are available in Chapada Diamantina."
           }
         },
 
@@ -2050,7 +2222,7 @@
         premium: {
           clients: {
             text: "I need local support for my clients in Salvador.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I represent an agency or organization. I need local support for clients visiting Salvador."
+            message: "Hello! Adriano from To Know Salvador recommended your contact. I represent an agency or organization and need local support for clients visiting Salvador."
           },
           logistics: {
             text: "I need help organizing transportation, guides and reservations.",
@@ -2083,8 +2255,7 @@
         connectionTitle: "Your local connection in Salvador.",
         connectionCopy: "Practical information, local recommendations and trusted people to make your experience in the city easier.",
         footerLocation: "Salvador, Bahia, Brazil"
-      },
-
+      }
     };
 
     const languageButtons = document.querySelectorAll(".language-button");
@@ -2245,13 +2416,6 @@
           "<br />@toknowsalvador<br />© 2026 To Know Salvador";
       }
 
-      languageButtons.forEach((button) => {
-        const isActive = button.dataset.language === language;
-
-        button.classList.toggle("active", isActive);
-        button.setAttribute("aria-pressed", String(isActive));
-      });
-
       localStorage.setItem("toKnowSalvadorLanguage", language);
     }
 
@@ -2272,6 +2436,14 @@
     }
 
     changeLanguage(translations[initialLanguage] ? initialLanguage : "en");
+
+    document.querySelectorAll(".book-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        const isFlipped = card.classList.toggle("is-flipped");
+        card.setAttribute("aria-pressed", String(isFlipped));
+      });
+    });
+
   </script>
 
 </body>
