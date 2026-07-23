@@ -951,6 +951,16 @@
       font-size: 14px;
     }
 
+    
+    /* RECOMMENDED BOOKS */
+    .books-section{padding:72px 0;background:#f4f0e8;color:#111;}
+    .books-title{text-align:center;font-family:"Playfair Display",serif;font-size:clamp(34px,8vw,48px);margin:0 0 12px;}
+    .books-subtitle{text-align:center;color:#6b655d;max-width:620px;margin:0 auto 34px;line-height:1.7;}
+    .books-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+    .book-image{overflow:hidden;border-radius:22px;box-shadow:0 18px 45px rgba(0,0,0,.18);transition:transform .25s ease;}
+    .book-image:hover{transform:translateY(-6px);}
+    .book-image img{width:100%;aspect-ratio:.72;object-fit:cover;display:block;}
+
     /* HISTORY */
 
     .history-section {
@@ -1682,6 +1692,20 @@
 
     </div>
 
+  </section>
+
+
+  
+  <!-- RECOMMENDED BOOKS -->
+  <section class="books-section">
+    <div class="container">
+      <h2 class="books-title">Recommended Books</h2>
+      <p class="books-subtitle">A selection of books to better understand Salvador, Bahia, Afro-Brazilian culture and the city's history.</p>
+      <div class="books-grid">
+        <div class="book-image"><img src="/public/IMG_6592.jpeg" alt="Recommended book"></div>
+        <div class="book-image"><img src="/public/IMG_6591.jpeg" alt="Recommended book"></div>
+      </div>
+    </div>
   </section>
 
 
