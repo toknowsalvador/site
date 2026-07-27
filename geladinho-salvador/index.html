@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Geladinho Gourmet em Salvador, Bahia</title>
+
+  <meta
+    name="description"
+    content="Cardápio de geladinhos gourmet alcoólicos e sem álcool em Salvador, Bahia."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #1f2937;
+    }
+
+    header {
+      background: linear-gradient(135deg, #087ca7, #00a8c6);
+      color: white;
+      text-align: center;
+      padding: 32px 20px 28px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 16px;
+    }
+
+    .languages {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .languages a {
+      color: white;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      border-radius: 20px;
+      padding: 8px 14px;
+      font-size: 14px;
+    }
+
+    .languages a.active {
+      background: white;
+      color: #087ca7;
+      font-weight: bold;
+    }
+
+    main {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 22px 16px 40px;
+    }
+
+    .intro {
+      background: white;
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 24px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+    }
+
+    .intro strong {
+      color: #087ca7;
+    }
+
+    .category {
+      margin-bottom: 30px;
+    }
+
+    .category-title {
+      color: #087ca7;
+      margin: 0 0 14px;
+      font-size: 22px;
+      border-bottom: 2px solid #dceef3;
+      padding-bottom: 8px;
+    }
+
+    .warning {
+      background: #fff4d6;
+      color: #7a4b00;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .item {
+      background: white;
+      border-radius: 13px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .item h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #1f2937;
+    }
+
+    .price {
+      color: #087ca7;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .description {
+      margin: 8px 0 0;
+      color: #5f6875;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e9f8f2;
+      color: #13795b;
+      padding: 5px 9px;
+      border-radius: 20px;
+      margin-top: 9px;
+      margin-right: 5px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 18px;
+      background: #e9eef3;
+      color: #65707d;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    footer a {
+      color: #087ca7;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Geladinho Gourmet</h1>
+
+    <p>Salvador · Bahia · Brasil 🇧🇷</p>
+
+    <nav class="languages" aria-label="Selecionar idioma">
+      <a
+        href="/geladinho-salvador/"
+        class="active"
+      >
+        Português
+      </a>
+
+      <a href="/geladinho-salvador/en/">
+        English
+      </a>
+
+      <a href="/geladinho-salvador/es/">
+        Español
+      </a>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="intro">
+      Sabores gourmet preparados em
+      <strong>Salvador, Bahia</strong>.
+      <br>
+      Consulte abaixo as opções alcoólicas e sem álcool.
+    </section>
+
+    <!-- ALCOÓLICOS COM VODKA -->
+
+    <section class="category">
+
+      <h2 class="category-title">
+        Alcoólicos com vodka
+      </h2>
+
+      <div class="warning">
+        Contém bebida alcoólica. Venda exclusiva para maiores de 18 anos.
+      </div>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Mousse de maracujá</h3>
+          <span class="price">R$ --</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Mousse de limão</h3>
+          <span class="price">R$ --</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Morango trufado</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <p class="description">
+          Sorvete de iogurte de morango, calda de morango e chocolate.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Açaí turbinado</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <p class="description">
+          Leite líquido, leite condensado, creme de leite,
+          leite em pó, energético e guaraná.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Abacaxi com coco</h3>
+          <span class="price">R$ --</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Abacaxi ao vinho</h3>
+          <span class="price">R$ --</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Melancia com limão</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <span class="tag">Zero açúcar</span>
+        <span class="tag">Zero lactose</span>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Coco com limão</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <p class="description">
+          Preparado sem bagaço de coco.
+        </p>
+
+        <span class="tag">Zero açúcar</span>
+        <span class="tag">Zero lactose</span>
+      </article>
+
+    </section>
+
+    <!-- ALCOÓLICOS COM CACHAÇA 51 -->
+
+    <section class="category">
+
+      <h2 class="category-title">
+        Alcoólicos com Cachaça 51
+      </h2>
+
+      <div class="warning">
+        Contém bebida alcoólica. Venda exclusiva para maiores de 18 anos.
+      </div>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Caipirinha de limão</h3>
+          <span class="price">R$ --</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Caipirinha de caju</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <p class="description">
+          Preparada com pedaços da fruta.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Coco com leite condensado</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <p class="description">
+          Preparado com bagaço de coco.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Amendoim com paçoca</h3>
+          <span class="price">R$ --</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Doce de leite</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <p class="description">
+          Sabor semelhante ao licor de creme.
+        </p>
+      </article>
+
+    </section>
+
+    <!-- GOURMET SEM ÁLCOOL -->
+
+    <section class="category">
+
+      <h2 class="category-title">
+        Gourmet sem álcool
+      </h2>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Mousse de maracujá</h3>
+          <span class="price">R$ --</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Mousse de maracujá trufado</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <p class="description">
+          Trufado com chocolate.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Mousse de limão</h3>
+          <span class="price">R$ --</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Morango trufado</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <p class="description">
+          Sorvete de iogurte de morango, calda de morango e chocolate.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Açaí turbinado</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <p class="description">
+          Leite líquido, leite condensado, creme de leite,
+          leite em pó e energético.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Abacaxi com coco</h3>
+          <span class="price">R$ --</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Abacaxi ao vinho</h3>
+          <span class="price">R$ --</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Doce de leite</h3>
+          <span class="price">R$ --</span>
+        </div>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Coco com leite condensado</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <p class="description">
+          Sabor beijinho.
+        </p>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Caju com pedaços da fruta</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <span class="tag">Zero lactose</span>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Manga com pedaços da fruta</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <span class="tag">Zero lactose</span>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Melancia com limão</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <span class="tag">Zero açúcar</span>
+        <span class="tag">Zero lactose</span>
+      </article>
+
+      <article class="item">
+        <div class="item-header">
+          <h3>Coco com limão</h3>
+          <span class="price">R$ --</span>
+        </div>
+
+        <p class="description">
+          Preparado sem bagaço de coco.
+        </p>
+
+        <span class="tag">Zero açúcar</span>
+        <span class="tag">Zero lactose</span>
+      </article>
+
+    </section>
+
+  </main>
+
+  <footer>
+    📍 Salvador, Bahia, Brasil
+    <br>
+
+    Cardápio digital desenvolvido por
+    <a href="https://toknowsalvador.com/">
+      To Know Salvador
+    </a>
+  </footer>
+
+</body>
+
+</html>
