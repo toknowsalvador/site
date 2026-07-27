@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -14,7 +13,7 @@ html
 
   <meta
     name="description"
-    content="Cardápio de geladinhos gourmet alcoólicos e sem álcool em Salvador, Bahia. Todos os sabores por R$ 10,00."
+    content="Cardápio de geladinhos gourmet alcoólicos e sem álcool em Salvador, Bahia. Sabores por R$ 15,00 no Pix ou dinheiro."
   >
 
   <style>
@@ -65,11 +64,6 @@ html
       border-radius: 20px;
       padding: 8px 14px;
       font-size: 14px;
-      transition: 0.2s;
-    }
-
-    .languages a:hover {
-      background: rgba(255, 255, 255, 0.15);
     }
 
     .languages a.active {
@@ -89,7 +83,7 @@ html
       background: white;
       border-radius: 14px;
       padding: 19px;
-      margin-bottom: 25px;
+      margin-bottom: 14px;
       text-align: center;
       line-height: 1.6;
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
@@ -97,6 +91,29 @@ html
 
     .intro strong {
       color: #087ca7;
+    }
+
+    .price-banner {
+      background: linear-gradient(135deg, #087ca7, #0099b5);
+      color: white;
+      border-radius: 14px;
+      padding: 18px;
+      margin-bottom: 28px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(8, 124, 167, 0.2);
+    }
+
+    .price-banner strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 7px;
+    }
+
+    .price-banner span {
+      display: block;
+      font-size: 14px;
+      line-height: 1.5;
+      opacity: 0.95;
     }
 
     .category {
@@ -129,23 +146,10 @@ html
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
     }
 
-    .item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-    }
-
     .item h3 {
       margin: 0;
       font-size: 18px;
       color: #1f2937;
-    }
-
-    .price {
-      color: #087ca7;
-      font-weight: bold;
-      white-space: nowrap;
     }
 
     .description {
@@ -167,16 +171,6 @@ html
       font-weight: bold;
     }
 
-    .islands-banner {
-      background: linear-gradient(135deg, #e5f8ff, #f3fbff);
-      border: 1px solid #c6eaf5;
-      border-radius: 15px;
-      padding: 22px 18px;
-      margin: 8px 0 30px;
-      text-align: center;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
-    }
-
     .small-title {
       display: block;
       margin-bottom: 6px;
@@ -185,6 +179,16 @@ html
       font-weight: bold;
       letter-spacing: 0.5px;
       text-transform: uppercase;
+    }
+
+    .islands-banner {
+      background: linear-gradient(135deg, #e5f8ff, #f3fbff);
+      border: 1px solid #c6eaf5;
+      border-radius: 15px;
+      padding: 22px 18px;
+      margin: 8px 0 30px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
     }
 
     .islands-banner h2 {
@@ -210,12 +214,6 @@ html
       padding: 12px 19px;
       font-size: 15px;
       font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .whatsapp-button:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
     }
 
     .free-tour-banner {
@@ -267,12 +265,6 @@ html
       font-size: 14px;
       font-weight: bold;
       white-space: nowrap;
-      transition: 0.2s;
-    }
-
-    .free-tour-button:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
     }
 
     .discover {
@@ -304,12 +296,6 @@ html
       padding: 12px 20px;
       font-weight: bold;
       font-size: 15px;
-      transition: 0.2s;
-    }
-
-    .site-button:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
     }
 
     footer {
@@ -338,10 +324,6 @@ html
 
       .item h3 {
         font-size: 17px;
-      }
-
-      .islands-banner h2 {
-        font-size: 21px;
       }
 
       .free-tour-banner {
@@ -396,9 +378,19 @@ html
 
       Consulte abaixo as opções alcoólicas e sem álcool.
 
-      <br>
+    </section>
 
-      <strong>Todos os sabores por R$ 10,00.</strong>
+    <section class="price-banner">
+
+      <strong>Todo e qualquer sabor por R$ 15,00</strong>
+
+      <span>
+        Valor para pagamento em dinheiro ou Pix.
+      </span>
+
+      <span>
+        No débito ou crédito: R$ 16,00.
+      </span>
 
     </section>
 
@@ -415,25 +407,16 @@ html
       </div>
 
       <article class="item">
-        <div class="item-header">
-          <h3>Mousse de maracujá</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Mousse de maracujá</h3>
       </article>
 
       <article class="item">
-        <div class="item-header">
-          <h3>Mousse de limão</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Mousse de limão</h3>
       </article>
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Morango trufado</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Morango trufado</h3>
 
         <p class="description">
           Sorvete de iogurte de morango, calda de morango e chocolate.
@@ -443,10 +426,7 @@ html
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Açaí turbinado</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Açaí turbinado</h3>
 
         <p class="description">
           Leite líquido, leite condensado, creme de leite,
@@ -456,25 +436,16 @@ html
       </article>
 
       <article class="item">
-        <div class="item-header">
-          <h3>Abacaxi com coco</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Abacaxi com coco</h3>
       </article>
 
       <article class="item">
-        <div class="item-header">
-          <h3>Abacaxi ao vinho</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Abacaxi ao vinho</h3>
       </article>
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Melancia com limão</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Melancia com limão</h3>
 
         <span class="tag">Zero açúcar</span>
         <span class="tag">Zero lactose</span>
@@ -483,10 +454,7 @@ html
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Coco com limão</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Coco com limão</h3>
 
         <p class="description">
           Preparado sem bagaço de coco.
@@ -538,18 +506,12 @@ html
       </div>
 
       <article class="item">
-        <div class="item-header">
-          <h3>Caipirinha de limão</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Caipirinha de limão</h3>
       </article>
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Caipirinha de caju</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Caipirinha de caju</h3>
 
         <p class="description">
           Preparada com pedaços da fruta.
@@ -559,10 +521,7 @@ html
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Coco com leite condensado</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Coco com leite condensado</h3>
 
         <p class="description">
           Preparado com bagaço de coco.
@@ -571,18 +530,12 @@ html
       </article>
 
       <article class="item">
-        <div class="item-header">
-          <h3>Amendoim com paçoca</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Amendoim com paçoca</h3>
       </article>
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Doce de leite</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Doce de leite</h3>
 
         <p class="description">
           Sabor semelhante ao licor de creme.
@@ -601,18 +554,12 @@ html
       </h2>
 
       <article class="item">
-        <div class="item-header">
-          <h3>Mousse de maracujá</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Mousse de maracujá</h3>
       </article>
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Mousse de maracujá trufado</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Mousse de maracujá trufado</h3>
 
         <p class="description">
           Trufado com chocolate.
@@ -621,18 +568,12 @@ html
       </article>
 
       <article class="item">
-        <div class="item-header">
-          <h3>Mousse de limão</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Mousse de limão</h3>
       </article>
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Morango trufado</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Morango trufado</h3>
 
         <p class="description">
           Sorvete de iogurte de morango, calda de morango e chocolate.
@@ -642,10 +583,7 @@ html
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Açaí turbinado</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Açaí turbinado</h3>
 
         <p class="description">
           Leite líquido, leite condensado, creme de leite,
@@ -655,32 +593,20 @@ html
       </article>
 
       <article class="item">
-        <div class="item-header">
-          <h3>Abacaxi com coco</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Abacaxi com coco</h3>
       </article>
 
       <article class="item">
-        <div class="item-header">
-          <h3>Abacaxi ao vinho</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Abacaxi ao vinho</h3>
       </article>
 
       <article class="item">
-        <div class="item-header">
-          <h3>Doce de leite</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Doce de leite</h3>
       </article>
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Coco com leite condensado</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Coco com leite condensado</h3>
 
         <p class="description">
           Sabor beijinho.
@@ -690,10 +616,7 @@ html
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Caju com pedaços da fruta</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Caju com pedaços da fruta</h3>
 
         <span class="tag">Zero lactose</span>
 
@@ -701,10 +624,7 @@ html
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Manga com pedaços da fruta</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Manga com pedaços da fruta</h3>
 
         <span class="tag">Zero lactose</span>
 
@@ -712,10 +632,7 @@ html
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Melancia com limão</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Melancia com limão</h3>
 
         <span class="tag">Zero açúcar</span>
         <span class="tag">Zero lactose</span>
@@ -724,10 +641,7 @@ html
 
       <article class="item">
 
-        <div class="item-header">
-          <h3>Coco com limão</h3>
-          <span class="price">R$ 10,00</span>
-        </div>
+        <h3>Coco com limão</h3>
 
         <p class="description">
           Preparado sem bagaço de coco.
@@ -761,7 +675,7 @@ html
 
       <a
         class="free-tour-button"
-        href="https://wa.me/5511952473756?text=Ol%C3%A1%21%20Encontrei%20o%20contato%20atrav%C3%A9s%20do%20card%C3%A1pio%20do%20Geladinho%20Gourmet%20e%20gostaria%20de%20reservar%20o%20Free%20Tour%20pelo%20Pelourinho.%20Poderiam%20me%20enviar%20os%20hor%C3%A1rios%20dispon%C3%ADveis%3F"
+        href="https://wa.me/5511952473756?text=Ol%C3%A1%21%20Consegui%20este%20contato%20atrav%C3%A9s%20do%20pessoal%20do%20Geladinho%20Gourmet%20e%20gostaria%20de%20reservar%20o%20Free%20Tour%20pelo%20Pelourinho.%20Poderiam%20me%20informar%20os%20hor%C3%A1rios%20dispon%C3%ADveis%3F"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -815,4 +729,3 @@ html
 </body>
 
 </html>
-```
