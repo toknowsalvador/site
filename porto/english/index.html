@@ -269,6 +269,76 @@
             text-decoration: none;
         }
 
+
+        .checkout-card {
+            margin-top: 38px;
+            padding: 26px 20px;
+            border: 1px solid rgba(234, 216, 117, 0.5);
+            border-radius: 20px;
+            background:
+                radial-gradient(circle at top, rgba(234, 216, 117, 0.16), transparent 55%),
+                linear-gradient(145deg, rgba(111, 36, 49, 0.72), rgba(23, 21, 20, 0.94));
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+            text-align: center;
+        }
+
+        .checkout-card small {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--amarelo);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+        }
+
+        .checkout-card h2 {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(25px, 7vw, 34px);
+            line-height: 1.1;
+        }
+
+        .checkout-card p {
+            max-width: 500px;
+            margin: 12px auto 18px;
+            color: var(--bege);
+            font-size: 14px;
+            line-height: 1.55;
+        }
+
+        .checkout-button {
+            display: flex;
+            width: 100%;
+            min-height: 60px;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 20px;
+            border-radius: 16px;
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+            transition: transform 160ms ease, filter 160ms ease;
+        }
+
+        .checkout-button:hover,
+        .checkout-button:focus {
+            transform: translateY(-2px);
+            filter: brightness(1.04);
+        }
+
+        .checkout-hint {
+            display: block;
+            margin-top: 12px;
+            color: rgba(255, 255, 255, 0.64);
+            font-size: 12px;
+            line-height: 1.45;
+        }
+
         @media (min-width: 680px) {
             .drink-columns {
                 grid-template-columns: 1fr 1fr;
@@ -810,19 +880,24 @@
             </div>
         </section>
 
+        <section class="checkout-card" id="help">
+            <small>💳 Finish your order</small>
+            <h2>I would like the bill</h2>
+            <p>Tap the button and enter your table number in WhatsApp.</p>
 
-        <section class="experience" id="help">
-            <small>🙋 Need help?</small>
-            <h2>We are here to help</h2>
-            <p>Choose an option below. When WhatsApp opens, add your table number at the end of the message before sending.<br><br><strong>Example:</strong> 🧊 I need more ice at table: 12</p>
-            <div style="display:flex;flex-direction:column;gap:12px;margin-top:18px">
-                <a class="experience-button" href="https://wa.me/5571982005713?text=Preciso%20de%20uma%20pessoa%20na%20mesa:%20">🙋 I need a staff member at table:</a>
-                <a class="experience-button" href="https://wa.me/5571982005713?text=Preciso%20de%20mais%20gelo%20na%20mesa:%20">🧊 I need more ice at table:</a>
-                <a class="experience-button" href="https://wa.me/5571982005713?text=Meu%20sombreiro%20caiu%20na%20mesa:%20">⛱️ My beach umbrella fell at table:</a>
-                <a class="experience-button" href="https://wa.me/5571982005713?text=Gostaria%20de%20fazer%20um%20novo%20pedido%20na%20mesa:%20">🍽️ I would like to place a new order at table:</a>
-                <a class="experience-button" href="https://wa.me/5571982005713?text=Gostaria%20da%20conta%20na%20mesa:%20">💳 I would like the bill at table:</a>
-            </div>
+            <a
+                class="checkout-button"
+                href="https://wa.me/5571982005713?text=Please%20bring%20my%20bill.%20I%20am%20at%20table%3A%20%0A%0ATr%C3%A1igame%20la%20cuenta%2C%20por%20favor.%20Estoy%20en%20la%20mesa%3A%20%0A%0ATraga%20minha%20conta%2C%20por%20favor.%20Estou%20na%20mesa%3A%20"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <span>💳</span>
+                <span>Request my bill</span>
+            </a>
+
+            <span class="checkout-hint">The message will be ready. Just add your table number.</span>
         </section>
+
 
         <!-- DIVULGAÇÃO DISCRETA -->
 
