@@ -1,3 +1,12 @@
+Desculpe. Abaixo está o **código completo corrigido**, com todos os produtos por **R$ 10,00** e uma faixa minimalista do **Free Tour pelo Pelourinho** depois do cardápio, para não tirar o protagonismo dos geladinhos.
+
+Cole tudo em:
+
+```text
+geladinho-salvador/index.html
+```
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -13,12 +22,16 @@
 
   <meta
     name="description"
-    content="Cardápio de geladinhos gourmet alcoólicos e sem álcool em Salvador, Bahia."
+    content="Cardápio de geladinhos gourmet alcoólicos e sem álcool em Salvador, Bahia. Todos os sabores por R$ 10,00."
   >
 
   <style>
     * {
       box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -32,7 +45,7 @@
       background: linear-gradient(135deg, #087ca7, #00a8c6);
       color: white;
       text-align: center;
-      padding: 32px 20px 28px;
+      padding: 34px 20px 28px;
     }
 
     header h1 {
@@ -56,10 +69,15 @@
     .languages a {
       color: white;
       text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.75);
       border-radius: 20px;
       padding: 8px 14px;
       font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .languages a:hover {
+      background: rgba(255, 255, 255, 0.15);
     }
 
     .languages a.active {
@@ -72,15 +90,16 @@
       width: 100%;
       max-width: 720px;
       margin: 0 auto;
-      padding: 22px 16px 40px;
+      padding: 22px 16px 42px;
     }
 
     .intro {
       background: white;
       border-radius: 14px;
-      padding: 18px;
-      margin-bottom: 24px;
+      padding: 19px;
+      margin-bottom: 25px;
       text-align: center;
+      line-height: 1.6;
       box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
     }
 
@@ -89,7 +108,7 @@
     }
 
     .category {
-      margin-bottom: 30px;
+      margin-bottom: 32px;
     }
 
     .category-title {
@@ -107,6 +126,7 @@
       padding: 12px 14px;
       margin-bottom: 14px;
       font-size: 14px;
+      line-height: 1.5;
     }
 
     .item {
@@ -155,12 +175,157 @@
       font-weight: bold;
     }
 
+    .islands-banner {
+      background: linear-gradient(135deg, #e5f8ff, #f3fbff);
+      border: 1px solid #c6eaf5;
+      border-radius: 15px;
+      padding: 22px 18px;
+      margin: 8px 0 30px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .small-title {
+      display: block;
+      margin-bottom: 6px;
+      color: #087ca7;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .islands-banner h2 {
+      margin: 0;
+      color: #164e63;
+      font-size: 22px;
+    }
+
+    .islands-banner p {
+      margin: 10px auto 17px;
+      max-width: 540px;
+      color: #53636d;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .whatsapp-button {
+      display: inline-block;
+      background: #168c5b;
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      padding: 12px 19px;
+      font-size: 15px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .whatsapp-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .free-tour-banner {
+      background: white;
+      border: 1px solid #e0e6eb;
+      border-left: 4px solid #e5a700;
+      border-radius: 13px;
+      padding: 18px;
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .free-tour-text {
+      flex: 1;
+    }
+
+    .free-tour-text span {
+      color: #9a7000;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .free-tour-text h2 {
+      margin: 5px 0 6px;
+      color: #263746;
+      font-size: 19px;
+    }
+
+    .free-tour-text p {
+      margin: 0;
+      color: #66727d;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .free-tour-button {
+      display: inline-block;
+      background: #e5a700;
+      color: white;
+      text-decoration: none;
+      border-radius: 22px;
+      padding: 11px 17px;
+      font-size: 14px;
+      font-weight: bold;
+      white-space: nowrap;
+      transition: 0.2s;
+    }
+
+    .free-tour-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .discover {
+      background: #123c4a;
+      color: white;
+      text-align: center;
+      padding: 34px 20px;
+    }
+
+    .discover h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .discover p {
+      max-width: 620px;
+      margin: 12px auto 20px;
+      color: #d7e7ec;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .site-button {
+      display: inline-block;
+      background: white;
+      color: #123c4a;
+      text-decoration: none;
+      border-radius: 25px;
+      padding: 12px 20px;
+      font-weight: bold;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    .site-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
     footer {
       text-align: center;
-      padding: 28px 18px;
+      padding: 24px 18px;
       background: #e9eef3;
       color: #65707d;
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.7;
     }
 
@@ -169,17 +334,46 @@
       text-decoration: none;
       font-weight: bold;
     }
+
+    @media (max-width: 560px) {
+      header h1 {
+        font-size: 27px;
+      }
+
+      .category-title {
+        font-size: 21px;
+      }
+
+      .item h3 {
+        font-size: 17px;
+      }
+
+      .islands-banner h2 {
+        font-size: 21px;
+      }
+
+      .free-tour-banner {
+        display: block;
+        text-align: center;
+      }
+
+      .free-tour-button {
+        margin-top: 15px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
   <header>
+
     <h1>Geladinho Gourmet</h1>
 
     <p>Salvador · Bahia · Brasil 🇧🇷</p>
 
     <nav class="languages" aria-label="Selecionar idioma">
+
       <a
         href="/geladinho-salvador/"
         class="active"
@@ -194,16 +388,26 @@
       <a href="/geladinho-salvador/es/">
         Español
       </a>
+
     </nav>
+
   </header>
 
   <main>
 
     <section class="intro">
+
       Sabores gourmet preparados em
       <strong>Salvador, Bahia</strong>.
+
       <br>
+
       Consulte abaixo as opções alcoólicas e sem álcool.
+
+      <br>
+
+      <strong>Todos os sabores por R$ 10,00.</strong>
+
     </section>
 
     <!-- ALCOÓLICOS COM VODKA -->
@@ -221,68 +425,75 @@
       <article class="item">
         <div class="item-header">
           <h3>Mousse de maracujá</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
       </article>
 
       <article class="item">
         <div class="item-header">
           <h3>Mousse de limão</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Morango trufado</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <p class="description">
           Sorvete de iogurte de morango, calda de morango e chocolate.
         </p>
+
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Açaí turbinado</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <p class="description">
           Leite líquido, leite condensado, creme de leite,
           leite em pó, energético e guaraná.
         </p>
+
       </article>
 
       <article class="item">
         <div class="item-header">
           <h3>Abacaxi com coco</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
       </article>
 
       <article class="item">
         <div class="item-header">
           <h3>Abacaxi ao vinho</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Melancia com limão</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <span class="tag">Zero açúcar</span>
         <span class="tag">Zero lactose</span>
+
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Coco com limão</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <p class="description">
@@ -291,9 +502,36 @@
 
         <span class="tag">Zero açúcar</span>
         <span class="tag">Zero lactose</span>
+
       </article>
 
     </section>
+
+    <!-- PASSEIOS PARA AS ILHAS -->
+
+    <aside class="islands-banner">
+
+      <span class="small-title">
+        Experiência recomendada em Salvador
+      </span>
+
+      <h2>Conheça as ilhas de Salvador</h2>
+
+      <p>
+        Consulte passeios, opções disponíveis e condições especiais
+        para aproveitar alguns dos destinos mais bonitos da Bahia.
+      </p>
+
+      <a
+        class="whatsapp-button"
+        href="https://wa.me/5511952473756?text=Ol%C3%A1%21%20Consegui%20este%20contato%20atrav%C3%A9s%20do%20pessoal%20do%20Geladinho%20Gourmet.%20Eles%20disseram%20que%20voc%C3%AAs%20trabalham%20com%20%C3%B3timos%20pre%C3%A7os%20para%20conhecer%20as%20ilhas%20de%20Salvador.%20Gostaria%20de%20consultar%20as%20op%C3%A7%C3%B5es%20dispon%C3%ADveis."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Reservar agora ou consultar
+      </a>
+
+    </aside>
 
     <!-- ALCOÓLICOS COM CACHAÇA 51 -->
 
@@ -310,48 +548,54 @@
       <article class="item">
         <div class="item-header">
           <h3>Caipirinha de limão</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Caipirinha de caju</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <p class="description">
           Preparada com pedaços da fruta.
         </p>
+
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Coco com leite condensado</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <p class="description">
           Preparado com bagaço de coco.
         </p>
+
       </article>
 
       <article class="item">
         <div class="item-header">
           <h3>Amendoim com paçoca</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Doce de leite</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <p class="description">
           Sabor semelhante ao licor de creme.
         </p>
+
       </article>
 
     </section>
@@ -367,115 +611,130 @@
       <article class="item">
         <div class="item-header">
           <h3>Mousse de maracujá</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Mousse de maracujá trufado</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <p class="description">
           Trufado com chocolate.
         </p>
+
       </article>
 
       <article class="item">
         <div class="item-header">
           <h3>Mousse de limão</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Morango trufado</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <p class="description">
           Sorvete de iogurte de morango, calda de morango e chocolate.
         </p>
+
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Açaí turbinado</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <p class="description">
           Leite líquido, leite condensado, creme de leite,
           leite em pó e energético.
         </p>
+
       </article>
 
       <article class="item">
         <div class="item-header">
           <h3>Abacaxi com coco</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
       </article>
 
       <article class="item">
         <div class="item-header">
           <h3>Abacaxi ao vinho</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
       </article>
 
       <article class="item">
         <div class="item-header">
           <h3>Doce de leite</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Coco com leite condensado</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <p class="description">
           Sabor beijinho.
         </p>
+
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Caju com pedaços da fruta</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <span class="tag">Zero lactose</span>
+
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Manga com pedaços da fruta</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <span class="tag">Zero lactose</span>
+
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Melancia com limão</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <span class="tag">Zero açúcar</span>
         <span class="tag">Zero lactose</span>
+
       </article>
 
       <article class="item">
+
         <div class="item-header">
           <h3>Coco com limão</h3>
-          <span class="price">R$ --</span>
+          <span class="price">R$ 10,00</span>
         </div>
 
         <p class="description">
@@ -484,22 +743,84 @@
 
         <span class="tag">Zero açúcar</span>
         <span class="tag">Zero lactose</span>
+
       </article>
 
     </section>
 
+    <!-- FREE TOUR PELO PELOURINHO -->
+
+    <aside class="free-tour-banner">
+
+      <div class="free-tour-text">
+
+        <span>
+          Uma forma autêntica de conhecer Salvador
+        </span>
+
+        <h2>Free Tour pelo Pelourinho</h2>
+
+        <p>
+          Caminhada histórica para conhecer Salvador,
+          suas influências culturais e as histórias do Centro Histórico.
+        </p>
+
+      </div>
+
+      <a
+        class="free-tour-button"
+        href="https://wa.me/5511952473756?text=Ol%C3%A1%21%20Encontrei%20o%20contato%20atrav%C3%A9s%20do%20card%C3%A1pio%20do%20Geladinho%20Gourmet%20e%20gostaria%20de%20reservar%20o%20Free%20Tour%20pelo%20Pelourinho.%20Poderiam%20me%20enviar%20os%20hor%C3%A1rios%20dispon%C3%ADveis%3F"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Reservar agora
+      </a>
+
+    </aside>
+
   </main>
 
+  <!-- TO KNOW SALVADOR -->
+
+  <section class="discover">
+
+    <h2>Salvador vai muito além da praia</h2>
+
+    <p>
+      Conheça as ilhas, o Centro Histórico, a cultura,
+      os sabores e outras experiências que fazem parte da cidade.
+    </p>
+
+    <a
+      class="site-button"
+      href="https://toknowsalvador.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Descobrir Salvador
+    </a>
+
+  </section>
+
   <footer>
+
     📍 Salvador, Bahia, Brasil
+
     <br>
 
     Cardápio digital desenvolvido por
-    <a href="https://toknowsalvador.com/">
+
+    <a
+      href="https://toknowsalvador.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       To Know Salvador
     </a>
+
   </footer>
 
 </body>
 
 </html>
+```
