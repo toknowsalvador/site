@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Helados Gourmet en Salvador, Bahía</title>
+
+  <meta
+    name="description"
+    content="Helados gourmet con y sin alcohol en Salvador, Bahía. Cualquier sabor por R$ 15,00 en efectivo o Pix."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fa;
+      color: #1f2937;
+    }
+
+    header {
+      background: linear-gradient(135deg, #087ca7, #00a8c6);
+      color: white;
+      text-align: center;
+      padding: 34px 20px 28px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 16px;
+    }
+
+    .languages {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .languages a {
+      color: white;
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      border-radius: 20px;
+      padding: 8px 14px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .languages a:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .languages a.active {
+      background: white;
+      color: #087ca7;
+      font-weight: bold;
+    }
+
+    main {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 22px 16px 42px;
+    }
+
+    .intro {
+      background: white;
+      border-radius: 14px;
+      padding: 19px;
+      margin-bottom: 14px;
+      text-align: center;
+      line-height: 1.6;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
+    }
+
+    .intro strong {
+      color: #087ca7;
+    }
+
+    .price-banner {
+      background: white;
+      border: 1px solid #dce7ec;
+      border-radius: 12px;
+      padding: 15px 18px;
+      margin-bottom: 28px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .price-main {
+      color: #087ca7;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .price-detail {
+      margin-top: 5px;
+      color: #68737d;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .category {
+      margin-bottom: 32px;
+    }
+
+    .category-title {
+      color: #087ca7;
+      margin: 0 0 14px;
+      font-size: 22px;
+      border-bottom: 2px solid #dceef3;
+      padding-bottom: 8px;
+    }
+
+    .warning {
+      background: #fff4d6;
+      color: #7a4b00;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 14px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .item {
+      background: white;
+      border-radius: 13px;
+      padding: 16px;
+      margin-bottom: 12px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    }
+
+    .item h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #1f2937;
+    }
+
+    .description {
+      margin: 8px 0 0;
+      color: #5f6875;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e9f8f2;
+      color: #13795b;
+      padding: 5px 9px;
+      border-radius: 20px;
+      margin-top: 9px;
+      margin-right: 5px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .islands-banner {
+      background: white;
+      border: 1px solid #dce7ec;
+      border-radius: 11px;
+      padding: 13px 15px;
+      margin: 4px 0 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .islands-text {
+      min-width: 0;
+    }
+
+    .islands-banner h2 {
+      margin: 0;
+      color: #31434e;
+      font-size: 15px;
+    }
+
+    .islands-banner p {
+      margin: 3px 0 0;
+      color: #75808a;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .islands-button {
+      color: #087ca7;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .islands-button:hover {
+      text-decoration: underline;
+    }
+
+    .free-tour-banner {
+      background: white;
+      border: 1px solid #e0e6eb;
+      border-left: 4px solid #e5a700;
+      border-radius: 13px;
+      padding: 18px;
+      margin-top: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    }
+
+    .free-tour-text {
+      flex: 1;
+    }
+
+    .free-tour-text span {
+      color: #9a7000;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .free-tour-text h2 {
+      margin: 5px 0 6px;
+      color: #263746;
+      font-size: 19px;
+    }
+
+    .free-tour-text p {
+      margin: 0;
+      color: #66727d;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .free-tour-button {
+      display: inline-block;
+      background: #e5a700;
+      color: white;
+      text-decoration: none;
+      border-radius: 22px;
+      padding: 11px 17px;
+      font-size: 14px;
+      font-weight: bold;
+      white-space: nowrap;
+      transition: 0.2s;
+    }
+
+    .free-tour-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .discover {
+      background: #123c4a;
+      color: white;
+      text-align: center;
+      padding: 34px 20px;
+    }
+
+    .discover h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .discover p {
+      max-width: 620px;
+      margin: 12px auto 20px;
+      color: #d7e7ec;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .site-button {
+      display: inline-block;
+      background: white;
+      color: #123c4a;
+      text-decoration: none;
+      border-radius: 25px;
+      padding: 12px 20px;
+      font-weight: bold;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    .site-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 18px;
+      background: #e9eef3;
+      color: #65707d;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    footer a {
+      color: #087ca7;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 560px) {
+      header h1 {
+        font-size: 27px;
+      }
+
+      .category-title {
+        font-size: 21px;
+      }
+
+      .item h3 {
+        font-size: 17px;
+      }
+
+      .islands-banner {
+        padding: 13px;
+      }
+
+      .islands-banner p {
+        display: none;
+      }
+
+      .islands-button {
+        font-size: 12px;
+      }
+
+      .free-tour-banner {
+        display: block;
+        text-align: center;
+      }
+
+      .free-tour-button {
+        margin-top: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+
+    <h1>Helados Gourmet</h1>
+
+    <p>Salvador · Bahía · Brasil 🇧🇷</p>
+
+    <nav class="languages" aria-label="Seleccionar idioma">
+
+      <a href="/geladinho-salvador/">
+        Português
+      </a>
+
+      <a href="/geladinho-salvador/en/">
+        English
+      </a>
+
+      <a
+        href="/geladinho-salvador/es/"
+        class="active"
+      >
+        Español
+      </a>
+
+    </nav>
+
+  </header>
+
+  <main>
+
+    <section class="intro">
+
+      Sabores gourmet preparados en
+      <strong>Salvador, Bahía</strong>.
+
+      <br>
+
+      Conoce nuestras opciones con y sin alcohol.
+
+    </section>
+
+    <section class="price-banner">
+
+      <div class="price-main">
+        Cualquier sabor: R$ 15,00
+      </div>
+
+      <div class="price-detail">
+        Efectivo o Pix · Débito o crédito: R$ 16,00
+      </div>
+
+    </section>
+
+    <!-- SABORES CON VODKA -->
+
+    <section class="category">
+
+      <h2 class="category-title">
+        Sabores con vodka
+      </h2>
+
+      <div class="warning">
+        Contiene alcohol. Venta exclusiva para mayores de 18 años.
+      </div>
+
+      <article class="item">
+        <h3>Mousse de maracuyá</h3>
+      </article>
+
+      <article class="item">
+        <h3>Mousse de limón</h3>
+      </article>
+
+      <article class="item">
+
+        <h3>Fresa trufada</h3>
+
+        <p class="description">
+          Helado de yogur de fresa, salsa de fresa y chocolate.
+        </p>
+
+      </article>
+
+      <article class="item">
+
+        <h3>Açaí energético</h3>
+
+        <p class="description">
+          Leche, leche condensada, crema de leche,
+          leche en polvo, bebida energética y guaraná.
+        </p>
+
+      </article>
+
+      <article class="item">
+        <h3>Piña con coco</h3>
+      </article>
+
+      <article class="item">
+        <h3>Piña al vino</h3>
+      </article>
+
+      <article class="item">
+
+        <h3>Sandía con limón</h3>
+
+        <span class="tag">Sin azúcar</span>
+        <span class="tag">Sin lactosa</span>
+
+      </article>
+
+      <article class="item">
+
+        <h3>Coco con limón</h3>
+
+        <p class="description">
+          Preparado sin pulpa de coco.
+        </p>
+
+        <span class="tag">Sin azúcar</span>
+        <span class="tag">Sin lactosa</span>
+
+      </article>
+
+    </section>
+
+    <!-- FRANJA MINIMALISTA DE LAS ISLAS -->
+
+    <aside class="islands-banner">
+
+      <div class="islands-text">
+
+        <h2>Paseos a las islas de Salvador</h2>
+
+        <p>
+          Consulta las opciones disponibles y precios locales.
+        </p>
+
+      </div>
+
+      <a
+        class="islands-button"
+        href="https://wa.me/5511952473756?text=%C2%A1Hola%21%20Consegu%C3%AD%20este%20contacto%20a%20trav%C3%A9s%20del%20personal%20de%20Helados%20Gourmet.%20Me%20dijeron%20que%20ustedes%20ofrecen%20muy%20buenos%20precios%20para%20conocer%20las%20islas%20de%20Salvador.%20Me%20gustar%C3%ADa%20consultar%20las%20opciones%20disponibles."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Consultar disponibilidad →
+      </a>
+
+    </aside>
+
+    <!-- SABORES CON CACHAÇA 51 -->
+
+    <section class="category">
+
+      <h2 class="category-title">
+        Sabores con Cachaça 51
+      </h2>
+
+      <div class="warning">
+        Contiene alcohol. Venta exclusiva para mayores de 18 años.
+      </div>
+
+      <article class="item">
+        <h3>Caipiriña de limón</h3>
+      </article>
+
+      <article class="item">
+
+        <h3>Caipiriña de anacardo</h3>
+
+        <p class="description">
+          Preparada con trozos de la fruta.
+        </p>
+
+      </article>
+
+      <article class="item">
+
+        <h3>Coco con leche condensada</h3>
+
+        <p class="description">
+          Preparado con pulpa de coco.
+        </p>
+
+      </article>
+
+      <article class="item">
+        <h3>Cacahuete con paçoca</h3>
+      </article>
+
+      <article class="item">
+
+        <h3>Dulce de leche</h3>
+
+        <p class="description">
+          Sabor cremoso similar a Amarula.
+        </p>
+
+      </article>
+
+    </section>
+
+    <!-- GOURMET SIN ALCOHOL -->
+
+    <section class="category">
+
+      <h2 class="category-title">
+        Gourmet sin alcohol
+      </h2>
+
+      <article class="item">
+        <h3>Mousse de maracuyá</h3>
+      </article>
+
+      <article class="item">
+
+        <h3>Mousse de maracuyá trufado</h3>
+
+        <p class="description">
+          Trufado con chocolate.
+        </p>
+
+      </article>
+
+      <article class="item">
+        <h3>Mousse de limón</h3>
+      </article>
+
+      <article class="item">
+
+        <h3>Fresa trufada</h3>
+
+        <p class="description">
+          Helado de yogur de fresa, salsa de fresa y chocolate.
+        </p>
+
+      </article>
+
+      <article class="item">
+
+        <h3>Açaí energético</h3>
+
+        <p class="description">
+          Leche, leche condensada, crema de leche,
+          leche en polvo y bebida energética.
+        </p>
+
+      </article>
+
+      <article class="item">
+        <h3>Piña con coco</h3>
+      </article>
+
+      <article class="item">
+        <h3>Piña al vino</h3>
+      </article>
+
+      <article class="item">
+        <h3>Dulce de leche</h3>
+      </article>
+
+      <article class="item">
+
+        <h3>Coco con leche condensada</h3>
+
+        <p class="description">
+          Sabor a beijinho brasileño.
+        </p>
+
+      </article>
+
+      <article class="item">
+
+        <h3>Anacardo con trozos de fruta</h3>
+
+        <span class="tag">Sin lactosa</span>
+
+      </article>
+
+      <article class="item">
+
+        <h3>Mango con trozos de fruta</h3>
+
+        <span class="tag">Sin lactosa</span>
+
+      </article>
+
+      <article class="item">
+
+        <h3>Sandía con limón</h3>
+
+        <span class="tag">Sin azúcar</span>
+        <span class="tag">Sin lactosa</span>
+
+      </article>
+
+      <article class="item">
+
+        <h3>Coco con limón</h3>
+
+        <p class="description">
+          Preparado sin pulpa de coco.
+        </p>
+
+        <span class="tag">Sin azúcar</span>
+        <span class="tag">Sin lactosa</span>
+
+      </article>
+
+    </section>
+
+    <!-- FREE TOUR POR EL PELOURINHO -->
+
+    <aside class="free-tour-banner">
+
+      <div class="free-tour-text">
+
+        <span>
+          Una forma auténtica de conocer Salvador
+        </span>
+
+        <h2>Free Tour por el Pelourinho</h2>
+
+        <p>
+          Conoce la historia de Salvador, sus influencias culturales
+          y las historias de su Centro Histórico.
+        </p>
+
+      </div>
+
+      <a
+        class="free-tour-button"
+        href="https://wa.me/5511952473756?text=%C2%A1Hola%21%20Consegu%C3%AD%20este%20contacto%20a%20trav%C3%A9s%20del%20personal%20de%20Helados%20Gourmet%20y%20me%20gustar%C3%ADa%20reservar%20el%20Free%20Tour%20por%20el%20Pelourinho.%20%C2%BFPodr%C3%ADan%20informarme%20los%20horarios%20disponibles%3F"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Reservar ahora
+      </a>
+
+    </aside>
+
+  </main>
+
+  <!-- TO KNOW SALVADOR -->
+
+  <section class="discover">
+
+    <h2>Salvador es mucho más que playa</h2>
+
+    <p>
+      Conoce las islas, el Centro Histórico, la cultura,
+      los sabores y otras experiencias por la ciudad.
+    </p>
+
+    <a
+      class="site-button"
+      href="https://toknowsalvador.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Conocer Salvador
+    </a>
+
+  </section>
+
+  <footer>
+
+    📍 Salvador, Bahía, Brasil
+
+    <br>
+
+    Menú digital desarrollado por
+
+    <a
+      href="https://toknowsalvador.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      To Know Salvador
+    </a>
+
+  </footer>
+
+</body>
+
+</html>
