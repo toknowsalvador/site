@@ -13,7 +13,7 @@
 
   <meta
     name="description"
-    content="Cardápio de geladinhos gourmet alcoólicos e sem álcool em Salvador, Bahia. Sabores por R$ 15,00 no Pix ou dinheiro."
+    content="Geladinhos gourmet alcoólicos e sem álcool em Salvador, Bahia. Qualquer sabor por R$ 15,00 no Pix ou dinheiro."
   >
 
   <style>
@@ -64,6 +64,11 @@
       border-radius: 20px;
       padding: 8px 14px;
       font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .languages a:hover {
+      background: rgba(255, 255, 255, 0.14);
     }
 
     .languages a.active {
@@ -94,26 +99,26 @@
     }
 
     .price-banner {
-      background: linear-gradient(135deg, #087ca7, #0099b5);
-      color: white;
-      border-radius: 14px;
-      padding: 18px;
+      background: white;
+      border: 1px solid #dce7ec;
+      border-radius: 12px;
+      padding: 15px 18px;
       margin-bottom: 28px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(8, 124, 167, 0.2);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
     }
 
-    .price-banner strong {
-      display: block;
-      font-size: 22px;
-      margin-bottom: 7px;
+    .price-main {
+      color: #087ca7;
+      font-size: 20px;
+      font-weight: bold;
     }
 
-    .price-banner span {
-      display: block;
-      font-size: 14px;
+    .price-detail {
+      margin-top: 5px;
+      color: #68737d;
+      font-size: 13px;
       line-height: 1.5;
-      opacity: 0.95;
     }
 
     .category {
@@ -171,49 +176,45 @@
       font-weight: bold;
     }
 
-    .small-title {
-      display: block;
-      margin-bottom: 6px;
-      color: #087ca7;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
+    .islands-banner {
+      background: white;
+      border: 1px solid #dce7ec;
+      border-radius: 11px;
+      padding: 13px 15px;
+      margin: 4px 0 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
     }
 
-    .islands-banner {
-      background: linear-gradient(135deg, #e5f8ff, #f3fbff);
-      border: 1px solid #c6eaf5;
-      border-radius: 15px;
-      padding: 22px 18px;
-      margin: 8px 0 30px;
-      text-align: center;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    .islands-text {
+      min-width: 0;
     }
 
     .islands-banner h2 {
       margin: 0;
-      color: #164e63;
-      font-size: 22px;
+      color: #31434e;
+      font-size: 15px;
     }
 
     .islands-banner p {
-      margin: 10px auto 17px;
-      max-width: 540px;
-      color: #53636d;
-      font-size: 14px;
-      line-height: 1.6;
+      margin: 3px 0 0;
+      color: #75808a;
+      font-size: 12px;
+      line-height: 1.4;
     }
 
-    .whatsapp-button {
-      display: inline-block;
-      background: #168c5b;
-      color: white;
+    .islands-button {
+      color: #087ca7;
       text-decoration: none;
-      border-radius: 25px;
-      padding: 12px 19px;
-      font-size: 15px;
+      font-size: 13px;
       font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .islands-button:hover {
+      text-decoration: underline;
     }
 
     .free-tour-banner {
@@ -265,6 +266,12 @@
       font-size: 14px;
       font-weight: bold;
       white-space: nowrap;
+      transition: 0.2s;
+    }
+
+    .free-tour-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
     }
 
     .discover {
@@ -296,6 +303,12 @@
       padding: 12px 20px;
       font-weight: bold;
       font-size: 15px;
+      transition: 0.2s;
+    }
+
+    .site-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
     }
 
     footer {
@@ -324,6 +337,18 @@
 
       .item h3 {
         font-size: 17px;
+      }
+
+      .islands-banner {
+        padding: 13px;
+      }
+
+      .islands-banner p {
+        display: none;
+      }
+
+      .islands-button {
+        font-size: 12px;
       }
 
       .free-tour-banner {
@@ -376,21 +401,19 @@
 
       <br>
 
-      Consulte abaixo as opções alcoólicas e sem álcool.
+      Conheça abaixo nossas opções alcoólicas e sem álcool.
 
     </section>
 
     <section class="price-banner">
 
-      <strong>Todo e qualquer sabor por R$ 15,00</strong>
+      <div class="price-main">
+        Qualquer sabor: R$ 15,00
+      </div>
 
-      <span>
-        Valor para pagamento em dinheiro ou Pix.
-      </span>
-
-      <span>
-        No débito ou crédito: R$ 16,00.
-      </span>
+      <div class="price-detail">
+        Dinheiro ou Pix · Débito ou crédito: R$ 16,00
+      </div>
 
     </section>
 
@@ -467,28 +490,27 @@
 
     </section>
 
-    <!-- PASSEIOS PARA AS ILHAS -->
+    <!-- FAIXA MINIMALISTA DAS ILHAS -->
 
     <aside class="islands-banner">
 
-      <span class="small-title">
-        Experiência recomendada em Salvador
-      </span>
+      <div class="islands-text">
 
-      <h2>Conheça as ilhas de Salvador</h2>
+        <h2>Passeios para as ilhas de Salvador</h2>
 
-      <p>
-        Consulte passeios, opções disponíveis e condições especiais
-        para aproveitar alguns dos destinos mais bonitos da Bahia.
-      </p>
+        <p>
+          Consulte opções disponíveis e valores locais.
+        </p>
+
+      </div>
 
       <a
-        class="whatsapp-button"
+        class="islands-button"
         href="https://wa.me/5511952473756?text=Ol%C3%A1%21%20Consegui%20este%20contato%20atrav%C3%A9s%20do%20pessoal%20do%20Geladinho%20Gourmet.%20Eles%20disseram%20que%20voc%C3%AAs%20trabalham%20com%20%C3%B3timos%20pre%C3%A7os%20para%20conhecer%20as%20ilhas%20de%20Salvador.%20Gostaria%20de%20consultar%20as%20op%C3%A7%C3%B5es%20dispon%C3%ADveis."
         target="_blank"
         rel="noopener noreferrer"
       >
-        Reservar agora ou consultar
+        Consultar disponibilidade →
       </a>
 
     </aside>
@@ -538,7 +560,7 @@
         <h3>Doce de leite</h3>
 
         <p class="description">
-          Sabor semelhante ao licor de creme.
+          Sabor cremoso semelhante à Amarula.
         </p>
 
       </article>
@@ -667,8 +689,8 @@
         <h2>Free Tour pelo Pelourinho</h2>
 
         <p>
-          Caminhada histórica para conhecer Salvador,
-          suas influências culturais e as histórias do Centro Histórico.
+          Conheça a história de Salvador, suas influências culturais
+          e as histórias do Centro Histórico.
         </p>
 
       </div>
@@ -694,7 +716,7 @@
 
     <p>
       Conheça as ilhas, o Centro Histórico, a cultura,
-      os sabores e outras experiências que fazem parte da cidade.
+      os sabores e outras experiências pela cidade.
     </p>
 
     <a
@@ -703,7 +725,7 @@
       target="_blank"
       rel="noopener noreferrer"
     >
-      Descobrir Salvador
+      Conhecer Salvador
     </a>
 
   </section>
