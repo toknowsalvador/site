@@ -276,7 +276,7 @@ footer {
       justify-content: flex-end;
       background:
         linear-gradient(180deg, rgba(54, 8, 55, 0.10) 0%, rgba(54, 8, 55, 0.82) 78%),
-        url('/IMG_6776.png') center / cover no-repeat;
+        var(--acai-image, url('/IMG_6776.png')) center / cover no-repeat;
       color: white;
       box-shadow: 0 10px 24px rgba(99, 20, 76, 0.2);
     }
@@ -540,7 +540,7 @@ footer {
 
       <article class="item">
 
-        <h3>Passion Fruit Mousse trufado</h3>
+        <h3>Truffle Passion Fruit Mousse</h3>
 
         <p class="description">
           Chocolate filled.
@@ -656,6 +656,36 @@ footer {
   <footer>
     Salvador, Bahia · <a href="https://toknowsalvador.com/" target="_blank" rel="noopener noreferrer">To Know Salvador</a>
   </footer>
+
+
+  <script>
+    (function () {
+      const paths = [
+        "/IMG_6776.png",
+        "../../IMG_6776.png",
+        "../IMG_6776.png",
+        "./IMG_6776.png"
+      ];
+
+      function tryPath(index) {
+        if (index >= paths.length) return;
+
+        const image = new Image();
+        image.onload = function () {
+          document.documentElement.style.setProperty(
+            "--acai-image",
+            'url("' + paths[index] + '")'
+          );
+        };
+        image.onerror = function () {
+          tryPath(index + 1);
+        };
+        image.src = paths[index];
+      }
+
+      tryPath(0);
+    })();
+  </script>
 
 </body>
 
