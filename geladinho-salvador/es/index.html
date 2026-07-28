@@ -13,7 +13,7 @@
 
   <meta
     name="description"
-    content="Geladinho gourmet con y sin alcohol en Salvador, Bahía. Cualquier sabor por R$ 15,00 pagando en efectivo o por Pix."
+    content="Geladinho gourmet con y sin alcohol en Salvador, Bahía. Cualquier sabor por R$ 15,00."
   >
 
   <style>
@@ -276,7 +276,7 @@ footer {
       justify-content: flex-end;
       background:
         linear-gradient(180deg, rgba(54, 8, 55, 0.10) 0%, rgba(54, 8, 55, 0.82) 78%),
-        url('/IMG_6776.png') center / cover no-repeat;
+        var(--acai-image, url('/IMG_6776.png')) center / cover no-repeat;
       color: white;
       box-shadow: 0 10px 24px rgba(99, 20, 76, 0.2);
     }
@@ -402,7 +402,7 @@ footer {
         <h3>Fresa trufada</h3>
 
         <p class="description">
-          Helado de yogur de fresa, salsa de fresa y chocolate.
+          Helado de yogur de fresa con salsa de fresa y chocolate.
         </p>
 
       </article>
@@ -412,8 +412,7 @@ footer {
         <h3>Açaí especial</h3>
 
         <p class="description">
-          Leche, leche condensada, crema de leche,
-          leche en polvo, bebida energética y guaraná.
+          Leche, leche condensada, crema de leche, leche en polvo, bebida energética y guaraná.
         </p>
 
       </article>
@@ -466,7 +465,7 @@ footer {
 
       <a
         class="islands-button"
-        href="https://wa.me/5511952473756?text=%C2%A1Hola%21%20Consegu%C3%AD%20este%20contacto%20a%20trav%C3%A9s%20del%20equipo%20de%20Geladinho%20Gourmet.%20Me%20dijeron%20que%20trabajan%20con%20muy%20buenos%20precios%20para%20conocer%20las%20islas%20de%20Salvador.%20Me%20gustar%C3%ADa%20consultar%20las%20opciones%20disponibles."
+        href="https://wa.me/5511952473756?text=%C2%A1Hola%21%20Consegu%C3%AD%20este%20contacto%20a%20trav%C3%A9s%20del%20equipo%20de%20Geladinho%20Gourmet.%20Me%20gustar%C3%ADa%20consultar%20las%20opciones%20disponibles%20para%20conocer%20las%20islas%20de%20Salvador."
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -541,7 +540,7 @@ footer {
 
       <article class="item">
 
-        <h3>Mousse de maracuyá trufado</h3>
+        <h3>Truffle Mousse de maracuyá</h3>
 
         <p class="description">
           Trufado con chocolate.
@@ -558,7 +557,7 @@ footer {
         <h3>Fresa trufada</h3>
 
         <p class="description">
-          Helado de yogur de fresa, salsa de fresa y chocolate.
+          Helado de yogur de fresa con salsa de fresa y chocolate.
         </p>
 
       </article>
@@ -568,8 +567,7 @@ footer {
         <h3>Açaí especial</h3>
 
         <p class="description">
-          Leche, leche condensada, crema de leche,
-          leche en polvo y bebida energética.
+          Leche, leche condensada, crema de leche, leche en polvo y bebida energética.
         </p>
 
       </article>
@@ -658,6 +656,36 @@ footer {
   <footer>
     Salvador, Bahia · <a href="https://toknowsalvador.com/" target="_blank" rel="noopener noreferrer">To Know Salvador</a>
   </footer>
+
+
+  <script>
+    (function () {
+      const paths = [
+        "/IMG_6776.png",
+        "../../IMG_6776.png",
+        "../IMG_6776.png",
+        "./IMG_6776.png"
+      ];
+
+      function tryPath(index) {
+        if (index >= paths.length) return;
+
+        const image = new Image();
+        image.onload = function () {
+          document.documentElement.style.setProperty(
+            "--acai-image",
+            'url("' + paths[index] + '")'
+          );
+        };
+        image.onerror = function () {
+          tryPath(index + 1);
+        };
+        image.src = paths[index];
+      }
+
+      tryPath(0);
+    })();
+  </script>
 
 </body>
 
