@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tropicália Restaurant menu in Salvador.">
+  <meta name="theme-color" content="#171916">
+
+  <title>Tropicália Restaurant | Menu</title>
+
+  <style>
+    :root {
+      --black: #171916;
+      --yellow: #f2c313;
+      --light-yellow: #ffdc57;
+      --white: #f8f4e8;
+      --gray: #c9c6ba;
+      --wood-1: #5f3c25;
+      --wood-2: #9c7045;
+      --border: rgba(255, 255, 255, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 18px 12px 38px;
+      background:
+        radial-gradient(circle at top, rgba(255, 220, 87, 0.3), transparent 35%),
+        var(--yellow);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .languages {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .languages a {
+      min-width: 50px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--black);
+      font-size: 0.74rem;
+      font-weight: 900;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .languages a.active {
+      background: var(--black);
+      color: var(--yellow);
+    }
+
+    .frame {
+      padding: 9px;
+      border-radius: 10px;
+      background:
+        linear-gradient(
+          90deg,
+          var(--wood-1),
+          var(--wood-2) 20%,
+          #6c452b 50%,
+          var(--wood-2) 80%,
+          var(--wood-1)
+        );
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.36);
+    }
+
+    .board {
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      background:
+        radial-gradient(
+          circle at 18% 7%,
+          rgba(255, 255, 255, 0.045),
+          transparent 31%
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 5px,
+          rgba(255, 255, 255, 0.012) 6px
+        ),
+        var(--black);
+      box-shadow: inset 0 0 46px rgba(0, 0, 0, 0.5);
+    }
+
+    .header {
+      padding: 28px 20px 24px;
+      text-align: center;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.24);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      margin-bottom: 20px;
+    }
+
+    .symbol {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 66px;
+      height: 66px;
+      flex-shrink: 0;
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      background:
+        linear-gradient(
+          to bottom,
+          #4fc2dc 0%,
+          #4fc2dc 31%,
+          #f8d224 31%,
+          #f8d224 61%,
+          #ee6548 61%,
+          #d93b55 100%
+        );
+      font-size: 2rem;
+    }
+
+    .brand-text {
+      text-align: left;
+    }
+
+    .restaurant-name {
+      color: var(--yellow);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 9vw, 3.25rem);
+      font-style: italic;
+      font-weight: 800;
+      line-height: 0.92;
+    }
+
+    .restaurant-type {
+      margin-top: 6px;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .contacts {
+      display: grid;
+      gap: 8px;
+      max-width: 430px;
+      margin: 0 auto 23px;
+    }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.045);
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .contact.phone {
+      border-color: var(--yellow);
+      background: var(--yellow);
+      color: var(--black);
+    }
+
+    .food-title {
+      font-size: clamp(2.7rem, 14vw, 5rem);
+      font-weight: 950;
+      letter-spacing: -0.055em;
+      line-height: 0.87;
+      text-transform: uppercase;
+    }
+
+    .homemade-title {
+      margin-top: 6px;
+      color: var(--yellow);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.9rem, 9vw, 3.5rem);
+      font-style: italic;
+    }
+
+    .slogan {
+      margin-top: 16px;
+      color: var(--gray);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    .slogan strong {
+      color: var(--white);
+    }
+
+    .section {
+      padding: 25px 18px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.22);
+    }
+
+    .section-title {
+      margin-bottom: 17px;
+      color: var(--yellow);
+      font-size: 0.86rem;
+      font-weight: 950;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .dish-list {
+      display: grid;
+      gap: 9px;
+    }
+
+    .dish {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 13px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.045),
+          rgba(255, 255, 255, 0.012)
+        );
+    }
+
+    .dish-name {
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .price {
+      color: var(--light-yellow);
+      font-size: 1.05rem;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .availability {
+      margin-top: 17px;
+      padding: 15px;
+      border: 1px solid rgba(242, 195, 19, 0.23);
+      border-radius: 10px;
+      background: rgba(242, 195, 19, 0.045);
+      text-align: center;
+    }
+
+    .availability p {
+      color: var(--gray);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .availability-button {
+      display: inline-flex;
+      margin-top: 12px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.055);
+      font-size: 0.79rem;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .choice-box {
+      padding: 18px;
+      border: 1px solid rgba(242, 195, 19, 0.34);
+      border-radius: 11px;
+      background: rgba(242, 195, 19, 0.045);
+    }
+
+    .choice-intro {
+      margin-bottom: 19px;
+      font-size: 0.97rem;
+      line-height: 1.5;
+    }
+
+    .choice-group + .choice-group {
+      margin-top: 18px;
+    }
+
+    .choice-name {
+      margin-bottom: 8px;
+      color: var(--yellow);
+      font-size: 0.77rem;
+      font-weight: 950;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .options {
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .or {
+      color: var(--yellow);
+      font-size: 0.8rem;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .extras {
+      margin-top: 19px;
+      padding-top: 17px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.21);
+    }
+
+    .extras strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--yellow);
+      font-size: 0.77rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .package {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 15px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .review {
+      padding: 27px 19px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.22);
+      text-align: center;
+    }
+
+    .stars {
+      margin-bottom: 10px;
+      color: var(--yellow);
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+    }
+
+    .review h2 {
+      font-size: 1.05rem;
+    }
+
+    .review p {
+      max-width: 380px;
+      margin: 9px auto 15px;
+      color: var(--gray);
+      font-size: 0.83rem;
+      line-height: 1.5;
+    }
+
+    .review-button {
+      display: inline-flex;
+      padding: 11px 19px;
+      border-radius: 999px;
+      background: var(--yellow);
+      color: var(--black);
+      font-size: 0.84rem;
+      font-weight: 950;
+      text-decoration: none;
+    }
+
+    .to-know {
+      padding: 20px 18px 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.12);
+      text-align: center;
+    }
+
+    .to-know p {
+      margin-bottom: 8px;
+      color: rgba(248, 244, 232, 0.58);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    .to-know a {
+      color: var(--light-yellow);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .to-know small {
+      display: block;
+      margin-top: 9px;
+      color: rgba(248, 244, 232, 0.28);
+      font-size: 0.57rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .footer {
+      padding: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
+    }
+
+    .footer p {
+      color: rgba(248, 244, 232, 0.45);
+      font-size: 0.7rem;
+      line-height: 1.5;
+    }
+
+    @media (min-width: 520px) {
+      .header,
+      .section,
+      .review {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <nav class="languages" aria-label="Languages">
+      <a href="index.html">PT</a>
+      <a class="active" href="index-en.html">EN</a>
+      <a href="index-es.html">ES</a>
+    </nav>
+
+    <div class="frame">
+      <article class="board">
+
+        <header class="header">
+          <div class="brand">
+            <div class="symbol" aria-hidden="true">🌴</div>
+
+            <div class="brand-text">
+              <div class="restaurant-name">Tropicália</div>
+              <div class="restaurant-type">Bar and Restaurant</div>
+            </div>
+          </div>
+
+          <div class="contacts">
+            <a
+              class="contact phone"
+              href="https://wa.me/5571983163956"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ☎ +55 71 98316-3956
+            </a>
+
+            <a
+              class="contact"
+              href="https://www.instagram.com/restaurantetropicallia/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ◎ @restaurantetropicallia
+            </a>
+          </div>
+
+          <div class="food-title">Homemade</div>
+          <div class="homemade-title">Food</div>
+
+          <p class="slogan">
+            Homemade food, <strong>full of flavor.</strong><br>
+            Prepared with <strong>our own seasoning.</strong>
+          </p>
+        </header>
+
+        <section class="section">
+          <h2 class="section-title">Today's dishes</h2>
+
+          <div class="dish-list">
+            <div class="dish">
+              <span class="dish-name">Beef liver strips</span>
+              <span class="price">R$ 23,00</span>
+            </div>
+
+            <div class="dish">
+              <span class="dish-name">Grilled chicken fillet</span>
+              <span class="price">R$ 25,00</span>
+            </div>
+
+            <div class="dish">
+              <span class="dish-name">Brazilian-style pot roast</span>
+              <span class="price">R$ 27,00</span>
+            </div>
+
+            <div class="dish">
+              <span class="dish-name">Special beef steak</span>
+              <span class="price">R$ 32,00</span>
+            </div>
+
+            <div class="dish">
+              <span class="dish-name">Beef steak with onions</span>
+              <span class="price">R$ 35,00</span>
+            </div>
+
+            <div class="dish">
+              <span class="dish-name">Brazilian sun-dried beef</span>
+              <span class="price">R$ 38,00</span>
+            </div>
+
+            <div class="dish">
+              <span class="dish-name">Arrumadinho</span>
+              <span class="price">R$ 38,00</span>
+            </div>
+          </div>
+
+          <div class="availability">
+            <p>
+              Some dishes may vary depending on the day's preparation.
+            </p>
+
+            <a
+              class="availability-button"
+              href="https://wa.me/5571983163956?text=Hello%2C%20I%20would%20like%20to%20check%20which%20dishes%20are%20available%20today."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ✓ Check availability
+            </a>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Side dishes</h2>
+
+          <div class="choice-box">
+            <p class="choice-intro">
+              Choose one bean option and one salad option.
+            </p>
+
+            <div class="choice-group">
+              <p class="choice-name">Beans</p>
+
+              <p class="options">
+                Beans in broth
+                <span class="or">or</span>
+                tropeiro beans
+              </p>
+            </div>
+
+            <div class="choice-group">
+              <p class="choice-name">Salad</p>
+
+              <p class="options">
+                Vinaigrette salad
+                <span class="or">or</span>
+                potato mayonnaise salad
+              </p>
+            </div>
+
+            <div class="extras">
+              <strong>Tell your server</strong>
+              <p>Please let us know if you would like <b>hot sauce</b> and <b>farofa</b>.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Takeaway</h2>
+
+          <div class="package">
+            <strong>Container</strong>
+            <span class="price">R$ 2,00</span>
+          </div>
+        </section>
+
+        <section class="review">
+          <div class="stars">★★★★★</div>
+
+          <h2>Did you enjoy your experience?</h2>
+
+          <p>
+            Your review helps more people discover Tropicália.
+          </p>
+
+          <a
+            class="review-button"
+            href="https://share.google/NVNwTus3LGzz2FCiv"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Review us on Google
+          </a>
+        </section>
+
+        <aside class="to-know">
+          <p>Discover Salvador beyond the beach.</p>
+
+          <a
+            href="https://toknowsalvador.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View experiences →
+          </a>
+
+          <small>To Know Salvador</small>
+        </aside>
+
+        <footer class="footer">
+          <p>
+            Tropicália Restaurant · Salvador, Bahia
+          </p>
+        </footer>
+
+      </article>
+    </div>
+  </main>
+</body>
+</html>
