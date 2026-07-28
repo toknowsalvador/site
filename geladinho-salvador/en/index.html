@@ -13,7 +13,7 @@
 
   <meta
     name="description"
-    content="Alcoholic and non-alcoholic gourmet ice pops in Salvador, Bahia. Any flavor for R$15 by cash or Pix."
+    content="Gourmet alcoholic and non-alcoholic ice pops in Salvador, Bahia. Any flavor for R$15.00."
   >
 
   <style>
@@ -28,12 +28,12 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7fa;
-      color: #1f2937;
+      background: linear-gradient(180deg, #fff3a8 0%, #ffd4e5 46%, #fff7c8 100%);
+      color: #43223a;
     }
 
     header {
-      background: linear-gradient(135deg, #087ca7, #00a8c6);
+      background: linear-gradient(135deg, #ffcf33 0%, #ff6fae 58%, #f94b93 100%);
       color: white;
       text-align: center;
       padding: 34px 20px 28px;
@@ -72,8 +72,8 @@
     }
 
     .languages a.active {
-      background: white;
-      color: #087ca7;
+      background: rgba(255, 255, 255, 0.88);
+      color: #d92c78;
       font-weight: bold;
     }
 
@@ -81,26 +81,11 @@
       width: 100%;
       max-width: 720px;
       margin: 0 auto;
-      padding: 22px 16px 42px;
+      padding: 26px 16px 42px;
     }
-
-    .intro {
-      background: white;
-      border-radius: 14px;
-      padding: 19px;
-      margin-bottom: 14px;
-      text-align: center;
-      line-height: 1.6;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.07);
-    }
-
-    .intro strong {
-      color: #087ca7;
-    }
-
-    .price-banner {
-      background: white;
-      border: 1px solid #dce7ec;
+.price-banner {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(217, 44, 120, 0.18);
       border-radius: 12px;
       padding: 15px 18px;
       margin-bottom: 28px;
@@ -109,14 +94,14 @@
     }
 
     .price-main {
-      color: #087ca7;
+      color: #d92c78;
       font-size: 20px;
       font-weight: bold;
     }
 
     .price-detail {
       margin-top: 5px;
-      color: #68737d;
+      color: #76566a;
       font-size: 13px;
       line-height: 1.5;
     }
@@ -126,16 +111,16 @@
     }
 
     .category-title {
-      color: #087ca7;
+      color: #d92c78;
       margin: 0 0 14px;
       font-size: 22px;
-      border-bottom: 2px solid #dceef3;
+      border-bottom: 2px solid rgba(217, 44, 120, 0.22);
       padding-bottom: 8px;
     }
 
     .warning {
-      background: #fff4d6;
-      color: #7a4b00;
+      background: #fff0a8;
+      color: #714300;
       border-radius: 10px;
       padding: 12px 14px;
       margin-bottom: 14px;
@@ -144,7 +129,7 @@
     }
 
     .item {
-      background: white;
+      background: rgba(255, 255, 255, 0.88);
       border-radius: 13px;
       padding: 16px;
       margin-bottom: 12px;
@@ -154,20 +139,20 @@
     .item h3 {
       margin: 0;
       font-size: 18px;
-      color: #1f2937;
+      color: #43223a;
     }
 
     .description {
       margin: 8px 0 0;
-      color: #5f6875;
+      color: #76566a;
       font-size: 14px;
       line-height: 1.5;
     }
 
     .tag {
       display: inline-block;
-      background: #e9f8f2;
-      color: #13795b;
+      background: #ffe1ee;
+      color: #b51e64;
       padding: 5px 9px;
       border-radius: 20px;
       margin-top: 9px;
@@ -177,8 +162,8 @@
     }
 
     .islands-banner {
-      background: white;
-      border: 1px solid #dce7ec;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(217, 44, 120, 0.18);
       border-radius: 11px;
       padding: 13px 15px;
       margin: 4px 0 28px;
@@ -194,19 +179,19 @@
 
     .islands-banner h2 {
       margin: 0;
-      color: #31434e;
+      color: #5b2949;
       font-size: 15px;
     }
 
     .islands-banner p {
       margin: 3px 0 0;
-      color: #75808a;
+      color: #805f73;
       font-size: 12px;
       line-height: 1.4;
     }
 
     .islands-button {
-      color: #087ca7;
+      color: #d92c78;
       text-decoration: none;
       font-size: 13px;
       font-weight: bold;
@@ -218,112 +203,97 @@
     }
 
     .free-tour-banner {
-      background: white;
-      border: 1px solid #e0e6eb;
-      border-left: 4px solid #e5a700;
-      border-radius: 13px;
-      padding: 18px;
-      margin-top: 6px;
+      margin-top: 8px;
+      padding: 14px 2px 4px;
+      border-top: 1px solid rgba(217, 44, 120, 0.24);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 18px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
-    }
-
-    .free-tour-text {
-      flex: 1;
-    }
-
-    .free-tour-text span {
-      color: #9a7000;
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
+      gap: 14px;
     }
 
     .free-tour-text h2 {
-      margin: 5px 0 6px;
-      color: #263746;
-      font-size: 19px;
-    }
-
-    .free-tour-text p {
       margin: 0;
-      color: #66727d;
-      font-size: 14px;
-      line-height: 1.5;
+      color: #5b2949;
+      font-size: 15px;
+      font-weight: 700;
     }
 
     .free-tour-button {
-      display: inline-block;
-      background: #e5a700;
-      color: white;
+      color: #d92c78;
       text-decoration: none;
-      border-radius: 22px;
-      padding: 11px 17px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: bold;
       white-space: nowrap;
-      transition: 0.2s;
     }
 
     .free-tour-button:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
+      text-decoration: underline;
     }
-
-    .discover {
-      background: #123c4a;
-      color: white;
-      text-align: center;
-      padding: 34px 20px;
-    }
-
-    .discover h2 {
-      margin: 0;
-      font-size: 24px;
-    }
-
-    .discover p {
-      max-width: 620px;
-      margin: 12px auto 20px;
-      color: #d7e7ec;
-      line-height: 1.6;
-      font-size: 15px;
-    }
-
-    .site-button {
-      display: inline-block;
-      background: white;
-      color: #123c4a;
-      text-decoration: none;
-      border-radius: 25px;
-      padding: 12px 20px;
-      font-weight: bold;
-      font-size: 15px;
-      transition: 0.2s;
-    }
-
-    .site-button:hover {
-      opacity: 0.9;
-      transform: translateY(-1px);
-    }
-
-    footer {
+footer {
       text-align: center;
       padding: 24px 18px;
-      background: #e9eef3;
-      color: #65707d;
+      background: #f8b9d2;
+      color: #5c334d;
       font-size: 13px;
       line-height: 1.7;
     }
 
     footer a {
-      color: #087ca7;
+      color: #d92c78;
       text-decoration: none;
       font-weight: bold;
+    }
+
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 12% 16%, rgba(255, 255, 255, 0.5), transparent 22%),
+        radial-gradient(circle at 86% 42%, rgba(255, 90, 160, 0.16), transparent 26%);
+      z-index: -1;
+    }
+
+    .price-banner {
+      background: linear-gradient(135deg, rgba(255, 244, 163, 0.96), rgba(255, 184, 216, 0.96));
+      border: 1px solid rgba(217, 44, 120, 0.22);
+    }
+
+    .item {
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      backdrop-filter: blur(3px);
+    }
+
+    .acai-feature {
+      position: relative;
+      overflow: hidden;
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background:
+        linear-gradient(180deg, rgba(54, 8, 55, 0.10) 0%, rgba(54, 8, 55, 0.82) 78%),
+        url('/IMG_6776.png') center / cover no-repeat;
+      color: white;
+      box-shadow: 0 10px 24px rgba(99, 20, 76, 0.2);
+    }
+
+    .acai-feature h3,
+    .acai-feature .description {
+      position: relative;
+      z-index: 1;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.48);
+    }
+
+    .category-title {
+      display: inline-block;
+      padding: 7px 12px 8px;
+      border-radius: 12px 12px 5px 5px;
+      background: rgba(255, 255, 255, 0.48);
     }
 
     @media (max-width: 560px) {
@@ -352,12 +322,15 @@
       }
 
       .free-tour-banner {
-        display: block;
-        text-align: center;
+        padding-top: 13px;
+      }
+
+      .free-tour-text h2 {
+        font-size: 14px;
       }
 
       .free-tour-button {
-        margin-top: 15px;
+        font-size: 12px;
       }
     }
   </style>
@@ -367,20 +340,19 @@
 
   <header>
 
-    <h1>Gourmet Ice Pops</h1>
+    <h1>Geladinho Gourmet</h1>
 
-    <p>Salvador · Bahia · Brazil 🇧🇷</p>
+    <p>Salvador · Bahia · Brasil 🇧🇷</p>
 
     <nav class="languages" aria-label="Select language">
 
-      <a href="/geladinho-salvador/">
+      <a
+        href="/geladinho-salvador/"
+        >
         Português
       </a>
 
-      <a
-        href="/geladinho-salvador/en/"
-        class="active"
-      >
+      <a href="/geladinho-salvador/en/" class="active">
         English
       </a>
 
@@ -393,120 +365,107 @@
   </header>
 
   <main>
-
-    <section class="intro">
-
-      Gourmet flavors made in
-      <strong>Salvador, Bahia</strong>.
-
-      <br>
-
-      Explore our alcoholic and non-alcoholic options.
-
-    </section>
-
-    <section class="price-banner">
+<section class="price-banner">
 
       <div class="price-main">
-        Any flavor: R$15
+        Any flavor: R$ 15.00
       </div>
 
       <div class="price-detail">
-        Cash or Pix · Debit or credit card: R$16
+        Cash or Pix · Debit or credit: R$ 16.00
       </div>
 
     </section>
 
-    <!-- ALCOHOLIC FLAVORS WITH VODKA -->
+    <!-- ALCOÓLICOS COM VODKA -->
 
     <section class="category">
 
       <h2 class="category-title">
-        Alcoholic flavors with vodka
+        Alcoholic with Vodka
       </h2>
 
       <div class="warning">
-        Contains alcohol. Available only to customers aged 18 or older.
+        Contains alcohol. Sale only for adults 18+.
       </div>
 
       <article class="item">
-        <h3>Passion fruit mousse</h3>
+        <h3>Passion Fruit Mousse</h3>
       </article>
 
       <article class="item">
-        <h3>Lime mousse</h3>
+        <h3>Lemon Mousse</h3>
       </article>
 
       <article class="item">
 
-        <h3>Truffle strawberry</h3>
+        <h3>Truffle Strawberry</h3>
 
         <p class="description">
-          Strawberry yogurt ice cream, strawberry sauce and chocolate.
+          Strawberry yogurt ice cream with strawberry sauce and chocolate.
+        </p>
+
+      </article>
+
+      <article class="item acai-feature">
+
+        <h3>Power Açaí</h3>
+
+        <p class="description">
+          Milk, condensed milk, cream, powdered milk, energy drink and guaraná.
         </p>
 
       </article>
 
       <article class="item">
-
-        <h3>Boosted açaí</h3>
-
-        <p class="description">
-          Milk, condensed milk, cream, powdered milk,
-          energy drink and guaraná.
-        </p>
-
+        <h3>Pineapple & Coconut</h3>
       </article>
 
       <article class="item">
-        <h3>Pineapple with coconut</h3>
-      </article>
-
-      <article class="item">
-        <h3>Pineapple with wine</h3>
+        <h3>Pineapple in Wine</h3>
       </article>
 
       <article class="item">
 
-        <h3>Watermelon with lime</h3>
+        <h3>Watermelon & Lime</h3>
 
-        <span class="tag">Sugar-free</span>
-        <span class="tag">Lactose-free</span>
+        <span class="tag">Sugar Free</span>
+        <span class="tag">Lactose Free</span>
 
       </article>
 
       <article class="item">
 
-        <h3>Coconut with lime</h3>
+        <h3>Coconut & Lime</h3>
 
         <p class="description">
           Made without coconut pulp.
         </p>
 
-        <span class="tag">Sugar-free</span>
-        <span class="tag">Lactose-free</span>
+        <span class="tag">Sugar Free</span>
+        <span class="tag">Lactose Free</span>
 
       </article>
 
     </section>
 
-    <!-- MINIMAL ISLAND TOURS BANNER -->
+    <!-- FAIXA MINIMALISTA DAS ILHAS -->
 
     <aside class="islands-banner">
 
       <div class="islands-text">
 
-        <h2>Island tours from Salvador</h2>
+        <h2>Salvador Island Tours</h2>
 
         <p>
-          Ask about available options and local prices.
+          Ask about available tours and local prices.
         </p>
 
       </div>
 
       <a
         class="islands-button"
-        href="https://wa.me/5511952473756?text=Hello%21%20I%20received%20this%20contact%20from%20the%20Gourmet%20Ice%20Pops%20team.%20They%20said%20that%20you%20offer%20great%20prices%20for%20visiting%20the%20islands%20of%20Salvador.%20I%20would%20like%20to%20know%20more%20about%20the%20available%20options."
+        href="https://wa.me/5511952473756?text=Hello%21%20I%20got%20this%20contact%20from%20the%20Gourmet%20Ice%20Pops%20staff.%20I%27d%20like%20to%20know%20the%20available%20island%20tours%20and%20prices."
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -515,35 +474,35 @@
 
     </aside>
 
-    <!-- ALCOHOLIC FLAVORS WITH CACHAÇA 51 -->
+    <!-- ALCOÓLICOS COM CACHAÇA 51 -->
 
     <section class="category">
 
       <h2 class="category-title">
-        Alcoholic flavors with Cachaça 51
+        Alcoholic with Cachaça 51
       </h2>
 
       <div class="warning">
-        Contains alcohol. Available only to customers aged 18 or older.
+        Contains alcohol. Sale only for adults 18+.
       </div>
 
       <article class="item">
-        <h3>Lime caipirinha</h3>
+        <h3>Lime Caipirinha</h3>
       </article>
 
       <article class="item">
 
-        <h3>Cashew caipirinha</h3>
+        <h3>Cashew Caipirinha</h3>
 
         <p class="description">
-          Made with pieces of fresh cashew fruit.
+          Made with real fruit pieces.
         </p>
 
       </article>
 
       <article class="item">
 
-        <h3>Coconut with condensed milk</h3>
+        <h3>Coconut with Condensed Milk</h3>
 
         <p class="description">
           Made with coconut pulp.
@@ -552,200 +511,150 @@
       </article>
 
       <article class="item">
-        <h3>Peanut with paçoca</h3>
+        <h3>Peanut & Paçoca</h3>
       </article>
 
       <article class="item">
 
-        <h3>Dulce de leche</h3>
+        <h3>Dulce de Leche</h3>
 
         <p class="description">
-          A creamy flavor similar to Amarula.
+          Creamy flavor similar to Amarula.
         </p>
 
       </article>
 
     </section>
 
-    <!-- NON-ALCOHOLIC GOURMET FLAVORS -->
+    <!-- GOURMET SEM ÁLCOOL -->
 
     <section class="category">
 
       <h2 class="category-title">
-        Non-alcoholic gourmet flavors
+        Non-Alcoholic Gourmet
       </h2>
 
       <article class="item">
-        <h3>Passion fruit mousse</h3>
+        <h3>Passion Fruit Mousse</h3>
       </article>
 
       <article class="item">
 
-        <h3>Truffle passion fruit mousse</h3>
+        <h3>Passion Fruit Mousse trufado</h3>
 
         <p class="description">
-          Truffled with chocolate.
+          Chocolate filled.
         </p>
 
       </article>
 
       <article class="item">
-        <h3>Lime mousse</h3>
+        <h3>Lemon Mousse</h3>
       </article>
 
       <article class="item">
 
-        <h3>Truffle strawberry</h3>
+        <h3>Truffle Strawberry</h3>
 
         <p class="description">
-          Strawberry yogurt ice cream, strawberry sauce and chocolate.
+          Strawberry yogurt ice cream with strawberry sauce and chocolate.
+        </p>
+
+      </article>
+
+      <article class="item acai-feature">
+
+        <h3>Power Açaí</h3>
+
+        <p class="description">
+          Milk, condensed milk, cream, powdered milk and energy drink.
+        </p>
+
+      </article>
+
+      <article class="item">
+        <h3>Pineapple & Coconut</h3>
+      </article>
+
+      <article class="item">
+        <h3>Pineapple in Wine</h3>
+      </article>
+
+      <article class="item">
+        <h3>Dulce de Leche</h3>
+      </article>
+
+      <article class="item">
+
+        <h3>Coconut with Condensed Milk</h3>
+
+        <p class="description">
+          Brazilian coconut candy flavor.
         </p>
 
       </article>
 
       <article class="item">
 
-        <h3>Boosted açaí</h3>
+        <h3>Cashew with Fruit Pieces</h3>
 
-        <p class="description">
-          Milk, condensed milk, cream,
-          powdered milk and energy drink.
-        </p>
-
-      </article>
-
-      <article class="item">
-        <h3>Pineapple with coconut</h3>
-      </article>
-
-      <article class="item">
-        <h3>Pineapple with wine</h3>
-      </article>
-
-      <article class="item">
-        <h3>Dulce de leche</h3>
-      </article>
-
-      <article class="item">
-
-        <h3>Coconut with condensed milk</h3>
-
-        <p class="description">
-          Brazilian coconut truffle flavor.
-        </p>
+        <span class="tag">Lactose Free</span>
 
       </article>
 
       <article class="item">
 
-        <h3>Cashew with pieces of fruit</h3>
+        <h3>Mango with Fruit Pieces</h3>
 
-        <span class="tag">Lactose-free</span>
-
-      </article>
-
-      <article class="item">
-
-        <h3>Mango with pieces of fruit</h3>
-
-        <span class="tag">Lactose-free</span>
+        <span class="tag">Lactose Free</span>
 
       </article>
 
       <article class="item">
 
-        <h3>Watermelon with lime</h3>
+        <h3>Watermelon & Lime</h3>
 
-        <span class="tag">Sugar-free</span>
-        <span class="tag">Lactose-free</span>
+        <span class="tag">Sugar Free</span>
+        <span class="tag">Lactose Free</span>
 
       </article>
 
       <article class="item">
 
-        <h3>Coconut with lime</h3>
+        <h3>Coconut & Lime</h3>
 
         <p class="description">
           Made without coconut pulp.
         </p>
 
-        <span class="tag">Sugar-free</span>
-        <span class="tag">Lactose-free</span>
+        <span class="tag">Sugar Free</span>
+        <span class="tag">Lactose Free</span>
 
       </article>
 
     </section>
 
-    <!-- PELOURINHO FREE WALKING TOUR -->
+    <!-- FREE WALKING TOUR -->
 
     <aside class="free-tour-banner">
-
       <div class="free-tour-text">
-
-        <span>
-          An authentic way to discover Salvador
-        </span>
-
         <h2>Pelourinho Free Walking Tour</h2>
-
-        <p>
-          Explore Salvador’s history, cultural influences
-          and the stories of its Historic Center.
-        </p>
-
       </div>
 
       <a
         class="free-tour-button"
-        href="https://wa.me/5511952473756?text=Hello%21%20I%20received%20this%20contact%20from%20the%20Gourmet%20Ice%20Pops%20team%20and%20I%20would%20like%20to%20book%20the%20Pelourinho%20Free%20Walking%20Tour.%20Could%20you%20please%20send%20me%20the%20available%20times%3F"
+        href="https://wa.me/5511952473756?text=Hello%21%20I%20got%20this%20contact%20from%20the%20Gourmet%20Ice%20Pops%20staff%20and%20I%27d%20like%20to%20book%20the%20Pelourinho%20Free%20Walking%20Tour.%20Could%20you%20tell%20me%20the%20available%20schedules%3F"
         target="_blank"
         rel="noopener noreferrer"
       >
-        Book now
+        View schedules →
       </a>
-
     </aside>
 
   </main>
 
-  <!-- TO KNOW SALVADOR -->
-
-  <section class="discover">
-
-    <h2>Salvador goes far beyond the beach</h2>
-
-    <p>
-      Discover the islands, the Historic Center, local culture,
-      traditional flavors and other experiences around the city.
-    </p>
-
-    <a
-      class="site-button"
-      href="https://toknowsalvador.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Discover Salvador
-    </a>
-
-  </section>
-
   <footer>
-
-    📍 Salvador, Bahia, Brazil
-
-    <br>
-
-    Digital menu developed by
-
-    <a
-      href="https://toknowsalvador.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      To Know Salvador
-    </a>
-
+    Salvador, Bahia · <a href="https://toknowsalvador.com/" target="_blank" rel="noopener noreferrer">To Know Salvador</a>
   </footer>
 
 </body>
