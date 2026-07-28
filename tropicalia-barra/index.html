@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cardápio do Restaurante Tropicália em Salvador.">
+  <meta name="theme-color" content="#171916">
+
+  <title>Restaurante Tropicália | Cardápio</title>
+
+  <style>
+    :root {
+      --preto: #171916;
+      --amarelo: #f2c313;
+      --amarelo-claro: #ffdc57;
+      --branco: #f8f4e8;
+      --cinza: #c9c6ba;
+      --madeira-1: #5f3c25;
+      --madeira-2: #9c7045;
+      --borda: rgba(255, 255, 255, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 18px 12px 38px;
+      background:
+        radial-gradient(circle at top, rgba(255, 220, 87, 0.3), transparent 35%),
+        var(--amarelo);
+      color: var(--branco);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .pagina {
+      width: 100%;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .idiomas {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .idiomas a {
+      min-width: 50px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.82);
+      color: var(--preto);
+      font-size: 0.74rem;
+      font-weight: 900;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .idiomas a.ativo {
+      background: var(--preto);
+      color: var(--amarelo);
+    }
+
+    .moldura {
+      padding: 9px;
+      border-radius: 10px;
+      background:
+        linear-gradient(
+          90deg,
+          var(--madeira-1),
+          var(--madeira-2) 20%,
+          #6c452b 50%,
+          var(--madeira-2) 80%,
+          var(--madeira-1)
+        );
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.36);
+    }
+
+    .quadro {
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      background:
+        radial-gradient(
+          circle at 18% 7%,
+          rgba(255, 255, 255, 0.045),
+          transparent 31%
+        ),
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 5px,
+          rgba(255, 255, 255, 0.012) 6px
+        ),
+        var(--preto);
+      box-shadow: inset 0 0 46px rgba(0, 0, 0, 0.5);
+    }
+
+    .cabecalho {
+      padding: 28px 20px 24px;
+      text-align: center;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.24);
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 13px;
+      margin-bottom: 20px;
+    }
+
+    .simbolo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 66px;
+      height: 66px;
+      flex-shrink: 0;
+      border: 3px solid rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      background:
+        linear-gradient(
+          to bottom,
+          #4fc2dc 0%,
+          #4fc2dc 31%,
+          #f8d224 31%,
+          #f8d224 61%,
+          #ee6548 61%,
+          #d93b55 100%
+        );
+      font-size: 2rem;
+    }
+
+    .marca-texto {
+      text-align: left;
+    }
+
+    .nome-restaurante {
+      color: var(--amarelo);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2rem, 9vw, 3.25rem);
+      font-style: italic;
+      font-weight: 800;
+      line-height: 0.92;
+    }
+
+    .tipo-restaurante {
+      margin-top: 6px;
+      font-size: 0.68rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .contatos {
+      display: grid;
+      gap: 8px;
+      max-width: 430px;
+      margin: 0 auto 23px;
+    }
+
+    .contato {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 10px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.045);
+      font-size: 0.9rem;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .contato.telefone {
+      border-color: var(--amarelo);
+      background: var(--amarelo);
+      color: var(--preto);
+    }
+
+    .titulo-comida {
+      font-size: clamp(2.7rem, 14vw, 5rem);
+      font-weight: 950;
+      letter-spacing: -0.055em;
+      line-height: 0.87;
+      text-transform: uppercase;
+    }
+
+    .titulo-caseira {
+      margin-top: 6px;
+      color: var(--amarelo);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.9rem, 9vw, 3.5rem);
+      font-style: italic;
+    }
+
+    .frase {
+      margin-top: 16px;
+      color: var(--cinza);
+      font-size: 0.94rem;
+      line-height: 1.55;
+    }
+
+    .frase strong {
+      color: var(--branco);
+    }
+
+    .secao {
+      padding: 25px 18px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.22);
+    }
+
+    .titulo-secao {
+      margin-bottom: 17px;
+      color: var(--amarelo);
+      font-size: 0.86rem;
+      font-weight: 950;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .lista-pratos {
+      display: grid;
+      gap: 9px;
+    }
+
+    .prato {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 13px;
+      border: 1px solid var(--borda);
+      border-radius: 9px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.045),
+          rgba(255, 255, 255, 0.012)
+        );
+    }
+
+    .nome-prato {
+      font-size: 1rem;
+      font-weight: 800;
+      line-height: 1.3;
+    }
+
+    .preco {
+      color: var(--amarelo-claro);
+      font-size: 1.05rem;
+      font-weight: 950;
+      white-space: nowrap;
+    }
+
+    .disponibilidade {
+      margin-top: 17px;
+      padding: 15px;
+      border: 1px solid rgba(242, 195, 19, 0.23);
+      border-radius: 10px;
+      background: rgba(242, 195, 19, 0.045);
+      text-align: center;
+    }
+
+    .disponibilidade p {
+      color: var(--cinza);
+      font-size: 0.82rem;
+      line-height: 1.5;
+    }
+
+    .botao-disponibilidade {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.055);
+      font-size: 0.79rem;
+      font-weight: 850;
+      text-decoration: none;
+    }
+
+    .caixa-escolhas {
+      padding: 18px;
+      border: 1px solid rgba(242, 195, 19, 0.34);
+      border-radius: 11px;
+      background: rgba(242, 195, 19, 0.045);
+    }
+
+    .introducao {
+      margin-bottom: 19px;
+      font-size: 0.97rem;
+      line-height: 1.5;
+    }
+
+    .grupo + .grupo {
+      margin-top: 18px;
+    }
+
+    .nome-escolha {
+      margin-bottom: 8px;
+      color: var(--amarelo);
+      font-size: 0.77rem;
+      font-weight: 950;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .opcoes {
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    .ou {
+      color: var(--amarelo);
+      font-size: 0.8rem;
+      font-weight: 950;
+      text-transform: uppercase;
+    }
+
+    .adicionais {
+      margin-top: 19px;
+      padding-top: 17px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.21);
+    }
+
+    .adicionais strong {
+      display: block;
+      margin-bottom: 7px;
+      color: var(--amarelo);
+      font-size: 0.77rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .embalagem {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 15px;
+      border: 1px solid var(--borda);
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .avaliacao {
+      padding: 27px 19px;
+      border-top: 1px dashed rgba(255, 255, 255, 0.22);
+      text-align: center;
+    }
+
+    .estrelas {
+      margin-bottom: 10px;
+      color: var(--amarelo);
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+    }
+
+    .avaliacao h2 {
+      font-size: 1.05rem;
+    }
+
+    .avaliacao p {
+      max-width: 380px;
+      margin: 9px auto 15px;
+      color: var(--cinza);
+      font-size: 0.83rem;
+      line-height: 1.5;
+    }
+
+    .botao-avaliacao {
+      display: inline-flex;
+      padding: 11px 19px;
+      border-radius: 999px;
+      background: var(--amarelo);
+      color: var(--preto);
+      font-size: 0.84rem;
+      font-weight: 950;
+      text-decoration: none;
+    }
+
+    /* PROPAGANDA PEQUENA E MINIMALISTA */
+
+    .to-know {
+      padding: 20px 18px 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.12);
+      text-align: center;
+    }
+
+    .to-know p {
+      margin-bottom: 8px;
+      color: rgba(248, 244, 232, 0.58);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    .to-know a {
+      color: var(--amarelo-claro);
+      font-size: 0.7rem;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .to-know small {
+      display: block;
+      margin-top: 9px;
+      color: rgba(248, 244, 232, 0.28);
+      font-size: 0.57rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .rodape {
+      padding: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
+    }
+
+    .rodape p {
+      color: rgba(248, 244, 232, 0.45);
+      font-size: 0.7rem;
+      line-height: 1.5;
+    }
+
+    @media (min-width: 520px) {
+      .cabecalho,
+      .secao,
+      .avaliacao {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="pagina">
+
+    <nav class="idiomas" aria-label="Idiomas">
+      <a class="ativo" href="index.html">PT</a>
+      <a href="index-en.html">EN</a>
+      <a href="index-es.html">ES</a>
+    </nav>
+
+    <div class="moldura">
+      <article class="quadro">
+
+        <header class="cabecalho">
+          <div class="marca">
+            <div class="simbolo" aria-hidden="true">🌴</div>
+
+            <div class="marca-texto">
+              <div class="nome-restaurante">Tropicália</div>
+              <div class="tipo-restaurante">Bar e Restaurante</div>
+            </div>
+          </div>
+
+          <div class="contatos">
+            <a
+              class="contato telefone"
+              href="https://wa.me/5571983163956"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ☎ (71) 98316-3956
+            </a>
+
+            <a
+              class="contato"
+              href="https://www.instagram.com/restaurantetropicallia/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ◎ @restaurantetropicallia
+            </a>
+          </div>
+
+          <div class="titulo-comida">Comida</div>
+          <div class="titulo-caseira">Caseira</div>
+
+          <p class="frase">
+            Se é caseiro, <strong>tem sabor.</strong><br>
+            Se tem sabor, <strong>tem nosso tempero!</strong>
+          </p>
+        </header>
+
+        <section class="secao">
+          <h2 class="titulo-secao">Pratos do dia</h2>
+
+          <div class="lista-pratos">
+            <div class="prato">
+              <span class="nome-prato">Fígado na tira</span>
+              <span class="preco">R$ 23,00</span>
+            </div>
+
+            <div class="prato">
+              <span class="nome-prato">Filé de frango</span>
+              <span class="preco">R$ 25,00</span>
+            </div>
+
+            <div class="prato">
+              <span class="nome-prato">Carne de panela</span>
+              <span class="preco">R$ 27,00</span>
+            </div>
+
+            <div class="prato">
+              <span class="nome-prato">Bife filé especial</span>
+              <span class="preco">R$ 32,00</span>
+            </div>
+
+            <div class="prato">
+              <span class="nome-prato">Bife acebolado</span>
+              <span class="preco">R$ 35,00</span>
+            </div>
+
+            <div class="prato">
+              <span class="nome-prato">Carne de sol</span>
+              <span class="preco">R$ 38,00</span>
+            </div>
+
+            <div class="prato">
+              <span class="nome-prato">Arrumadinho</span>
+              <span class="preco">R$ 38,00</span>
+            </div>
+          </div>
+
+          <div class="disponibilidade">
+            <p>
+              Alguns pratos podem variar conforme a produção do dia.
+            </p>
+
+            <a
+              class="botao-disponibilidade"
+              href="https://wa.me/5571983163956?text=Olá%2C%20gostaria%20de%20verificar%20quais%20pratos%20estão%20disponíveis%20hoje."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              ✓ Verificar disponibilidade
+            </a>
+          </div>
+        </section>
+
+        <section class="secao">
+          <h2 class="titulo-secao">Acompanhamentos</h2>
+
+          <div class="caixa-escolhas">
+            <p class="introducao">
+              Escolha uma opção de feijão e uma opção de salada.
+            </p>
+
+            <div class="grupo">
+              <p class="nome-escolha">Feijão</p>
+
+              <p class="opcoes">
+                Feijão de caldo
+                <span class="ou">ou</span>
+                feijão tropeiro
+              </p>
+            </div>
+
+            <div class="grupo">
+              <p class="nome-escolha">Salada</p>
+
+              <p class="opcoes">
+                Vinagrete
+                <span class="ou">ou</span>
+                maionese
+              </p>
+            </div>
+
+            <div class="adicionais">
+              <strong>Diga ao atendente</strong>
+              <p>Informe se deseja <b>pimenta</b> e <b>farofa</b>.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="secao">
+          <h2 class="titulo-secao">Para viagem</h2>
+
+          <div class="embalagem">
+            <strong>Embalagem</strong>
+            <span class="preco">R$ 2,00</span>
+          </div>
+        </section>
+
+        <section class="avaliacao">
+          <div class="estrelas">★★★★★</div>
+
+          <h2>Gostou da experiência?</h2>
+
+          <p>
+            Sua avaliação ajuda outras pessoas a conhecerem o Tropicália.
+          </p>
+
+          <a
+            class="botao-avaliacao"
+            href="https://share.google/NVNwTus3LGzz2FCiv"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Avaliar no Google
+          </a>
+        </section>
+
+        <aside class="to-know">
+          <p>Conheça Salvador além da praia.</p>
+
+          <a
+            href="https://toknowsalvador.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver experiências →
+          </a>
+
+          <small>To Know Salvador</small>
+        </aside>
+
+        <footer class="rodape">
+          <p>
+            Restaurante Tropicália · Salvador, Bahia
+          </p>
+        </footer>
+
+      </article>
+    </div>
+  </main>
+</body>
+</html>
