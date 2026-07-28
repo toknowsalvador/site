@@ -267,27 +267,6 @@ footer {
       backdrop-filter: blur(3px);
     }
 
-    .acai-feature {
-      position: relative;
-      overflow: hidden;
-      min-height: 210px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      background:
-        linear-gradient(180deg, rgba(54, 8, 55, 0.10) 0%, rgba(54, 8, 55, 0.82) 78%),
-        var(--acai-image, url('/IMG_6776.png')) center / cover no-repeat;
-      color: white;
-      box-shadow: 0 10px 24px rgba(99, 20, 76, 0.2);
-    }
-
-    .acai-feature h3,
-    .acai-feature .description {
-      position: relative;
-      z-index: 1;
-      color: white;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.48);
-    }
 
     .category-title {
       display: inline-block;
@@ -408,7 +387,7 @@ footer {
 
       </article>
 
-      <article class="item acai-feature">
+      <article class="item">
 
         <h3>Açaí turbinado</h3>
 
@@ -541,7 +520,7 @@ footer {
 
       <article class="item">
 
-        <h3>Truffle Mousse de maracujá</h3>
+        <h3>Mousse de maracujá trufado</h3>
 
         <p class="description">
           Trufado com chocolate.
@@ -563,7 +542,7 @@ footer {
 
       </article>
 
-      <article class="item acai-feature">
+      <article class="item">
 
         <h3>Açaí turbinado</h3>
 
@@ -657,37 +636,6 @@ footer {
   <footer>
     Salvador, Bahia · <a href="https://toknowsalvador.com/" target="_blank" rel="noopener noreferrer">To Know Salvador</a>
   </footer>
-
-
-  <script>
-    (function () {
-      const paths = [
-        "/IMG_6776.png",
-        "../../IMG_6776.png",
-        "../IMG_6776.png",
-        "./IMG_6776.png"
-      ];
-
-      function tryPath(index) {
-        if (index >= paths.length) return;
-
-        const image = new Image();
-        image.onload = function () {
-          document.documentElement.style.setProperty(
-            "--acai-image",
-            'url("' + paths[index] + '")'
-          );
-        };
-        image.onerror = function () {
-          tryPath(index + 1);
-        };
-        image.src = paths[index];
-      }
-
-      tryPath(0);
-    })();
-  </script>
-
 </body>
 
 </html>
