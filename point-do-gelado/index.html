@@ -1,21 +1,891 @@
-<div style="margin-top:40px;border-top:1px solid #eee;padding-top:25px;text-align:center;">
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
 
-<a href="https://wa.me/5511952473756"
-style="display:inline-block;padding:14px 24px;background:#25D366;color:#fff;text-decoration:none;border-radius:10px;font-weight:bold;">
-💳 Pedir a conta
-</a>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<p style="margin-top:10px;font-size:14px;color:#666;">
-Informe apenas o número da mesa.
-</p>
+  <meta
+    name="description"
+    content="Cardápio digital do Point do Gelado, no Porto da Barra, Salvador."
+  >
 
-<p style="margin-top:30px;font-size:13px;color:#888;">
-Conheça também nosso passeio às ilhas.
-</p>
+  <title>Point do Gelado | Cardápio</title>
 
-<a href="https://wa.me/5511952473756"
-style="font-size:13px;color:#0d3b66;text-decoration:none;">
-To Know Salvador
-</a>
+  <style>
+    :root {
+      --vermelho: #e7242d;
+      --vermelho-escuro: #b81420;
+      --azul: #073b78;
+      --azul-escuro: #042653;
+      --azul-claro: #19a9df;
+      --amarelo: #e7cf35;
+      --branco: #ffffff;
+      --texto-claro: #dcecff;
+      --linha: rgba(255, 255, 255, 0.24);
+      --verde: #25d366;
+    }
 
-</div>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(
+          180deg,
+          var(--vermelho) 0,
+          var(--vermelho) 220px,
+          var(--azul) 220px,
+          var(--azul-escuro) 100%
+        );
+      color: var(--branco);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .pagina {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          180deg,
+          var(--vermelho) 0,
+          var(--vermelho) 215px,
+          var(--azul) 215px,
+          var(--azul-escuro) 100%
+        );
+      box-shadow: 0 0 35px rgba(0, 0, 0, 0.32);
+    }
+
+    /* TOPO */
+
+    .topo {
+      position: relative;
+      min-height: 215px;
+      padding: 22px 20px 38px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .topo::after {
+      position: absolute;
+      right: -5%;
+      bottom: -42px;
+      left: -5%;
+      height: 82px;
+      content: "";
+      background: var(--azul);
+      border-radius: 50% 50% 0 0;
+    }
+
+    .idiomas {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .idiomas a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.12);
+      color: var(--branco);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .idiomas a:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-1px);
+    }
+
+    .idiomas .ativo {
+      border-color: var(--amarelo);
+      background: var(--amarelo);
+      color: var(--azul-escuro);
+    }
+
+    .marca {
+      position: relative;
+      z-index: 3;
+      width: min(100%, 440px);
+      margin: 0 auto;
+    }
+
+    .marca-circulo {
+      width: 122px;
+      height: 122px;
+      margin: 0 auto 10px;
+      padding: 9px;
+      border: 6px solid var(--branco);
+      border-radius: 50%;
+      background:
+        linear-gradient(
+          180deg,
+          var(--azul) 0 55%,
+          #d5a84d 55% 100%
+        );
+      box-shadow:
+        0 0 0 5px rgba(231, 207, 53, 0.8),
+        0 8px 24px rgba(0, 0, 0, 0.26);
+    }
+
+    .marca-faixa {
+      display: flex;
+      width: 160px;
+      min-height: 56px;
+      margin: 24px 0 0 -28px;
+      padding: 6px 10px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 10px;
+      background:
+        linear-gradient(
+          135deg,
+          #b2004b,
+          #ec185b
+        );
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+      transform: rotate(-2deg);
+    }
+
+    .marca-faixa strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .marca-faixa span {
+      color: var(--amarelo);
+      font-family: cursive;
+      font-size: 23px;
+      font-style: italic;
+      line-height: 1;
+    }
+
+    .topo h1 {
+      margin-top: 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 6vw, 42px);
+      letter-spacing: -1px;
+    }
+
+    .topo p {
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 14px;
+    }
+
+    /* CONTEÚDO */
+
+    main {
+      position: relative;
+      z-index: 2;
+      padding: 15px 18px 32px;
+    }
+
+    .introducao {
+      max-width: 580px;
+      margin: 0 auto 24px;
+      color: var(--texto-claro);
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .atalhos {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 28px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+      scrollbar-width: none;
+    }
+
+    .atalhos::-webkit-scrollbar {
+      display: none;
+    }
+
+    .atalhos a {
+      flex: 0 0 auto;
+      padding: 9px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .categoria {
+      margin-bottom: 34px;
+      scroll-margin-top: 12px;
+    }
+
+    .titulo-categoria {
+      margin-bottom: 13px;
+      text-align: center;
+    }
+
+    .titulo-categoria h2 {
+      color: var(--amarelo);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 6vw, 38px);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .titulo-categoria::after {
+      display: block;
+      width: 115px;
+      height: 5px;
+      margin: 7px auto 0;
+      content: "";
+      border-radius: 50%;
+      background: var(--azul-claro);
+      box-shadow: 0 3px 9px rgba(25, 169, 223, 0.7);
+    }
+
+    .lista {
+      border-top: 1px solid var(--linha);
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      min-height: 43px;
+      padding: 10px 3px;
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .nome {
+      color: var(--branco);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.28;
+      text-transform: uppercase;
+    }
+
+    .descricao {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: none;
+    }
+
+    .preco {
+      min-width: 74px;
+      color: var(--branco);
+      font-size: 15px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .observacao {
+      margin: -15px 0 30px;
+      color: rgba(255, 255, 255, 0.69);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* PEDIR CONTA */
+
+    .servico {
+      margin-top: 42px;
+      padding: 24px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.17);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      text-align: center;
+    }
+
+    .servico h3 {
+      margin-bottom: 7px;
+      color: var(--branco);
+      font-size: 19px;
+    }
+
+    .servico p {
+      max-width: 390px;
+      margin: 0 auto 17px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .botao-conta {
+      width: 100%;
+      max-width: 360px;
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--verde);
+      color: var(--branco);
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 800;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+    }
+
+    .botao-conta:hover {
+      filter: brightness(1.06);
+    }
+
+    /* PROPAGANDA MINIMALISTA */
+
+    .turismo {
+      margin: 30px auto 4px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.13);
+      text-align: center;
+    }
+
+    .turismo p {
+      margin-bottom: 7px;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 11px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .turismo a {
+      color: var(--branco);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .turismo a span {
+      color: var(--amarelo);
+    }
+
+    footer {
+      padding: 18px 20px 30px;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 10px;
+      text-align: center;
+    }
+
+    @media (min-width: 700px) {
+      main {
+        padding-right: 36px;
+        padding-left: 36px;
+      }
+
+      .item {
+        min-height: 47px;
+      }
+
+      .nome {
+        font-size: 15px;
+      }
+
+      .preco {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="pagina">
+
+    <header class="topo">
+
+      <nav class="idiomas" aria-label="Selecionar idioma">
+        <a class="ativo" href="index.html">PT</a>
+        <a href="en.html">EN</a>
+        <a href="es.html">ES</a>
+      </nav>
+
+      <div class="marca">
+
+        <div class="marca-circulo">
+          <div class="marca-faixa">
+            <strong>Point do</strong>
+            <span>Gelado</span>
+          </div>
+        </div>
+
+        <h1>Point do Gelado</h1>
+
+        <p>Porto da Barra • Salvador, Bahia</p>
+
+      </div>
+
+    </header>
+
+    <main>
+
+      <p class="introducao">
+        Bebidas geladas, petiscos e refeições para aproveitar seu
+        dia no Porto da Barra.
+      </p>
+
+      <nav class="atalhos" aria-label="Categorias do cardápio">
+        <a href="#bebidas">Bebidas</a>
+        <a href="#sucos">Sucos e caipirinhas</a>
+        <a href="#roska">Roska</a>
+        <a href="#refeicoes">Refeições</a>
+        <a href="#tira-gosto">Tira-gosto</a>
+      </nav>
+
+      <section class="categoria" id="bebidas">
+
+        <div class="titulo-categoria">
+          <h2>Bebidas</h2>
+        </div>
+
+        <div class="lista">
+
+          <div class="item">
+            <div class="nome">Refrigerante em lata</div>
+            <div class="preco">R$ 8,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Refrigerante de 1 litro</div>
+            <div class="preco">R$ 15,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">H2O</div>
+            <div class="preco">R$ 10,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Água</div>
+            <div class="preco">R$ 5,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Água com gás</div>
+            <div class="preco">R$ 7,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Água de coco</div>
+            <div class="preco">R$ 10,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Skol latão</div>
+            <div class="preco">R$ 12,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Itaipava latão</div>
+            <div class="preco">R$ 12,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Brahma Chopp</div>
+            <div class="preco">R$ 12,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Brahma Duplo Malte</div>
+            <div class="preco">R$ 10,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Amstel</div>
+            <div class="preco">R$ 10,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Devassa 350 ml</div>
+            <div class="preco">R$ 10,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Budweiser Long Neck</div>
+            <div class="preco">R$ 20,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Heineken Long Neck</div>
+            <div class="preco">R$ 20,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Stella Long Neck</div>
+            <div class="preco">R$ 20,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Eisenbahn Long Neck</div>
+            <div class="preco">R$ 20,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Smirnoff Ice Long Neck</div>
+            <div class="preco">R$ 20,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Cuba Libre</div>
+            <div class="preco">R$ 65,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Coco Luty</div>
+            <div class="preco">R$ 65,00</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="categoria" id="sucos">
+
+        <div class="titulo-categoria">
+          <h2>Sucos e Caipirinha</h2>
+        </div>
+
+        <div class="lista">
+
+          <div class="item">
+            <div class="nome">Limão</div>
+            <div class="preco">R$ 25,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Abacaxi</div>
+            <div class="preco">R$ 25,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Maracujá</div>
+            <div class="preco">R$ 25,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Kiwi</div>
+            <div class="preco">R$ 25,00</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="categoria" id="roska">
+
+        <div class="titulo-categoria">
+          <h2>Roska</h2>
+        </div>
+
+        <div class="lista">
+
+          <div class="item">
+            <div class="nome">Limão</div>
+            <div class="preco">R$ 30,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Abacaxi</div>
+            <div class="preco">R$ 30,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Maracujá</div>
+            <div class="preco">R$ 30,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Kiwi</div>
+            <div class="preco">R$ 30,00</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="categoria" id="refeicoes">
+
+        <div class="titulo-categoria">
+          <h2>Refeições</h2>
+        </div>
+
+        <div class="lista">
+
+          <div class="item">
+            <div class="nome">
+              Peixe corvina frito
+              <span class="descricao">Tamanho grande</span>
+            </div>
+            <div class="preco">R$ 230,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">
+              Peixe vermelho frito
+              <span class="descricao">Tamanho grande</span>
+            </div>
+            <div class="preco">R$ 250,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Frango a passarinha</div>
+            <div class="preco">R$ 125,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Carne do sol</div>
+            <div class="preco">R$ 130,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Filé de frango à milanesa</div>
+            <div class="preco">R$ 125,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Filé de frango grelhado</div>
+            <div class="preco">R$ 115,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Prato de frutas</div>
+            <div class="preco">R$ 70,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">
+              Moqueca de peixe
+              <span class="descricao">
+                Vermelho, pescada ou amarela
+              </span>
+            </div>
+            <div class="preco">R$ 230,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">
+              Moqueca de peixe, siri e camarão
+            </div>
+            <div class="preco">R$ 250,00</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="categoria" id="tira-gosto">
+
+        <div class="titulo-categoria">
+          <h2>Tira-Gosto</h2>
+        </div>
+
+        <div class="lista">
+
+          <div class="item">
+            <div class="nome">
+              Camarão empanado com molho tártaro
+            </div>
+            <div class="preco">R$ 150,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Camarão ao alho e óleo</div>
+            <div class="preco">R$ 130,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Batata frita</div>
+            <div class="preco">R$ 50,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Lagosta</div>
+            <div class="preco">R$ 270,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Peixe grelhado com legumes</div>
+            <div class="preco">R$ 160,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Isca de peixe</div>
+            <div class="preco">R$ 135,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Lula empanada</div>
+            <div class="preco">R$ 130,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">
+              Bolinho de bacalhau
+              <span class="descricao">6 unidades</span>
+            </div>
+            <div class="preco">R$ 80,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">
+              Bolinho de camarão
+              <span class="descricao">6 unidades</span>
+            </div>
+            <div class="preco">R$ 80,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Espeto de frango</div>
+            <div class="preco">R$ 125,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Pititinga frita</div>
+            <div class="preco">R$ 90,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">
+              Espeto de medalhão de frango
+            </div>
+            <div class="preco">R$ 125,00</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <p class="observacao">
+        Consulte a equipe sobre disponibilidade, acompanhamentos
+        e tempo de preparo.
+      </p>
+
+      <section class="servico">
+
+        <h3>Pedir a conta</h3>
+
+        <p>
+          Toque no botão abaixo e informe somente o número da mesa.
+        </p>
+
+        <button
+          class="botao-conta"
+          type="button"
+          onclick="pedirConta()"
+        >
+          Pedir a conta
+        </button>
+
+      </section>
+
+      <section class="turismo">
+
+        <p>Descubra mais de Salvador</p>
+
+        <a
+          href="https://wa.me/5511952473756?text=Olá!%20Gostaria%20de%20conhecer%20o%20passeio%20às%20ilhas."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Conheça o passeio às ilhas
+          <span>• To Know Salvador</span>
+        </a>
+
+      </section>
+
+    </main>
+
+    <footer>
+      Point do Gelado • Porto da Barra
+    </footer>
+
+  </div>
+
+  <script>
+    /*
+      Quando você receber o telefone da barraca,
+      coloque somente os números dentro das aspas.
+
+      Exemplo:
+      const telefoneBarraca = "5571999999999";
+    */
+
+    const telefoneBarraca = "";
+
+    function pedirConta() {
+      const numeroMesa = prompt(
+        "Digite somente o número da sua mesa:"
+      );
+
+      if (numeroMesa === null) {
+        return;
+      }
+
+      const mesa = numeroMesa.trim();
+
+      if (!mesa) {
+        alert("Por favor, informe o número da mesa.");
+        return;
+      }
+
+      if (!telefoneBarraca) {
+        alert(
+          "O telefone para solicitar a conta será adicionado em breve."
+        );
+        return;
+      }
+
+      const mensagem = encodeURIComponent(
+        "Olá! Gostaria de pedir a conta da mesa " + mesa + "."
+      );
+
+      window.open(
+        "https://wa.me/" +
+        telefoneBarraca +
+        "?text=" +
+        mensagem,
+        "_blank"
+      );
+    }
+  </script>
+
+</body>
+</html>
