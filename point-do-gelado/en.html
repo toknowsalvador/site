@@ -1,21 +1,895 @@
-<div style="margin-top:40px;border-top:1px solid #eee;padding-top:25px;text-align:center;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
 
-<a href="https://wa.me/5511952473756"
-style="display:inline-block;padding:14px 24px;background:#25D366;color:#fff;text-decoration:none;border-radius:10px;font-weight:bold;">
-💳 Request the bill
-</a>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-<p style="margin-top:10px;font-size:14px;color:#666;">
-Simply send your table number.
-</p>
+  <meta
+    name="description"
+    content="Digital menu for Point do Gelado at Porto da Barra Beach, Salvador."
+  >
 
-<p style="margin-top:30px;font-size:13px;color:#888;">
-Discover our Island Tour.
-</p>
+  <title>Point do Gelado | Menu</title>
 
-<a href="https://wa.me/5511952473756"
-style="font-size:13px;color:#0d3b66;text-decoration:none;">
-To Know Salvador
-</a>
+  <style>
+    :root {
+      --red: #e7242d;
+      --dark-red: #b81420;
+      --blue: #073b78;
+      --dark-blue: #042653;
+      --light-blue: #19a9df;
+      --yellow: #e7cf35;
+      --white: #ffffff;
+      --light-text: #dcecff;
+      --line: rgba(255, 255, 255, 0.24);
+      --green: #25d366;
+    }
 
-</div>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(
+          180deg,
+          var(--red) 0,
+          var(--red) 220px,
+          var(--blue) 220px,
+          var(--dark-blue) 100%
+        );
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          180deg,
+          var(--red) 0,
+          var(--red) 215px,
+          var(--blue) 215px,
+          var(--dark-blue) 100%
+        );
+      box-shadow: 0 0 35px rgba(0, 0, 0, 0.32);
+    }
+
+    /* HEADER */
+
+    .header {
+      position: relative;
+      min-height: 215px;
+      padding: 22px 20px 38px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .header::after {
+      position: absolute;
+      right: -5%;
+      bottom: -42px;
+      left: -5%;
+      height: 82px;
+      content: "";
+      background: var(--blue);
+      border-radius: 50% 50% 0 0;
+    }
+
+    .languages {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    .languages a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.12);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .languages a:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-1px);
+    }
+
+    .languages .active {
+      border-color: var(--yellow);
+      background: var(--yellow);
+      color: var(--dark-blue);
+    }
+
+    .brand {
+      position: relative;
+      z-index: 3;
+      width: min(100%, 440px);
+      margin: 0 auto;
+    }
+
+    .brand-circle {
+      width: 122px;
+      height: 122px;
+      margin: 0 auto 10px;
+      padding: 9px;
+      border: 6px solid var(--white);
+      border-radius: 50%;
+      background:
+        linear-gradient(
+          180deg,
+          var(--blue) 0 55%,
+          #d5a84d 55% 100%
+        );
+      box-shadow:
+        0 0 0 5px rgba(231, 207, 53, 0.8),
+        0 8px 24px rgba(0, 0, 0, 0.26);
+    }
+
+    .brand-banner {
+      display: flex;
+      width: 160px;
+      min-height: 56px;
+      margin: 24px 0 0 -28px;
+      padding: 6px 10px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 10px;
+      background:
+        linear-gradient(
+          135deg,
+          #b2004b,
+          #ec185b
+        );
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+      transform: rotate(-2deg);
+    }
+
+    .brand-banner strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .brand-banner span {
+      color: var(--yellow);
+      font-family: cursive;
+      font-size: 23px;
+      font-style: italic;
+      line-height: 1;
+    }
+
+    .header h1 {
+      margin-top: 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 6vw, 42px);
+      letter-spacing: -1px;
+    }
+
+    .header p {
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 14px;
+    }
+
+    /* CONTENT */
+
+    main {
+      position: relative;
+      z-index: 2;
+      padding: 15px 18px 32px;
+    }
+
+    .introduction {
+      max-width: 580px;
+      margin: 0 auto 24px;
+      color: var(--light-text);
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .shortcuts {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 28px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+      scrollbar-width: none;
+    }
+
+    .shortcuts::-webkit-scrollbar {
+      display: none;
+    }
+
+    .shortcuts a {
+      flex: 0 0 auto;
+      padding: 9px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .category {
+      margin-bottom: 34px;
+      scroll-margin-top: 12px;
+    }
+
+    .category-title {
+      margin-bottom: 13px;
+      text-align: center;
+    }
+
+    .category-title h2 {
+      color: var(--yellow);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 6vw, 38px);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .category-title::after {
+      display: block;
+      width: 115px;
+      height: 5px;
+      margin: 7px auto 0;
+      content: "";
+      border-radius: 50%;
+      background: var(--light-blue);
+      box-shadow: 0 3px 9px rgba(25, 169, 223, 0.7);
+    }
+
+    .list {
+      border-top: 1px solid var(--line);
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      min-height: 43px;
+      padding: 10px 3px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .name {
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.28;
+      text-transform: uppercase;
+    }
+
+    .description {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: none;
+    }
+
+    .price {
+      min-width: 74px;
+      color: var(--white);
+      font-size: 15px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .note {
+      margin: -15px 0 30px;
+      color: rgba(255, 255, 255, 0.69);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* REQUEST THE BILL */
+
+    .service {
+      margin-top: 42px;
+      padding: 24px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.17);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      text-align: center;
+    }
+
+    .service h3 {
+      margin-bottom: 7px;
+      color: var(--white);
+      font-size: 19px;
+    }
+
+    .service p {
+      max-width: 390px;
+      margin: 0 auto 17px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .bill-button {
+      width: 100%;
+      max-width: 360px;
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--green);
+      color: var(--white);
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 800;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+    }
+
+    .bill-button:hover {
+      filter: brightness(1.06);
+    }
+
+    /* MINIMAL TOUR SECTION */
+
+    .tourism {
+      margin: 30px auto 4px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.13);
+      text-align: center;
+    }
+
+    .tourism p {
+      margin-bottom: 7px;
+      color: rgba(255, 255, 255, 0.58);
+      font-size: 11px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .tourism a {
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .tourism a span {
+      color: var(--yellow);
+    }
+
+    footer {
+      padding: 18px 20px 30px;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 10px;
+      text-align: center;
+    }
+
+    @media (min-width: 700px) {
+      main {
+        padding-right: 36px;
+        padding-left: 36px;
+      }
+
+      .item {
+        min-height: 47px;
+      }
+
+      .name {
+        font-size: 15px;
+      }
+
+      .price {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page">
+
+    <header class="header">
+
+      <nav class="languages" aria-label="Select language">
+        <a href="index.html">PT</a>
+        <a class="active" href="en.html">EN</a>
+        <a href="es.html">ES</a>
+      </nav>
+
+      <div class="brand">
+
+        <div class="brand-circle">
+          <div class="brand-banner">
+            <strong>Point do</strong>
+            <span>Gelado</span>
+          </div>
+        </div>
+
+        <h1>Point do Gelado</h1>
+
+        <p>Porto da Barra • Salvador, Bahia</p>
+
+      </div>
+
+    </header>
+
+    <main>
+
+      <p class="introduction">
+        Cold drinks, snacks and meals to enjoy your day at
+        Porto da Barra Beach.
+      </p>
+
+      <nav class="shortcuts" aria-label="Menu categories">
+        <a href="#drinks">Drinks</a>
+        <a href="#juices">Juices and caipirinhas</a>
+        <a href="#roska">Caipiroska</a>
+        <a href="#meals">Meals</a>
+        <a href="#snacks">Snacks</a>
+      </nav>
+
+      <section class="category" id="drinks">
+
+        <div class="category-title">
+          <h2>Drinks</h2>
+        </div>
+
+        <div class="list">
+
+          <div class="item">
+            <div class="name">Canned soft drink</div>
+            <div class="price">R$ 8.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">1-liter soft drink</div>
+            <div class="price">R$ 15.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">H2O</div>
+            <div class="price">R$ 10.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Still water</div>
+            <div class="price">R$ 5.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Sparkling water</div>
+            <div class="price">R$ 7.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Coconut water</div>
+            <div class="price">R$ 10.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Skol large can</div>
+            <div class="price">R$ 12.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Itaipava large can</div>
+            <div class="price">R$ 12.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Brahma Chopp</div>
+            <div class="price">R$ 12.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Brahma Duplo Malte</div>
+            <div class="price">R$ 10.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Amstel</div>
+            <div class="price">R$ 10.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Devassa 350 ml</div>
+            <div class="price">R$ 10.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Budweiser Long Neck</div>
+            <div class="price">R$ 20.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Heineken Long Neck</div>
+            <div class="price">R$ 20.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Stella Long Neck</div>
+            <div class="price">R$ 20.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Eisenbahn Long Neck</div>
+            <div class="price">R$ 20.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Smirnoff Ice Long Neck</div>
+            <div class="price">R$ 20.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Cuba Libre</div>
+            <div class="price">R$ 65.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Coco Luty</div>
+            <div class="price">R$ 65.00</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="category" id="juices">
+
+        <div class="category-title">
+          <h2>Juices and Caipirinhas</h2>
+        </div>
+
+        <div class="list">
+
+          <div class="item">
+            <div class="name">Lime</div>
+            <div class="price">R$ 25.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Pineapple</div>
+            <div class="price">R$ 25.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Passion fruit</div>
+            <div class="price">R$ 25.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Kiwi</div>
+            <div class="price">R$ 25.00</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="category" id="roska">
+
+        <div class="category-title">
+          <h2>Caipiroska</h2>
+        </div>
+
+        <div class="list">
+
+          <div class="item">
+            <div class="name">Lime</div>
+            <div class="price">R$ 30.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Pineapple</div>
+            <div class="price">R$ 30.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Passion fruit</div>
+            <div class="price">R$ 30.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Kiwi</div>
+            <div class="price">R$ 30.00</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="category" id="meals">
+
+        <div class="category-title">
+          <h2>Meals</h2>
+        </div>
+
+        <div class="list">
+
+          <div class="item">
+            <div class="name">
+              Fried corvina fish
+              <span class="description">Large size</span>
+            </div>
+            <div class="price">R$ 230.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">
+              Fried red snapper
+              <span class="description">Large size</span>
+            </div>
+            <div class="price">R$ 250.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Brazilian-style fried chicken</div>
+            <div class="price">R$ 125.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Sun-dried beef</div>
+            <div class="price">R$ 130.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Breaded chicken fillet</div>
+            <div class="price">R$ 125.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Grilled chicken fillet</div>
+            <div class="price">R$ 115.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Fruit platter</div>
+            <div class="price">R$ 70.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">
+              Fish moqueca
+              <span class="description">
+                Red snapper, hake or yellowtail fish
+              </span>
+            </div>
+            <div class="price">R$ 230.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">
+              Fish, crab and shrimp moqueca
+            </div>
+            <div class="price">R$ 250.00</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="category" id="snacks">
+
+        <div class="category-title">
+          <h2>Snacks</h2>
+        </div>
+
+        <div class="list">
+
+          <div class="item">
+            <div class="name">
+              Breaded shrimp with tartar sauce
+            </div>
+            <div class="price">R$ 150.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Garlic shrimp</div>
+            <div class="price">R$ 130.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">French fries</div>
+            <div class="price">R$ 50.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Lobster</div>
+            <div class="price">R$ 270.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Grilled fish with vegetables</div>
+            <div class="price">R$ 160.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Fish strips</div>
+            <div class="price">R$ 135.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Breaded squid</div>
+            <div class="price">R$ 130.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">
+              Codfish croquettes
+              <span class="description">6 pieces</span>
+            </div>
+            <div class="price">R$ 80.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">
+              Shrimp croquettes
+              <span class="description">6 pieces</span>
+            </div>
+            <div class="price">R$ 80.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">Chicken skewer</div>
+            <div class="price">R$ 125.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">
+              Fried pititinga fish
+            </div>
+            <div class="price">R$ 90.00</div>
+          </div>
+
+          <div class="item">
+            <div class="name">
+              Bacon-wrapped chicken skewer
+            </div>
+            <div class="price">R$ 125.00</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <p class="note">
+        Please ask our team about availability, side dishes
+        and preparation time.
+      </p>
+
+      <section class="service">
+
+        <h3>Request the bill</h3>
+
+        <p>
+          Tap the button below and enter only your table number.
+        </p>
+
+        <button
+          class="bill-button"
+          type="button"
+          onclick="requestBill()"
+        >
+          Request the bill
+        </button>
+
+      </section>
+
+      <section class="tourism">
+
+        <p>Discover more of Salvador</p>
+
+        <a
+          href="https://wa.me/5511952473756?text=Hello!%20I%20would%20like%20to%20learn%20more%20about%20the%20island%20tour."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Discover our Island Tour
+          <span>• To Know Salvador</span>
+        </a>
+
+      </section>
+
+    </main>
+
+    <footer>
+      Point do Gelado • Porto da Barra
+    </footer>
+
+  </div>
+
+  <script>
+    /*
+      Add the beach stand's WhatsApp number
+      between the quotation marks.
+
+      Example:
+      const standPhone = "5571999999999";
+    */
+
+    const standPhone = "";
+
+    function requestBill() {
+      const tableNumber = prompt(
+        "Enter only your table number:"
+      );
+
+      if (tableNumber === null) {
+        return;
+      }
+
+      const table = tableNumber.trim();
+
+      if (!table) {
+        alert("Please enter your table number.");
+        return;
+      }
+
+      if (!standPhone) {
+        alert(
+          "The WhatsApp number for requesting the bill will be added soon."
+        );
+        return;
+      }
+
+      const message = encodeURIComponent(
+        "Hello! I would like to request the bill for table " +
+        table +
+        "."
+      );
+
+      window.open(
+        "https://wa.me/" +
+        standPhone +
+        "?text=" +
+        message,
+        "_blank"
+      );
+    }
+  </script>
+
+</body>
+</html>
