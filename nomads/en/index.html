@@ -6,7 +6,7 @@
 
   <meta
     name="description"
-    content="Exclusive benefits for Nomads Hostel guests in Salvador: collaborative Free Walking Tour and complimentary beach setup at Porto da Barra."
+    content="Exclusive benefits for Nomads Hostel guests in Salvador: walking tours, complimentary beach setup and local restaurant recommendations."
   >
 
   <title>Guest Benefits | Nomads Hostel</title>
@@ -209,7 +209,7 @@
     .benefits {
       margin-top: 25px;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
@@ -304,6 +304,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
       font-size: 16px;
       font-weight: 900;
       transition: 0.2s;
@@ -404,12 +405,17 @@
       color: #9299a6;
     }
 
+    @media (max-width: 900px) {
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 760px) {
       .brand span {
         display: none;
       }
 
-      .benefits,
       .steps {
         grid-template-columns: 1fr;
       }
@@ -467,7 +473,7 @@
 
   <section class="hero">
     <div class="hero-content">
-      <div class="badge">Exclusive guest benefits</div>
+      <div class="badge">Exclusive benefits for guests</div>
 
       <h1>
         Enjoy Salvador while spending
@@ -487,8 +493,8 @@
       <h2>Choose your experience</h2>
 
       <p>
-        Book your walking tour or complimentary beach setup at
-        Porto da Barra Beach.
+        Book your historical tour, reserve your beach setup
+        or discover affordable local food.
       </p>
     </section>
 
@@ -520,7 +526,7 @@
 
             <div class="list-item">
               <span class="check">✓</span>
-              <span>Local tips about culture, places and nightlife</span>
+              <span>Local tips about culture and nightlife</span>
             </div>
 
             <div class="list-item">
@@ -532,14 +538,15 @@
 
         <div class="card-footer">
           <div class="notice">
-            Reserve your place. At the end, you may contribute directly
-            to the guide according to your experience.
+            Reserve your place through our booking form.
+            At the end of the tour, you may contribute directly to the guide.
           </div>
 
           <a
             class="button"
-            href="#"
-            onclick="bookTour(event)"
+            href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Book my tour →
           </a>
@@ -590,10 +597,64 @@
 
           <a
             class="button"
-            href="#"
-            onclick="bookBeach(event)"
+            href="https://wa.me/5511965042412?text=Hello%21%20I%20am%20a%20guest%20at%20Nomads%20Hostel%20and%20I%20would%20like%20to%20reserve%20a%20beach%20setup%20at%20Porto%20da%20Barra."
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Book my beach setup →
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-content">
+          <div class="icon" aria-hidden="true">🍽️</div>
+
+          <span class="label">Local recommendation</span>
+
+          <h3>Brazilian Homemade Food</h3>
+
+          <p class="description">
+            Looking for authentic Brazilian homemade food at affordable prices?
+            Discover the menu of our partner restaurant in Barra.
+          </p>
+
+          <div class="list">
+            <div class="list-item">
+              <span class="check">✓</span>
+              <span>Traditional Brazilian food</span>
+            </div>
+
+            <div class="list-item">
+              <span class="check">✓</span>
+              <span>Homemade meals</span>
+            </div>
+
+            <div class="list-item">
+              <span class="check">✓</span>
+              <span>Affordable prices</span>
+            </div>
+
+            <div class="list-item">
+              <span class="check">✓</span>
+              <span>Located in the Barra neighborhood</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="notice">
+            Browse the menu before visiting the restaurant
+            and check the available dishes and prices.
+          </div>
+
+          <a
+            class="button"
+            href="https://toknowsalvador.com/tropicalia-barra/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View restaurant menu →
           </a>
         </div>
       </article>
@@ -604,33 +665,33 @@
       <h2>How does it work?</h2>
 
       <p>
-        Simply choose your experience and reserve your place.
+        Choose an experience and follow the booking instructions.
       </p>
 
       <div class="steps">
         <div class="step">
           <div class="step-number">1</div>
           <strong>Choose</strong>
-          <p>Select the walking tour or the beach experience.</p>
+          <p>Select the walking tour, beach setup or restaurant menu.</p>
         </div>
 
         <div class="step">
           <div class="step-number">2</div>
-          <strong>Book</strong>
-          <p>Provide your name, number of guests, date and preferred time.</p>
+          <strong>Book or browse</strong>
+          <p>Complete the form, send the WhatsApp message or view the menu.</p>
         </div>
 
         <div class="step">
           <div class="step-number">3</div>
           <strong>Receive confirmation</strong>
-          <p>We will send the location and instructions through WhatsApp.</p>
+          <p>Booking information and instructions will be sent to you.</p>
         </div>
       </div>
     </section>
 
     <div class="confirmation">
-      To use these benefits, please present valid confirmation of your stay
-      at <strong>Nomads Hostel</strong>.
+      To use the exclusive benefits, please present valid confirmation
+      of your stay at <strong>Nomads Hostel</strong>.
     </div>
 
   </main>
@@ -644,46 +705,6 @@
       Local experiences and support in collaboration with To Know Salvador.
     </small>
   </footer>
-
-  <script>
-    const whatsappNumber = "5511952473756";
-
-    function openWhatsApp(message) {
-      const link =
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
-        encodeURIComponent(message);
-
-      window.open(link, "_blank", "noopener,noreferrer");
-    }
-
-    function bookTour(event) {
-      event.preventDefault();
-
-      const message =
-        "Hello! I am staying at Nomads Hostel and would like to book the Collaborative Free Walking Tour.\n\n" +
-        "Name:\n" +
-        "Number of participants:\n" +
-        "Preferred date:\n" +
-        "Tour language:";
-
-      openWhatsApp(message);
-    }
-
-    function bookBeach(event) {
-      event.preventDefault();
-
-      const message =
-        "Hello! I am staying at Nomads Hostel and would like to book the complimentary beach setup at Porto da Barra Beach.\n\n" +
-        "Name:\n" +
-        "Number of guests:\n" +
-        "Date:\n" +
-        "Approximate arrival time:";
-
-      openWhatsApp(message);
-    }
-  </script>
 
 </body>
 </html>
