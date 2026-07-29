@@ -6,23 +6,23 @@
 
   <meta
     name="description"
-    content="Beneficios exclusivos para huéspedes de Nomads Hostel en Salvador: Free Walking Tour colaborativo y estructura de playa gratuita en Porto da Barra."
+    content="Beneficios exclusivos para huéspedes de Nomads Hostel en Salvador: recorrido histórico, estructura gratuita en la playa y recomendación de restaurante local."
   >
 
   <title>Beneficios para Huéspedes | Nomads Hostel</title>
 
   <style>
     :root {
-      --blue: #142957;
-      --dark-blue: #0d1d42;
-      --green: #31c3a5;
-      --green-hover: #24ae92;
-      --white: #ffffff;
-      --background: #f4f6f9;
-      --text: #202738;
-      --light-text: #667085;
-      --border: #e4e8ef;
-      --shadow: 0 12px 35px rgba(14, 29, 66, 0.12);
+      --azul: #142957;
+      --azul-oscuro: #0d1d42;
+      --verde: #31c3a5;
+      --verde-hover: #24ae92;
+      --blanco: #ffffff;
+      --fondo: #f4f6f9;
+      --texto: #202738;
+      --texto-claro: #667085;
+      --borde: #e4e8ef;
+      --sombra: 0 12px 35px rgba(14, 29, 66, 0.12);
     }
 
     * {
@@ -34,8 +34,8 @@
     body {
       min-height: 100vh;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background: var(--background);
-      color: var(--text);
+      background: var(--fondo);
+      color: var(--texto);
       line-height: 1.5;
     }
 
@@ -50,12 +50,12 @@
       top: 0;
       z-index: 100;
       padding: 16px 20px;
-      background: var(--blue);
-      color: var(--white);
+      background: var(--azul);
+      color: var(--blanco);
       box-shadow: 0 5px 18px rgba(13, 29, 66, 0.18);
     }
 
-    .header-content {
+    .cabecera-contenido {
       max-width: 1080px;
       margin: auto;
       display: flex;
@@ -64,67 +64,67 @@
       gap: 15px;
     }
 
-    .brand {
+    .marca {
       display: flex;
       align-items: center;
       gap: 11px;
     }
 
-    .brand-icon {
+    .marca-icono {
       width: 43px;
       height: 43px;
       border-radius: 12px;
-      background: var(--green);
-      color: var(--blue);
+      background: var(--verde);
+      color: var(--azul);
       display: grid;
       place-items: center;
       font-size: 22px;
       font-weight: 900;
     }
 
-    .brand strong {
+    .marca strong {
       display: block;
       font-size: 16px;
     }
 
-    .brand span {
+    .marca span {
       display: block;
       margin-top: 2px;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255, 255, 255, 0.7);
       font-size: 12px;
     }
 
-    .languages {
+    .idiomas {
       display: flex;
       gap: 5px;
     }
 
-    .language {
+    .idioma {
       min-width: 35px;
       padding: 8px;
       border-radius: 20px;
       text-align: center;
-      color: rgba(255,255,255,0.75);
+      color: rgba(255, 255, 255, 0.75);
       font-size: 12px;
       font-weight: 800;
     }
 
-    .language:hover {
-      background: rgba(255,255,255,0.1);
-      color: var(--white);
+    .idioma:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--blanco);
     }
 
-    .language.active {
-      background: var(--green);
-      color: var(--blue);
+    .idioma.activo {
+      background: var(--verde);
+      color: var(--azul);
     }
 
     .hero {
       position: relative;
       overflow: hidden;
       padding: 70px 20px 95px;
-      background: linear-gradient(145deg, var(--blue), var(--dark-blue));
-      color: var(--white);
+      background: linear-gradient(145deg, var(--azul), var(--azul-oscuro));
+      color: var(--blanco);
       text-align: center;
     }
 
@@ -136,23 +136,23 @@
       top: -140px;
       right: -90px;
       border-radius: 50%;
-      background: rgba(49,195,165,0.12);
+      background: rgba(49, 195, 165, 0.12);
     }
 
-    .hero-content {
+    .hero-contenido {
       position: relative;
       max-width: 760px;
       margin: auto;
     }
 
-    .badge {
+    .sello {
       display: inline-block;
       margin-bottom: 20px;
       padding: 8px 14px;
-      border: 1px solid rgba(255,255,255,0.17);
+      border: 1px solid rgba(255, 255, 255, 0.17);
       border-radius: 30px;
-      background: rgba(255,255,255,0.08);
-      color: var(--green);
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--verde);
       font-size: 13px;
       font-weight: 800;
     }
@@ -164,13 +164,13 @@
     }
 
     .hero h1 span {
-      color: var(--green);
+      color: var(--verde);
     }
 
     .hero p {
       max-width: 620px;
       margin: 20px auto 0;
-      color: rgba(255,255,255,0.78);
+      color: rgba(255, 255, 255, 0.78);
       font-size: clamp(16px, 3vw, 19px);
     }
 
@@ -182,34 +182,34 @@
       padding: 0 20px 50px;
     }
 
-    .introduction,
+    .introduccion,
     .card {
-      background: var(--white);
-      border: 1px solid var(--border);
+      background: var(--blanco);
+      border: 1px solid var(--borde);
       border-radius: 24px;
-      box-shadow: var(--shadow);
+      box-shadow: var(--sombra);
     }
 
-    .introduction {
+    .introduccion {
       padding: 25px;
       text-align: center;
     }
 
-    .introduction h2 {
-      color: var(--blue);
+    .introduccion h2 {
+      color: var(--azul);
       font-size: clamp(23px, 5vw, 31px);
     }
 
-    .introduction p {
+    .introduccion p {
       max-width: 620px;
       margin: 10px auto 0;
-      color: var(--light-text);
+      color: var(--texto-claro);
     }
 
-    .benefits {
+    .beneficios {
       margin-top: 25px;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
@@ -219,25 +219,25 @@
       flex-direction: column;
     }
 
-    .card-content {
+    .card-contenido {
       padding: 28px 26px 20px;
     }
 
-    .icon {
+    .icono {
       width: 58px;
       height: 58px;
       margin-bottom: 18px;
       border-radius: 18px;
-      background: rgba(49,195,165,0.13);
+      background: rgba(49, 195, 165, 0.13);
       display: grid;
       place-items: center;
       font-size: 28px;
     }
 
-    .label {
+    .etiqueta {
       display: block;
       margin-bottom: 8px;
-      color: var(--green-hover);
+      color: var(--verde-hover);
       font-size: 12px;
       font-weight: 900;
       letter-spacing: 0.7px;
@@ -245,23 +245,23 @@
     }
 
     .card h3 {
-      color: var(--blue);
+      color: var(--azul);
       font-size: 25px;
       line-height: 1.2;
     }
 
-    .description {
+    .descripcion {
       margin-top: 12px;
-      color: var(--light-text);
+      color: var(--texto-claro);
     }
 
-    .list {
+    .lista {
       margin-top: 20px;
       display: grid;
       gap: 12px;
     }
 
-    .list-item {
+    .lista-item {
       display: flex;
       align-items: flex-start;
       gap: 10px;
@@ -273,128 +273,129 @@
       height: 21px;
       flex-shrink: 0;
       border-radius: 50%;
-      background: rgba(49,195,165,0.15);
-      color: var(--green-hover);
+      background: rgba(49, 195, 165, 0.15);
+      color: var(--verde-hover);
       display: grid;
       place-items: center;
       font-size: 12px;
       font-weight: 900;
     }
 
-    .card-footer {
+    .card-pie {
       margin-top: auto;
       padding: 0 26px 28px;
     }
 
-    .notice {
+    .aviso {
       margin-bottom: 16px;
       padding: 13px 14px;
       border-radius: 13px;
       background: #f4f7fb;
-      color: var(--light-text);
+      color: var(--texto-claro);
       font-size: 13px;
     }
 
-    .button {
+    .boton {
       min-height: 54px;
       padding: 14px 20px;
       border-radius: 15px;
-      background: var(--green);
-      color: var(--blue);
+      background: var(--verde);
+      color: var(--azul);
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
       font-size: 16px;
       font-weight: 900;
       transition: 0.2s;
     }
 
-    .button:hover {
-      background: var(--green-hover);
+    .boton:hover {
+      background: var(--verde-hover);
       transform: translateY(-2px);
-      box-shadow: 0 10px 22px rgba(49,195,165,0.28);
+      box-shadow: 0 10px 22px rgba(49, 195, 165, 0.28);
     }
 
-    .how-it-works {
+    .como-funciona {
       margin-top: 26px;
       padding: 34px 28px;
       border-radius: 24px;
-      background: var(--blue);
-      color: var(--white);
+      background: var(--azul);
+      color: var(--blanco);
       text-align: center;
     }
 
-    .how-it-works h2 {
+    .como-funciona h2 {
       font-size: clamp(25px, 5vw, 34px);
     }
 
-    .how-it-works > p {
+    .como-funciona > p {
       margin-top: 8px;
-      color: rgba(255,255,255,0.72);
+      color: rgba(255, 255, 255, 0.72);
     }
 
-    .steps {
+    .pasos {
       margin-top: 27px;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
       text-align: left;
     }
 
-    .step {
+    .paso {
       padding: 21px;
-      border: 1px solid rgba(255,255,255,0.11);
+      border: 1px solid rgba(255, 255, 255, 0.11);
       border-radius: 17px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255, 255, 255, 0.06);
     }
 
-    .step-number {
+    .paso-numero {
       width: 34px;
       height: 34px;
       margin-bottom: 13px;
       border-radius: 50%;
-      background: var(--green);
-      color: var(--blue);
+      background: var(--verde);
+      color: var(--azul);
       display: grid;
       place-items: center;
       font-weight: 900;
     }
 
-    .step p {
+    .paso p {
       margin-top: 5px;
-      color: rgba(255,255,255,0.68);
+      color: rgba(255, 255, 255, 0.68);
       font-size: 14px;
     }
 
-    .confirmation {
+    .confirmacion {
       margin-top: 24px;
       padding: 20px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--borde);
       border-radius: 17px;
-      background: var(--white);
-      color: var(--light-text);
+      background: var(--blanco);
+      color: var(--texto-claro);
       text-align: center;
       font-size: 14px;
     }
 
-    .confirmation strong {
-      color: var(--blue);
+    .confirmacion strong {
+      color: var(--azul);
     }
 
     footer {
       padding: 28px 20px 35px;
-      background: var(--white);
-      border-top: 1px solid var(--border);
+      background: var(--blanco);
+      border-top: 1px solid var(--borde);
       text-align: center;
     }
 
     footer strong {
-      color: var(--blue);
+      color: var(--azul);
     }
 
     footer p {
       margin-top: 5px;
-      color: var(--light-text);
+      color: var(--texto-claro);
       font-size: 13px;
     }
 
@@ -404,13 +405,18 @@
       color: #9299a6;
     }
 
+    @media (max-width: 900px) {
+      .beneficios {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 760px) {
-      .brand span {
+      .marca span {
         display: none;
       }
 
-      .benefits,
-      .steps {
+      .pasos {
         grid-template-columns: 1fr;
       }
 
@@ -424,10 +430,10 @@
 <body>
 
   <header>
-    <div class="header-content">
+    <div class="cabecera-contenido">
 
-      <a class="brand" href="/nomads/es/" aria-label="Inicio">
-        <div class="brand-icon">N</div>
+      <a class="marca" href="/nomads/es/" aria-label="Inicio">
+        <div class="marca-icono">N</div>
 
         <div>
           <strong>Nomads Hostel</strong>
@@ -435,9 +441,9 @@
         </div>
       </a>
 
-      <nav class="languages" aria-label="Seleccionar idioma">
+      <nav class="idiomas" aria-label="Seleccionar idioma">
         <a
-          class="language"
+          class="idioma"
           href="/nomads/en/"
           lang="en"
         >
@@ -445,7 +451,7 @@
         </a>
 
         <a
-          class="language"
+          class="idioma"
           href="/nomads/"
           lang="pt-BR"
         >
@@ -453,7 +459,7 @@
         </a>
 
         <a
-          class="language active"
+          class="idioma activo"
           href="/nomads/es/"
           lang="es"
           aria-current="page"
@@ -466,8 +472,8 @@
   </header>
 
   <section class="hero">
-    <div class="hero-content">
-      <div class="badge">Beneficios exclusivos para huéspedes</div>
+    <div class="hero-contenido">
+      <div class="sello">Beneficios exclusivos para huéspedes</div>
 
       <h1>
         Disfruta Salvador gastando
@@ -476,70 +482,71 @@
 
       <p>
         Descubre qué hacer en la ciudad, recibe recomendaciones locales
-        y disfruta beneficios exclusivos durante tu estancia.
+        y disfruta de beneficios exclusivos durante tu estancia.
       </p>
     </div>
   </section>
 
   <main>
 
-    <section class="introduction">
+    <section class="introduccion">
       <h2>Elige tu experiencia</h2>
 
       <p>
-        Reserva tu walking tour o la estructura gratuita de playa
-        en Porto da Barra.
+        Reserva tu recorrido histórico, tu estructura en la playa
+        o descubre una opción de comida local a precios accesibles.
       </p>
     </section>
 
-    <section class="benefits">
+    <section class="beneficios">
 
       <article class="card">
-        <div class="card-content">
-          <div class="icon" aria-hidden="true">🚶🏽‍♂️</div>
+        <div class="card-contenido">
+          <div class="icono" aria-hidden="true">🚶🏽‍♂️</div>
 
-          <span class="label">Descubre Salvador</span>
+          <span class="etiqueta">Descubre Salvador</span>
 
           <h3>Free Walking Tour colaborativo</h3>
 
-          <p class="description">
-            Descubre la historia de Salvador y comprende las influencias
-            culturales que han formado la ciudad.
+          <p class="descripcion">
+            Conoce la historia de Salvador y comprende las influencias
+            culturales que dieron forma a la ciudad.
           </p>
 
-          <div class="list">
-            <div class="list-item">
+          <div class="lista">
+            <div class="lista-item">
               <span class="check">✓</span>
               <span>Historia de Salvador y del Pelourinho</span>
             </div>
 
-            <div class="list-item">
+            <div class="lista-item">
               <span class="check">✓</span>
               <span>Recomendaciones de playas y restaurantes</span>
             </div>
 
-            <div class="list-item">
+            <div class="lista-item">
               <span class="check">✓</span>
-              <span>Consejos sobre cultura, lugares y vida nocturna</span>
+              <span>Consejos locales sobre cultura y vida nocturna</span>
             </div>
 
-            <div class="list-item">
+            <div class="lista-item">
               <span class="check">✓</span>
-              <span>Conoce viajeros de diferentes países</span>
+              <span>Encuentro con viajeros de diferentes países</span>
             </div>
           </div>
         </div>
 
-        <div class="card-footer">
-          <div class="notice">
-            Reserva tu lugar. Al finalizar, puedes contribuir directamente
-            con el guía de acuerdo con tu experiencia.
+        <div class="card-pie">
+          <div class="aviso">
+            Reserva tu plaza a través de nuestro formulario.
+            Al finalizar el recorrido, puedes contribuir directamente con el guía.
           </div>
 
           <a
-            class="button"
-            href="#"
-            onclick="bookTour(event)"
+            class="boton"
+            href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             Reservar mi tour →
           </a>
@@ -547,90 +554,144 @@
       </article>
 
       <article class="card">
-        <div class="card-content">
-          <div class="icon" aria-hidden="true">⛱️</div>
+        <div class="card-contenido">
+          <div class="icono" aria-hidden="true">⛱️</div>
 
-          <span class="label">Ahorra en la playa</span>
+          <span class="etiqueta">Ahorra en la playa</span>
 
           <h3>Playa de Porto da Barra</h3>
 
-          <p class="description">
-            Reserva tu hora de llegada y disfruta gratuitamente
-            de la estructura de nuestra barraca asociada.
+          <p class="descripcion">
+            Reserva tu horario de llegada y disfruta de acceso gratuito
+            a la estructura de nuestro puesto asociado.
           </p>
 
-          <div class="list">
-            <div class="list-item">
+          <div class="lista">
+            <div class="lista-item">
               <span class="check">✓</span>
               <span>Silla de playa gratuita</span>
             </div>
 
-            <div class="list-item">
+            <div class="lista-item">
               <span class="check">✓</span>
-              <span>Sombrilla de playa gratuita</span>
+              <span>Sombrilla gratuita</span>
             </div>
 
-            <div class="list-item">
+            <div class="lista-item">
               <span class="check">✓</span>
               <span>Mesa gratuita</span>
             </div>
 
-            <div class="list-item">
+            <div class="lista-item">
               <span class="check">✓</span>
               <span>Ubicación en la Playa de Porto da Barra</span>
             </div>
           </div>
         </div>
 
-        <div class="card-footer">
-          <div class="notice">
+        <div class="card-pie">
+          <div class="aviso">
             Beneficio exclusivo para huéspedes de Nomads Hostel.
             Es necesario reservar con anticipación.
           </div>
 
           <a
-            class="button"
-            href="#"
-            onclick="bookBeach(event)"
+            class="boton"
+            href="https://wa.me/5511965042412?text=Soy%20hu%C3%A9sped%20de%20Nomads%20y%20me%20gustar%C3%ADa%20reservar%20una%20estructura%20de%20playa%20en%20Porto%20da%20Barra."
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Reservar estructura de playa →
+            Reservar estructura en la playa →
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card-contenido">
+          <div class="icono" aria-hidden="true">🍽️</div>
+
+          <span class="etiqueta">Recomendación local</span>
+
+          <h3>Comida brasileña casera</h3>
+
+          <p class="descripcion">
+            ¿Buscas comida brasileña casera y sabrosa a precios accesibles?
+            Conoce el menú de nuestro restaurante asociado en Barra.
+          </p>
+
+          <div class="lista">
+            <div class="lista-item">
+              <span class="check">✓</span>
+              <span>Comida brasileña tradicional</span>
+            </div>
+
+            <div class="lista-item">
+              <span class="check">✓</span>
+              <span>Platos caseros</span>
+            </div>
+
+            <div class="lista-item">
+              <span class="check">✓</span>
+              <span>Precios accesibles</span>
+            </div>
+
+            <div class="lista-item">
+              <span class="check">✓</span>
+              <span>Ubicado en el barrio de Barra</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-pie">
+          <div class="aviso">
+            Consulta el menú antes de visitar el restaurante
+            y revisa los platos y precios disponibles.
+          </div>
+
+          <a
+            class="boton"
+            href="https://toknowsalvador.com/tropicalia-barra/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ver menú del restaurante →
           </a>
         </div>
       </article>
 
     </section>
 
-    <section class="how-it-works">
+    <section class="como-funciona">
       <h2>¿Cómo funciona?</h2>
 
       <p>
-        Solo tienes que elegir tu experiencia y reservar tu lugar.
+        Elige una experiencia y sigue las instrucciones para reservar.
       </p>
 
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
+      <div class="pasos">
+        <div class="paso">
+          <div class="paso-numero">1</div>
           <strong>Elige</strong>
-          <p>Selecciona el walking tour o la experiencia de playa.</p>
+          <p>Selecciona el tour, la estructura de playa o el menú del restaurante.</p>
         </div>
 
-        <div class="step">
-          <div class="step-number">2</div>
-          <strong>Reserva</strong>
-          <p>Informa tu nombre, cantidad de personas, fecha y horario.</p>
+        <div class="paso">
+          <div class="paso-numero">2</div>
+          <strong>Reserva o consulta</strong>
+          <p>Completa el formulario, envía el mensaje por WhatsApp o consulta el menú.</p>
         </div>
 
-        <div class="step">
-          <div class="step-number">3</div>
+        <div class="paso">
+          <div class="paso-numero">3</div>
           <strong>Recibe la confirmación</strong>
-          <p>Te enviaremos la ubicación y las instrucciones por WhatsApp.</p>
+          <p>La información de la reserva y todas las instrucciones serán enviadas para ti.</p>
         </div>
       </div>
     </section>
 
-    <div class="confirmation">
-      Para utilizar estos beneficios, presenta una confirmación válida
-      de tu hospedaje en <strong>Nomads Hostel</strong>.
+    <div class="confirmacion">
+      Para utilizar los beneficios exclusivos, presenta una confirmación
+      válida de hospedaje en <strong>Nomads Hostel</strong>.
     </div>
 
   </main>
@@ -638,52 +699,12 @@
   <footer>
     <strong>Nomads Hostel y Espacio Multicultural</strong>
 
-    <p>Salvador, Bahía, Brasil</p>
+    <p>Salvador, Bahia, Brasil</p>
 
     <small>
-      Experiencias y asistencia local en colaboración con To Know Salvador.
+      Experiencias y soporte local en colaboración con To Know Salvador.
     </small>
   </footer>
-
-  <script>
-    const whatsappNumber = "5511952473756";
-
-    function openWhatsApp(message) {
-      const link =
-        "https://wa.me/" +
-        whatsappNumber +
-        "?text=" +
-        encodeURIComponent(message);
-
-      window.open(link, "_blank", "noopener,noreferrer");
-    }
-
-    function bookTour(event) {
-      event.preventDefault();
-
-      const message =
-        "¡Hola! Estoy hospedado(a) en Nomads Hostel y me gustaría reservar el Free Walking Tour colaborativo.\n\n" +
-        "Nombre:\n" +
-        "Cantidad de participantes:\n" +
-        "Fecha deseada:\n" +
-        "Idioma del tour:";
-
-      openWhatsApp(message);
-    }
-
-    function bookBeach(event) {
-      event.preventDefault();
-
-      const message =
-        "¡Hola! Estoy hospedado(a) en Nomads Hostel y me gustaría reservar la estructura gratuita en la Playa de Porto da Barra.\n\n" +
-        "Nombre:\n" +
-        "Cantidad de personas:\n" +
-        "Fecha:\n" +
-        "Hora aproximada de llegada:";
-
-      openWhatsApp(message);
-    }
-  </script>
 
 </body>
 </html>
