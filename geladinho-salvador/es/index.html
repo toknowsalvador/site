@@ -13,7 +13,7 @@
 
   <meta
     name="description"
-    content="Geladinho gourmet con y sin alcohol en Salvador, Bahía. Cualquier sabor por R$ 15,00."
+    content="Geladinhos gourmet con y sin alcohol en Salvador, Bahía. Cualquier sabor por R$ 15,00 en efectivo o Pix."
   >
 
   <style>
@@ -23,20 +23,26 @@
 
     html {
       scroll-behavior: smooth;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     body {
       margin: 0;
+      width: 100%;
+      min-width: 0;
+      overflow-x: hidden;
       font-family: Arial, Helvetica, sans-serif;
       background: linear-gradient(180deg, #fff3a8 0%, #ffd4e5 46%, #fff7c8 100%);
       color: #43223a;
     }
 
     header {
+      width: 100%;
       background: linear-gradient(135deg, #ffcf33 0%, #ff6fae 58%, #f94b93 100%);
       color: white;
       text-align: center;
-      padding: 34px 20px 28px;
+      padding: 30px 14px 26px;
     }
 
     header h1 {
@@ -79,9 +85,9 @@
 
     main {
       width: 100%;
-      max-width: 720px;
+      max-width: 820px;
       margin: 0 auto;
-      padding: 26px 16px 42px;
+      padding: 22px 12px 38px;
     }
 .price-banner {
       background: rgba(255, 255, 255, 0.88);
@@ -107,7 +113,8 @@
     }
 
     .category {
-      margin-bottom: 32px;
+      width: 100%;
+      margin-bottom: 28px;
     }
 
     .category-title {
@@ -129,6 +136,7 @@
     }
 
     .item {
+      width: 100%;
       background: rgba(255, 255, 255, 0.88);
       border-radius: 13px;
       padding: 16px;
@@ -162,6 +170,7 @@
     }
 
     .islands-banner {
+      width: 100%;
       background: rgba(255, 255, 255, 0.88);
       border: 1px solid rgba(217, 44, 120, 0.18);
       border-radius: 11px;
@@ -203,6 +212,7 @@
     }
 
     .free-tour-banner {
+      width: 100%;
       margin-top: 8px;
       padding: 14px 2px 4px;
       border-top: 1px solid rgba(217, 44, 120, 0.24);
@@ -267,6 +277,7 @@ footer {
       backdrop-filter: blur(3px);
     }
 
+
     .category-title {
       display: inline-block;
       padding: 7px 12px 8px;
@@ -275,12 +286,55 @@ footer {
     }
 
     @media (max-width: 560px) {
+      header {
+        padding: 26px 10px 23px;
+      }
+
       header h1 {
         font-size: 27px;
       }
 
+      .languages {
+        gap: 7px;
+        margin-top: 18px;
+      }
+
+      .languages a {
+        padding: 8px 13px;
+      }
+
+      main {
+        max-width: none;
+        padding: 16px 8px 30px;
+      }
+
+      .price-banner {
+        padding: 14px 12px;
+        margin-bottom: 22px;
+      }
+
+      .category {
+        margin-bottom: 25px;
+      }
+
       .category-title {
+        display: block;
+        width: 100%;
+        margin-bottom: 12px;
         font-size: 21px;
+        padding: 9px 12px;
+      }
+
+      .warning {
+        width: 100%;
+        margin-bottom: 11px;
+        padding: 11px 12px;
+      }
+
+      .item {
+        padding: 15px 13px;
+        margin-bottom: 10px;
+        border-radius: 12px;
       }
 
       .item h3 {
@@ -288,7 +342,8 @@ footer {
       }
 
       .islands-banner {
-        padding: 13px;
+        padding: 13px 12px;
+        gap: 10px;
       }
 
       .islands-banner p {
@@ -300,7 +355,8 @@ footer {
       }
 
       .free-tour-banner {
-        padding-top: 13px;
+        padding: 13px 2px 4px;
+        gap: 10px;
       }
 
       .free-tour-text h2 {
@@ -310,6 +366,17 @@ footer {
       .free-tour-button {
         font-size: 12px;
       }
+
+      footer {
+        padding: 21px 12px;
+      }
+    }
+
+    @media (min-width: 900px) {
+      main {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
     }
   </style>
 </head>
@@ -318,7 +385,7 @@ footer {
 
   <header>
 
-    <h1>Gourmet Ice Pops</h1>
+    <h1>Geladinho Gourmet</h1>
 
     <p>Salvador · Bahía · Brasil 🇧🇷</p>
 
@@ -328,15 +395,15 @@ footer {
         href="/geladinho-salvador/"
         
       >
-        Português
+        PT
       </a>
 
       <a href="/geladinho-salvador/en/">
-        English
+        EN
       </a>
 
-      <a href="/geladinho-salvador/es/">
-        Español
+      <a href="/geladinho-salvador/es/" class="active">
+        ES
       </a>
 
     </nav>
@@ -351,7 +418,7 @@ footer {
       </div>
 
       <div class="price-detail">
-        Efectivo o Pix · Débito o crédito: R$ 16,00
+        Efectivo o Pix · Tarjeta de débito o crédito: R$ 16,00
       </div>
 
     </section>
@@ -388,7 +455,7 @@ footer {
 
       <article class="item">
 
-        <h3>Açaí especial</h3>
+        <h3>Açaí energético</h3>
 
         <p class="description">
           Leche, leche condensada, crema de leche, leche en polvo, bebida energética y guaraná.
@@ -428,7 +495,7 @@ footer {
 
     </section>
 
-    <!-- BANNER DE LAS ISLAS -->
+    <!-- FRANJA MINIMALISTA DE LAS ISLAS -->
 
     <aside class="islands-banner">
 
@@ -437,14 +504,14 @@ footer {
         <h2>Paseos a las islas de Salvador</h2>
 
         <p>
-          Consulta las opciones disponibles y los precios.
+          Consulte las opciones disponibles y los precios locales.
         </p>
 
       </div>
 
       <a
         class="islands-button"
-        href="https://wa.me/5511952473756?text=Ol%C3%A1%21%20Consegui%20este%20contato%20atrav%C3%A9s%20do%20pessoal%20do%20Geladinho%20Gourmet.%20Gostaria%20de%20consultar%20as%20op%C3%A7%C3%B5es%20dispon%C3%ADveis%20para%20conhecer%20as%20ilhas%20de%20Salvador."
+        href="https://wa.me/5511952473756?text=%C2%A1Hola%21%20Consegu%C3%AD%20este%20contacto%20a%20trav%C3%A9s%20del%20personal%20de%20Geladinho%20Gourmet.%20Me%20gustar%C3%ADa%20consultar%20las%20opciones%20disponibles%20para%20conocer%20las%20islas%20de%20Salvador."
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -471,7 +538,7 @@ footer {
 
       <article class="item">
 
-        <h3>Caipiriña de marañón</h3>
+        <h3>Caipiriña de anacardo</h3>
 
         <p class="description">
           Preparada con trozos de fruta.
@@ -498,7 +565,7 @@ footer {
         <h3>Dulce de leche</h3>
 
         <p class="description">
-          Sabor cremoso similar al Amarula.
+          Sabor cremoso parecido a Amarula.
         </p>
 
       </article>
@@ -519,7 +586,7 @@ footer {
 
       <article class="item">
 
-        <h3>Mousse de maracuyá trufada</h3>
+        <h3>Mousse de maracuyá trufado</h3>
 
         <p class="description">
           Trufado con chocolate.
@@ -543,7 +610,7 @@ footer {
 
       <article class="item">
 
-        <h3>Açaí especial</h3>
+        <h3>Açaí energético</h3>
 
         <p class="description">
           Leche, leche condensada, crema de leche, leche en polvo y bebida energética.
@@ -568,14 +635,14 @@ footer {
         <h3>Coco con leche condensada</h3>
 
         <p class="description">
-          Sabor a beijinho.
+          Sabor a dulce brasileño de coco.
         </p>
 
       </article>
 
       <article class="item">
 
-        <h3>Marañón con trozos de fruta</h3>
+        <h3>Anacardo con trozos de fruta</h3>
 
         <span class="tag">Sin lactosa</span>
 
@@ -622,7 +689,7 @@ footer {
 
       <a
         class="free-tour-button"
-        href="https://wa.me/5511952473756?text=Ol%C3%A1%21%20Consegui%20este%20contato%20atrav%C3%A9s%20do%20pessoal%20do%20Geladinho%20Gourmet%20e%20gostaria%20de%20reservar%20o%20Free%20Walking%20Tour%20pelo%20Pelourinho.%20Poderiam%20me%20informar%20os%20hor%C3%A1rios%20dispon%C3%ADveis%3F"
+        href="https://wa.me/5511952473756?text=%C2%A1Hola%21%20Consegu%C3%AD%20este%20contacto%20a%20trav%C3%A9s%20del%20personal%20de%20Geladinho%20Gourmet%20y%20me%20gustar%C3%ADa%20reservar%20el%20Free%20Walking%20Tour%20por%20el%20Pelourinho.%20%C2%BFPodr%C3%ADan%20informarme%20los%20horarios%20disponibles%3F"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -634,6 +701,7 @@ footer {
 
   <footer>
     Salvador, Bahía · <a href="https://toknowsalvador.com/" target="_blank" rel="noopener noreferrer">To Know Salvador</a>
-  </footer></body>
+  </footer>
+</body>
 
 </html>
