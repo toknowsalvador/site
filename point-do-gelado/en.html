@@ -10,23 +10,23 @@
 
   <meta
     name="description"
-    content="Digital menu for Point do Gelado at Porto da Barra Beach, Salvador."
+    content="Digital menu for Point do Gelado at Porto da Barra, Salvador."
   >
 
   <title>Point do Gelado | Menu</title>
 
   <style>
     :root {
-      --red: #e7242d;
-      --dark-red: #b81420;
-      --blue: #073b78;
-      --dark-blue: #042653;
-      --light-blue: #19a9df;
-      --yellow: #e7cf35;
-      --white: #ffffff;
-      --light-text: #dcecff;
-      --line: rgba(255, 255, 255, 0.24);
-      --green: #25d366;
+      --vermelho: #e7242d;
+      --vermelho-escuro: #b81420;
+      --azul: #073b78;
+      --azul-escuro: #042653;
+      --azul-claro: #19a9df;
+      --amarelo: #e7cf35;
+      --branco: #ffffff;
+      --texto-claro: #dcecff;
+      --linha: rgba(255, 255, 255, 0.24);
+      --verde: #25d366;
     }
 
     * {
@@ -44,12 +44,12 @@
       background:
         linear-gradient(
           180deg,
-          var(--red) 0,
-          var(--red) 220px,
-          var(--blue) 220px,
-          var(--dark-blue) 100%
+          var(--vermelho) 0,
+          var(--vermelho) 220px,
+          var(--azul) 220px,
+          var(--azul-escuro) 100%
         );
-      color: var(--white);
+      color: var(--branco);
       font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -62,7 +62,7 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .page {
+    .pagina {
       width: 100%;
       max-width: 760px;
       margin: 0 auto;
@@ -70,17 +70,17 @@
       background:
         linear-gradient(
           180deg,
-          var(--red) 0,
-          var(--red) 215px,
-          var(--blue) 215px,
-          var(--dark-blue) 100%
+          var(--vermelho) 0,
+          var(--vermelho) 215px,
+          var(--azul) 215px,
+          var(--azul-escuro) 100%
         );
       box-shadow: 0 0 35px rgba(0, 0, 0, 0.32);
     }
 
-    /* HEADER */
+    /* TOPO */
 
-    .header {
+    .topo {
       position: relative;
       min-height: 215px;
       padding: 22px 20px 38px;
@@ -88,18 +88,18 @@
       text-align: center;
     }
 
-    .header::after {
+    .topo::after {
       position: absolute;
       right: -5%;
       bottom: -42px;
       left: -5%;
       height: 82px;
       content: "";
-      background: var(--blue);
+      background: var(--azul);
       border-radius: 50% 50% 0 0;
     }
 
-    .languages {
+    .idiomas {
       position: relative;
       z-index: 3;
       display: flex;
@@ -108,7 +108,7 @@
       margin-bottom: 18px;
     }
 
-    .languages a {
+    .idiomas a {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -117,7 +117,7 @@
       border: 1px solid rgba(255, 255, 255, 0.55);
       border-radius: 999px;
       background: rgba(0, 0, 0, 0.12);
-      color: var(--white);
+      color: var(--branco);
       font-size: 12px;
       font-weight: 700;
       text-decoration: none;
@@ -126,35 +126,35 @@
         background 0.2s ease;
     }
 
-    .languages a:hover {
+    .idiomas a:hover {
       background: rgba(255, 255, 255, 0.18);
       transform: translateY(-1px);
     }
 
-    .languages .active {
-      border-color: var(--yellow);
-      background: var(--yellow);
-      color: var(--dark-blue);
+    .idiomas .ativo {
+      border-color: var(--amarelo);
+      background: var(--amarelo);
+      color: var(--azul-escuro);
     }
 
-    .brand {
+    .marca {
       position: relative;
       z-index: 3;
       width: min(100%, 440px);
       margin: 0 auto;
     }
 
-    .brand-circle {
+    .marca-circulo {
       width: 122px;
       height: 122px;
       margin: 0 auto 10px;
       padding: 9px;
-      border: 6px solid var(--white);
+      border: 6px solid var(--branco);
       border-radius: 50%;
       background:
         linear-gradient(
           180deg,
-          var(--blue) 0 55%,
+          var(--azul) 0 55%,
           #d5a84d 55% 100%
         );
       box-shadow:
@@ -162,7 +162,7 @@
         0 8px 24px rgba(0, 0, 0, 0.26);
     }
 
-    .brand-banner {
+    .marca-faixa {
       display: flex;
       width: 160px;
       min-height: 56px;
@@ -182,34 +182,34 @@
       transform: rotate(-2deg);
     }
 
-    .brand-banner strong {
+    .marca-faixa strong {
       font-family: Georgia, "Times New Roman", serif;
       font-size: 20px;
       line-height: 1;
     }
 
-    .brand-banner span {
-      color: var(--yellow);
+    .marca-faixa span {
+      color: var(--amarelo);
       font-family: cursive;
       font-size: 23px;
       font-style: italic;
       line-height: 1;
     }
 
-    .header h1 {
+    .topo h1 {
       margin-top: 4px;
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(27px, 6vw, 42px);
       letter-spacing: -1px;
     }
 
-    .header p {
+    .topo p {
       margin-top: 8px;
       color: rgba(255, 255, 255, 0.88);
       font-size: 14px;
     }
 
-    /* CONTENT */
+    /* CONTEÚDO */
 
     main {
       position: relative;
@@ -217,16 +217,16 @@
       padding: 15px 18px 32px;
     }
 
-    .introduction {
+    .introducao {
       max-width: 580px;
       margin: 0 auto 24px;
-      color: var(--light-text);
+      color: var(--texto-claro);
       font-size: 14px;
       line-height: 1.55;
       text-align: center;
     }
 
-    .shortcuts {
+    .atalhos {
       display: flex;
       gap: 8px;
       margin-bottom: 28px;
@@ -235,11 +235,11 @@
       scrollbar-width: none;
     }
 
-    .shortcuts::-webkit-scrollbar {
+    .atalhos::-webkit-scrollbar {
       display: none;
     }
 
-    .shortcuts a {
+    .atalhos a {
       flex: 0 0 auto;
       padding: 9px 14px;
       border: 1px solid rgba(255, 255, 255, 0.24);
@@ -250,37 +250,37 @@
       text-decoration: none;
     }
 
-    .category {
+    .categoria {
       margin-bottom: 34px;
       scroll-margin-top: 12px;
     }
 
-    .category-title {
+    .titulo-categoria {
       margin-bottom: 13px;
       text-align: center;
     }
 
-    .category-title h2 {
-      color: var(--yellow);
+    .titulo-categoria h2 {
+      color: var(--amarelo);
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(27px, 6vw, 38px);
       font-style: italic;
       font-weight: 500;
     }
 
-    .category-title::after {
+    .titulo-categoria::after {
       display: block;
       width: 115px;
       height: 5px;
       margin: 7px auto 0;
       content: "";
       border-radius: 50%;
-      background: var(--light-blue);
+      background: var(--azul-claro);
       box-shadow: 0 3px 9px rgba(25, 169, 223, 0.7);
     }
 
-    .list {
-      border-top: 1px solid var(--line);
+    .lista {
+      border-top: 1px solid var(--linha);
     }
 
     .item {
@@ -290,18 +290,18 @@
       align-items: center;
       min-height: 43px;
       padding: 10px 3px;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid var(--linha);
     }
 
-    .name {
-      color: var(--white);
+    .nome {
+      color: var(--branco);
       font-size: 14px;
       font-weight: 700;
       line-height: 1.28;
       text-transform: uppercase;
     }
 
-    .description {
+    .descricao {
       display: block;
       margin-top: 4px;
       color: rgba(255, 255, 255, 0.68);
@@ -310,16 +310,16 @@
       text-transform: none;
     }
 
-    .price {
+    .preco {
       min-width: 74px;
-      color: var(--white);
+      color: var(--branco);
       font-size: 15px;
       font-weight: 800;
       text-align: right;
       white-space: nowrap;
     }
 
-    .note {
+    .observacao {
       margin: -15px 0 30px;
       color: rgba(255, 255, 255, 0.69);
       font-size: 12px;
@@ -327,9 +327,9 @@
       text-align: center;
     }
 
-    /* REQUEST THE BILL */
+    /* PEDIR CONTA */
 
-    .service {
+    .servico {
       margin-top: 42px;
       padding: 24px 18px;
       border: 1px solid rgba(255, 255, 255, 0.17);
@@ -338,13 +338,13 @@
       text-align: center;
     }
 
-    .service h3 {
+    .servico h3 {
       margin-bottom: 7px;
-      color: var(--white);
+      color: var(--branco);
       font-size: 19px;
     }
 
-    .service p {
+    .servico p {
       max-width: 390px;
       margin: 0 auto 17px;
       color: rgba(255, 255, 255, 0.74);
@@ -352,34 +352,34 @@
       line-height: 1.5;
     }
 
-    .bill-button {
+    .botao-conta {
       width: 100%;
       max-width: 360px;
       padding: 14px 18px;
       border: 0;
       border-radius: 999px;
-      background: var(--green);
-      color: var(--white);
+      background: var(--verde);
+      color: var(--branco);
       cursor: pointer;
       font-size: 15px;
       font-weight: 800;
       box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
     }
 
-    .bill-button:hover {
+    .botao-conta:hover {
       filter: brightness(1.06);
     }
 
-    /* MINIMAL TOUR SECTION */
+    /* PROPAGANDA MINIMALISTA */
 
-    .tourism {
+    .turismo {
       margin: 30px auto 4px;
       padding-top: 24px;
       border-top: 1px solid rgba(255, 255, 255, 0.13);
       text-align: center;
     }
 
-    .tourism p {
+    .turismo p {
       margin-bottom: 7px;
       color: rgba(255, 255, 255, 0.58);
       font-size: 11px;
@@ -387,15 +387,15 @@
       text-transform: uppercase;
     }
 
-    .tourism a {
-      color: var(--white);
+    .turismo a {
+      color: var(--branco);
       font-size: 13px;
       font-weight: 700;
       text-decoration: none;
     }
 
-    .tourism a span {
-      color: var(--yellow);
+    .turismo a span {
+      color: var(--amarelo);
     }
 
     footer {
@@ -415,11 +415,11 @@
         min-height: 47px;
       }
 
-      .name {
+      .nome {
         font-size: 15px;
       }
 
-      .price {
+      .preco {
         font-size: 16px;
       }
     }
@@ -428,20 +428,20 @@
 
 <body>
 
-  <div class="page">
+  <div class="pagina">
 
-    <header class="header">
+    <header class="topo">
 
-      <nav class="languages" aria-label="Select language">
+      <nav class="idiomas" aria-label="Select language">
         <a href="index.html">PT</a>
-        <a class="active" href="en.html">EN</a>
+        <a class="ativo" href="en.html">EN</a>
         <a href="es.html">ES</a>
       </nav>
 
-      <div class="brand">
+      <div class="marca">
 
-        <div class="brand-circle">
-          <div class="brand-banner">
+        <div class="marca-circulo">
+          <div class="marca-faixa">
             <strong>Point do</strong>
             <span>Gelado</span>
           </div>
@@ -457,350 +457,347 @@
 
     <main>
 
-      <p class="introduction">
-        Cold drinks, snacks and meals to enjoy your day at
-        Porto da Barra Beach.
+      <p class="introducao">
+        Cold drinks, snacks and meals to enjoy your day at Porto da Barra.
       </p>
 
-      <nav class="shortcuts" aria-label="Menu categories">
+      <nav class="atalhos" aria-label="Menu categories">
         <a href="#drinks">Drinks</a>
-        <a href="#juices">Juices and caipirinhas</a>
-        <a href="#roska">Caipiroska</a>
+        <a href="#juices">Juices & Caipirinhas</a>
+        <a href="#roska">Roska</a>
         <a href="#meals">Meals</a>
-        <a href="#snacks">Snacks</a>
+        <a href="#appetizers">Appetizers</a>
+        <a href="https://wa.me/5511952473756?text=Hello!%20I%20heard%20at%20Point%20do%20Gelado%20that%20you%20have%20the%20best%20offers%20for%20the%20Island%20Tour.%20I%27d%20like%20more%20information." target="_blank" rel="noopener noreferrer" style="background:#e7cf35;color:#073b78;border-color:#e7cf35;font-weight:800;">Island Tour • 30% OFF</a>
       </nav>
 
-      <section class="category" id="drinks">
+      <section class="categoria" id="drinks">
 
-        <div class="category-title">
+        <div class="titulo-categoria">
           <h2>Drinks</h2>
         </div>
 
-        <div class="list">
+        <div class="lista">
 
           <div class="item">
-            <div class="name">Canned soft drink</div>
-            <div class="price">R$ 8.00</div>
+            <div class="nome">Canned soda</div>
+            <div class="preco">R$ 8,00</div>
           </div>
 
           <div class="item">
-            <div class="name">1-liter soft drink</div>
-            <div class="price">R$ 15.00</div>
+            <div class="nome">1-liter soda</div>
+            <div class="preco">R$ 15,00</div>
           </div>
 
           <div class="item">
-            <div class="name">H2O</div>
-            <div class="price">R$ 10.00</div>
+            <div class="nome">H2O</div>
+            <div class="preco">R$ 10,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Still water</div>
-            <div class="price">R$ 5.00</div>
+            <div class="nome">Water</div>
+            <div class="preco">R$ 5,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Sparkling water</div>
-            <div class="price">R$ 7.00</div>
+            <div class="nome">Sparkling water</div>
+            <div class="preco">R$ 7,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Coconut water</div>
-            <div class="price">R$ 10.00</div>
+            <div class="nome">Coconut water</div>
+            <div class="preco">R$ 10,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Skol large can</div>
-            <div class="price">R$ 12.00</div>
+            <div class="nome">Skol large can</div>
+            <div class="preco">R$ 12,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Itaipava large can</div>
-            <div class="price">R$ 12.00</div>
+            <div class="nome">Itaipava large can</div>
+            <div class="preco">R$ 12,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Brahma Chopp</div>
-            <div class="price">R$ 12.00</div>
+            <div class="nome">Brahma Chopp</div>
+            <div class="preco">R$ 12,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Brahma Duplo Malte</div>
-            <div class="price">R$ 10.00</div>
+            <div class="nome">Brahma Duplo Malte</div>
+            <div class="preco">R$ 10,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Amstel</div>
-            <div class="price">R$ 10.00</div>
+            <div class="nome">Amstel</div>
+            <div class="preco">R$ 10,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Devassa 350 ml</div>
-            <div class="price">R$ 10.00</div>
+            <div class="nome">Devassa 350 ml</div>
+            <div class="preco">R$ 10,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Budweiser Long Neck</div>
-            <div class="price">R$ 20.00</div>
+            <div class="nome">Budweiser Long Neck</div>
+            <div class="preco">R$ 20,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Heineken Long Neck</div>
-            <div class="price">R$ 20.00</div>
+            <div class="nome">Heineken Long Neck</div>
+            <div class="preco">R$ 20,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Stella Long Neck</div>
-            <div class="price">R$ 20.00</div>
+            <div class="nome">Stella Long Neck</div>
+            <div class="preco">R$ 20,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Eisenbahn Long Neck</div>
-            <div class="price">R$ 20.00</div>
+            <div class="nome">Eisenbahn Long Neck</div>
+            <div class="preco">R$ 20,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Smirnoff Ice Long Neck</div>
-            <div class="price">R$ 20.00</div>
+            <div class="nome">Smirnoff Ice Long Neck</div>
+            <div class="preco">R$ 20,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Cuba Libre</div>
-            <div class="price">R$ 65.00</div>
+            <div class="nome">Cuba Libre</div>
+            <div class="preco">R$ 65,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Coco Luty</div>
-            <div class="price">R$ 65.00</div>
-          </div>
-
-        </div>
-
-      </section>
-
-      <section class="category" id="juices">
-
-        <div class="category-title">
-          <h2>Juices and Caipirinhas</h2>
-        </div>
-
-        <div class="list">
-
-          <div class="item">
-            <div class="name">Lime</div>
-            <div class="price">R$ 25.00</div>
-          </div>
-
-          <div class="item">
-            <div class="name">Pineapple</div>
-            <div class="price">R$ 25.00</div>
-          </div>
-
-          <div class="item">
-            <div class="name">Passion fruit</div>
-            <div class="price">R$ 25.00</div>
-          </div>
-
-          <div class="item">
-            <div class="name">Kiwi</div>
-            <div class="price">R$ 25.00</div>
+            <div class="nome">Coco Luty</div>
+            <div class="preco">R$ 65,00</div>
           </div>
 
         </div>
 
       </section>
 
-      <section class="category" id="roska">
+      <section class="categoria" id="juices">
 
-        <div class="category-title">
-          <h2>Caipiroska</h2>
+        <div class="titulo-categoria">
+          <h2>Juices & Caipirinha</h2>
         </div>
 
-        <div class="list">
+        <div class="lista">
 
           <div class="item">
-            <div class="name">Lime</div>
-            <div class="price">R$ 30.00</div>
+            <div class="nome">Lime</div>
+            <div class="preco">R$ 25,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Pineapple</div>
-            <div class="price">R$ 30.00</div>
+            <div class="nome">Pineapple</div>
+            <div class="preco">R$ 25,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Passion fruit</div>
-            <div class="price">R$ 30.00</div>
+            <div class="nome">Passion fruit</div>
+            <div class="preco">R$ 25,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Kiwi</div>
-            <div class="price">R$ 30.00</div>
+            <div class="nome">Kiwi</div>
+            <div class="preco">R$ 25,00</div>
           </div>
 
         </div>
 
       </section>
 
-      <section class="category" id="meals">
+      <section class="categoria" id="roska">
 
-        <div class="category-title">
+        <div class="titulo-categoria">
+          <h2>Roska</h2>
+        </div>
+
+        <div class="lista">
+
+          <div class="item">
+            <div class="nome">Lime</div>
+            <div class="preco">R$ 30,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Pineapple</div>
+            <div class="preco">R$ 30,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Passion fruit</div>
+            <div class="preco">R$ 30,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">Kiwi</div>
+            <div class="preco">R$ 30,00</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="categoria" id="meals">
+
+        <div class="titulo-categoria">
           <h2>Meals</h2>
         </div>
 
-        <div class="list">
+        <div class="lista">
 
           <div class="item">
-            <div class="name">
-              Fried corvina fish
-              <span class="description">Large size</span>
+            <div class="nome">
+              Fried croaker fish
+              <span class="descricao">Large size</span>
             </div>
-            <div class="price">R$ 230.00</div>
+            <div class="preco">R$ 230,00</div>
           </div>
 
           <div class="item">
-            <div class="name">
+            <div class="nome">
               Fried red snapper
-              <span class="description">Large size</span>
+              <span class="descricao">Large size</span>
             </div>
-            <div class="price">R$ 250.00</div>
+            <div class="preco">R$ 250,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Brazilian-style fried chicken</div>
-            <div class="price">R$ 125.00</div>
+            <div class="nome">Fried chicken pieces</div>
+            <div class="preco">R$ 125,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Sun-dried beef</div>
-            <div class="price">R$ 130.00</div>
+            <div class="nome">Sun-dried beef</div>
+            <div class="preco">R$ 130,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Breaded chicken fillet</div>
-            <div class="price">R$ 125.00</div>
+            <div class="nome">Breaded chicken fillet</div>
+            <div class="preco">R$ 125,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Grilled chicken fillet</div>
-            <div class="price">R$ 115.00</div>
+            <div class="nome">Grilled chicken fillet</div>
+            <div class="preco">R$ 115,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Fruit platter</div>
-            <div class="price">R$ 70.00</div>
+            <div class="nome">Fruit platter</div>
+            <div class="preco">R$ 70,00</div>
           </div>
 
           <div class="item">
-            <div class="name">
+            <div class="nome">
               Fish moqueca
-              <span class="description">
-                Red snapper, hake or yellowtail fish
+              <span class="descricao">
+                Red snapper, hake or yellowtail
               </span>
             </div>
-            <div class="price">R$ 230.00</div>
+            <div class="preco">R$ 230,00</div>
           </div>
 
           <div class="item">
-            <div class="name">
-              Fish, crab and shrimp moqueca
+            <div class="nome">
+              Fish moqueca, siri e camarão
             </div>
-            <div class="price">R$ 250.00</div>
+            <div class="preco">R$ 250,00</div>
           </div>
 
         </div>
 
       </section>
 
-      <section class="category" id="snacks">
+      <section class="categoria" id="appetizers">
 
-        <div class="category-title">
-          <h2>Snacks</h2>
+        <div class="titulo-categoria">
+          <h2>Appetizers</h2>
         </div>
 
-        <div class="list">
+        <div class="lista">
 
           <div class="item">
-            <div class="name">
+            <div class="nome">
               Breaded shrimp with tartar sauce
             </div>
-            <div class="price">R$ 150.00</div>
+            <div class="preco">R$ 150,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Garlic shrimp</div>
-            <div class="price">R$ 130.00</div>
+            <div class="nome">Garlic shrimp</div>
+            <div class="preco">R$ 130,00</div>
           </div>
 
           <div class="item">
-            <div class="name">French fries</div>
-            <div class="price">R$ 50.00</div>
+            <div class="nome">French fries</div>
+            <div class="preco">R$ 50,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Lobster</div>
-            <div class="price">R$ 270.00</div>
+            <div class="nome">Lobster</div>
+            <div class="preco">R$ 270,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Grilled fish with vegetables</div>
-            <div class="price">R$ 160.00</div>
+            <div class="nome">Grilled fish with vegetables</div>
+            <div class="preco">R$ 160,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Fish strips</div>
-            <div class="price">R$ 135.00</div>
+            <div class="nome">Fish strips</div>
+            <div class="preco">R$ 135,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Breaded squid</div>
-            <div class="price">R$ 130.00</div>
+            <div class="nome">Breaded squid</div>
+            <div class="preco">R$ 130,00</div>
           </div>
 
           <div class="item">
-            <div class="name">
-              Codfish croquettes
-              <span class="description">6 pieces</span>
+            <div class="nome">
+              Codfish fritters
+              <span class="descricao">6 pieces</span>
             </div>
-            <div class="price">R$ 80.00</div>
+            <div class="preco">R$ 80,00</div>
           </div>
 
           <div class="item">
-            <div class="name">
-              Shrimp croquettes
-              <span class="description">6 pieces</span>
+            <div class="nome">
+              Shrimp fritters
+              <span class="descricao">6 pieces</span>
             </div>
-            <div class="price">R$ 80.00</div>
+            <div class="preco">R$ 80,00</div>
           </div>
 
           <div class="item">
-            <div class="name">Chicken skewer</div>
-            <div class="price">R$ 125.00</div>
+            <div class="nome">Chicken skewer</div>
+            <div class="preco">R$ 125,00</div>
           </div>
 
           <div class="item">
-            <div class="name">
-              Fried pititinga fish
+            <div class="nome">Fried pititinga fish</div>
+            <div class="preco">R$ 90,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">
+              Chicken medallion skewer
             </div>
-            <div class="price">R$ 90.00</div>
-          </div>
-
-          <div class="item">
-            <div class="name">
-              Bacon-wrapped chicken skewer
-            </div>
-            <div class="price">R$ 125.00</div>
+            <div class="preco">R$ 125,00</div>
           </div>
 
         </div>
 
       </section>
 
-      <p class="note">
-        Please ask our team about availability, side dishes
-        and preparation time.
+      <p class="observacao">
+        Please ask our staff about availability, side dishes and preparation time.
       </p>
 
-      <section class="service">
+      <section class="servico">
 
         <h3>Request the bill</h3>
 
@@ -809,25 +806,25 @@
         </p>
 
         <button
-          class="bill-button"
+          class="botao-conta"
           type="button"
-          onclick="requestBill()"
+          onclick="pedirConta()"
         >
           Request the bill
         </button>
 
       </section>
 
-      <section class="tourism">
+      <section class="turismo">
 
         <p>Discover more of Salvador</p>
 
         <a
-          href="https://wa.me/5511952473756?text=Hello!%20I%20would%20like%20to%20learn%20more%20about%20the%20island%20tour."
+          href="https://wa.me/5511952473756?text=Hello!%20I%20would%20like%20more%20information%20about%20the%20Island%20Tour."
           target="_blank"
           rel="noopener noreferrer"
         >
-          Discover our Island Tour
+          Discover the Island Tour
           <span>• To Know Salvador</span>
         </a>
 
@@ -843,49 +840,47 @@
 
   <script>
     /*
-      Add the beach stand's WhatsApp number
-      between the quotation marks.
+      When you receive the beach stand phone number,
+      enter only the numbers inside the quotation marks.
 
       Example:
-      const standPhone = "5571999999999";
+      const telefoneBarraca = "5571999999999";
     */
 
-    const standPhone = "";
+    const telefoneBarraca = "";
 
-    function requestBill() {
-      const tableNumber = prompt(
+    function pedirConta() {
+      const numeroMesa = prompt(
         "Enter only your table number:"
       );
 
-      if (tableNumber === null) {
+      if (numeroMesa === null) {
         return;
       }
 
-      const table = tableNumber.trim();
+      const mesa = numeroMesa.trim();
 
-      if (!table) {
+      if (!mesa) {
         alert("Please enter your table number.");
         return;
       }
 
-      if (!standPhone) {
+      if (!telefoneBarraca) {
         alert(
-          "The WhatsApp number for requesting the bill will be added soon."
+          "The phone number for requesting the bill will be added soon."
         );
         return;
       }
 
-      const message = encodeURIComponent(
-        "Hello! I would like to request the bill for table " +
-        table +
-        "."
+      const mensagem = encodeURIComponent(
+        "Hello! I would like to request the bill for table " + mesa + "."
       );
 
       window.open(
         "https://wa.me/" +
-        standPhone +
+        telefoneBarraca +
         "?text=" +
-        message,
+        mensagem,
         "_blank"
       );
     }
