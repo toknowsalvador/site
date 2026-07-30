@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -17,62 +18,74 @@ box-sizing:border-box;
 }
 
 body{
-
 font-family:Arial,Helvetica,sans-serif;
 background:#8e1717;
 color:#4d2b00;
-
 }
 
 .container{
-
 max-width:900px;
 margin:auto;
 background:#f6d332;
 background-image:linear-gradient(180deg,#f7da45,#f3c821);
 min-height:100vh;
 padding:25px;
+}
 
+.language-menu{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+.language-menu a{
+display:inline-block;
+padding:9px 15px;
+background:#fff5c9;
+color:#7d1111;
+text-decoration:none;
+font-weight:bold;
+border:2px solid #7d1111;
+border-radius:8px;
+font-size:14px;
+}
+
+.language-menu a.active{
+background:#7d1111;
+color:#ffffff;
 }
 
 h1{
-
 text-align:center;
 font-size:42px;
 color:#7d1111;
 margin-bottom:10px;
-
 }
 
-.linha{
-
+.line{
 width:120px;
 height:3px;
 background:#7d1111;
 margin:auto;
 margin-bottom:25px;
-
 }
 
 .info{
-
 background:#fff5c9;
 border-left:6px solid #7d1111;
 padding:18px;
 border-radius:10px;
 margin-bottom:30px;
 line-height:1.8;
-
 }
 
 .info strong{
-
 color:#7d1111;
-
 }
 
-.categoria{
-
+.category{
 display:inline-block;
 background:#7d1111;
 color:white;
@@ -81,39 +94,58 @@ font-size:25px;
 font-weight:bold;
 margin-top:20px;
 margin-bottom:15px;
-
 }
 
 .item{
-
 display:flex;
 justify-content:space-between;
 align-items:flex-start;
+gap:15px;
 padding:9px 0;
 border-bottom:1px dashed rgba(0,0,0,.15);
-
 }
 
-.nome{
-
+.name{
 font-size:20px;
 font-weight:bold;
-
 }
 
-.preco{
-
+.price{
 font-size:20px;
 font-weight:bold;
 color:#7d1111;
-
+white-space:nowrap;
 }
 
 .desc{
-
 font-size:14px;
 color:#6b4300;
 margin-top:2px;
+}
+
+@media(max-width:600px){
+
+.container{
+padding:18px;
+}
+
+h1{
+font-size:31px;
+}
+
+.category{
+font-size:21px;
+}
+
+.name,
+.price{
+font-size:17px;
+}
+
+.language-menu a{
+font-size:13px;
+padding:8px 12px;
+}
 
 }
 
@@ -125,9 +157,25 @@ margin-top:2px;
 
 <div class="container">
 
+<div class="language-menu">
+
+<a href="./" class="active">
+Português
+</a>
+
+<a href="en/">
+English
+</a>
+
+<a href="es/">
+Español
+</a>
+
+</div>
+
 <h1>TAPIOCA & CREPIOCA DA PRAÇA</h1>
 
-<div class="linha"></div>
+<div class="line"></div>
 
 <div class="info">
 
@@ -139,480 +187,495 @@ margin-top:2px;
 
 </div>
 
-<div class="categoria">
+<div class="category">
 DOCES
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Leite Condensado com Coco</div>
+<div class="name">Leite Condensado com Coco</div>
 <div class="desc">Leite condensado + coco.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Banana com Chocolate</div>
+<div class="name">Banana com Chocolate</div>
 <div class="desc">Banana + chocolate.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Prestígio</div>
+<div class="name">Prestígio</div>
 <div class="desc">Coco + chocolate.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Doce de Leite com Chocolate</div>
+<div class="name">Doce de Leite com Chocolate</div>
 <div class="desc">Doce de leite + chocolate.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Doce de Leite com Coco</div>
+<div class="name">Doce de Leite com Coco</div>
 <div class="desc">Doce de leite + coco.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Goiabada com Coco</div>
+<div class="name">Goiabada com Coco</div>
 <div class="desc">Goiabada + coco.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Doce de Leite com Banana</div>
+<div class="name">Doce de Leite com Banana</div>
 <div class="desc">Doce de leite + banana.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Brigadeiro</div>
+<div class="name">Brigadeiro</div>
 <div class="desc">Granulado + chocolate.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Nutella com Morango</div>
+<div class="name">Nutella com Morango</div>
 </div>
-<div class="preco">R$ 28,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Nutella</div>
-</div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 28,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Cuscuz</div>
+<div class="name">Nutella</div>
 </div>
-<div class="preco">R$ 25,00</div>
-</div>
-
-<div class="categoria">
-
-MISTO
-
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Romeu e Julieta</div>
+<div class="name">Cuscuz</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="category">
+DOCES & SALGADAS
+</div>
+
+<div class="item">
+<div>
+<div class="name">Romeu e Julieta</div>
 <div class="desc">Goiabada + queijo.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Leite Condensado</div>
+<div class="name">Leite Condensado com Queijo</div>
 <div class="desc">Leite condensado + queijo.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Doce de Leite com Queijo</div>
+<div class="name">Doce de Leite com Queijo</div>
+<div class="desc">Doce de leite + queijo.</div>
 </div>
-<div class="preco">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Banana com Queijo e Canela</div>
-</div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Queijo e Presunto</div>
+<div class="name">Banana com Queijo e Canela</div>
+<div class="desc">Banana + queijo + canela.</div>
 </div>
-<div class="preco">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Leite Condensado com Queijo Coalho</div>
-</div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Coco com Queijo e Goiabada</div>
+<div class="name">Presunto e Queijo</div>
+<div class="desc">Presunto + queijo.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Morango com Chocolate</div>
+<div class="name">Leite Condensado com Queijo Coalho</div>
+<div class="desc">Leite condensado + queijo coalho.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
-<div class="categoria">
 
+<div class="item">
+<div>
+<div class="name">Coco, Queijo e Goiabada</div>
+<div class="desc">Coco + queijo + goiabada.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Morango com Chocolate</div>
+<div class="desc">Morango + chocolate.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+```html
+<div class="category">
 VEGETARIANO
-
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Tomate Seco com Queijo</div>
+<div class="name">Tomate Seco com Queijo</div>
 <div class="desc">Tomate seco + queijo.</div>
 </div>
-<div class="preco">R$ 28,00</div>
+<div class="price">R$ 28,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Tomate Seco com Azeitona</div>
+<div class="name">Tomate Seco com Azeitona</div>
 <div class="desc">Tomate seco + azeitona.</div>
 </div>
-<div class="preco">R$ 28,00</div>
+<div class="price">R$ 28,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Tomate Seco com Rúcula</div>
+<div class="name">Tomate Seco com Rúcula</div>
 <div class="desc">Tomate seco + rúcula.</div>
 </div>
-<div class="preco">R$ 28,00</div>
+<div class="price">R$ 28,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Azeitona com Milho</div>
+<div class="name">Azeitona com Milho</div>
+<div class="desc">Azeitona + milho.</div>
 </div>
-<div class="preco">R$ 28,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Rúcula com Azeitona</div>
-</div>
-<div class="preco">R$ 28,00</div>
-</div>
-
-<div class="categoria">
-
-SALGADOS
-
+<div class="price">R$ 28,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Ovo com Queijo</div>
+<div class="name">Rúcula com Azeitona</div>
+<div class="desc">Rúcula + azeitona.</div>
 </div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 28,00</div>
+</div>
+
+<div class="category">
+SALGADAS
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Ovo com Presunto</div>
+<div class="name">Ovo com Queijo</div>
+<div class="desc">Ovo + queijo.</div>
 </div>
-<div class="preco">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Tapioca Pizza</div>
-<div class="desc">Tomate, queijo e orégano.</div>
-</div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Queijo Coalho</div>
+<div class="name">Ovo com Presunto</div>
+<div class="desc">Ovo + presunto.</div>
 </div>
-<div class="preco">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Quatro Queijos</div>
-<div class="desc">Queijo coalho, mussarela e cheddar.</div>
-</div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Calabresa com Queijo</div>
+<div class="name">Tapioca Pizza</div>
+<div class="desc">Tomate + queijo + orégano.</div>
 </div>
-<div class="preco">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Calabresa com Catupiry</div>
-</div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Carne de Sol com Queijo</div>
+<div class="name">Queijo Coalho</div>
+<div class="desc">Queijo coalho.</div>
 </div>
-<div class="preco">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Carne de Sol com Catupiry</div>
-</div>
-<div class="preco">R$ 30,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Carne de Sol com Aipim</div>
+<div class="name">Quatro Queijos</div>
+<div class="desc">Queijo coalho + mussarela + cheddar.</div>
 </div>
-<div class="preco">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Charque com Aipim</div>
-</div>
-<div class="preco">R$ 30,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Charque com Queijo</div>
+<div class="name">Calabresa com Queijo</div>
+<div class="desc">Calabresa + queijo.</div>
 </div>
-<div class="preco">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Calabresa, Charque e Queijo</div>
-</div>
-<div class="preco">R$ 35,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Calabresa, Charque e Aipim</div>
+<div class="name">Calabresa com Catupiry</div>
+<div class="desc">Calabresa + Catupiry.</div>
 </div>
-<div class="preco">R$ 35,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Calabresa, Charque e Catupiry</div>
-</div>
-<div class="preco">R$ 35,00</div>
+<div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Frango com Queijo</div>
+<div class="name">Carne de Sol com Queijo</div>
+<div class="desc">Carne de sol + queijo.</div>
 </div>
-<div class="preco">R$ 28,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Frango com Catupiry</div>
-</div>
-<div class="preco">R$ 28,00</div>
+<div class="price">R$ 30,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Bacon com Queijo</div>
+<div class="name">Carne de Sol com Catupiry</div>
+<div class="desc">Carne de sol + Catupiry.</div>
 </div>
-<div class="preco">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Peito de Peru com Queijo</div>
-</div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 30,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Peito de Peru com Catupiry</div>
+<div class="name">Carne de Sol com Aipim</div>
+<div class="desc">Carne de sol + aipim.</div>
 </div>
-<div class="preco">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Camarão com Queijo</div>
-</div>
-<div class="preco">R$ 30,00</div>
+<div class="price">R$ 30,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Camarão com Catupiry</div>
+<div class="name">Charque com Aipim</div>
+<div class="desc">Charque + aipim.</div>
 </div>
-<div class="preco">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Atum com Queijo</div>
-</div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 30,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Salaminho com Queijo</div>
+<div class="name">Charque com Queijo</div>
+<div class="desc">Charque + queijo.</div>
 </div>
-<div class="preco">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Salaminho com Catupiry</div>
-</div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 30,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Lombinho com Queijo</div>
+<div class="name">Calabresa, Charque e Queijo</div>
+<div class="desc">Calabresa + charque + queijo.</div>
 </div>
-<div class="preco">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="nome">Lombinho com Catupiry</div>
-</div>
-<div class="preco">R$ 25,00</div>
+<div class="price">R$ 35,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="nome">Banana da Terra, Carne de Sol e Queijo</div>
+<div class="name">Calabresa, Charque e Aipim</div>
+<div class="desc">Calabresa + charque + aipim.</div>
 </div>
-<div class="preco">R$ 35,00</div>
+<div class="price">R$ 35,00</div>
 </div>
-<div class="footer" style="margin-top:50px;padding-top:30px;border-top:2px solid rgba(0,0,0,.15);text-align:center;">
 
-<h2 style="color:#7d1111;margin-bottom:15px;">
-Faça seu pedido
-</h2>
+<div class="item">
+<div>
+<div class="name">Calabresa, Charque e Catupiry</div>
+<div class="desc">Calabresa + charque + Catupiry.</div>
+</div>
+<div class="price">R$ 35,00</div>
+</div>
 
-<p style="font-size:16px;line-height:1.7;color:#5d3500;margin-bottom:20px;">
+<div class="item">
+<div>
+<div class="name">Frango com Queijo</div>
+<div class="desc">Frango + queijo.</div>
+</div>
+<div class="price">R$ 28,00</div>
+</div>
 
-Clique no botão abaixo e fale conosco pelo WhatsApp.<br>
-<strong>Informe que você conheceu através da Tapioca & Crepioca da Praça.</strong>
+<div class="item">
+<div>
+<div class="name">Frango com Catupiry</div>
+<div class="desc">Frango + Catupiry.</div>
+</div>
+<div class="price">R$ 28,00</div>
+</div>
 
-</p>
+<div class="item">
+<div>
+<div class="name">Bacon com Queijo</div>
+<div class="desc">Bacon + queijo.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
 
-<a href="https://wa.me/5571993719791?text=Olá!%20Conheci%20vocês%20através%20da%20Tapioca%20%26%20Crepioca%20da%20Praça."
-style="
-display:inline-block;
-padding:15px 28px;
-background:#25D366;
-color:white;
-text-decoration:none;
-font-weight:bold;
-border-radius:10px;
-font-size:18px;
+<div class="item">
+<div>
+<div class="name">Peito de Peru com Queijo</div>
+<div class="desc">Peito de peru + queijo.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Peito de Peru com Catupiry</div>
+<div class="desc">Peito de peru + Catupiry.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Camarão com Queijo</div>
+<div class="desc">Camarão + queijo.</div>
+</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Camarão com Catupiry</div>
+<div class="desc">Camarão + Catupiry.</div>
+</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Atum com Queijo</div>
+<div class="desc">Atum + queijo.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Salaminho com Queijo</div>
+<div class="desc">Salaminho + queijo.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Salaminho com Catupiry</div>
+<div class="desc">Salaminho + Catupiry.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Lombinho com Queijo</div>
+<div class="desc">Lombinho + queijo.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Lombinho com Catupiry</div>
+<div class="desc">Lombinho + Catupiry.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Banana-da-Terra, Carne de Sol e Queijo</div>
+<div class="desc">Banana-da-terra + carne de sol + queijo.</div>
+</div>
+<div class="price">R$ 35,00</div>
+</div>
+<div style="
+margin-top:50px;
+padding:30px 20px;
+background:#fff5c9;
+border-radius:14px;
+text-align:center;
+border:2px solid rgba(125,17,17,.15);
 ">
-💬 Pedir pelo WhatsApp
-</a>
 
-<div style="margin-top:45px;">
-
-<h2 style="color:#7d1111;">
+<h2 style="
+color:#7d1111;
+font-size:28px;
+margin-bottom:12px;
+">
 🏝️ Passeio às Ilhas
 </h2>
 
-<p style="font-size:18px;margin-top:10px;line-height:1.7;">
-
-<strong>30% OFF</strong><br>
-Exclusivo para clientes da
-<strong>Tapioca & Crepioca da Praça.</strong>
-
+<p style="
+font-size:18px;
+line-height:1.6;
+color:#5d3500;
+margin-bottom:8px;
+">
+<strong>30% OFF</strong>
 </p>
 
-<a href="https://wa.me/5511952473756?text=Olá!%20Gostaria%20de%20aproveitar%20o%20desconto%20de%2030%25%20para%20o%20Passeio%20às%20Ilhas.%20Conheci%20pela%20Tapioca%20%26%20Crepioca%20da%20Praça."
+<p style="
+font-size:16px;
+line-height:1.6;
+color:#5d3500;
+margin-bottom:22px;
+">
+Oferta exclusiva para clientes da<br>
+<strong>Tapioca & Crepioca da Praça</strong>
+</p>
+
+<a href="https://wa.me/5571993719791?text=Olá!%20Vim%20pela%20Tapioca%20%26%20Crepioca%20da%20Praça%20e%20gostaria%20de%20mais%20informações%20sobre%20o%20Passeio%20às%20Ilhas%20com%2030%25%20de%20desconto."
 style="
 display:inline-block;
-margin-top:15px;
 padding:14px 24px;
 background:#7d1111;
-color:white;
+color:#ffffff;
 text-decoration:none;
 font-weight:bold;
-border-radius:8px;
+border-radius:9px;
+font-size:17px;
 ">
-Reservar Passeio
+Saiba mais pelo WhatsApp
 </a>
 
 </div>
 
-<div style="margin-top:50px;font-size:15px;line-height:2;">
-
-🌎 Outros idiomas<br>
-
-<a href="../en/"
-style="text-decoration:none;color:#7d1111;font-weight:bold;">
-English
-</a>
-
-&nbsp;|&nbsp;
-
-<a href="../es/"
-style="text-decoration:none;color:#7d1111;font-weight:bold;">
-Español
-</a>
-
-</div>
-
+<div style="
+margin-top:35px;
+padding-top:20px;
+border-top:1px solid rgba(0,0,0,.15);
+text-align:center;
+font-size:13px;
+color:#6b4300;
+">
+Tapioca & Crepioca da Praça
 </div>
 
 </div>
