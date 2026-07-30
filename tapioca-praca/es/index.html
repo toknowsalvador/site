@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tapioca & Crepioca da Praça</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#8e1717;
+color:#4d2b00;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:#f6d332;
+background-image:linear-gradient(180deg,#f7da45,#f3c821);
+min-height:100vh;
+padding:25px;
+}
+
+.language-menu{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+.language-menu a{
+display:inline-block;
+padding:9px 15px;
+background:#fff5c9;
+color:#7d1111;
+text-decoration:none;
+font-weight:bold;
+border:2px solid #7d1111;
+border-radius:8px;
+font-size:14px;
+}
+
+.language-menu a.active{
+background:#7d1111;
+color:#ffffff;
+}
+
+h1{
+text-align:center;
+font-size:42px;
+color:#7d1111;
+margin-bottom:10px;
+}
+
+.line{
+width:120px;
+height:3px;
+background:#7d1111;
+margin:auto;
+margin-bottom:25px;
+}
+
+.info{
+background:#fff5c9;
+border-left:6px solid #7d1111;
+padding:18px;
+border-radius:10px;
+margin-bottom:30px;
+line-height:1.8;
+}
+
+.info strong{
+color:#7d1111;
+}
+
+.category{
+display:inline-block;
+background:#7d1111;
+color:white;
+padding:10px 22px;
+font-size:25px;
+font-weight:bold;
+margin-top:20px;
+margin-bottom:15px;
+}
+
+.item{
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:15px;
+padding:9px 0;
+border-bottom:1px dashed rgba(0,0,0,.15);
+}
+
+.name{
+font-size:20px;
+font-weight:bold;
+}
+
+.price{
+font-size:20px;
+font-weight:bold;
+color:#7d1111;
+white-space:nowrap;
+}
+
+.desc{
+font-size:14px;
+color:#6b4300;
+margin-top:2px;
+}
+
+@media(max-width:600px){
+
+.container{
+padding:18px;
+}
+
+h1{
+font-size:31px;
+}
+
+.category{
+font-size:21px;
+}
+
+.name,
+.price{
+font-size:17px;
+}
+
+.language-menu a{
+font-size:13px;
+padding:8px 12px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="language-menu">
+
+<a href="../">
+Português
+</a>
+
+<a href="../en/">
+English
+</a>
+
+<a href="./" class="active">
+Español
+</a>
+
+</div>
+
+<h1>TAPIOCA & CREPIOCA DA PRAÇA</h1>
+
+<div class="line"></div>
+
+<div class="info">
+
+<strong>Masa artesanal.</strong><br>
+
+✔ Sin almidón de maíz.<br>
+
+✔ Sin conservantes.
+
+</div>
+
+<div class="category">
+DULCES
+</div>
+
+<div class="item">
+<div>
+<div class="name">Leche Condensada con Coco</div>
+<div class="desc">Leche condensada + coco.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Banana con Chocolate</div>
+<div class="desc">Banana + chocolate.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Prestigio</div>
+<div class="desc">Coco + chocolate.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Dulce de Leche con Chocolate</div>
+<div class="desc">Dulce de leche + chocolate.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Dulce de Leche con Coco</div>
+<div class="desc">Dulce de leche + coco.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Guayaba con Coco</div>
+<div class="desc">Guayaba + coco.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Dulce de Leche con Banana</div>
+<div class="desc">Dulce de leche + banana.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Brigadeiro</div>
+<div class="desc">Chocolate + granulado.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Nutella con Fresa</div>
+</div>
+<div class="price">R$ 28,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Nutella</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Cuscús</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="category">
+DULCES Y SALADAS
+</div>
+
+<div class="item">
+<div>
+<div class="name">Romeo y Julieta</div>
+<div class="desc">Guayaba + queso.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Leche Condensada con Queso</div>
+<div class="desc">Leche condensada + queso.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Dulce de Leche con Queso</div>
+<div class="desc">Dulce de leche + queso.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Banana con Queso y Canela</div>
+<div class="desc">Banana + queso + canela.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Jamón y Queso</div>
+<div class="desc">Jamón + queso.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Leche Condensada con Queso Coalho</div>
+<div class="desc">Leche condensada + queso coalho.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Coco, Queso y Guayaba</div>
+<div class="desc">Coco + queso + guayaba.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Fresa con Chocolate</div>
+<div class="desc">Fresa + chocolate.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+<div class="category">
+VEGETARIANAS
+</div>
+
+<div class="item">
+<div>
+<div class="name">Tomate Seco con Queso</div>
+<div class="desc">Tomate seco + queso.</div>
+</div>
+<div class="price">R$ 28,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Tomate Seco con Aceitunas</div>
+<div class="desc">Tomate seco + aceitunas.</div>
+</div>
+<div class="price">R$ 28,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Tomate Seco con Rúcula</div>
+<div class="desc">Tomate seco + rúcula.</div>
+</div>
+<div class="price">R$ 28,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Aceitunas con Maíz</div>
+<div class="desc">Aceitunas + maíz.</div>
+</div>
+<div class="price">R$ 28,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Rúcula con Aceitunas</div>
+<div class="desc">Rúcula + aceitunas.</div>
+</div>
+<div class="price">R$ 28,00</div>
+</div>
+
+<div class="category">
+SALADAS
+</div>
+
+<div class="item">
+<div>
+<div class="name">Huevo con Queso</div>
+<div class="desc">Huevo + queso.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Huevo con Jamón</div>
+<div class="desc">Huevo + jamón.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Tapioca Pizza</div>
+<div class="desc">Tomate + queso + orégano.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Queso Coalho</div>
+<div class="desc">Queso coalho.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Cuatro Quesos</div>
+<div class="desc">Queso coalho + mozzarella + cheddar.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Calabresa con Queso</div>
+<div class="desc">Calabresa + queso.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Calabresa con Catupiry</div>
+<div class="desc">Calabresa + Catupiry.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Carne Seca con Queso</div>
+<div class="desc">Carne seca + queso.</div>
+</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Carne Seca con Catupiry</div>
+<div class="desc">Carne seca + Catupiry.</div>
+</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Carne Seca con Yuca</div>
+<div class="desc">Carne seca + yuca.</div>
+</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Charque con Yuca</div>
+<div class="desc">Charque + yuca.</div>
+</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Charque con Queso</div>
+<div class="desc">Charque + queso.</div>
+</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Calabresa, Charque y Queso</div>
+<div class="desc">Calabresa + charque + queso.</div>
+</div>
+<div class="price">R$ 35,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Calabresa, Charque y Yuca</div>
+<div class="desc">Calabresa + charque + yuca.</div>
+</div>
+<div class="price">R$ 35,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Calabresa, Charque y Catupiry</div>
+<div class="desc">Calabresa + charque + Catupiry.</div>
+</div>
+<div class="price">R$ 35,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Pollo con Queso</div>
+<div class="desc">Pollo + queso.</div>
+</div>
+<div class="price">R$ 28,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Pollo con Catupiry</div>
+<div class="desc">Pollo + Catupiry.</div>
+</div>
+<div class="price">R$ 28,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Tocino con Queso</div>
+<div class="desc">Tocino + queso.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Pechuga de Pavo con Queso</div>
+<div class="desc">Pechuga de pavo + queso.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Pechuga de Pavo con Catupiry</div>
+<div class="desc">Pechuga de pavo + Catupiry.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Camarón con Queso</div>
+<div class="desc">Camarón + queso.</div>
+</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Camarón con Catupiry</div>
+<div class="desc">Camarón + Catupiry.</div>
+</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Atún con Queso</div>
+<div class="desc">Atún + queso.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Salami con Queso</div>
+<div class="desc">Salami + queso.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Salami con Catupiry</div>
+<div class="desc">Salami + Catupiry.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Lomo con Queso</div>
+<div class="desc">Lomo + queso.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Lomo con Catupiry</div>
+<div class="desc">Lomo + Catupiry.</div>
+</div>
+<div class="price">R$ 25,00</div>
+</div>
+
+<div class="item">
+<div>
+<div class="name">Plátano, Carne Seca y Queso</div>
+<div class="desc">Plátano + carne seca + queso.</div>
+</div>
+<div class="price">R$ 35,00</div>
+</div>
+<div style="
+margin-top:50px;
+padding:30px 20px;
+background:#fff5c9;
+border-radius:14px;
+text-align:center;
+border:2px solid rgba(125,17,17,.15);
+">
+
+<h2 style="
+color:#7d1111;
+font-size:28px;
+margin-bottom:12px;
+">
+🏝️ Paseo a las Islas
+</h2>
+
+<p style="
+font-size:18px;
+line-height:1.6;
+color:#5d3500;
+margin-bottom:8px;
+">
+<strong>30% DE DESCUENTO</strong>
+</p>
+
+<p style="
+font-size:16px;
+line-height:1.6;
+color:#5d3500;
+margin-bottom:22px;
+">
+Oferta exclusiva para clientes de<br>
+<strong>Tapioca & Crepioca da Praça</strong>
+</p>
+
+<a href="https://wa.me/5571993719791?text=¡Hola!%20Vengo%20de%20Tapioca%20%26%20Crepioca%20da%20Praça%20y%20me%20gustaría%20recibir%20más%20información%20sobre%20el%20Paseo%20a%20las%20Islas%20con%2030%25%20de%20descuento."
+style="
+display:inline-block;
+padding:14px 24px;
+background:#7d1111;
+color:#ffffff;
+text-decoration:none;
+font-weight:bold;
+border-radius:9px;
+font-size:17px;
+">
+Más información por WhatsApp
+</a>
+
+</div>
+
+<div style="
+margin-top:35px;
+padding-top:20px;
+border-top:1px solid rgba(0,0,0,.15);
+text-align:center;
+font-size:13px;
+color:#6b4300;
+">
+Tapioca & Crepioca da Praça
+</div>
+
+</div>
+
+</body>
+</html>
