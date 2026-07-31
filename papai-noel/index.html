@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+
 <meta charset="UTF-8">
 
-<meta name="viewport"
+<meta
+name="viewport"
 content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-<meta name="theme-color" content="#b80018">
+<meta name="theme-color" content="#b9001c">
 
 <title>Barraca do Papai Noel | Cardápio</title>
 
@@ -23,128 +26,35 @@ scroll-behavior:smooth;
 body{
 margin:0;
 font-family:Arial, Helvetica, sans-serif;
-background:
-linear-gradient(
-135deg,
-#071c3d 0%,
-#0c356d 38%,
-#b80018 100%
-);
-color:#162238;
-min-height:100vh;
+background:#eef2f7;
+color:#172337;
+line-height:1.45;
 }
-
-/* FUNDO DECORATIVO */
-
-body::before{
-content:"";
-position:fixed;
-inset:0;
-pointer-events:none;
-background-image:
-radial-gradient(circle at 15% 20%, rgba(255,255,255,.12) 0 2px, transparent 3px),
-radial-gradient(circle at 80% 35%, rgba(255,255,255,.09) 0 3px, transparent 4px),
-radial-gradient(circle at 30% 80%, rgba(255,255,255,.08) 0 2px, transparent 3px);
-background-size:80px 80px, 110px 110px, 140px 140px;
-}
-
-/* CONTEÚDO PRINCIPAL */
 
 .container{
 width:100%;
 max-width:760px;
 margin:0 auto;
-padding:0 12px 35px;
-position:relative;
+background:#ffffff;
+min-height:100vh;
 }
 
 /* CABEÇALHO */
 
 .hero{
-position:relative;
-overflow:hidden;
-background:
-linear-gradient(
-145deg,
-#d90020 0%,
-#b5001b 48%,
-#081f48 49%,
-#0d3d79 100%
-);
-color:#fff;
-padding:32px 18px 25px;
-margin:0 -12px 16px;
+background:#b9001c;
+color:#ffffff;
+padding:28px 18px 22px;
 text-align:center;
-border-bottom:6px solid #fff;
-box-shadow:0 8px 24px rgba(0,0,0,.28);
-}
-
-.hero::after{
-content:"";
-position:absolute;
-left:-10%;
-right:-10%;
-bottom:-45px;
-height:70px;
-background:#fff;
-border-radius:50%;
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-}
-
-/* GORRO DO PAPAI NOEL */
-
-.santa-hat{
-position:relative;
-width:105px;
-height:78px;
-margin:0 auto 8px;
-transform:rotate(-7deg);
-}
-
-.hat-red{
-position:absolute;
-left:19px;
-top:1px;
-width:72px;
-height:59px;
-background:#ef1736;
-clip-path:polygon(0 100%, 51% 0, 100% 100%);
-filter:drop-shadow(0 4px 4px rgba(0,0,0,.2));
-}
-
-.hat-fold{
-position:absolute;
-left:9px;
-bottom:5px;
-width:86px;
-height:23px;
-background:#fff;
-border-radius:16px;
-box-shadow:0 3px 5px rgba(0,0,0,.18);
-}
-
-.hat-ball{
-position:absolute;
-right:1px;
-top:0;
-width:27px;
-height:27px;
-background:#fff;
-border-radius:50%;
-box-shadow:0 3px 5px rgba(0,0,0,.18);
+border-bottom:8px solid #07376f;
 }
 
 .hero-small{
-margin:0 0 3px;
-font-size:13px;
-font-weight:bold;
-letter-spacing:3px;
+margin:0 0 4px;
+font-size:12px;
+font-weight:700;
+letter-spacing:2px;
 text-transform:uppercase;
-opacity:.92;
 }
 
 .hero h1{
@@ -152,25 +62,61 @@ margin:0;
 font-size:34px;
 line-height:1.05;
 font-weight:900;
-text-shadow:0 3px 8px rgba(0,0,0,.3);
 }
 
 .hero-subtitle{
-margin:10px auto 0;
+margin:9px auto 0;
+max-width:480px;
 font-size:15px;
-font-weight:bold;
-max-width:420px;
+}
+
+/* GORRO DO PAPAI NOEL */
+
+.santa-hat{
+position:relative;
+width:84px;
+height:62px;
+margin:0 auto 8px;
+transform:rotate(-7deg);
+}
+
+.hat-red{
+position:absolute;
+left:15px;
+top:1px;
+width:58px;
+height:47px;
+background:#ef1736;
+clip-path:polygon(0 100%, 51% 0, 100% 100%);
+}
+
+.hat-fold{
+position:absolute;
+left:7px;
+bottom:4px;
+width:70px;
+height:19px;
+background:#ffffff;
+border-radius:14px;
+}
+
+.hat-ball{
+position:absolute;
+right:0;
+top:0;
+width:22px;
+height:22px;
+background:#ffffff;
+border-radius:50%;
 }
 
 /* IDIOMAS */
 
 .languages{
-position:relative;
-z-index:5;
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:7px;
-margin-top:19px;
+margin-top:18px;
 }
 
 .languages a,
@@ -178,106 +124,104 @@ margin-top:19px;
 display:flex;
 align-items:center;
 justify-content:center;
-min-height:42px;
-padding:8px 5px;
-border-radius:10px;
-font-size:13px;
+min-height:40px;
+padding:8px 4px;
+border-radius:6px;
+font-size:12px;
 font-weight:800;
 text-decoration:none;
 }
 
 .languages span{
-background:#fff;
-color:#b6001b;
-box-shadow:0 4px 12px rgba(0,0,0,.17);
+background:#ffffff;
+color:#b9001c;
 }
 
 .languages a{
-background:rgba(255,255,255,.16);
-border:1px solid rgba(255,255,255,.45);
-color:#fff;
-backdrop-filter:blur(5px);
+background:#07376f;
+color:#ffffff;
+border:1px solid rgba(255,255,255,.4);
 }
 
 /* NAVEGAÇÃO */
 
 .menu-nav{
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:8px;
-margin:9px 0 16px;
+grid-template-columns:repeat(4,1fr);
+background:#ffffff;
+border-bottom:1px solid #d8dee8;
 }
 
 .menu-nav a{
-text-decoration:none;
+padding:14px 5px;
 text-align:center;
-background:#fff;
-color:#0b3268;
+text-decoration:none;
+font-size:12px;
+font-weight:800;
+color:#07376f;
+border-right:1px solid #e1e5eb;
+}
+
+.menu-nav a:last-child{
+border-right:none;
+}
+
+/* AVISO */
+
+.notice{
+margin:14px 16px;
+padding:12px;
+background:#f4f7fb;
+border-left:4px solid #07376f;
 font-size:13px;
-font-weight:900;
-padding:12px 8px;
-border-radius:11px;
-border-bottom:4px solid #c0001d;
-box-shadow:0 5px 14px rgba(0,0,0,.16);
+color:#4a5565;
 }
 
 /* SEÇÕES */
 
 .menu-section{
-background:#fdfdfd;
-margin-bottom:16px;
-border-radius:17px;
-overflow:hidden;
-box-shadow:0 9px 25px rgba(0,0,0,.22);
-border:2px solid rgba(255,255,255,.85);
+margin:0;
+background:#ffffff;
+border-top:1px solid #dfe4eb;
 }
 
 .section-title{
 display:flex;
 align-items:center;
-gap:10px;
+gap:9px;
 margin:0;
-padding:15px 17px;
-color:#fff;
-font-size:21px;
+padding:13px 16px;
+color:#ffffff;
+font-size:19px;
 font-weight:900;
 text-transform:uppercase;
-letter-spacing:.5px;
 }
 
 .section-title.red{
-background:linear-gradient(90deg,#ad001a,#e41e37);
+background:#b9001c;
 }
 
 .section-title.blue{
-background:linear-gradient(90deg,#062653,#0e4c91);
+background:#07376f;
 }
 
 .section-icon{
-display:flex;
-align-items:center;
-justify-content:center;
-width:38px;
-height:38px;
-flex:0 0 38px;
-border-radius:50%;
-background:#fff;
-font-size:21px;
+font-size:20px;
 }
 
 /* ITENS */
 
 .items{
-padding:5px 14px 11px;
+padding:4px 16px 12px;
 }
 
 .item{
 display:grid;
 grid-template-columns:minmax(0,1fr) auto;
 gap:12px;
-align-items:center;
-padding:13px 3px;
-border-bottom:1px dashed #b8c0ce;
+align-items:end;
+padding:11px 0;
+border-bottom:1px dotted #aeb7c3;
 }
 
 .item:last-child{
@@ -286,91 +230,118 @@ border-bottom:none;
 
 .item-name{
 font-size:15px;
-font-weight:800;
-line-height:1.28;
+font-weight:700;
 color:#172337;
 }
 
 .item-description{
 display:block;
-margin-top:3px;
+margin-top:2px;
 font-size:12px;
-font-weight:500;
-color:#687385;
+font-weight:400;
+color:#667183;
 }
 
 .price{
 white-space:nowrap;
-background:#0a3975;
-color:#fff;
-padding:7px 9px;
-border-radius:8px;
-font-size:14px;
+font-size:15px;
 font-weight:900;
-box-shadow:0 3px 7px rgba(9,49,103,.22);
+color:#b9001c;
 }
 
-.menu-section:nth-of-type(even) .price{
-background:#bd001c;
+/* EXPERIÊNCIAS */
+
+.offers{
+padding:20px 16px;
+background:#f3f6fa;
+border-top:7px solid #07376f;
 }
 
-/* AVISO */
+.offers-title{
+margin:0 0 13px;
+text-align:center;
+font-size:21px;
+color:#07376f;
+}
 
-.notice{
-background:#fff7db;
-border-left:5px solid #e1a400;
-padding:12px 13px;
-margin:0 0 16px;
-border-radius:10px;
-color:#5b4700;
+.offer-card{
+background:#ffffff;
+padding:17px;
+margin-bottom:12px;
+border-left:5px solid #b9001c;
+box-shadow:0 2px 7px rgba(0,0,0,.08);
+}
+
+.offer-card.blue{
+border-left-color:#07376f;
+}
+
+.offer-card h3{
+margin:0 0 5px;
+font-size:18px;
+color:#172337;
+}
+
+.offer-card p{
+margin:0 0 13px;
+font-size:14px;
+color:#596577;
+}
+
+.offer-highlight{
+display:inline-block;
+margin-bottom:9px;
 font-size:13px;
-font-weight:700;
-box-shadow:0 5px 14px rgba(0,0,0,.13);
+font-weight:900;
+color:#b9001c;
+text-transform:uppercase;
 }
 
-/* BOTÕES FINAIS */
+.offer-button{
+display:block;
+width:100%;
+padding:14px 12px;
+border-radius:6px;
+text-align:center;
+text-decoration:none;
+color:#ffffff;
+background:#b9001c;
+font-size:15px;
+font-weight:900;
+}
+
+.offer-card.blue .offer-button{
+background:#07376f;
+}
+
+/* PEDIR A CONTA */
 
 .actions{
-background:#fff;
-padding:19px 15px;
-border-radius:17px;
-box-shadow:0 9px 25px rgba(0,0,0,.23);
+padding:20px 16px;
+background:#ffffff;
 text-align:center;
+border-top:1px solid #dfe4eb;
 }
 
 .actions h2{
-margin:0 0 7px;
-color:#092f63;
-font-size:23px;
+margin:0 0 6px;
+font-size:21px;
+color:#07376f;
 }
 
 .actions p{
-margin:0 0 15px;
+margin:0 0 14px;
 font-size:14px;
-color:#5b6575;
+color:#606b7a;
 }
 
 .whatsapp-button{
 display:block;
 width:100%;
-padding:16px 12px;
-background:#25d366;
-color:#fff;
-border-radius:12px;
-font-size:17px;
-font-weight:900;
-text-decoration:none;
-box-shadow:0 6px 14px rgba(20,145,72,.3);
-}
-
-.island-button{
-display:block;
-width:100%;
-margin-top:10px;
 padding:15px 12px;
-background:linear-gradient(90deg,#092e61,#0c4c92);
-color:#fff;
-border-radius:12px;
+background:#25d366;
+color:#ffffff;
+border-radius:6px;
 font-size:16px;
 font-weight:900;
 text-decoration:none;
@@ -379,37 +350,33 @@ text-decoration:none;
 /* RODAPÉ */
 
 .footer{
+padding:20px 12px;
+background:#07376f;
+color:#ffffff;
 text-align:center;
-color:#fff;
-padding:23px 10px 5px;
 font-size:12px;
 }
 
 .footer strong{
 display:block;
-font-size:15px;
 margin-bottom:3px;
+font-size:15px;
 }
 
-@media (max-width:430px){
+/* CELULAR */
+
+@media(max-width:520px){
 
 .hero h1{
 font-size:29px;
 }
 
-.hero{
-padding-left:12px;
-padding-right:12px;
+.menu-nav{
+grid-template-columns:repeat(2,1fr);
 }
 
-.languages a,
-.languages span{
-font-size:11px;
-padding:8px 2px;
-}
-
-.item{
-gap:7px;
+.menu-nav a{
+border-bottom:1px solid #e1e5eb;
 }
 
 .item-name{
@@ -417,17 +384,18 @@ font-size:14px;
 }
 
 .price{
-font-size:13px;
-padding:7px;
+font-size:14px;
 }
 
-.section-title{
-font-size:18px;
+.languages a,
+.languages span{
+font-size:11px;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
@@ -436,17 +404,24 @@ font-size:18px;
 
 <header class="hero">
 
-<div class="hero-content">
-
 <div class="santa-hat" aria-hidden="true">
+
 <div class="hat-red"></div>
+
 <div class="hat-fold"></div>
+
 <div class="hat-ball"></div>
+
 </div>
 
-<p class="hero-small">Cardápio oficial</p>
+<p class="hero-small">
+Cardápio oficial
+</p>
 
-<h1>Barraca do<br>Papai Noel</h1>
+<h1>
+Barraca do<br>
+Papai Noel
+</h1>
 
 <p class="hero-subtitle">
 Sabores da Bahia, frutos do mar e bebidas geladas à beira-mar.
@@ -454,7 +429,9 @@ Sabores da Bahia, frutos do mar e bebidas geladas à beira-mar.
 
 <div class="languages">
 
-<span>🇧🇷 Português</span>
+<span>
+🇧🇷 Português
+</span>
 
 <a href="en.html">
 🇺🇸 English
@@ -466,33 +443,45 @@ Sabores da Bahia, frutos do mar e bebidas geladas à beira-mar.
 
 </div>
 
-</div>
-
 </header>
 
 <nav class="menu-nav">
 
-<a href="#petiscos">🍽️ Petiscos</a>
+<a href="#petiscos">
+🍽️ Petiscos
+</a>
 
-<a href="#tiragosto">🍤 Tira-gosto</a>
+<a href="#tiragosto">
+🍤 Tira-gosto
+</a>
 
-<a href="#bebidas">🥤 Bebidas</a>
+<a href="#bebidas">
+🥤 Bebidas
+</a>
 
-<a href="#drinks">🍹 Drinks</a>
+<a href="#drinks">
+🍹 Drinks
+</a>
 
 </nav>
 
 <div class="notice">
-Os valores estão apresentados em reais brasileiros (BRL). Consulte a equipe sobre disponibilidade e acompanhamentos.
-</div>
 
-<!-- PETISCOS -->
+Os valores estão apresentados em reais brasileiros (BRL).
+Consulte a equipe sobre disponibilidade e acompanhamentos.
+
+</div>
 
 <section class="menu-section" id="petiscos">
 
 <h2 class="section-title red">
-<span class="section-icon">🐟</span>
+
+<span class="section-icon">
+🐟
+</span>
+
 Petiscos e pratos
+
 </h2>
 
 <div class="items">
@@ -523,11 +512,19 @@ Petiscos e pratos
 </div>
 
 <div class="item">
+
 <div class="item-name">
+
 Pititinga
-<span class="item-description">Acompanha salada e farofa.</span>
+
+<span class="item-description">
+Acompanha salada e farofa.
+</span>
+
 </div>
+
 <div class="price">R$ 110,00</div>
+
 </div>
 
 <div class="item">
@@ -551,42 +548,68 @@ Pititinga
 </div>
 
 <div class="item">
+
 <div class="item-name">
+
 Moqueca de Peixe
-<span class="item-description">Peixe vermelho ou pescado amarelo.</span>
+
+<span class="item-description">
+Peixe vermelho ou pescado amarelo.
+</span>
+
 </div>
+
 <div class="price">R$ 240,00</div>
+
 </div>
 
 <div class="item">
+
 <div class="item-name">
+
 Moqueca
-<span class="item-description">Opções: peixe, siri ou camarão.</span>
+
+<span class="item-description">
+Opções: peixe, siri ou camarão.
+</span>
+
 </div>
+
 <div class="price">R$ 270,00</div>
+
 </div>
 
 </div>
 
 </section>
-
-<!-- TIRA-GOSTO -->
-
 <section class="menu-section" id="tiragosto">
 
 <h2 class="section-title blue">
-<span class="section-icon">🍤</span>
+
+<span class="section-icon">
+🍤
+</span>
+
 Tira-gosto
+
 </h2>
 
 <div class="items">
 
 <div class="item">
+
 <div class="item-name">
+
 Camarão Empanado
-<span class="item-description">Acompanha molho tártaro.</span>
+
+<span class="item-description">
+Acompanha molho tártaro.
+</span>
+
 </div>
+
 <div class="price">R$ 120,00</div>
+
 </div>
 
 <div class="item">
@@ -605,27 +628,51 @@ Camarão Empanado
 </div>
 
 <div class="item">
+
 <div class="item-name">
+
 Peixe Vermelho Grelhado
-<span class="item-description">Acompanha legumes.</span>
+
+<span class="item-description">
+Acompanha legumes.
+</span>
+
 </div>
+
 <div class="price">R$ 210,00</div>
+
 </div>
 
 <div class="item">
+
 <div class="item-name">
+
 Carne do Sol
-<span class="item-description">Acompanha pirão de aipim.</span>
+
+<span class="item-description">
+Acompanha pirão de aipim.
+</span>
+
 </div>
+
 <div class="price">R$ 130,00</div>
+
 </div>
 
 <div class="item">
+
 <div class="item-name">
+
 Carne do Sol
-<span class="item-description">Acompanha batata frita.</span>
+
+<span class="item-description">
+Acompanha batata frita.
+</span>
+
 </div>
+
 <div class="price">R$ 120,00</div>
+
 </div>
 
 <div class="item">
@@ -644,19 +691,35 @@ Carne do Sol
 </div>
 
 <div class="item">
+
 <div class="item-name">
+
 Bolinho de Bacalhau
-<span class="item-description">6 unidades.</span>
+
+<span class="item-description">
+6 unidades.
+</span>
+
 </div>
+
 <div class="price">R$ 70,00</div>
+
 </div>
 
 <div class="item">
+
 <div class="item-name">
+
 Bolinho de Camarão
-<span class="item-description">6 unidades.</span>
+
+<span class="item-description">
+6 unidades.
+</span>
+
 </div>
+
 <div class="price">R$ 70,00</div>
+
 </div>
 
 <div class="item">
@@ -673,13 +736,16 @@ Bolinho de Camarão
 
 </section>
 
-<!-- BEBIDAS -->
-
 <section class="menu-section" id="bebidas">
 
 <h2 class="section-title red">
-<span class="section-icon">🥤</span>
+
+<span class="section-icon">
+🥤
+</span>
+
 Bebidas
+
 </h2>
 
 <div class="items">
@@ -705,11 +771,19 @@ Bebidas
 </div>
 
 <div class="item">
+
 <div class="item-name">
+
 Suco da Fruta
-<span class="item-description">Laranja, limão ou maracujá.</span>
+
+<span class="item-description">
+Laranja, limão ou maracujá.
+</span>
+
 </div>
+
 <div class="price">R$ 30,00</div>
+
 </div>
 
 <div class="item">
@@ -756,13 +830,16 @@ Suco da Fruta
 
 </section>
 
-<!-- ROSKAS -->
-
 <section class="menu-section" id="drinks">
 
 <h2 class="section-title blue">
-<span class="section-icon">🍹</span>
+
+<span class="section-icon">
+🍹
+</span>
+
 Roskas
+
 </h2>
 
 <div class="items">
@@ -808,24 +885,34 @@ Roskas
 </div>
 
 <div class="item">
+
 <div class="item-name">
+
 Outras Vodkas
-<span class="item-description">Orloff, Smirnoff ou Absolut.</span>
+
+<span class="item-description">
+Orloff, Smirnoff ou Absolut.
+</span>
+
 </div>
+
 <div class="price">R$ 40,00</div>
+
 </div>
 
 </div>
 
 </section>
-
-<!-- CAIPIRINHAS -->
-
 <section class="menu-section">
 
 <h2 class="section-title red">
-<span class="section-icon">🍸</span>
+
+<span class="section-icon">
+🍸
+</span>
+
 Caipirinhas
+
 </h2>
 
 <div class="items">
@@ -869,11 +956,71 @@ Caipirinhas
 
 </section>
 
-<!-- AÇÕES -->
+<section class="offers">
+
+<h2 class="offers-title">
+Experiências em Salvador
+</h2>
+
+<div class="offer-card">
+
+<span class="offer-highlight">
+🚶🏽‍♂️ Conheça o Centro Histórico
+</span>
+
+<h3>
+Pelourinho Free Walking Tour
+</h3>
+
+<p>
+Descubra a história, a cultura e as influências africanas de Salvador em uma caminhada pelo Centro Histórico e pelo Pelourinho.
+</p>
+
+<a
+class="offer-button"
+href="https://wa.me/5571993719791?text=Olá!%20Vi%20o%20Pelourinho%20Free%20Walking%20Tour%20no%20cardápio%20da%20Barraca%20do%20Papai%20Noel%20e%20gostaria%20de%20receber%20mais%20informações."
+target="_blank"
+rel="noopener">
+
+Quero participar do Free Walking Tour
+
+</a>
+
+</div>
+
+<div class="offer-card blue">
+
+<span class="offer-highlight">
+🏝️ Oferta especial para clientes
+</span>
+
+<h3>
+Passeio às Ilhas — 30% OFF
+</h3>
+
+<p>
+Aproveite 30% de desconto para conhecer as ilhas e algumas das paisagens mais bonitas da Baía de Todos-os-Santos.
+</p>
+
+<a
+class="offer-button"
+href="https://wa.me/5511952473756?text=Olá!%20Vi%20no%20cardápio%20da%20Barraca%20do%20Papai%20Noel%20a%20oferta%20de%2030%25%20OFF%20para%20o%20Passeio%20às%20Ilhas.%20Gostaria%20de%20receber%20mais%20informações."
+target="_blank"
+rel="noopener">
+
+Solicitar 30% OFF no passeio
+
+</a>
+
+</div>
+
+</section>
 
 <section class="actions">
 
-<h2>Precisa de atendimento?</h2>
+<h2>
+Precisa de atendimento?
+</h2>
 
 <p>
 Informe o número da sua mesa ao solicitar a conta.
@@ -881,23 +1028,21 @@ Informe o número da sua mesa ao solicitar a conta.
 
 <a
 class="whatsapp-button"
-href="https://wa.me/5511952473756?text=Olá!%20Estou%20na%20Barraca%20do%20Papai%20Noel%20e%20gostaria%20de%20pedir%20a%20conta."
+href="https://wa.me/5511952473756?text=Olá!%20Estou%20na%20Barraca%20do%20Papai%20Noel.%20Minha%20mesa%20é%20"
 target="_blank"
 rel="noopener">
-💳 Pedir a conta pelo WhatsApp
-</a>
 
-<a
-class="island-button"
-href="ilhas.html">
-🏝️ Conheça o passeio às ilhas
+💳 Pedir a conta pelo WhatsApp
+
 </a>
 
 </section>
 
 <footer class="footer">
 
-<strong>🎅 Barraca do Papai Noel</strong>
+<strong>
+🎅 Barraca do Papai Noel
+</strong>
 
 Cardápio digital disponível em português, inglês e espanhol.
 
@@ -906,4 +1051,5 @@ Cardápio digital disponível em português, inglês e espanhol.
 </main>
 
 </body>
+
 </html>
