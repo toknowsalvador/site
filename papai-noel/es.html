@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<meta name="theme-color" content="#b9001c">
+
+<title>Barraca Papá Noel | Menú</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#eef2f7;
+color:#172337;
+line-height:1.45;
+}
+
+.container{
+width:100%;
+max-width:760px;
+margin:0 auto;
+background:#ffffff;
+min-height:100vh;
+}
+
+/* ENCABEZADO */
+
+.hero{
+background:#b9001c;
+color:#ffffff;
+padding:25px 18px 20px;
+text-align:center;
+border-bottom:7px solid #07376f;
+}
+
+.hero-small{
+margin:0 0 4px;
+font-size:12px;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.hero h1{
+margin:0;
+font-size:34px;
+line-height:1.05;
+font-weight:900;
+}
+
+/* GORRO DE PAPÁ NOEL */
+
+.santa-hat{
+position:relative;
+width:84px;
+height:62px;
+margin:0 auto 8px;
+transform:rotate(-7deg);
+}
+
+.hat-red{
+position:absolute;
+left:15px;
+top:1px;
+width:58px;
+height:47px;
+background:#ef1736;
+clip-path:polygon(0 100%, 51% 0, 100% 100%);
+}
+
+.hat-fold{
+position:absolute;
+left:7px;
+bottom:4px;
+width:70px;
+height:19px;
+background:#ffffff;
+border-radius:14px;
+}
+
+.hat-ball{
+position:absolute;
+right:0;
+top:0;
+width:22px;
+height:22px;
+background:#ffffff;
+border-radius:50%;
+}
+
+/* IDIOMAS */
+
+.languages{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:7px;
+margin-top:18px;
+}
+
+.languages a,
+.languages span{
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:40px;
+padding:8px 4px;
+border-radius:6px;
+font-size:12px;
+font-weight:800;
+text-decoration:none;
+}
+
+.languages span{
+background:#ffffff;
+color:#b9001c;
+}
+
+.languages a{
+background:#07376f;
+color:#ffffff;
+border:1px solid rgba(255,255,255,.4);
+}
+
+/* BARRA HORIZONTAL DEL MENÚ */
+
+.menu-nav{
+display:flex;
+align-items:stretch;
+gap:0;
+overflow-x:auto;
+overflow-y:hidden;
+white-space:nowrap;
+background:#ffffff;
+border-bottom:1px solid #d8dee8;
+scroll-behavior:smooth;
+-webkit-overflow-scrolling:touch;
+scrollbar-width:none;
+}
+
+.menu-nav::-webkit-scrollbar{
+display:none;
+}
+
+.menu-nav a{
+flex:0 0 auto;
+min-width:132px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:4px;
+padding:13px 10px;
+text-align:center;
+text-decoration:none;
+font-size:12px;
+font-weight:800;
+color:#07376f;
+border-right:1px solid #e1e5eb;
+}
+
+.menu-nav a:last-child{
+min-width:175px;
+color:#b9001c;
+border-right:none;
+}
+
+.menu-nav .nav-icon{
+font-size:21px;
+line-height:1;
+}
+
+.menu-nav .nav-offer{
+display:block;
+font-size:11px;
+color:#b9001c;
+}
+
+/* SECCIONES */
+
+.menu-section{
+margin:0;
+background:#ffffff;
+border-top:1px solid #dfe4eb;
+}
+
+.section-title{
+display:flex;
+align-items:center;
+gap:9px;
+margin:0;
+padding:13px 16px;
+color:#ffffff;
+font-size:19px;
+font-weight:900;
+text-transform:uppercase;
+}
+
+.section-title.red{
+background:#b9001c;
+}
+
+.section-title.blue{
+background:#07376f;
+}
+
+.section-icon{
+font-size:20px;
+}
+
+/* PRODUCTOS */
+
+.items{
+padding:4px 16px 12px;
+}
+
+.item{
+display:grid;
+grid-template-columns:minmax(0,1fr) auto;
+gap:12px;
+align-items:end;
+padding:11px 0;
+border-bottom:1px dotted #aeb7c3;
+}
+
+.item:last-child{
+border-bottom:none;
+}
+
+.item-name{
+font-size:15px;
+font-weight:700;
+color:#172337;
+}
+
+.item-description{
+display:block;
+margin-top:2px;
+font-size:12px;
+font-weight:400;
+color:#667183;
+}
+
+.price{
+white-space:nowrap;
+font-size:15px;
+font-weight:900;
+color:#b9001c;
+}
+
+/* EXPERIENCIAS DISCRETAS */
+
+.offers{
+padding:16px;
+background:#f7f8fa;
+border-top:1px solid #dfe4eb;
+}
+
+.offers-title{
+margin:0 0 12px;
+text-align:center;
+font-size:14px;
+font-weight:800;
+letter-spacing:1.5px;
+text-transform:uppercase;
+color:#667183;
+}
+
+.offer-card{
+background:#ffffff;
+padding:14px;
+margin-bottom:9px;
+border:1px solid #e0e5ec;
+border-radius:7px;
+}
+
+.offer-card:last-child{
+margin-bottom:0;
+}
+
+.offer-card h3{
+margin:0 0 4px;
+font-size:16px;
+color:#172337;
+}
+
+.offer-card p{
+margin:0 0 11px;
+font-size:13px;
+color:#667183;
+}
+
+.offer-highlight{
+display:inline-block;
+margin-bottom:6px;
+font-size:11px;
+font-weight:800;
+color:#b9001c;
+text-transform:uppercase;
+}
+
+.offer-button{
+display:inline-block;
+padding:10px 13px;
+border:1px solid #b9001c;
+border-radius:6px;
+text-decoration:none;
+color:#b9001c;
+background:#ffffff;
+font-size:13px;
+font-weight:800;
+}
+
+.offer-card.blue .offer-button{
+border-color:#07376f;
+color:#07376f;
+}
+
+/* PEDIR LA CUENTA */
+
+.actions{
+padding:20px 16px;
+background:#ffffff;
+text-align:center;
+border-top:1px solid #dfe4eb;
+}
+
+.actions h2{
+margin:0 0 6px;
+font-size:21px;
+color:#07376f;
+}
+
+.actions p{
+margin:0 0 14px;
+font-size:14px;
+color:#606b7a;
+}
+
+.whatsapp-button{
+display:block;
+width:100%;
+padding:15px 12px;
+background:#25d366;
+color:#ffffff;
+border-radius:6px;
+font-size:16px;
+font-weight:900;
+text-decoration:none;
+}
+
+/* PIE DE PÁGINA */
+
+.footer{
+padding:20px 12px;
+background:#07376f;
+color:#ffffff;
+text-align:center;
+font-size:12px;
+}
+
+.footer strong{
+display:block;
+margin-bottom:3px;
+font-size:15px;
+}
+
+/* MÓVIL */
+
+@media(max-width:520px){
+
+.hero h1{
+font-size:29px;
+}
+
+.item-name{
+font-size:14px;
+}
+
+.price{
+font-size:14px;
+}
+
+.languages a,
+.languages span{
+font-size:11px;
+}
+
+.menu-nav a{
+min-width:116px;
+padding:12px 8px;
+}
+
+.menu-nav a:last-child{
+min-width:160px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="container">
+
+<header class="hero">
+
+<div class="santa-hat" aria-hidden="true">
+
+<div class="hat-red"></div>
+
+<div class="hat-fold"></div>
+
+<div class="hat-ball"></div>
+
+</div>
+
+<p class="hero-small">
+Menú oficial
+</p>
+
+<h1>
+Barraca<br>
+Papá Noel
+</h1>
+
+<div class="languages">
+
+<a href="index.html">
+🇧🇷 Português
+</a>
+
+<a href="en.html">
+🇺🇸 English
+</a>
+
+<span>
+🇪🇸 Español
+</span>
+
+</div>
+
+</header>
+
+<nav class="menu-nav">
+
+<a href="#platos">
+
+<span class="nav-icon">🐟</span>
+
+<span>Platos</span>
+
+</a>
+
+<a href="#entrantes">
+
+<span class="nav-icon">🍤</span>
+
+<span>Entrantes</span>
+
+</a>
+
+<a href="#bebidas">
+
+<span class="nav-icon">🥤</span>
+
+<span>Bebidas</span>
+
+</a>
+
+<a href="#cocteles">
+
+<span class="nav-icon">🍹</span>
+
+<span>Cócteles</span>
+
+</a>
+
+<a
+href="https://wa.me/5511952473756?text=¡Hola!%20Vi%20en%20el%20menú%20de%20la%20Barraca%20Papá%20Noel%20la%20oferta%20del%2030%25%20de%20descuento%20para%20el%20Paseo%20por%20las%20Islas.%20Me%20gustaría%20recibir%20más%20información."
+target="_blank"
+rel="noopener">
+
+<span class="nav-icon">🏝️</span>
+
+<span>Paseo por las Islas</span>
+
+<strong class="nav-offer">
+30% OFF
+</strong>
+
+</a>
+
+</nav>
+
+<section class="menu-section" id="platos">
+
+<h2 class="section-title red">
+
+<span class="section-icon">
+🐟
+</span>
+
+Platos y porciones
+
+</h2>
+
+<div class="items">
+
+<div class="item">
+<div class="item-name">Corvina Frita — Mediana</div>
+<div class="price">R$ 140,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Corvina Frita — Grande</div>
+<div class="price">R$ 160,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Pargo Rojo Frito — Mediano</div>
+<div class="price">R$ 170,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Pargo Rojo Frito — Grande</div>
+<div class="price">R$ 190,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Pollo Frito en Trozos</div>
+<div class="price">R$ 110,00</div>
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Pititinga Frita
+
+<span class="item-description">
+Acompañada de ensalada y farofa.
+</span>
+
+</div>
+
+<div class="price">
+R$ 110,00
+</div>
+
+</div>
+
+<div class="item">
+<div class="item-name">Carne de Sol</div>
+<div class="price">R$ 110,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Filete de Pollo Empanizado</div>
+<div class="price">R$ 120,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Filete de Pollo a la Parrilla</div>
+<div class="price">R$ 130,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Plato de Frutas</div>
+<div class="price">R$ 100,00</div>
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Moqueca de Pescado
+
+<span class="item-description">
+Pargo rojo o pescado amarillo.
+</span>
+
+</div>
+
+<div class="price">
+R$ 240,00
+</div>
+
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Moqueca
+
+<span class="item-description">
+Opciones: pescado, cangrejo o camarón.
+</span>
+
+</div>
+
+<div class="price">
+R$ 270,00
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="menu-section" id="entrantes">
+
+<h2 class="section-title blue">
+
+<span class="section-icon">
+🍤
+</span>
+
+Entrantes
+
+</h2>
+
+<div class="items">
+
+<div class="item">
+
+<div class="item-name">
+
+Camarones Empanizados
+
+<span class="item-description">
+Acompañados de salsa tártara.
+</span>
+
+</div>
+
+<div class="price">
+R$ 120,00
+</div>
+
+</div>
+
+<div class="item">
+<div class="item-name">Camarones al Ajo y Aceite</div>
+<div class="price">R$ 130,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Papas Fritas</div>
+<div class="price">R$ 60,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Langosta</div>
+<div class="price">R$ 270,00</div>
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Pargo Rojo a la Parrilla
+
+<span class="item-description">
+Acompañado de verduras.
+</span>
+
+</div>
+
+<div class="price">
+R$ 210,00
+</div>
+
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Carne de Sol
+
+<span class="item-description">
+Acompañada de puré de yuca.
+</span>
+
+</div>
+
+<div class="price">
+R$ 130,00
+</div>
+
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Carne de Sol
+
+<span class="item-description">
+Acompañada de papas fritas.
+</span>
+
+</div>
+
+<div class="price">
+R$ 120,00
+</div>
+
+</div>
+
+<div class="item">
+<div class="item-name">Tiras de Pescado</div>
+<div class="price">R$ 110,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Tiras de Pollo</div>
+<div class="price">R$ 110,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Calamar Frito</div>
+<div class="price">R$ 120,00</div>
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Buñuelos de Bacalao
+
+<span class="item-description">
+6 unidades.
+</span>
+
+</div>
+
+<div class="price">
+R$ 70,00
+</div>
+
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Buñuelos de Camarón
+
+<span class="item-description">
+6 unidades.
+</span>
+
+</div>
+
+<div class="price">
+R$ 70,00
+</div>
+
+</div>
+
+<div class="item">
+<div class="item-name">Caldo de Sururu</div>
+<div class="price">R$ 60,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Caldo de Lambreta</div>
+<div class="price">R$ 60,00</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="menu-section" id="bebidas">
+
+<h2 class="section-title red">
+
+<span class="section-icon">
+🥤
+</span>
+
+Bebidas
+
+</h2>
+
+<div class="items">
+
+<div class="item">
+<div class="item-name">Refresco</div>
+<div class="price">R$ 10,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Agua con Gas</div>
+<div class="price">R$ 10,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Agua sin Gas</div>
+<div class="price">R$ 6,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Agua de Coco</div>
+<div class="price">R$ 10,00</div>
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Jugo Natural
+
+<span class="item-description">
+Naranja, limón o maracuyá.
+</span>
+
+</div>
+
+<div class="price">
+R$ 30,00
+</div>
+
+</div>
+
+<div class="item">
+<div class="item-name">Cerveza Skol — 473 ml</div>
+<div class="price">R$ 12,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Cerveza Itaipava — 473 ml</div>
+<div class="price">R$ 12,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Devassa o Brahma Doble Malta</div>
+<div class="price">R$ 12,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Heineken Long Neck</div>
+<div class="price">R$ 18,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Budweiser Long Neck</div>
+<div class="price">R$ 18,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Corona</div>
+<div class="price">R$ 20,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Smirnoff Ice</div>
+<div class="price">R$ 18,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Stella Artois Long Neck</div>
+<div class="price">R$ 18,00</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="menu-section" id="cocteles">
+
+<h2 class="section-title blue">
+
+<span class="section-icon">
+🍹
+</span>
+
+Cócteles con vodka
+
+</h2>
+
+<div class="items">
+
+<div class="item">
+<div class="item-name">Frutas Mixtas</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Piña</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Maracuyá</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Limón</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Umbu</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Seriguela</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Kiwi</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Fresa</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Otras Vodkas
+
+<span class="item-description">
+Orloff, Smirnoff o Absolut.
+</span>
+
+</div>
+
+<div class="price">
+R$ 40,00
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="menu-section">
+
+<h2 class="section-title red">
+
+<span class="section-icon">
+🍸
+</span>
+
+Caipiriñas
+
+</h2>
+
+<div class="items">
+
+<div class="item">
+<div class="item-name">Piña</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Maracuyá</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Limón</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Umbu</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Seriguela</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Kiwi</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Fresa</div>
+<div class="price">R$ 30,00</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="offers">
+
+<h2 class="offers-title">
+Experiencias en Salvador
+</h2>
+
+<div class="offer-card">
+
+<span class="offer-highlight">
+🚶🏽‍♂️ Centro Histórico
+</span>
+
+<h3>
+Pelourinho Free Walking Tour
+</h3>
+
+<p>
+Conozca la historia, la cultura y las influencias africanas de Salvador en un recorrido a pie por el Pelourinho.
+</p>
+
+<a
+class="offer-button"
+href="https://wa.me/5571993719791?text=¡Hola!%20Vi%20el%20Pelourinho%20Free%20Walking%20Tour%20en%20el%20menú%20de%20la%20Barraca%20Papá%20Noel%20y%20me%20gustaría%20recibir%20más%20información."
+target="_blank"
+rel="noopener">
+
+Más información sobre el Free Walking Tour
+
+</a>
+
+</div>
+
+<div class="offer-card blue">
+
+<span class="offer-highlight">
+🏝️ Oferta para clientes
+</span>
+
+<h3>
+Paseo por las Islas — 30% OFF
+</h3>
+
+<p>
+Condición especial para conocer las islas de la Bahía de Todos los Santos.
+</p>
+
+<a
+class="offer-button"
+href="https://wa.me/5511952473756?text=¡Hola!%20Vi%20en%20el%20menú%20de%20la%20Barraca%20Papá%20Noel%20la%20oferta%20del%2030%25%20de%20descuento%20para%20el%20Paseo%20por%20las%20Islas.%20Me%20gustaría%20recibir%20más%20información."
+target="_blank"
+rel="noopener">
+
+Solicitar información
+
+</a>
+
+</div>
+
+</section>
+
+<section class="actions">
+
+<h2>
+¿Necesita atención?
+</h2>
+
+<p>
+Indique el número de su mesa al solicitar la cuenta.
+</p>
+
+<a
+class="whatsapp-button"
+href="https://wa.me/5511952473756?text=¡Hola!%20Estoy%20en%20la%20Barraca%20Papá%20Noel.%20El%20número%20de%20mi%20mesa%20es%20"
+target="_blank"
+rel="noopener">
+
+💳 Pedir la cuenta por WhatsApp
+
+</a>
+
+</section>
+
+<footer class="footer">
+
+<strong>
+🎅 Barraca Papá Noel
+</strong>
+
+Menú disponible en portugués, inglés y español.
+
+</footer>
+
+</main>
+
+</body>
+
+</html>
