@@ -20,15 +20,17 @@ body{
 font-family:Arial,Helvetica,sans-serif;
 background:#8e1717;
 color:#4d2b00;
+padding:30px 24px 0;
 }
 
 .container{
 max-width:900px;
-margin:auto;
+margin:0 auto;
 background:#f6d332;
 background-image:linear-gradient(180deg,#f7da45,#f3c821);
-min-height:100vh;
+min-height:calc(100vh - 30px);
 padding:25px;
+border-radius:18px 18px 0 0;
 }
 
 .language-menu{
@@ -124,8 +126,13 @@ margin-top:2px;
 
 @media(max-width:600px){
 
+body{
+padding:22px 14px 0;
+}
+
 .container{
 padding:18px;
+border-radius:14px 14px 0 0;
 }
 
 h1{
@@ -178,11 +185,11 @@ Español
 
 <div class="info">
 
-<strong>Handmade tapioca dough.</strong><br>
+<strong>Homemade dough.</strong><br>
 
-✔ No corn starch.<br>
+✔ Contains no cornstarch.<br>
 
-✔ No preservatives.
+✔ Contains no preservatives.
 
 </div>
 
@@ -302,7 +309,6 @@ SWEET & SAVORY
 </div>
 <div class="price">R$ 25,00</div>
 </div>
-
 <div class="item">
 <div>
 <div class="name">Banana with Cheese and Cinnamon</div>
@@ -321,8 +327,8 @@ SWEET & SAVORY
 
 <div class="item">
 <div>
-<div class="name">Condensed Milk with Grilled Cheese</div>
-<div class="desc">Condensed milk + queijo coalho.</div>
+<div class="name">Condensed Milk with Coalho Cheese</div>
+<div class="desc">Condensed milk + coalho cheese.</div>
 </div>
 <div class="price">R$ 25,00</div>
 </div>
@@ -342,6 +348,7 @@ SWEET & SAVORY
 </div>
 <div class="price">R$ 25,00</div>
 </div>
+
 <div class="category">
 VEGETARIAN
 </div>
@@ -408,7 +415,7 @@ SAVORY
 
 <div class="item">
 <div>
-<div class="name">Pizza Tapioca</div>
+<div class="name">Tapioca Pizza</div>
 <div class="desc">Tomato + cheese + oregano.</div>
 </div>
 <div class="price">R$ 25,00</div>
@@ -416,16 +423,16 @@ SAVORY
 
 <div class="item">
 <div>
-<div class="name">Grilled Cheese</div>
-<div class="desc">Queijo coalho.</div>
+<div class="name">Coalho Cheese</div>
+<div class="desc">Coalho cheese.</div>
 </div>
 <div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="name">Four-Cheese Tapioca</div>
-<div class="desc">Queijo coalho + mozzarella + cheddar.</div>
+<div class="name">Four Cheeses</div>
+<div class="desc">Coalho cheese + mozzarella + cheddar.</div>
 </div>
 <div class="price">R$ 25,00</div>
 </div>
@@ -525,7 +532,6 @@ SAVORY
 </div>
 <div class="price">R$ 28,00</div>
 </div>
-
 <div class="item">
 <div>
 <div class="name">Bacon with Cheese</div>
@@ -613,7 +619,7 @@ SAVORY
 </div>
 <div class="price">R$ 35,00</div>
 </div>
-```html
+
 <div style="
 margin-top:50px;
 padding:30px 20px;
@@ -637,6 +643,7 @@ line-height:1.6;
 color:#5d3500;
 margin-bottom:8px;
 ">
+
 <strong>30% OFF</strong>
 </p>
 
@@ -646,11 +653,12 @@ line-height:1.6;
 color:#5d3500;
 margin-bottom:22px;
 ">
+
 Exclusive offer for customers of<br>
 <strong>Tapioca & Crepioca da Praça</strong>
 </p>
 
-<a href="https://wa.me/5571993719791?text=Hello!%20I%20came%20from%20Tapioca%20%26%20Crepioca%20da%20Praça%20and%20I%20would%20like%20more%20information%20about%20the%20Island%20Tour%20with%2030%25%20off."
+<a href="https://wa.me/5571993719791?text=Hello!%20I%20found%20you%20through%20Tapioca%20%26%20Crepioca%20da%20Praça%20and%20would%20like%20more%20information%20about%20the%20Island%20Tour%20with%2030%25%20off."
 style="
 display:inline-block;
 padding:14px 24px;
@@ -661,7 +669,8 @@ font-weight:bold;
 border-radius:9px;
 font-size:17px;
 ">
-Learn More on WhatsApp
+
+Learn more on WhatsApp
 </a>
 
 </div>
@@ -674,6 +683,7 @@ text-align:center;
 font-size:13px;
 color:#6b4300;
 ">
+
 Tapioca & Crepioca da Praça
 </div>
 
