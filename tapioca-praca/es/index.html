@@ -20,15 +20,17 @@ body{
 font-family:Arial,Helvetica,sans-serif;
 background:#8e1717;
 color:#4d2b00;
+padding:30px 24px 0;
 }
 
 .container{
 max-width:900px;
-margin:auto;
+margin:0 auto;
 background:#f6d332;
 background-image:linear-gradient(180deg,#f7da45,#f3c821);
-min-height:100vh;
+min-height:calc(100vh - 30px);
 padding:25px;
+border-radius:18px 18px 0 0;
 }
 
 .language-menu{
@@ -124,8 +126,13 @@ margin-top:2px;
 
 @media(max-width:600px){
 
+body{
+padding:22px 14px 0;
+}
+
 .container{
 padding:18px;
+border-radius:14px 14px 0 0;
 }
 
 h1{
@@ -180,9 +187,9 @@ Español
 
 <strong>Masa artesanal.</strong><br>
 
-✔ Sin almidón de maíz.<br>
+✔ No contiene almidón de maíz.<br>
 
-✔ Sin conservantes.
+✔ No contiene conservantes.
 
 </div>
 
@@ -233,7 +240,7 @@ DULCES
 <div class="item">
 <div>
 <div class="name">Guayaba con Coco</div>
-<div class="desc">Guayaba + coco.</div>
+<div class="desc">Dulce de guayaba + coco.</div>
 </div>
 <div class="price">R$ 25,00</div>
 </div>
@@ -249,7 +256,7 @@ DULCES
 <div class="item">
 <div>
 <div class="name">Brigadeiro</div>
-<div class="desc">Chocolate + granulado.</div>
+<div class="desc">Chocolate granulado + chocolate.</div>
 </div>
 <div class="price">R$ 25,00</div>
 </div>
@@ -282,7 +289,7 @@ DULCES Y SALADAS
 <div class="item">
 <div>
 <div class="name">Romeo y Julieta</div>
-<div class="desc">Guayaba + queso.</div>
+<div class="desc">Dulce de guayaba + queso.</div>
 </div>
 <div class="price">R$ 25,00</div>
 </div>
@@ -302,7 +309,6 @@ DULCES Y SALADAS
 </div>
 <div class="price">R$ 25,00</div>
 </div>
-
 <div class="item">
 <div>
 <div class="name">Banana con Queso y Canela</div>
@@ -330,7 +336,7 @@ DULCES Y SALADAS
 <div class="item">
 <div>
 <div class="name">Coco, Queso y Guayaba</div>
-<div class="desc">Coco + queso + guayaba.</div>
+<div class="desc">Coco + queso + dulce de guayaba.</div>
 </div>
 <div class="price">R$ 25,00</div>
 </div>
@@ -342,6 +348,7 @@ DULCES Y SALADAS
 </div>
 <div class="price">R$ 25,00</div>
 </div>
+
 <div class="category">
 VEGETARIANAS
 </div>
@@ -433,7 +440,7 @@ SALADAS
 <div class="item">
 <div>
 <div class="name">Calabresa con Queso</div>
-<div class="desc">Calabresa + queso.</div>
+<div class="desc">Salchicha calabresa + queso.</div>
 </div>
 <div class="price">R$ 25,00</div>
 </div>
@@ -441,7 +448,7 @@ SALADAS
 <div class="item">
 <div>
 <div class="name">Calabresa con Catupiry</div>
-<div class="desc">Calabresa + Catupiry.</div>
+<div class="desc">Salchicha calabresa + Catupiry.</div>
 </div>
 <div class="price">R$ 25,00</div>
 </div>
@@ -449,7 +456,7 @@ SALADAS
 <div class="item">
 <div>
 <div class="name">Carne Seca con Queso</div>
-<div class="desc">Carne seca + queso.</div>
+<div class="desc">Carne de sol + queso.</div>
 </div>
 <div class="price">R$ 30,00</div>
 </div>
@@ -457,7 +464,7 @@ SALADAS
 <div class="item">
 <div>
 <div class="name">Carne Seca con Catupiry</div>
-<div class="desc">Carne seca + Catupiry.</div>
+<div class="desc">Carne de sol + Catupiry.</div>
 </div>
 <div class="price">R$ 30,00</div>
 </div>
@@ -465,7 +472,7 @@ SALADAS
 <div class="item">
 <div>
 <div class="name">Carne Seca con Yuca</div>
-<div class="desc">Carne seca + yuca.</div>
+<div class="desc">Carne de sol + yuca.</div>
 </div>
 <div class="price">R$ 30,00</div>
 </div>
@@ -489,7 +496,7 @@ SALADAS
 <div class="item">
 <div>
 <div class="name">Calabresa, Charque y Queso</div>
-<div class="desc">Calabresa + charque + queso.</div>
+<div class="desc">Salchicha calabresa + charque + queso.</div>
 </div>
 <div class="price">R$ 35,00</div>
 </div>
@@ -497,7 +504,7 @@ SALADAS
 <div class="item">
 <div>
 <div class="name">Calabresa, Charque y Yuca</div>
-<div class="desc">Calabresa + charque + yuca.</div>
+<div class="desc">Salchicha calabresa + charque + yuca.</div>
 </div>
 <div class="price">R$ 35,00</div>
 </div>
@@ -505,7 +512,7 @@ SALADAS
 <div class="item">
 <div>
 <div class="name">Calabresa, Charque y Catupiry</div>
-<div class="desc">Calabresa + charque + Catupiry.</div>
+<div class="desc">Salchicha calabresa + charque + Catupiry.</div>
 </div>
 <div class="price">R$ 35,00</div>
 </div>
@@ -525,11 +532,10 @@ SALADAS
 </div>
 <div class="price">R$ 28,00</div>
 </div>
-
 <div class="item">
 <div>
-<div class="name">Tocino con Queso</div>
-<div class="desc">Tocino + queso.</div>
+<div class="name">Bacon con Queso</div>
+<div class="desc">Bacon + queso.</div>
 </div>
 <div class="price">R$ 25,00</div>
 </div>
@@ -552,16 +558,16 @@ SALADAS
 
 <div class="item">
 <div>
-<div class="name">Camarón con Queso</div>
-<div class="desc">Camarón + queso.</div>
+<div class="name">Camarones con Queso</div>
+<div class="desc">Camarones + queso.</div>
 </div>
 <div class="price">R$ 30,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="name">Camarón con Catupiry</div>
-<div class="desc">Camarón + Catupiry.</div>
+<div class="name">Camarones con Catupiry</div>
+<div class="desc">Camarones + Catupiry.</div>
 </div>
 <div class="price">R$ 30,00</div>
 </div>
@@ -592,16 +598,16 @@ SALADAS
 
 <div class="item">
 <div>
-<div class="name">Lomo con Queso</div>
-<div class="desc">Lomo + queso.</div>
+<div class="name">Lomo de Cerdo con Queso</div>
+<div class="desc">Lomo de cerdo + queso.</div>
 </div>
 <div class="price">R$ 25,00</div>
 </div>
 
 <div class="item">
 <div>
-<div class="name">Lomo con Catupiry</div>
-<div class="desc">Lomo + Catupiry.</div>
+<div class="name">Lomo de Cerdo con Catupiry</div>
+<div class="desc">Lomo de cerdo + Catupiry.</div>
 </div>
 <div class="price">R$ 25,00</div>
 </div>
@@ -609,10 +615,11 @@ SALADAS
 <div class="item">
 <div>
 <div class="name">Plátano, Carne Seca y Queso</div>
-<div class="desc">Plátano + carne seca + queso.</div>
+<div class="desc">Plátano + carne de sol + queso.</div>
 </div>
 <div class="price">R$ 35,00</div>
 </div>
+
 <div style="
 margin-top:50px;
 padding:30px 20px;
@@ -627,7 +634,7 @@ color:#7d1111;
 font-size:28px;
 margin-bottom:12px;
 ">
-🏝️ Paseo a las Islas
+🏝️ Paseo por las Islas
 </h2>
 
 <p style="
@@ -636,6 +643,7 @@ line-height:1.6;
 color:#5d3500;
 margin-bottom:8px;
 ">
+
 <strong>30% DE DESCUENTO</strong>
 </p>
 
@@ -645,11 +653,12 @@ line-height:1.6;
 color:#5d3500;
 margin-bottom:22px;
 ">
+
 Oferta exclusiva para clientes de<br>
 <strong>Tapioca & Crepioca da Praça</strong>
 </p>
 
-<a href="https://wa.me/5571993719791?text=¡Hola!%20Vengo%20de%20Tapioca%20%26%20Crepioca%20da%20Praça%20y%20me%20gustaría%20recibir%20más%20información%20sobre%20el%20Paseo%20a%20las%20Islas%20con%2030%25%20de%20descuento."
+<a href="https://wa.me/5571993719791?text=¡Hola!%20Vine%20a%20través%20de%20Tapioca%20%26%20Crepioca%20da%20Praça%20y%20me%20gustaría%20recibir%20más%20información%20sobre%20el%20Paseo%20por%20las%20Islas%20con%2030%25%20de%20descuento."
 style="
 display:inline-block;
 padding:14px 24px;
@@ -660,6 +669,7 @@ font-weight:bold;
 border-radius:9px;
 font-size:17px;
 ">
+
 Más información por WhatsApp
 </a>
 
@@ -673,6 +683,7 @@ text-align:center;
 font-size:13px;
 color:#6b4300;
 ">
+
 Tapioca & Crepioca da Praça
 </div>
 
