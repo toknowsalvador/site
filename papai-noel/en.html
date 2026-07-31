@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+<meta name="theme-color" content="#b9001c">
+
+<title>Santa Claus Beach Hut | Menu</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#eef2f7;
+color:#172337;
+line-height:1.45;
+}
+
+.container{
+width:100%;
+max-width:760px;
+margin:0 auto;
+background:#ffffff;
+min-height:100vh;
+}
+
+/* HEADER */
+
+.hero{
+background:#b9001c;
+color:#ffffff;
+padding:25px 18px 20px;
+text-align:center;
+border-bottom:7px solid #07376f;
+}
+
+.hero-small{
+margin:0 0 4px;
+font-size:12px;
+font-weight:700;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+.hero h1{
+margin:0;
+font-size:34px;
+line-height:1.05;
+font-weight:900;
+}
+
+/* SANTA HAT */
+
+.santa-hat{
+position:relative;
+width:84px;
+height:62px;
+margin:0 auto 8px;
+transform:rotate(-7deg);
+}
+
+.hat-red{
+position:absolute;
+left:15px;
+top:1px;
+width:58px;
+height:47px;
+background:#ef1736;
+clip-path:polygon(0 100%, 51% 0, 100% 100%);
+}
+
+.hat-fold{
+position:absolute;
+left:7px;
+bottom:4px;
+width:70px;
+height:19px;
+background:#ffffff;
+border-radius:14px;
+}
+
+.hat-ball{
+position:absolute;
+right:0;
+top:0;
+width:22px;
+height:22px;
+background:#ffffff;
+border-radius:50%;
+}
+
+/* LANGUAGES */
+
+.languages{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:7px;
+margin-top:18px;
+}
+
+.languages a,
+.languages span{
+display:flex;
+align-items:center;
+justify-content:center;
+min-height:40px;
+padding:8px 4px;
+border-radius:6px;
+font-size:12px;
+font-weight:800;
+text-decoration:none;
+}
+
+.languages span{
+background:#ffffff;
+color:#b9001c;
+}
+
+.languages a{
+background:#07376f;
+color:#ffffff;
+border:1px solid rgba(255,255,255,.4);
+}
+
+/* HORIZONTAL MENU BAR */
+
+.menu-nav{
+display:flex;
+align-items:stretch;
+gap:0;
+overflow-x:auto;
+overflow-y:hidden;
+white-space:nowrap;
+background:#ffffff;
+border-bottom:1px solid #d8dee8;
+scroll-behavior:smooth;
+-webkit-overflow-scrolling:touch;
+scrollbar-width:none;
+}
+
+.menu-nav::-webkit-scrollbar{
+display:none;
+}
+
+.menu-nav a{
+flex:0 0 auto;
+min-width:132px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:4px;
+padding:13px 10px;
+text-align:center;
+text-decoration:none;
+font-size:12px;
+font-weight:800;
+color:#07376f;
+border-right:1px solid #e1e5eb;
+}
+
+.menu-nav a:last-child{
+min-width:175px;
+color:#b9001c;
+border-right:none;
+}
+
+.menu-nav .nav-icon{
+font-size:21px;
+line-height:1;
+}
+
+.menu-nav .nav-offer{
+display:block;
+font-size:11px;
+color:#b9001c;
+}
+
+/* MENU SECTIONS */
+
+.menu-section{
+margin:0;
+background:#ffffff;
+border-top:1px solid #dfe4eb;
+}
+
+.section-title{
+display:flex;
+align-items:center;
+gap:9px;
+margin:0;
+padding:13px 16px;
+color:#ffffff;
+font-size:19px;
+font-weight:900;
+text-transform:uppercase;
+}
+
+.section-title.red{
+background:#b9001c;
+}
+
+.section-title.blue{
+background:#07376f;
+}
+
+.section-icon{
+font-size:20px;
+}
+
+/* ITEMS */
+
+.items{
+padding:4px 16px 12px;
+}
+
+.item{
+display:grid;
+grid-template-columns:minmax(0,1fr) auto;
+gap:12px;
+align-items:end;
+padding:11px 0;
+border-bottom:1px dotted #aeb7c3;
+}
+
+.item:last-child{
+border-bottom:none;
+}
+
+.item-name{
+font-size:15px;
+font-weight:700;
+color:#172337;
+}
+
+.item-description{
+display:block;
+margin-top:2px;
+font-size:12px;
+font-weight:400;
+color:#667183;
+}
+
+.price{
+white-space:nowrap;
+font-size:15px;
+font-weight:900;
+color:#b9001c;
+}
+
+/* DISCREET EXPERIENCES */
+
+.offers{
+padding:16px;
+background:#f7f8fa;
+border-top:1px solid #dfe4eb;
+}
+
+.offers-title{
+margin:0 0 12px;
+text-align:center;
+font-size:14px;
+font-weight:800;
+letter-spacing:1.5px;
+text-transform:uppercase;
+color:#667183;
+}
+
+.offer-card{
+background:#ffffff;
+padding:14px;
+margin-bottom:9px;
+border:1px solid #e0e5ec;
+border-radius:7px;
+}
+
+.offer-card:last-child{
+margin-bottom:0;
+}
+
+.offer-card h3{
+margin:0 0 4px;
+font-size:16px;
+color:#172337;
+}
+
+.offer-card p{
+margin:0 0 11px;
+font-size:13px;
+color:#667183;
+}
+
+.offer-highlight{
+display:inline-block;
+margin-bottom:6px;
+font-size:11px;
+font-weight:800;
+color:#b9001c;
+text-transform:uppercase;
+}
+
+.offer-button{
+display:inline-block;
+padding:10px 13px;
+border:1px solid #b9001c;
+border-radius:6px;
+text-decoration:none;
+color:#b9001c;
+background:#ffffff;
+font-size:13px;
+font-weight:800;
+}
+
+.offer-card.blue .offer-button{
+border-color:#07376f;
+color:#07376f;
+}
+
+/* REQUEST THE BILL */
+
+.actions{
+padding:20px 16px;
+background:#ffffff;
+text-align:center;
+border-top:1px solid #dfe4eb;
+}
+
+.actions h2{
+margin:0 0 6px;
+font-size:21px;
+color:#07376f;
+}
+
+.actions p{
+margin:0 0 14px;
+font-size:14px;
+color:#606b7a;
+}
+
+.whatsapp-button{
+display:block;
+width:100%;
+padding:15px 12px;
+background:#25d366;
+color:#ffffff;
+border-radius:6px;
+font-size:16px;
+font-weight:900;
+text-decoration:none;
+}
+
+/* FOOTER */
+
+.footer{
+padding:20px 12px;
+background:#07376f;
+color:#ffffff;
+text-align:center;
+font-size:12px;
+}
+
+.footer strong{
+display:block;
+margin-bottom:3px;
+font-size:15px;
+}
+
+/* MOBILE */
+
+@media(max-width:520px){
+
+.hero h1{
+font-size:29px;
+}
+
+.item-name{
+font-size:14px;
+}
+
+.price{
+font-size:14px;
+}
+
+.languages a,
+.languages span{
+font-size:11px;
+}
+
+.menu-nav a{
+min-width:116px;
+padding:12px 8px;
+}
+
+.menu-nav a:last-child{
+min-width:160px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<main class="container">
+
+<header class="hero">
+
+<div class="santa-hat" aria-hidden="true">
+
+<div class="hat-red"></div>
+
+<div class="hat-fold"></div>
+
+<div class="hat-ball"></div>
+
+</div>
+
+<p class="hero-small">
+Official menu
+</p>
+
+<h1>
+Santa Claus<br>
+Beach Hut
+</h1>
+
+<div class="languages">
+
+<a href="index.html">
+🇧🇷 Português
+</a>
+
+<span>
+🇺🇸 English
+</span>
+
+<a href="es.html">
+🇪🇸 Español
+</a>
+
+</div>
+
+</header>
+
+<nav class="menu-nav">
+
+<a href="#dishes">
+
+<span class="nav-icon">🐟</span>
+
+<span>Dishes</span>
+
+</a>
+
+<a href="#appetizers">
+
+<span class="nav-icon">🍤</span>
+
+<span>Appetizers</span>
+
+</a>
+
+<a href="#drinks">
+
+<span class="nav-icon">🥤</span>
+
+<span>Drinks</span>
+
+</a>
+
+<a href="#cocktails">
+
+<span class="nav-icon">🍹</span>
+
+<span>Cocktails</span>
+
+</a>
+
+<a
+href="https://wa.me/5511952473756?text=Hello!%20I%20saw%20the%2030%25%20OFF%20Island%20Tour%20offer%20on%20the%20Santa%20Claus%20Beach%20Hut%20menu.%20I%20would%20like%20more%20information."
+target="_blank"
+rel="noopener">
+
+<span class="nav-icon">🏝️</span>
+
+<span>Island Tour</span>
+
+<strong class="nav-offer">
+30% OFF
+</strong>
+
+</a>
+
+</nav>
+
+<section class="menu-section" id="dishes">
+
+<h2 class="section-title red">
+
+<span class="section-icon">
+🐟
+</span>
+
+Dishes and portions
+
+</h2>
+
+<div class="items">
+
+<div class="item">
+<div class="item-name">Fried Croaker Fish — Medium</div>
+<div class="price">R$ 140.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Fried Croaker Fish — Large</div>
+<div class="price">R$ 160.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Fried Red Snapper — Medium</div>
+<div class="price">R$ 170.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Fried Red Snapper — Large</div>
+<div class="price">R$ 190.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Fried Chicken Bites</div>
+<div class="price">R$ 110.00</div>
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Fried Pititinga Fish
+
+<span class="item-description">
+Served with salad and toasted cassava flour.
+</span>
+
+</div>
+
+<div class="price">
+R$ 110.00
+</div>
+
+</div>
+
+<div class="item">
+<div class="item-name">Sun-Dried Beef</div>
+<div class="price">R$ 110.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Breaded Chicken Fillet</div>
+<div class="price">R$ 120.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Grilled Chicken Fillet</div>
+<div class="price">R$ 130.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Fresh Fruit Plate</div>
+<div class="price">R$ 100.00</div>
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Fish Moqueca
+
+<span class="item-description">
+Red snapper or yellow fish.
+</span>
+
+</div>
+
+<div class="price">
+R$ 240.00
+</div>
+
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Moqueca
+
+<span class="item-description">
+Options: fish, crab or shrimp.
+</span>
+
+</div>
+
+<div class="price">
+R$ 270.00
+</div>
+
+</div>
+
+</div>
+
+</section>
+  <section class="menu-section" id="appetizers">
+
+<h2 class="section-title blue">
+
+<span class="section-icon">
+🍤
+</span>
+
+Appetizers
+
+</h2>
+
+<div class="items">
+
+<div class="item">
+
+<div class="item-name">
+
+Breaded Shrimp
+
+<span class="item-description">
+Served with tartar sauce.
+</span>
+
+</div>
+
+<div class="price">
+R$ 120.00
+</div>
+
+</div>
+
+<div class="item">
+<div class="item-name">Garlic and Olive Oil Shrimp</div>
+<div class="price">R$ 130.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">French Fries</div>
+<div class="price">R$ 60.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Lobster</div>
+<div class="price">R$ 270.00</div>
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Grilled Red Snapper
+
+<span class="item-description">
+Served with vegetables.
+</span>
+
+</div>
+
+<div class="price">
+R$ 210.00
+</div>
+
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Sun-Dried Beef
+
+<span class="item-description">
+Served with cassava purée.
+</span>
+
+</div>
+
+<div class="price">
+R$ 130.00
+</div>
+
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Sun-Dried Beef
+
+<span class="item-description">
+Served with French fries.
+</span>
+
+</div>
+
+<div class="price">
+R$ 120.00
+</div>
+
+</div>
+
+<div class="item">
+<div class="item-name">Fish Strips</div>
+<div class="price">R$ 110.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Chicken Strips</div>
+<div class="price">R$ 110.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Fried Squid</div>
+<div class="price">R$ 120.00</div>
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Codfish Fritters
+
+<span class="item-description">
+6 pieces.
+</span>
+
+</div>
+
+<div class="price">
+R$ 70.00
+</div>
+
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Shrimp Fritters
+
+<span class="item-description">
+6 pieces.
+</span>
+
+</div>
+
+<div class="price">
+R$ 70.00
+</div>
+
+</div>
+
+<div class="item">
+<div class="item-name">Sururu Shellfish Broth</div>
+<div class="price">R$ 60.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Lambreta Shellfish Broth</div>
+<div class="price">R$ 60.00</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="menu-section" id="drinks">
+
+<h2 class="section-title red">
+
+<span class="section-icon">
+🥤
+</span>
+
+Drinks
+
+</h2>
+
+<div class="items">
+
+<div class="item">
+<div class="item-name">Soft Drink</div>
+<div class="price">R$ 10.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Sparkling Water</div>
+<div class="price">R$ 10.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Still Water</div>
+<div class="price">R$ 6.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Coconut Water</div>
+<div class="price">R$ 10.00</div>
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Fresh Fruit Juice
+
+<span class="item-description">
+Orange, lime or passion fruit.
+</span>
+
+</div>
+
+<div class="price">
+R$ 30.00
+</div>
+
+</div>
+
+<div class="item">
+<div class="item-name">Skol Beer Can — 473 ml</div>
+<div class="price">R$ 12.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Itaipava Beer Can — 473 ml</div>
+<div class="price">R$ 12.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Devassa or Brahma Double Malt</div>
+<div class="price">R$ 12.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Heineken Long Neck</div>
+<div class="price">R$ 18.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Budweiser Long Neck</div>
+<div class="price">R$ 18.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Corona</div>
+<div class="price">R$ 20.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Smirnoff Ice</div>
+<div class="price">R$ 18.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Stella Artois Long Neck</div>
+<div class="price">R$ 18.00</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="menu-section" id="cocktails">
+
+<h2 class="section-title blue">
+
+<span class="section-icon">
+🍹
+</span>
+
+Vodka cocktails
+
+</h2>
+
+<div class="items">
+
+<div class="item">
+<div class="item-name">Mixed Fruits</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Pineapple</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Passion Fruit</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Lime</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Umbu</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Seriguela</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Kiwi</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Strawberry</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+
+<div class="item-name">
+
+Other Vodkas
+
+<span class="item-description">
+Orloff, Smirnoff or Absolut.
+</span>
+
+</div>
+
+<div class="price">
+R$ 40.00
+</div>
+
+</div>
+
+</div>
+
+</section>
+<section class="menu-section">
+
+<h2 class="section-title red">
+
+<span class="section-icon">
+🍸
+</span>
+
+Caipirinhas
+
+</h2>
+
+<div class="items">
+
+<div class="item">
+<div class="item-name">Pineapple</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Passion Fruit</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Lime</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Umbu</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Seriguela</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Kiwi</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+<div class="item">
+<div class="item-name">Strawberry</div>
+<div class="price">R$ 30.00</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="offers">
+
+<h2 class="offers-title">
+Experiences in Salvador
+</h2>
+
+<div class="offer-card">
+
+<span class="offer-highlight">
+🚶🏽‍♂️ Historic Center
+</span>
+
+<h3>
+Pelourinho Free Walking Tour
+</h3>
+
+<p>
+Discover Salvador’s history, culture and African influences on a walking tour through Pelourinho.
+</p>
+
+<a
+class="offer-button"
+href="https://wa.me/5571993719791?text=Hello!%20I%20saw%20the%20Pelourinho%20Free%20Walking%20Tour%20on%20the%20Santa%20Claus%20Beach%20Hut%20menu.%20I%20would%20like%20more%20information."
+target="_blank"
+rel="noopener">
+
+Learn more about the Free Walking Tour
+
+</a>
+
+</div>
+
+<div class="offer-card blue">
+
+<span class="offer-highlight">
+🏝️ Special guest offer
+</span>
+
+<h3>
+Island Tour — 30% OFF
+</h3>
+
+<p>
+Enjoy a special offer to visit the islands of the Bay of All Saints.
+</p>
+
+<a
+class="offer-button"
+href="https://wa.me/5511952473756?text=Hello!%20I%20saw%20the%2030%25%20OFF%20Island%20Tour%20offer%20on%20the%20Santa%20Claus%20Beach%20Hut%20menu.%20I%20would%20like%20more%20information."
+target="_blank"
+rel="noopener">
+
+Request information
+
+</a>
+
+</div>
+
+</section>
+
+<section class="actions">
+
+<h2>
+Need assistance?
+</h2>
+
+<p>
+Please provide your table number when requesting the bill.
+</p>
+
+<a
+class="whatsapp-button"
+href="https://wa.me/5511952473756?text=Hello!%20I%20am%20at%20the%20Santa%20Claus%20Beach%20Hut.%20My%20table%20number%20is%20"
+target="_blank"
+rel="noopener">
+
+💳 Request the bill via WhatsApp
+
+</a>
+
+</section>
+
+<footer class="footer">
+
+<strong>
+🎅 Santa Claus Beach Hut
+</strong>
+
+Menu available in Portuguese, English and Spanish.
+
+</footer>
+
+</main>
+
+</body>
+
+</html>
