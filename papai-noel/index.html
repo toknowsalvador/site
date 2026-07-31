@@ -44,9 +44,9 @@ min-height:100vh;
 .hero{
 background:#b9001c;
 color:#ffffff;
-padding:28px 18px 22px;
+padding:25px 18px 20px;
 text-align:center;
-border-bottom:8px solid #07376f;
+border-bottom:7px solid #07376f;
 }
 
 .hero-small{
@@ -62,12 +62,6 @@ margin:0;
 font-size:34px;
 line-height:1.05;
 font-weight:900;
-}
-
-.hero-subtitle{
-margin:9px auto 0;
-max-width:480px;
-font-size:15px;
 }
 
 /* GORRO DO PAPAI NOEL */
@@ -143,17 +137,35 @@ color:#ffffff;
 border:1px solid rgba(255,255,255,.4);
 }
 
-/* NAVEGAÇÃO */
+/* FAIXA HORIZONTAL DO CARDÁPIO */
 
 .menu-nav{
-display:grid;
-grid-template-columns:repeat(4,1fr);
+display:flex;
+align-items:stretch;
+gap:0;
+overflow-x:auto;
+overflow-y:hidden;
+white-space:nowrap;
 background:#ffffff;
 border-bottom:1px solid #d8dee8;
+scroll-behavior:smooth;
+-webkit-overflow-scrolling:touch;
+scrollbar-width:none;
+}
+
+.menu-nav::-webkit-scrollbar{
+display:none;
 }
 
 .menu-nav a{
-padding:14px 5px;
+flex:0 0 auto;
+min-width:132px;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+gap:4px;
+padding:13px 10px;
 text-align:center;
 text-decoration:none;
 font-size:12px;
@@ -163,18 +175,20 @@ border-right:1px solid #e1e5eb;
 }
 
 .menu-nav a:last-child{
+min-width:175px;
+color:#b9001c;
 border-right:none;
 }
 
-/* AVISO */
+.menu-nav .nav-icon{
+font-size:21px;
+line-height:1;
+}
 
-.notice{
-margin:14px 16px;
-padding:12px;
-background:#f4f7fb;
-border-left:4px solid #07376f;
-font-size:13px;
-color:#4a5565;
+.menu-nav .nav-offer{
+display:block;
+font-size:11px;
+color:#b9001c;
 }
 
 /* SEÇÕES */
@@ -249,69 +263,72 @@ font-weight:900;
 color:#b9001c;
 }
 
-/* EXPERIÊNCIAS */
+/* EXPERIÊNCIAS DISCRETAS */
 
 .offers{
-padding:20px 16px;
-background:#f3f6fa;
-border-top:7px solid #07376f;
+padding:16px;
+background:#f7f8fa;
+border-top:1px solid #dfe4eb;
 }
 
 .offers-title{
-margin:0 0 13px;
+margin:0 0 12px;
 text-align:center;
-font-size:21px;
-color:#07376f;
+font-size:14px;
+font-weight:800;
+letter-spacing:1.5px;
+text-transform:uppercase;
+color:#667183;
 }
 
 .offer-card{
 background:#ffffff;
-padding:17px;
-margin-bottom:12px;
-border-left:5px solid #b9001c;
-box-shadow:0 2px 7px rgba(0,0,0,.08);
+padding:14px;
+margin-bottom:9px;
+border:1px solid #e0e5ec;
+border-radius:7px;
 }
 
-.offer-card.blue{
-border-left-color:#07376f;
+.offer-card:last-child{
+margin-bottom:0;
 }
 
 .offer-card h3{
-margin:0 0 5px;
-font-size:18px;
+margin:0 0 4px;
+font-size:16px;
 color:#172337;
 }
 
 .offer-card p{
-margin:0 0 13px;
-font-size:14px;
-color:#596577;
+margin:0 0 11px;
+font-size:13px;
+color:#667183;
 }
 
 .offer-highlight{
 display:inline-block;
-margin-bottom:9px;
-font-size:13px;
-font-weight:900;
+margin-bottom:6px;
+font-size:11px;
+font-weight:800;
 color:#b9001c;
 text-transform:uppercase;
 }
 
 .offer-button{
-display:block;
-width:100%;
-padding:14px 12px;
+display:inline-block;
+padding:10px 13px;
+border:1px solid #b9001c;
 border-radius:6px;
-text-align:center;
 text-decoration:none;
-color:#ffffff;
-background:#b9001c;
-font-size:15px;
-font-weight:900;
+color:#b9001c;
+background:#ffffff;
+font-size:13px;
+font-weight:800;
 }
 
 .offer-card.blue .offer-button{
-background:#07376f;
+border-color:#07376f;
+color:#07376f;
 }
 
 /* PEDIR A CONTA */
@@ -371,14 +388,6 @@ font-size:15px;
 font-size:29px;
 }
 
-.menu-nav{
-grid-template-columns:repeat(2,1fr);
-}
-
-.menu-nav a{
-border-bottom:1px solid #e1e5eb;
-}
-
 .item-name{
 font-size:14px;
 }
@@ -390,6 +399,15 @@ font-size:14px;
 .languages a,
 .languages span{
 font-size:11px;
+}
+
+.menu-nav a{
+min-width:116px;
+padding:12px 8px;
+}
+
+.menu-nav a:last-child{
+min-width:160px;
 }
 
 }
@@ -423,10 +441,6 @@ Barraca do<br>
 Papai Noel
 </h1>
 
-<p class="hero-subtitle">
-Sabores da Bahia, frutos do mar e bebidas geladas à beira-mar.
-</p>
-
 <div class="languages">
 
 <span>
@@ -448,29 +462,53 @@ Sabores da Bahia, frutos do mar e bebidas geladas à beira-mar.
 <nav class="menu-nav">
 
 <a href="#petiscos">
-🍽️ Petiscos
+
+<span class="nav-icon">🐟</span>
+
+<span>Petiscos</span>
+
 </a>
 
 <a href="#tiragosto">
-🍤 Tira-gosto
+
+<span class="nav-icon">🍤</span>
+
+<span>Tira-gosto</span>
+
 </a>
 
 <a href="#bebidas">
-🥤 Bebidas
+
+<span class="nav-icon">🥤</span>
+
+<span>Bebidas</span>
+
 </a>
 
 <a href="#drinks">
-🍹 Drinks
+
+<span class="nav-icon">🍹</span>
+
+<span>Drinks</span>
+
+</a>
+
+<a
+href="https://wa.me/5511952473756?text=Olá!%20Vi%20no%20cardápio%20da%20Barraca%20do%20Papai%20Noel%20a%20oferta%20de%2030%25%20OFF%20para%20o%20Passeio%20às%20Ilhas.%20Gostaria%20de%20receber%20mais%20informações."
+target="_blank"
+rel="noopener">
+
+<span class="nav-icon">🏝️</span>
+
+<span>Passeio às Ilhas</span>
+
+<strong class="nav-offer">
+30% OFF
+</strong>
+
 </a>
 
 </nav>
-
-<div class="notice">
-
-Os valores estão apresentados em reais brasileiros (BRL).
-Consulte a equipe sobre disponibilidade e acompanhamentos.
-
-</div>
 
 <section class="menu-section" id="petiscos">
 
@@ -523,7 +561,9 @@ Acompanha salada e farofa.
 
 </div>
 
-<div class="price">R$ 110,00</div>
+<div class="price">
+R$ 110,00
+</div>
 
 </div>
 
@@ -559,7 +599,9 @@ Peixe vermelho ou pescado amarelo.
 
 </div>
 
-<div class="price">R$ 240,00</div>
+<div class="price">
+R$ 240,00
+</div>
 
 </div>
 
@@ -575,7 +617,9 @@ Opções: peixe, siri ou camarão.
 
 </div>
 
-<div class="price">R$ 270,00</div>
+<div class="price">
+R$ 270,00
+</div>
 
 </div>
 
@@ -608,7 +652,9 @@ Acompanha molho tártaro.
 
 </div>
 
-<div class="price">R$ 120,00</div>
+<div class="price">
+R$ 120,00
+</div>
 
 </div>
 
@@ -639,7 +685,9 @@ Acompanha legumes.
 
 </div>
 
-<div class="price">R$ 210,00</div>
+<div class="price">
+R$ 210,00
+</div>
 
 </div>
 
@@ -655,7 +703,9 @@ Acompanha pirão de aipim.
 
 </div>
 
-<div class="price">R$ 130,00</div>
+<div class="price">
+R$ 130,00
+</div>
 
 </div>
 
@@ -671,7 +721,9 @@ Acompanha batata frita.
 
 </div>
 
-<div class="price">R$ 120,00</div>
+<div class="price">
+R$ 120,00
+</div>
 
 </div>
 
@@ -702,7 +754,9 @@ Bolinho de Bacalhau
 
 </div>
 
-<div class="price">R$ 70,00</div>
+<div class="price">
+R$ 70,00
+</div>
 
 </div>
 
@@ -718,7 +772,9 @@ Bolinho de Camarão
 
 </div>
 
-<div class="price">R$ 70,00</div>
+<div class="price">
+R$ 70,00
+</div>
 
 </div>
 
@@ -782,7 +838,9 @@ Laranja, limão ou maracujá.
 
 </div>
 
-<div class="price">R$ 30,00</div>
+<div class="price">
+R$ 30,00
+</div>
 
 </div>
 
@@ -896,7 +954,9 @@ Orloff, Smirnoff ou Absolut.
 
 </div>
 
-<div class="price">R$ 40,00</div>
+<div class="price">
+R$ 40,00
+</div>
 
 </div>
 
@@ -965,7 +1025,7 @@ Experiências em Salvador
 <div class="offer-card">
 
 <span class="offer-highlight">
-🚶🏽‍♂️ Conheça o Centro Histórico
+🚶🏽‍♂️ Centro Histórico
 </span>
 
 <h3>
@@ -973,7 +1033,7 @@ Pelourinho Free Walking Tour
 </h3>
 
 <p>
-Descubra a história, a cultura e as influências africanas de Salvador em uma caminhada pelo Centro Histórico e pelo Pelourinho.
+Conheça a história, a cultura e as influências africanas de Salvador em uma caminhada pelo Pelourinho.
 </p>
 
 <a
@@ -982,7 +1042,7 @@ href="https://wa.me/5571993719791?text=Olá!%20Vi%20o%20Pelourinho%20Free%20Walk
 target="_blank"
 rel="noopener">
 
-Quero participar do Free Walking Tour
+Saiba mais sobre o Free Walking Tour
 
 </a>
 
@@ -991,7 +1051,7 @@ Quero participar do Free Walking Tour
 <div class="offer-card blue">
 
 <span class="offer-highlight">
-🏝️ Oferta especial para clientes
+🏝️ Oferta para clientes
 </span>
 
 <h3>
@@ -999,7 +1059,7 @@ Passeio às Ilhas — 30% OFF
 </h3>
 
 <p>
-Aproveite 30% de desconto para conhecer as ilhas e algumas das paisagens mais bonitas da Baía de Todos-os-Santos.
+Condição especial para conhecer as ilhas da Baía de Todos-os-Santos.
 </p>
 
 <a
@@ -1008,7 +1068,7 @@ href="https://wa.me/5511952473756?text=Olá!%20Vi%20no%20cardápio%20da%20Barrac
 target="_blank"
 rel="noopener">
 
-Solicitar 30% OFF no passeio
+Solicitar informações
 
 </a>
 
@@ -1044,7 +1104,7 @@ rel="noopener">
 🎅 Barraca do Papai Noel
 </strong>
 
-Cardápio digital disponível em português, inglês e espanhol.
+Cardápio disponível em português, inglês e espanhol.
 
 </footer>
 
