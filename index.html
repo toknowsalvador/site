@@ -745,6 +745,54 @@
       margin-bottom: 0;
     }
 
+
+    .collapsible-group-label {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .collapsible-group-label::before {
+      content: "+";
+      display: inline-flex;
+      width: 24px;
+      height: 24px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #111111;
+      color: #ffffff;
+      font-size: 15px;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .collapsible-group-label.is-open::before {
+      content: "−";
+      background: #8b6d29;
+    }
+
+    .question-list.group-collapsed {
+      display: none;
+    }
+
+    .islands-options p {
+      margin: 0;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.08);
+    }
+
+    .islands-more-button {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: #111111;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
     .language-culture-section {
       padding: 42px 0 44px;
       background: #efe8da;
@@ -1340,8 +1388,13 @@
           Book a Free Walking Tour
         </a>
 
-        <a href="#questions" class="hero-help">
-          How can we help?
+        <a
+          href="https://wa.me/5511952473756?text=Hello%21%20I%20saw%20the%2030%25%20discount%20for%20the%20island%20tour%20and%20would%20like%20more%20information."
+          class="hero-help"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Island Tours — 30% off
         </a>
       </div>
     </div>
@@ -1381,18 +1434,6 @@
   <section class="stories-section">
 
     <div class="container">
-
-      <div class="stories-header">
-
-        <h2 class="stories-title">
-          To Know Salvador Experience
-        </h2>
-
-        <p class="stories-note">
-          Tap to watch
-        </p>
-
-      </div>
 
       <div class="stories-row">
 
@@ -1471,27 +1512,10 @@
 
     <div class="container">
 
-      <div class="questions-intro">
-
-        <p class="eyebrow">
-          Choose an option
-        </p>
-
-        <h2 class="section-title">
-          What do you need today?
-        </h2>
-
-        <p>
-          Tap an option to see the answer or open WhatsApp with a ready-to-send message.
-        </p>
-
-      </div>
-
-
       <!-- INFORMATION -->
       <section class="question-group">
 
-        <h3 class="group-label" data-group-label="information">
+        <h3 class="group-label collapsible-group-label" data-group-label="information" role="button" tabindex="0" aria-expanded="false">
           Information
         </h3>
 
@@ -1571,7 +1595,7 @@
       <!-- BEACHES AND EXPERIENCES -->
       <section class="question-group">
 
-        <h3 class="group-label" data-group-label="beaches">
+        <h3 class="group-label collapsible-group-label" data-group-label="beaches" role="button" tabindex="0" aria-expanded="false">
           Beaches and experiences
         </h3>
 
@@ -1596,11 +1620,28 @@
             <span class="question-arrow">→</span>
           </a>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="islands">
-            <span class="question-icon">🏝️</span>
-            <span class="question-text">I want to visit the islands.</span>
-            <span class="question-arrow">→</span>
-          </a>
+          <details class="info-accordion islands-accordion">
+            <summary>
+              <span class="question-icon">🏝️</span>
+              <span class="question-text">Islands and coastal destinations</span>
+              <span class="question-arrow">→</span>
+            </summary>
+            <div class="inline-answer islands-options">
+              <p><strong>Morro de São Paulo</strong></p>
+              <p><strong>Ilha dos Frades</strong></p>
+              <p><strong>Ilha de Itaparica</strong></p>
+              <p><strong>Itacaré</strong></p>
+              <p><strong>Boipeba</strong></p>
+              <a
+                class="islands-more-button"
+                href="https://wa.me/5511952473756?text=Hello%21%20I%20would%20like%20more%20information%20about%20island%20and%20coastal%20tours%3A%20Morro%20de%20S%C3%A3o%20Paulo%2C%20Ilha%20dos%20Frades%2C%20Ilha%20de%20Itaparica%2C%20Itacar%C3%A9%20or%20Boipeba."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more
+              </a>
+            </div>
+          </details>
 
           <a href="#" class="whatsapp-question question-card" data-question-key="favelaTour">
             <span class="question-icon">🏘️</span>
@@ -1646,7 +1687,7 @@
       <!-- PORTO DA BARRA -->
       <section class="question-group">
 
-        <h3 class="group-label" data-group-label="portoDaBarra">
+        <h3 class="group-label collapsible-group-label" data-group-label="portoDaBarra" role="button" tabindex="0" aria-expanded="false">
           Porto da Barra
         </h3>
 
@@ -1678,7 +1719,7 @@
       <!-- PERSONAL CARE -->
       <section class="question-group">
 
-        <h3 class="group-label" data-group-label="personalCare">
+        <h3 class="group-label collapsible-group-label" data-group-label="personalCare" role="button" tabindex="0" aria-expanded="false">
           Personal care
         </h3>
 
@@ -1842,7 +1883,7 @@
 
             <span class="book-card-front">
               <img
-                src="/public/IMG_6592.jpeg"
+                src="/public/IMG_6591.jpeg"
                 alt="First recommended book"
               />
             </span>
@@ -1870,7 +1911,7 @@
 
             <span class="book-card-front">
               <img
-                src="/public/IMG_6591.jpeg"
+                src="/public/IMG_6592.jpeg"
                 alt="Second recommended book"
               />
             </span>
@@ -2118,7 +2159,7 @@
         metaDescription: "Book a Free Walking Tour and find local services, experiences, recommendations and support in Salvador, Bahia.",
         languageLabel: "Select your language",
         languageSelectorLabel: "Select language",
-        heroHelp: "How can we help?",
+        heroHelp: "Island Tours — 30% off",
         experiencesTitle: "To Know Salvador Experience",
         tapToWatch: "Tap to watch",
         questionsEyebrow: "Choose an option",
@@ -2257,6 +2298,31 @@
         footerLocation: "Salvador, Bahia, Brazil"
       }
     };
+
+    const collapsibleGroupLabels = document.querySelectorAll(".collapsible-group-label");
+
+    collapsibleGroupLabels.forEach((label) => {
+      const list = label.parentElement.querySelector(".question-list");
+
+      if (!list) return;
+
+      list.classList.add("group-collapsed");
+
+      const toggleGroup = () => {
+        const isOpen = label.getAttribute("aria-expanded") === "true";
+        label.setAttribute("aria-expanded", String(!isOpen));
+        label.classList.toggle("is-open", !isOpen);
+        list.classList.toggle("group-collapsed", isOpen);
+      };
+
+      label.addEventListener("click", toggleGroup);
+      label.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          toggleGroup();
+        }
+      });
+    });
 
     const languageButtons = document.querySelectorAll(".language-button");
     const languageSwitcher = document.querySelector(".language-switcher");
