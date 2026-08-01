@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Barraca da Família</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#ffe88c;
+background-image:
+radial-gradient(circle at top right,#fff4c8 0%,transparent 35%),
+radial-gradient(circle at bottom left,#ffd65c 0%,transparent 35%);
+color:#222;
+
+}
+
+header{
+
+background:linear-gradient(90deg,#c31818,#8b0000);
+padding:25px;
+text-align:center;
+color:white;
+box-shadow:0 4px 15px rgba(0,0,0,.25);
+
+}
+
+header h1{
+
+font-size:38px;
+
+}
+
+header p{
+
+margin-top:8px;
+font-size:18px;
+
+}
+
+.languages{
+
+display:flex;
+justify-content:center;
+gap:12px;
+margin-top:20px;
+
+}
+
+.languages a{
+
+background:#005bbb;
+color:white;
+padding:12px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+
+}
+
+.languages a:hover{
+
+background:#003d80;
+
+}
+
+.banner{
+
+margin:25px;
+background:white;
+border-radius:18px;
+padding:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+text-align:center;
+
+}
+
+.banner h2{
+
+font-size:34px;
+color:#b30000;
+margin-bottom:10px;
+
+}
+
+.banner p{
+
+font-size:18px;
+
+}
+
+.section{
+
+margin:25px;
+
+}
+
+.section-title{
+
+background:#0d5e34;
+color:white;
+padding:14px;
+font-size:26px;
+border-radius:12px;
+text-align:center;
+margin-bottom:18px;
+
+}
+
+.card{
+
+background:white;
+padding:18px;
+margin-bottom:16px;
+border-radius:14px;
+box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+}
+
+.food{
+
+font-size:20px;
+font-weight:600;
+
+}
+
+.price{
+
+font-size:22px;
+font-weight:bold;
+color:#b30000;
+
+}
+
+.obs{
+
+font-size:14px;
+color:#666;
+margin-top:6px;
+
+}
+
+.highlight{
+
+background:#fff3cd;
+border-left:8px solid #e10000;
+
+}
+
+.cta{
+
+background:#005bbb;
+color:white;
+padding:18px;
+text-align:center;
+border-radius:14px;
+margin:25px;
+font-size:20px;
+font-weight:bold;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h1>🎅 Barraca da Família</h1>
+
+<p>Sabores da Praia do Porto da Barra</p>
+
+<div class="languages">
+
+<a href="../en/">🇺🇸 English</a>
+
+<a href="../es/">🇪🇸 Español</a>
+
+</div>
+
+</header>
+
+<div class="banner">
+
+<h2>🍤 Cardápio Digital</h2>
+
+<p>Confira nossos pratos preparados na hora.</p>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+
+🍤 PETISCOS
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Carne do Sol com Aipim</div>
+
+<div class="obs">
+Acompanha aipim frito.
+</div>
+
+</div>
+
+<div class="price">R$ 85</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Picanha Acebolada</div>
+
+<div class="obs">
+Acompanha fritas.
+</div>
+
+</div>
+
+<div class="price">R$ 95</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Calabresa Acebolada</div>
+
+<div class="obs">
+Ideal para compartilhar.
+</div>
+
+</div>
+
+<div class="price">R$ 55</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Frango à Passarinho</div>
+
+<div class="obs">
+Porção crocante.
+</div>
+
+</div>
+
+<div class="price">R$ 58</div>
+
+</div>
+
+<div class="card highlight">
+
+<div>
+
+<div class="food">🐟 Pititinga Frita</div>
+
+<div class="obs">
+
+Especialidade da barraca.
+
+</div>
+
+</div>
+
+<div class="price">R$ 75</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+
+🍟 TIRA-GOSTO
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Batata Frita</div>
+
+</div>
+
+<div class="price">R$ 35</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Macaxeira Frita</div>
+
+</div>
+
+<div class="price">R$ 35</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Queijo Coalho</div>
+
+</div>
+
+<div class="price">R$ 30</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Aipim com Carne do Sol</div>
+
+</div>
+
+<div class="price">R$ 58</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+
+🍺 BEBIDAS
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Cerveja Long Neck</div>
+
+<div class="obs">
+Consulte as marcas disponíveis.
+</div>
+
+</div>
+
+<div class="price">R$ 15</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Heineken 600 ml</div>
+
+</div>
+
+<div class="price">R$ 22</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Original 600 ml</div>
+
+</div>
+
+<div class="price">R$ 20</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Budweiser</div>
+
+</div>
+
+<div class="price">R$ 16</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Skol</div>
+
+</div>
+
+<div class="price">R$ 15</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Água Mineral</div>
+
+</div>
+
+<div class="price">R$ 6</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Água com Gás</div>
+
+</div>
+
+<div class="price">R$ 7</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Refrigerante Lata</div>
+
+</div>
+
+<div class="price">R$ 8</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Suco Natural</div>
+
+<div class="obs">
+Limão • Maracujá • Abacaxi • Cajá
+</div>
+
+</div>
+
+<div class="price">R$ 12</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+
+🍹 CAIPIRINHAS & ROSKAS
+
+</div>
+
+<div class="card highlight">
+
+<div>
+
+<div class="food">Caipirinha Tradicional</div>
+
+<div class="obs">
+Limão • Cachaça
+</div>
+
+</div>
+
+<div class="price">R$ 18</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Caipiroska de Vodka</div>
+
+<div class="obs">
+Escolha sua fruta favorita.
+</div>
+
+</div>
+
+<div class="price">R$ 22</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Caipiroska Premium</div>
+
+<div class="obs">
+Absolut ou Smirnoff.
+</div>
+
+</div>
+
+<div class="price">R$ 28</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Caipiríssima</div>
+
+<div class="obs">
+Rum + frutas frescas.
+</div>
+
+</div>
+
+<div class="price">R$ 22</div>
+
+</div>
+
+<div class="card">
+
+<div>
+
+<div class="food">Caipifruta Especial</div>
+
+<div class="obs">
+Morango • Kiwi • Maracujá • Abacaxi
+</div>
+
+</div>
+
+<div class="price">R$ 25</div>
+
+</div>
+
+<div class="cta">
+
+🌴 Produtos preparados na hora.<br>
+
+Aproveite sua experiência na Praia do Porto da Barra!
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+
+🚶 PELOURINHO FREE WALKING TOUR
+
+</div>
+
+<div class="card highlight" style="display:block;text-align:center;">
+
+<h2 style="color:#b30000;margin-bottom:12px;">
+Conheça a verdadeira história de Salvador
+</h2>
+
+<p style="font-size:18px;line-height:1.7;margin-bottom:18px;">
+
+Explore o Centro Histórico com um guia local apaixonado pela cultura baiana.
+
+Conheça curiosidades, história, arquitetura, religiões afro-brasileiras, gastronomia e muito mais.
+
+</p>
+
+<a href="https://wa.me/5571993719791"
+
+style="display:inline-block;
+background:#005bbb;
+color:#fff;
+padding:16px 28px;
+border-radius:12px;
+text-decoration:none;
+font-size:20px;
+font-weight:bold;">
+
+🚶 Reservar Free Walking Tour
+
+</a>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<div class="section-title">
+
+🏝️ PASSEIO ÀS ILHAS
+
+</div>
+
+<div class="card highlight" style="display:block;text-align:center;background:#fff8d6;">
+
+<h1 style="font-size:42px;color:#d10000;margin-bottom:10px;">
+
+🔥 30% OFF
+
+</h1>
+
+<h2 style="margin-bottom:15px;color:#0d5e34;">
+
+Oferta exclusiva para clientes da Barraca da Família
+
+</h2>
+
+<p style="font-size:18px;line-height:1.8;margin-bottom:22px;">
+
+Visite as paradisíacas ilhas da Baía de Todos-os-Santos.
+
+✔ Transporte
+
+✔ Praias paradisíacas
+
+✔ Águas cristalinas
+
+✔ Passeio de dia inteiro
+
+</p>
+
+<a href="https://wa.me/5511952473756"
+
+style="display:inline-block;
+background:#0d5e34;
+color:#fff;
+padding:18px 32px;
+border-radius:12px;
+text-decoration:none;
+font-size:22px;
+font-weight:bold;">
+
+🏝️ Quero meu desconto
+
+</a>
+
+</div>
+
+</div>
+
+<div style="margin:35px;">
+
+<div style="
+background:#ffffff;
+border-radius:18px;
+padding:22px;
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+text-align:center;">
+
+<h2 style="color:#b30000;">
+
+🎅 Obrigado pela preferência!
+
+</h2>
+
+<p style="margin-top:15px;font-size:17px;line-height:1.8;">
+
+Esperamos que você aproveite sua experiência na
+
+<strong>Praia do Porto da Barra.</strong>
+
+</p>
+
+<p style="margin-top:15px;font-size:16px;color:#666;">
+
+Aceitamos dinheiro, PIX e cartões.
+
+</p>
+
+</div>
+
+</div>
+
+<footer style="
+background:linear-gradient(90deg,#c31818,#8b0000);
+color:white;
+text-align:center;
+padding:28px;
+margin-top:30px;">
+
+<h2>
+
+🌴 Barraca da Família
+
+</h2>
+
+<p style="margin-top:10px;">
+
+Porto da Barra • Salvador • Bahia
+
+</p>
+
+<p style="margin-top:8px;">
+
+Bom atendimento, comida saborosa e a melhor experiência na praia.
+
+</p>
+
+</footer>
+
+</body>
+
+</html>
