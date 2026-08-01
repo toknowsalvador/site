@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
 
@@ -745,6 +745,87 @@
       margin-bottom: 0;
     }
 
+
+
+    /* CATEGORY ACCORDIONS */
+    .category-accordion {
+      margin-top: 18px;
+      border: 1px solid rgba(17, 17, 17, 0.12);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.6);
+      overflow: hidden;
+    }
+
+    .category-accordion:first-of-type {
+      margin-top: 0;
+    }
+
+    .category-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 68px;
+      padding: 18px 20px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .category-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .category-summary .group-label {
+      flex: 1;
+      margin: 0;
+      color: #6f6556;
+      font-size: 12px;
+    }
+
+    .category-summary .group-label::after {
+      display: none;
+    }
+
+    .category-arrow {
+      display: flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #111111;
+      color: #ffffff;
+      font-size: 20px;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .category-accordion[open] .category-arrow {
+      transform: rotate(180deg);
+      background: #8b6d29;
+    }
+
+    .category-content {
+      padding: 0 14px 16px;
+    }
+
+    .islands-learn-more {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 46px;
+      margin-top: 8px;
+      padding: 0 17px;
+      border-radius: 999px;
+      background: #111111;
+      color: #ffffff;
+      font-weight: 800;
+    }
+
+    .islands-learn-more span {
+      color: var(--gold-light);
+    }
+
     .language-culture-section {
       padding: 42px 0 44px;
       background: #efe8da;
@@ -1340,8 +1421,13 @@
           Reserve um Free Walking Tour
         </a>
 
-        <a href="#questions" class="hero-help">
-          Como podemos ajudar?
+        <a
+          href="https://wa.me/5511952473756?text=Ol%C3%A1%21%20Vi%20a%20oferta%20de%2030%25%20OFF%20para%20passeios%20%C3%A0s%20ilhas%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+          class="hero-help"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Passeio às ilhas — 30% OFF
         </a>
       </div>
     </div>
@@ -1363,11 +1449,11 @@
           English
         </a>
 
-        <a href="/pt/" class="language-button">
-          Español
+        <a href="/pt/" class="language-button active" aria-current="page">
+          Português
         </a>
 
-        <a href="/es/" class="language-button active" aria-current="page">
+        <a href="/es/" class="language-button">
           Español
         </a>
       </nav>
@@ -1381,18 +1467,6 @@
   <section class="stories-section">
 
     <div class="container">
-
-      <div class="stories-header">
-
-        <h2 class="stories-title">
-          Experiência To Know Salvador
-        </h2>
-
-        <p class="stories-note">
-          Toque para assistir
-        </p>
-
-      </div>
 
       <div class="stories-row">
 
@@ -1471,31 +1545,15 @@
 
     <div class="container">
 
-      <div class="questions-intro">
-
-        <p class="eyebrow">
-          Escolha uma opção
-        </p>
-
-        <h2 class="section-title">
-          O que você precisa hoje?
-        </h2>
-
-        <p>
-          Toque em uma opção para ver a resposta ou abrir o WhatsApp com uma mensagem pronta.
-        </p>
-
-      </div>
-
 
       <!-- INFORMATION -->
-      <section class="question-group">
-
-        <h3 class="group-label" data-group-label="information">
-          Informações
-        </h3>
-
-        <div class="question-list">
+      <details class="category-accordion">
+        <summary class="category-summary">
+          <h3 class="group-label" data-group-label="information">Informações</h3>
+          <span class="category-arrow">⌄</span>
+        </summary>
+        <div class="category-content">
+          <div class="question-list">
 
           <details class="info-accordion">
             <summary>
@@ -1564,18 +1622,18 @@
           </details>
 
         </div>
-
-      </section>
+        </div>
+      </details>
 
 
       <!-- BEACHES AND EXPERIENCES -->
-      <section class="question-group">
-
-        <h3 class="group-label" data-group-label="beaches">
-          Praias e experiências
-        </h3>
-
-        <div class="question-list">
+      <details class="category-accordion">
+        <summary class="category-summary">
+          <h3 class="group-label" data-group-label="beaches">Praias e experiências</h3>
+          <span class="category-arrow">⌄</span>
+        </summary>
+        <div class="category-content">
+          <div class="question-list">
 
           <details class="info-accordion">
             <summary>
@@ -1596,11 +1654,25 @@
             <span class="question-arrow">→</span>
           </a>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="islands">
-            <span class="question-icon">🏝️</span>
-            <span class="question-text">Quero visitar as ilhas.</span>
-            <span class="question-arrow">→</span>
-          </a>
+          <details class="info-accordion islands-accordion">
+            <summary>
+              <span class="question-icon">🏝️</span>
+              <span class="question-text">Quero visitar as ilhas.</span>
+              <span class="question-arrow">→</span>
+            </summary>
+            <div class="inline-answer islands-answer">
+              <p><strong>Destinos disponíveis:</strong></p>
+              <p>Morro de São Paulo, Ilha dos Frades, Ilha de Itaparica, Itacaré e Boipeba.</p>
+              <a
+                class="islands-learn-more"
+                href="https://wa.me/5511952473756?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20os%20passeios%20para%20Morro%20de%20S%C3%A3o%20Paulo%2C%20Ilha%20dos%20Frades%2C%20Ilha%20de%20Itaparica%2C%20Itacar%C3%A9%20e%20Boipeba."
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Saber mais <span>→</span>
+              </a>
+            </div>
+          </details>
 
           <a href="#" class="whatsapp-question question-card" data-question-key="favelaTour">
             <span class="question-icon">🏘️</span>
@@ -1639,18 +1711,18 @@
           </a>
 
         </div>
-
-      </section>
+        </div>
+      </details>
 
 
       <!-- PORTO DA BARRA -->
-      <section class="question-group">
-
-        <h3 class="group-label" data-group-label="portoDaBarra">
-          Porto da Barra
-        </h3>
-
-        <div class="question-list">
+      <details class="category-accordion">
+        <summary class="category-summary">
+          <h3 class="group-label" data-group-label="portoDaBarra">Porto da Barra</h3>
+          <span class="category-arrow">⌄</span>
+        </summary>
+        <div class="category-content">
+          <div class="question-list">
 
           <a href="#" class="whatsapp-question question-card" data-question-key="paddleKayak">
             <span class="question-icon">🛶</span>
@@ -1671,18 +1743,18 @@
           </a>
 
         </div>
-
-      </section>
+        </div>
+      </details>
 
 
       <!-- PERSONAL CARE -->
-      <section class="question-group">
-
-        <h3 class="group-label" data-group-label="personalCare">
-          Cuidados pessoais
-        </h3>
-
-        <div class="question-list">
+      <details class="category-accordion">
+        <summary class="category-summary">
+          <h3 class="group-label" data-group-label="personalCare">Cuidados pessoais</h3>
+          <span class="category-arrow">⌄</span>
+        </summary>
+        <div class="category-content">
+          <div class="question-list">
 
           <a href="#" class="whatsapp-question question-card" data-question-key="hairMakeup">
             <span class="question-icon">✨</span>
@@ -1715,8 +1787,8 @@
           </a>
 
         </div>
-
-      </section>
+        </div>
+      </details>
 
 
       <!-- TO KNOW BRAZIL NETWORK -->
@@ -2122,7 +2194,7 @@
         metaDescription: "Reserve um Free Walking Tour e encontre conveniências, experiências, recomendações e suporte local em Salvador, Bahia.",
         languageLabel: "Selecione seu idioma",
         languageSelectorLabel: "Selecionar idioma",
-        heroHelp: "Como podemos ajudar?",
+        heroHelp: "Passeio às ilhas — 30% OFF",
         experiencesTitle: "Experiência To Know Salvador",
         tapToWatch: "Toque para assistir",
         questionsEyebrow: "Escolha uma opção",
