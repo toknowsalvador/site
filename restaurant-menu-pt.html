@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Van Gogh Bar & Restaurante | Cardápio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#f4efe8;
+color:#222;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+}
+
+header{
+height:340px;
+
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url('https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1500&q=80');
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+padding:20px;
+}
+
+header h1{
+color:white;
+font-size:54px;
+font-weight:700;
+letter-spacing:2px;
+}
+
+header p{
+color:white;
+margin-top:18px;
+font-size:18px;
+max-width:700px;
+line-height:1.8;
+}
+
+.language{
+background:#ffffff;
+
+display:flex;
+justify-content:center;
+gap:15px;
+
+padding:18px;
+flex-wrap:wrap;
+
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.language a{
+background:#c96b29;
+color:white;
+
+padding:10px 22px;
+border-radius:40px;
+
+font-weight:600;
+transition:.3s;
+}
+
+.language a:hover{
+background:#a64f16;
+transform:translateY(-2px);
+}
+
+.language a.active{
+background:#7f3511;
+}
+
+.container{
+width:92%;
+max-width:1200px;
+margin:auto;
+padding:70px 0;
+}
+
+.section-title{
+font-size:38px;
+color:#b45b21;
+margin-bottom:18px;
+}
+
+.section-description{
+font-size:17px;
+line-height:1.9;
+margin-bottom:45px;
+color:#555;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+border-radius:18px;
+padding:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card h3{
+color:#b45b21;
+margin-bottom:18px;
+font-size:24px;
+}
+
+.card ul{
+list-style:none;
+}
+
+.card li{
+padding:10px 0;
+border-bottom:1px solid #ececec;
+font-size:15px;
+
+display:flex;
+justify-content:space-between;
+align-items:flex-start;
+gap:15px;
+}
+
+.card li:last-child{
+border:none;
+}
+
+.price{
+font-weight:700;
+color:#b45b21;
+white-space:nowrap;
+}
+
+.note{
+border:none !important;
+padding-top:18px !important;
+line-height:1.7;
+color:#666;
+display:block !important;
+}
+
+footer{
+background:#222;
+color:white;
+text-align:center;
+padding:45px 20px;
+}
+
+footer h2{
+margin-bottom:15px;
+font-size:28px;
+}
+
+footer p{
+opacity:.85;
+line-height:1.8;
+}
+
+@media(max-width:768px){
+
+header{
+height:270px;
+}
+
+header h1{
+font-size:36px;
+}
+
+header p{
+font-size:15px;
+line-height:1.6;
+}
+
+.language{
+gap:8px;
+padding:14px 8px;
+}
+
+.language a{
+padding:9px 13px;
+font-size:13px;
+}
+
+.container{
+padding:45px 0;
+}
+
+.section-title{
+font-size:29px;
+}
+
+.section-description{
+font-size:16px;
+}
+
+.card{
+padding:21px;
+}
+
+.card h3{
+font-size:21px;
+}
+
+.card li{
+font-size:14px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div>
+
+<h1>Van Gogh Bar & Restaurante</h1>
+
+<p>
+Sabores tradicionais da Bahia, frutos do mar frescos, coquetéis artesanais e momentos inesquecíveis à beira-mar.
+</p>
+
+</div>
+
+</header>
+
+<nav class="language" aria-label="Seleção de idioma">
+
+<a href="restaurant-menu.html">🇬🇧 English</a>
+
+<a class="active" href="restaurant-menu-pt.html">🇧🇷 Português</a>
+
+<a href="restaurant-menu-es.html">🇪🇸 Español</a>
+
+</nav>
+
+<main class="container">
+
+<h2 class="section-title">
+Onde o sabor encontra a vista perfeita!
+</h2>
+
+<p class="section-description">
+
+Venha saborear os nossos pratos deliciosos.
+
+<br><br>
+
+A autêntica moqueca baiana.
+
+<br><br>
+
+Experiência inesquecível com vista espetacular!
+
+</p>
+
+<!-- ===================== PRATOS INDIVIDUAIS ===================== -->
+
+<h2 class="section-title">
+Pratos Individuais
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🥩 Carne bovina</h3>
+
+<ul>
+
+<li>
+<span>Contrafilé completo</span>
+<span class="price">R$ 46,90</span>
+</li>
+
+<li>
+<span>Contrafilé simples</span>
+<span class="price">R$ 44,90</span>
+</li>
+
+<li>
+<span>Carne do sol completa</span>
+<span class="price">R$ 50,90</span>
+</li>
+
+<li>
+<span>Carne do sol simples</span>
+<span class="price">R$ 47,90</span>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🍗 Frango</h3>
+
+<ul>
+
+<li>
+<span>Frango completo</span>
+<span class="price">R$ 45,90</span>
+</li>
+
+<li>
+<span>Frango simples</span>
+<span class="price">R$ 42,90</span>
+</li>
+
+<li>
+<span>Frango à parmegiana</span>
+<span class="price">R$ 52,90</span>
+</li>
+
+<li>
+<span>Frango à milanesa</span>
+<span class="price">R$ 45,90</span>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🐖 Carne suína</h3>
+
+<ul>
+
+<li>
+<span>Bisteca suína completa</span>
+<span class="price">R$ 36,90</span>
+</li>
+
+<li>
+<span>Bisteca suína simples</span>
+<span class="price">R$ 33,90</span>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🐟 Peixes e frutos do mar</h3>
+
+<ul>
+
+<li>
+<span>Peixe completo</span>
+<span class="price">R$ 46,90</span>
+</li>
+
+<li>
+<span>Peixe simples</span>
+<span class="price">R$ 43,90</span>
+</li>
+
+<li>
+<span>Moqueca de peixe</span>
+<span class="price">R$ 60,90</span>
+</li>
+
+<li>
+<span>Moqueca de camarão</span>
+<span class="price">R$ 62,90</span>
+</li>
+
+<li>
+<span>Risoto de camarão</span>
+<span class="price">R$ 74,90</span>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🍝 Massas</h3>
+
+<ul>
+
+<li>
+<span>Espaguete à bolonhesa</span>
+<span class="price">R$ 48,00</span>
+</li>
+
+<li>
+<span>Espaguete ao molho de camarão</span>
+<span class="price">R$ 58,90</span>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🌱 Vegetariano</h3>
+
+<ul>
+
+<li>
+<span>Moqueca vegana de banana-da-terra</span>
+<span class="price">R$ 48,00</span>
+</li>
+
+<li class="note">
+Acompanha arroz, pirão e farofa.
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- ===================== PETISCOS ===================== -->
+
+<h2 class="section-title" style="margin-top:70px;">
+Petiscos e Aperitivos
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🍤 Frutos do mar</h3>
+
+<ul>
+
+<li>
+<span>Bolinho de bacalhau — 8 unidades</span>
+<span class="price">R$ 38,90</span>
+</li>
+
+<li>
+<span>Bolinho de camarão — 8 unidades</span>
+<span class="price">R$ 38,90</span>
+</li>
+
+<li>
+<span>Camarão ao alho e óleo</span>
+<span class="price">R$ 50,00</span>
+</li>
+
+<li>
+<span>Camarão à milanesa</span>
+<span class="price">R$ 56,00</span>
+</li>
+
+<li>
+<span>Isca de peixe</span>
+<span class="price">R$ 56,90</span>
+</li>
+
+<li>
+<span>Casquinha de siri</span>
+<span class="price">R$ 38,90</span>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🥩 Carnes</h3>
+
+<ul>
+
+<li>
+<span>Carne do sol</span>
+<span class="price">R$ 52,90</span>
+</li>
+
+<li>
+<span>Carne de fumeiro acebolada</span>
+<span class="price">R$ 52,90</span>
+</li>
+
+<li>
+<span>Filé aperitivo</span>
+<span class="price">R$ 64,90</span>
+</li>
+
+<li>
+<span>Isca de frango</span>
+<span class="price">R$ 48,90</span>
+</li>
+
+<li>
+<span>Calabresa acebolada</span>
+<span class="price">R$ 35,90</span>
+</li>
+
+<li>
+<span>Frango à passarinha</span>
+<span class="price">R$ 45,00</span>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🥣 Caldos</h3>
+
+<ul>
+
+<li>
+<span>Caldo de sururu</span>
+<span class="price">R$ 35,90</span>
+</li>
+
+<li>
+<span>Caldo de camarão</span>
+<span class="price">R$ 35,90</span>
+</li>
+
+<li>
+<span>Caldo de feijão</span>
+<span class="price">R$ 23,90</span>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🍟 Acompanhamentos</h3>
+
+<ul>
+
+<li>
+<span>Batata frita</span>
+<span class="price">R$ 33,00</span>
+</li>
+
+<li>
+<span>Batata frita Van Gogh com cheddar e bacon</span>
+<span class="price">R$ 39,90</span>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- ===================== FEITOS COM AIPIM ===================== -->
+
+<h2 class="section-title" style="margin-top:70px;">
+Feitos com Aipim
+</h2>
+
+<p class="section-description">
+Purê cremoso de aipim assado com recheios especiais.
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🥘 Escondidinhos</h3>
+
+<ul>
+
+<li>
+<span>Escondidinho de carne do sol</span>
+<span class="price">R$ 62,90</span>
+</li>
+
+<li>
+<span>Escondidinho de camarão</span>
+<span class="price">R$ 74,90</span>
+</li>
+
+<li>
+<span>Escondidinho de frango</span>
+<span class="price">R$ 56,90</span>
+</li>
+
+<li>
+<span>Escondidinho de fumeiro</span>
+<span class="price">R$ 58,90</span>
+</li>
+
+<li>
+<span>Escondidinho de calabresa</span>
+<span class="price">R$ 53,90</span>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- ===================== DRINKS ===================== -->
+
+<h2 class="section-title" style="margin-top:70px;">
+Drinks
+</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🍹 Drinks clássicos</h3>
+
+<ul>
+
+<li><span>Caipirinha</span><span class="price">R$ 20,90</span></li>
+
+<li><span>Caipiríssima</span><span class="price">R$ 22,90</span></li>
+
+<li>
+<span>Caipiroska — abacaxi, manga, limão ou maracujá</span>
+<span class="price">R$ 23,90</span>
+</li>
+
+<li>
+<span>Caipiroska — morango ou kiwi</span>
+<span class="price">R$ 27,90</span>
+</li>
+
+<li><span>Sakeroska</span><span class="price">R$ 27,90</span></li>
+
+<li><span>Cuba Libre</span><span class="price">R$ 24,90</span></li>
+
+<li><span>Gin Tônica</span><span class="price">R$ 24,90</span></li>
+
+<li><span>Mimosa Gin</span><span class="price">R$ 30,90</span></li>
+
+<li><span>Cozumel</span><span class="price">R$ 20,90</span></li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🍸 Especiais da casa</h3>
+
+<ul>
+
+<li><span>Frozen de morango</span><span class="price">R$ 28,90</span></li>
+
+<li><span>Frozen de caipirinha</span><span class="price">R$ 26,90</span></li>
+
+<li><span>Van Gogh</span><span class="price">R$ 30,90</span></li>
+
+<li><span>Aperol da Eva</span><span class="price">R$ 36,90</span></li>
+
+<li><span>Lagoa Azul</span><span class="price">R$ 36,90</span></li>
+
+<li><span>Coquetel de morango</span><span class="price">R$ 28,90</span></li>
+
+<li>
+<span>Coquetel de morango sem álcool</span>
+<span class="price">R$ 22,90</span>
+</li>
+
+<li><span>Coquetel de frutas</span><span class="price">R$ 28,90</span></li>
+
+<li><span>Tropical da Eva</span><span class="price">R$ 40,00</span></li>
+
+<li><span>Piña Colada</span><span class="price">R$ 38,90</span></li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🍺 Cervejas</h3>
+
+<ul>
+
+<li><span>Skol 600 ml</span><span class="price">R$ 12,90</span></li>
+
+<li><span>Heineken 600 ml</span><span class="price">R$ 19,90</span></li>
+
+<li><span>Eisenbahn 600 ml</span><span class="price">R$ 13,90</span></li>
+
+<li><span>Spaten 600 ml</span><span class="price">R$ 16,90</span></li>
+
+<li><span>Antarctica Original 600 ml</span><span class="price">R$ 14,90</span></li>
+
+<li><span>Budweiser 600 ml</span><span class="price">R$ 14,90</span></li>
+
+<li><span>Beck’s 600 ml</span><span class="price">R$ 16,90</span></li>
+
+<li><span>Amstel 600 ml</span><span class="price">R$ 15,90</span></li>
+
+<li><span>Brahma Duplo Malte 600 ml</span><span class="price">R$ 12,90</span></li>
+
+<li><span>Brahma Chopp 600 ml</span><span class="price">R$ 12,90</span></li>
+
+<li><span>Stella Artois 600 ml</span><span class="price">R$ 17,90</span></li>
+
+<li><span>Heineken Long Neck</span><span class="price">R$ 13,90</span></li>
+
+<li><span>Eisenbahn Long Neck</span><span class="price">R$ 10,90</span></li>
+
+<li><span>Stella Artois Long Neck</span><span class="price">R$ 10,90</span></li>
+
+<li><span>Heineken sem álcool</span><span class="price">R$ 13,90</span></li>
+
+<li><span>Budweiser sem álcool</span><span class="price">R$ 12,90</span></li>
+
+<li><span>Malzbier</span><span class="price">R$ 9,90</span></li>
+
+<li><span>Smirnoff Ice</span><span class="price">R$ 13,90</span></li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🥃 Bar quente</h3>
+
+<ul>
+
+<li><span>Johnnie Walker Black Label</span><span class="price">R$ 20,90</span></li>
+
+<li><span>Johnnie Walker Red Label</span><span class="price">R$ 16,00</span></li>
+
+<li><span>Bell’s</span><span class="price">R$ 11,90</span></li>
+
+<li><span>Teacher’s</span><span class="price">R$ 11,90</span></li>
+
+<li><span>Old Eight</span><span class="price">R$ 11,90</span></li>
+
+<li><span>Fundador</span><span class="price">R$ 19,00</span></li>
+
+<li><span>Domecq</span><span class="price">R$ 9,00</span></li>
+
+<li><span>Campari</span><span class="price">R$ 12,90</span></li>
+
+<li><span>Rum</span><span class="price">R$ 12,90</span></li>
+
+<li><span>Vodka</span><span class="price">R$ 12,90</span></li>
+
+<li><span>Genebra</span><span class="price">R$ 9,00</span></li>
+
+<li><span>Vodka Absolut</span><span class="price">R$ 20,00</span></li>
+
+<li><span>Ypióca</span><span class="price">R$ 7,00</span></li>
+
+<li><span>51</span><span class="price">R$ 7,00</span></li>
+
+<li><span>Seleta</span><span class="price">R$ 12,90</span></li>
+
+<li><span>Bacardi</span><span class="price">R$ 13,90</span></li>
+
+<li><span>Martini</span><span class="price">R$ 12,90</span></li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🍷 Vinhos</h3>
+
+<ul>
+
+<li><span>Nacional — garrafa</span><span class="price">R$ 65,90</span></li>
+
+<li><span>Importado — garrafa</span><span class="price">R$ 80,00</span></li>
+
+<li><span>Taça de vinho</span><span class="price">R$ 20,00</span></li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🥤 Bebidas sem álcool</h3>
+
+<ul>
+
+<li><span>Refrigerante lata ou KS</span><span class="price">R$ 8,90</span></li>
+
+<li><span>Schweppes Citrus</span><span class="price">R$ 9,50</span></li>
+
+<li><span>Água tônica</span><span class="price">R$ 9,90</span></li>
+
+<li><span>Água mineral</span><span class="price">R$ 4,00</span></li>
+
+<li><span>Água mineral com gás</span><span class="price">R$ 5,00</span></li>
+
+<li><span>Chá gelado</span><span class="price">R$ 10,90</span></li>
+
+<li><span>H2OH! ou Sprite Lemon Fresh</span><span class="price">R$ 9,90</span></li>
+
+<li><span>Energético Monster</span><span class="price">R$ 15,00</span></li>
+
+<li><span>Energético Red Bull</span><span class="price">R$ 16,90</span></li>
+
+<li><span>Pink Lemonade</span><span class="price">R$ 24,90</span></li>
+
+<li><span>Soda artesanal</span><span class="price">R$ 24,90</span></li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🧃 Sucos no copo</h3>
+
+<ul>
+
+<li>
+<span>Limão, manga ou abacaxi</span>
+<span class="price">R$ 13,00</span>
+</li>
+
+<li>
+<span>Maracujá, morango ou laranja</span>
+<span class="price">R$ 14,90</span>
+</li>
+
+<li>
+<span>Suco de laranja integral</span>
+<span class="price">R$ 16,90</span>
+</li>
+
+<li>
+<span>Suco bifásico de laranja com morango</span>
+<span class="price">R$ 19,90</span>
+</li>
+
+</ul>
+
+</div>
+
+<div class="card">
+
+<h3>🧃 Sucos na jarra</h3>
+
+<ul>
+
+<li>
+<span>Limão, manga ou abacaxi</span>
+<span class="price">R$ 24,90</span>
+</li>
+
+<li>
+<span>Maracujá, morango ou laranja</span>
+<span class="price">R$ 28,90</span>
+</li>
+
+<li>
+<span>Suco de laranja integral</span>
+<span class="price">R$ 30,90</span>
+</li>
+
+<li>
+<span>Sumo de limão</span>
+<span class="price">R$ 3,00</span>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+
+<h2>Obrigado pela visita</h2>
+
+<p>
+
+Esperamos que você aproveite a sua refeição e tenha uma excelente experiência no
+<strong>Van Gogh Bar & Restaurante</strong>.
+
+</p>
+
+<br>
+
+<p style="font-size:14px;opacity:.75;">
+
+Os produtos e preços do cardápio podem ser alterados sem aviso prévio.
+
+</p>
+
+</footer>
+
+</body>
+
+</html>
