@@ -1361,6 +1361,365 @@
         font-size: 11px;
       }
     }
+
+    /* =========================================================
+       VISUAL REFRESH — LANGUAGE / IMMERSION / INFORMATION CARDS
+       ========================================================= */
+
+    .hero-actions {
+      width: min(100%, 430px);
+      margin: 0 auto;
+    }
+
+    .hero-immersion-button {
+      display: inline-flex;
+      min-height: 54px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 25px;
+      border: 1px solid rgba(234, 213, 157, 0.68);
+      border-radius: 999px;
+      background: rgba(200, 168, 90, 0.12);
+      color: var(--gold-light);
+      font-size: clamp(13px, 3.7vw, 16px);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+      transition:
+        transform 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .hero-immersion-button:hover {
+      transform: translateY(-3px);
+      background: rgba(200, 168, 90, 0.22);
+      border-color: var(--gold-light);
+    }
+
+    .language-section {
+      padding: 28px 0 30px;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(200, 168, 90, 0.16), transparent 42%),
+        #070707;
+    }
+
+    .language-label {
+      margin-bottom: 14px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+    }
+
+    .language-switcher {
+      width: min(100%, 520px);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 7px;
+      border: 1px solid rgba(234, 213, 157, 0.28);
+      background: rgba(255, 255, 255, 0.065);
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .language-button {
+      min-height: 46px;
+      padding: 0 10px;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 12px;
+    }
+
+    .language-button.active {
+      background: linear-gradient(135deg, #d8ba72, #c8a85a);
+      color: #0b0b0b;
+      box-shadow: 0 8px 24px rgba(200, 168, 90, 0.28);
+    }
+
+    /* PORTUGUESE IMMERSION */
+
+    .immersion-section {
+      position: relative;
+      overflow: hidden;
+      padding: 70px 0 78px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(200, 168, 90, 0.18), transparent 30%),
+        radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.06), transparent 30%),
+        #0a0a0a;
+    }
+
+    .immersion-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(120deg, transparent 0 45%, rgba(200, 168, 90, 0.035) 45% 55%, transparent 55% 100%);
+    }
+
+    .immersion-layout {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-items: center;
+      gap: 34px;
+    }
+
+    .immersion-media {
+      display: flex;
+      justify-content: center;
+    }
+
+    .immersion-video-frame {
+      position: relative;
+      width: min(76vw, 320px);
+      aspect-ratio: 9 / 16;
+      overflow: hidden;
+      border: 1px solid rgba(234, 213, 157, 0.34);
+      border-radius: 28px;
+      background: #111111;
+      box-shadow:
+        0 30px 70px rgba(0, 0, 0, 0.48),
+        0 0 0 8px rgba(255, 255, 255, 0.025);
+    }
+
+    .immersion-video-frame video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #111111;
+    }
+
+    .immersion-copy-wrap {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .immersion-title {
+      margin: 10px 0 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 9vw, 52px);
+      line-height: 1.03;
+      letter-spacing: -0.025em;
+    }
+
+    .immersion-copy {
+      margin: 18px auto 0;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .immersion-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 8px 12px;
+      border: 1px solid rgba(234, 213, 157, 0.2);
+      border-radius: 999px;
+      background: rgba(200, 168, 90, 0.08);
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .immersion-button {
+      display: inline-flex;
+      min-height: 56px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 24px;
+      padding: 0 24px;
+      border-radius: 16px;
+      background: var(--gold);
+      color: #111111;
+      font-size: 15px;
+      font-weight: 800;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.26);
+      transition:
+        transform 180ms ease,
+        background 180ms ease;
+    }
+
+    .immersion-button:hover {
+      transform: translateY(-2px);
+      background: #d7ba73;
+    }
+
+    /* INFORMATION / BEACHES / EXPERIENCES — richer visual treatment */
+
+    .questions-section {
+      position: relative;
+      overflow: hidden;
+      padding: 78px 0 64px;
+      background:
+        radial-gradient(circle at 8% 3%, rgba(200, 168, 90, 0.22), transparent 25%),
+        radial-gradient(circle at 94% 32%, rgba(120, 102, 68, 0.13), transparent 26%),
+        linear-gradient(180deg, #171510 0%, #0e0e0d 52%, #15130f 100%);
+      color: #ffffff;
+    }
+
+    .questions-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.45;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, black, transparent 84%);
+    }
+
+    .questions-section > .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .question-group {
+      margin-top: 34px;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 28px;
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025));
+      box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .question-group:first-of-type {
+      margin-top: 0;
+    }
+
+    .group-label {
+      margin: 0 0 16px;
+      color: var(--gold-light);
+      font-size: 11px;
+    }
+
+    .group-label::after {
+      background: linear-gradient(
+        to right,
+        rgba(234, 213, 157, 0.4),
+        rgba(255, 255, 255, 0.04)
+      );
+    }
+
+    .collapsible-group-label::before {
+      background: var(--gold);
+      color: #111111;
+      box-shadow: 0 5px 16px rgba(200, 168, 90, 0.2);
+    }
+
+    .collapsible-group-label.is-open::before {
+      background: var(--gold-light);
+      color: #111111;
+    }
+
+    .info-accordion,
+    .question-card {
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      background: rgba(255, 255, 255, 0.055);
+      box-shadow: none;
+    }
+
+    .info-accordion:hover,
+    .question-card:hover {
+      border-color: rgba(234, 213, 157, 0.4);
+      background: rgba(255, 255, 255, 0.09);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .question-icon {
+      background: rgba(200, 168, 90, 0.14);
+      color: var(--gold-light);
+    }
+
+    .question-text {
+      color: rgba(255, 255, 255, 0.91);
+    }
+
+    .question-arrow {
+      background: rgba(200, 168, 90, 0.95);
+      color: #111111;
+    }
+
+    .info-accordion[open] .question-arrow {
+      background: var(--gold-light);
+      color: #111111;
+    }
+
+    .inline-answer {
+      color: rgba(255, 255, 255, 0.68);
+    }
+
+    .inline-answer strong {
+      color: var(--gold-light);
+    }
+
+    .islands-options p {
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .islands-more-button {
+      background: var(--gold);
+      color: #111111;
+    }
+
+    @media (min-width: 760px) {
+      .immersion-layout {
+        grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+        gap: 56px;
+      }
+
+      .immersion-copy-wrap {
+        margin: 0;
+        text-align: left;
+      }
+
+      .immersion-copy {
+        margin-left: 0;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .language-switcher {
+        gap: 5px;
+        padding: 5px;
+      }
+
+      .language-button {
+        min-height: 43px;
+        padding: 0 5px;
+        font-size: 10.5px;
+      }
+
+      .question-group {
+        padding: 15px;
+        border-radius: 23px;
+      }
+
+      .immersion-section {
+        padding: 56px 0 62px;
+      }
+
+      .immersion-video-frame {
+        width: min(74vw, 290px);
+        border-radius: 24px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1396,6 +1755,13 @@
         >
           Island Tours — 30% off
         </a>
+
+        <a
+          href="#portuguese-immersion"
+          class="hero-immersion-button"
+        >
+          Portuguese Immersion Program
+        </a>
       </div>
     </div>
 
@@ -1413,15 +1779,15 @@
 
       <nav class="language-switcher" aria-label="Select language">
         <a href="/" class="language-button active" aria-current="page">
-          English
+          🇬🇧 English
         </a>
 
         <a href="/pt/" class="language-button">
-          Português
+          🇧🇷 Português
         </a>
 
         <a href="/es/" class="language-button">
-          Español
+          🇪🇸 Español
         </a>
       </nav>
 
@@ -1430,75 +1796,56 @@
   </section>
 
 
-  <!-- STORIES -->
-  <section class="stories-section">
+  <!-- PORTUGUESE IMMERSION -->
+  <section id="portuguese-immersion" class="immersion-section">
 
     <div class="container">
 
-      <div class="stories-row">
+      <div class="immersion-layout">
 
-        <a
-          href="/public/b36a0e5b002c4f769caa2dff38a529f5.mp4"
-          class="story"
-          aria-label="Watch Chaka's experience"
-        >
+        <div class="immersion-media">
+          <div class="immersion-video-frame">
+            <video
+              src="/public/a35354bcf194429694c93e4c90198d91.mp4"
+              controls
+              playsinline
+              preload="metadata"
+              aria-label="Portuguese Immersion Program in Salvador"
+            ></video>
+          </div>
+        </div>
 
-          <video
-            src="/public/b36a0e5b002c4f769caa2dff38a529f5.mp4"
-            poster="/public/IMG_5128.jpeg"
-            muted
-            playsinline
-            preload="metadata"
-          ></video>
+        <div class="immersion-copy-wrap">
+          <p class="eyebrow">Portuguese beyond the classroom</p>
 
-          <div class="story-overlay">
-            <span class="story-label">Chaka</span>
-            <span class="story-play">▶</span>
+          <h2 class="immersion-title">
+            Portuguese Immersion Program
+          </h2>
+
+          <p class="immersion-copy">
+            Studying Portuguese in a classroom gives you the foundation.
+            Living Salvador gives you the language.
+            Spend the day with local people in communities, neighborhoods,
+            markets and everyday spaces, experiencing the Portuguese that is
+            actually spoken in real life — its rhythm, expressions, accents
+            and cultural context.
+          </p>
+
+          <div class="immersion-highlight">
+            🇧🇷 Real Portuguese · Local people · Everyday Salvador
           </div>
 
-        </a>
+          <br />
 
-        <a
-          href="/public/7779b4e36b4e4ef39963ff4a349e4d2c.mp4"
-          class="story"
-          aria-label="Watch Nekiah's experience"
-        >
-
-          <video
-            src="/public/7779b4e36b4e4ef39963ff4a349e4d2c.mp4"
-            poster="/public/IMG_5140.jpeg"
-            muted
-            playsinline
-            preload="metadata"
-          ></video>
-
-          <div class="story-overlay">
-            <span class="story-label">Nekiah</span>
-            <span class="story-play">▶</span>
-          </div>
-
-        </a>
-
-        <a
-          href="/public/converted_video.mp4"
-          class="story"
-          aria-label="Watch DC's experience"
-        >
-
-          <video
-            src="/public/converted_video.mp4"
-            poster="/public/IMG_5182.jpeg"
-            muted
-            playsinline
-            preload="metadata"
-          ></video>
-
-          <div class="story-overlay">
-            <span class="story-label">DC</span>
-            <span class="story-play">▶</span>
-          </div>
-
-        </a>
+          <a
+            class="immersion-button"
+            href="https://wa.me/5571993719791?text=Hello%21%20I%27m%20interested%20in%20the%20Portuguese%20Immersion%20Program%20in%20Salvador.%20I%27d%20like%20to%20learn%20Portuguese%20through%20a%20real%20immersion%20experience%20with%20local%20people%20and%20everyday%20life%20in%20the%20city."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            I want to join the immersion
+          </a>
+        </div>
 
       </div>
 
@@ -2397,8 +2744,6 @@
       }
 
       setText(".hero-help", content.heroHelp);
-      setText(".stories-title", content.experiencesTitle);
-      setText(".stories-note", content.tapToWatch);
       setText(".questions-intro .eyebrow", content.questionsEyebrow);
       setText(".questions-intro .section-title", content.questionsTitle);
       setText(".questions-intro p:last-child", content.questionsDescription);
