@@ -999,145 +999,160 @@
       font-size: 14px;
     }
 
-    /* RECOMMENDED BOOKS */
-    .books-section {
-      padding: 44px 0 52px;
+    /* CANDOMBLÉ TERREIRO VISIT */
+    .terreiro-section {
+      padding: 44px 0 56px;
       background: #f4f0e8;
       color: #111111;
     }
 
-    .books-title {
-      margin: 0 0 12px;
-      text-align: center;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(34px, 8vw, 48px);
+    .terreiro-card {
+      overflow: hidden;
+      border-radius: 28px;
+      background: #111111;
+      box-shadow: 0 22px 54px rgba(0, 0, 0, 0.2);
     }
 
-    .books-subtitle {
-      max-width: 620px;
-      margin: 0 auto 34px;
-      color: #6b655d;
-      line-height: 1.7;
-      text-align: center;
-    }
-
-    .books-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      perspective: 1200px;
-    }
-
-    .book-card {
+    .terreiro-card summary {
       position: relative;
-      width: 100%;
+      min-height: 520px;
+      display: flex;
+      align-items: flex-end;
       padding: 0;
-      border: 0;
-      border-radius: 22px;
-      background: transparent;
       cursor: pointer;
-      perspective: 1200px;
-      -webkit-tap-highlight-color: transparent;
+      list-style: none;
+      isolation: isolate;
     }
 
-    .book-card-inner {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 0.72;
-      border-radius: 22px;
-      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
-      transform-style: preserve-3d;
-      transition: transform 650ms cubic-bezier(.2, .75, .25, 1);
+    .terreiro-card summary::-webkit-details-marker {
+      display: none;
     }
 
-    .book-card.is-flipped .book-card-inner {
-      transform: rotateY(180deg);
-    }
-
-    .book-card-front,
-    .book-card-back {
+    .terreiro-image {
       position: absolute;
       inset: 0;
-      overflow: hidden;
-      border-radius: 22px;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-    }
-
-    .book-card-front {
-      background: #ded7c9;
-    }
-
-    .book-card-front img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      z-index: -2;
     }
 
-    .book-card-back {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(16px, 4vw, 28px);
-      transform: rotateY(180deg);
+    .terreiro-card summary::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
       background:
-        radial-gradient(circle at top right, rgba(200, 168, 90, 0.24), transparent 42%),
-        #111111;
+        linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.9) 0%,
+          rgba(0, 0, 0, 0.36) 45%,
+          rgba(0, 0, 0, 0.06) 76%
+        );
+    }
+
+    .terreiro-overlay {
+      width: 100%;
+      padding: 34px 26px 28px;
       color: #ffffff;
-      text-align: center;
     }
 
-    .book-card-back h3 {
-      margin: 0;
+    .terreiro-kicker {
+      display: block;
+      margin-bottom: 9px;
       color: var(--gold-light);
-      font-family: "Playfair Display", serif;
-      font-size: clamp(20px, 5vw, 28px);
-      line-height: 1.1;
-    }
-
-    .book-card-back p {
-      margin: 14px 0 0;
-      color: rgba(255, 255, 255, 0.76);
-      font-size: clamp(12px, 3.2vw, 14px);
-      line-height: 1.6;
-    }
-
-    .book-card-hint {
-      margin-top: 16px;
-      color: rgba(255, 255, 255, 0.46);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
     }
 
-    .book-card:hover .book-card-inner {
-      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.23);
+    .terreiro-title {
+      max-width: 560px;
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(31px, 8vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.025em;
     }
 
-    .book-card:focus-visible {
-      outline: 3px solid #8b6d29;
-      outline-offset: 5px;
+    .terreiro-tap {
+      display: inline-flex;
+      margin-top: 16px;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 700;
     }
 
-    @media (max-width: 420px) {
-      .books-grid {
-        gap: 11px;
+    .terreiro-info {
+      padding: 24px 24px 26px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: #111111;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .terreiro-info p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .terreiro-guidelines {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .terreiro-guidelines li {
+      position: relative;
+      padding: 10px 0 10px 22px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .terreiro-guidelines li::before {
+      content: "•";
+      position: absolute;
+      left: 4px;
+      color: var(--gold-light);
+    }
+
+    .terreiro-button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      padding: 0 20px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #111111;
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .terreiro-button:hover {
+      transform: translateY(-2px);
+      background: #d7ba73;
+    }
+
+    @media (max-width: 480px) {
+      .terreiro-card summary {
+        min-height: 440px;
       }
 
-      .book-card-back {
-        padding: 13px;
+      .terreiro-overlay {
+        padding: 28px 20px 22px;
       }
 
-      .book-card-back p {
-        margin-top: 9px;
-        line-height: 1.45;
-      }
-
-      .book-card-hint {
-        margin-top: 10px;
-        font-size: 8px;
+      .terreiro-info {
+        padding: 20px;
       }
     }
 
@@ -1748,7 +1763,7 @@
         </a>
 
         <a
-          href="https://wa.me/5511952473756?text=Hello%21%20I%20saw%20the%2030%25%20discount%20for%20the%20island%20tour%20and%20would%20like%20more%20information."
+          href="https://wa.me/5571993719791?text=Hello%21%20I%20saw%20the%2030%25%20discount%20for%20the%20island%20tour%20and%20would%20like%20more%20information."
           class="hero-help"
           target="_blank"
           rel="noopener noreferrer"
@@ -1807,6 +1822,7 @@
           <div class="immersion-video-frame">
             <video
               src="/public/a35354bcf194429694c93e4c90198d91.mp4"
+              poster="/public/IMG_7478.jpeg"
               controls
               playsinline
               preload="metadata"
@@ -1981,7 +1997,7 @@
               <p><strong>Boipeba</strong></p>
               <a
                 class="islands-more-button"
-                href="https://wa.me/5511952473756?text=Hello%21%20I%20would%20like%20more%20information%20about%20island%20and%20coastal%20tours%3A%20Morro%20de%20S%C3%A3o%20Paulo%2C%20Ilha%20dos%20Frades%2C%20Ilha%20de%20Itaparica%2C%20Itacar%C3%A9%20or%20Boipeba."
+                href="https://wa.me/5571993719791?text=Hello%21%20I%20would%20like%20more%20information%20about%20island%20and%20coastal%20tours%3A%20Morro%20de%20S%C3%A3o%20Paulo%2C%20Ilha%20dos%20Frades%2C%20Ilha%20de%20Itaparica%2C%20Itacar%C3%A9%20or%20Boipeba."
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -2084,21 +2100,9 @@
             <span class="question-arrow">→</span>
           </a>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="barber">
-            <span class="question-icon">💈</span>
-            <span class="question-text">I need a barber.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
           <a href="#" class="whatsapp-question question-card" data-question-key="hairCare">
             <span class="question-icon">💇</span>
             <span class="question-text">I want hair care services.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="braids">
-            <span class="question-icon">🪮</span>
-            <span class="question-text">I want to get Afro braids.</span>
             <span class="question-arrow">→</span>
           </a>
 
@@ -2205,81 +2209,56 @@
 
   </section>
 
-
-  <!-- RECOMMENDED BOOKS -->
-  <section class="books-section">
+  <!-- CANDOMBLÉ TERREIRO VISIT -->
+  <section class="terreiro-section">
     <div class="container">
 
-      <h2 class="books-title">
-        Recommended books
-      </h2>
+      <details class="terreiro-card">
+        <summary aria-label="Open instructions for scheduling a Candomblé terreiro visit">
+          <img
+            src="/public/DFCA324B-11F9-4961-832A-D7FD8913590C.jpeg"
+            alt="Candomblé terreiro visit in Salvador"
+            class="terreiro-image"
+          />
 
-      <p class="books-subtitle">
-        Tap a cover to briefly learn what each book is about.
-      </p>
+          <div class="terreiro-overlay">
+            <span class="terreiro-kicker">Cultural experience</span>
 
-      <div class="books-grid">
+            <h2 class="terreiro-title">
+              Schedule your visit to a Candomblé Terreiro
+            </h2>
 
-        <button
-          type="button"
-          class="book-card"
-          aria-label="Flip the first book and view the description"
-          aria-pressed="false"
-        >
-          <span class="book-card-inner">
-
-            <span class="book-card-front">
-              <img
-                src="/public/IMG_6591.jpeg"
-                alt="First recommended book"
-              />
+            <span class="terreiro-tap">
+              Tap to see the visiting guidelines ↓
             </span>
+          </div>
+        </summary>
 
-            <span class="book-card-back">
-              <h3>About this book</h3>
-              <p>
-                A recommended book for better understanding the historical, social and cultural formation of Salvador and Bahia, connecting heritage, memory and identity.
-              </p>
-              <span class="book-card-hint">
-                Tap to go back
-              </span>
-            </span>
+        <div class="terreiro-info">
+          <p>
+            Before your visit, please follow the house guidelines:
+          </p>
 
-          </span>
-        </button>
+          <ul class="terreiro-guidelines">
+            <li>Respect the house, its people and its sacred spaces.</li>
+            <li>Please wear white clothing and long pants.</li>
+            <li>Photography, filming and audio recording are not permitted.</li>
+          </ul>
 
-        <button
-          type="button"
-          class="book-card"
-          aria-label="Flip the second book and view the description"
-          aria-pressed="false"
-        >
-          <span class="book-card-inner">
-
-            <span class="book-card-front">
-              <img
-                src="/public/IMG_6592.jpeg"
-                alt="Second recommended book"
-              />
-            </span>
-
-            <span class="book-card-back">
-              <h3>About this book</h3>
-              <p>
-                A recommended work for deepening your knowledge of the African and Afro-Brazilian presence in Bahia, highlighting culture, resistance, spirituality and contributions to the city.
-              </p>
-              <span class="book-card-hint">
-                Tap to go back
-              </span>
-            </span>
-
-          </span>
-        </button>
-
-      </div>
+          <a
+            class="terreiro-button"
+            href="https://wa.me/5571993719791?text=Hello%21%20I%27m%20interested%20in%20scheduling%20a%20visit%20to%20a%20Candombl%C3%A9%20Terreiro%20in%20Salvador.%20Could%20you%20send%20me%20the%20available%20dates%2C%20instructions%20and%20price%3F"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Schedule now
+          </a>
+        </div>
+      </details>
 
     </div>
   </section>
+
 
 
 
@@ -2452,52 +2431,16 @@
     const whatsappNumbers = {
       adriano: "5571993719791",
       manicure: "557192476249",
-      spanishReservations: "5571992253217",
-      favelaTour: "5571986060046",
-      folkloricShow: "5511952473756",
-      paddleKayak: "5511952473756",
-      beachKit: "5511952473756",
-      diving: "5571991839500",
-      portoTransfer: "5511952473756",
-      dragShow: "5511915110391",
-      braids: "5571985511086",
-      barber: "5571992273646",
-      islands: "5511952473756",
-      capoeiraMusic: "557133220639",
-      morroTours: "5575999936313",
-      foodFootball: "5571992439176",
-      rio: "5521998642274",
-      fortaleza: "5585987519609",
-      chapada: "5575999359150"
     };
 
     const directNumberByQuestion = {
-      nails: whatsappNumbers.manicure,
-      barber: whatsappNumbers.barber,
-      favelaTour: whatsappNumbers.favelaTour,
-      folkloricShow: whatsappNumbers.folkloricShow,
-      paddleKayak: whatsappNumbers.paddleKayak,
-      beachKit: whatsappNumbers.beachKit,
-      diving: whatsappNumbers.diving,
-      dragShow: whatsappNumbers.dragShow,
-      braids: whatsappNumbers.braids,
-      praiaDoForte: whatsappNumbers.islands,
-      islands: whatsappNumbers.islands,
-      capoeiraMusic: whatsappNumbers.capoeiraMusic,
-      morroTours: whatsappNumbers.morroTours,
-      foodTour: whatsappNumbers.foodFootball,
-      footballTour: whatsappNumbers.foodFootball,
-      rio: whatsappNumbers.rio,
-      fortaleza: whatsappNumbers.fortaleza,
-      chapada: whatsappNumbers.chapada
+      nails: whatsappNumbers.manicure
     };
 
     const personalCareKeys = [
       "hairMakeup",
       "nails",
-      "barber",
-      "hairCare",
-      "braids"
+      "hairCare"
     ];
 
     const translations = {
@@ -2577,17 +2520,9 @@
             text: "I want to book a manicure.",
             message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in booking a manicure. Could you send me availability and prices?"
           },
-          barber: {
-            text: "I need a barber.",
-            message: "Hello! Adriano from To Know Salvador recommended Maestros Barra. I am interested in booking a barber service. Could you send me availability and prices?"
-          },
           hairCare: {
             text: "I want hair care services.",
             message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in hair care services in Salvador. Could you help me with a trusted recommendation?"
-          },
-          braids: {
-            text: "I want to get Afro braids.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in getting Afro braids. Could you send me availability, styles and prices?"
           },
           rio: {
             text: "I need a trusted local contact in Rio de Janeiro.",
@@ -2697,9 +2632,14 @@
     }
 
     function getQuestionNumber(questionKey, language) {
-      if (directNumberByQuestion[questionKey]) {
+      const isPersonalCare = personalCareKeys.includes(questionKey);
+
+      if (isPersonalCare && directNumberByQuestion[questionKey]) {
         return directNumberByQuestion[questionKey];
       }
+
+      return whatsappNumbers.adriano;
+    }
 
       const isPersonalCare = personalCareKeys.includes(questionKey);
 
@@ -2711,9 +2651,7 @@
     }
 
     function getGeneralReservationNumber(language) {
-      return language === "es"
-        ? whatsappNumbers.spanishReservations
-        : whatsappNumbers.adriano;
+      return whatsappNumbers.adriano;
     }
 
     function changeLanguage(language) {
@@ -2847,12 +2785,6 @@
     }
 
     changeLanguage(translations[initialLanguage] ? initialLanguage : "en");
-
-    document.querySelectorAll(".book-card").forEach((card) => {
-      card.addEventListener("click", () => {
-        const isFlipped = card.classList.toggle("is-flipped");
-        card.setAttribute("aria-pressed", String(isFlipped));
-      });
     });
 
   </script>
