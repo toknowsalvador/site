@@ -173,6 +173,31 @@
       "https://www.instagram.com/toknowsalvador/"
     ]
   }
+  
+    // Reliable WhatsApp routing for all clickable service cards.
+    document.querySelectorAll(".whatsapp-question").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const questionKey = link.dataset.questionKey;
+        const item = translations.en.questions[questionKey];
+        if (!item) return;
+
+        const number =
+          questionKey === "nails"
+            ? whatsappNumbers.manicure
+            : questionKey === "hairMakeup"
+              ? whatsappNumbers.beautySalon
+              : whatsappNumbers.adriano;
+
+        window.open(
+          `https://wa.me/${number}?text=${encodeURIComponent(item.message)}`,
+          "_blank",
+          "noopener,noreferrer"
+        );
+      });
+    });
+
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -2517,23 +2542,12 @@
     }
 
     function getQuestionNumber(questionKey, language) {
-      if (directNumberByQuestion[questionKey]) {
-        return directNumberByQuestion[questionKey];
+      if (questionKey === "nails") {
+        return whatsappNumbers.manicure;
       }
 
-      return whatsappNumbers.adriano;
-    }
-
-      return whatsappNumbers.adriano;
-    }
-
-      return whatsappNumbers.adriano;
-    }
-
-      const isPersonalCare = personalCareKeys.includes(questionKey);
-
-      if (language === "es" && !isPersonalCare) {
-        return whatsappNumbers.spanishReservations;
+      if (questionKey === "hairMakeup") {
+        return whatsappNumbers.beautySalon;
       }
 
       return whatsappNumbers.adriano;
@@ -2542,6 +2556,7 @@
     function getGeneralReservationNumber(language) {
       return whatsappNumbers.adriano;
     }
+
 
     function changeLanguage(language) {
       const content = translations[language];
@@ -2674,6 +2689,29 @@
     }
 
     changeLanguage(translations[initialLanguage] ? initialLanguage : "en");
+
+    document.querySelectorAll(".whatsapp-question").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const questionKey = link.dataset.questionKey;
+        const item = translations.en.questions[questionKey];
+
+        if (!item) return;
+
+        let number = whatsappNumbers.adriano;
+
+        if (questionKey === "nails") {
+          number = whatsappNumbers.manicure;
+        } else if (questionKey === "hairMakeup") {
+          number = whatsappNumbers.beautySalon;
+        }
+
+        const whatsappUrl =
+          `https://wa.me/${number}?text=${encodeURIComponent(item.message)}`;
+
+        window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      });
     });
 
   </script>
