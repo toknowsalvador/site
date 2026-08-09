@@ -388,6 +388,27 @@
       background: #d7ba73;
     }
 
+
+    .hero-b2b-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: -2px;
+      padding: 3px 2px;
+      color: rgba(255, 255, 255, 0.56);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(234, 213, 157, 0.22);
+      transition: color 180ms ease, border-color 180ms ease;
+    }
+
+    .hero-b2b-link:hover {
+      color: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
     /* LANGUAGE AREA */
 
     .language-section {
@@ -1068,17 +1089,27 @@
     }
 
     .terreiro-title {
+      display: inline;
       max-width: 560px;
       margin: 0;
-      font-family: "Playfair Display", serif;
-      font-size: clamp(31px, 8vw, 48px);
-      line-height: 1.05;
-      letter-spacing: -0.025em;
+      padding: 7px 12px 9px;
+      border-radius: 10px;
+      background: rgba(88, 58, 28, 0.88);
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+      color: #ffffff;
+      font-family: "DM Sans", sans-serif;
+      font-size: clamp(25px, 6.8vw, 39px);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.015em;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.24);
     }
 
     .terreiro-tap {
-      display: inline-flex;
-      margin-top: 16px;
+      display: flex;
+      width: fit-content;
+      margin-top: 22px;
       align-items: center;
       gap: 8px;
       color: rgba(255, 255, 255, 0.72);
@@ -1568,7 +1599,26 @@
       background: #d7ba73;
     }
 
-    /* INFORMATION / BEACHES / EXPERIENCES — richer visual treatment */
+
+    .immersion-expressions-link {
+      margin-top: 12px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .immersion-expressions-link a {
+      color: rgba(234, 213, 157, 0.82);
+      border-bottom: 1px solid rgba(234, 213, 157, 0.32);
+      padding-bottom: 2px;
+      transition: color 180ms ease, border-color 180ms ease;
+    }
+
+    .immersion-expressions-link a:hover {
+      color: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    /* SELECTED EXPERIENCES */
 
     .questions-section {
       position: relative;
@@ -1777,6 +1827,14 @@
         >
           Portuguese Immersion Program
         </a>
+
+        <a
+          href="#b2b"
+          class="hero-b2b-link"
+          aria-label="Go to B2B Premium Support"
+        >
+          B2B
+        </a>
       </div>
     </div>
 
@@ -1851,6 +1909,10 @@
             🇧🇷 Real Portuguese · Local people · Everyday Salvador
           </div>
 
+          <div class="immersion-expressions-link">
+            <a href="#bahia-expressions">Explore Bahia expressions ↓</a>
+          </div>
+
           <br />
 
           <a
@@ -1875,202 +1937,48 @@
 
     <div class="container">
 
-      <!-- INFORMATION -->
+      <!-- SELECTED EXPERIENCES -->
       <section class="question-group">
 
-        <h3 class="group-label collapsible-group-label" data-group-label="information" role="button" tabindex="0" aria-expanded="false">
-          Information
+        <h3 class="group-label">
+          Selected experiences
         </h3>
 
         <div class="question-list">
-
-          <details class="info-accordion">
-            <summary>
-              <span class="question-icon">📍</span>
-              <span class="question-text">Is the neighborhood where I am staying safe at night?</span>
-              <span class="question-arrow">→</span>
-            </summary>
-            <div class="inline-answer">
-              <p><strong>General recommendation:</strong> Leave jewelry, gemstones and high-value watches in a secure place instead of wearing them while walking around.</p>
-              <p><strong>Historic Center:</strong> After 9:00 PM, stay around Largo Cruzeiro de São Francisco, where there are restaurants, live music and more people around.</p>
-              <p><strong>Barra:</strong> Avoid Morro do Cristo at night.</p>
-              <p><strong>Rio Vermelho:</strong> Stay around Largo do Acarajé da Dinha or Vila Caramuru. These two squares are about a 10-minute walk from each other. During the day, Casa de Yemanjá is worth visiting. At night, the neighborhood becomes busier from around 7:00 PM.</p>
-            </div>
-          </details>
-
-          <details class="info-accordion">
-            <summary>
-              <span class="question-icon">🏛️</span>
-              <span class="question-text">Which museum should I visit?</span>
-              <span class="question-arrow">→</span>
-            </summary>
-
-            <div class="inline-answer">
-              <p><strong>MUNCAB</strong> — an excellent choice for learning about Afro-Brazilian culture, history and contemporary Black art.</p>
-              <p><strong>Cidade da Música</strong> — a great introduction to Salvador’s musical identity. Closed on Mondays, with free admission on Wednesdays.</p>
-            </div>
-          </details>
-
-          <details class="info-accordion">
-            <summary>
-              <span class="question-icon">🍽️</span>
-              <span class="question-text">Where should I eat?</span>
-              <span class="question-arrow">→</span>
-            </summary>
-
-            <div class="inline-answer">
-              <p><strong>Barra — Portal do Mar:</strong> starter suggestion: mango juice and codfish fritters.</p>
-              <p><strong>Centro Histórico — Cuco Bistrô:</strong> a convenient option in the heart of the Historic Center.</p>
-              <p><strong>Santo Antônio Além do Carmo — Poró:</strong> a charming option with Bahian flavors and a pleasant atmosphere overlooking the city.</p>
-              <p><strong>Rio Vermelho — Boteco do Português:</strong> a relaxed option for Portuguese-inspired dishes, snacks and drinks in one of Salvador’s liveliest neighborhoods.</p>
-            </div>
-          </details>
-
-          <details class="info-accordion">
-            <summary>
-              <span class="question-icon">🌙</span>
-              <span class="question-text">What can I do tonight?</span>
-              <span class="question-arrow">→</span>
-            </summary>
-            <div class="inline-answer">
-              <p><strong>Clube do Samba</strong> (Terreiro de Jesus) — a great place to enjoy live samba in the Historic Center.</p>
-              <p><strong>Só Shape</strong> — a good choice for those looking for a more alternative, underground local night out.</p>
-              <p><strong>Show Folclórico da Bahia</strong> — available on <strong>Mondays, Wednesdays and Saturdays</strong>, featuring music, dance and Afro-Brazilian culture.</p>
-            </div>
-          </details>
-
-          <details class="info-accordion">
-            <summary>
-              <span class="question-icon">🎨</span>
-              <span class="question-text">What are the body paintings people do on the street?</span>
-              <span class="question-arrow">→</span>
-            </summary>
-            <div class="inline-answer">
-              <p><strong>Timbalada body painting:</strong> the white designs are inspired by the visual identity popularized by Timbalada, a percussion group founded in Salvador. The markings reference Afro-Brazilian aesthetics, body art and the cultural atmosphere of Candeal.</p>
-            </div>
-          </details>
-
-        </div>
-
-      </section>
-
-
-      <!-- BEACHES AND EXPERIENCES -->
-      <section class="question-group">
-
-        <h3 class="group-label collapsible-group-label" data-group-label="beaches" role="button" tabindex="0" aria-expanded="false">
-          Beaches and experiences
-        </h3>
-
-        <div class="question-list">
-
-          <details class="info-accordion">
-            <summary>
-              <span class="question-icon">🌴</span>
-              <span class="question-text">I want to go to a beach club.</span>
-              <span class="question-arrow">→</span>
-            </summary>
-
-            <div class="inline-answer">
-              <p><strong>Barraca do Lôro — Flamengo:</strong> a popular seaside day-use option with a restaurant and relaxed beach facilities.</p>
-              <p><strong>Blue Bar — Rio Vermelho:</strong> an elegant seaside day-use option with food, drinks and a more sophisticated atmosphere.</p>
-            </div>
-          </details>
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="praiaDoForte">
-            <span class="question-icon">☀️</span>
-            <span class="question-text">I want to visit Praia do Forte.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-          <details class="info-accordion islands-accordion">
-            <summary>
-              <span class="question-icon">🏝️</span>
-              <span class="question-text">Islands and coastal destinations</span>
-              <span class="question-arrow">→</span>
-            </summary>
-            <div class="inline-answer islands-options">
-              <p><strong>Morro de São Paulo</strong></p>
-              <p><strong>Ilha dos Frades</strong></p>
-              <p><strong>Ilha de Itaparica</strong></p>
-              <p><strong>Itacaré</strong></p>
-              <p><strong>Boipeba</strong></p>
-              <a
-                class="islands-more-button"
-                href="https://wa.me/5571993719791?text=Hello%21%20I%20would%20like%20more%20information%20about%20island%20and%20coastal%20tours%3A%20Morro%20de%20S%C3%A3o%20Paulo%2C%20Ilha%20dos%20Frades%2C%20Ilha%20de%20Itaparica%2C%20Itacar%C3%A9%20or%20Boipeba."
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Learn more
-              </a>
-            </div>
-          </details>
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="favelaTour">
-            <span class="question-icon">🏘️</span>
-            <span class="question-text">I want to visit a community with a local guide.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="folkloricShow">
-            <span class="question-icon">🥁</span>
-            <span class="question-text">I want to watch the Bahia Folkloric Show.</span>
-            <span class="question-arrow">→</span>
-          </a>
 
           <a href="#" class="whatsapp-question question-card" data-question-key="dragShow">
             <span class="question-icon">👑</span>
-            <span class="question-text">I want to watch a drag show.</span>
+            <span class="question-text">Drag Queen Show — Bahia Night</span>
             <span class="question-arrow">→</span>
           </a>
 
           <a href="#" class="whatsapp-question question-card" data-question-key="capoeiraMusic">
-            <span class="question-icon">🎶</span>
-            <span class="question-text">I want to take a capoeira and music class.</span>
+            <span class="question-icon">🥁</span>
+            <span class="question-text">Trial Capoeira Class</span>
             <span class="question-arrow">→</span>
           </a>
 
           <a href="#" class="whatsapp-question question-card" data-question-key="foodTour">
             <span class="question-icon">🍲</span>
-            <span class="question-text">I want to take a traditional food tour.</span>
+            <span class="question-text">Food Tour</span>
+            <span class="question-arrow">→</span>
+          </a>
+
+          <a href="#" class="whatsapp-question question-card" data-question-key="folkloricShow">
+            <span class="question-icon">💃</span>
+            <span class="question-text">Bahia Folkloric Show</span>
+            <span class="question-arrow">→</span>
+          </a>
+
+          <a href="#" class="whatsapp-question question-card" data-question-key="favelaTour">
+            <span class="question-icon">🏘️</span>
+            <span class="question-text">Favela Tour with a local guide</span>
             <span class="question-arrow">→</span>
           </a>
 
           <a href="#" class="whatsapp-question question-card" data-question-key="footballTour">
             <span class="question-icon">⚽</span>
-            <span class="question-text">I want to take a football tour.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-        </div>
-
-      </section>
-
-
-      <!-- PORTO DA BARRA -->
-      <section class="question-group">
-
-        <h3 class="group-label collapsible-group-label" data-group-label="portoDaBarra" role="button" tabindex="0" aria-expanded="false">
-          Porto da Barra
-        </h3>
-
-        <div class="question-list">
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="paddleKayak">
-            <span class="question-icon">🛶</span>
-            <span class="question-text">I want to book stand-up paddle or kayaking.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="beachKit">
-            <span class="question-icon">⛱️</span>
-            <span class="question-text">I want to book a beach kit with chairs, a table and a beach umbrella.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="diving">
-            <span class="question-icon">🤿</span>
-            <span class="question-text">I want to go diving at Porto da Barra.</span>
+            <span class="question-text">Football Tour — Arena Fonte Nova</span>
             <span class="question-arrow">→</span>
           </a>
 
@@ -2090,7 +1998,7 @@
 
           <a href="#" class="whatsapp-question question-card" data-question-key="hairMakeup">
             <span class="question-icon">✨</span>
-            <span class="question-text">Where can I get my hair and makeup done?</span>
+            <span class="question-text">Beauty salon</span>
             <span class="question-arrow">→</span>
           </a>
 
@@ -2155,12 +2063,12 @@
 
 
   <!-- PORTUGUESE STUDENTS AND BAHIAN SLANG -->
-  <section class="language-culture-section">
+  <section id="bahia-expressions" class="language-culture-section">
 
     <div class="container">
 
       <p class="eyebrow" style="color:#8b6d29;">
-        Para estudantes de português e viajantes curiosos
+        For Portuguese students and curious travelers
       </p>
 
       <h2 class="section-title">
@@ -2168,7 +2076,7 @@
       </h2>
 
       <p style="margin:15px 0 0;color:#68645d;font-size:15px;line-height:1.65;">
-        Short expressions that help you understand everyday conversations, local humor and rhythm.
+        Expressions that help you understand everyday conversations, local humor and rhythm.
       </p>
 
       <div class="slang-grid">
@@ -2263,7 +2171,7 @@
 
 
   <!-- PREMIUM SUPPORT -->
-  <section class="premium-section">
+  <section id="b2b" class="premium-section">
 
     <div class="container">
 
@@ -2430,11 +2338,13 @@
   <script>
     const whatsappNumbers = {
       adriano: "5571993719791",
-      manicure: "557192476249",
+      manicure: "5571992476249",
+      beautySalon: "5571991591150"
     };
 
     const directNumberByQuestion = {
-      nails: whatsappNumbers.manicure
+      nails: whatsappNumbers.manicure,
+      hairMakeup: whatsappNumbers.beautySalon
     };
 
     const personalCareKeys = [
@@ -2457,9 +2367,6 @@
         questionsDescription: "Tap an option to see the answer or open WhatsApp with a ready-to-send message.",
 
         groups: {
-          information: "Information",
-          beaches: "Beaches and experiences",
-          portoDaBarra: "Porto da Barra",
           personalCare: "Personal care"
         },
 
@@ -2473,28 +2380,28 @@
             message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in visiting the islands. Could you send me the available options, schedules and prices?"
           },
           favelaTour: {
-            text: "I want to visit a community with a local guide.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in visiting a community with a local guide. Could you send me information about availability and prices?"
+            text: "Favela Tour with a local guide",
+            message: "Hello! I’m interested in a Favela Tour in Salvador with a local guide. Could you send me availability, duration and price?"
           },
           folkloricShow: {
-            text: "I want to watch the Bahia Folkloric Show.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in the Bahia Folkloric Show. Could you send me information about dates, availability and prices?"
+            text: "Bahia Folkloric Show",
+            message: "Hello! I’m interested in the Bahia Folkloric Show. Could you send me the available dates, schedule and price?"
           },
           dragShow: {
-            text: "I want to watch a drag show.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in the drag show. Could you send me information about dates, availability and prices?"
+            text: "Drag Queen Show — Bahia Night",
+            message: "Hello! I’m interested in the Drag Queen Show / Bahia Night experience in Salvador. Could you send me availability, schedule and price?"
           },
           capoeiraMusic: {
-            text: "I want to take a capoeira and music class.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in taking a capoeira and music class. Could you send me information about availability and prices?"
+            text: "Trial Capoeira Class",
+            message: "Hello! I’m interested in a trial Capoeira class in Salvador. Could you send me availability, location and price?"
           },
           foodTour: {
-            text: "I want to take a traditional food tour.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in taking a traditional food tour in Salvador. Could you send me information about availability and prices?"
+            text: "Food Tour",
+            message: "Hello! I’m interested in a Food Tour in Salvador. Could you send me the available options, duration and price?"
           },
           footballTour: {
-            text: "I want to take a football tour.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in a football experience, including matches or a visit to Arena Fonte Nova. Could you send me availability and prices?"
+            text: "Football Tour — Arena Fonte Nova",
+            message: "Hello! I’m interested in the Football Tour at Arena Fonte Nova in Salvador. Could you send me availability, what is included and the price?"
           },
           morroTours: {
             text: "I need a trusted local contact in Morro de São Paulo.",
@@ -2513,12 +2420,12 @@
             message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in diving at Porto da Barra. Could you send me information about availability and prices?"
           },
           hairMakeup: {
-            text: "Where can I get my hair and makeup done?",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in hair and makeup services. Could you help me with a trusted recommendation?"
+            text: "Beauty salon",
+            message: "Hello! I’m looking for a beauty salon in Salvador. I came through To Know Salvador. Could you send me information about services, availability and prices?"
           },
           nails: {
             text: "I want to book a manicure.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in booking a manicure. Could you send me availability and prices?"
+            message: "Hello! I’m interested in booking a manicure in Salvador. I came through To Know Salvador. Could you send me availability and prices?"
           },
           hairCare: {
             text: "I want hair care services.",
@@ -2632,11 +2539,15 @@
     }
 
     function getQuestionNumber(questionKey, language) {
-      const isPersonalCare = personalCareKeys.includes(questionKey);
-
-      if (isPersonalCare && directNumberByQuestion[questionKey]) {
+      if (directNumberByQuestion[questionKey]) {
         return directNumberByQuestion[questionKey];
       }
+
+      return whatsappNumbers.adriano;
+    }
+
+      return whatsappNumbers.adriano;
+    }
 
       return whatsappNumbers.adriano;
     }
