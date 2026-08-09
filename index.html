@@ -388,27 +388,6 @@
       background: #d7ba73;
     }
 
-
-    .hero-b2b-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: -2px;
-      padding: 3px 2px;
-      color: rgba(255, 255, 255, 0.56);
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      border-bottom: 1px solid rgba(234, 213, 157, 0.22);
-      transition: color 180ms ease, border-color 180ms ease;
-    }
-
-    .hero-b2b-link:hover {
-      color: var(--gold-light);
-      border-color: var(--gold-light);
-    }
-
     /* LANGUAGE AREA */
 
     .language-section {
@@ -1089,21 +1068,20 @@
     }
 
     .terreiro-title {
-      display: inline;
-      max-width: 560px;
+      display: block;
+      width: fit-content;
+      max-width: min(92%, 470px);
       margin: 0;
-      padding: 7px 12px 9px;
-      border-radius: 10px;
-      background: rgba(88, 58, 28, 0.88);
-      box-decoration-break: clone;
-      -webkit-box-decoration-break: clone;
+      padding: 9px 13px 10px;
+      border-radius: 9px;
+      background: rgba(88, 58, 28, 0.86);
       color: #ffffff;
       font-family: "DM Sans", sans-serif;
-      font-size: clamp(25px, 6.8vw, 39px);
-      font-weight: 800;
-      line-height: 1.18;
-      letter-spacing: -0.015em;
-      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.24);
+      font-size: clamp(21px, 5.4vw, 32px);
+      font-weight: 750;
+      line-height: 1.24;
+      letter-spacing: -0.01em;
+      box-shadow: 0 7px 22px rgba(0, 0, 0, 0.22);
     }
 
     .terreiro-tap {
@@ -1180,6 +1158,14 @@
 
       .terreiro-overlay {
         padding: 28px 20px 22px;
+      }
+
+
+      .terreiro-title {
+        max-width: 94%;
+        padding: 8px 11px 9px;
+        font-size: clamp(20px, 6vw, 27px);
+        line-height: 1.25;
       }
 
       .terreiro-info {
@@ -1826,14 +1812,6 @@
           class="hero-immersion-button"
         >
           Portuguese Immersion Program
-        </a>
-
-        <a
-          href="#b2b"
-          class="hero-b2b-link"
-          aria-label="Go to B2B Premium Support"
-        >
-          B2B
         </a>
       </div>
     </div>
