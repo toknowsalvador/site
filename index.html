@@ -1796,6 +1796,612 @@
       }
     }
 
+  
+    /* =========================================================
+       FINAL UPDATE — ISLANDS / PORTUGUESE IMMERSION / BAHIA NIGHT
+       ========================================================= */
+
+    /* Portuguese Immersion: intentionally more discreet */
+    .hero-immersion-button {
+      min-height: 42px;
+      padding: 0 18px;
+      border-color: rgba(234, 213, 157, 0.32);
+      background: rgba(255, 255, 255, 0.035);
+      color: rgba(234, 213, 157, 0.78);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.055em;
+      box-shadow: none;
+    }
+
+    .immersion-section {
+      padding: 38px 0 42px;
+      background: #0a0a0a;
+    }
+
+    .immersion-layout {
+      gap: 24px;
+    }
+
+    .immersion-video-frame {
+      width: min(52vw, 210px);
+      border-radius: 20px;
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.34);
+    }
+
+    .immersion-title {
+      font-size: clamp(25px, 6vw, 36px);
+    }
+
+    .immersion-copy {
+      margin-top: 12px;
+      font-size: 13px;
+      line-height: 1.65;
+      color: rgba(255,255,255,.58);
+    }
+
+    .immersion-highlight {
+      margin-top: 12px;
+      font-size: 11px;
+      opacity: .82;
+    }
+
+    .immersion-button {
+      min-height: 44px;
+      margin-top: 16px;
+      padding: 0 18px;
+      font-size: 12px;
+      box-shadow: none;
+    }
+
+    /* Bahia Night hero shortcut */
+    .hero-bahia-night-button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      border: 1px solid rgba(200,168,90,.48);
+      border-radius: 999px;
+      background: rgba(0,0,0,.34);
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .hero-bahia-night-button:hover {
+      transform: translateY(-2px);
+      background: rgba(200,168,90,.12);
+    }
+
+    /* Bahia Night */
+    .bahia-night-section {
+      padding: 72px 0;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(200,168,90,.18), transparent 28%),
+        linear-gradient(180deg, #0a0a0a, #12100c);
+    }
+
+    .bahia-night-card {
+      overflow: hidden;
+      padding: 30px 24px;
+      border: 1px solid rgba(200,168,90,.34);
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(255,255,255,.075), rgba(255,255,255,.025));
+      box-shadow: 0 26px 64px rgba(0,0,0,.28);
+    }
+
+    .bahia-night-kicker {
+      margin: 0;
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .bahia-night-title {
+      margin: 8px 0 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(38px, 10vw, 58px);
+      line-height: 1;
+    }
+
+    .bahia-night-days {
+      margin: 12px 0 0;
+      color: rgba(255,255,255,.72);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .bahia-night-schedule {
+      display: grid;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
+    .bahia-night-item {
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 18px;
+      background: rgba(255,255,255,.045);
+    }
+
+    .bahia-night-item strong {
+      display: block;
+      color: #fff;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+
+    .bahia-night-item p {
+      margin: 8px 0 0;
+      color: rgba(255,255,255,.63);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .bahia-night-meta {
+      display: grid;
+      gap: 8px;
+      margin-top: 22px;
+      color: rgba(255,255,255,.78);
+      font-size: 14px;
+    }
+
+    .bahia-night-price {
+      color: var(--gold-light);
+      font-size: 19px;
+      font-weight: 850;
+    }
+
+    .bahia-night-book {
+      display: inline-flex;
+      min-height: 54px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 24px;
+      padding: 0 24px;
+      border: 0;
+      border-radius: 16px;
+      background: var(--gold);
+      color: #111;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    /* Reservation modal */
+    .reservation-modal[hidden] { display: none; }
+
+    .reservation-modal {
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(0,0,0,.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .reservation-dialog {
+      width: min(100%, 560px);
+      max-height: min(90vh, 760px);
+      overflow-y: auto;
+      padding: 24px;
+      border: 1px solid rgba(200,168,90,.34);
+      border-radius: 24px;
+      background: #111;
+      color: #fff;
+      box-shadow: 0 32px 90px rgba(0,0,0,.55);
+    }
+
+    .reservation-dialog-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .reservation-dialog h2 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: 32px;
+    }
+
+    .reservation-close {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      background: rgba(255,255,255,.05);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .reservation-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .reservation-field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .reservation-field label {
+      color: rgba(255,255,255,.76);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .reservation-field input,
+    .reservation-field select {
+      width: 100%;
+      min-height: 48px;
+      padding: 0 13px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      outline: 0;
+      background: rgba(255,255,255,.055);
+      color: #fff;
+      font: inherit;
+    }
+
+    .reservation-field select option { color: #111; }
+
+    .reservation-field input:focus,
+    .reservation-field select:focus {
+      border-color: var(--gold);
+    }
+
+    .reservation-total {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(200,168,90,.11);
+      color: var(--gold-light);
+      font-weight: 850;
+    }
+
+    .reservation-submit,
+    .paypal-button {
+      display: flex;
+      width: 100%;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 14px;
+      background: var(--gold);
+      color: #111;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .reservation-submit:disabled {
+      cursor: wait;
+      opacity: .65;
+    }
+
+    .reservation-note,
+    .reservation-error {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .reservation-note { color: rgba(255,255,255,.52); }
+    .reservation-error { color: #ffb4b4; }
+
+    .reservation-success {
+      margin-top: 20px;
+      padding: 18px;
+      border: 1px solid rgba(200,168,90,.3);
+      border-radius: 16px;
+      background: rgba(200,168,90,.08);
+    }
+
+    .reservation-success h3 {
+      margin: 0;
+      color: var(--gold-light);
+    }
+
+    .reservation-success p {
+      color: rgba(255,255,255,.7);
+      line-height: 1.6;
+    }
+
+    .paypal-button {
+      margin-top: 14px;
+      text-decoration: none;
+    }
+
+    @media (min-width: 760px) {
+      .bahia-night-schedule {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 480px) {
+      .immersion-section { padding: 30px 0 34px; }
+      .immersion-video-frame { width: min(46vw, 180px); }
+      .bahia-night-section { padding: 54px 0; }
+      .bahia-night-card { padding: 24px 18px; border-radius: 22px; }
+      .reservation-dialog { padding: 20px 16px; }
+    }
+
+  
+    /* FINAL HERO LAYOUT — exactly three main items */
+    .hero-actions {
+      width: min(100%, 430px);
+      margin: 0 auto;
+      gap: 12px;
+    }
+
+    .hero-bahia-night-button {
+      min-height: 58px;
+      padding: 0 27px;
+      border: 1px solid rgba(255,255,255,.38);
+      border-radius: 999px;
+      background: rgba(0,0,0,.3);
+      color: var(--white);
+      font-size: clamp(14px, 4vw, 17px);
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      box-shadow:
+        0 16px 40px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    .hero-bahia-night-button:hover {
+      transform: translateY(-3px);
+      border-color: rgba(234,213,157,.85);
+      background: rgba(0,0,0,.5);
+    }
+
+    /* Portuguese program moved away from hero and given its own quieter block */
+    .immersion-section {
+      margin-top: 0;
+      padding: 34px 0 38px;
+    }
+
+    .immersion-layout {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .immersion-media {
+      order: 2;
+      justify-content: flex-start;
+    }
+
+    .immersion-copy-wrap {
+      order: 1;
+      max-width: 520px;
+      margin: 0;
+      text-align: left;
+    }
+
+    .immersion-video-frame {
+      width: min(42vw, 180px);
+      border-radius: 18px;
+    }
+
+    @media (min-width: 760px) {
+      .immersion-layout {
+        grid-template-columns: minmax(0, 1fr) 190px;
+        align-items: center;
+        gap: 34px;
+      }
+
+      .immersion-copy-wrap {
+        order: 1;
+      }
+
+      .immersion-media {
+        order: 2;
+        justify-content: flex-end;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-bahia-night-button {
+        min-height: 54px;
+        padding: 0 20px;
+        font-size: 13px;
+        letter-spacing: .09em;
+      }
+
+      .immersion-video-frame {
+        width: min(48vw, 165px);
+      }
+    }
+
+  
+    /* OLD TOWN WALKING TOUR — RESERVATION + PAYPAL */
+    .old-town-modal[hidden] { display: none; }
+
+    .old-town-modal {
+      position: fixed;
+      z-index: 10000;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(0,0,0,.8);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .old-town-dialog {
+      width: min(100%, 560px);
+      max-height: min(90vh, 780px);
+      overflow-y: auto;
+      padding: 24px;
+      border: 1px solid rgba(200,168,90,.34);
+      border-radius: 24px;
+      background: #111;
+      color: #fff;
+      box-shadow: 0 32px 90px rgba(0,0,0,.55);
+    }
+
+    .old-town-dialog-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .old-town-dialog h2 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: 32px;
+    }
+
+    .old-town-close {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      background: rgba(255,255,255,.05);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .old-town-intro {
+      margin: 12px 0 0;
+      color: rgba(255,255,255,.68);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .old-town-important {
+      margin: 16px 0 0;
+      padding: 14px 16px;
+      border: 1px solid rgba(200,168,90,.3);
+      border-radius: 14px;
+      background: rgba(200,168,90,.08);
+      color: var(--gold-light);
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    .old-town-form {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .old-town-field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .old-town-field label {
+      color: rgba(255,255,255,.76);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .old-town-field input,
+    .old-town-field select {
+      width: 100%;
+      min-height: 48px;
+      padding: 0 13px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      outline: 0;
+      background: rgba(255,255,255,.055);
+      color: #fff;
+      font: inherit;
+    }
+
+    .old-town-field select option { color: #111; }
+
+    .old-town-field input:focus,
+    .old-town-field select:focus {
+      border-color: var(--gold);
+    }
+
+    .old-town-submit {
+      display: flex;
+      width: 100%;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 14px;
+      background: var(--gold);
+      color: #111;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .old-town-submit:disabled {
+      cursor: wait;
+      opacity: .65;
+    }
+
+    .old-town-error {
+      margin: 0;
+      color: #ffb4b4;
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .old-town-success {
+      margin-top: 20px;
+      padding: 18px;
+      border: 1px solid rgba(200,168,90,.3);
+      border-radius: 16px;
+      background: rgba(200,168,90,.08);
+    }
+
+    .old-town-success h3 {
+      margin: 0;
+      color: var(--gold-light);
+    }
+
+    .old-town-success p {
+      color: rgba(255,255,255,.7);
+      line-height: 1.6;
+    }
+
+    .old-town-paypal-note {
+      margin: 14px 0 12px;
+      color: #fff;
+      font-size: 13px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    #paypal-container-X4ZNWPV789W4Q {
+      min-height: 48px;
+    }
+
+  
+    .old-town-hero-schedule {
+      margin: -4px 0 2px;
+      color: rgba(255,255,255,.7);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      .old-town-hero-schedule {
+        font-size: 11px;
+      }
+    }
+
   </style>
 </head>
 
@@ -1814,29 +2420,30 @@
 
     <div class="hero-content">
       <div class="hero-actions">
-        <a
-          href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/viewform"
+        <button
+          type="button"
           class="free-tour-button"
-          target="_blank"
-          rel="noopener noreferrer"
+          id="openOldTownReservation"
         >
           Old Town Walking Tour
-        </a>
+        </button>
+        <p class="old-town-hero-schedule">
+          Monday to Saturday · 9:30 AM & 3:00 PM
+        </p>
 
         <a
-          href="https://wa.me/5571993719791?text=Hello%21%20I%20saw%20the%2030%25%20discount%20for%20the%20island%20tour%20and%20would%20like%20more%20information."
+          href="https://wa.me/5571993719791?text=Hello%21%20I%20saw%20the%2020%25%20discount%20for%20the%20island%20tour%20and%20would%20like%20more%20information."
           class="hero-help"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Island Tours — 30% off
+          EXPLORE THE ISLANDS — 20% OFF
         </a>
-
-        <a
-          href="#portuguese-immersion"
-          class="hero-immersion-button"
+<a
+          href="#bahia-night"
+          class="hero-help hero-bahia-night-button"
         >
-          Portuguese Immersion Program
+          Dinner and Folkloric Show
         </a>
       </div>
     </div>
@@ -1911,12 +2518,7 @@
           <div class="immersion-highlight">
             🇧🇷 Real Portuguese · Local people · Everyday Salvador
           </div>
-
-          <div class="immersion-expressions-link">
-            <a href="#bahia-expressions">Explore Bahia expressions ↓</a>
-          </div>
-
-          <br />
+<br />
 
           <a
             class="immersion-button"
@@ -1933,6 +2535,124 @@
     </div>
 
   </section>
+
+
+  <!-- BAHIA NIGHT — DINNER AND FOLKLORIC SHOW -->
+  <section id="bahia-night" class="bahia-night-section">
+    <div class="container">
+      <article class="bahia-night-card">
+        <p class="bahia-night-kicker">Dinner and Folkloric Show</p>
+        <h2 class="bahia-night-title">Bahia Night</h2>
+        <p class="bahia-night-days">Thursday and Saturday</p>
+
+        <div class="bahia-night-schedule">
+          <div class="bahia-night-item">
+            <strong>🍽️ 6:30 PM – 8:00 PM | Bahian Dinner</strong>
+            <p>Buffet featuring a selection of traditional Bahian and local dishes.</p>
+          </div>
+
+          <div class="bahia-night-item">
+            <strong>🎭 8:00 PM – 9:00 PM | Bahia Cultural Show</strong>
+            <p>A journey through some of Bahia’s most important Afro-Bahian cultural expressions, featuring capoeira, samba, dances of the Orixás, and performances connected to Afro-Brazilian traditions and religions.</p>
+          </div>
+        </div>
+
+        <div class="bahia-night-meta">
+          <span>📍 Coliseu — Salvador, Bahia</span>
+          <span class="bahia-night-price">US$65 per person</span>
+          <span>✅ Reserve to guarantee your spot.</span>
+        </div>
+
+        <button type="button" class="bahia-night-book" id="openBahiaNightReservation">
+          BOOK NOW — GUARANTEE YOUR SPOT
+        </button>
+      </article>
+    </div>
+  </section>
+
+
+  <!-- BAHIA NIGHT RESERVATION -->
+  <div class="reservation-modal" id="bahiaNightModal" hidden>
+    <div class="reservation-dialog" role="dialog" aria-modal="true" aria-labelledby="bahiaNightReservationTitle">
+      <div class="reservation-dialog-header">
+        <div>
+          <p class="bahia-night-kicker">Bahia Night</p>
+          <h2 id="bahiaNightReservationTitle">Reserve your spot</h2>
+        </div>
+        <button type="button" class="reservation-close" id="closeBahiaNightReservation" aria-label="Close">×</button>
+      </div>
+
+      <form
+        id="bahiaNightForm"
+        class="reservation-form"
+        action="https://formsubmit.co/ajax/toknowsalvador@gmail.com"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="New Bahia Night Reservation">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="Experience" value="Bahia Night — Dinner and Folkloric Show">
+        <input type="hidden" name="Price per person" value="US$65">
+        <input type="hidden" name="Total" id="bahiaNightTotalHidden" value="US$65">
+
+        <div class="reservation-field">
+          <label for="bahiaNightName">Name</label>
+          <input id="bahiaNightName" name="Name" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="reservation-field">
+          <label for="bahiaNightDate">Preferred date — Thursday or Saturday</label>
+          <input id="bahiaNightDate" name="Preferred date" type="date" required>
+        </div>
+
+        <div class="reservation-field">
+          <label for="bahiaNightGuests">Number of guests</label>
+          <input id="bahiaNightGuests" name="Number of guests" type="number" min="1" step="1" value="1" required>
+        </div>
+
+        <div class="reservation-field">
+          <label for="bahiaNightPhone">WhatsApp / Phone number</label>
+          <input id="bahiaNightPhone" name="WhatsApp / Phone" type="tel" autocomplete="tel" placeholder="+55 ..." required>
+        </div>
+
+        <div class="reservation-field">
+          <label for="bahiaNightEmail">Email</label>
+          <input id="bahiaNightEmail" name="Customer email" type="email" autocomplete="email" required>
+        </div>
+
+        <div class="reservation-field">
+          <label for="bahiaNightPayment">Payment method</label>
+          <select id="bahiaNightPayment" name="Payment method" required>
+            <option value="PayPal">PayPal</option>
+          </select>
+        </div>
+
+        <div class="reservation-total" id="bahiaNightTotal">Total: US$65</div>
+        <p class="reservation-error" id="bahiaNightError" hidden></p>
+
+        <button class="reservation-submit" id="bahiaNightSubmit" type="submit">
+          SUBMIT RESERVATION
+        </button>
+
+        <p class="reservation-note">
+          Your reservation details will be sent to To Know Salvador. Payment is completed after the reservation request is submitted.
+        </p>
+      </form>
+
+      <div class="reservation-success" id="bahiaNightSuccess" hidden>
+        <h3>Reservation request received!</h3>
+        <p>Your reservation details have been sent to To Know Salvador. Complete your payment below to guarantee your spot.</p>
+        <a
+          class="paypal-button"
+          href="https://www.paypal.com/ncp/payment/4J7JEH69L9ZUQ"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          PAY NOW WITH PAYPAL
+        </a>
+      </div>
+    </div>
+  </div>
 
 
   <!-- MAIN QUESTIONS -->
@@ -1967,9 +2687,9 @@
             <span class="question-arrow">→</span>
           </a>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="folkloricShow">
+          <a href="#bahia-night" class="question-card">
             <span class="question-icon">💃</span>
-            <span class="question-text">Bahia Folkloric Show</span>
+            <span class="question-text">Dinner and Folkloric Show — Bahia Night</span>
             <span class="question-arrow">→</span>
           </a>
 
@@ -2062,65 +2782,7 @@
     </div>
 
   </main>
-
-
-
-  <!-- PORTUGUESE STUDENTS AND BAHIAN SLANG -->
-  <section id="bahia-expressions" class="language-culture-section">
-
-    <div class="container">
-
-      <p class="eyebrow" style="color:#8b6d29;">
-        For Portuguese students and curious travelers
-      </p>
-
-      <h2 class="section-title">
-        Bahian expressions you may hear in Salvador
-      </h2>
-
-      <p style="margin:15px 0 0;color:#68645d;font-size:15px;line-height:1.65;">
-        Expressions that help you understand everyday conversations, local humor and rhythm.
-      </p>
-
-      <div class="slang-grid">
-
-        <article class="slang-card">
-          <h3 class="slang-word">Oxente</h3>
-          <p class="slang-meaning">
-            An expression of surprise, amazement or emphasis. It can mean “wow,” “really?” or “what do you mean?”
-          </p>
-          <p class="slang-example">
-            <strong>Example:</strong> “Oxente, are you leaving already?”
-          </p>
-        </article>
-
-        <article class="slang-card">
-          <h3 class="slang-word">Ó paí, ó</h3>
-          <p class="slang-meaning">
-            An expression similar to “look at that” or “check this out.” It is used to draw attention to something happening nearby.
-          </p>
-          <p class="slang-example">
-            <strong>Example:</strong> “Ó paí, ó! The band is starting.”
-          </p>
-        </article>
-
-        <article class="slang-card">
-          <h3 class="slang-word">Lá ele</h3>
-          <p class="slang-meaning">
-            A humorous response used to reject an ambiguous or suggestive phrase and distance oneself from the double meaning.
-          </p>
-          <p class="slang-example">
-            <strong>Example:</strong> Someone says something with a double meaning and the response is: “Lá ele!”
-          </p>
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- CANDOMBLÉ TERREIRO VISIT -->
+<!-- CANDOMBLÉ TERREIRO VISIT -->
   <section class="terreiro-section">
     <div class="container">
 
@@ -2362,7 +3024,7 @@
         metaDescription: "Old Town Walking Tour and find local services, experiences, recommendations and support in Salvador, Bahia.",
         languageLabel: "Select your language",
         languageSelectorLabel: "Select language",
-        heroHelp: "Island Tours — 30% off",
+        heroHelp: "EXPLORE THE ISLANDS — 20% OFF",
         experiencesTitle: "To Know Salvador Experience",
         tapToWatch: "Tap to watch",
         questionsEyebrow: "Choose an option",
@@ -2714,6 +3376,290 @@
       });
     });
 
+  </script>
+
+
+  <script>
+    (() => {
+      const modal = document.getElementById("bahiaNightModal");
+      const openButton = document.getElementById("openBahiaNightReservation");
+      const closeButton = document.getElementById("closeBahiaNightReservation");
+      const form = document.getElementById("bahiaNightForm");
+      const guestsInput = document.getElementById("bahiaNightGuests");
+      const dateInput = document.getElementById("bahiaNightDate");
+      const totalLabel = document.getElementById("bahiaNightTotal");
+      const totalHidden = document.getElementById("bahiaNightTotalHidden");
+      const errorBox = document.getElementById("bahiaNightError");
+      const successBox = document.getElementById("bahiaNightSuccess");
+      const submitButton = document.getElementById("bahiaNightSubmit");
+
+      if (!modal || !openButton || !closeButton || !form) return;
+
+      const PRICE = 65;
+
+      function updateTotal() {
+        const guests = Math.max(1, Number.parseInt(guestsInput.value, 10) || 1);
+        guestsInput.value = guests;
+        const total = guests * PRICE;
+        totalLabel.textContent = `Total: US$${total}`;
+        totalHidden.value = `US$${total}`;
+      }
+
+      function isThursdayOrSaturday(value) {
+        if (!value) return false;
+        const [year, month, day] = value.split("-").map(Number);
+        const date = new Date(year, month - 1, day);
+        const weekday = date.getDay();
+        return weekday === 4 || weekday === 6;
+      }
+
+      function showModal() {
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+        setTimeout(() => document.getElementById("bahiaNightName")?.focus(), 0);
+      }
+
+      function hideModal() {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+      }
+
+      openButton.addEventListener("click", showModal);
+      closeButton.addEventListener("click", hideModal);
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) hideModal();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) hideModal();
+      });
+
+      guestsInput.addEventListener("input", updateTotal);
+      updateTotal();
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        errorBox.hidden = true;
+        errorBox.textContent = "";
+
+        if (!isThursdayOrSaturday(dateInput.value)) {
+          errorBox.textContent = "Bahia Night is available only on Thursday and Saturday. Please select one of these days.";
+          errorBox.hidden = false;
+          dateInput.focus();
+          return;
+        }
+
+        if (!form.reportValidity()) return;
+
+        updateTotal();
+        submitButton.disabled = true;
+        submitButton.textContent = "SENDING...";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "Accept": "application/json" }
+          });
+
+          if (!response.ok) {
+            throw new Error("Reservation service returned an error.");
+          }
+
+          form.hidden = true;
+          successBox.hidden = false;
+        } catch (error) {
+          errorBox.textContent = "We could not send your reservation right now. Please try again or contact To Know Salvador on WhatsApp.";
+          errorBox.hidden = false;
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "SUBMIT RESERVATION";
+        }
+      });
+    })();
+  </script>
+
+
+  <!-- OLD TOWN WALKING TOUR RESERVATION -->
+  <div class="old-town-modal" id="oldTownModal" hidden>
+    <div class="old-town-dialog" role="dialog" aria-modal="true" aria-labelledby="oldTownReservationTitle">
+      <div class="old-town-dialog-header">
+        <div>
+          <p class="bahia-night-kicker">Old Town Walking Tour</p>
+          <h2 id="oldTownReservationTitle">Reserve your tour</h2>
+        </div>
+        <button type="button" class="old-town-close" id="closeOldTownReservation" aria-label="Close">×</button>
+      </div>
+
+      <p class="old-town-intro">
+        <strong>Monday to Saturday · 9:30 AM & 3:00 PM</strong><br>
+        Please send your reservation details first. After your request is received, complete the payment below to confirm your booking.
+      </p>
+
+      <div class="old-town-important">
+        Important: complete the reservation form before making the PayPal payment.
+      </div>
+
+      <form
+        id="oldTownForm"
+        class="old-town-form"
+        action="https://formsubmit.co/ajax/toknowsalvador@gmail.com"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="New Old Town Walking Tour Reservation">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="Experience" value="Old Town Walking Tour">
+
+        <div class="old-town-field">
+          <label for="oldTownName">Name</label>
+          <input id="oldTownName" name="Name" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="old-town-field">
+          <label for="oldTownDate">Preferred date</label>
+          <input id="oldTownDate" name="Preferred date" type="date" required>
+        </div>
+
+        <div class="old-town-field">
+          <label for="oldTownGuests">Number of guests</label>
+          <input id="oldTownGuests" name="Number of guests" type="number" min="1" step="1" value="1" required>
+        </div>
+
+        <div class="old-town-field">
+          <label for="oldTownLanguage">Preferred language</label>
+          <select id="oldTownLanguage" name="Preferred language" required>
+            <option value="">Select</option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Portuguese">Portuguese</option>
+          </select>
+        </div>
+
+        <div class="old-town-field">
+          <label for="oldTownPhone">WhatsApp / Phone number</label>
+          <input id="oldTownPhone" name="WhatsApp / Phone" type="tel" autocomplete="tel" placeholder="+55 ..." required>
+        </div>
+
+        <div class="old-town-field">
+          <label for="oldTownEmail">Email</label>
+          <input id="oldTownEmail" name="Customer email" type="email" autocomplete="email" required>
+        </div>
+
+        <p class="old-town-error" id="oldTownError" hidden></p>
+
+        <button class="old-town-submit" id="oldTownSubmit" type="submit">
+          SUBMIT RESERVATION
+        </button>
+      </form>
+
+      <div class="old-town-success" id="oldTownSuccess" hidden>
+        <h3>Reservation request received!</h3>
+        <p>
+          Your reservation details have been sent to To Know Salvador.
+          Now complete your PayPal payment to confirm the booking.
+        </p>
+
+        <p class="old-town-paypal-note">
+          Reservation first ✓ &nbsp; Payment second ✓
+        </p>
+
+        <div id="paypal-container-X4ZNWPV789W4Q"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=BAAzYF80PDjRTqf66zd5K-MoFsx5EQLVDIRn_wbIYEvofbB6ZF9zkEd8_YEuA4e7VEMhw-p94Hoey17E4U&components=hosted-buttons&disable-funding=venmo&currency=USD">
+  </script>
+
+
+  <script>
+    (() => {
+      const modal = document.getElementById("oldTownModal");
+      const openButton = document.getElementById("openOldTownReservation");
+      const closeButton = document.getElementById("closeOldTownReservation");
+      const form = document.getElementById("oldTownForm");
+      const successBox = document.getElementById("oldTownSuccess");
+      const errorBox = document.getElementById("oldTownError");
+      const submitButton = document.getElementById("oldTownSubmit");
+
+      if (!modal || !openButton || !closeButton || !form) return;
+
+      function showModal() {
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+        setTimeout(() => document.getElementById("oldTownName")?.focus(), 0);
+      }
+
+      function hideModal() {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+      }
+
+      openButton.addEventListener("click", showModal);
+      closeButton.addEventListener("click", hideModal);
+
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) hideModal();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) hideModal();
+      });
+
+      let paypalRendered = false;
+
+      function renderPayPalButton() {
+        if (paypalRendered) return;
+        if (!window.paypal || !paypal.HostedButtons) {
+          errorBox.textContent = "PayPal could not load. Please refresh the page and try again.";
+          errorBox.hidden = false;
+          return;
+        }
+
+        paypal.HostedButtons({
+          hostedButtonId: "X4ZNWPV789W4Q",
+        }).render("#paypal-container-X4ZNWPV789W4Q");
+
+        paypalRendered = true;
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        errorBox.hidden = true;
+        errorBox.textContent = "";
+
+        if (!form.reportValidity()) return;
+
+        submitButton.disabled = true;
+        submitButton.textContent = "SENDING...";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "Accept": "application/json" }
+          });
+
+          if (!response.ok) {
+            throw new Error("Reservation service returned an error.");
+          }
+
+          form.hidden = true;
+          successBox.hidden = false;
+          renderPayPalButton();
+        } catch (error) {
+          errorBox.textContent = "We could not send your reservation right now. Please try again.";
+          errorBox.hidden = false;
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "SUBMIT RESERVATION";
+        }
+      });
+    })();
   </script>
 
 </body>
