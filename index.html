@@ -8,7 +8,7 @@
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   />
 
-  <title>To Know Salvador - Free Walking Tour and Local Services in Salvador, Bahia</title>
+  <title>To Know Salvador - Old Town Walking Tour and Local Services in Salvador, Bahia</title>
 
   <meta
     name="description"
@@ -26,7 +26,7 @@
 
   <meta
     property="og:title"
-    content="To Know Salvador - Free Walking Tour and Local Services in Salvador, Bahia"
+    content="To Know Salvador - Old Town Walking Tour and Local Services in Salvador, Bahia"
   />
 
   <meta
@@ -93,7 +93,7 @@
 
   <meta
     name="twitter:title"
-    content="To Know Salvador - Free Walking Tour and Local Services in Salvador, Bahia"
+    content="To Know Salvador - Old Town Walking Tour and Local Services in Salvador, Bahia"
   />
 
   <meta
@@ -173,31 +173,6 @@
       "https://www.instagram.com/toknowsalvador/"
     ]
   }
-  
-    // Reliable WhatsApp routing for all clickable service cards.
-    document.querySelectorAll(".whatsapp-question").forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        const questionKey = link.dataset.questionKey;
-        const item = translations.en.questions[questionKey];
-        if (!item) return;
-
-        const number =
-          questionKey === "nails"
-            ? whatsappNumbers.manicure
-            : questionKey === "hairMakeup"
-              ? whatsappNumbers.beautySalon
-              : whatsappNumbers.adriano;
-
-        window.open(
-          `https://wa.me/${number}?text=${encodeURIComponent(item.message)}`,
-          "_blank",
-          "noopener,noreferrer"
-        );
-      });
-    });
-
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -411,6 +386,49 @@
     .free-tour-button:hover {
       transform: translateY(-3px);
       background: #d7ba73;
+    }
+
+    /* Main-screen button colors — based on the supplied visual reference */
+    .hero-tour-button {
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      background: linear-gradient(180deg, #d0ae5d 0%, #c7a457 100%);
+      color: #101010;
+    }
+
+    .hero-tour-button:hover {
+      background: linear-gradient(180deg, #d8b968 0%, #cfad5e 100%);
+    }
+
+    .hero-islands-button {
+      border: 1px solid rgba(255, 255, 255, 0.42);
+      background: rgba(0, 0, 0, 0.34);
+      color: #ffffff;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.22),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-islands-button:hover {
+      border-color: rgba(255, 255, 255, 0.68);
+      background: rgba(0, 0, 0, 0.52);
+    }
+
+    .hero-bahia-button {
+      border: 1px solid rgba(234, 213, 157, 0.60);
+      background: rgba(73, 58, 22, 0.30);
+      color: var(--gold-light);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow:
+        0 16px 40px rgba(0, 0, 0, 0.20),
+        inset 0 1px 0 rgba(234, 213, 157, 0.05);
+    }
+
+    .hero-bahia-button:hover {
+      border-color: rgba(234, 213, 157, 0.84);
+      background: rgba(92, 73, 28, 0.42);
     }
 
     /* LANGUAGE AREA */
@@ -1934,19 +1952,52 @@
       font-weight: 850;
     }
 
+    .bahia-night-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .bahia-night-menu,
     .bahia-night-book {
       display: inline-flex;
+      width: 100%;
       min-height: 54px;
       align-items: center;
       justify-content: center;
-      margin-top: 24px;
       padding: 0 24px;
-      border: 0;
       border-radius: 16px;
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .035em;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+    }
+
+    .bahia-night-menu {
+      border: 1px solid rgba(234,213,157,.52);
+      background: rgba(200,168,90,.08);
+      color: var(--gold-light);
+    }
+
+    .bahia-night-menu:hover {
+      transform: translateY(-2px);
+      border-color: rgba(234,213,157,.82);
+      background: rgba(200,168,90,.14);
+    }
+
+    .bahia-night-book {
+      margin: 0;
+      border: 0;
       background: var(--gold);
       color: #111;
-      font-weight: 850;
-      cursor: pointer;
+    }
+
+    .bahia-night-book:hover {
+      transform: translateY(-2px);
+      background: #d7ba73;
     }
 
     /* Reservation modal */
@@ -2438,14 +2489,14 @@
       <div class="hero-actions">
         <button
           type="button"
-          class="free-tour-button"
+          class="free-tour-button hero-tour-button"
           id="openOldTownReservation"
         >
           Old Town Walking Tour
         </button>
 <a
           href="https://wa.me/5571993719791?text=Hello%21%20I%20saw%20the%2020%25%20discount%20for%20the%20island%20tour%20and%20would%20like%20more%20information."
-          class="free-tour-button"
+          class="free-tour-button hero-islands-button"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -2453,7 +2504,7 @@
         </a>
 <a
           href="#bahia-night"
-          class="free-tour-button"
+          class="free-tour-button hero-bahia-button"
         >
           Dinner and Folkloric Show
         </a>
@@ -2572,9 +2623,20 @@
           <span>✅ Reserve to guarantee your spot.</span>
         </div>
 
-        <button type="button" class="bahia-night-book" id="openBahiaNightReservation">
-          BOOK NOW — GUARANTEE YOUR SPOT
-        </button>
+        <div class="bahia-night-actions">
+          <a
+            class="bahia-night-menu"
+            href="/public/Buffet-Bahia-Night-Reservations.pdf"
+            download="Buffet-Bahia-Night-Reservations.pdf"
+            aria-label="View or download the Bahia Night buffet menu"
+          >
+            VIEW / DOWNLOAD BUFFET MENU
+          </a>
+
+          <button type="button" class="bahia-night-book" id="openBahiaNightReservation">
+            BOOK NOW — GUARANTEE YOUR SPOT
+          </button>
+        </div>
       </article>
     </div>
   </section>
@@ -3029,7 +3091,7 @@
 
     const translations = {
       en: {
-        documentTitle: "To Know Salvador - Free Walking Tour and Local Services in Salvador, Bahia",
+        documentTitle: "To Know Salvador - Old Town Walking Tour and Local Services in Salvador, Bahia",
         metaDescription: "Old Town Walking Tour and find local services, experiences, recommendations and support in Salvador, Bahia.",
         languageLabel: "Select your language",
         languageSelectorLabel: "Select language",
