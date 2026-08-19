@@ -8,11 +8,11 @@
     content="width=device-width, initial-scale=1, viewport-fit=cover"
   />
 
-  <title>To Know Salvador - Old Town Walking Tour and Local Services in Salvador, Bahia</title>
+  <title>To Know Salvador - Free Walking Tour and Local Services in Salvador, Bahia</title>
 
   <meta
     name="description"
-    content="Old Town Walking Tour and find local services, experiences, recommendations and support in Salvador, Bahia."
+    content="Afro Tour Old Town and find local services, experiences, recommendations and support in Salvador, Bahia."
   />
 
   <meta name="theme-color" content="#070707" />
@@ -26,22 +26,22 @@
 
   <meta
     property="og:title"
-    content="To Know Salvador - Old Town Walking Tour and Local Services in Salvador, Bahia"
+    content="To Know Salvador - Afro Tour Old Town and Local Experiences"
   />
 
   <meta
     property="og:description"
-    content="Old Town Walking Tour and find local services, experiences, recommendations and support in Salvador, Bahia."
+    content="Afro Tour Old Town, Bahia Night, island experiences and trusted local services in Salvador, Bahia."
   />
 
   <meta
     property="og:image"
-    content="https://toknowsalvador.com/public/toknowsalvador-logo.png?v=10"
+    content="https://toknowsalvador.com/public/EEEA4113-7576-4AF0-ADD8-6B9462CD30F8.png"
   />
 
   <meta
     property="og:image:secure_url"
-    content="https://toknowsalvador.com/public/toknowsalvador-logo.png?v=10"
+    content="https://toknowsalvador.com/public/EEEA4113-7576-4AF0-ADD8-6B9462CD30F8.png"
   />
 
   <meta
@@ -61,7 +61,7 @@
 
   <meta
     property="og:image:alt"
-    content="To Know Salvador Brazil"
+    content="To Know Salvador"
   />
 
   <meta
@@ -93,22 +93,22 @@
 
   <meta
     name="twitter:title"
-    content="To Know Salvador - Old Town Walking Tour and Local Services in Salvador, Bahia"
+    content="To Know Salvador - Afro Tour Old Town and Local Experiences"
   />
 
   <meta
     name="twitter:description"
-    content="Old Town Walking Tour and find local services, experiences, recommendations and support in Salvador, Bahia."
+    content="Afro Tour Old Town, Bahia Night, island experiences and trusted local services in Salvador, Bahia."
   />
 
   <meta
     name="twitter:image"
-    content="https://toknowsalvador.com/public/toknowsalvador-logo.png?v=10"
+    content="https://toknowsalvador.com/public/EEEA4113-7576-4AF0-ADD8-6B9462CD30F8.png"
   />
 
   <meta
     name="twitter:image:alt"
-    content="To Know Salvador Brazil"
+    content="To Know Salvador"
   />
 
   <!-- GOOGLE SEARCH ICON / FAVICON -->
@@ -154,7 +154,7 @@
       "width": 1200,
       "height": 630
     },
-    "description": "Old Town Walking Tour and find local services, experiences, recommendations and support in Salvador, Bahia.",
+    "description": "Afro Tour Old Town and find local services, experiences, recommendations and support in Salvador, Bahia.",
     "areaServed": {
       "@type": "City",
       "name": "Salvador",
@@ -173,6 +173,31 @@
       "https://www.instagram.com/toknowsalvador/"
     ]
   }
+  
+    // Reliable WhatsApp routing for all clickable service cards.
+    document.querySelectorAll(".whatsapp-question").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const questionKey = link.dataset.questionKey;
+        const item = translations.en.questions[questionKey];
+        if (!item) return;
+
+        const number =
+          questionKey === "nails"
+            ? whatsappNumbers.manicure
+            : questionKey === "hairMakeup"
+              ? whatsappNumbers.beautySalon
+              : whatsappNumbers.adriano;
+
+        window.open(
+          `https://wa.me/${number}?text=${encodeURIComponent(item.message)}`,
+          "_blank",
+          "noopener,noreferrer"
+        );
+      });
+    });
+
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -324,7 +349,7 @@
       z-index: 3;
       width: min(100% - 36px, 640px);
       margin: 0 auto;
-      padding-bottom: 52px;
+      padding-bottom: 72px;
       text-align: center;
     }
 
@@ -386,49 +411,6 @@
     .free-tour-button:hover {
       transform: translateY(-3px);
       background: #d7ba73;
-    }
-
-    /* Main-screen button colors — based on the supplied visual reference */
-    .hero-tour-button {
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      background: linear-gradient(180deg, #d0ae5d 0%, #c7a457 100%);
-      color: #101010;
-    }
-
-    .hero-tour-button:hover {
-      background: linear-gradient(180deg, #d8b968 0%, #cfad5e 100%);
-    }
-
-    .hero-islands-button {
-      border: 1px solid rgba(255, 255, 255, 0.42);
-      background: rgba(0, 0, 0, 0.34);
-      color: #ffffff;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow:
-        0 16px 40px rgba(0, 0, 0, 0.22),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    }
-
-    .hero-islands-button:hover {
-      border-color: rgba(255, 255, 255, 0.68);
-      background: rgba(0, 0, 0, 0.52);
-    }
-
-    .hero-bahia-button {
-      border: 1px solid rgba(234, 213, 157, 0.60);
-      background: rgba(73, 58, 22, 0.30);
-      color: var(--gold-light);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow:
-        0 16px 40px rgba(0, 0, 0, 0.20),
-        inset 0 1px 0 rgba(234, 213, 157, 0.05);
-    }
-
-    .hero-bahia-button:hover {
-      border-color: rgba(234, 213, 157, 0.84);
-      background: rgba(92, 73, 28, 0.42);
     }
 
     /* LANGUAGE AREA */
@@ -1952,107 +1934,19 @@
       font-weight: 850;
     }
 
-    .bahia-night-actions {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .bahia-night-menu,
     .bahia-night-book {
       display: inline-flex;
-      width: 100%;
       min-height: 54px;
       align-items: center;
       justify-content: center;
+      margin-top: 24px;
       padding: 0 24px;
-      border-radius: 16px;
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: .035em;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-    }
-
-    .bahia-night-menu {
-      border: 1px solid rgba(234,213,157,.52);
-      background: rgba(200,168,90,.08);
-      color: var(--gold-light);
-    }
-
-    .bahia-night-menu:hover {
-      transform: translateY(-2px);
-      border-color: rgba(234,213,157,.82);
-      background: rgba(200,168,90,.14);
-    }
-
-    .bahia-night-menu {
-      font-family: inherit;
-    }
-
-    .bahia-night-menu-panel[hidden] {
-      display: none;
-    }
-
-    .bahia-night-menu-panel {
-      margin-top: 14px;
-      padding: 20px;
-      border: 1px solid rgba(234,213,157,.24);
-      border-radius: 18px;
-      background: rgba(0,0,0,.22);
-    }
-
-    .bahia-night-menu-panel h3 {
-      margin: 0 0 16px;
-      color: var(--gold-light);
-      font-family: "Playfair Display", serif;
-      font-size: 25px;
-    }
-
-    .buffet-group + .buffet-group {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255,255,255,.08);
-    }
-
-    .buffet-group strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #fff;
-      font-size: 13px;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .buffet-group p {
-      margin: 0;
-      color: rgba(255,255,255,.68);
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .buffet-reservation-note {
-      margin-top: 18px;
-      padding: 14px;
-      border-radius: 14px;
-      background: rgba(200,168,90,.1);
-      color: var(--gold-light);
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    .bahia-night-book {
-      margin: 0;
       border: 0;
+      border-radius: 16px;
       background: var(--gold);
       color: #111;
-    }
-
-    .bahia-night-book:hover {
-      transform: translateY(-2px);
-      background: #d7ba73;
+      font-weight: 850;
+      cursor: pointer;
     }
 
     /* Reservation modal */
@@ -2524,6 +2418,62 @@
       width: min(100%, 430px);
     }
 
+  
+    /* HERO SERVICE COLORS — match approved reference */
+    .hero-actions > .free-tour-button:nth-of-type(1),
+    .hero-actions > button.free-tour-button {
+      background: linear-gradient(180deg, #e4c15f 0%, #d4ad3f 100%);
+      color: #111111;
+      border: 1px solid rgba(255, 226, 139, 0.72);
+      box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    }
+
+    .hero-actions > a.free-tour-button:nth-of-type(1) {
+      background: rgba(5, 5, 5, 0.84);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.58);
+      box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-actions > a.free-tour-button:nth-of-type(2) {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(53, 39, 16, 0.9),
+          rgba(20, 16, 10, 0.94)
+        );
+      color: #ead59d;
+      border: 1px solid rgba(234, 213, 157, 0.64);
+      box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .hero-actions > .free-tour-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-actions > button.free-tour-button:hover {
+      background: linear-gradient(180deg, #e8c96e 0%, #d7b24b 100%);
+    }
+
+    .hero-actions > a.free-tour-button:nth-of-type(1):hover {
+      background: rgba(8, 8, 8, 0.92);
+    }
+
+    .hero-actions > a.free-tour-button:nth-of-type(2):hover {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(64, 47, 19, 0.94),
+          rgba(25, 19, 11, 0.96)
+        );
+    }
+
   </style>
 </head>
 
@@ -2544,14 +2494,14 @@
       <div class="hero-actions">
         <button
           type="button"
-          class="free-tour-button hero-tour-button"
+          class="free-tour-button"
           id="openOldTownReservation"
         >
-          Old Town Walking Tour
+          Afro Tour Old Town
         </button>
 <a
           href="https://wa.me/5571993719791?text=Hello%21%20I%20saw%20the%2020%25%20discount%20for%20the%20island%20tour%20and%20would%20like%20more%20information."
-          class="free-tour-button hero-islands-button"
+          class="free-tour-button"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -2559,7 +2509,7 @@
         </a>
 <a
           href="#bahia-night"
-          class="free-tour-button hero-bahia-button"
+          class="free-tour-button"
         >
           Dinner and Folkloric Show
         </a>
@@ -2678,56 +2628,9 @@
           <span>✅ Reserve to guarantee your spot.</span>
         </div>
 
-        <div class="bahia-night-actions">
-          <button
-            type="button"
-            class="bahia-night-menu"
-            id="toggleBahiaNightMenu"
-            aria-expanded="false"
-            aria-controls="bahiaNightMenuPanel"
-          >
-            VIEW BUFFET MENU
-          </button>
-
-          <div class="bahia-night-menu-panel" id="bahiaNightMenuPanel" hidden>
-            <h3>Buffet Bahia Night</h3>
-
-            <div class="buffet-group">
-              <strong>Starters</strong>
-              <p>Salvador Salad with quail eggs; Bahian Salad with salmon; Coliseu Salad; Vinaigrette with tomato, onion and bell pepper; Acarajé; Vatapá.</p>
-            </div>
-
-            <div class="buffet-group">
-              <strong>Main Courses</strong>
-              <p>Shrimp Bobó; Fish Moqueca; Coliseu-style Codfish; Coliseu Lasagna with plantain; Chicken Stroganoff; Roast Beef with potatoes; Pelourinho Lasagna with chicken.</p>
-            </div>
-
-            <div class="buffet-group">
-              <strong>From the Grill</strong>
-              <p>Grilled chicken fillet.</p>
-            </div>
-
-            <div class="buffet-group">
-              <strong>Side Dishes</strong>
-              <p>Garlic and olive oil spaghetti with tomato sauce; White rice; French fries; Bread and toast.</p>
-            </div>
-
-            <div class="buffet-group">
-              <strong>Cold Sides</strong>
-              <p>Fried banana; Dendê farofa; Butter farofa; Hot sauce.</p>
-            </div>
-
-            <div class="buffet-group">
-              <strong>Seasonal Fruit</strong>
-              <p>Selection of seasonal fruits.</p>
-            </div>
-
-          </div>
-
-          <button type="button" class="bahia-night-book" id="openBahiaNightReservation">
-            BOOK NOW — GUARANTEE YOUR SPOT
-          </button>
-        </div>
+        <button type="button" class="bahia-night-book" id="openBahiaNightReservation">
+          BOOK NOW — GUARANTEE YOUR SPOT
+        </button>
       </article>
     </div>
   </section>
@@ -2769,7 +2672,7 @@
 
         <div class="reservation-field">
           <label for="bahiaNightGuests">Number of guests</label>
-          <input id="bahiaNightGuests" name="Number of guests" type="number" min="1" max="5" step="1" value="1" inputmode="numeric" required>
+          <input id="bahiaNightGuests" name="Number of guests" type="number" min="1" step="1" placeholder="1" required>
         </div>
 
         <div class="reservation-field">
@@ -2802,12 +2705,10 @@
       </form>
 
       <div class="reservation-success" id="bahiaNightSuccess" hidden>
-        <h3>Reservation request received!</h3>
-        <p>Your reservation details have been sent to To Know Salvador. Complete your payment below to guarantee your spot.</p>
-        <div class="reservation-total" id="bahiaNightSuccessTotal">Total to pay: US$65</div>
+        <h3>Information sent successfully!</h3>
+        <p>Your reservation details have been received by To Know Salvador. Now complete the payment below to confirm and guarantee your spot.</p>
         <a
           class="paypal-button"
-          id="bahiaNightPaypalButton"
           href="https://www.paypal.com/ncp/payment/4J7JEH69L9ZUQ"
           target="_blank"
           rel="noopener noreferrer"
@@ -3184,8 +3085,8 @@
 
     const translations = {
       en: {
-        documentTitle: "To Know Salvador - Old Town Walking Tour and Local Services in Salvador, Bahia",
-        metaDescription: "Old Town Walking Tour and find local services, experiences, recommendations and support in Salvador, Bahia.",
+        documentTitle: "To Know Salvador - Free Walking Tour and Local Services in Salvador, Bahia",
+        metaDescription: "Afro Tour Old Town and find local services, experiences, recommendations and support in Salvador, Bahia.",
         languageLabel: "Select your language",
         languageSelectorLabel: "Select language",
         heroHelp: "EXPLORE THE ISLANDS — 20% OFF",
@@ -3556,64 +3457,31 @@
       const errorBox = document.getElementById("bahiaNightError");
       const successBox = document.getElementById("bahiaNightSuccess");
       const submitButton = document.getElementById("bahiaNightSubmit");
-      const successTotal = document.getElementById("bahiaNightSuccessTotal");
-      const paypalButton = document.getElementById("bahiaNightPaypalButton");
-      const menuToggle = document.getElementById("toggleBahiaNightMenu");
-      const menuPanel = document.getElementById("bahiaNightMenuPanel");
 
       if (!modal || !openButton || !closeButton || !form) return;
 
       const PRICE = 65;
-      const MIN_GUESTS = 1;
-      const MAX_GUESTS = 5;
-
-      function getGuestCount() {
-        if (guestsInput.value === "") return null;
-        const guests = Number.parseInt(guestsInput.value, 10);
-        return Number.isFinite(guests) ? guests : null;
-      }
 
       function updateTotal() {
-        const guests = getGuestCount();
+        const rawValue = guestsInput.value.trim();
 
-        if (guests === null) {
+        if (rawValue === "") {
           totalLabel.textContent = "Total: —";
           totalHidden.value = "";
           return;
         }
 
-        const validGuests = Math.min(MAX_GUESTS, Math.max(MIN_GUESTS, guests));
-        const total = validGuests * PRICE;
+        const guests = Number.parseInt(rawValue, 10);
 
+        if (!Number.isInteger(guests) || guests < 1) {
+          totalLabel.textContent = "Total: —";
+          totalHidden.value = "";
+          return;
+        }
+
+        const total = guests * PRICE;
         totalLabel.textContent = `Total: US$${total}`;
         totalHidden.value = `US$${total}`;
-
-        if (successTotal) {
-          successTotal.textContent = `Total to pay: US$${total} (${validGuests} ${validGuests === 1 ? "guest" : "guests"})`;
-        }
-
-        if (paypalButton) {
-          paypalButton.textContent = `PAY US$${total} WITH PAYPAL`;
-          paypalButton.dataset.guests = String(validGuests);
-          paypalButton.dataset.total = String(total);
-        }
-      }
-
-      function normalizeGuests() {
-        let guests = getGuestCount();
-        if (guests === null) guests = MIN_GUESTS;
-        guests = Math.min(MAX_GUESTS, Math.max(MIN_GUESTS, guests));
-        guestsInput.value = String(guests);
-        updateTotal();
-      }
-
-      if (menuToggle && menuPanel) {
-        menuToggle.addEventListener("click", () => {
-          const willOpen = menuPanel.hidden;
-          menuPanel.hidden = !willOpen;
-          menuToggle.setAttribute("aria-expanded", String(willOpen));
-          menuToggle.textContent = willOpen ? "HIDE BUFFET MENU" : "VIEW BUFFET MENU";
-        });
       }
 
       function isThursdayOrSaturday(value) {
@@ -3647,8 +3515,6 @@
       });
 
       guestsInput.addEventListener("input", updateTotal);
-      guestsInput.addEventListener("blur", normalizeGuests);
-      guestsInput.addEventListener("change", normalizeGuests);
       updateTotal();
 
       form.addEventListener("submit", async (event) => {
@@ -3663,17 +3529,9 @@
           return;
         }
 
-        const guests = getGuestCount();
-        if (guests === null || guests < MIN_GUESTS || guests > MAX_GUESTS) {
-          errorBox.textContent = "Please enter a number of guests from 1 to 5.";
-          errorBox.hidden = false;
-          guestsInput.focus();
-          return;
-        }
-
         if (!form.reportValidity()) return;
 
-        normalizeGuests();
+        updateTotal();
         submitButton.disabled = true;
         submitButton.textContent = "SENDING...";
 
@@ -3707,19 +3565,16 @@
     <div class="old-town-dialog" role="dialog" aria-modal="true" aria-labelledby="oldTownReservationTitle">
       <div class="old-town-dialog-header">
         <div>
-          <p class="bahia-night-kicker">Old Town Walking Tour</p>
+          <p class="bahia-night-kicker">Afro Tour Old Town</p>
           <h2 id="oldTownReservationTitle">Reserve your tour</h2>
         </div>
         <button type="button" class="old-town-close" id="closeOldTownReservation" aria-label="Close">×</button>
       </div>
 
       <p class="old-town-intro">
+        US$40 per person.<br>
         Please send your reservation details first. After your request is received, complete the payment below to confirm your booking.
       </p>
-
-      <div class="old-town-important">
-        Approx. 2 hours 30 minutes · Meeting point and itinerary details will be shared through the contact information you provide (WhatsApp and/or email).
-      </div>
 
       <div class="old-town-important">
         Available Monday to Saturday · Choose 9:30 AM or 3:00 PM in the form below.
@@ -3731,10 +3586,12 @@
         action="https://formsubmit.co/ajax/toknowsalvador@gmail.com"
         method="POST"
       >
-        <input type="hidden" name="_subject" value="New Old Town Walking Tour Reservation">
+        <input type="hidden" name="_subject" value="New Afro Tour Old Town Reservation">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="Experience" value="Old Town Walking Tour">
+        <input type="hidden" name="Experience" value="Afro Tour Old Town">
+        <input type="hidden" name="Price per person" value="US$40">
+        <input type="hidden" name="Total" id="oldTownTotalHidden" value="">
 
         <div class="old-town-field">
           <label for="oldTownName">Name</label>
@@ -3757,8 +3614,10 @@
 
         <div class="old-town-field">
           <label for="oldTownGuests">Number of guests</label>
-          <input id="oldTownGuests" name="Number of guests" type="number" min="1" step="1" value="1" required>
+          <input id="oldTownGuests" name="Number of guests" type="number" min="1" step="1" placeholder="1" required>
         </div>
+
+        <div class="reservation-total" id="oldTownTotal">Total: —</div>
 
         <div class="old-town-field">
           <label for="oldTownLanguage">Preferred language</label>
@@ -3788,10 +3647,10 @@
       </form>
 
       <div class="old-town-success" id="oldTownSuccess" hidden>
-        <h3>Reservation request received!</h3>
+        <h3>Information sent successfully!</h3>
         <p>
-          Your reservation details have been sent to To Know Salvador.
-          Now complete your PayPal payment to confirm the booking.
+          Your reservation details have been received by To Know Salvador.
+          Now complete your PayPal payment to confirm your booking.
         </p>
 
         <p class="old-town-paypal-note">
@@ -3818,8 +3677,38 @@
       const successBox = document.getElementById("oldTownSuccess");
       const errorBox = document.getElementById("oldTownError");
       const submitButton = document.getElementById("oldTownSubmit");
+      const guestsInput = document.getElementById("oldTownGuests");
+      const totalLabel = document.getElementById("oldTownTotal");
+      const totalHidden = document.getElementById("oldTownTotalHidden");
 
       if (!modal || !openButton || !closeButton || !form) return;
+
+      const OLD_TOWN_PRICE = 40;
+
+      function updateOldTownTotal() {
+        const rawValue = guestsInput.value.trim();
+
+        if (rawValue === "") {
+          totalLabel.textContent = "Total: —";
+          totalHidden.value = "";
+          return;
+        }
+
+        const guests = Number.parseInt(rawValue, 10);
+
+        if (!Number.isInteger(guests) || guests < 1) {
+          totalLabel.textContent = "Total: —";
+          totalHidden.value = "";
+          return;
+        }
+
+        const total = guests * OLD_TOWN_PRICE;
+        totalLabel.textContent = `Total: US$${total}`;
+        totalHidden.value = `US$${total}`;
+      }
+
+      guestsInput.addEventListener("input", updateOldTownTotal);
+      updateOldTownTotal();
 
       function showModal() {
         modal.hidden = false;
@@ -3874,9 +3763,11 @@
 
         if (!form.reportValidity()) return;
 
+        updateOldTownTotal();
+
         const dateInput = document.getElementById("oldTownDate");
         if (!isMondayToSaturday(dateInput.value)) {
-          errorBox.textContent = "Old Town Walking Tour is available Monday to Saturday. Please choose a valid date.";
+          errorBox.textContent = "Afro Tour Old Town is available Monday to Saturday. Please choose a valid date.";
           errorBox.hidden = false;
           dateInput.focus();
           return;
