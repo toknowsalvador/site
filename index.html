@@ -1853,31 +1853,7 @@
       font-size: 12px;
       box-shadow: none;
     }
-
-    /* Bahia Night hero shortcut */
-    .hero-bahia-night-button {
-      display: inline-flex;
-      min-height: 46px;
-      align-items: center;
-      justify-content: center;
-      padding: 0 20px;
-      border: 1px solid rgba(200,168,90,.48);
-      border-radius: 999px;
-      background: rgba(0,0,0,.34);
-      color: var(--gold-light);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .07em;
-      text-transform: uppercase;
-      transition: transform 180ms ease, background 180ms ease;
-    }
-
-    .hero-bahia-night-button:hover {
-      transform: translateY(-2px);
-      background: rgba(200,168,90,.12);
-    }
-
-    /* Bahia Night */
+/* Bahia Night */
     .bahia-night-section {
       padding: 72px 0;
       background:
@@ -2385,21 +2361,61 @@
     #paypal-container-X4ZNWPV789W4Q {
       min-height: 48px;
     }
-
-  
-    .old-town-hero-schedule {
-      margin: -4px 0 2px;
-      color: rgba(255,255,255,.7);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: .04em;
-      text-align: center;
+/* Portuguese Immersion — collapsed until clicked */
+    .immersion-details {
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 20px;
+      background: rgba(255,255,255,.025);
+      overflow: hidden;
     }
 
-    @media (max-width: 480px) {
-      .old-town-hero-schedule {
-        font-size: 11px;
-      }
+    .immersion-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 78px;
+      padding: 18px 20px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .immersion-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .immersion-summary-title {
+      display: block;
+      margin-top: 5px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(22px, 5vw, 30px);
+      line-height: 1.1;
+    }
+
+    .immersion-summary-arrow {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 34px;
+      border-radius: 50%;
+      background: rgba(200,168,90,.16);
+      color: var(--gold-light);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .immersion-details[open] .immersion-summary-arrow {
+      transform: rotate(90deg);
+      background: rgba(200,168,90,.28);
+    }
+
+    .immersion-details .immersion-layout {
+      padding: 0 20px 22px;
+    }
+
+    /* Hero main CTAs share the same visual treatment */
+    .hero-actions > .free-tour-button {
+      width: min(100%, 430px);
     }
 
   </style>
@@ -2427,13 +2443,9 @@
         >
           Old Town Walking Tour
         </button>
-        <p class="old-town-hero-schedule">
-          Monday to Saturday · 9:30 AM & 3:00 PM
-        </p>
-
-        <a
+<a
           href="https://wa.me/5571993719791?text=Hello%21%20I%20saw%20the%2020%25%20discount%20for%20the%20island%20tour%20and%20would%20like%20more%20information."
-          class="hero-help"
+          class="free-tour-button"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -2441,7 +2453,7 @@
         </a>
 <a
           href="#bahia-night"
-          class="hero-help hero-bahia-night-button"
+          class="free-tour-button"
         >
           Dinner and Folkloric Show
         </a>
@@ -2481,59 +2493,56 @@
 
   <!-- PORTUGUESE IMMERSION -->
   <section id="portuguese-immersion" class="immersion-section">
-
     <div class="container">
+      <details class="immersion-details">
+        <summary class="immersion-summary">
+          <span>
+            <span class="eyebrow">Portuguese beyond the classroom</span>
+            <span class="immersion-summary-title">Portuguese Immersion Program</span>
+          </span>
+          <span class="immersion-summary-arrow">→</span>
+        </summary>
 
-      <div class="immersion-layout">
+        <div class="immersion-layout">
+          <div class="immersion-media">
+            <div class="immersion-video-frame">
+              <video
+                src="/public/a35354bcf194429694c93e4c90198d91.mp4"
+                poster="/public/IMG_7478.jpeg"
+                controls
+                playsinline
+                preload="metadata"
+                aria-label="Portuguese Immersion Program in Salvador"
+              ></video>
+            </div>
+          </div>
 
-        <div class="immersion-media">
-          <div class="immersion-video-frame">
-            <video
-              src="/public/a35354bcf194429694c93e4c90198d91.mp4"
-              poster="/public/IMG_7478.jpeg"
-              controls
-              playsinline
-              preload="metadata"
-              aria-label="Portuguese Immersion Program in Salvador"
-            ></video>
+          <div class="immersion-copy-wrap">
+            <p class="immersion-copy">
+              Studying Portuguese in a classroom gives you the foundation.
+              Living Salvador gives you the language.
+              Spend the day with local people in communities, neighborhoods,
+              markets and everyday spaces, experiencing the Portuguese that is
+              actually spoken in real life — its rhythm, expressions, accents
+              and cultural context.
+            </p>
+
+            <div class="immersion-highlight">
+              🇧🇷 Real Portuguese · Local people · Everyday Salvador
+            </div>
+
+            <a
+              class="immersion-button"
+              href="https://wa.me/5571993719791?text=Hello%21%20I%27m%20interested%20in%20the%20Portuguese%20Immersion%20Program%20in%20Salvador.%20I%27d%20like%20to%20learn%20Portuguese%20through%20a%20real%20immersion%20experience%20with%20local%20people%20and%20everyday%20life%20in%20the%20city."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              I want to join the immersion
+            </a>
           </div>
         </div>
-
-        <div class="immersion-copy-wrap">
-          <p class="eyebrow">Portuguese beyond the classroom</p>
-
-          <h2 class="immersion-title">
-            Portuguese Immersion Program
-          </h2>
-
-          <p class="immersion-copy">
-            Studying Portuguese in a classroom gives you the foundation.
-            Living Salvador gives you the language.
-            Spend the day with local people in communities, neighborhoods,
-            markets and everyday spaces, experiencing the Portuguese that is
-            actually spoken in real life — its rhythm, expressions, accents
-            and cultural context.
-          </p>
-
-          <div class="immersion-highlight">
-            🇧🇷 Real Portuguese · Local people · Everyday Salvador
-          </div>
-<br />
-
-          <a
-            class="immersion-button"
-            href="https://wa.me/5571993719791?text=Hello%21%20I%27m%20interested%20in%20the%20Portuguese%20Immersion%20Program%20in%20Salvador.%20I%27d%20like%20to%20learn%20Portuguese%20through%20a%20real%20immersion%20experience%20with%20local%20people%20and%20everyday%20life%20in%20the%20city."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            I want to join the immersion
-          </a>
-        </div>
-
-      </div>
-
+      </details>
     </div>
-
   </section>
 
 
@@ -3493,12 +3502,11 @@
       </div>
 
       <p class="old-town-intro">
-        <strong>Monday to Saturday · 9:30 AM & 3:00 PM</strong><br>
         Please send your reservation details first. After your request is received, complete the payment below to confirm your booking.
       </p>
 
       <div class="old-town-important">
-        Important: complete the reservation form before making the PayPal payment.
+        Available Monday to Saturday · Choose 9:30 AM or 3:00 PM in the form below.
       </div>
 
       <form
@@ -3518,8 +3526,17 @@
         </div>
 
         <div class="old-town-field">
-          <label for="oldTownDate">Preferred date</label>
+          <label for="oldTownDate">Preferred date — Monday to Saturday</label>
           <input id="oldTownDate" name="Preferred date" type="date" required>
+        </div>
+
+        <div class="old-town-field">
+          <label for="oldTownTime">Preferred time</label>
+          <select id="oldTownTime" name="Preferred time" required>
+            <option value="">Select a time</option>
+            <option value="09:30">9:30 AM</option>
+            <option value="15:00">3:00 PM</option>
+          </select>
         </div>
 
         <div class="old-town-field">
@@ -3610,6 +3627,13 @@
         if (event.key === "Escape" && !modal.hidden) hideModal();
       });
 
+      function isMondayToSaturday(value) {
+        if (!value) return false;
+        const [year, month, day] = value.split("-").map(Number);
+        const date = new Date(year, month - 1, day);
+        return date.getDay() !== 0;
+      }
+
       let paypalRendered = false;
 
       function renderPayPalButton() {
@@ -3633,6 +3657,14 @@
         errorBox.textContent = "";
 
         if (!form.reportValidity()) return;
+
+        const dateInput = document.getElementById("oldTownDate");
+        if (!isMondayToSaturday(dateInput.value)) {
+          errorBox.textContent = "Old Town Walking Tour is available Monday to Saturday. Please choose a valid date.";
+          errorBox.hidden = false;
+          dateInput.focus();
+          return;
+        }
 
         submitButton.disabled = true;
         submitButton.textContent = "SENDING...";
