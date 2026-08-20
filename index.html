@@ -2478,6 +2478,105 @@
 
   
 
+
+
+    /* BAHIA NIGHT — AUTO / SWIPE CAROUSEL */
+    .bahia-night-gallery {
+      display: flex;
+      gap: 12px;
+      margin: 24px 0 6px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      overscroll-behavior-x: contain;
+      touch-action: pan-x;
+    }
+
+    .bahia-night-gallery::-webkit-scrollbar {
+      display: none;
+    }
+
+    .bahia-night-gallery figure {
+      position: relative;
+      flex: 0 0 100%;
+      width: 100%;
+      min-width: 100%;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 20px;
+      background: #111;
+      aspect-ratio: 4 / 3;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+
+    .bahia-night-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .bahia-night-gallery figure:nth-child(2) img {
+      object-position: center top;
+    }
+
+    .bahia-night-gallery figcaption {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.68);
+      color: rgba(255,255,255,.94);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .bahia-night-carousel-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin: 11px 0 2px;
+    }
+
+    .bahia-night-carousel-dot {
+      width: 7px;
+      height: 7px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255,255,255,.28);
+      cursor: pointer;
+      transition: width 180ms ease, background 180ms ease;
+    }
+
+    .bahia-night-carousel-dot.is-active {
+      width: 21px;
+      background: var(--gold-light);
+    }
+
+    @media (max-width: 520px) {
+      .bahia-night-gallery {
+        gap: 10px;
+      }
+
+      .bahia-night-gallery figure {
+        border-radius: 16px;
+        aspect-ratio: 4 / 3;
+      }
+    }
+
     /* BAHIA NIGHT — BUFFET + DISCREET FREE WALKING TOUR ACCESS */
     .bahia-night-actions {
       display: flex;
@@ -2888,6 +2987,26 @@
         <p class="bahia-night-kicker">Dinner and Folkloric Show</p>
         <h2 class="bahia-night-title">Bahia Night</h2>
         <p class="bahia-night-days">Thursday and Saturday</p>
+
+        <div class="bahia-night-gallery" aria-label="Bahia Night buffet and folkloric show photos">
+          <figure>
+            <img src="/public/14B42228-0DAF-40D8-BFBC-EF57ED275AB3.png" alt="Bahian buffet at Coliseu da Bahia" loading="lazy" />
+            <figcaption>Bahian Buffet</figcaption>
+          </figure>
+          <figure>
+            <img src="/public/29C8B64B-96B0-46CB-943C-7C235BD2E46E.png" alt="Bahia folkloric show at Coliseu da Bahia" loading="lazy" />
+            <figcaption>Folkloric Show</figcaption>
+          </figure>
+          <figure>
+            <img src="/public/16D86612-1A13-4F6C-BB23-B3C51D0F1CCF.png" alt="Traditional Bahian food served at Coliseu da Bahia" loading="lazy" />
+            <figcaption>Bahian Flavors</figcaption>
+          </figure>
+          <figure>
+            <img src="/public/589C6347-9AA5-4747-8438-6E1BA57E74AB.png" alt="Coliseu da Bahia dinner and cultural experience" loading="lazy" />
+            <figcaption>Coliseu Experience</figcaption>
+          </figure>
+        </div>
+        <div class="bahia-night-carousel-dots" id="bahiaNightCarouselDots" aria-label="Bahia Night photo navigation"></div>
 
         <div class="bahia-night-schedule">
           <div class="bahia-night-item">
@@ -4249,6 +4368,93 @@
           submitButton.textContent = "SEND COLLABORATION REQUEST";
         }
       });
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const carousel = document.querySelector("#bahia-night .bahia-night-gallery");
+      const dotsWrap = document.getElementById("bahiaNightCarouselDots");
+      if (!carousel || !dotsWrap) return;
+
+      const slides = Array.from(carousel.querySelectorAll("figure"));
+      if (slides.length < 2) return;
+
+      let currentIndex = 0;
+      let timer = null;
+      let resumeTimer = null;
+
+      const dots = slides.map((_, index) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "bahia-night-carousel-dot";
+        dot.setAttribute("aria-label", `Show photo ${index + 1}`);
+        dot.addEventListener("click", () => {
+          goTo(index);
+          restartAfterInteraction();
+        });
+        dotsWrap.appendChild(dot);
+        return dot;
+      });
+
+      function updateDots(index) {
+        dots.forEach((dot, i) => dot.classList.toggle("is-active", i === index));
+      }
+
+      function goTo(index, behavior = "smooth") {
+        currentIndex = (index + slides.length) % slides.length;
+        const slide = slides[currentIndex];
+        carousel.scrollTo({ left: slide.offsetLeft, behavior });
+        updateDots(currentIndex);
+      }
+
+      function startAuto() {
+        stopAuto();
+        timer = setInterval(() => goTo(currentIndex + 1), 3000);
+      }
+
+      function stopAuto() {
+        if (timer) clearInterval(timer);
+        timer = null;
+      }
+
+      function restartAfterInteraction() {
+        stopAuto();
+        if (resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(startAuto, 4500);
+      }
+
+      let scrollEndTimer = null;
+      carousel.addEventListener("scroll", () => {
+        if (scrollEndTimer) clearTimeout(scrollEndTimer);
+        scrollEndTimer = setTimeout(() => {
+          const center = carousel.scrollLeft + carousel.clientWidth / 2;
+          let nearest = 0;
+          let nearestDistance = Infinity;
+          slides.forEach((slide, i) => {
+            const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+            const distance = Math.abs(slideCenter - center);
+            if (distance < nearestDistance) {
+              nearestDistance = distance;
+              nearest = i;
+            }
+          });
+          currentIndex = nearest;
+          updateDots(currentIndex);
+        }, 90);
+      }, { passive: true });
+
+      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
+        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
+      });
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) stopAuto();
+        else startAuto();
+      });
+
+      updateDots(0);
+      startAuto();
     })();
   </script>
 
