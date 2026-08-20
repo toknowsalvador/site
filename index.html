@@ -1255,6 +1255,8 @@
 
     .history-button {
       display: flex;
+      border: 0;
+      cursor: pointer;
       width: 100%;
       min-height: 56px;
       align-items: center;
@@ -2474,7 +2476,271 @@
         );
     }
 
+  
+
+    /* BAHIA NIGHT — BUFFET + DISCREET FREE WALKING TOUR ACCESS */
+    .bahia-night-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .bahia-night-actions .bahia-night-book {
+      margin-top: 0;
+      flex: 1 1 230px;
+    }
+
+    .bahia-night-buffet {
+      flex: 1 1 170px;
+      border: 1px solid rgba(234, 213, 157, 0.42);
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      overflow: hidden;
+    }
+
+    .bahia-night-buffet summary {
+      min-height: 54px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      color: var(--gold-light);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .bahia-night-buffet summary::-webkit-details-marker { display: none; }
+
+    .bahia-night-buffet[open] summary {
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      background: rgba(200,168,90,.08);
+    }
+
+    .bahia-night-buffet-menu {
+      padding: 18px;
+      color: rgba(255,255,255,.74);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .bahia-night-buffet-menu p { margin: 0 0 12px; }
+    .bahia-night-buffet-menu p:last-child { margin-bottom: 0; }
+    .bahia-night-buffet-menu strong { color: #fff; }
+
+    .free-walking-access {
+      padding: 14px 0 18px;
+      background: #070707;
+      text-align: center;
+    }
+
+    .free-walking-access a {
+      display: inline-block;
+      color: rgba(255,255,255,.43);
+      font-size: 11px;
+      font-weight: 650;
+      letter-spacing: .04em;
+      border-bottom: 1px solid rgba(255,255,255,.16);
+      padding-bottom: 2px;
+      transition: color 180ms ease, border-color 180ms ease;
+    }
+
+    .free-walking-access a:hover {
+      color: var(--gold-light);
+      border-color: rgba(234,213,157,.55);
+    }
+</style>
+
+
+  <style>
+    /* CONTENT CREATOR COLLABORATIONS */
+    .creator-collab-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 18px;
+      padding: 0 0 3px;
+      border: 0;
+      border-bottom: 1px solid rgba(234, 213, 157, 0.34);
+      background: transparent;
+      color: rgba(234, 213, 157, 0.78);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.5;
+      cursor: pointer;
+      transition: color 180ms ease, border-color 180ms ease;
+    }
+
+    .creator-collab-link:hover {
+      color: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .creator-modal {
+      position: fixed;
+      z-index: 10020;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      overflow-y: auto;
+    }
+
+    .creator-modal[hidden] { display: none; }
+
+    .creator-dialog {
+      width: min(100%, 590px);
+      max-height: calc(100svh - 36px);
+      overflow-y: auto;
+      border: 1px solid rgba(234, 213, 157, 0.28);
+      border-radius: 26px;
+      background: #111111;
+      color: #ffffff;
+      box-shadow: 0 30px 80px rgba(0,0,0,.48);
+    }
+
+    .creator-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 25px 24px 17px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    .creator-kicker {
+      margin: 0 0 6px;
+      color: var(--gold-light);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .creator-header h2 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(26px, 7vw, 36px);
+      line-height: 1.08;
+    }
+
+    .creator-intro {
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.62);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .creator-close {
+      flex: 0 0 auto;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 50%;
+      background: rgba(255,255,255,.06);
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .creator-form { padding: 22px 24px 26px; }
+
+    .creator-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    .creator-field label {
+      display: block;
+      margin: 0 0 7px;
+      color: rgba(255,255,255,.78);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .creator-field input,
+    .creator-field select,
+    .creator-field textarea {
+      width: 100%;
+      min-height: 48px;
+      padding: 11px 13px;
+      border: 1px solid rgba(255,255,255,.13);
+      border-radius: 13px;
+      outline: none;
+      background: rgba(255,255,255,.055);
+      color: #fff;
+      font: inherit;
+      font-size: 14px;
+    }
+
+    .creator-field textarea {
+      min-height: 100px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    .creator-field input:focus,
+    .creator-field select:focus,
+    .creator-field textarea:focus {
+      border-color: rgba(234,213,157,.65);
+    }
+
+    .creator-field select option { color: #111; }
+
+    .creator-submit {
+      width: 100%;
+      min-height: 52px;
+      margin-top: 19px;
+      border: 0;
+      border-radius: 14px;
+      background: var(--gold);
+      color: #111;
+      font-weight: 850;
+      cursor: pointer;
+    }
+
+    .creator-submit:disabled { opacity: .58; cursor: default; }
+
+    .creator-error {
+      margin: 12px 0 0;
+      color: #ffb6b6;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .creator-success {
+      padding: 30px 24px 32px;
+      text-align: center;
+    }
+
+    .creator-success h3 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: 30px;
+    }
+
+    .creator-success p {
+      margin: 13px auto 0;
+      max-width: 440px;
+      color: rgba(255,255,255,.67);
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    @media (min-width: 560px) {
+      .creator-grid.two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
   </style>
+
 </head>
 
 <body>
@@ -2545,6 +2811,19 @@
     </div>
 
   </section>
+
+  <div class="free-walking-access">
+    <div class="container">
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeNEuT8lhgCT6F2dMunEJ8a64QnLSmTa0v5uKMLwRiynwehXg/viewform?usp=header"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Free Walking Tour access form"
+      >
+        Free Walking Tour access
+      </a>
+    </div>
+  </div>
 
 
   <!-- PORTUGUESE IMMERSION -->
@@ -2628,9 +2907,23 @@
           <span>✅ Reserve to guarantee your spot.</span>
         </div>
 
-        <button type="button" class="bahia-night-book" id="openBahiaNightReservation">
-          BOOK NOW — GUARANTEE YOUR SPOT
-        </button>
+        <div class="bahia-night-actions">
+          <button type="button" class="bahia-night-book" id="openBahiaNightReservation">
+            BOOK NOW — GUARANTEE YOUR SPOT
+          </button>
+
+          <details class="bahia-night-buffet">
+            <summary>🍽️ View Buffet</summary>
+            <div class="bahia-night-buffet-menu">
+              <p><strong>🥗 Starters:</strong> Salvador Salad with quail eggs, Bahian Salad with salmon, Coliseu Salad, Vinaigrette with tomato, onion and bell pepper, Acarajé, Vatapá.</p>
+              <p><strong>🍛 Main Courses:</strong> Shrimp Bobó, Fish Moqueca, Coliseu-style Codfish, Coliseu Lasagna with plantain, Chicken Stroganoff, Roast Beef with potatoes, Pelourinho Lasagna with chicken.</p>
+              <p><strong>🔥 From the Grill:</strong> Grilled Chicken Fillet.</p>
+              <p><strong>🍚 Side Dishes:</strong> Garlic and Oil Spaghetti with tomato sauce, White Rice, French Fries, Bread and Toast.</p>
+              <p><strong>🥣 Accompaniments:</strong> Fried Banana, Dendê Farofa, Butter Farofa, Hot Pepper Sauce.</p>
+              <p><strong>🍍 Seasonal Fruits.</strong></p>
+            </div>
+          </details>
+        </div>
       </article>
     </div>
   </section>
@@ -2991,26 +3284,26 @@
         <div class="history-content">
 
           <p class="eyebrow history-eyebrow">
-            Walk through Salvador
+            Partnerships in Salvador
           </p>
 
           <h2 class="history-title">
-            I want to learn about the city’s history.
+            Content Creator, Influencer or Vlogger? Collaborate With Us.
           </h2>
 
           <p class="history-copy">
-            Explore Salvador with a local guide and discover its history, culture and Afro-Brazilian heritage.
+            Are you actively creating content? Tell us about your audience, your platforms and your time in Salvador so we can explore a possible collaboration.
           </p>
 
-          <a href="#" class="whatsapp-question history-button" data-history-link>
+          <button type="button" class="history-button" id="openCreatorCollab">
             <span class="history-button-text">
-              Walk with a local guide
+              Apply for a collaboration
             </span>
 
             <span class="button-arrow">
               →
             </span>
-          </a>
+          </button>
 
         </div>
 
@@ -3019,6 +3312,104 @@
     </div>
 
   </section>
+
+
+  <!-- CONTENT CREATOR / INFLUENCER COLLABORATION -->
+  <div class="creator-modal" id="creatorCollabModal" hidden>
+    <div class="creator-dialog" role="dialog" aria-modal="true" aria-labelledby="creatorCollabTitle">
+      <div class="creator-header">
+        <div>
+          <p class="creator-kicker">Partnerships & collaborations</p>
+          <h2 id="creatorCollabTitle">Create in Salvador with us.</h2>
+          <p class="creator-intro">For influencers, vloggers and active content creators interested in collaborations with To Know Salvador.</p>
+        </div>
+        <button type="button" class="creator-close" id="closeCreatorCollab" aria-label="Close">×</button>
+      </div>
+
+      <form
+        id="creatorCollabForm"
+        class="creator-form"
+        action="https://formsubmit.co/ajax/toknowsalvador@gmail.com"
+        method="POST"
+      >
+        <input type="hidden" name="_subject" value="New Content Creator Collaboration Request">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="Request" value="Content Creator / Influencer Collaboration">
+
+        <div class="creator-grid two-col">
+          <div class="creator-field">
+            <label for="creatorName">Name</label>
+            <input id="creatorName" name="Name" type="text" autocomplete="name" required>
+          </div>
+          <div class="creator-field">
+            <label for="creatorCountry">Country of origin</label>
+            <input id="creatorCountry" name="Country of origin" type="text" autocomplete="country-name" required>
+          </div>
+        </div>
+
+        <div class="creator-grid two-col" style="margin-top:15px;">
+          <div class="creator-field">
+            <label for="creatorEmail">Email</label>
+            <input id="creatorEmail" name="Email" type="email" autocomplete="email" required>
+          </div>
+          <div class="creator-field">
+            <label for="creatorWhatsapp">WhatsApp / phone</label>
+            <input id="creatorWhatsapp" name="WhatsApp / Phone" type="tel" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="creator-field" style="margin-top:15px;">
+          <label for="creatorChannels">Instagram, TikTok, YouTube or other channel links</label>
+          <input id="creatorChannels" name="Social media / channel links" type="text" placeholder="https://..." required>
+        </div>
+
+        <div class="creator-grid two-col" style="margin-top:15px;">
+          <div class="creator-field">
+            <label for="creatorFollowers">Approx. total followers</label>
+            <input id="creatorFollowers" name="Approx. total followers" type="number" min="0" step="1" placeholder="e.g. 25000" required>
+          </div>
+          <div class="creator-field">
+            <label for="creatorDays">How many days in Salvador?</label>
+            <input id="creatorDays" name="Days in Salvador" type="number" min="1" step="1" placeholder="e.g. 4" required>
+          </div>
+        </div>
+
+        <div class="creator-grid two-col" style="margin-top:15px;">
+          <div class="creator-field">
+            <label for="creatorArrival">Arrival date</label>
+            <input id="creatorArrival" name="Arrival date" type="date">
+          </div>
+          <div class="creator-field">
+            <label for="creatorContent">Main content type</label>
+            <select id="creatorContent" name="Main content type" required>
+              <option value="">Select</option>
+              <option>Travel</option>
+              <option>Culture</option>
+              <option>Food</option>
+              <option>Lifestyle</option>
+              <option>Photography</option>
+              <option>Video / Vlog</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="creator-field" style="margin-top:15px;">
+          <label for="creatorIdea">Tell us briefly about your content or collaboration idea</label>
+          <textarea id="creatorIdea" name="Content / collaboration idea" placeholder="What would you like to create in Salvador?"></textarea>
+        </div>
+
+        <p class="creator-error" id="creatorCollabError" hidden></p>
+        <button type="submit" class="creator-submit" id="creatorCollabSubmit">SEND COLLABORATION REQUEST</button>
+      </form>
+
+      <div class="creator-success" id="creatorCollabSuccess" hidden>
+        <h3>Thank you!</h3>
+        <p>Your information has been sent to To Know Salvador. Our team will review it and contact you to plan a possible collaboration in Salvador.</p>
+      </div>
+    </div>
+  </div>
 
 
   <!-- LOCAL CONNECTION -->
@@ -3206,11 +3597,10 @@
           }
         },
 
-        historyEyebrow: "Walk through Salvador",
-        historyTitle: "I want to learn about the city’s history.",
-        historyCopy: "Explore Salvador with a local guide and discover its history, culture and Afro-Brazilian heritage.",
-        historyButton: "Walk with a local guide",
-        historyMessage: "Hello! Adriano from To Know Salvador recommended this contact. I am interested in booking a historical walking tour in Salvador. Could you send me availability and prices?",
+        historyEyebrow: "Partnerships in Salvador",
+        historyTitle: "Content Creator, Influencer or Vlogger? Collaborate With Us.",
+        historyCopy: "Are you actively creating content? Tell us about your audience, your platforms and your time in Salvador so we can explore a possible collaboration.",
+        historyButton: "Apply for a collaboration",
         connectionEyebrow: "Curated by Adriano Marques",
         connectionTitle: "Your local connection in Salvador.",
         connectionCopy: "Information práticas, recomendações locais e pessoas de confiança para facilitar sua experiência na cidade.",
@@ -3248,7 +3638,6 @@
     const languageLabel = document.querySelector(".language-label");
     const standardQuestionLinks = document.querySelectorAll("[data-question-key]");
     const premiumQuestionLinks = document.querySelectorAll("[data-premium-key]");
-    const historyLink = document.querySelector("[data-history-link]");
 
     function createWhatsAppLink(number, message) {
       return "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
@@ -3796,6 +4185,68 @@
         } finally {
           submitButton.disabled = false;
           submitButton.textContent = "SUBMIT RESERVATION";
+        }
+      });
+    })();
+  </script>
+
+
+  <script>
+    (() => {
+      const modal = document.getElementById("creatorCollabModal");
+      const openButton = document.getElementById("openCreatorCollab");
+      const closeButton = document.getElementById("closeCreatorCollab");
+      const form = document.getElementById("creatorCollabForm");
+      const success = document.getElementById("creatorCollabSuccess");
+      const errorBox = document.getElementById("creatorCollabError");
+      const submitButton = document.getElementById("creatorCollabSubmit");
+
+      if (!modal || !openButton || !closeButton || !form) return;
+
+      function openModal() {
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+        setTimeout(() => document.getElementById("creatorName")?.focus(), 0);
+      }
+
+      function closeModal() {
+        modal.hidden = true;
+        document.body.style.overflow = "";
+      }
+
+      openButton.addEventListener("click", openModal);
+      closeButton.addEventListener("click", closeModal);
+      modal.addEventListener("click", (event) => {
+        if (event.target === modal) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) closeModal();
+      });
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        errorBox.hidden = true;
+        errorBox.textContent = "";
+        if (!form.reportValidity()) return;
+
+        submitButton.disabled = true;
+        submitButton.textContent = "SENDING...";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "Accept": "application/json" }
+          });
+          if (!response.ok) throw new Error("Submission service returned an error.");
+          form.hidden = true;
+          success.hidden = false;
+        } catch (error) {
+          errorBox.textContent = "We could not send your information right now. Please try again.";
+          errorBox.hidden = false;
+        } finally {
+          submitButton.disabled = false;
+          submitButton.textContent = "SEND COLLABORATION REQUEST";
         }
       });
     })();
