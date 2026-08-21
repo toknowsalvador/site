@@ -2939,6 +2939,74 @@
       }
     }
 
+  
+    /* TO KNOW BRAZIL NETWORK */
+    .network-card {
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 18px;
+      background: rgba(255,255,255,.055);
+    }
+
+    .network-card summary {
+      display: grid;
+      grid-template-columns: 42px 1fr 30px;
+      align-items: center;
+      gap: 13px;
+      min-height: 72px;
+      padding: 13px 15px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .network-card summary::-webkit-details-marker { display: none; }
+
+    .network-card[open] .question-arrow {
+      transform: rotate(90deg);
+      background: var(--gold-light);
+    }
+
+    .network-card-copy {
+      margin: 0;
+      padding: 0 18px 16px 70px;
+      color: rgba(255,255,255,.66);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .network-destinations {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 8px;
+      padding: 0 15px 16px;
+    }
+
+    .network-destination {
+      display: flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 10px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 13px;
+      background: rgba(255,255,255,.045);
+      color: rgba(255,255,255,.88);
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: center;
+      letter-spacing: .04em;
+    }
+
+    .network-destination:hover {
+      border-color: rgba(234,213,157,.35);
+      background: rgba(255,255,255,.08);
+    }
+
+    @media (max-width: 400px) {
+      .network-destinations { grid-template-columns: 1fr; }
+    }
+
   </style>
 
 
@@ -3481,22 +3549,19 @@
         </p>
 
         <div class="football-tour-gallery" aria-label="Football Tour photos at Arena Fonte Nova">
-          <figure>
+<figure>
+            <img src="/public/IMG_8163.jpeg" alt="Guests wearing Bahia football colors inside Arena Fonte Nova" loading="lazy" />
+            <figcaption>Joy & Fun</figcaption>
+          </figure>
+<figure>
             <img src="/public/IMG_8166.jpeg" alt="Football Tour guests enjoying the local match-day atmosphere in Salvador" loading="lazy" />
             <figcaption>Match-day Experience</figcaption>
           </figure>
-
-          <figure>
+<figure>
             <img src="/public/IMG_8169.jpeg" alt="Supporters and flags inside Arena Fonte Nova in Salvador" loading="lazy" />
             <figcaption>Arena Fonte Nova</figcaption>
           </figure>
-
-          <figure>
-            <img src="/public/IMG_8163.jpeg" alt="Guests wearing Bahia football colors inside Arena Fonte Nova" loading="lazy" />
-            <figcaption>With Local Supporters</figcaption>
-          </figure>
-
-          <figure>
+<figure>
             <img src="/public/IMG_8173.jpeg" alt="Football Tour experience in Salvador" loading="lazy" />
             <figcaption>Football in Salvador</figcaption>
           </figure>
@@ -3515,9 +3580,10 @@
         </div>
 
         <a
-          href="#"
-          class="football-tour-book whatsapp-question"
-          data-question-key="footballTour"
+          href="https://wa.me/5571992439176?text=Ol%C3%A1%20Eduardo%2C%20te%20encontrei%20atrav%C3%A9s%20da%20To%20Know%20Salvador.%20Voc%C3%AA%20pode%20me%20informar%20quando%20podemos%20fazer%20o%20tour%20no%20dia%20de%20jogo%20e%20os%20valores%3F"
+          class="football-tour-book"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           Ask about the next match
         </a>
@@ -3572,75 +3638,37 @@
 
       </section>
 
-
-      <!-- PERSONAL CARE -->
       <section class="question-group">
-
-        <h3 class="group-label collapsible-group-label" data-group-label="personalCare" role="button" tabindex="0" aria-expanded="false">
-          Personal Care
-        </h3>
-
-        <div class="question-list">
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="hairMakeup">
-            <span class="question-icon">✨</span>
-            <span class="question-text">Beauty salon</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="nails">
-            <span class="question-icon">💅</span>
-            <span class="question-text">I want to book a manicure.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="hairCare">
-            <span class="question-icon">💇</span>
-            <span class="question-text">I want hair care services.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-        </div>
-
-      </section>
-
-
-      <!-- TO KNOW BRAZIL NETWORK -->
-      <section class="question-group">
-
         <h3 class="group-label">
-          To Know Brazil Network
+          Brazil Network
         </h3>
 
-        <div class="question-list">
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="rio">
-            <span class="question-icon">🌊</span>
-            <span class="question-text">I need a trusted local contact in Rio de Janeiro.</span>
+        <details class="network-card">
+          <summary>
+            <span class="question-icon">🇧🇷</span>
+            <span class="question-text">To Know Brazil Network</span>
             <span class="question-arrow">→</span>
-          </a>
+          </summary>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="fortaleza">
-            <span class="question-icon">☀️</span>
-            <span class="question-text">I need a trusted local contact in Fortaleza.</span>
-            <span class="question-arrow">→</span>
-          </a>
+          <p class="network-card-copy">
+            Use our trusted support network across Brazil.
+          </p>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="chapada">
-            <span class="question-icon">⛰️</span>
-            <span class="question-text">I need a trusted local contact in Chapada Diamantina.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="morroTours">
-            <span class="question-icon">⛵</span>
-            <span class="question-text">I need a trusted local contact in Morro de São Paulo.</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-        </div>
-
+          <div class="network-destinations">
+          <a class="network-destination" href="https://wa.me/5571993719791?text=Ol%C3%A1%21%20Encontrei%20a%20To%20Know%20Salvador%20e%20gostaria%20de%20um%20contato%20de%20confian%C3%A7a%20para%20S%C3%A3o%20Paulo.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">SÃO PAULO</a>
+          <a class="network-destination" href="https://wa.me/5571993719791?text=Ol%C3%A1%21%20Encontrei%20a%20To%20Know%20Salvador%20e%20gostaria%20de%20um%20contato%20de%20confian%C3%A7a%20para%20Rio%20De%20Janeiro.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">RIO DE JANEIRO</a>
+          <a class="network-destination" href="https://wa.me/5571993719791?text=Ol%C3%A1%21%20Encontrei%20a%20To%20Know%20Salvador%20e%20gostaria%20de%20um%20contato%20de%20confian%C3%A7a%20para%20Chapada%20Diamantina.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">CHAPADA DIAMANTINA</a>
+          <a class="network-destination" href="https://wa.me/5571993719791?text=Ol%C3%A1%21%20Encontrei%20a%20To%20Know%20Salvador%20e%20gostaria%20de%20um%20contato%20de%20confian%C3%A7a%20para%20Goi%C3%A2nia.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">GOIÂNIA</a>
+          <a class="network-destination" href="https://wa.me/5571993719791?text=Ol%C3%A1%21%20Encontrei%20a%20To%20Know%20Salvador%20e%20gostaria%20de%20um%20contato%20de%20confian%C3%A7a%20para%20Bel%C3%A9m.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">BELÉM</a>
+          <a class="network-destination" href="https://wa.me/5571993719791?text=Ol%C3%A1%21%20Encontrei%20a%20To%20Know%20Salvador%20e%20gostaria%20de%20um%20contato%20de%20confian%C3%A7a%20para%20Amazonas.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">AMAZONAS</a>
+          <a class="network-destination" href="https://wa.me/5571993719791?text=Ol%C3%A1%21%20Encontrei%20a%20To%20Know%20Salvador%20e%20gostaria%20de%20um%20contato%20de%20confian%C3%A7a%20para%20Len%C3%A7%C3%B3is.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">LENÇÓIS</a>
+          <a class="network-destination" href="https://wa.me/5571993719791?text=Ol%C3%A1%21%20Encontrei%20a%20To%20Know%20Salvador%20e%20gostaria%20de%20um%20contato%20de%20confian%C3%A7a%20para%20Curitiba.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">CURITIBA</a>
+          <a class="network-destination" href="https://wa.me/5571993719791?text=Ol%C3%A1%21%20Encontrei%20a%20To%20Know%20Salvador%20e%20gostaria%20de%20um%20contato%20de%20confian%C3%A7a%20para%20Jalap%C3%A3o.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">JALAPÃO</a>
+          <a class="network-destination" href="https://wa.me/5571993719791?text=Ol%C3%A1%21%20Encontrei%20a%20To%20Know%20Salvador%20e%20gostaria%20de%20um%20contato%20de%20confian%C3%A7a%20para%20Morro%20De%20S%C3%A3o%20Paulo.%20Pode%20me%20ajudar%3F" target="_blank" rel="noopener noreferrer">MORRO DE SÃO PAULO</a>
+          </div>
+        </details>
       </section>
+
 
     </div>
 
