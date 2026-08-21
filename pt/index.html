@@ -349,7 +349,7 @@
       z-index: 3;
       width: min(100% - 36px, 640px);
       margin: 0 auto;
-      padding-bottom: 72px;
+      padding-bottom: 34px;
       text-align: center;
     }
 
@@ -2683,7 +2683,14 @@
     .praia-paypal { display: flex; min-height: 50px; align-items: center; justify-content: center; margin-top: 16px; padding: 0 18px; border-radius: 14px; background: var(--gold); color: #111; font-weight: 850; text-align: center; }
     .praia-paypal.is-placeholder { opacity: .62; cursor: not-allowed; }
 
-</style>
+
+    @media (max-width: 480px) {
+      .hero-content {
+        padding-bottom: 30px;
+      }
+    }
+
+  </style>
 
 
   <style>
