@@ -3012,12 +3012,14 @@
         <div class="praia-fact"><strong>Servicio:</strong> vehículo y conductor privados para tu grupo.</div>
       </div>
 
+      
       <details class="praia-more">
         <summary>Más información ↓</summary>
+
         <p class="praia-copy">
           Salidas todos los días, con recogida en tu hotel y regreso al mismo punto.
-          El servicio está pensado para quienes desean visitar Praia do Forte con mayor
-          comodidad, flexibilidad y privacidad.
+          Este servicio privado está pensado para quienes desean visitar Praia do Forte
+          con mayor comodidad, flexibilidad y privacidad.
         </p>
 
         <div class="praia-price">
@@ -3025,15 +3027,71 @@
           Hasta 4 personas.
         </div>
 
-        <a
-          class="praia-paypal is-placeholder"
-          href="#"
-          onclick="return false;"
-          aria-disabled="true"
-          title="El enlace de PayPal se añadirá próximamente"
+        <form
+          id="praiaDoForteBookingForm"
+          action="https://formsubmit.co/toknowsalvador@gmail.com"
+          method="POST"
+          style="margin-top:18px;"
         >
-          Pagar con PayPal — enlace próximamente
-        </a>
+          <input type="hidden" name="_subject" value="Nueva reserva privada — Praia do Forte">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="Experiencia" value="Praia do Forte privado">
+          <input type="hidden" name="Precio" value="€200 por grupo — hasta 4 personas">
+
+          <div class="reservation-field">
+            <label for="praiaHotel">Hotel / alojamiento</label>
+            <input id="praiaHotel" name="Hotel / alojamiento" type="text" required>
+          </div>
+
+          <div class="reservation-field">
+            <label for="praiaDate">Fecha deseada</label>
+            <input id="praiaDate" name="Fecha deseada" type="date" required>
+          </div>
+
+          <div class="reservation-field">
+            <label for="praiaGuests">Cantidad de personas</label>
+            <input id="praiaGuests" name="Cantidad de personas" type="number" min="1" max="4" value="1" required>
+          </div>
+
+          <div class="reservation-field">
+            <label for="praiaName">Nombre</label>
+            <input id="praiaName" name="Nombre" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="reservation-field">
+            <label for="praiaContact">Email y/o WhatsApp</label>
+            <input
+              id="praiaContact"
+              name="Email y/o WhatsApp"
+              type="text"
+              placeholder="Email o número de WhatsApp"
+              required
+            >
+          </div>
+
+          <button type="submit" class="praia-paypal" style="border:0; width:100%; cursor:pointer;">
+            Confirmar datos de la reserva
+          </button>
+        </form>
+
+        <div id="praiaBookingSuccess" hidden>
+          <p class="praia-copy" style="margin-top:18px;">
+            Los datos de tu reserva fueron enviados correctamente.
+            Continúa al pago para completar la reserva.
+            El voucher será enviado por email y/o WhatsApp después de la confirmación del pago.
+          </p>
+
+          <a
+            class="praia-paypal is-placeholder"
+            href="#"
+            onclick="return false;"
+            aria-disabled="true"
+            title="El enlace de PayPal se añadirá próximamente"
+          >
+            Continuar al pago — enlace de PayPal próximamente
+          </a>
+        </div>
       </details>
     </article>
   </div>
@@ -3054,7 +3112,7 @@
           🇬🇧 Inglés
         </a>
 
-        <a href="/it/" class="language-button">
+        <a href="/pt/" class="language-button">
           🇮🇹 Italiano
         </a>
 
@@ -4582,6 +4640,41 @@
       if (event.key === "Escape" && !modal.hidden) hide();
     });
   })();
+</script>
+
+
+<script>
+(() => {
+  const form = document.getElementById("praiaDoForteBookingForm");
+  const success = document.getElementById("praiaBookingSuccess");
+  if (!form || !success) return;
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = "Enviando...";
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      });
+
+      if (!response.ok) throw new Error("Submission failed");
+
+      form.hidden = true;
+      success.hidden = false;
+    } catch (error) {
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
+      alert("No fue posible enviar los datos de la reserva. Inténtalo de nuevo.");
+    }
+  });
+})();
 </script>
 
 </body>
