@@ -81,7 +81,7 @@
 
   <meta
     property="og:locale"
-    content="es_ES"
+    content="en_US"
   />
 
   <!-- X / TWITTER -->
@@ -2764,6 +2764,181 @@
       cursor: not-allowed;
     }
 
+  
+    /* FOOTBALL TOUR — FEATURED CAROUSEL */
+    .football-tour-section {
+      padding: 72px 0;
+      background:
+        radial-gradient(circle at 15% 12%, rgba(200,168,90,.16), transparent 28%),
+        linear-gradient(180deg, #0a0a0a, #12100c);
+    }
+
+    .football-tour-card {
+      padding: 26px 20px 22px;
+      border: 1px solid rgba(200,168,90,.28);
+      border-radius: 28px;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+      box-shadow: 0 24px 60px rgba(0,0,0,.28);
+    }
+
+    .football-tour-kicker {
+      margin: 0;
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .football-tour-title {
+      margin: 9px 0 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(32px, 8vw, 48px);
+      line-height: 1.04;
+      letter-spacing: -.02em;
+    }
+
+    .football-tour-copy {
+      margin: 14px 0 0;
+      color: rgba(255,255,255,.68);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .football-tour-gallery {
+      display: flex;
+      gap: 12px;
+      margin: 24px 0 6px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      overscroll-behavior-x: contain;
+      touch-action: pan-x;
+    }
+
+    .football-tour-gallery::-webkit-scrollbar { display: none; }
+
+    .football-tour-gallery figure {
+      position: relative;
+      flex: 0 0 100%;
+      width: 100%;
+      min-width: 100%;
+      margin: 0;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 20px;
+      background: #111;
+      aspect-ratio: 4 / 3;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+
+    .football-tour-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .football-tour-gallery figcaption {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.68);
+      color: rgba(255,255,255,.94);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .football-tour-carousel-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin: 11px 0 2px;
+    }
+
+    .football-tour-carousel-dot {
+      width: 7px;
+      height: 7px;
+      padding: 0;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(255,255,255,.28);
+      cursor: pointer;
+      transition: width 180ms ease, background 180ms ease;
+    }
+
+    .football-tour-carousel-dot.is-active {
+      width: 21px;
+      background: var(--gold-light);
+    }
+
+    .football-tour-meta {
+      display: grid;
+      gap: 7px;
+      margin-top: 19px;
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .football-tour-book {
+      display: flex;
+      width: 100%;
+      min-height: 54px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 18px;
+      padding: 0 20px;
+      border-radius: 16px;
+      background: var(--gold);
+      color: #111111;
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      box-shadow: 0 14px 34px rgba(0,0,0,.24);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .football-tour-book:hover {
+      transform: translateY(-2px);
+      background: #d7ba73;
+    }
+
+    .reservation-price-highlight {
+      margin: 0 0 16px;
+      padding: 12px 14px;
+      border: 1px solid rgba(200,168,90,.34);
+      border-radius: 14px;
+      background: rgba(200,168,90,.12);
+      color: var(--gold-light);
+      font-size: 14px;
+      font-weight: 850;
+      text-align: center;
+      letter-spacing: .03em;
+    }
+
+    @media (max-width: 520px) {
+      .football-tour-gallery { gap: 10px; }
+      .football-tour-gallery figure {
+        border-radius: 16px;
+        aspect-ratio: 4 / 3;
+      }
+    }
+
   </style>
 
 
@@ -3180,7 +3355,6 @@
 
         <div class="bahia-night-meta">
           <span>📍 Coliseu — Salvador, Bahia</span>
-          <span class="bahia-night-price">US$65 por pessoa</span>
           <span>✅ Book now to secure your spot.</span>
         </div>
 
@@ -3192,9 +3366,9 @@
           <details class="bahia-night-buffet">
             <summary>🍽️ View Buffet</summary>
             <div class="bahia-night-buffet-menu">
-              <p><strong>🥗 Entrantes:</strong> Salvador Salad with quail eggs, Bahian Salad with salmon, Coliseu Salad, vinaigrette with tomato, onion and bell pepper, Acarajé, Vatapá.</p>
-              <p><strong>🍛 Platos principales:</strong> Shrimp Bobó, Fish Moqueca, Coliseu-style Codfish, Coliseu Lasagna with plantain, Chicken Stroganoff, Roast Beef with potatoes, Pelourinho Lasagna with chicken.</p>
-              <p><strong>🔥 A la parrilla:</strong> Grilled chicken fillet.</p>
+              <p><strong>🥗 Starters:</strong> Salvador Salad with quail eggs, Bahian Salad with salmon, Coliseu Salad, vinaigrette with tomato, onion and bell pepper, Acarajé, Vatapá.</p>
+              <p><strong>🍛 Main Courses:</strong> Shrimp Bobó, Fish Moqueca, Coliseu-style Codfish, Coliseu Lasagna with plantain, Chicken Stroganoff, Roast Beef with potatoes, Pelourinho Lasagna with chicken.</p>
+              <p><strong>🔥 From the Grill:</strong> Grilled chicken fillet.</p>
               <p><strong>🍚 Side Dishes:</strong> Spaghetti with garlic and olive oil with tomato sauce, white rice, French fries, breads and toast.</p>
               <p><strong>🥣 Extras:</strong> Fried plantain, dendê farofa, butter farofa, hot sauce.</p>
               <p><strong>🍍 Seasonal fruit.</strong></p>
@@ -3229,6 +3403,10 @@
         <input type="hidden" name="Experience" value="Bahia Night — Bahian Food & Folkloric Show">
         <input type="hidden" name="Price per person" value="US$65">
         <input type="hidden" name="Total" id="bahiaNightTotalHidden" value="US$65">
+
+        <div class="reservation-price-highlight">
+          US$65 per person
+        </div>
 
         <div class="reservation-field">
           <label for="bahiaNightName">Name</label>
@@ -3290,6 +3468,63 @@
   </div>
 
 
+
+  <!-- FOOTBALL TOUR — FEATURED EXPERIENCE -->
+  <section id="football-tour" class="football-tour-section">
+    <div class="container">
+      <article class="football-tour-card">
+        <p class="football-tour-kicker">Local Football Experience</p>
+        <h2 class="football-tour-title">Football Tour — Arena Fonte Nova</h2>
+        <p class="football-tour-copy">
+          Experience Salvador's football atmosphere from inside the stadium,
+          surrounded by local supporters, songs, colors and match-day energy.
+        </p>
+
+        <div class="football-tour-gallery" aria-label="Football Tour photos at Arena Fonte Nova">
+          <figure>
+            <img src="/public/IMG_8166.jpeg" alt="Football Tour guests enjoying the local match-day atmosphere in Salvador" loading="lazy" />
+            <figcaption>Match-day Experience</figcaption>
+          </figure>
+
+          <figure>
+            <img src="/public/IMG_8169.jpeg" alt="Supporters and flags inside Arena Fonte Nova in Salvador" loading="lazy" />
+            <figcaption>Arena Fonte Nova</figcaption>
+          </figure>
+
+          <figure>
+            <img src="/public/IMG_8163.jpeg" alt="Guests wearing Bahia football colors inside Arena Fonte Nova" loading="lazy" />
+            <figcaption>With Local Supporters</figcaption>
+          </figure>
+
+          <figure>
+            <img src="/public/IMG_8173.jpeg" alt="Football Tour experience in Salvador" loading="lazy" />
+            <figcaption>Football in Salvador</figcaption>
+          </figure>
+        </div>
+
+        <div
+          class="football-tour-carousel-dots"
+          id="footballTourCarouselDots"
+          aria-label="Football Tour photo navigation"
+        ></div>
+
+        <div class="football-tour-meta">
+          <span>⚽ Match-day experience at Arena Fonte Nova</span>
+          <span>📍 Salvador, Bahia</span>
+          <span>📅 Availability depends on the local football calendar</span>
+        </div>
+
+        <a
+          href="#"
+          class="football-tour-book whatsapp-question"
+          data-question-key="footballTour"
+        >
+          Ask about the next match
+        </a>
+      </article>
+    </div>
+  </section>
+
   <!-- MAIN QUESTIONS -->
   <main id="questions" class="questions-section">
 
@@ -3327,7 +3562,7 @@
             <span class="question-arrow">→</span>
           </a>
 
-          <a href="#" class="whatsapp-question question-card" data-question-key="footballTour">
+          <a href="#football-tour" class="question-card">
             <span class="question-icon">⚽</span>
             <span class="question-text">Football Tour — Arena Fonte Nova</span>
             <span class="question-arrow">→</span>
@@ -4674,6 +4909,96 @@
   });
 })();
 </script>
+
+
+  <script>
+    (() => {
+      const carousel = document.querySelector("#football-tour .football-tour-gallery");
+      const dotsWrap = document.getElementById("footballTourCarouselDots");
+      if (!carousel || !dotsWrap) return;
+
+      const slides = Array.from(carousel.querySelectorAll("figure"));
+      if (slides.length < 2) return;
+
+      let currentIndex = 0;
+      let timer = null;
+      let resumeTimer = null;
+
+      const dots = slides.map((_, index) => {
+        const dot = document.createElement("button");
+        dot.type = "button";
+        dot.className = "football-tour-carousel-dot";
+        dot.setAttribute("aria-label", `Show football photo ${index + 1}`);
+        dot.addEventListener("click", () => {
+          goTo(index);
+          restartAfterInteraction();
+        });
+        dotsWrap.appendChild(dot);
+        return dot;
+      });
+
+      function updateDots(index) {
+        dots.forEach((dot, i) => dot.classList.toggle("is-active", i === index));
+      }
+
+      function goTo(index, behavior = "smooth") {
+        currentIndex = (index + slides.length) % slides.length;
+        const slide = slides[currentIndex];
+        carousel.scrollTo({ left: slide.offsetLeft, behavior });
+        updateDots(currentIndex);
+      }
+
+      function startAuto() {
+        stopAuto();
+        timer = setInterval(() => goTo(currentIndex + 1), 3000);
+      }
+
+      function stopAuto() {
+        if (timer) clearInterval(timer);
+        timer = null;
+      }
+
+      function restartAfterInteraction() {
+        stopAuto();
+        if (resumeTimer) clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(startAuto, 4500);
+      }
+
+      let scrollEndTimer = null;
+      carousel.addEventListener("scroll", () => {
+        if (scrollEndTimer) clearTimeout(scrollEndTimer);
+        scrollEndTimer = setTimeout(() => {
+          const center = carousel.scrollLeft + carousel.clientWidth / 2;
+          let nearest = 0;
+          let nearestDistance = Infinity;
+
+          slides.forEach((slide, i) => {
+            const slideCenter = slide.offsetLeft + slide.offsetWidth / 2;
+            const distance = Math.abs(slideCenter - center);
+            if (distance < nearestDistance) {
+              nearestDistance = distance;
+              nearest = i;
+            }
+          });
+
+          currentIndex = nearest;
+          updateDots(currentIndex);
+        }, 90);
+      }, { passive: true });
+
+      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
+        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
+      });
+
+      document.addEventListener("visibilitychange", () => {
+        if (document.hidden) stopAuto();
+        else startAuto();
+      });
+
+      updateDots(0);
+      startAuto();
+    })();
+  </script>
 
 </body>
 </html>
