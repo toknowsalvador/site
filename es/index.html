@@ -349,7 +349,7 @@
       z-index: 3;
       width: min(100% - 36px, 640px);
       margin: 0 auto;
-      padding-bottom: 72px;
+      padding-bottom: 34px;
       text-align: center;
     }
 
@@ -2642,7 +2642,129 @@
       color: var(--gold-light);
       border-color: rgba(234,213,157,.55);
     }
-</style>
+
+    @media (max-width: 480px) {
+      .hero-content {
+        padding-bottom: 30px;
+      }
+    }
+
+  
+    /* PRAIA DO FORTE PRIVATE */
+    .praia-modal[hidden] { display: none; }
+    .praia-modal {
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(0,0,0,.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .praia-modal-card {
+      position: relative;
+      width: min(100%, 560px);
+      max-height: min(86vh, 760px);
+      overflow-y: auto;
+      padding: 28px 22px 24px;
+      border: 1px solid rgba(234,213,157,.3);
+      border-radius: 26px;
+      background: #111;
+      color: #fff;
+      box-shadow: 0 30px 80px rgba(0,0,0,.5);
+    }
+    .praia-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,.09);
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+    }
+    .praia-kicker {
+      margin: 0;
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .praia-title {
+      margin: 9px 42px 0 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(30px, 8vw, 42px);
+      line-height: 1.04;
+    }
+    .praia-copy {
+      margin: 16px 0 0;
+      color: rgba(255,255,255,.72);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .praia-facts {
+      display: grid;
+      gap: 9px;
+      margin-top: 20px;
+    }
+    .praia-fact {
+      padding: 13px 14px;
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 15px;
+      background: rgba(255,255,255,.045);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .praia-more {
+      margin-top: 18px;
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 16px;
+    }
+    .praia-more summary {
+      cursor: pointer;
+      color: var(--gold-light);
+      font-weight: 800;
+      list-style: none;
+    }
+    .praia-more summary::-webkit-details-marker { display: none; }
+    .praia-price {
+      margin: 16px 0 0;
+      padding: 16px;
+      border-radius: 17px;
+      background: rgba(200,168,90,.12);
+      border: 1px solid rgba(200,168,90,.3);
+    }
+    .praia-price strong {
+      display: block;
+      color: var(--gold-light);
+      font-size: 19px;
+      margin-bottom: 4px;
+    }
+    .praia-paypal {
+      display: flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px;
+      padding: 0 18px;
+      border-radius: 14px;
+      background: var(--gold);
+      color: #111;
+      font-weight: 850;
+      text-align: center;
+    }
+    .praia-paypal.is-placeholder {
+      opacity: .62;
+      cursor: not-allowed;
+    }
+
+  </style>
 
 
   <style>
@@ -2854,24 +2976,64 @@
         >
           Afro Tour Old Town
         </button>
-<a
-          href="https://wa.me/5571993719791?text=Hello%21%20I%20saw%20the%2020%25%20discount%20for%20the%20island%20tour%20and%20would%20like%20more%20information."
-          class="free-tour-button"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          EXPLORA LAS ISLAS — 20% DE DESCUENTO
-        </a>
+<button type="button" class="free-tour-button" id="openPraiaDoForte">
+          PRAIA DO FORTE PRIVADO
+        </button>
 <a
           href="#bahia-night"
           class="free-tour-button"
         >
-          Cena y Espectáculo Folclórico
+          Comida bahiana y espectáculo folclórico
         </a>
       </div>
     </div>
 
   </header>
+
+  <div class="praia-modal" id="praiaDoForteModal" hidden aria-hidden="true">
+    <article class="praia-modal-card" role="dialog" aria-modal="true" aria-labelledby="praiaDoForteTitle">
+      <button type="button" class="praia-modal-close" id="closePraiaDoForte" aria-label="Cerrar">×</button>
+
+      <p class="praia-kicker">Experiencia privada</p>
+      <h2 class="praia-title" id="praiaDoForteTitle">Praia do Forte privado</h2>
+
+      <p class="praia-copy">
+        Conductor y coche privado para realizar tu traslado con seguridad y comodidad,
+        desde tu hotel hasta Praia do Forte para disfrutar de un day use.
+      </p>
+
+      <div class="praia-facts">
+        <div class="praia-fact"><strong>Salida:</strong> 09:00 desde tu hotel.</div>
+        <div class="praia-fact"><strong>Regreso:</strong> 16:00 desde Praia do Forte.</div>
+        <div class="praia-fact"><strong>Servicio:</strong> vehículo y conductor privados para tu grupo.</div>
+      </div>
+
+      <details class="praia-more">
+        <summary>Más información ↓</summary>
+        <p class="praia-copy">
+          Salidas todos los días, con recogida en tu hotel y regreso al mismo punto.
+          El servicio está pensado para quienes desean visitar Praia do Forte con mayor
+          comodidad, flexibilidad y privacidad.
+        </p>
+
+        <div class="praia-price">
+          <strong>€200 por grupo</strong>
+          Hasta 4 personas.
+        </div>
+
+        <a
+          class="praia-paypal is-placeholder"
+          href="#"
+          onclick="return false;"
+          aria-disabled="true"
+          title="El enlace de PayPal se añadirá próximamente"
+        >
+          Pagar con PayPal — enlace próximamente
+        </a>
+      </details>
+    </article>
+  </div>
+
 
 
   <!-- LANGUAGES -->
@@ -2914,66 +3076,11 @@
     </div>
   </div>
 
-
-  <!-- PORTUGUESE IMMERSION -->
-  <section id="portuguese-immersion" class="immersion-section">
-    <div class="container">
-      <details class="immersion-details">
-        <summary class="immersion-summary">
-          <span>
-            <span class="eyebrow">Italiano além da sala de aula</span>
-            <span class="immersion-summary-title">Programa de Imersão em Italiano</span>
-          </span>
-          <span class="immersion-summary-arrow">→</span>
-        </summary>
-
-        <div class="immersion-layout">
-          <div class="immersion-media">
-            <div class="immersion-video-frame">
-              <video
-                src="/public/a35354bcf194429694c93e4c90198d91.mp4"
-                poster="/public/IMG_7478.jpeg"
-                controls
-                playsinline
-                preload="metadata"
-                aria-label="Programa de Imersão em Italiano in Salvador"
-              ></video>
-            </div>
-          </div>
-
-          <div class="immersion-copy-wrap">
-            <p class="immersion-copy">
-              Estudar português em uma sala de aula oferece a base.
-              Viver Salvador oferece o idioma.
-              Passe o dia com pessoas locais em comunidades, bairros, mercados
-              e espaços do cotidiano, vivenciando o português que realmente é
-              falado na vida real — seu ritmo, expressões, sotaques e contexto cultural.
-            </p>
-
-            <div class="immersion-highlight">
-              🇮🇹 Italiano real · Pessoas locais · Salvador no dia a dia
-            </div>
-
-            <a
-              class="immersion-button"
-              href="https://wa.me/5571993719791?text=Hello%21%20I%27m%20interested%20in%20the%20Italiano%20Immersion%20Program%20in%20Salvador.%20I%27d%20like%20to%20learn%20Italiano%20through%20a%20real%20immersion%20experience%20with%20local%20people%20and%20everyday%20life%20in%20the%20city."
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Quero participar da imersão
-            </a>
-          </div>
-        </div>
-      </details>
-    </div>
-  </section>
-
-
-  <!-- BAHIA NIGHT — DINNER AND FOLKLORIC SHOW -->
+<!-- BAHIA NIGHT — DINNER AND FOLKLORIC SHOW -->
   <section id="bahia-night" class="bahia-night-section">
     <div class="container">
       <article class="bahia-night-card">
-        <p class="bahia-night-kicker">Cena y Espectáculo Folclórico</p>
+        <p class="bahia-night-kicker">Comida bahiana y espectáculo folclórico</p>
         <h2 class="bahia-night-title">Noche Bahiana</h2>
         <p class="bahia-night-days">Jueves y sábado</p>
 
@@ -3058,7 +3165,7 @@
         <input type="hidden" name="_subject" value="New Noche Bahiana Reservation">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="Experience" value="Noche Bahiana — Cena y Espectáculo Folclórico">
+        <input type="hidden" name="Experience" value="Noche Bahiana — Comida bahiana y espectáculo folclórico">
         <input type="hidden" name="Price per person" value="US$65">
         <input type="hidden" name="Total" id="bahiaNightTotalHidden" value="US$65">
 
@@ -3135,14 +3242,7 @@
         </h3>
 
         <div class="question-list">
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="dragShow">
-            <span class="question-icon">👑</span>
-            <span class="question-text">Show de Drag Queen — Noche Bahiana</span>
-            <span class="question-arrow">→</span>
-          </a>
-
-          <a href="#" class="whatsapp-question question-card" data-question-key="capoeiraMusic">
+<a href="#" class="whatsapp-question question-card" data-question-key="capoeiraMusic">
             <span class="question-icon">🥁</span>
             <span class="question-text">Clase de prueba de Capoeira</span>
             <span class="question-arrow">→</span>
@@ -3156,7 +3256,7 @@
 
           <a href="#bahia-night" class="question-card">
             <span class="question-icon">💃</span>
-            <span class="question-text">Cena y Espectáculo Folclórico — Noche Bahiana</span>
+            <span class="question-text">Comida bahiana y espectáculo folclórico — Noche Bahiana</span>
             <span class="question-arrow">→</span>
           </a>
 
@@ -3616,10 +3716,6 @@
           folkloricShow: {
             text: "Bahia Folkloric Show",
             message: "Hello! I’m interested in the Bahia Folkloric Show. Could you send me the available dates, schedule and price?"
-          },
-          dragShow: {
-            text: "Show de Drag Queen — Noche Bahiana",
-            message: "Hello! I’m interested in the Drag Queen Show / Noche Bahiana experience in Salvador. Could you send me availability, schedule and price?"
           },
           capoeiraMusic: {
             text: "Clase de prueba de Capoeira",
@@ -4449,6 +4545,37 @@
       startAuto();
     })();
   </script>
+
+
+<script>
+  (() => {
+    const modal = document.getElementById("praiaDoForteModal");
+    const open = document.getElementById("openPraiaDoForte");
+    const close = document.getElementById("closePraiaDoForte");
+    if (!modal || !open || !close) return;
+
+    const show = () => {
+      modal.hidden = false;
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+
+    const hide = () => {
+      modal.hidden = true;
+      modal.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    };
+
+    open.addEventListener("click", show);
+    close.addEventListener("click", hide);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) hide();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && !modal.hidden) hide();
+    });
+  })();
+</script>
 
 </body>
 </html>
