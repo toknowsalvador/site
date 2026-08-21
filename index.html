@@ -2764,57 +2764,6 @@
       cursor: not-allowed;
     }
 
-  
-    /* HERO CTA COLORS — preserve original palette */
-    .hero-actions > .hero-cta-primary {
-      background: linear-gradient(180deg, #e4c15f 0%, #d4ad3f 100%);
-      color: #111111;
-      border: 1px solid rgba(255, 226, 139, 0.72);
-      box-shadow:
-        0 14px 34px rgba(0, 0, 0, 0.28),
-        inset 0 1px 0 rgba(255, 255, 255, 0.28);
-    }
-
-    .hero-actions > .hero-cta-secondary {
-      background: rgba(5, 5, 5, 0.84);
-      color: #ffffff;
-      border: 1px solid rgba(255, 255, 255, 0.58);
-      box-shadow:
-        0 14px 34px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
-    }
-
-    .hero-actions > .hero-cta-tertiary {
-      background:
-        linear-gradient(
-          135deg,
-          rgba(53, 39, 16, 0.9),
-          rgba(20, 16, 10, 0.94)
-        );
-      color: #ead59d;
-      border: 1px solid rgba(234, 213, 157, 0.64);
-      box-shadow:
-        0 14px 34px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.04);
-    }
-
-    .hero-actions > .hero-cta-primary:hover {
-      background: linear-gradient(180deg, #e8c96e 0%, #d7b24b 100%);
-    }
-
-    .hero-actions > .hero-cta-secondary:hover {
-      background: rgba(8, 8, 8, 0.92);
-    }
-
-    .hero-actions > .hero-cta-tertiary:hover {
-      background:
-        linear-gradient(
-          135deg,
-          rgba(64, 47, 19, 0.94),
-          rgba(25, 19, 11, 0.96)
-        );
-    }
-
   </style>
 
 
@@ -3022,17 +2971,21 @@
       <div class="hero-actions">
         <button
           type="button"
-          class="free-tour-button hero-cta-primary"
+          class="free-tour-button"
           id="openOldTownReservation"
         >
           Afro Tour Old Town
         </button>
-<button type="button" class="free-tour-button hero-cta-secondary" id="openPraiaDoForte">
+<a
+          href="#praiaDoForteModal"
+          class="free-tour-button"
+          id="openPraiaDoForte"
+        >
           PRIVATE PRAIA DO FORTE
-        </button>
+        </a>
 <a
           href="#bahia-night"
-          class="free-tour-button hero-cta-tertiary"
+          class="free-tour-button"
         >
           Bahian Food & Folkloric Show
         </a>
@@ -4614,7 +4567,10 @@
       document.body.style.overflow = "";
     };
 
-    open.addEventListener("click", show);
+    open.addEventListener("click", (event) => {
+      event.preventDefault();
+      show();
+    });
     close.addEventListener("click", hide);
     modal.addEventListener("click", (event) => {
       if (event.target === modal) hide();
