@@ -73,7 +73,7 @@
   }
   
     // Reliable WhatsApp routing for all clickable service cards.
-    document.querySelezionaorAll(".whatsapp-question").forEach((link) => {
+    document.querySelectorAll(".whatsapp-question").forEach((link) => {
       link.addEventListener("click", (event) => {
         event.preventDefault();
 
@@ -3328,7 +3328,7 @@
 <div aria-label="Foto del Tour di Calcio all’Arena Fonte Nova" class="football-tour-gallery">
 <figure>
 <img alt="Guests wearing Bahia football colors inside Arena Fonte Nova" loading="lazy" src="/public/IMG_8163.jpeg"/>
-<figcaption>Joy &amp; Fun</figcaption>
+<figcaption>Allegria e divertimento</figcaption>
 </figure>
 <figure>
 <img alt="Football Tour guests enjoying the local match-day atmosphere in Salvador" loading="lazy" src="/public/IMG_8166.jpeg"/>
@@ -3343,7 +3343,7 @@
 <figcaption>Calcio a Salvador</figcaption>
 </figure>
 </div>
-<div aria-label="Football Tour photo navigation" class="football-tour-carousel-dots" id="footballTourCarouselDots"></div>
+<div aria-label="Navigazione delle foto del Tour di Calcio" class="football-tour-carousel-dots" id="footballTourCarouselDots"></div>
 <div class="football-tour-meta">
 <span>⚽ Esperienza nel giorno della partita all’Arena Fonte Nova</span>
 <span>📍 Salvador, Bahia</span>
@@ -3785,10 +3785,10 @@
       }
     };
 
-    const collapsibleGroupLabels = document.querySelezionaorAll(".collapsible-group-label");
+    const collapsibleGroupLabels = document.querySelectorAll(".collapsible-group-label");
 
     collapsibleGroupLabels.forEach((label) => {
-      const list = label.parentElement.querySelezionaor(".question-list");
+      const list = label.parentElement.querySelector(".question-list");
 
       if (!list) return;
 
@@ -3810,11 +3810,11 @@
       });
     });
 
-    const languageButtons = document.querySelezionaorAll(".language-button");
-    const languageSwitcher = document.querySelezionaor(".language-switcher");
-    const languageLabel = document.querySelezionaor(".language-label");
-    const standardQuestionLinks = document.querySelezionaorAll("[data-question-key]");
-    const premiumQuestionLinks = document.querySelezionaorAll("[data-premium-key]");
+    const languageButtons = document.querySelectorAll(".language-button");
+    const languageSwitcher = document.querySelector(".language-switcher");
+    const languageLabel = document.querySelector(".language-label");
+    const standardQuestionLinks = document.querySelectorAll("[data-question-key]");
+    const premiumQuestionLinks = document.querySelectorAll("[data-premium-key]");
 
     function createWhatsAppLink(number, message) {
       return "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
@@ -3827,7 +3827,7 @@
     }
 
     function setText(selector, value) {
-      const element = document.querySelezionaor(selector);
+      const element = document.querySelector(selector);
 
       if (element) {
         element.textContent = value;
@@ -3861,7 +3861,7 @@
       document.documentElement.lang = language;
       document.title = content.documentTitle;
 
-      const metaDescription = document.querySelezionaor('meta[name="description"]');
+      const metaDescription = document.querySelector('meta[name="description"]');
 
       if (metaDescription) {
         metaDescription.setAttribute("content", content.metaDescription);
@@ -3883,7 +3883,7 @@
       setText(".questions-intro .section-title", content.questionsTitle);
       setText(".questions-intro p:last-child", content.questionsDescription);
 
-      document.querySelezionaorAll("[data-group-label]").forEach((label) => {
+      document.querySelectorAll("[data-group-label]").forEach((label) => {
         const key = label.dataset.groupLabel;
 
         if (content.groups[key]) {
@@ -3899,7 +3899,7 @@
           return;
         }
 
-        const text = link.querySelezionaor(".question-text");
+        const text = link.querySelector(".question-text");
 
         if (text) {
           text.textContent = question.text;
@@ -3924,7 +3924,7 @@
           return;
         }
 
-        const text = link.querySelezionaor(".premium-text");
+        const text = link.querySelector(".premium-text");
 
         if (text) {
           text.textContent = premiumQuestion.text;
@@ -3954,7 +3954,7 @@
       setText(".connection-title", content.connectionTitle);
       setText(".connection-copy", content.connectionCopy);
 
-      const footerCopy = document.querySelezionaor(".footer-copy");
+      const footerCopy = document.querySelector(".footer-copy");
 
       if (footerCopy) {
         footerCopy.innerHTML =
@@ -3983,7 +3983,7 @@
 
     changeLanguage(translations[initialLanguage] ? initialLanguage : "en");
 
-    document.querySelezionaorAll(".whatsapp-question").forEach((link) => {
+    document.querySelectorAll(".whatsapp-question").forEach((link) => {
       link.addEventListener("click", (event) => {
         event.preventDefault();
 
@@ -4397,11 +4397,11 @@
   </script>
 <script>
     (() => {
-      const carousel = document.querySelezionaor("#bahia-night .bahia-night-gallery");
+      const carousel = document.querySelector("#bahia-night .bahia-night-gallery");
       const dotsWrap = document.getElementById("bahiaNightCarouselDots");
       if (!carousel || !dotsWrap) return;
 
-      const slides = Array.from(carousel.querySelezionaorAll("figure"));
+      const slides = Array.from(carousel.querySelectorAll("figure"));
       if (slides.length < 2) return;
 
       let currentIndex = 0;
@@ -4411,7 +4411,7 @@
       const dots = slides.map((_, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.classNome = "bahia-night-carousel-dot";
+        dot.className = "bahia-night-carousel-dot";
         dot.setAttribute("aria-label", `Mostrar foto ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
@@ -4468,8 +4468,8 @@
         }, 90);
       }, { passive: true });
 
-      ["touchstart", "pointerdown", "wheel"].forEach((eventNome) => {
-        carousel.addEventListener(eventNome, restartAfterInteraction, { passive: true });
+      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
+        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
       });
 
       document.addEventListener("visibilitychange", () => {
@@ -4522,7 +4522,7 @@
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const submitButton = form.querySelezionaor('button[type="submit"]');
+    const submitButton = form.querySelector('button[type="submit"]');
     const originalText = submitButton.textContent;
     submitButton.disabled = true;
     submitButton.textContent = "Invio in corso...";
@@ -4548,11 +4548,11 @@
 </script>
 <script>
     (() => {
-      const carousel = document.querySelezionaor("#football-tour .football-tour-gallery");
+      const carousel = document.querySelector("#football-tour .football-tour-gallery");
       const dotsWrap = document.getElementById("footballTourCarouselDots");
       if (!carousel || !dotsWrap) return;
 
-      const slides = Array.from(carousel.querySelezionaorAll("figure"));
+      const slides = Array.from(carousel.querySelectorAll("figure"));
       if (slides.length < 2) return;
 
       let currentIndex = 0;
@@ -4562,7 +4562,7 @@
       const dots = slides.map((_, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.classNome = "football-tour-carousel-dot";
+        dot.className = "football-tour-carousel-dot";
         dot.setAttribute("aria-label", `Mostra foto del calcio ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
@@ -4621,8 +4621,8 @@
         }, 90);
       }, { passive: true });
 
-      ["touchstart", "pointerdown", "wheel"].forEach((eventNome) => {
-        carousel.addEventListener(eventNome, restartAfterInteraction, { passive: true });
+      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
+        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
       });
 
       document.addEventListener("visibilitychange", () => {
