@@ -2976,9 +2976,13 @@
         >
           Afro Tour Old Town
         </button>
-<button type="button" class="free-tour-button" id="openPraiaDoForte">
+<a
+          href="#praiaDoForteModal"
+          class="free-tour-button"
+          id="openPraiaDoForte"
+        >
           PRAIA DO FORTE PRIVADO
-        </button>
+        </a>
 <a
           href="#bahia-night"
           class="free-tour-button"
@@ -4566,7 +4570,10 @@
       document.body.style.overflow = "";
     };
 
-    open.addEventListener("click", show);
+    open.addEventListener("click", (event) => {
+      event.preventDefault();
+      show();
+    });
     close.addEventListener("click", hide);
     modal.addEventListener("click", (event) => {
       if (event.target === modal) hide();
