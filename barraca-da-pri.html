@@ -1,1293 +1,1931 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Barraca da Pri | To Know Salvador</title>
+<title>Barraca da Pri</title>
 
-  <style>
-    :root {
-      --black: #191816;
-      --charcoal: #292724;
-      --sand: #E8DDC8;
-      --light-sand: #F7F2E8;
-      --white: #FFFFFF;
-      --gold: #C6A56A;
-      --text-dark: #222222;
-    }
+<style>
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+:root{
+  --black:#191816;
+  --charcoal:#292724;
+  --sand:#e8ddc8;
+  --light:#f7f2e8;
+  --white:#ffffff;
+  --gold:#c6a56a;
+  --text:#222;
+}
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--light-sand);
-      color: var(--text-dark);
-    }
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    /* TO KNOW SALVADOR HEADER */
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:140px;
+}
 
-    .tks-header {
-      background: var(--black);
-      color: white;
-      padding: 18px 20px;
-      text-align: center;
-      border-bottom: 4px solid var(--gold);
-    }
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--light);
+  color:var(--text);
+}
 
-    .tks-brand {
-      font-size: 13px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      opacity: 0.8;
-    }
+/* =========================
+   CABEÇALHO
+========================= */
 
-    .tks-brand strong {
-      color: var(--gold);
-    }
+.hero{
+  background:var(--charcoal);
+  color:var(--sand);
+  text-align:center;
+  padding:38px 20px 30px;
+}
 
-    /* HERO */
+.hero h1{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:clamp(38px,9vw,68px);
+  font-weight:500;
+  letter-spacing:2px;
+}
 
-    .hero {
-      background: var(--charcoal);
-      color: var(--sand);
-      text-align: center;
-      padding: 40px 20px 30px;
-    }
+.hero-decoration{
+  color:var(--gold);
+  font-size:24px;
+  margin-top:5px;
+}
 
-    .hero h1 {
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: clamp(38px, 8vw, 70px);
-      font-weight: 500;
-      letter-spacing: 2px;
-    }
+.hero p{
+  color:#ddd2bd;
+  margin-top:12px;
+  font-size:14px;
+}
 
-    .hero-decoration {
-      color: var(--gold);
-      margin-top: 7px;
-      font-size: 24px;
-    }
+/* =========================
+   IDIOMAS
+========================= */
 
-    .hero p {
-      color: #ddd2bd;
-      margin-top: 14px;
-      font-size: 14px;
-    }
+.languages{
+  display:flex;
+  justify-content:flex-start;
+  gap:8px;
+  overflow-x:auto;
+  white-space:nowrap;
+  padding:15px;
+  background:var(--black);
 
-    /* LANGUAGES */
+  scrollbar-width:none;
+}
 
-    .languages {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      padding: 20px 15px;
-      background: var(--black);
-    }
+.languages::-webkit-scrollbar{
+  display:none;
+}
 
-    .language-btn {
-      border: 1px solid var(--sand);
-      background: transparent;
-      color: white;
-      padding: 10px 14px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: 0.2s;
-      font-size: 14px;
-    }
+.language-btn{
+  flex:0 0 auto;
+  border:1px solid var(--sand);
+  background:transparent;
+  color:#fff;
+  padding:9px 14px;
+  border-radius:30px;
+  cursor:pointer;
+  font-size:13px;
+}
 
-    .language-btn:hover,
-    .language-btn.active {
-      background: var(--sand);
-      color: var(--black);
-    }
+.language-btn.active{
+  background:var(--sand);
+  color:var(--black);
+}
 
-    /* MENU */
+/* =========================
+   NAVEGAÇÃO DO CARDÁPIO
+========================= */
 
-    .menu-container {
-      width: min(1100px, 94%);
-      margin: 35px auto;
-    }
+.category-wrapper{
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:100;
+  border-bottom:1px solid #ded7cb;
+  box-shadow:0 3px 10px rgba(0,0,0,.07);
+}
 
-    .menu-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
+.category-nav{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  white-space:nowrap;
+  padding:13px 14px;
 
-    .menu-section {
-      background: white;
-      border-radius: 6px;
-      overflow: hidden;
-      border: 1px solid #ded7cb;
-    }
+  scrollbar-width:none;
+}
 
-    .menu-title {
-      font-family: Georgia, 'Times New Roman', serif;
-      background: var(--charcoal);
-      color: var(--sand);
-      padding: 16px 18px;
-      font-size: 25px;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
+.category-nav::-webkit-scrollbar{
+  display:none;
+}
 
-    .menu-items {
-      padding: 8px 18px 15px;
-    }
+.category-link{
+  flex:0 0 auto;
+  background:#eee8dd;
+  color:#292724;
+  padding:10px 15px;
+  border-radius:25px;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:600;
+}
 
-    .menu-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 12px 0;
-      border-bottom: 1px dotted #c9c0b2;
-    }
+.category-link:hover{
+  background:var(--charcoal);
+  color:#fff;
+}
 
-    .menu-item:last-child {
-      border-bottom: none;
-    }
+.category-link.offer{
+  background:var(--charcoal);
+  color:#fff;
+  border:1px solid var(--gold);
+}
 
-    .item-info {
-      flex: 1;
-    }
+.category-link.offer span{
+  color:var(--gold);
+}
 
-    .item-name {
-      font-weight: 600;
-      line-height: 1.3;
-    }
+/* =========================
+   CARDÁPIO
+========================= */
 
-    .item-description {
-      font-size: 12px;
-      color: #777;
-      margin-top: 4px;
-      line-height: 1.4;
-    }
+.menu-container{
+  width:min(1100px,94%);
+  margin:30px auto;
+}
 
-    .price {
-      white-space: nowrap;
-      font-family: Georgia, 'Times New Roman', serif;
-      font-weight: bold;
-      font-size: 17px;
-    }
+.menu-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
 
-    /* INFORMATION */
+.menu-section{
+  background:#fff;
+  border-radius:7px;
+  overflow:hidden;
+  border:1px solid #ded7cb;
+}
 
-    .info-box {
-      margin-top: 25px;
-      background: var(--charcoal);
-      color: white;
-      padding: 28px;
-      text-align: center;
-      border-radius: 6px;
-    }
+.menu-title{
+  font-family:Georgia,"Times New Roman",serif;
+  background:var(--charcoal);
+  color:var(--sand);
+  padding:16px 18px;
+  font-size:24px;
+  letter-spacing:.5px;
+  text-transform:uppercase;
+}
 
-    .info-box h2 {
-      font-family: Georgia, 'Times New Roman', serif;
-      color: var(--sand);
-      margin-bottom: 15px;
-    }
+.menu-items{
+  padding:8px 18px 15px;
+}
 
-    .info-box p {
-      margin: 7px 0;
-      line-height: 1.5;
-    }
+.menu-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:16px;
+  padding:12px 0;
+  border-bottom:1px dotted #c9c0b2;
+}
 
-    .warning {
-      color: var(--gold);
-      font-weight: bold;
-    }
+.menu-item:last-child{
+  border-bottom:none;
+}
 
-    /* FOOTER */
+.item-info{
+  flex:1;
+}
 
-    footer {
-      background: var(--black);
-      color: white;
-      text-align: center;
-      padding: 35px 20px;
-      margin-top: 40px;
-    }
+.item-name{
+  font-weight:600;
+  line-height:1.35;
+}
 
-    footer .brand {
-      color: var(--gold);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: 13px;
-    }
+.item-description{
+  color:#777;
+  font-size:12px;
+  line-height:1.4;
+  margin-top:4px;
+}
 
-    footer h3 {
-      margin: 10px 0;
-      font-family: Georgia, 'Times New Roman', serif;
-      font-size: 25px;
-    }
+.price{
+  white-space:nowrap;
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:bold;
+  font-size:17px;
+}
 
-    footer a {
-      color: var(--sand);
-      text-decoration: none;
-    }
+/* =========================
+   INFORMAÇÕES
+========================= */
 
-    /* MOBILE */
+.info-box{
+  margin-top:25px;
+  background:var(--charcoal);
+  color:#fff;
+  padding:28px;
+  text-align:center;
+  border-radius:7px;
+}
 
-    @media (max-width: 750px) {
-      .menu-grid {
-        grid-template-columns: 1fr;
-      }
+.info-box h2{
+  color:var(--sand);
+  font-family:Georgia,"Times New Roman",serif;
+  margin-bottom:15px;
+}
 
-      .hero {
-        padding-top: 30px;
-      }
+.info-box p{
+  margin:8px 0;
+}
 
-      .language-btn {
-        font-size: 12px;
-        padding: 9px 11px;
-      }
+.warning{
+  color:var(--gold);
+  font-weight:bold;
+}
 
-      .menu-title {
-        font-size: 21px;
-      }
-    }
-  </style>
+/* =========================
+   OFERTA ILHAS
+========================= */
+
+.islands-offer{
+  margin:40px 0 20px;
+  background:var(--charcoal);
+  color:white;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+.offer-top{
+  background:var(--black);
+  padding:15px 20px;
+  text-align:center;
+  color:var(--gold);
+  font-weight:bold;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+
+.offer-content{
+  padding:34px 22px;
+  text-align:center;
+}
+
+.offer-icon{
+  font-size:46px;
+  margin-bottom:10px;
+}
+
+.offer-content h2{
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:32px;
+  color:var(--sand);
+  line-height:1.15;
+}
+
+.offer-subtitle{
+  margin-top:8px;
+  color:#ddd2bd;
+}
+
+.offer-price-old{
+  margin-top:25px;
+  color:#aaa;
+  font-size:15px;
+}
+
+.offer-price-old s{
+  opacity:.9;
+}
+
+.offer-price{
+  color:#fff;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:44px;
+  font-weight:bold;
+  margin-top:3px;
+}
+
+.offer-price small{
+  font-size:16px;
+  font-family:Arial,sans-serif;
+  font-weight:normal;
+}
+
+.offer-included{
+  margin:22px auto;
+  max-width:500px;
+  line-height:1.8;
+  font-size:15px;
+}
+
+.whatsapp-button{
+  display:inline-block;
+  width:min(420px,100%);
+  padding:16px 20px;
+  background:#fff;
+  color:#191816;
+  text-decoration:none;
+  font-weight:bold;
+  border-radius:40px;
+  margin-top:10px;
+  font-size:16px;
+  transition:.2s;
+}
+
+.whatsapp-button:hover{
+  transform:translateY(-2px);
+}
+
+.whatsapp-icon{
+  margin-right:5px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:750px){
+
+  .menu-grid{
+    grid-template-columns:1fr;
+  }
+
+  .hero{
+    padding:28px 15px 24px;
+  }
+
+  .menu-title{
+    font-size:21px;
+  }
+
+  .offer-content h2{
+    font-size:27px;
+  }
+
+  .offer-price{
+    font-size:39px;
+  }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
-<header class="tks-header">
-  <div class="tks-brand">
-    <strong>TO KNOW SALVADOR</strong> · LOCAL EXPERIENCES
-  </div>
-</header>
+
+<!-- CABEÇALHO -->
 
 <section class="hero">
+
   <h1>BARRACA DA PRI</h1>
-  <div class="hero-decoration">〜 〜 〜</div>
+
+  <div class="hero-decoration">
+    〜 〜 〜
+  </div>
 
   <p data-i18n="subtitle">
     Praia, sabores e experiência local em Salvador
   </p>
+
 </section>
 
+
+<!-- IDIOMAS -->
+
 <nav class="languages">
-  <button class="language-btn active" onclick="changeLanguage('pt', this)">
-    🇧🇷 Português
+
+  <button class="language-btn active"
+  onclick="changeLanguage('pt',this)">
+  🇧🇷 Português
   </button>
 
-  <button class="language-btn" onclick="changeLanguage('en', this)">
-    🇺🇸 English
+  <button class="language-btn"
+  onclick="changeLanguage('en',this)">
+  🇺🇸 English
   </button>
 
-  <button class="language-btn" onclick="changeLanguage('es', this)">
-    🇪🇸 Español
+  <button class="language-btn"
+  onclick="changeLanguage('es',this)">
+  🇪🇸 Español
   </button>
 
-  <button class="language-btn" onclick="changeLanguage('it', this)">
-    🇮🇹 Italiano
+  <button class="language-btn"
+  onclick="changeLanguage('it',this)">
+  🇮🇹 Italiano
   </button>
 
-  <button class="language-btn" onclick="changeLanguage('fr', this)">
-    🇫🇷 Français
+  <button class="language-btn"
+  onclick="changeLanguage('fr',this)">
+  🇫🇷 Français
   </button>
+
 </nav>
+
+
+<!-- CATEGORIAS HORIZONTAIS -->
+
+<div class="category-wrapper">
+
+<nav class="category-nav">
+
+<a class="category-link" href="#sem-alcool"
+data-i18n="navNonAlcoholic">
+🥤 Não alcoólicos
+</a>
+
+<a class="category-link" href="#cervejas"
+data-i18n="navBeer">
+🍺 Cervejas
+</a>
+
+<a class="category-link" href="#sucos"
+data-i18n="navJuice">
+🍹 Sucos
+</a>
+
+<a class="category-link" href="#caipiroska">
+🍸 Caipiroska
+</a>
+
+<a class="category-link" href="#caipirinha">
+🍋 Caipirinha
+</a>
+
+<a class="category-link" href="#petiscos"
+data-i18n="navSnacks">
+🐟 Petiscos
+</a>
+
+<a class="category-link" href="#bolinhos"
+data-i18n="navCroquettes">
+🥟 Bolinhos
+</a>
+
+<a class="category-link" href="#almoco"
+data-i18n="navLunch">
+🍽️ Almoço
+</a>
+
+<a class="category-link" href="#porcoes"
+data-i18n="navSides">
+🍚 Porções
+</a>
+
+<a class="category-link" href="#espetinhos"
+data-i18n="navSkewers">
+🍢 Espetinhos
+</a>
+
+<a class="category-link" href="#pratos"
+data-i18n="navPlates">
+🍴 Pratos
+</a>
+
+<a class="category-link" href="#caldos"
+data-i18n="navSoups">
+🥣 Caldos
+</a>
+
+<a class="category-link" href="#praia"
+data-i18n="navBeach">
+🏖️ Praia
+</a>
+
+<a class="category-link offer" href="#ilhas">
+🏝️ <span data-i18n="navIslands">
+Passeio às Ilhas · 20% OFF
+</span>
+</a>
+
+</nav>
+
+</div>
+
 
 <main class="menu-container">
 
-  <div class="menu-grid">
+<div class="menu-grid">
 
-    <!-- BEBIDAS SEM ÁLCOOL -->
 
-    <section class="menu-section">
+<!-- SEM ÁLCOOL -->
 
-      <h2 class="menu-title" data-i18n="nonAlcoholic">
-        Bebidas sem álcool
-      </h2>
+<section class="menu-section" id="sem-alcool">
 
-      <div class="menu-items">
+<h2 class="menu-title" data-i18n="nonAlcoholic">
+Bebidas sem álcool
+</h2>
 
-        <div class="menu-item">
-          <span data-i18n="coca">Coca-Cola</span>
-          <span class="price">R$ 12,00</span>
-        </div>
+<div class="menu-items">
 
-        <div class="menu-item">
-          <span data-i18n="guarana">Guaraná</span>
-          <span class="price">R$ 12,00</span>
-        </div>
+<div class="menu-item">
+<span>Coca-Cola</span>
+<span class="price">R$ 12,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="water">Água</span>
-          <span class="price">R$ 8,00</span>
-        </div>
+<div class="menu-item">
+<span>Guaraná</span>
+<span class="price">R$ 12,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="sparklingWater">Água com gás</span>
-          <span class="price">R$ 12,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="water">Água</span>
+<span class="price">R$ 8,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="coconut">Coco</span>
-          <span class="price">R$ 12,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="sparklingWater">Água com gás</span>
+<span class="price">R$ 12,00</span>
+</div>
 
-      </div>
-    </section>
+<div class="menu-item">
+<span data-i18n="coconut">Coco</span>
+<span class="price">R$ 12,00</span>
+</div>
 
+</div>
+</section>
 
-    <!-- CERVEJAS -->
 
-    <section class="menu-section">
+<!-- CERVEJAS -->
 
-      <h2 class="menu-title" data-i18n="beers">
-        Cervejas
-      </h2>
+<section class="menu-section" id="cervejas">
 
-      <div class="menu-items">
+<h2 class="menu-title" data-i18n="beers">
+Cervejas
+</h2>
 
-        <div class="menu-item">
-          <span>Heineken</span>
-          <span class="price">R$ 18,00</span>
-        </div>
+<div class="menu-items">
 
-        <div class="menu-item">
-          <span>Budweiser</span>
-          <span class="price">R$ 18,00</span>
-        </div>
+<div class="menu-item">
+<span>Heineken</span>
+<span class="price">R$ 18,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Corona</span>
-          <span class="price">R$ 18,00</span>
-        </div>
+<div class="menu-item">
+<span>Budweiser</span>
+<span class="price">R$ 18,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Stella</span>
-          <span class="price">R$ 18,00</span>
-        </div>
+<div class="menu-item">
+<span>Corona</span>
+<span class="price">R$ 18,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Amstel</span>
-          <span class="price">R$ 12,00</span>
-        </div>
+<div class="menu-item">
+<span>Stella</span>
+<span class="price">R$ 18,00</span>
+</div>
 
-      </div>
-    </section>
+<div class="menu-item">
+<span>Amstel</span>
+<span class="price">R$ 12,00</span>
+</div>
 
+</div>
+</section>
 
-    <!-- SUCOS -->
 
-    <section class="menu-section">
+<!-- SUCOS -->
 
-      <h2 class="menu-title" data-i18n="juices">
-        Sucos 500ml
-      </h2>
+<section class="menu-section" id="sucos">
 
-      <div class="menu-items">
+<h2 class="menu-title" data-i18n="juices">
+Sucos 500ml
+</h2>
 
-        <div class="menu-item">
-          <span data-i18n="lemon">Limão</span>
-          <span class="price">R$ 30,00</span>
-        </div>
+<div class="menu-items">
 
-        <div class="menu-item">
-          <span data-i18n="strawberry">Morango</span>
-          <span class="price">R$ 35,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="lemon">Limão</span>
+<span class="price">R$ 30,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Caju</span>
-          <span class="price">R$ 30,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="strawberry">Morango</span>
+<span class="price">R$ 35,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Kiwi</span>
-          <span class="price">R$ 30,00</span>
-        </div>
+<div class="menu-item">
+<span>Caju</span>
+<span class="price">R$ 30,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Siriguela</span>
-          <span class="price">R$ 35,00</span>
-        </div>
+<div class="menu-item">
+<span>Kiwi</span>
+<span class="price">R$ 30,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="pineapple">Abacaxi</span>
-          <span class="price">R$ 30,00</span>
-        </div>
+<div class="menu-item">
+<span>Siriguela</span>
+<span class="price">R$ 35,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Pitaia</span>
-          <span class="price">R$ 35,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="pineapple">Abacaxi</span>
+<span class="price">R$ 30,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Acerola</span>
-          <span class="price">R$ 30,00</span>
-        </div>
+<div class="menu-item">
+<span>Pitaia</span>
+<span class="price">R$ 35,00</span>
+</div>
 
-      </div>
-    </section>
+<div class="menu-item">
+<span>Acerola</span>
+<span class="price">R$ 30,00</span>
+</div>
 
-
-    <!-- CAIPIROSKA -->
+</div>
+</section>
+
 
-    <section class="menu-section">
+<!-- CAIPIROSKA -->
 
-      <h2 class="menu-title">Caipiroska</h2>
+<section class="menu-section" id="caipiroska">
+
+<h2 class="menu-title">
+Caipiroska
+</h2>
 
-      <div class="menu-items">
+<div class="menu-items">
 
-        <div class="menu-item">
-          <span data-i18n="lemon">Limão</span>
-          <span class="price">R$ 40,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="lemon">Limão</span>
+<span class="price">R$ 40,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="strawberry">Morango</span>
-          <span class="price">R$ 45,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="strawberry">Morango</span>
+<span class="price">R$ 45,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Caju</span>
-          <span class="price">R$ 45,00</span>
-        </div>
+<div class="menu-item">
+<span>Caju</span>
+<span class="price">R$ 45,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Kiwi</span>
-          <span class="price">R$ 40,00</span>
-        </div>
+<div class="menu-item">
+<span>Kiwi</span>
+<span class="price">R$ 40,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Siriguela</span>
-          <span class="price">R$ 45,00</span>
-        </div>
+<div class="menu-item">
+<span>Siriguela</span>
+<span class="price">R$ 45,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="pineapple">Abacaxi</span>
-          <span class="price">R$ 40,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="pineapple">Abacaxi</span>
+<span class="price">R$ 40,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Pitaia</span>
-          <span class="price">R$ 45,00</span>
-        </div>
+<div class="menu-item">
+<span>Pitaia</span>
+<span class="price">R$ 45,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Acerola</span>
-          <span class="price">R$ 40,00</span>
-        </div>
+<div class="menu-item">
+<span>Acerola</span>
+<span class="price">R$ 40,00</span>
+</div>
 
-      </div>
-    </section>
+</div>
+</section>
 
 
-    <!-- CAIPIRINHA -->
+<!-- CAIPIRINHA -->
 
-    <section class="menu-section">
+<section class="menu-section" id="caipirinha">
 
-      <h2 class="menu-title">Caipirinha</h2>
+<h2 class="menu-title">
+Caipirinha
+</h2>
 
-      <div class="menu-items">
+<div class="menu-items">
 
-        <div class="menu-item">
-          <span data-i18n="lemon">Limão</span>
-          <span class="price">R$ 35,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="lemon">Limão</span>
+<span class="price">R$ 35,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="strawberry">Morango</span>
-          <span class="price">R$ 40,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="strawberry">Morango</span>
+<span class="price">R$ 40,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Caju</span>
-          <span class="price">R$ 40,00</span>
-        </div>
+<div class="menu-item">
+<span>Caju</span>
+<span class="price">R$ 40,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Kiwi</span>
-          <span class="price">R$ 40,00</span>
-        </div>
+<div class="menu-item">
+<span>Kiwi</span>
+<span class="price">R$ 40,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Siriguela</span>
-          <span class="price">R$ 40,00</span>
-        </div>
+<div class="menu-item">
+<span>Siriguela</span>
+<span class="price">R$ 40,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="pineapple">Abacaxi</span>
-          <span class="price">R$ 35,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="pineapple">Abacaxi</span>
+<span class="price">R$ 35,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Pitaia</span>
-          <span class="price">R$ 40,00</span>
-        </div>
+<div class="menu-item">
+<span>Pitaia</span>
+<span class="price">R$ 40,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Acerola</span>
-          <span class="price">R$ 35,00</span>
-        </div>
+<div class="menu-item">
+<span>Acerola</span>
+<span class="price">R$ 35,00</span>
+</div>
 
-      </div>
-    </section>
+</div>
+</section>
 
 
-    <!-- PETISCOS -->
+<!-- PETISCOS -->
 
-    <section class="menu-section">
+<section class="menu-section" id="petiscos">
 
-      <h2 class="menu-title" data-i18n="snacks">
-        Petiscos
-      </h2>
+<h2 class="menu-title" data-i18n="snacks">
+Petiscos
+</h2>
 
-      <div class="menu-items">
+<div class="menu-items">
 
-        <div class="menu-item">
-          <span data-i18n="fishBait">Isca de peixe</span>
-          <span class="price">R$ 135,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="fishBait">Isca de peixe</span>
+<span class="price">R$ 135,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="chickenBait">Isca de frango</span>
-          <span class="price">R$ 125,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="chickenBait">Isca de frango</span>
+<span class="price">R$ 125,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="sunDriedBeef">Carne do sol</span>
-          <span class="price">R$ 135,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="sunDriedBeef">Carne do sol</span>
+<span class="price">R$ 135,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="garlicShrimp">Camarão alho e óleo</span>
-          <span class="price">R$ 135,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="garlicShrimp">Camarão alho e óleo</span>
+<span class="price">R$ 135,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="breadedShrimp">Camarão empanado</span>
-          <span class="price">R$ 145,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="breadedShrimp">Camarão empanado</span>
+<span class="price">R$ 145,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="lobster">Lagosta grelhada</span>
-          <span class="price">R$ 280,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="lobster">Lagosta grelhada</span>
+<span class="price">R$ 280,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="friedChicken">Frango a passarinho</span>
-          <span class="price">R$ 125,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="friedChicken">Frango a passarinho</span>
+<span class="price">R$ 125,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Pititinga</span>
-          <span class="price">R$ 80,00</span>
-        </div>
+<div class="menu-item">
+<span>Pititinga</span>
+<span class="price">R$ 80,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="fries">Batata frita</span>
-          <span class="price">R$ 55,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="fries">Batata frita</span>
+<span class="price">R$ 55,00</span>
+</div>
 
-      </div>
-    </section>
+</div>
+</section>
 
 
-    <!-- BOLINHOS -->
-
-    <section class="menu-section">
-
-      <h2 class="menu-title" data-i18n="croquettes">
-        Bolinhos
-      </h2>
-
-      <div class="menu-items">
-
-        <div class="menu-item">
-          <span>Kibe</span>
-          <span class="price">R$ 60,00</span>
-        </div>
-
-        <div class="menu-item">
-          <span data-i18n="cheese">Queijo</span>
-          <span class="price">R$ 60,00</span>
-        </div>
+<!-- BOLINHOS -->
 
-        <div class="menu-item">
-          <span data-i18n="shrimp">Camarão</span>
-          <span class="price">R$ 60,00</span>
-        </div>
+<section class="menu-section" id="bolinhos">
 
-        <div class="menu-item">
-          <span data-i18n="cod">Bacalhau</span>
-          <span class="price">R$ 60,00</span>
-        </div>
+<h2 class="menu-title" data-i18n="croquettes">
+Bolinhos
+</h2>
 
-        <div class="menu-item">
-          <span data-i18n="jerkedBeef">Charque</span>
-          <span class="price">R$ 60,00</span>
-        </div>
+<div class="menu-items">
 
-      </div>
-    </section>
+<div class="menu-item">
+<span>Kibe</span>
+<span class="price">R$ 60,00</span>
+</div>
 
+<div class="menu-item">
+<span data-i18n="cheese">Queijo</span>
+<span class="price">R$ 60,00</span>
+</div>
 
-    <!-- ALMOÇO -->
-
-    <section class="menu-section">
+<div class="menu-item">
+<span data-i18n="shrimp">Camarão</span>
+<span class="price">R$ 60,00</span>
+</div>
 
-      <h2 class="menu-title" data-i18n="lunch">
-        Almoço Executivo
-      </h2>
+<div class="menu-item">
+<span data-i18n="cod">Bacalhau</span>
+<span class="price">R$ 60,00</span>
+</div>
 
-      <div class="menu-items">
-
-        <div class="menu-item">
-          <span data-i18n="friedFishComplete">
-            Peixe frito completo
-          </span>
-          <span class="price">R$ 200,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="jerkedBeef">Charque</span>
+<span class="price">R$ 60,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="grilledFish">
-            Peixe grelhado
-          </span>
-          <span class="price">R$ 200,00</span>
-        </div>
+</div>
+</section>
 
-        <div class="menu-item">
-          <div class="item-info">
-            <div class="item-name" data-i18n="mixedMoqueca">
-              Moqueca mista
-            </div>
 
-            <div class="item-description">
-              200g camarão + 300g peixe
-            </div>
-          </div>
+<!-- ALMOÇO -->
 
-          <span class="price">R$ 250,00</span>
-        </div>
+<section class="menu-section" id="almoco">
 
-        <div class="menu-item">
-          <span data-i18n="shrimpMoqueca">
-            Moqueca de camarão
-          </span>
-          <span class="price">R$ 190,00</span>
-        </div>
+<h2 class="menu-title" data-i18n="lunch">
+Almoço Executivo
+</h2>
 
-        <div class="menu-item">
-          <span data-i18n="fishMoqueca">
-            Moqueca de peixe
-          </span>
-          <span class="price">R$ 230,00</span>
-        </div>
+<div class="menu-items">
 
-        <div class="menu-item">
-          <span data-i18n="lobsterMoqueca">
-            Moqueca de lagosta
-          </span>
-          <span class="price">R$ 350,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="friedFishComplete">
+Peixe frito completo
+</span>
+<span class="price">R$ 200,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="completeSunDriedBeef">
-            Carne do sol completa
-          </span>
-          <span class="price">R$ 160,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="grilledFish">
+Peixe grelhado
+</span>
+<span class="price">R$ 200,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="hake">
-            Peixe grelhado – merluza
-          </span>
-          <span class="price">R$ 60,00</span>
-        </div>
+<div class="menu-item">
 
-      </div>
-    </section>
+<div class="item-info">
 
+<div class="item-name"
+data-i18n="mixedMoqueca">
+Moqueca mista
+</div>
 
-    <!-- PORÇÕES -->
+<div class="item-description"
+data-i18n="mixedMoquecaDescription">
+200g de camarão + 300g de peixe
+</div>
 
-    <section class="menu-section">
+</div>
 
-      <h2 class="menu-title" data-i18n="sides">
-        Porções
-      </h2>
+<span class="price">
+R$ 250,00
+</span>
 
-      <div class="menu-items">
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="rice">Arroz</span>
-          <span class="price">R$ 20,00</span>
-        </div>
 
-        <div class="menu-item">
-          <span data-i18n="beans">Feijão</span>
-          <span class="price">R$ 20,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="shrimpMoqueca">
+Moqueca de camarão
+</span>
+<span class="price">R$ 190,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="salad">Salada mista</span>
-          <span class="price">R$ 20,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="fishMoqueca">
+Moqueca de peixe
+</span>
+<span class="price">R$ 230,00</span>
+</div>
 
-        <div class="menu-item">
-          <span>Farofa</span>
-          <span class="price">R$ 20,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="lobsterMoqueca">
+Moqueca de lagosta
+</span>
+<span class="price">R$ 350,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="olives">Azeitonas</span>
-          <span class="price">R$ 25,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="completeSunDriedBeef">
+Carne do sol completa
+</span>
+<span class="price">R$ 160,00</span>
+</div>
 
-      </div>
-    </section>
+<div class="menu-item">
+<span data-i18n="hake">
+Peixe grelhado – merluza
+</span>
+<span class="price">R$ 60,00</span>
+</div>
 
+</div>
+</section>
 
-    <!-- ESPETINHOS -->
 
-    <section class="menu-section">
+<!-- PORÇÕES -->
 
-      <h2 class="menu-title" data-i18n="skewers">
-        Espetinhos
-      </h2>
+<section class="menu-section" id="porcoes">
 
-      <div class="menu-items">
+<h2 class="menu-title" data-i18n="sides">
+Porções
+</h2>
 
-        <div class="menu-item">
-          <span data-i18n="chicken">Frango</span>
-          <span class="price">R$ 25,00</span>
-        </div>
+<div class="menu-items">
 
-        <div class="menu-item">
-          <span data-i18n="beef">Carne</span>
-          <span class="price">R$ 30,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="rice">Arroz</span>
+<span class="price">R$ 20,00</span>
+</div>
 
-        <div class="menu-item">
-          <span data-i18n="shrimp">Camarão</span>
-          <span class="price">R$ 35,00</span>
-        </div>
+<div class="menu-item">
+<span data-i18n="beans">Feijão</span>
+<span class="price">R$ 20,00</span>
+</div>
 
-      </div>
-    </section>
+<div class="menu-item">
+<span data-i18n="salad">Salada mista</span>
+<span class="price">R$ 20,00</span>
+</div>
 
+<div class="menu-item">
+<span>Farofa</span>
+<span class="price">R$ 20,00</span>
+</div>
 
-    <!-- PRATOS -->
+<div class="menu-item">
+<span data-i18n="olives">Azeitonas</span>
+<span class="price">R$ 25,00</span>
+</div>
 
-    <section class="menu-section">
+</div>
+</section>
 
-      <h2 class="menu-title" data-i18n="plates">
-        Pratos
-      </h2>
 
-      <div class="menu-items">
+<!-- ESPETINHOS -->
 
-        <div class="menu-item">
-          <span data-i18n="chickenFillet">
-            Filé de frango
-          </span>
-          <span class="price">R$ 45,00</span>
-        </div>
+<section class="menu-section" id="espetinhos">
 
-        <div class="menu-item">
-          <span data-i18n="beefSteak">
-            Bife de contra-filé
-          </span>
-          <span class="price">R$ 55,00</span>
-        </div>
+<h2 class="menu-title" data-i18n="skewers">
+Espetinhos
+</h2>
 
-        <div class="menu-item">
-          <span data-i18n="hakeFillet">
-            Filé de merluza
-          </span>
-          <span class="price">R$ 60,00</span>
-        </div>
+<div class="menu-items">
 
-      </div>
-    </section>
+<div class="menu-item">
+<span data-i18n="chicken">Frango</span>
+<span class="price">R$ 25,00</span>
+</div>
 
+<div class="menu-item">
+<span data-i18n="beef">Carne</span>
+<span class="price">R$ 30,00</span>
+</div>
 
-    <!-- CALDOS -->
+<div class="menu-item">
+<span data-i18n="shrimp">Camarão</span>
+<span class="price">R$ 35,00</span>
+</div>
 
-    <section class="menu-section">
+</div>
+</section>
 
-      <h2 class="menu-title" data-i18n="soups">
-        Caldos
-      </h2>
 
-      <div class="menu-items">
+<!-- PRATOS -->
 
-        <div class="menu-item">
-          <span>Sururu</span>
-          <span class="price">R$ 55,00</span>
-        </div>
+<section class="menu-section" id="pratos">
 
-        <div class="menu-item">
-          <span data-i18n="shrimp">Camarão</span>
-          <span class="price">R$ 60,00</span>
-        </div>
+<h2 class="menu-title" data-i18n="plates">
+Pratos
+</h2>
 
-        <div class="menu-item">
-          <span data-i18n="beans">Feijão</span>
-          <span class="price">R$ 45,00</span>
-        </div>
+<div class="menu-items">
 
-      </div>
-    </section>
+<div class="menu-item">
+<span data-i18n="chickenFillet">
+Filé de frango
+</span>
+<span class="price">R$ 45,00</span>
+</div>
 
+<div class="menu-item">
+<span data-i18n="beefSteak">
+Bife de contra-filé
+</span>
+<span class="price">R$ 55,00</span>
+</div>
 
-    <!-- PRAIA -->
+<div class="menu-item">
+<span data-i18n="hakeFillet">
+Filé de merluza
+</span>
+<span class="price">R$ 60,00</span>
+</div>
 
-    <section class="menu-section">
+</div>
+</section>
 
-      <h2 class="menu-title" data-i18n="beachEquipment">
-        Equipamentos de Praia
-      </h2>
 
-      <div class="menu-items">
+<!-- CALDOS -->
 
-        <div class="menu-item">
-          <span data-i18n="chair">Cadeira</span>
-          <span class="price">R$ 10,00</span>
-        </div>
+<section class="menu-section" id="caldos">
 
-        <div class="menu-item">
-          <span data-i18n="smallUmbrella">
-            Sombreiro pequeno
-          </span>
-          <span class="price">R$ 20,00</span>
-        </div>
+<h2 class="menu-title" data-i18n="soups">
+Caldos
+</h2>
 
-        <div class="menu-item">
-          <span data-i18n="largeUmbrella">
-            Sombreiro grande
-          </span>
-          <span class="price">R$ 50,00</span>
-        </div>
+<div class="menu-items">
 
-      </div>
-    </section>
+<div class="menu-item">
+<span>Sururu</span>
+<span class="price">R$ 55,00</span>
+</div>
 
-  </div>
+<div class="menu-item">
+<span data-i18n="shrimp">Camarão</span>
+<span class="price">R$ 60,00</span>
+</div>
 
+<div class="menu-item">
+<span data-i18n="beans">Feijão</span>
+<span class="price">R$ 45,00</span>
+</div>
 
-  <section class="info-box">
+</div>
+</section>
 
-    <h2 data-i18n="generalInfo">
-      Informações gerais
-    </h2>
 
-    <p>
-      🕐
-      <span data-i18n="hours">
-        Funcionamento: 07:00 às 18:00
-      </span>
-    </p>
+<!-- EQUIPAMENTOS -->
 
-    <p data-i18n="everyday">
-      Todos os dias
-    </p>
+<section class="menu-section" id="praia">
 
-    <p class="warning" data-i18n="cardFee">
-      Pagamentos com cartão possuem taxa de 10%.
-    </p>
+<h2 class="menu-title"
+data-i18n="beachEquipment">
+Equipamentos de Praia
+</h2>
 
-  </section>
+<div class="menu-items">
+
+<div class="menu-item">
+<span data-i18n="chair">
+Cadeira
+</span>
+<span class="price">R$ 10,00</span>
+</div>
+
+<div class="menu-item">
+<span data-i18n="smallUmbrella">
+Sombreiro pequeno
+</span>
+<span class="price">R$ 20,00</span>
+</div>
+
+<div class="menu-item">
+<span data-i18n="largeUmbrella">
+Sombreiro grande
+</span>
+<span class="price">R$ 50,00</span>
+</div>
+
+</div>
+</section>
+
+
+</div>
+
+
+<!-- INFORMAÇÕES -->
+
+<section class="info-box">
+
+<h2 data-i18n="generalInfo">
+Informações gerais
+</h2>
+
+<p>
+🕐
+<span data-i18n="hours">
+Funcionamento: 07:00 às 18:00
+</span>
+</p>
+
+<p data-i18n="everyday">
+Todos os dias
+</p>
+
+<p class="warning"
+data-i18n="cardFee">
+Pagamentos com cartão possuem taxa de 10%.
+</p>
+
+</section>
+
+
+
+<!-- OFERTA FINAL -->
+
+<section class="islands-offer" id="ilhas">
+
+<div class="offer-top"
+data-i18n="exclusiveOffer">
+
+OFERTA ESPECIAL · 20% OFF
+
+</div>
+
+
+<div class="offer-content">
+
+<div class="offer-icon">
+🏝️
+</div>
+
+<h2 data-i18n="islandTitle">
+
+Ilha de Itaparica<br>
++ Ilha dos Frades
+
+</h2>
+
+
+<p class="offer-subtitle"
+data-i18n="islandSubtitle">
+
+Passeio de dia inteiro pelas ilhas da Baía de Todos-os-Santos
+
+</p>
+
+
+<div class="offer-price">
+R$ 150
+<small data-i18n="perPerson">
+por pessoa
+</small>
+</div>
+
+
+<div class="offer-included">
+
+<p>
+✓
+<span data-i18n="hotelPickup">
+Busca no hotel
+</span>
+</p>
+
+<p>
+✓
+<span data-i18n="terminalIncluded">
+Transfer até o terminal incluso
+</span>
+</p>
+
+<p>
+✓
+<span data-i18n="twoIslands">
+Visita às duas ilhas
+</span>
+</p>
+
+</div>
+
+
+<a
+id="whatsappButton"
+class="whatsapp-button"
+target="_blank"
+rel="noopener"
+href="#"
+>
+
+<span class="whatsapp-icon">
+💬
+</span>
+
+<span data-i18n="reserveWhatsApp">
+Reservar pelo WhatsApp
+</span>
+
+</a>
+
+</div>
+
+</section>
+
 
 </main>
 
 
-<footer>
-
-  <div class="brand">
-    TO KNOW SALVADOR
-  </div>
-
-  <h3>Discover Salvador like a local.</h3>
-
-  <a href="https://toknowsalvador.com">
-    toknowsalvador.com
-  </a>
-
-</footer>
-
 
 <script>
 
+let currentLanguage = "pt";
+
+
 const translations = {
 
-pt: {
-  subtitle: "Praia, sabores e experiência local em Salvador",
-  nonAlcoholic: "Bebidas sem álcool",
-  beers: "Cervejas",
-  juices: "Sucos 500ml",
-  snacks: "Petiscos",
-  croquettes: "Bolinhos",
-  lunch: "Almoço Executivo",
-  sides: "Porções",
-  skewers: "Espetinhos",
-  plates: "Pratos",
-  soups: "Caldos",
-  beachEquipment: "Equipamentos de Praia",
-  generalInfo: "Informações gerais",
 
-  coca: "Coca-Cola",
-  guarana: "Guaraná",
-  water: "Água",
-  sparklingWater: "Água com gás",
-  coconut: "Coco",
+pt:{
 
-  lemon: "Limão",
-  strawberry: "Morango",
-  pineapple: "Abacaxi",
+subtitle:
+"Praia, sabores e experiência local em Salvador",
 
-  fishBait: "Isca de peixe",
-  chickenBait: "Isca de frango",
-  sunDriedBeef: "Carne do sol",
-  garlicShrimp: "Camarão alho e óleo",
-  breadedShrimp: "Camarão empanado",
-  lobster: "Lagosta grelhada",
-  friedChicken: "Frango a passarinho",
-  fries: "Batata frita",
+navNonAlcoholic:"🥤 Não alcoólicos",
+navBeer:"🍺 Cervejas",
+navJuice:"🍹 Sucos",
+navSnacks:"🐟 Petiscos",
+navCroquettes:"🥟 Bolinhos",
+navLunch:"🍽️ Almoço",
+navSides:"🍚 Porções",
+navSkewers:"🍢 Espetinhos",
+navPlates:"🍴 Pratos",
+navSoups:"🥣 Caldos",
+navBeach:"🏖️ Praia",
+navIslands:"Passeio às Ilhas · 20% OFF",
 
-  cheese: "Queijo",
-  shrimp: "Camarão",
-  cod: "Bacalhau",
-  jerkedBeef: "Charque",
+nonAlcoholic:"Bebidas sem álcool",
+beers:"Cervejas",
+juices:"Sucos 500ml",
+snacks:"Petiscos",
+croquettes:"Bolinhos",
+lunch:"Almoço Executivo",
+sides:"Porções",
+skewers:"Espetinhos",
+plates:"Pratos",
+soups:"Caldos",
+beachEquipment:"Equipamentos de Praia",
 
-  friedFishComplete: "Peixe frito completo",
-  grilledFish: "Peixe grelhado",
-  mixedMoqueca: "Moqueca mista",
-  shrimpMoqueca: "Moqueca de camarão",
-  fishMoqueca: "Moqueca de peixe",
-  lobsterMoqueca: "Moqueca de lagosta",
-  completeSunDriedBeef: "Carne do sol completa",
-  hake: "Peixe grelhado – merluza",
+water:"Água",
+sparklingWater:"Água com gás",
+coconut:"Coco",
 
-  rice: "Arroz",
-  beans: "Feijão",
-  salad: "Salada mista",
-  olives: "Azeitonas",
+lemon:"Limão",
+strawberry:"Morango",
+pineapple:"Abacaxi",
 
-  chicken: "Frango",
-  beef: "Carne",
+fishBait:"Isca de peixe",
+chickenBait:"Isca de frango",
+sunDriedBeef:"Carne do sol",
+garlicShrimp:"Camarão alho e óleo",
+breadedShrimp:"Camarão empanado",
+lobster:"Lagosta grelhada",
+friedChicken:"Frango a passarinho",
+fries:"Batata frita",
 
-  chickenFillet: "Filé de frango",
-  beefSteak: "Bife de contra-filé",
-  hakeFillet: "Filé de merluza",
+cheese:"Queijo",
+shrimp:"Camarão",
+cod:"Bacalhau",
+jerkedBeef:"Charque",
 
-  chair: "Cadeira",
-  smallUmbrella: "Sombreiro pequeno",
-  largeUmbrella: "Sombreiro grande",
+friedFishComplete:"Peixe frito completo",
+grilledFish:"Peixe grelhado",
+mixedMoqueca:"Moqueca mista",
 
-  hours: "Funcionamento: 07:00 às 18:00",
-  everyday: "Todos os dias",
-  cardFee: "Pagamentos com cartão possuem taxa de 10%."
+mixedMoquecaDescription:
+"200g de camarão + 300g de peixe",
+
+shrimpMoqueca:"Moqueca de camarão",
+fishMoqueca:"Moqueca de peixe",
+lobsterMoqueca:"Moqueca de lagosta",
+completeSunDriedBeef:"Carne do sol completa",
+hake:"Peixe grelhado – merluza",
+
+rice:"Arroz",
+beans:"Feijão",
+salad:"Salada mista",
+olives:"Azeitonas",
+chicken:"Frango",
+beef:"Carne",
+
+chickenFillet:"Filé de frango",
+beefSteak:"Bife de contra-filé",
+hakeFillet:"Filé de merluza",
+
+chair:"Cadeira",
+smallUmbrella:"Sombreiro pequeno",
+largeUmbrella:"Sombreiro grande",
+
+generalInfo:"Informações gerais",
+
+hours:
+"Funcionamento: 07:00 às 18:00",
+
+everyday:
+"Todos os dias",
+
+cardFee:
+"Pagamentos com cartão possuem taxa de 10%.",
+
+exclusiveOffer:
+"OFERTA ESPECIAL · 20% OFF",
+
+islandTitle:
+"Ilha de Itaparica + Ilha dos Frades",
+
+islandSubtitle:
+"Passeio de dia inteiro pelas ilhas da Baía de Todos-os-Santos",
+
+perPerson:
+"por pessoa",
+
+hotelPickup:
+"Busca no hotel",
+
+terminalIncluded:
+"Transfer até o terminal incluso",
+
+twoIslands:
+"Visita às duas ilhas",
+
+reserveWhatsApp:
+"Reservar pelo WhatsApp",
+
+whatsappMessage:
+"Encontrei a oferta para as ilhas na Barraca da Priscila e tenho interesse em fazer a reserva."
+
 },
 
 
-en: {
-  subtitle: "Beach, local flavors and authentic Salvador experience",
-  nonAlcoholic: "Non-Alcoholic Drinks",
-  beers: "Beers",
-  juices: "Fresh Juices 500ml",
-  snacks: "Appetizers",
-  croquettes: "Croquettes",
-  lunch: "Lunch",
-  sides: "Side Dishes",
-  skewers: "Skewers",
-  plates: "Individual Plates",
-  soups: "Soups",
-  beachEquipment: "Beach Equipment",
-  generalInfo: "General Information",
 
-  coca: "Coca-Cola",
-  guarana: "Guaraná",
-  water: "Water",
-  sparklingWater: "Sparkling Water",
-  coconut: "Fresh Coconut",
+en:{
 
-  lemon: "Lime",
-  strawberry: "Strawberry",
-  pineapple: "Pineapple",
+subtitle:
+"Beach, local flavors and an authentic Salvador experience",
 
-  fishBait: "Fried Fish Strips",
-  chickenBait: "Chicken Strips",
-  sunDriedBeef: "Brazilian Sun-Dried Beef",
-  garlicShrimp: "Shrimp with Garlic & Oil",
-  breadedShrimp: "Breaded Shrimp",
-  lobster: "Grilled Lobster",
-  friedChicken: "Brazilian Fried Chicken",
-  fries: "French Fries",
+navNonAlcoholic:"🥤 Non-alcoholic",
+navBeer:"🍺 Beers",
+navJuice:"🍹 Juices",
+navSnacks:"🐟 Snacks",
+navCroquettes:"🥟 Croquettes",
+navLunch:"🍽️ Lunch",
+navSides:"🍚 Sides",
+navSkewers:"🍢 Skewers",
+navPlates:"🍴 Dishes",
+navSoups:"🥣 Soups",
+navBeach:"🏖️ Beach",
+navIslands:"Island Tour · 20% OFF",
 
-  cheese: "Cheese",
-  shrimp: "Shrimp",
-  cod: "Codfish",
-  jerkedBeef: "Brazilian Jerked Beef",
+nonAlcoholic:"Non-Alcoholic Drinks",
+beers:"Beers",
+juices:"Fresh Juices 500ml",
+snacks:"Appetizers",
+croquettes:"Croquettes",
+lunch:"Lunch",
+sides:"Side Dishes",
+skewers:"Skewers",
+plates:"Individual Dishes",
+soups:"Soups",
+beachEquipment:"Beach Equipment",
 
-  friedFishComplete: "Complete Fried Fish",
-  grilledFish: "Grilled Fish",
-  mixedMoqueca: "Mixed Fish & Shrimp Moqueca",
-  shrimpMoqueca: "Shrimp Moqueca",
-  fishMoqueca: "Fish Moqueca",
-  lobsterMoqueca: "Lobster Moqueca",
-  completeSunDriedBeef: "Sun-Dried Beef Meal",
-  hake: "Grilled Hake",
+water:"Water",
+sparklingWater:"Sparkling Water",
+coconut:"Fresh Coconut",
 
-  rice: "Rice",
-  beans: "Beans",
-  salad: "Mixed Salad",
-  olives: "Olives",
+lemon:"Lime",
+strawberry:"Strawberry",
+pineapple:"Pineapple",
 
-  chicken: "Chicken",
-  beef: "Beef",
+fishBait:"Fried Fish Strips",
+chickenBait:"Chicken Strips",
+sunDriedBeef:"Brazilian Sun-Dried Beef",
+garlicShrimp:"Shrimp with Garlic & Oil",
+breadedShrimp:"Breaded Shrimp",
+lobster:"Grilled Lobster",
+friedChicken:"Brazilian Fried Chicken",
+fries:"French Fries",
 
-  chickenFillet: "Chicken Fillet",
-  beefSteak: "Sirloin Steak",
-  hakeFillet: "Hake Fillet",
+cheese:"Cheese",
+shrimp:"Shrimp",
+cod:"Codfish",
+jerkedBeef:"Brazilian Jerked Beef",
 
-  chair: "Beach Chair",
-  smallUmbrella: "Small Beach Umbrella",
-  largeUmbrella: "Large Beach Umbrella",
+friedFishComplete:"Complete Fried Fish",
+grilledFish:"Grilled Fish",
+mixedMoqueca:"Mixed Moqueca",
 
-  hours: "Opening hours: 7:00 AM – 6:00 PM",
-  everyday: "Open every day",
-  cardFee: "Card payments are subject to a 10% fee."
+mixedMoquecaDescription:
+"200g shrimp + 300g fish",
+
+shrimpMoqueca:"Shrimp Moqueca",
+fishMoqueca:"Fish Moqueca",
+lobsterMoqueca:"Lobster Moqueca",
+completeSunDriedBeef:"Sun-Dried Beef Meal",
+hake:"Grilled Hake",
+
+rice:"Rice",
+beans:"Beans",
+salad:"Mixed Salad",
+olives:"Olives",
+chicken:"Chicken",
+beef:"Beef",
+
+chickenFillet:"Chicken Fillet",
+beefSteak:"Sirloin Steak",
+hakeFillet:"Hake Fillet",
+
+chair:"Beach Chair",
+smallUmbrella:"Small Beach Umbrella",
+largeUmbrella:"Large Beach Umbrella",
+
+generalInfo:"General Information",
+
+hours:
+"Opening hours: 7:00 AM – 6:00 PM",
+
+everyday:
+"Open every day",
+
+cardFee:
+"Card payments are subject to a 10% fee.",
+
+exclusiveOffer:
+"SPECIAL OFFER · 20% OFF",
+
+islandTitle:
+"Itaparica Island + Frades Island",
+
+islandSubtitle:
+"Full-day tour through the islands of All Saints Bay",
+
+perPerson:
+"per person",
+
+hotelPickup:
+"Hotel pickup",
+
+terminalIncluded:
+"Transfer to the terminal included",
+
+twoIslands:
+"Visit to both islands",
+
+reserveWhatsApp:
+"Book on WhatsApp",
+
+whatsappMessage:
+"I found the island tour offer at Barraca da Priscila and I am interested in making a reservation."
+
 },
 
 
-es: {
-  subtitle: "Playa, sabores locales y una auténtica experiencia de Salvador",
-  nonAlcoholic: "Bebidas sin alcohol",
-  beers: "Cervezas",
-  juices: "Jugos naturales 500ml",
-  snacks: "Aperitivos",
-  croquettes: "Bocaditos",
-  lunch: "Almuerzo",
-  sides: "Acompañamientos",
-  skewers: "Brochetas",
-  plates: "Platos",
-  soups: "Caldos",
-  beachEquipment: "Equipamiento de Playa",
-  generalInfo: "Información General",
 
-  water: "Agua",
-  sparklingWater: "Agua con gas",
-  coconut: "Coco natural",
+es:{
 
-  lemon: "Limón",
-  strawberry: "Fresa",
-  pineapple: "Piña",
+subtitle:
+"Playa, sabores locales y una auténtica experiencia de Salvador",
 
-  fishBait: "Tiras de pescado",
-  chickenBait: "Tiras de pollo",
-  sunDriedBeef: "Carne de sol",
-  garlicShrimp: "Camarones al ajo y aceite",
-  breadedShrimp: "Camarones empanados",
-  lobster: "Langosta a la parrilla",
-  friedChicken: "Pollo frito",
-  fries: "Papas fritas",
+navNonAlcoholic:"🥤 Sin alcohol",
+navBeer:"🍺 Cervezas",
+navJuice:"🍹 Jugos",
+navSnacks:"🐟 Aperitivos",
+navCroquettes:"🥟 Bocaditos",
+navLunch:"🍽️ Almuerzo",
+navSides:"🍚 Acompañamientos",
+navSkewers:"🍢 Brochetas",
+navPlates:"🍴 Platos",
+navSoups:"🥣 Caldos",
+navBeach:"🏖️ Playa",
+navIslands:"Paseo a las Islas · 20% OFF",
 
-  cheese: "Queso",
-  shrimp: "Camarón",
-  cod: "Bacalao",
-  jerkedBeef: "Carne seca",
+nonAlcoholic:"Bebidas sin alcohol",
+beers:"Cervezas",
+juices:"Jugos naturales 500ml",
+snacks:"Aperitivos",
+croquettes:"Bocaditos",
+lunch:"Almuerzo",
+sides:"Acompañamientos",
+skewers:"Brochetas",
+plates:"Platos",
+soups:"Caldos",
+beachEquipment:"Equipamiento de Playa",
 
-  friedFishComplete: "Pescado frito completo",
-  grilledFish: "Pescado a la parrilla",
-  mixedMoqueca: "Moqueca mixta",
-  shrimpMoqueca: "Moqueca de camarón",
-  fishMoqueca: "Moqueca de pescado",
-  lobsterMoqueca: "Moqueca de langosta",
-  completeSunDriedBeef: "Carne de sol completa",
-  hake: "Merluza a la parrilla",
+water:"Agua",
+sparklingWater:"Agua con gas",
+coconut:"Coco natural",
 
-  rice: "Arroz",
-  beans: "Frijoles",
-  salad: "Ensalada mixta",
-  olives: "Aceitunas",
+lemon:"Limón",
+strawberry:"Fresa",
+pineapple:"Piña",
 
-  chicken: "Pollo",
-  beef: "Carne",
+fishBait:"Tiras de pescado",
+chickenBait:"Tiras de pollo",
+sunDriedBeef:"Carne de sol",
+garlicShrimp:"Camarones al ajo y aceite",
+breadedShrimp:"Camarones empanados",
+lobster:"Langosta a la parrilla",
+friedChicken:"Pollo frito",
+fries:"Papas fritas",
 
-  chickenFillet: "Filete de pollo",
-  beefSteak: "Bistec de res",
-  hakeFillet: "Filete de merluza",
+cheese:"Queso",
+shrimp:"Camarón",
+cod:"Bacalao",
+jerkedBeef:"Carne seca",
 
-  chair: "Silla de playa",
-  smallUmbrella: "Sombrilla pequeña",
-  largeUmbrella: "Sombrilla grande",
+friedFishComplete:"Pescado frito completo",
+grilledFish:"Pescado a la parrilla",
+mixedMoqueca:"Moqueca mixta",
 
-  hours: "Horario: 07:00–18:00",
-  everyday: "Todos los días",
-  cardFee: "Los pagos con tarjeta tienen una comisión del 10%."
+mixedMoquecaDescription:
+"200g de camarón + 300g de pescado",
+
+shrimpMoqueca:"Moqueca de camarón",
+fishMoqueca:"Moqueca de pescado",
+lobsterMoqueca:"Moqueca de langosta",
+completeSunDriedBeef:"Carne de sol completa",
+hake:"Merluza a la parrilla",
+
+rice:"Arroz",
+beans:"Frijoles",
+salad:"Ensalada mixta",
+olives:"Aceitunas",
+chicken:"Pollo",
+beef:"Carne",
+
+chickenFillet:"Filete de pollo",
+beefSteak:"Bistec de res",
+hakeFillet:"Filete de merluza",
+
+chair:"Silla de playa",
+smallUmbrella:"Sombrilla pequeña",
+largeUmbrella:"Sombrilla grande",
+
+generalInfo:"Información General",
+
+hours:
+"Horario: 07:00–18:00",
+
+everyday:
+"Todos los días",
+
+cardFee:
+"Los pagos con tarjeta tienen una comisión del 10%.",
+
+exclusiveOffer:
+"OFERTA ESPECIAL · 20% OFF",
+
+islandTitle:
+"Isla de Itaparica + Isla de los Frailes",
+
+islandSubtitle:
+"Paseo de día completo por las islas de la Bahía de Todos los Santos",
+
+perPerson:
+"por persona",
+
+hotelPickup:
+"Recogida en el hotel",
+
+terminalIncluded:
+"Traslado hasta la terminal incluido",
+
+twoIslands:
+"Visita a las dos islas",
+
+reserveWhatsApp:
+"Reservar por WhatsApp",
+
+whatsappMessage:
+"Encontré la oferta para las islas en Barraca da Priscila y estoy interesado en hacer una reserva."
+
 },
 
 
-it: {
-  subtitle: "Spiaggia, sapori locali e autentica esperienza di Salvador",
-  nonAlcoholic: "Bevande analcoliche",
-  beers: "Birre",
-  juices: "Succhi freschi 500ml",
-  snacks: "Antipasti",
-  croquettes: "Crocchette",
-  lunch: "Pranzo",
-  sides: "Contorni",
-  skewers: "Spiedini",
-  plates: "Piatti",
-  soups: "Zuppe",
-  beachEquipment: "Attrezzatura da spiaggia",
-  generalInfo: "Informazioni Generali",
 
-  water: "Acqua",
-  sparklingWater: "Acqua frizzante",
-  coconut: "Cocco fresco",
+it:{
 
-  lemon: "Lime",
-  strawberry: "Fragola",
-  pineapple: "Ananas",
+subtitle:
+"Spiaggia, sapori locali e autentica esperienza di Salvador",
 
-  fishBait: "Strisce di pesce fritto",
-  chickenBait: "Strisce di pollo",
-  sunDriedBeef: "Carne do sol",
-  garlicShrimp: "Gamberi all'aglio e olio",
-  breadedShrimp: "Gamberi impanati",
-  lobster: "Aragosta alla griglia",
-  friedChicken: "Pollo fritto",
-  fries: "Patatine fritte",
+navNonAlcoholic:"🥤 Analcolici",
+navBeer:"🍺 Birre",
+navJuice:"🍹 Succhi",
+navSnacks:"🐟 Antipasti",
+navCroquettes:"🥟 Crocchette",
+navLunch:"🍽️ Pranzo",
+navSides:"🍚 Contorni",
+navSkewers:"🍢 Spiedini",
+navPlates:"🍴 Piatti",
+navSoups:"🥣 Zuppe",
+navBeach:"🏖️ Spiaggia",
+navIslands:"Tour delle Isole · 20% OFF",
 
-  cheese: "Formaggio",
-  shrimp: "Gamberi",
-  cod: "Baccalà",
-  jerkedBeef: "Carne secca",
+nonAlcoholic:"Bevande analcoliche",
+beers:"Birre",
+juices:"Succhi freschi 500ml",
+snacks:"Antipasti",
+croquettes:"Crocchette",
+lunch:"Pranzo",
+sides:"Contorni",
+skewers:"Spiedini",
+plates:"Piatti",
+soups:"Zuppe",
+beachEquipment:"Attrezzatura da spiaggia",
 
-  friedFishComplete: "Pesce fritto completo",
-  grilledFish: "Pesce alla griglia",
-  mixedMoqueca: "Moqueca mista",
-  shrimpMoqueca: "Moqueca di gamberi",
-  fishMoqueca: "Moqueca di pesce",
-  lobsterMoqueca: "Moqueca di aragosta",
-  completeSunDriedBeef: "Carne do sol completa",
-  hake: "Nasello alla griglia",
+water:"Acqua",
+sparklingWater:"Acqua frizzante",
+coconut:"Cocco fresco",
 
-  rice: "Riso",
-  beans: "Fagioli",
-  salad: "Insalata mista",
-  olives: "Olive",
+lemon:"Lime",
+strawberry:"Fragola",
+pineapple:"Ananas",
 
-  chicken: "Pollo",
-  beef: "Manzo",
+fishBait:"Strisce di pesce fritto",
+chickenBait:"Strisce di pollo",
+sunDriedBeef:"Carne do sol",
+garlicShrimp:"Gamberi all'aglio e olio",
+breadedShrimp:"Gamberi impanati",
+lobster:"Aragosta alla griglia",
+friedChicken:"Pollo fritto",
+fries:"Patatine fritte",
 
-  chickenFillet: "Filetto di pollo",
-  beefSteak: "Bistecca di manzo",
-  hakeFillet: "Filetto di nasello",
+cheese:"Formaggio",
+shrimp:"Gamberi",
+cod:"Baccalà",
+jerkedBeef:"Carne secca",
 
-  chair: "Sedia da spiaggia",
-  smallUmbrella: "Ombrellone piccolo",
-  largeUmbrella: "Ombrellone grande",
+friedFishComplete:"Pesce fritto completo",
+grilledFish:"Pesce alla griglia",
+mixedMoqueca:"Moqueca mista",
 
-  hours: "Orario: 07:00–18:00",
-  everyday: "Aperto tutti i giorni",
-  cardFee: "I pagamenti con carta prevedono una commissione del 10%."
+mixedMoquecaDescription:
+"200g di gamberi + 300g di pesce",
+
+shrimpMoqueca:"Moqueca di gamberi",
+fishMoqueca:"Moqueca di pesce",
+lobsterMoqueca:"Moqueca di aragosta",
+completeSunDriedBeef:"Carne do sol completa",
+hake:"Nasello alla griglia",
+
+rice:"Riso",
+beans:"Fagioli",
+salad:"Insalata mista",
+olives:"Olive",
+chicken:"Pollo",
+beef:"Manzo",
+
+chickenFillet:"Filetto di pollo",
+beefSteak:"Bistecca di manzo",
+hakeFillet:"Filetto di nasello",
+
+chair:"Sedia da spiaggia",
+smallUmbrella:"Ombrellone piccolo",
+largeUmbrella:"Ombrellone grande",
+
+generalInfo:"Informazioni Generali",
+
+hours:
+"Orario: 07:00–18:00",
+
+everyday:
+"Aperto tutti i giorni",
+
+cardFee:
+"I pagamenti con carta prevedono una commissione del 10%.",
+
+exclusiveOffer:
+"OFFERTA SPECIALE · 20% OFF",
+
+islandTitle:
+"Isola di Itaparica + Ilha dos Frades",
+
+islandSubtitle:
+"Tour di un'intera giornata nelle isole della Baia di Tutti i Santi",
+
+perPerson:
+"a persona",
+
+hotelPickup:
+"Prelievo in hotel",
+
+terminalIncluded:
+"Trasferimento al terminal incluso",
+
+twoIslands:
+"Visita a entrambe le isole",
+
+reserveWhatsApp:
+"Prenota su WhatsApp",
+
+whatsappMessage:
+"Ho trovato l'offerta per il tour delle isole presso Barraca da Priscila e sono interessato a effettuare una prenotazione."
+
 },
 
 
-fr: {
-  subtitle: "Plage, saveurs locales et expérience authentique de Salvador",
-  nonAlcoholic: "Boissons sans alcool",
-  beers: "Bières",
-  juices: "Jus frais 500ml",
-  snacks: "Apéritifs",
-  croquettes: "Croquettes",
-  lunch: "Déjeuner",
-  sides: "Accompagnements",
-  skewers: "Brochettes",
-  plates: "Plats",
-  soups: "Soupes",
-  beachEquipment: "Équipement de plage",
-  generalInfo: "Informations Générales",
 
-  water: "Eau",
-  sparklingWater: "Eau gazeuse",
-  coconut: "Noix de coco fraîche",
+fr:{
 
-  lemon: "Citron vert",
-  strawberry: "Fraise",
-  pineapple: "Ananas",
+subtitle:
+"Plage, saveurs locales et expérience authentique de Salvador",
 
-  fishBait: "Lamelles de poisson frit",
-  chickenBait: "Lamelles de poulet",
-  sunDriedBeef: "Carne do sol",
-  garlicShrimp: "Crevettes à l'ail et à l'huile",
-  breadedShrimp: "Crevettes panées",
-  lobster: "Langouste grillée",
-  friedChicken: "Poulet frit",
-  fries: "Frites",
+navNonAlcoholic:"🥤 Sans alcool",
+navBeer:"🍺 Bières",
+navJuice:"🍹 Jus",
+navSnacks:"🐟 Apéritifs",
+navCroquettes:"🥟 Croquettes",
+navLunch:"🍽️ Déjeuner",
+navSides:"🍚 Accompagnements",
+navSkewers:"🍢 Brochettes",
+navPlates:"🍴 Plats",
+navSoups:"🥣 Soupes",
+navBeach:"🏖️ Plage",
+navIslands:"Excursion aux Îles · 20% OFF",
 
-  cheese: "Fromage",
-  shrimp: "Crevettes",
-  cod: "Morue",
-  jerkedBeef: "Viande séchée",
+nonAlcoholic:"Boissons sans alcool",
+beers:"Bières",
+juices:"Jus frais 500ml",
+snacks:"Apéritifs",
+croquettes:"Croquettes",
+lunch:"Déjeuner",
+sides:"Accompagnements",
+skewers:"Brochettes",
+plates:"Plats",
+soups:"Soupes",
+beachEquipment:"Équipement de plage",
 
-  friedFishComplete: "Poisson frit complet",
-  grilledFish: "Poisson grillé",
-  mixedMoqueca: "Moqueca mixte",
-  shrimpMoqueca: "Moqueca de crevettes",
-  fishMoqueca: "Moqueca de poisson",
-  lobsterMoqueca: "Moqueca de langouste",
-  completeSunDriedBeef: "Carne do sol complète",
-  hake: "Merlu grillé",
+water:"Eau",
+sparklingWater:"Eau gazeuse",
+coconut:"Noix de coco fraîche",
 
-  rice: "Riz",
-  beans: "Haricots",
-  salad: "Salade mixte",
-  olives: "Olives",
+lemon:"Citron vert",
+strawberry:"Fraise",
+pineapple:"Ananas",
 
-  chicken: "Poulet",
-  beef: "Bœuf",
+fishBait:"Lamelles de poisson frit",
+chickenBait:"Lamelles de poulet",
+sunDriedBeef:"Carne do sol",
+garlicShrimp:"Crevettes à l'ail et à l'huile",
+breadedShrimp:"Crevettes panées",
+lobster:"Langouste grillée",
+friedChicken:"Poulet frit",
+fries:"Frites",
 
-  chickenFillet: "Filet de poulet",
-  beefSteak: "Steak de bœuf",
-  hakeFillet: "Filet de merlu",
+cheese:"Fromage",
+shrimp:"Crevettes",
+cod:"Morue",
+jerkedBeef:"Viande séchée",
 
-  chair: "Chaise de plage",
-  smallUmbrella: "Petit parasol",
-  largeUmbrella: "Grand parasol",
+friedFishComplete:"Poisson frit complet",
+grilledFish:"Poisson grillé",
+mixedMoqueca:"Moqueca mixte",
 
-  hours: "Horaires : 07h00–18h00",
-  everyday: "Ouvert tous les jours",
-  cardFee: "Les paiements par carte sont soumis à des frais de 10%."
+mixedMoquecaDescription:
+"200g de crevettes + 300g de poisson",
+
+shrimpMoqueca:"Moqueca de crevettes",
+fishMoqueca:"Moqueca de poisson",
+lobsterMoqueca:"Moqueca de langouste",
+completeSunDriedBeef:"Carne do sol complète",
+hake:"Merlu grillé",
+
+rice:"Riz",
+beans:"Haricots",
+salad:"Salade mixte",
+olives:"Olives",
+chicken:"Poulet",
+beef:"Bœuf",
+
+chickenFillet:"Filet de poulet",
+beefSteak:"Steak de bœuf",
+hakeFillet:"Filet de merlu",
+
+chair:"Chaise de plage",
+smallUmbrella:"Petit parasol",
+largeUmbrella:"Grand parasol",
+
+generalInfo:"Informations Générales",
+
+hours:
+"Horaires : 07h00–18h00",
+
+everyday:
+"Ouvert tous les jours",
+
+cardFee:
+"Les paiements par carte sont soumis à des frais de 10%.",
+
+exclusiveOffer:
+"OFFRE SPÉCIALE · 20% OFF",
+
+islandTitle:
+"Île d'Itaparica + Ilha dos Frades",
+
+islandSubtitle:
+"Excursion d'une journée dans les îles de la Baie de Tous les Saints",
+
+perPerson:
+"par personne",
+
+hotelPickup:
+"Prise en charge à l'hôtel",
+
+terminalIncluded:
+"Transfert jusqu'au terminal inclus",
+
+twoIslands:
+"Visite des deux îles",
+
+reserveWhatsApp:
+"Réserver sur WhatsApp",
+
+whatsappMessage:
+"J'ai trouvé l'offre pour l'excursion aux îles à la Barraca da Priscila et je souhaite effectuer une réservation."
+
 }
 
 };
 
 
-function changeLanguage(language, button) {
 
-  document.documentElement.lang = language;
+function changeLanguage(language,button){
 
-  document.querySelectorAll("[data-i18n]").forEach(element => {
+currentLanguage = language;
 
-    const key = element.getAttribute("data-i18n");
+document.documentElement.lang = language;
 
-    if (translations[language][key]) {
-      element.textContent = translations[language][key];
-    }
 
-  });
+document
+.querySelectorAll("[data-i18n]")
+.forEach(element=>{
 
-  document
-    .querySelectorAll(".language-btn")
-    .forEach(btn => btn.classList.remove("active"));
+const key =
+element.getAttribute("data-i18n");
 
-  button.classList.add("active");
+if(translations[language][key]){
+
+element.innerHTML =
+translations[language][key];
 
 }
 
+});
+
+
+document
+.querySelectorAll(".language-btn")
+.forEach(btn=>
+btn.classList.remove("active")
+);
+
+
+button.classList.add("active");
+
+
+updateWhatsApp();
+
+}
+
+
+
+function updateWhatsApp(){
+
+const phone =
+"5571993719791";
+
+const message =
+translations[currentLanguage].whatsappMessage;
+
+const url =
+"https://wa.me/" +
+phone +
+"?text=" +
+encodeURIComponent(message);
+
+document
+.getElementById("whatsappButton")
+.href = url;
+
+}
+
+
+/* configura WhatsApp ao abrir */
+
+updateWhatsApp();
+
 </script>
+
 
 </body>
 </html>
