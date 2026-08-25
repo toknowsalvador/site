@@ -1,1115 +1,319 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <meta name="theme-color" content="#b9001c">
-
 <title>Barraca do Papai Noel | Cardápio</title>
 
 <style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef2f7;color:#172337;line-height:1.45}
+.container{width:100%;max-width:760px;margin:0 auto;background:#fff;min-height:100vh}
+.hero{background:#b9001c;color:#fff;padding:25px 18px 20px;text-align:center;border-bottom:7px solid #07376f}
+.hero-small{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+.hero h1{margin:0;font-size:34px;line-height:1.05;font-weight:900}
+.santa-hat{position:relative;width:84px;height:62px;margin:0 auto 8px;transform:rotate(-7deg)}
+.hat-red{position:absolute;left:15px;top:1px;width:58px;height:47px;background:#ef1736;clip-path:polygon(0 100%,51% 0,100% 100%)}
+.hat-fold{position:absolute;left:7px;bottom:4px;width:70px;height:19px;background:#fff;border-radius:14px}
+.hat-ball{position:absolute;right:0;top:0;width:22px;height:22px;background:#fff;border-radius:50%}
 
-*{
-box-sizing:border-box;
-}
+.languages{display:flex;gap:7px;margin-top:18px;overflow-x:auto;scrollbar-width:none}
+.languages::-webkit-scrollbar{display:none}
+.languages button{flex:0 0 auto;display:flex;align-items:center;justify-content:center;min-height:40px;padding:8px 11px;border-radius:6px;font-size:12px;font-weight:800;border:1px solid rgba(255,255,255,.4);background:#07376f;color:#fff;cursor:pointer}
+.languages button.active{background:#fff;color:#b9001c}
 
-html{
-scroll-behavior:smooth;
-}
+.menu-nav{position:sticky;top:0;z-index:50;display:flex;align-items:stretch;overflow-x:auto;white-space:nowrap;background:#fff;border-bottom:1px solid #d8dee8;box-shadow:0 3px 10px rgba(0,0,0,.06);scrollbar-width:none}
+.menu-nav::-webkit-scrollbar{display:none}
+.menu-nav a{flex:0 0 auto;min-width:122px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;padding:13px 10px;text-align:center;text-decoration:none;font-size:12px;font-weight:800;color:#07376f;border-right:1px solid #e1e5eb}
+.menu-nav .nav-icon{font-size:21px;line-height:1}
+.menu-nav .islands{color:#b9001c}
+.menu-nav .afro{background:#07376f;color:#fff}
+.menu-nav .nav-offer{display:block;font-size:11px;color:#b9001c}
+.menu-nav .afro .nav-offer{color:#fff}
 
-body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#eef2f7;
-color:#172337;
-line-height:1.45;
-}
+.menu-section{margin:0;background:#fff;border-top:1px solid #dfe4eb}
+.section-title{display:flex;align-items:center;gap:9px;margin:0;padding:13px 16px;color:#fff;font-size:19px;font-weight:900;text-transform:uppercase}
+.section-title.red{background:#b9001c}
+.section-title.blue{background:#07376f}
+.section-icon{font-size:20px}
+.items{padding:4px 16px 12px}
+.item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:end;padding:11px 0;border-bottom:1px dotted #aeb7c3}
+.item:last-child{border-bottom:none}
+.item-name{font-size:15px;font-weight:700;color:#172337}
+.item-description{display:block;margin-top:2px;font-size:12px;font-weight:400;color:#667183}
+.price{white-space:nowrap;font-size:15px;font-weight:900;color:#b9001c}
 
-.container{
-width:100%;
-max-width:760px;
-margin:0 auto;
-background:#ffffff;
-min-height:100vh;
-}
+.islands-offer{margin:18px 16px 0;border-radius:10px;overflow:hidden;background:#07376f;color:#fff;box-shadow:0 8px 22px rgba(0,0,0,.13)}
+.islands-top{background:#b9001c;padding:12px 15px;text-align:center;font-size:13px;font-weight:900;letter-spacing:1px}
+.islands-content{padding:26px 18px;text-align:center}
+.islands-icon{font-size:44px}
+.islands-content h2{margin:8px 0 6px;font-size:26px;line-height:1.15}
+.islands-content p{margin:6px 0;color:#e7edf7}
+.offer-price{font-size:39px;font-weight:900;margin:16px 0 10px}
+.offer-price small{font-size:14px;font-weight:700}
+.inclusions{margin:15px auto;max-width:470px;text-align:left;display:grid;gap:7px}
+.reserve-button{display:block;margin-top:18px;padding:15px 12px;border-radius:7px;background:#25d366;color:#fff;text-decoration:none;font-size:16px;font-weight:900}
 
-/* CABEÇALHO */
-
-.hero{
-background:#b9001c;
-color:#ffffff;
-padding:25px 18px 20px;
-text-align:center;
-border-bottom:7px solid #07376f;
-}
-
-.hero-small{
-margin:0 0 4px;
-font-size:12px;
-font-weight:700;
-letter-spacing:2px;
-text-transform:uppercase;
-}
-
-.hero h1{
-margin:0;
-font-size:34px;
-line-height:1.05;
-font-weight:900;
-}
-
-/* GORRO DO PAPAI NOEL */
-
-.santa-hat{
-position:relative;
-width:84px;
-height:62px;
-margin:0 auto 8px;
-transform:rotate(-7deg);
-}
-
-.hat-red{
-position:absolute;
-left:15px;
-top:1px;
-width:58px;
-height:47px;
-background:#ef1736;
-clip-path:polygon(0 100%, 51% 0, 100% 100%);
-}
-
-.hat-fold{
-position:absolute;
-left:7px;
-bottom:4px;
-width:70px;
-height:19px;
-background:#ffffff;
-border-radius:14px;
-}
-
-.hat-ball{
-position:absolute;
-right:0;
-top:0;
-width:22px;
-height:22px;
-background:#ffffff;
-border-radius:50%;
-}
-
-/* IDIOMAS */
-
-.languages{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:7px;
-margin-top:18px;
-}
-
-.languages a,
-.languages span{
-display:flex;
-align-items:center;
-justify-content:center;
-min-height:40px;
-padding:8px 4px;
-border-radius:6px;
-font-size:12px;
-font-weight:800;
-text-decoration:none;
-}
-
-.languages span{
-background:#ffffff;
-color:#b9001c;
-}
-
-.languages a{
-background:#07376f;
-color:#ffffff;
-border:1px solid rgba(255,255,255,.4);
-}
-
-/* FAIXA HORIZONTAL DO CARDÁPIO */
-
-.menu-nav{
-display:flex;
-align-items:stretch;
-gap:0;
-overflow-x:auto;
-overflow-y:hidden;
-white-space:nowrap;
-background:#ffffff;
-border-bottom:1px solid #d8dee8;
-scroll-behavior:smooth;
--webkit-overflow-scrolling:touch;
-scrollbar-width:none;
-}
-
-.menu-nav::-webkit-scrollbar{
-display:none;
-}
-
-.menu-nav a{
-flex:0 0 auto;
-min-width:132px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-gap:4px;
-padding:13px 10px;
-text-align:center;
-text-decoration:none;
-font-size:12px;
-font-weight:800;
-color:#07376f;
-border-right:1px solid #e1e5eb;
-}
-
-.menu-nav a:last-child{
-min-width:175px;
-color:#b9001c;
-border-right:none;
-}
-
-.menu-nav .nav-icon{
-font-size:21px;
-line-height:1;
-}
-
-.menu-nav .nav-offer{
-display:block;
-font-size:11px;
-color:#b9001c;
-}
-
-/* SEÇÕES */
-
-.menu-section{
-margin:0;
-background:#ffffff;
-border-top:1px solid #dfe4eb;
-}
-
-.section-title{
-display:flex;
-align-items:center;
-gap:9px;
-margin:0;
-padding:13px 16px;
-color:#ffffff;
-font-size:19px;
-font-weight:900;
-text-transform:uppercase;
-}
-
-.section-title.red{
-background:#b9001c;
-}
-
-.section-title.blue{
-background:#07376f;
-}
-
-.section-icon{
-font-size:20px;
-}
-
-/* ITENS */
-
-.items{
-padding:4px 16px 12px;
-}
-
-.item{
-display:grid;
-grid-template-columns:minmax(0,1fr) auto;
-gap:12px;
-align-items:end;
-padding:11px 0;
-border-bottom:1px dotted #aeb7c3;
-}
-
-.item:last-child{
-border-bottom:none;
-}
-
-.item-name{
-font-size:15px;
-font-weight:700;
-color:#172337;
-}
-
-.item-description{
-display:block;
-margin-top:2px;
-font-size:12px;
-font-weight:400;
-color:#667183;
-}
-
-.price{
-white-space:nowrap;
-font-size:15px;
-font-weight:900;
-color:#b9001c;
-}
-
-/* EXPERIÊNCIAS DISCRETAS */
-
-.offers{
-padding:16px;
-background:#f7f8fa;
-border-top:1px solid #dfe4eb;
-}
-
-.offers-title{
-margin:0 0 12px;
-text-align:center;
-font-size:14px;
-font-weight:800;
-letter-spacing:1.5px;
-text-transform:uppercase;
-color:#667183;
-}
-
-.offer-card{
-background:#ffffff;
-padding:14px;
-margin-bottom:9px;
-border:1px solid #e0e5ec;
-border-radius:7px;
-}
-
-.offer-card:last-child{
-margin-bottom:0;
-}
-
-.offer-card h3{
-margin:0 0 4px;
-font-size:16px;
-color:#172337;
-}
-
-.offer-card p{
-margin:0 0 11px;
-font-size:13px;
-color:#667183;
-}
-
-.offer-highlight{
-display:inline-block;
-margin-bottom:6px;
-font-size:11px;
-font-weight:800;
-color:#b9001c;
-text-transform:uppercase;
-}
-
-.offer-button{
-display:inline-block;
-padding:10px 13px;
-border:1px solid #b9001c;
-border-radius:6px;
-text-decoration:none;
-color:#b9001c;
-background:#ffffff;
-font-size:13px;
-font-weight:800;
-}
-
-.offer-card.blue .offer-button{
-border-color:#07376f;
-color:#07376f;
-}
-
-/* PEDIR A CONTA */
-
-.actions{
-padding:20px 16px;
-background:#ffffff;
-text-align:center;
-border-top:1px solid #dfe4eb;
-}
-
-.actions h2{
-margin:0 0 6px;
-font-size:21px;
-color:#07376f;
-}
-
-.actions p{
-margin:0 0 14px;
-font-size:14px;
-color:#606b7a;
-}
-
-.whatsapp-button{
-display:block;
-width:100%;
-padding:15px 12px;
-background:#25d366;
-color:#ffffff;
-border-radius:6px;
-font-size:16px;
-font-weight:900;
-text-decoration:none;
-}
-
-/* RODAPÉ */
-
-.footer{
-padding:20px 12px;
-background:#07376f;
-color:#ffffff;
-text-align:center;
-font-size:12px;
-}
-
-.footer strong{
-display:block;
-margin-bottom:3px;
-font-size:15px;
-}
-
-/* CELULAR */
+.footer{margin-top:20px;padding:20px 12px;background:#07376f;color:#fff;text-align:center;font-size:12px}
+.footer strong{display:block;margin-bottom:3px;font-size:15px}
 
 @media(max-width:520px){
-
-.hero h1{
-font-size:29px;
+  .hero h1{font-size:29px}
+  .item-name,.price{font-size:14px}
+  .languages button{font-size:11px}
+  .menu-nav a{min-width:112px;padding:12px 8px}
 }
-
-.item-name{
-font-size:14px;
-}
-
-.price{
-font-size:14px;
-}
-
-.languages a,
-.languages span{
-font-size:11px;
-}
-
-.menu-nav a{
-min-width:116px;
-padding:12px 8px;
-}
-
-.menu-nav a:last-child{
-min-width:160px;
-}
-
-}
-
 </style>
-
 </head>
 
 <body>
-
 <main class="container">
 
 <header class="hero">
+  <div class="santa-hat" aria-hidden="true">
+    <div class="hat-red"></div>
+    <div class="hat-fold"></div>
+    <div class="hat-ball"></div>
+  </div>
 
-<div class="santa-hat" aria-hidden="true">
+  <p class="hero-small" data-i18n="officialMenu">Cardápio oficial</p>
+  <h1>Barraca do<br>Papai Noel</h1>
 
-<div class="hat-red"></div>
-
-<div class="hat-fold"></div>
-
-<div class="hat-ball"></div>
-
-</div>
-
-<p class="hero-small">
-Cardápio oficial
-</p>
-
-<h1>
-Barraca do<br>
-Papai Noel
-</h1>
-
-<div class="languages">
-
-<span>
-🇧🇷 Português
-</span>
-
-<a href="en.html">
-🇺🇸 English
-</a>
-
-<a href="es.html">
-🇪🇸 Español
-</a>
-
-</div>
-
+  <div class="languages">
+    <button class="active" onclick="changeLanguage('pt',this)">🇧🇷 Português</button>
+    <button onclick="changeLanguage('en',this)">🇺🇸 English</button>
+    <button onclick="changeLanguage('es',this)">🇪🇸 Español</button>
+    <button onclick="changeLanguage('it',this)">🇮🇹 Italiano</button>
+    <button onclick="changeLanguage('fr',this)">🇫🇷 Français</button>
+  </div>
 </header>
 
 <nav class="menu-nav">
+  <a href="#petiscos"><span class="nav-icon">🐟</span><span data-i18n="navPetiscos">Petiscos</span></a>
+  <a href="#tiragosto"><span class="nav-icon">🍤</span><span data-i18n="navTira">Tira-gosto</span></a>
+  <a href="#bebidas"><span class="nav-icon">🥤</span><span data-i18n="navBebidas">Bebidas</span></a>
+  <a href="#drinks"><span class="nav-icon">🍹</span><span data-i18n="navDrinks">Drinks</span></a>
 
-<a href="#petiscos">
+  <a class="islands" href="#ilhas">
+    <span class="nav-icon">🏝️</span>
+    <span data-i18n="navIslands">Passeio às Ilhas</span>
+    <strong class="nav-offer">20% OFF</strong>
+  </a>
 
-<span class="nav-icon">🐟</span>
-
-<span>Petiscos</span>
-
-</a>
-
-<a href="#tiragosto">
-
-<span class="nav-icon">🍤</span>
-
-<span>Tira-gosto</span>
-
-</a>
-
-<a href="#bebidas">
-
-<span class="nav-icon">🥤</span>
-
-<span>Bebidas</span>
-
-</a>
-
-<a href="#drinks">
-
-<span class="nav-icon">🍹</span>
-
-<span>Drinks</span>
-
-</a>
-
-<a
-href="https://wa.me/5511952473756?text=Olá!%20Vi%20no%20cardápio%20da%20Barraca%20do%20Papai%20Noel%20a%20oferta%20de%2030%25%20OFF%20para%20o%20Passeio%20às%20Ilhas.%20Gostaria%20de%20receber%20mais%20informações."
-target="_blank"
-rel="noopener">
-
-<span class="nav-icon">🏝️</span>
-
-<span>Passeio às Ilhas</span>
-
-<strong class="nav-offer">
-30% OFF
-</strong>
-
-</a>
-
+  <a class="afro" href="https://toknowsalvador.com" target="_blank" rel="noopener">
+    <span class="nav-icon">✊🏿</span>
+    <span>Afro Tour</span>
+    <strong class="nav-offer" data-i18n="navAfro">Conhecer</strong>
+  </a>
 </nav>
 
 <section class="menu-section" id="petiscos">
-
-<h2 class="section-title red">
-
-<span class="section-icon">
-🐟
-</span>
-
-Petiscos e pratos
-
-</h2>
-
-<div class="items">
-
-<div class="item">
-<div class="item-name">Peixe Corvina Frito — Médio</div>
-<div class="price">R$ 140,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Peixe Corvina Frito — Grande</div>
-<div class="price">R$ 160,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Peixe Vermelho Frito — Médio</div>
-<div class="price">R$ 170,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Peixe Vermelho Frito — Grande</div>
-<div class="price">R$ 190,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Frango à Passarinha</div>
-<div class="price">R$ 110,00</div>
-</div>
-
-<div class="item">
-
-<div class="item-name">
-
-Pititinga
-
-<span class="item-description">
-Acompanha salada e farofa.
-</span>
-
-</div>
-
-<div class="price">
-R$ 110,00
-</div>
-
-</div>
-
-<div class="item">
-<div class="item-name">Carne do Sol</div>
-<div class="price">R$ 110,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Filé de Frango à Milanesa</div>
-<div class="price">R$ 120,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Filé de Frango Grelhado</div>
-<div class="price">R$ 130,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Prato de Frutas</div>
-<div class="price">R$ 100,00</div>
-</div>
-
-<div class="item">
-
-<div class="item-name">
-
-Moqueca de Peixe
-
-<span class="item-description">
-Peixe vermelho ou pescado amarelo.
-</span>
-
-</div>
-
-<div class="price">
-R$ 240,00
-</div>
-
-</div>
-
-<div class="item">
-
-<div class="item-name">
-
-Moqueca
-
-<span class="item-description">
-Opções: peixe, siri ou camarão.
-</span>
-
-</div>
-
-<div class="price">
-R$ 270,00
-</div>
-
-</div>
-
-</div>
-
+  <h2 class="section-title red"><span class="section-icon">🐟</span><span data-i18n="sectionPetiscos">Petiscos e pratos</span></h2>
+  <div class="items">
+    <div class="item"><div class="item-name" data-i18n="corvinaM">Peixe Corvina Frito — Médio</div><div class="price">R$ 140,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="corvinaG">Peixe Corvina Frito — Grande</div><div class="price">R$ 160,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="vermelhoM">Peixe Vermelho Frito — Médio</div><div class="price">R$ 170,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="vermelhoG">Peixe Vermelho Frito — Grande</div><div class="price">R$ 190,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="frangoPassarinha">Frango à Passarinha</div><div class="price">R$ 110,00</div></div>
+    <div class="item"><div class="item-name">Pititinga<span class="item-description" data-i18n="saladaFarofa">Acompanha salada e farofa.</span></div><div class="price">R$ 110,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="carneSol">Carne do Sol</div><div class="price">R$ 110,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="frangoMilanesa">Filé de Frango à Milanesa</div><div class="price">R$ 120,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="frangoGrelhado">Filé de Frango Grelhado</div><div class="price">R$ 130,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="pratoFrutas">Prato de Frutas</div><div class="price">R$ 100,00</div></div>
+    <div class="item"><div class="item-name"><span data-i18n="moquecaPeixe">Moqueca de Peixe</span><span class="item-description" data-i18n="peixeDesc">Peixe vermelho ou pescado amarelo.</span></div><div class="price">R$ 240,00</div></div>
+    <div class="item"><div class="item-name"><span data-i18n="moqueca">Moqueca</span><span class="item-description" data-i18n="moquecaOpts">Opções: peixe, siri ou camarão.</span></div><div class="price">R$ 270,00</div></div>
+  </div>
 </section>
+
 <section class="menu-section" id="tiragosto">
-
-<h2 class="section-title blue">
-
-<span class="section-icon">
-🍤
-</span>
-
-Tira-gosto
-
-</h2>
-
-<div class="items">
-
-<div class="item">
-
-<div class="item-name">
-
-Camarão Empanado
-
-<span class="item-description">
-Acompanha molho tártaro.
-</span>
-
-</div>
-
-<div class="price">
-R$ 120,00
-</div>
-
-</div>
-
-<div class="item">
-<div class="item-name">Camarão ao Alho e Óleo</div>
-<div class="price">R$ 130,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Batata Frita</div>
-<div class="price">R$ 60,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Lagosta</div>
-<div class="price">R$ 270,00</div>
-</div>
-
-<div class="item">
-
-<div class="item-name">
-
-Peixe Vermelho Grelhado
-
-<span class="item-description">
-Acompanha legumes.
-</span>
-
-</div>
-
-<div class="price">
-R$ 210,00
-</div>
-
-</div>
-
-<div class="item">
-
-<div class="item-name">
-
-Carne do Sol
-
-<span class="item-description">
-Acompanha pirão de aipim.
-</span>
-
-</div>
-
-<div class="price">
-R$ 130,00
-</div>
-
-</div>
-
-<div class="item">
-
-<div class="item-name">
-
-Carne do Sol
-
-<span class="item-description">
-Acompanha batata frita.
-</span>
-
-</div>
-
-<div class="price">
-R$ 120,00
-</div>
-
-</div>
-
-<div class="item">
-<div class="item-name">Isca de Peixe</div>
-<div class="price">R$ 110,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Isca de Frango</div>
-<div class="price">R$ 110,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Lula Frita</div>
-<div class="price">R$ 120,00</div>
-</div>
-
-<div class="item">
-
-<div class="item-name">
-
-Bolinho de Bacalhau
-
-<span class="item-description">
-6 unidades.
-</span>
-
-</div>
-
-<div class="price">
-R$ 70,00
-</div>
-
-</div>
-
-<div class="item">
-
-<div class="item-name">
-
-Bolinho de Camarão
-
-<span class="item-description">
-6 unidades.
-</span>
-
-</div>
-
-<div class="price">
-R$ 70,00
-</div>
-
-</div>
-
-<div class="item">
-<div class="item-name">Caldo de Sururu</div>
-<div class="price">R$ 60,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Caldo de Lambreta</div>
-<div class="price">R$ 60,00</div>
-</div>
-
-</div>
-
+  <h2 class="section-title blue"><span class="section-icon">🍤</span><span data-i18n="sectionTira">Tira-gosto</span></h2>
+  <div class="items">
+    <div class="item"><div class="item-name"><span data-i18n="camaraoEmp">Camarão Empanado</span><span class="item-description" data-i18n="tartaro">Acompanha molho tártaro.</span></div><div class="price">R$ 120,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="camaraoAlho">Camarão ao Alho e Óleo</div><div class="price">R$ 130,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="batata">Batata Frita</div><div class="price">R$ 60,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="lagosta">Lagosta</div><div class="price">R$ 270,00</div></div>
+    <div class="item"><div class="item-name"><span data-i18n="vermelhoGrelhado">Peixe Vermelho Grelhado</span><span class="item-description" data-i18n="legumes">Acompanha legumes.</span></div><div class="price">R$ 210,00</div></div>
+    <div class="item"><div class="item-name"><span data-i18n="carneSol">Carne do Sol</span><span class="item-description" data-i18n="pirao">Acompanha pirão de aipim.</span></div><div class="price">R$ 130,00</div></div>
+    <div class="item"><div class="item-name"><span data-i18n="carneSol">Carne do Sol</span><span class="item-description" data-i18n="withFries">Acompanha batata frita.</span></div><div class="price">R$ 120,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="iscaPeixe">Isca de Peixe</div><div class="price">R$ 110,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="iscaFrango">Isca de Frango</div><div class="price">R$ 110,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="lula">Lula Frita</div><div class="price">R$ 120,00</div></div>
+    <div class="item"><div class="item-name"><span data-i18n="bolinhoBacalhau">Bolinho de Bacalhau</span><span class="item-description" data-i18n="sixUnits">6 unidades.</span></div><div class="price">R$ 70,00</div></div>
+    <div class="item"><div class="item-name"><span data-i18n="bolinhoCamarao">Bolinho de Camarão</span><span class="item-description" data-i18n="sixUnits">6 unidades.</span></div><div class="price">R$ 70,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="caldoSururu">Caldo de Sururu</div><div class="price">R$ 60,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="caldoLambreta">Caldo de Lambreta</div><div class="price">R$ 60,00</div></div>
+  </div>
 </section>
 
 <section class="menu-section" id="bebidas">
-
-<h2 class="section-title red">
-
-<span class="section-icon">
-🥤
-</span>
-
-Bebidas
-
-</h2>
-
-<div class="items">
-
-<div class="item">
-<div class="item-name">Refrigerante</div>
-<div class="price">R$ 10,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Água com Gás</div>
-<div class="price">R$ 10,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Água sem Gás</div>
-<div class="price">R$ 6,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Água de Coco</div>
-<div class="price">R$ 10,00</div>
-</div>
-
-<div class="item">
-
-<div class="item-name">
-
-Suco da Fruta
-
-<span class="item-description">
-Laranja, limão ou maracujá.
-</span>
-
-</div>
-
-<div class="price">
-R$ 30,00
-</div>
-
-</div>
-
-<div class="item">
-<div class="item-name">Skol Latão — 473 ml</div>
-<div class="price">R$ 12,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Itaipava Latão — 473 ml</div>
-<div class="price">R$ 12,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Devassa ou Brahma Duplo Malte</div>
-<div class="price">R$ 12,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Heineken Long Neck</div>
-<div class="price">R$ 18,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Budweiser Long Neck</div>
-<div class="price">R$ 18,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Corona</div>
-<div class="price">R$ 20,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Smirnoff Ice</div>
-<div class="price">R$ 18,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Stella Artois Long Neck</div>
-<div class="price">R$ 18,00</div>
-</div>
-
-</div>
-
+  <h2 class="section-title red"><span class="section-icon">🥤</span><span data-i18n="sectionBebidas">Bebidas</span></h2>
+  <div class="items">
+    <div class="item"><div class="item-name" data-i18n="refrigerante">Refrigerante</div><div class="price">R$ 10,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="aguaGas">Água com Gás</div><div class="price">R$ 10,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="agua">Água sem Gás</div><div class="price">R$ 6,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="aguaCoco">Água de Coco</div><div class="price">R$ 10,00</div></div>
+    <div class="item"><div class="item-name"><span data-i18n="suco">Suco da Fruta</span><span class="item-description" data-i18n="sucoOpts">Laranja, limão ou maracujá.</span></div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name">Skol Latão — 473 ml</div><div class="price">R$ 12,00</div></div>
+    <div class="item"><div class="item-name">Itaipava Latão — 473 ml</div><div class="price">R$ 12,00</div></div>
+    <div class="item"><div class="item-name">Devassa ou Brahma Duplo Malte</div><div class="price">R$ 12,00</div></div>
+    <div class="item"><div class="item-name">Heineken Long Neck</div><div class="price">R$ 18,00</div></div>
+    <div class="item"><div class="item-name">Budweiser Long Neck</div><div class="price">R$ 18,00</div></div>
+    <div class="item"><div class="item-name">Corona</div><div class="price">R$ 20,00</div></div>
+    <div class="item"><div class="item-name">Smirnoff Ice</div><div class="price">R$ 18,00</div></div>
+    <div class="item"><div class="item-name">Stella Artois Long Neck</div><div class="price">R$ 18,00</div></div>
+  </div>
 </section>
 
 <section class="menu-section" id="drinks">
-
-<h2 class="section-title blue">
-
-<span class="section-icon">
-🍹
-</span>
-
-Roskas
-
-</h2>
-
-<div class="items">
-
-<div class="item">
-<div class="item-name">Frutas</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Abacaxi</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Maracujá</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Limão</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Umbu</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Seriguela</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Kiwi</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Morango</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-
-<div class="item-name">
-
-Outras Vodkas
-
-<span class="item-description">
-Orloff, Smirnoff ou Absolut.
-</span>
-
-</div>
-
-<div class="price">
-R$ 40,00
-</div>
-
-</div>
-
-</div>
-
+  <h2 class="section-title blue"><span class="section-icon">🍹</span><span data-i18n="roskas">Roskas</span></h2>
+  <div class="items">
+    <div class="item"><div class="item-name" data-i18n="frutas">Frutas</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="abacaxi">Abacaxi</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="maracuja">Maracujá</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="limao">Limão</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name">Umbu</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name">Seriguela</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name">Kiwi</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="morango">Morango</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name"><span data-i18n="outrasVodkas">Outras Vodkas</span><span class="item-description">Orloff, Smirnoff ou Absolut.</span></div><div class="price">R$ 40,00</div></div>
+  </div>
 </section>
+
 <section class="menu-section">
-
-<h2 class="section-title red">
-
-<span class="section-icon">
-🍸
-</span>
-
-Caipirinhas
-
-</h2>
-
-<div class="items">
-
-<div class="item">
-<div class="item-name">Abacaxi</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Maracujá</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Limão</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Umbu</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Seriguela</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Kiwi</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div class="item-name">Morango</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-</div>
-
+  <h2 class="section-title red"><span class="section-icon">🍸</span><span data-i18n="caipirinhas">Caipirinhas</span></h2>
+  <div class="items">
+    <div class="item"><div class="item-name" data-i18n="abacaxi">Abacaxi</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="maracuja">Maracujá</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="limao">Limão</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name">Umbu</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name">Seriguela</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name">Kiwi</div><div class="price">R$ 30,00</div></div>
+    <div class="item"><div class="item-name" data-i18n="morango">Morango</div><div class="price">R$ 30,00</div></div>
+  </div>
 </section>
 
-<section class="offers">
+<section class="islands-offer" id="ilhas">
+  <div class="islands-top" data-i18n="offerTop">🏝️ PASSEIO ÀS ILHAS · 20% OFF</div>
+  <div class="islands-content">
+    <div class="islands-icon">🏝️</div>
+    <h2 data-i18n="islandTitle">Ilha de Itaparica + Ilha dos Frades</h2>
+    <p data-i18n="fullDay">Passeio de dia inteiro pela Baía de Todos-os-Santos.</p>
 
-<h2 class="offers-title">
-Experiências em Salvador
-</h2>
+    <div class="offer-price">R$ 150,00 <small data-i18n="perPerson">por pessoa</small></div>
 
-<div class="offer-card">
+    <div class="inclusions">
+      <div>✓ <span data-i18n="pickup">Busca no hotel</span></div>
+      <div>✓ <span data-i18n="dropoff">Retorno e deixa no hotel</span></div>
+      <div>✓ <span data-i18n="terminal">Terminal incluso</span></div>
+      <div>✓ <span data-i18n="fulldayIncluded">Passeio de dia inteiro</span></div>
+    </div>
 
-<span class="offer-highlight">
-🚶🏽‍♂️ Centro Histórico
-</span>
-
-<h3>
-Pelourinho Free Walking Tour
-</h3>
-
-<p>
-Conheça a história, a cultura e as influências africanas de Salvador em uma caminhada pelo Pelourinho.
-</p>
-
-<a
-class="offer-button"
-href="https://wa.me/5571993719791?text=Olá!%20Vi%20o%20Pelourinho%20Free%20Walking%20Tour%20no%20cardápio%20da%20Barraca%20do%20Papai%20Noel%20e%20gostaria%20de%20receber%20mais%20informações."
-target="_blank"
-rel="noopener">
-
-Saiba mais sobre o Free Walking Tour
-
-</a>
-
-</div>
-
-<div class="offer-card blue">
-
-<span class="offer-highlight">
-🏝️ Oferta para clientes
-</span>
-
-<h3>
-Passeio às Ilhas — 30% OFF
-</h3>
-
-<p>
-Condição especial para conhecer as ilhas da Baía de Todos-os-Santos.
-</p>
-
-<a
-class="offer-button"
-href="https://wa.me/5511952473756?text=Olá!%20Vi%20no%20cardápio%20da%20Barraca%20do%20Papai%20Noel%20a%20oferta%20de%2030%25%20OFF%20para%20o%20Passeio%20às%20Ilhas.%20Gostaria%20de%20receber%20mais%20informações."
-target="_blank"
-rel="noopener">
-
-Solicitar informações
-
-</a>
-
-</div>
-
-</section>
-
-<section class="actions">
-
-<h2>
-Precisa de atendimento?
-</h2>
-
-<p>
-Informe o número da sua mesa ao solicitar a conta.
-</p>
-
-<a
-class="whatsapp-button"
-href="https://wa.me/5511952473756?text=Olá!%20Estou%20na%20Barraca%20do%20Papai%20Noel.%20Minha%20mesa%20é%20"
-target="_blank"
-rel="noopener">
-
-💳 Pedir a conta pelo WhatsApp
-
-</a>
-
+    <a id="islandsWhatsapp" class="reserve-button" href="#" target="_blank" rel="noopener">
+      💬 <span data-i18n="reserve">Reservar pelo WhatsApp</span>
+    </a>
+  </div>
 </section>
 
 <footer class="footer">
-
-<strong>
-🎅 Barraca do Papai Noel
-</strong>
-
-Cardápio disponível em português, inglês e espanhol.
-
+  <strong>🎅 Barraca do Papai Noel</strong>
+  <span data-i18n="footerLanguages">Cardápio disponível em português, inglês, espanhol, italiano e francês.</span>
 </footer>
 
 </main>
 
-</body>
+<script>
+let currentLanguage = "pt";
 
+const translations = {
+pt:{
+officialMenu:"Cardápio oficial",navPetiscos:"Petiscos",navTira:"Tira-gosto",navBebidas:"Bebidas",navDrinks:"Drinks",navIslands:"Passeio às Ilhas",navAfro:"Conhecer",
+sectionPetiscos:"Petiscos e pratos",sectionTira:"Tira-gosto",sectionBebidas:"Bebidas",
+corvinaM:"Peixe Corvina Frito — Médio",corvinaG:"Peixe Corvina Frito — Grande",vermelhoM:"Peixe Vermelho Frito — Médio",vermelhoG:"Peixe Vermelho Frito — Grande",
+frangoPassarinha:"Frango à Passarinha",saladaFarofa:"Acompanha salada e farofa.",carneSol:"Carne do Sol",frangoMilanesa:"Filé de Frango à Milanesa",frangoGrelhado:"Filé de Frango Grelhado",pratoFrutas:"Prato de Frutas",
+moquecaPeixe:"Moqueca de Peixe",peixeDesc:"Peixe vermelho ou pescado amarelo.",moqueca:"Moqueca",moquecaOpts:"Opções: peixe, siri ou camarão.",
+camaraoEmp:"Camarão Empanado",tartaro:"Acompanha molho tártaro.",camaraoAlho:"Camarão ao Alho e Óleo",batata:"Batata Frita",lagosta:"Lagosta",vermelhoGrelhado:"Peixe Vermelho Grelhado",legumes:"Acompanha legumes.",pirao:"Acompanha pirão de aipim.",withFries:"Acompanha batata frita.",iscaPeixe:"Isca de Peixe",iscaFrango:"Isca de Frango",lula:"Lula Frita",bolinhoBacalhau:"Bolinho de Bacalhau",bolinhoCamarao:"Bolinho de Camarão",sixUnits:"6 unidades.",caldoSururu:"Caldo de Sururu",caldoLambreta:"Caldo de Lambreta",
+refrigerante:"Refrigerante",aguaGas:"Água com Gás",agua:"Água sem Gás",aguaCoco:"Água de Coco",suco:"Suco da Fruta",sucoOpts:"Laranja, limão ou maracujá.",
+roskas:"Roskas",frutas:"Frutas",abacaxi:"Abacaxi",maracuja:"Maracujá",limao:"Limão",morango:"Morango",outrasVodkas:"Outras Vodkas",caipirinhas:"Caipirinhas",
+offerTop:"🏝️ PASSEIO ÀS ILHAS · 20% OFF",islandTitle:"Ilha de Itaparica + Ilha dos Frades",fullDay:"Passeio de dia inteiro pela Baía de Todos-os-Santos.",perPerson:"por pessoa",pickup:"Busca no hotel",dropoff:"Retorno e deixa no hotel",terminal:"Terminal incluso",fulldayIncluded:"Passeio de dia inteiro",reserve:"Reservar pelo WhatsApp",
+footerLanguages:"Cardápio disponível em português, inglês, espanhol, italiano e francês.",
+whatsapp:"Encontrei a oferta para as ilhas na Barraca do Papai Noel e tenho interesse em fazer a reserva."
+},
+en:{
+officialMenu:"Official menu",navPetiscos:"Food",navTira:"Appetizers",navBebidas:"Drinks",navDrinks:"Cocktails",navIslands:"Island Tour",navAfro:"Discover",
+sectionPetiscos:"Food & dishes",sectionTira:"Appetizers",sectionBebidas:"Drinks",
+corvinaM:"Fried Croaker Fish — Medium",corvinaG:"Fried Croaker Fish — Large",vermelhoM:"Fried Red Fish — Medium",vermelhoG:"Fried Red Fish — Large",
+frangoPassarinha:"Brazilian Fried Chicken",saladaFarofa:"Served with salad and farofa.",carneSol:"Brazilian Sun-Dried Beef",frangoMilanesa:"Breaded Chicken Fillet",frangoGrelhado:"Grilled Chicken Fillet",pratoFrutas:"Fruit Platter",
+moquecaPeixe:"Fish Moqueca",peixeDesc:"Red fish or yellow fish.",moqueca:"Moqueca",moquecaOpts:"Options: fish, crab or shrimp.",
+camaraoEmp:"Breaded Shrimp",tartaro:"Served with tartar sauce.",camaraoAlho:"Garlic & Oil Shrimp",batata:"French Fries",lagosta:"Lobster",vermelhoGrelhado:"Grilled Red Fish",legumes:"Served with vegetables.",pirao:"Served with cassava purée.",withFries:"Served with French fries.",iscaPeixe:"Fish Strips",iscaFrango:"Chicken Strips",lula:"Fried Squid",bolinhoBacalhau:"Codfish Croquettes",bolinhoCamarao:"Shrimp Croquettes",sixUnits:"6 pieces.",caldoSururu:"Sururu Broth",caldoLambreta:"Lambreta Shellfish Broth",
+refrigerante:"Soft Drink",aguaGas:"Sparkling Water",agua:"Still Water",aguaCoco:"Coconut Water",suco:"Fresh Fruit Juice",sucoOpts:"Orange, lime or passion fruit.",
+roskas:"Roskas",frutas:"Mixed Fruit",abacaxi:"Pineapple",maracuja:"Passion Fruit",limao:"Lime",morango:"Strawberry",outrasVodkas:"Other Vodkas",caipirinhas:"Caipirinhas",
+offerTop:"🏝️ ISLAND TOUR · 20% OFF",islandTitle:"Itaparica Island + Frades Island",fullDay:"Full-day tour through All Saints Bay.",perPerson:"per person",pickup:"Hotel pickup",dropoff:"Return transfer and hotel drop-off",terminal:"Terminal included",fulldayIncluded:"Full-day tour",reserve:"Book on WhatsApp",
+footerLanguages:"Menu available in Portuguese, English, Spanish, Italian and French.",
+whatsapp:"I found the island tour offer at Barraca do Papai Noel and I am interested in making a reservation."
+},
+es:{
+officialMenu:"Menú oficial",navPetiscos:"Comidas",navTira:"Aperitivos",navBebidas:"Bebidas",navDrinks:"Cócteles",navIslands:"Paseo a las Islas",navAfro:"Conocer",
+sectionPetiscos:"Comidas y platos",sectionTira:"Aperitivos",sectionBebidas:"Bebidas",
+corvinaM:"Corvina Frita — Mediana",corvinaG:"Corvina Frita — Grande",vermelhoM:"Pescado Rojo Frito — Mediano",vermelhoG:"Pescado Rojo Frito — Grande",
+frangoPassarinha:"Pollo Frito Brasileño",saladaFarofa:"Acompañado de ensalada y farofa.",carneSol:"Carne de Sol",frangoMilanesa:"Filete de Pollo Empanado",frangoGrelhado:"Filete de Pollo a la Parrilla",pratoFrutas:"Plato de Frutas",
+moquecaPeixe:"Moqueca de Pescado",peixeDesc:"Pescado rojo o pescado amarillo.",moqueca:"Moqueca",moquecaOpts:"Opciones: pescado, cangrejo o camarón.",
+camaraoEmp:"Camarón Empanado",tartaro:"Acompañado de salsa tártara.",camaraoAlho:"Camarón al Ajo y Aceite",batata:"Papas Fritas",lagosta:"Langosta",vermelhoGrelhado:"Pescado Rojo a la Parrilla",legumes:"Acompañado de verduras.",pirao:"Acompañado de puré de yuca.",withFries:"Acompañado de papas fritas.",iscaPeixe:"Tiras de Pescado",iscaFrango:"Tiras de Pollo",lula:"Calamar Frito",bolinhoBacalhau:"Croquetas de Bacalao",bolinhoCamarao:"Croquetas de Camarón",sixUnits:"6 unidades.",caldoSururu:"Caldo de Sururu",caldoLambreta:"Caldo de Mariscos Lambreta",
+refrigerante:"Refresco",aguaGas:"Agua con Gas",agua:"Agua sin Gas",aguaCoco:"Agua de Coco",suco:"Jugo Natural",sucoOpts:"Naranja, limón o maracuyá.",
+roskas:"Roskas",frutas:"Frutas",abacaxi:"Piña",maracuja:"Maracuyá",limao:"Limón",morango:"Fresa",outrasVodkas:"Otros Vodkas",caipirinhas:"Caipirinhas",
+offerTop:"🏝️ PASEO A LAS ISLAS · 20% OFF",islandTitle:"Isla de Itaparica + Isla de los Frailes",fullDay:"Paseo de día completo por la Bahía de Todos los Santos.",perPerson:"por persona",pickup:"Recogida en el hotel",dropoff:"Regreso y traslado al hotel",terminal:"Terminal incluido",fulldayIncluded:"Paseo de día completo",reserve:"Reservar por WhatsApp",
+footerLanguages:"Menú disponible en portugués, inglés, español, italiano y francés.",
+whatsapp:"Encontré la oferta para las islas en Barraca do Papai Noel y estoy interesado en hacer una reserva."
+},
+it:{
+officialMenu:"Menù ufficiale",navPetiscos:"Piatti",navTira:"Antipasti",navBebidas:"Bevande",navDrinks:"Cocktail",navIslands:"Tour delle Isole",navAfro:"Scopri",
+sectionPetiscos:"Piatti e specialità",sectionTira:"Antipasti",sectionBebidas:"Bevande",
+corvinaM:"Corvina Fritta — Media",corvinaG:"Corvina Fritta — Grande",vermelhoM:"Pesce Rosso Fritto — Medio",vermelhoG:"Pesce Rosso Fritto — Grande",
+frangoPassarinha:"Pollo Fritto Brasiliano",saladaFarofa:"Servito con insalata e farofa.",carneSol:"Carne do Sol",frangoMilanesa:"Filetto di Pollo Impanato",frangoGrelhado:"Filetto di Pollo alla Griglia",pratoFrutas:"Piatto di Frutta",
+moquecaPeixe:"Moqueca di Pesce",peixeDesc:"Pesce rosso o pesce giallo.",moqueca:"Moqueca",moquecaOpts:"Opzioni: pesce, granchio o gamberi.",
+camaraoEmp:"Gamberi Impanati",tartaro:"Serviti con salsa tartara.",camaraoAlho:"Gamberi all'Aglio e Olio",batata:"Patatine Fritte",lagosta:"Aragosta",vermelhoGrelhado:"Pesce Rosso alla Griglia",legumes:"Servito con verdure.",pirao:"Servito con purea di manioca.",withFries:"Servito con patatine fritte.",iscaPeixe:"Strisce di Pesce",iscaFrango:"Strisce di Pollo",lula:"Calamari Fritti",bolinhoBacalhau:"Crocchette di Baccalà",bolinhoCamarao:"Crocchette di Gamberi",sixUnits:"6 pezzi.",caldoSururu:"Brodo di Sururu",caldoLambreta:"Brodo di Molluschi Lambreta",
+refrigerante:"Bibita",aguaGas:"Acqua Frizzante",agua:"Acqua Naturale",aguaCoco:"Acqua di Cocco",suco:"Succo di Frutta",sucoOpts:"Arancia, lime o frutto della passione.",
+roskas:"Roskas",frutas:"Frutta",abacaxi:"Ananas",maracuja:"Frutto della Passione",limao:"Lime",morango:"Fragola",outrasVodkas:"Altre Vodke",caipirinhas:"Caipirinhas",
+offerTop:"🏝️ TOUR DELLE ISOLE · 20% OFF",islandTitle:"Isola di Itaparica + Ilha dos Frades",fullDay:"Tour di un'intera giornata nella Baia di Tutti i Santi.",perPerson:"a persona",pickup:"Prelievo in hotel",dropoff:"Ritorno e accompagnamento in hotel",terminal:"Terminal incluso",fulldayIncluded:"Tour di un'intera giornata",reserve:"Prenota su WhatsApp",
+footerLanguages:"Menù disponibile in portoghese, inglese, spagnolo, italiano e francese.",
+whatsapp:"Ho trovato l'offerta per il tour delle isole presso Barraca do Papai Noel e sono interessato a effettuare una prenotazione."
+},
+fr:{
+officialMenu:"Menu officiel",navPetiscos:"Plats",navTira:"Apéritifs",navBebidas:"Boissons",navDrinks:"Cocktails",navIslands:"Excursion aux Îles",navAfro:"Découvrir",
+sectionPetiscos:"Plats et spécialités",sectionTira:"Apéritifs",sectionBebidas:"Boissons",
+corvinaM:"Corvina Frite — Moyenne",corvinaG:"Corvina Frite — Grande",vermelhoM:"Poisson Rouge Frit — Moyen",vermelhoG:"Poisson Rouge Frit — Grand",
+frangoPassarinha:"Poulet Frit Brésilien",saladaFarofa:"Servi avec salade et farofa.",carneSol:"Carne do Sol",frangoMilanesa:"Filet de Poulet Pané",frangoGrelhado:"Filet de Poulet Grillé",pratoFrutas:"Assiette de Fruits",
+moquecaPeixe:"Moqueca de Poisson",peixeDesc:"Poisson rouge ou poisson jaune.",moqueca:"Moqueca",moquecaOpts:"Options : poisson, crabe ou crevettes.",
+camaraoEmp:"Crevettes Panées",tartaro:"Servies avec sauce tartare.",camaraoAlho:"Crevettes à l'Ail et à l'Huile",batata:"Frites",lagosta:"Langouste",vermelhoGrelhado:"Poisson Rouge Grillé",legumes:"Servi avec des légumes.",pirao:"Servi avec purée de manioc.",withFries:"Servi avec des frites.",iscaPeixe:"Lamelles de Poisson",iscaFrango:"Lamelles de Poulet",lula:"Calamars Frits",bolinhoBacalhau:"Croquettes de Morue",bolinhoCamarao:"Croquettes de Crevettes",sixUnits:"6 pièces.",caldoSururu:"Bouillon de Sururu",caldoLambreta:"Bouillon de Coquillages Lambreta",
+refrigerante:"Boisson Gazeuse",aguaGas:"Eau Gazeuse",agua:"Eau Plate",aguaCoco:"Eau de Coco",suco:"Jus de Fruit",sucoOpts:"Orange, citron vert ou fruit de la passion.",
+roskas:"Roskas",frutas:"Fruits",abacaxi:"Ananas",maracuja:"Fruit de la Passion",limao:"Citron Vert",morango:"Fraise",outrasVodkas:"Autres Vodkas",caipirinhas:"Caipirinhas",
+offerTop:"🏝️ EXCURSION AUX ÎLES · 20% OFF",islandTitle:"Île d'Itaparica + Ilha dos Frades",fullDay:"Excursion d'une journée dans la Baie de Tous les Saints.",perPerson:"par personne",pickup:"Prise en charge à l'hôtel",dropoff:"Retour et dépose à l'hôtel",terminal:"Terminal inclus",fulldayIncluded:"Excursion d'une journée",reserve:"Réserver sur WhatsApp",
+footerLanguages:"Menu disponible en portugais, anglais, espagnol, italien et français.",
+whatsapp:"J'ai trouvé l'offre pour l'excursion aux îles à la Barraca do Papai Noel et je souhaite effectuer une réservation."
+}
+};
+
+function changeLanguage(lang,btn){
+  currentLanguage=lang;
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const key=el.getAttribute("data-i18n");
+    if(translations[lang] && translations[lang][key]) el.textContent=translations[lang][key];
+  });
+  document.querySelectorAll(".languages button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  updateWhatsApp();
+}
+
+function updateWhatsApp(){
+  const phone="5571993719791";
+  const message=translations[currentLanguage].whatsapp;
+  document.getElementById("islandsWhatsapp").href=
+    "https://wa.me/"+phone+"?text="+encodeURIComponent(message);
+}
+
+updateWhatsApp();
+</script>
+</body>
 </html>
