@@ -367,57 +367,10 @@ box-shadow:0 12px 30px rgba(0,0,0,.23);
 
 
 /* =====================================
-   SLIDESHOW DE FUNDO
+   FUNDO DA OFERTA SEM IMAGENS
 ===================================== */
 
-.island-backgrounds{
-position:absolute;
-inset:0;
-z-index:0;
-overflow:hidden;
-}
 
-.island-bg{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-object-fit:cover;
-object-position:center;
-opacity:0;
-transform:scale(1.03);
-transition:
-opacity 1.2s ease-in-out,
-transform 7s ease;
-}
-
-.island-bg.active{
-opacity:1;
-transform:scale(1.08);
-}
-
-
-/* =====================================
-   CAMADA PARA LEGIBILIDADE
-
-   A FOTO CONTINUA VISÍVEL,
-   MAS NÃO ATRAPALHA O TEXTO.
-===================================== */
-
-.islands-overlay{
-position:absolute;
-inset:0;
-z-index:1;
-
-background:
-linear-gradient(
-180deg,
-rgba(2,22,49,.48) 0%,
-rgba(2,28,61,.58) 28%,
-rgba(2,31,68,.72) 60%,
-rgba(2,26,58,.88) 100%
-);
-}
 
 
 /* =====================================
@@ -431,6 +384,7 @@ min-height:590px;
 display:flex;
 flex-direction:column;
 justify-content:space-between;
+background:transparent;
 }
 
 .islands-top{
@@ -1728,46 +1682,6 @@ id="ilhas"
 >
 
 
-<!-- =====================================
-     AS DUAS FOTOS DO PUBLIC
-===================================== -->
-
-<div class="island-backgrounds">
-
-
-<img
-
-src="/IMG-20240215-WA0016_Original.jpeg"
-
-class="island-bg active"
-
-alt="Ilha de Itaparica e Ilha dos Frades"
-
->
-
-
-<img
-
-src="/20240228_102953_Original.jpeg"
-
-class="island-bg"
-
-alt="Ilha de Itaparica e Ilha dos Frades"
-
->
-
-
-</div>
-
-
-
-<!-- ESCURECIMENTO CONTROLADO -->
-
-<div class="islands-overlay">
-</div>
-
-
-
 <div class="islands-content-wrapper">
 
 
@@ -2760,56 +2674,6 @@ document
 url;
 
 }
-
-
-
-/* =====================================
-   TROCA DE FOTO A CADA 3 SEGUNDOS
-===================================== */
-
-const islandImages =
-document.querySelectorAll(".island-bg");
-
-
-let islandImageIndex =
-0;
-
-
-function changeIslandImage(){
-
-
-islandImages[
-islandImageIndex
-]
-.classList.remove("active");
-
-
-islandImageIndex =
-
-(
-islandImageIndex
-+
-1
-)
-
-%
-
-islandImages.length;
-
-
-islandImages[
-islandImageIndex
-]
-.classList.add("active");
-
-
-}
-
-
-setInterval(
-changeIslandImage,
-3000
-);
 
 
 
