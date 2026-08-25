@@ -378,38 +378,157 @@
             color: var(--vinho-escuro);
         }
 
+
+        .language-selector button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 104px;
+            padding: 11px 15px;
+            border: 1px solid rgba(234, 216, 117, 0.55);
+            border-radius: 999px;
+            background: rgba(23, 21, 20, 0.46);
+            color: var(--amarelo);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .language-selector button:hover,
+        .language-selector button:focus,
+        .language-selector button.active {
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+        }
+
+        .quick-nav .islands-shortcut {
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+            border-color: var(--amarelo);
+        }
+
+        .quick-nav .afro-shortcut {
+            background: var(--vinho);
+            color: var(--branco);
+            border-color: rgba(255,255,255,.18);
+        }
+
+        .islands-mini {
+            margin-top: 28px;
+            padding: 18px 16px;
+            border: 1px solid rgba(234, 216, 117, 0.34);
+            border-radius: 16px;
+            background: rgba(17, 15, 14, 0.74);
+            text-align: center;
+        }
+
+        .islands-mini small {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--amarelo);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .islands-mini h2 {
+            margin: 0 0 7px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 21px;
+            line-height: 1.2;
+        }
+
+        .islands-mini p {
+            margin: 0 auto 10px;
+            max-width: 520px;
+            color: var(--bege);
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .islands-mini .mini-price {
+            margin: 8px 0 12px;
+            color: var(--amarelo);
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .islands-mini .mini-price span {
+            font-size: 12px;
+            color: var(--bege);
+            font-weight: normal;
+        }
+
+        .islands-mini .mini-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 10px;
+            margin-bottom: 13px;
+            color: var(--cinza);
+            font-size: 12px;
+        }
+
+        .islands-mini .mini-info span {
+            white-space: nowrap;
+        }
+
+        .islands-mini .mini-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .islands-mini .mini-button {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .islands-mini .mini-button.secondary {
+            background: transparent;
+            color: var(--amarelo);
+            border: 1px solid rgba(234,216,117,.42);
+        }
+
     </style>
 </head>
 
 <body>
 
     <header class="hero">
-        <span class="hero-small">Cardápio digital</span>
+        <span class="hero-small" data-i18n="heroSmall">Cardápio digital</span>
 
         <h1>Point da Ana</h1>
 
-        <p>Praia do Porto da Barra</p>
+        <p data-i18n="heroPlace">Praia do Porto da Barra</p>
 
         <nav class="language-selector" aria-label="Selecionar idioma">
-            <a class="active" href="/porto/" aria-current="page">Português</a>
-            <a href="/porto/es/point-da-ana/">Español</a>
-            <a href="/porto/english/">English</a>
+            <button class="active" onclick="changeLanguage('pt', this)">Português</button>
+            <button onclick="changeLanguage('en', this)">English</button>
+            <button onclick="changeLanguage('es', this)">Español</button>
+            <button onclick="changeLanguage('fr', this)">Français</button>
+            <button onclick="changeLanguage('it', this)">Italiano</button>
         </nav>
     </header>
 
     <nav class="quick-nav" aria-label="Categorias do cardápio">
-        <a href="#petiscos">Petiscos</a>
-        <a href="#moquecas">Moquecas</a>
-        <a href="#cervejas">Cervejas</a>
-        <a href="#bebidas">Bebidas</a>
-        <a href="#drinks">Caipirinhas</a>
-        <a
-            href="https://wa.me/5511952473756?text=Ol%C3%A1%21%20Consegui%20seu%20contato%20no%20Point%20da%20Ana.%20Disseram%20que%20voc%C3%AAs%20t%C3%AAm%20os%20melhores%20pre%C3%A7os%20para%20passeios%20%C3%A0s%20ilhas%20de%20Salvador.%20Pode%20me%20enviar%20as%20op%C3%A7%C3%B5es%20dispon%C3%ADveis%3F"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            Passeios para as ilhas de Salvador
-        </a>
+        <a href="#petiscos" data-i18n="navPetiscos">Petiscos</a>
+        <a href="#moquecas" data-i18n="navMoquecas">Moquecas</a>
+        <a href="#cervejas" data-i18n="navCervejas">Cervejas</a>
+        <a href="#bebidas" data-i18n="navBebidas">Bebidas</a>
+        <a href="#drinks" data-i18n="navCaipirinhas">Caipirinhas</a>
+        <a class="islands-shortcut" href="#ilhas"><span data-i18n="navIlhas">Ilhas</span> • 20% OFF</a>
+        <a class="afro-shortcut" href="https://toknowsalvador.com" target="_blank" rel="noopener">Afro Tour</a>
     </nav>
 
     <main class="container">
@@ -422,7 +541,7 @@
         <!-- PETISCOS -->
 
         <section class="menu-section" id="petiscos">
-            <h2 class="section-title">Petiscos</h2>
+            <h2 class="section-title" data-i18n="titlePetiscos">Petiscos</h2>
 
             <ul class="menu-list">
 
@@ -557,7 +676,7 @@
         <!-- MOQUECAS -->
 
         <section class="menu-section" id="moquecas">
-            <h2 class="section-title">Moquecas</h2>
+            <h2 class="section-title" data-i18n="titleMoquecas">Moquecas</h2>
 
             <ul class="menu-list">
 
@@ -615,7 +734,7 @@
         <!-- CERVEJAS -->
 
         <section class="menu-section" id="cervejas">
-            <h2 class="section-title">Cervejas</h2>
+            <h2 class="section-title" data-i18n="titleCervejas">Cervejas</h2>
 
             <ul class="menu-list">
 
@@ -703,7 +822,7 @@
         <!-- BEBIDAS -->
 
         <section class="menu-section" id="bebidas">
-            <h2 class="section-title">Bebidas</h2>
+            <h2 class="section-title" data-i18n="titleBebidas">Bebidas</h2>
 
             <ul class="menu-list">
 
@@ -768,7 +887,7 @@
         <!-- CAIPIRINHAS E CAIPIROSCAS -->
 
         <section class="menu-section" id="drinks">
-            <h2 class="section-title">Caipirinhas e Caipiroscas</h2>
+            <h2 class="section-title" data-i18n="titleDrinks">Caipirinhas e Caipiroscas</h2>
 
             <div class="drink-columns">
 
@@ -900,26 +1019,49 @@
         </section>
 
 
-        <!-- DIVULGAÇÃO DISCRETA -->
+        <!-- EXPERIÊNCIAS -->
+        <section class="islands-mini" id="ilhas">
+            <small data-i18n="discountCall">Resgate o seu desconto</small>
+            <h2 data-i18n="islandsTitle">Ilha de Itaparica + Ilha dos Frades</h2>
 
-        <aside class="experience">
-            <small>🌴 Descubra Salvador além da praia</small>
-
-            <h2>Aproveite ainda mais Salvador</h2>
-
-            <p>
-                Se esta é sua primeira vez em Salvador, recomendamos experiências locais como caminhada histórica pelo Pelourinho, passeios pelas ilhas e muito mais.
+            <p data-i18n="islandsDescription">
+                Passeio de dia inteiro pela Baía de Todos-os-Santos.
             </p>
 
-            <a
-                class="experience-button"
-                href="https://toknowsalvador.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Ver passeios e experiências
-            </a>
-        </aside>
+            <div class="mini-price">
+                R$ 150
+                <span data-i18n="perPerson">por pessoa</span>
+            </div>
+
+            <div class="mini-info">
+                <span>✓ <span data-i18n="pickup">Busca no hotel</span></span>
+                <span>✓ <span data-i18n="dropoff">Retorno ao hotel</span></span>
+                <span>✓ <span data-i18n="terminal">Terminal incluso</span></span>
+                <span>✓ <span data-i18n="fullDay">Dia inteiro</span></span>
+            </div>
+
+            <div class="mini-actions">
+                <a
+                    id="islandsWhatsapp"
+                    class="mini-button"
+                    href="#"
+                    target="_blank"
+                    rel="noopener"
+                    data-i18n="reserve"
+                >
+                    Reservar pelo WhatsApp
+                </a>
+
+                <a
+                    class="mini-button secondary"
+                    href="https://toknowsalvador.com"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Afro Tour
+                </a>
+            </div>
+        </section>
 
     </main>
 
@@ -934,6 +1076,165 @@
             To Know Salvador
         </a>
     </footer>
+
+
+<script>
+let currentLanguage = "pt";
+
+const translations = {
+  pt: {
+    heroSmall: "Cardápio digital",
+    heroPlace: "Praia do Porto da Barra",
+    navPetiscos: "Petiscos",
+    navMoquecas: "Moquecas",
+    navCervejas: "Cervejas",
+    navBebidas: "Bebidas",
+    navCaipirinhas: "Caipirinhas",
+    navIlhas: "Ilhas",
+    titlePetiscos: "Petiscos",
+    titleMoquecas: "Moquecas",
+    titleCervejas: "Cervejas",
+    titleBebidas: "Bebidas",
+    titleDrinks: "Caipirinhas e Caipiroscas",
+    discountCall: "Resgate o seu desconto",
+    islandsTitle: "Ilha de Itaparica + Ilha dos Frades",
+    islandsDescription: "Passeio de dia inteiro pela Baía de Todos-os-Santos.",
+    perPerson: "por pessoa",
+    pickup: "Busca no hotel",
+    dropoff: "Retorno ao hotel",
+    terminal: "Terminal incluso",
+    fullDay: "Dia inteiro",
+    reserve: "Reservar pelo WhatsApp",
+    whatsapp: "Encontrei a oferta para as ilhas no Point da Ana e tenho interesse em fazer a reserva."
+  },
+  en: {
+    heroSmall: "Digital menu",
+    heroPlace: "Porto da Barra Beach",
+    navPetiscos: "Snacks",
+    navMoquecas: "Moquecas",
+    navCervejas: "Beers",
+    navBebidas: "Drinks",
+    navCaipirinhas: "Caipirinhas",
+    navIlhas: "Islands",
+    titlePetiscos: "Snacks",
+    titleMoquecas: "Moquecas",
+    titleCervejas: "Beers",
+    titleBebidas: "Drinks",
+    titleDrinks: "Caipirinhas & Caipiroscas",
+    discountCall: "Claim your discount",
+    islandsTitle: "Itaparica Island + Frades Island",
+    islandsDescription: "Full-day tour through All Saints Bay.",
+    perPerson: "per person",
+    pickup: "Hotel pickup",
+    dropoff: "Hotel drop-off",
+    terminal: "Terminal included",
+    fullDay: "Full day",
+    reserve: "Book on WhatsApp",
+    whatsapp: "I found the island tour offer at Point da Ana and I am interested in making a reservation."
+  },
+  es: {
+    heroSmall: "Menú digital",
+    heroPlace: "Playa de Porto da Barra",
+    navPetiscos: "Aperitivos",
+    navMoquecas: "Moquecas",
+    navCervejas: "Cervezas",
+    navBebidas: "Bebidas",
+    navCaipirinhas: "Caipirinhas",
+    navIlhas: "Islas",
+    titlePetiscos: "Aperitivos",
+    titleMoquecas: "Moquecas",
+    titleCervejas: "Cervezas",
+    titleBebidas: "Bebidas",
+    titleDrinks: "Caipirinhas y Caipiroscas",
+    discountCall: "Obtén tu descuento",
+    islandsTitle: "Isla de Itaparica + Isla de los Frailes",
+    islandsDescription: "Paseo de día completo por la Bahía de Todos los Santos.",
+    perPerson: "por persona",
+    pickup: "Recogida en el hotel",
+    dropoff: "Regreso al hotel",
+    terminal: "Terminal incluido",
+    fullDay: "Día completo",
+    reserve: "Reservar por WhatsApp",
+    whatsapp: "Encontré la oferta para las islas en Point da Ana y estoy interesado en hacer una reserva."
+  },
+  fr: {
+    heroSmall: "Menu numérique",
+    heroPlace: "Plage de Porto da Barra",
+    navPetiscos: "Apéritifs",
+    navMoquecas: "Moquecas",
+    navCervejas: "Bières",
+    navBebidas: "Boissons",
+    navCaipirinhas: "Caipirinhas",
+    navIlhas: "Îles",
+    titlePetiscos: "Apéritifs",
+    titleMoquecas: "Moquecas",
+    titleCervejas: "Bières",
+    titleBebidas: "Boissons",
+    titleDrinks: "Caipirinhas et Caipiroscas",
+    discountCall: "Profitez de votre réduction",
+    islandsTitle: "Île d'Itaparica + Ilha dos Frades",
+    islandsDescription: "Excursion d'une journée dans la Baie de Tous les Saints.",
+    perPerson: "par personne",
+    pickup: "Prise en charge à l'hôtel",
+    dropoff: "Retour à l'hôtel",
+    terminal: "Terminal inclus",
+    fullDay: "Journée complète",
+    reserve: "Réserver sur WhatsApp",
+    whatsapp: "J'ai trouvé l'offre pour l'excursion aux îles au Point da Ana et je souhaite effectuer une réservation."
+  },
+  it: {
+    heroSmall: "Menù digitale",
+    heroPlace: "Spiaggia di Porto da Barra",
+    navPetiscos: "Antipasti",
+    navMoquecas: "Moquecas",
+    navCervejas: "Birre",
+    navBebidas: "Bevande",
+    navCaipirinhas: "Caipirinhas",
+    navIlhas: "Isole",
+    titlePetiscos: "Antipasti",
+    titleMoquecas: "Moquecas",
+    titleCervejas: "Birre",
+    titleBebidas: "Bevande",
+    titleDrinks: "Caipirinhas e Caipiroscas",
+    discountCall: "Ottieni il tuo sconto",
+    islandsTitle: "Isola di Itaparica + Ilha dos Frades",
+    islandsDescription: "Tour di un'intera giornata nella Baia di Tutti i Santi.",
+    perPerson: "a persona",
+    pickup: "Prelievo in hotel",
+    dropoff: "Ritorno in hotel",
+    terminal: "Terminal incluso",
+    fullDay: "Intera giornata",
+    reserve: "Prenota su WhatsApp",
+    whatsapp: "Ho trovato l'offerta per il tour delle isole al Point da Ana e sono interessato a effettuare una prenotazione."
+  }
+};
+
+function changeLanguage(language, button) {
+  currentLanguage = language;
+  document.documentElement.lang = language;
+
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[language] && translations[language][key]) {
+      el.textContent = translations[language][key];
+    }
+  });
+
+  document.querySelectorAll(".language-selector button").forEach(btn => btn.classList.remove("active"));
+  button.classList.add("active");
+
+  updateWhatsApp();
+}
+
+function updateWhatsApp() {
+  const phone = "5571993719791";
+  const message = translations[currentLanguage].whatsapp;
+  document.getElementById("islandsWhatsapp").href =
+    "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+}
+
+updateWhatsApp();
+</script>
 
 </body>
 </html>
