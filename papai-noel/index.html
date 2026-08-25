@@ -312,7 +312,7 @@ color:#b9001c;
 
 .island-divider{
 position:relative;
-padding:34px 20px 25px;
+padding:46px 20px 30px;
 background:#f4f6f9;
 text-align:center;
 border-top:6px solid #07376f;
@@ -321,10 +321,10 @@ border-top:6px solid #07376f;
 .island-divider::before{
 content:"";
 display:block;
-width:72%;
-max-width:440px;
+width:76%;
+max-width:460px;
 height:1px;
-margin:0 auto 20px;
+margin:0 auto 24px;
 background:linear-gradient(
 to right,
 transparent,
@@ -334,14 +334,18 @@ transparent
 }
 
 .island-divider-icon{
-display:flex;
+display:inline-flex;
 align-items:center;
 justify-content:center;
-gap:10px;
+gap:12px;
+padding:12px 18px;
+border-radius:999px;
+background:#ffffff;
+box-shadow:0 4px 14px rgba(7,55,111,.10);
 font-size:13px;
 font-weight:900;
 color:#07376f;
-letter-spacing:1.4px;
+letter-spacing:1.2px;
 text-transform:uppercase;
 }
 
@@ -354,80 +358,27 @@ font-size:24px;
    PASSEIO ÀS ILHAS
 ===================================== */
 
-.islands-offer{
-position:relative;
-margin:0 16px 28px;
-min-height:590px;
-border-radius:14px;
-overflow:hidden;
-color:#ffffff;
-background:#07376f;
-box-shadow:0 12px 30px rgba(0,0,0,.23);
-}
+
 
 
 /* =====================================
-   SLIDESHOW DE FUNDO
+   FUNDO ESTÁTICO DA OFERTA
 ===================================== */
 
-.island-backgrounds{
-position:absolute;
-inset:0;
-z-index:0;
-overflow:hidden;
-}
 
-.island-bg{
-position:absolute;
-inset:0;
-width:100%;
-height:100%;
-object-fit:cover;
-object-position:center;
-opacity:0;
-transform:scale(1.03);
-transition:
-opacity 1.2s ease-in-out,
-transform 7s ease;
-}
-
-.island-bg.active{
-opacity:1;
-transform:scale(1.08);
-}
-
-
-/* =====================================
-   CAMADA PARA LEGIBILIDADE
-
-   A FOTO CONTINUA VISÍVEL,
-   MAS NÃO ATRAPALHA O TEXTO.
-===================================== */
 
 .islands-overlay{
-position:absolute;
-inset:0;
-z-index:1;
-
-background:
-linear-gradient(
-180deg,
-rgba(2,22,49,.48) 0%,
-rgba(2,28,61,.58) 28%,
-rgba(2,31,68,.72) 60%,
-rgba(2,26,58,.88) 100%
-);
+display:none;
 }
 
-
 /* =====================================
-   CONTEÚDO SOBRE AS FOTOS
+   CONTEÚDO DA OFERTA
 ===================================== */
 
 .islands-content-wrapper{
 position:relative;
 z-index:2;
-min-height:590px;
+min-height:560px;
 display:flex;
 flex-direction:column;
 justify-content:space-between;
@@ -614,12 +565,12 @@ padding:12px 8px;
 }
 
 .islands-offer{
-min-height:620px;
+min-height:560px;
 margin:0 12px 24px;
 }
 
 .islands-content-wrapper{
-min-height:620px;
+min-height:560px;
 }
 
 .islands-content{
@@ -1708,7 +1659,7 @@ Caipirinhas
 
 <div data-i18n="experienceDivider">
 
-Experiência especial
+Resgate o seu desconto
 
 </div>
 
@@ -1726,39 +1677,6 @@ Experiência especial
 class="islands-offer"
 id="ilhas"
 >
-
-
-<!-- =====================================
-     AS DUAS FOTOS DO PUBLIC
-===================================== -->
-
-<div class="island-backgrounds">
-
-
-<img
-
-src="/IMG-20240215-WA0016_Original.jpeg"
-
-class="island-bg active"
-
-alt="Ilha de Itaparica e Ilha dos Frades"
-
->
-
-
-<img
-
-src="/20240228_102953_Original.jpeg"
-
-class="island-bg"
-
-alt="Ilha de Itaparica e Ilha dos Frades"
-
->
-
-
-</div>
-
 
 
 <!-- ESCURECIMENTO CONTROLADO -->
@@ -2060,7 +1978,7 @@ outrasVodkas:"Outras Vodkas",
 
 caipirinhas:"Caipirinhas",
 
-experienceDivider:"Experiência especial",
+experienceDivider:"Resgate o seu desconto",
 
 offerTop:"🏝️ PASSEIO ÀS ILHAS · 20% OFF",
 
@@ -2206,7 +2124,7 @@ outrasVodkas:"Other Vodkas",
 
 caipirinhas:"Caipirinhas",
 
-experienceDivider:"Special experience",
+experienceDivider:"Claim your discount",
 
 offerTop:"🏝️ ISLAND TOUR · 20% OFF",
 
@@ -2352,7 +2270,7 @@ outrasVodkas:"Otros Vodkas",
 
 caipirinhas:"Caipirinhas",
 
-experienceDivider:"Experiencia especial",
+experienceDivider:"Obtén tu descuento",
 
 offerTop:"🏝️ PASEO A LAS ISLAS · 20% OFF",
 
@@ -2498,7 +2416,7 @@ outrasVodkas:"Altre Vodke",
 
 caipirinhas:"Caipirinhas",
 
-experienceDivider:"Esperienza speciale",
+experienceDivider:"Ottieni il tuo sconto",
 
 offerTop:"🏝️ TOUR DELLE ISOLE · 20% OFF",
 
@@ -2644,7 +2562,7 @@ outrasVodkas:"Autres Vodkas",
 
 caipirinhas:"Caipirinhas",
 
-experienceDivider:"Expérience spéciale",
+experienceDivider:"Profitez de votre réduction",
 
 offerTop:"🏝️ EXCURSION AUX ÎLES · 20% OFF",
 
@@ -2760,56 +2678,6 @@ document
 url;
 
 }
-
-
-
-/* =====================================
-   TROCA DE FOTO A CADA 3 SEGUNDOS
-===================================== */
-
-const islandImages =
-document.querySelectorAll(".island-bg");
-
-
-let islandImageIndex =
-0;
-
-
-function changeIslandImage(){
-
-
-islandImages[
-islandImageIndex
-]
-.classList.remove("active");
-
-
-islandImageIndex =
-
-(
-islandImageIndex
-+
-1
-)
-
-%
-
-islandImages.length;
-
-
-islandImages[
-islandImageIndex
-]
-.classList.add("active");
-
-
-}
-
-
-setInterval(
-changeIslandImage,
-3000
-);
 
 
 
