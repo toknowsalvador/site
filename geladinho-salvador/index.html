@@ -1,707 +1,925 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geladinho Gourmet em Salvador, Bahia</title>
+<meta name="description" content="Geladinhos gourmet alcoólicos e sem álcool em Salvador, Bahia. Qualquer sabor por R$ 15,00 no Pix ou dinheiro.">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<style>
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;width:100%;overflow-x:hidden}
+body{
+  margin:0;
+  width:100%;
+  min-width:0;
+  overflow-x:hidden;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#fff3a8 0%,#ffd4e5 46%,#fff7c8 100%);
+  color:#43223a;
+}
+header{
+  width:100%;
+  background:linear-gradient(135deg,#ffcf33 0%,#ff6fae 58%,#f94b93 100%);
+  color:#fff;
+  text-align:center;
+  padding:30px 14px 26px;
+}
+header h1{margin:0;font-size:30px}
+header p{margin:10px 0 0;font-size:16px}
 
-  <title>Geladinho Gourmet em Salvador, Bahia</title>
+.languages{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:20px;
+}
+.languages button{
+  color:#fff;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.75);
+  border-radius:20px;
+  padding:8px 14px;
+  font-size:14px;
+  transition:.2s;
+  background:transparent;
+  cursor:pointer;
+}
+.languages button:hover{background:rgba(255,255,255,.14)}
+.languages button.active{
+  background:rgba(255,255,255,.88);
+  color:#d92c78;
+  font-weight:bold;
+}
 
-  <meta
-    name="description"
-    content="Geladinhos gourmet alcoólicos e sem álcool em Salvador, Bahia. Qualquer sabor por R$ 15,00 no Pix ou dinheiro."
-  >
+main{
+  width:100%;
+  max-width:820px;
+  margin:0 auto;
+  padding:22px 12px 38px;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+.price-banner{
+  background:linear-gradient(135deg,rgba(255,244,163,.96),rgba(255,184,216,.96));
+  border:1px solid rgba(217,44,120,.22);
+  border-radius:12px;
+  padding:15px 18px;
+  margin-bottom:28px;
+  text-align:center;
+  box-shadow:0 3px 10px rgba(0,0,0,.05);
+}
+.price-main{color:#d92c78;font-size:20px;font-weight:bold}
+.price-detail{margin-top:5px;color:#76566a;font-size:13px;line-height:1.5}
 
-    html {
-      scroll-behavior: smooth;
-      width: 100%;
-      overflow-x: hidden;
-    }
+.category{width:100%;margin-bottom:28px}
+.category-title{
+  color:#d92c78;
+  margin:0 0 14px;
+  font-size:22px;
+  border-bottom:2px solid rgba(217,44,120,.22);
+  padding:7px 12px 8px;
+  border-radius:12px 12px 5px 5px;
+  background:rgba(255,255,255,.48);
+  display:inline-block;
+}
+.warning{
+  background:#fff0a8;
+  color:#714300;
+  border-radius:10px;
+  padding:12px 14px;
+  margin-bottom:14px;
+  font-size:14px;
+  line-height:1.5;
+}
+.item{
+  width:100%;
+  background:rgba(255,255,255,.88);
+  border-radius:13px;
+  padding:16px;
+  margin-bottom:12px;
+  box-shadow:0 3px 10px rgba(0,0,0,.06);
+  border:1px solid rgba(255,255,255,.72);
+  backdrop-filter:blur(3px);
+}
+.item h3{margin:0;font-size:18px;color:#43223a}
+.description{margin:8px 0 0;color:#76566a;font-size:14px;line-height:1.5}
+.tag{
+  display:inline-block;
+  background:#ffe1ee;
+  color:#b51e64;
+  padding:5px 9px;
+  border-radius:20px;
+  margin-top:9px;
+  margin-right:5px;
+  font-size:12px;
+  font-weight:bold;
+}
 
-    body {
-      margin: 0;
-      width: 100%;
-      min-width: 0;
-      overflow-x: hidden;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(180deg, #fff3a8 0%, #ffd4e5 46%, #fff7c8 100%);
-      color: #43223a;
-    }
+/* DIVISÃO ANTES DAS EXPERIÊNCIAS */
+.experience-divider{
+  margin:36px 0 20px;
+  text-align:center;
+}
+.experience-divider::before{
+  content:"";
+  display:block;
+  height:1px;
+  width:72%;
+  max-width:480px;
+  margin:0 auto 17px;
+  background:linear-gradient(to right,transparent,#d92c78,transparent);
+}
+.experience-divider span{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:#9d2d67;
+  font-weight:900;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  font-size:13px;
+}
 
-    header {
-      width: 100%;
-      background: linear-gradient(135deg, #ffcf33 0%, #ff6fae 58%, #f94b93 100%);
-      color: white;
-      text-align: center;
-      padding: 30px 14px 26px;
-    }
+/* ACESSOS RÁPIDOS */
+.experience-links{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:0 0 14px;
+  margin-bottom:6px;
+  scrollbar-width:none;
+}
+.experience-links::-webkit-scrollbar{display:none}
+.experience-link{
+  flex:1 0 210px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-height:52px;
+  padding:12px 14px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:900;
+  text-align:center;
+}
+.experience-link.islands{
+  background:#fff;
+  color:#d92c78;
+  border:1px solid rgba(217,44,120,.22);
+}
+.experience-link.afro{
+  background:#43223a;
+  color:#fff;
+}
+.experience-link small{
+  display:block;
+  font-size:11px;
+  margin-top:2px;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 30px;
-    }
+/* OFERTA ILHAS COM FUNDO EM SLIDESHOW */
+.islands-offer{
+  position:relative;
+  min-height:590px;
+  border-radius:18px;
+  overflow:hidden;
+  color:#fff;
+  box-shadow:0 14px 30px rgba(80,25,55,.24);
+  background:#43223a;
+}
+.island-backgrounds{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  z-index:0;
+}
+.island-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  opacity:0;
+  transform:scale(1.03);
+  transition:opacity 1.2s ease-in-out,transform 7s ease;
+}
+.island-bg.active{
+  opacity:1;
+  transform:scale(1.08);
+}
+.islands-overlay{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(
+    180deg,
+    rgba(73,20,53,.48) 0%,
+    rgba(70,20,52,.62) 35%,
+    rgba(55,20,43,.78) 67%,
+    rgba(43,18,36,.92) 100%
+  );
+}
+.islands-content-wrapper{
+  position:relative;
+  z-index:2;
+  min-height:590px;
+  display:flex;
+  flex-direction:column;
+}
+.islands-top{
+  background:rgba(217,44,120,.92);
+  padding:14px 16px;
+  text-align:center;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:1px;
+  text-shadow:0 1px 3px rgba(0,0,0,.4);
+}
+.islands-content{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:36px 20px 30px;
+  text-align:center;
+}
+.islands-icon{
+  font-size:46px;
+  filter:drop-shadow(0 3px 6px rgba(0,0,0,.5));
+}
+.islands-content h2{
+  max-width:570px;
+  margin:10px auto 8px;
+  color:#fff;
+  font-size:30px;
+  line-height:1.15;
+  text-shadow:0 2px 7px rgba(0,0,0,.85);
+}
+.islands-description{
+  max-width:530px;
+  margin:8px auto 0;
+  font-size:15px;
+  font-weight:700;
+  text-shadow:0 2px 6px rgba(0,0,0,.85);
+}
+.offer-price{
+  margin:24px 0 14px;
+  font-size:44px;
+  font-weight:900;
+  text-shadow:0 3px 9px rgba(0,0,0,.88);
+}
+.offer-price small{font-size:15px}
+.inclusions{
+  width:100%;
+  max-width:490px;
+  margin:18px auto 0;
+  padding:16px 18px;
+  border-radius:12px;
+  background:rgba(0,0,0,.30);
+  border:1px solid rgba(255,255,255,.26);
+  backdrop-filter:blur(3px);
+  text-align:left;
+  display:grid;
+  gap:10px;
+}
+.inclusion{
+  display:flex;
+  gap:9px;
+  font-size:14px;
+  font-weight:800;
+  text-shadow:0 1px 4px rgba(0,0,0,.8);
+}
+.reserve-button{
+  display:block;
+  width:100%;
+  max-width:470px;
+  margin:22px auto 0;
+  padding:16px 14px;
+  border-radius:10px;
+  background:#25d366;
+  color:#fff;
+  text-decoration:none;
+  font-size:16px;
+  font-weight:900;
+  box-shadow:0 6px 16px rgba(0,0,0,.25);
+}
 
-    header p {
-      margin: 10px 0 0;
-      font-size: 16px;
-    }
+/* AFRO TOUR FINAL */
+.afro-card{
+  margin-top:16px;
+  padding:20px;
+  border-radius:16px;
+  background:#43223a;
+  color:#fff;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(70,34,58,.16);
+}
+.afro-card h2{margin:0 0 7px;font-size:23px}
+.afro-card p{margin:0 auto 15px;max-width:560px;color:#f8dfec;font-size:14px}
+.afro-button{
+  display:inline-block;
+  padding:13px 18px;
+  border-radius:10px;
+  background:#fff;
+  color:#b51e64;
+  font-weight:900;
+  text-decoration:none;
+}
 
-    .languages {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
+footer{
+  text-align:center;
+  padding:24px 18px;
+  background:#f8b9d2;
+  color:#5c334d;
+  font-size:13px;
+  line-height:1.7;
+}
 
-    .languages a {
-      color: white;
-      text-decoration: none;
-      border: 1px solid rgba(255, 255, 255, 0.75);
-      border-radius: 20px;
-      padding: 8px 14px;
-      font-size: 14px;
-      transition: 0.2s;
-    }
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 12% 16%,rgba(255,255,255,.5),transparent 22%),
+    radial-gradient(circle at 86% 42%,rgba(255,90,160,.16),transparent 26%);
+  z-index:-1;
+}
 
-    .languages a:hover {
-      background: rgba(255, 255, 255, 0.14);
-    }
+@media(max-width:560px){
+  header{padding:26px 10px 23px}
+  header h1{font-size:27px}
+  .languages{gap:7px;margin-top:18px}
+  .languages button{padding:8px 11px;font-size:12px}
+  main{max-width:none;padding:16px 8px 30px}
+  .price-banner{padding:14px 12px;margin-bottom:22px}
+  .category{margin-bottom:25px}
+  .category-title{display:block;width:100%;margin-bottom:12px;font-size:21px;padding:9px 12px}
+  .warning{width:100%;margin-bottom:11px;padding:11px 12px}
+  .item{padding:15px 13px;margin-bottom:10px;border-radius:12px}
+  .item h3{font-size:17px}
+  .islands-offer{min-height:620px}
+  .islands-content-wrapper{min-height:620px}
+  .islands-content h2{font-size:27px}
+  .offer-price{font-size:40px}
+}
 
-    .languages a.active {
-      background: rgba(255, 255, 255, 0.88);
-      color: #d92c78;
-      font-weight: bold;
-    }
-
-    main {
-      width: 100%;
-      max-width: 820px;
-      margin: 0 auto;
-      padding: 22px 12px 38px;
-    }
-.price-banner {
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(217, 44, 120, 0.18);
-      border-radius: 12px;
-      padding: 15px 18px;
-      margin-bottom: 28px;
-      text-align: center;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .price-main {
-      color: #d92c78;
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .price-detail {
-      margin-top: 5px;
-      color: #76566a;
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .category {
-      width: 100%;
-      margin-bottom: 28px;
-    }
-
-    .category-title {
-      color: #d92c78;
-      margin: 0 0 14px;
-      font-size: 22px;
-      border-bottom: 2px solid rgba(217, 44, 120, 0.22);
-      padding-bottom: 8px;
-    }
-
-    .warning {
-      background: #fff0a8;
-      color: #714300;
-      border-radius: 10px;
-      padding: 12px 14px;
-      margin-bottom: 14px;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .item {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.88);
-      border-radius: 13px;
-      padding: 16px;
-      margin-bottom: 12px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
-    }
-
-    .item h3 {
-      margin: 0;
-      font-size: 18px;
-      color: #43223a;
-    }
-
-    .description {
-      margin: 8px 0 0;
-      color: #76566a;
-      font-size: 14px;
-      line-height: 1.5;
-    }
-
-    .tag {
-      display: inline-block;
-      background: #ffe1ee;
-      color: #b51e64;
-      padding: 5px 9px;
-      border-radius: 20px;
-      margin-top: 9px;
-      margin-right: 5px;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .islands-banner {
-      width: 100%;
-      background: rgba(255, 255, 255, 0.88);
-      border: 1px solid rgba(217, 44, 120, 0.18);
-      border-radius: 11px;
-      padding: 13px 15px;
-      margin: 4px 0 28px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .islands-text {
-      min-width: 0;
-    }
-
-    .islands-banner h2 {
-      margin: 0;
-      color: #5b2949;
-      font-size: 15px;
-    }
-
-    .islands-banner p {
-      margin: 3px 0 0;
-      color: #805f73;
-      font-size: 12px;
-      line-height: 1.4;
-    }
-
-    .islands-button {
-      color: #d92c78;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .islands-button:hover {
-      text-decoration: underline;
-    }
-
-    .free-tour-banner {
-      width: 100%;
-      margin-top: 8px;
-      padding: 14px 2px 4px;
-      border-top: 1px solid rgba(217, 44, 120, 0.24);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .free-tour-text h2 {
-      margin: 0;
-      color: #5b2949;
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .free-tour-button {
-      color: #d92c78;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-
-    .free-tour-button:hover {
-      text-decoration: underline;
-    }
-footer {
-      text-align: center;
-      padding: 24px 18px;
-      background: #f8b9d2;
-      color: #5c334d;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-
-    footer a {
-      color: #d92c78;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 12% 16%, rgba(255, 255, 255, 0.5), transparent 22%),
-        radial-gradient(circle at 86% 42%, rgba(255, 90, 160, 0.16), transparent 26%);
-      z-index: -1;
-    }
-
-    .price-banner {
-      background: linear-gradient(135deg, rgba(255, 244, 163, 0.96), rgba(255, 184, 216, 0.96));
-      border: 1px solid rgba(217, 44, 120, 0.22);
-    }
-
-    .item {
-      border: 1px solid rgba(255, 255, 255, 0.72);
-      backdrop-filter: blur(3px);
-    }
-
-
-    .category-title {
-      display: inline-block;
-      padding: 7px 12px 8px;
-      border-radius: 12px 12px 5px 5px;
-      background: rgba(255, 255, 255, 0.48);
-    }
-
-    @media (max-width: 560px) {
-      header {
-        padding: 26px 10px 23px;
-      }
-
-      header h1 {
-        font-size: 27px;
-      }
-
-      .languages {
-        gap: 7px;
-        margin-top: 18px;
-      }
-
-      .languages a {
-        padding: 8px 13px;
-      }
-
-      main {
-        max-width: none;
-        padding: 16px 8px 30px;
-      }
-
-      .price-banner {
-        padding: 14px 12px;
-        margin-bottom: 22px;
-      }
-
-      .category {
-        margin-bottom: 25px;
-      }
-
-      .category-title {
-        display: block;
-        width: 100%;
-        margin-bottom: 12px;
-        font-size: 21px;
-        padding: 9px 12px;
-      }
-
-      .warning {
-        width: 100%;
-        margin-bottom: 11px;
-        padding: 11px 12px;
-      }
-
-      .item {
-        padding: 15px 13px;
-        margin-bottom: 10px;
-        border-radius: 12px;
-      }
-
-      .item h3 {
-        font-size: 17px;
-      }
-
-      .islands-banner {
-        padding: 13px 12px;
-        gap: 10px;
-      }
-
-      .islands-banner p {
-        display: none;
-      }
-
-      .islands-button {
-        font-size: 12px;
-      }
-
-      .free-tour-banner {
-        padding: 13px 2px 4px;
-        gap: 10px;
-      }
-
-      .free-tour-text h2 {
-        font-size: 14px;
-      }
-
-      .free-tour-button {
-        font-size: 12px;
-      }
-
-      footer {
-        padding: 21px 12px;
-      }
-    }
-
-    @media (min-width: 900px) {
-      main {
-        padding-left: 16px;
-        padding-right: 16px;
-      }
-    }
-  </style>
+@media(min-width:900px){
+  main{padding-left:16px;padding-right:16px}
+}
+</style>
 </head>
 
 <body>
 
-  <header>
+<header>
+  <h1>Geladinho Gourmet</h1>
+  <p data-i18n="location">Salvador · Bahia · Brasil 🇧🇷</p>
 
-    <h1>Geladinho Gourmet</h1>
+  <nav class="languages" aria-label="Selecionar idioma">
+    <button class="active" onclick="changeLanguage('pt',this)">🇧🇷 Português</button>
+    <button onclick="changeLanguage('en',this)">🇺🇸 English</button>
+    <button onclick="changeLanguage('es',this)">🇪🇸 Español</button>
+    <button onclick="changeLanguage('it',this)">🇮🇹 Italiano</button>
+    <button onclick="changeLanguage('fr',this)">🇫🇷 Français</button>
+  </nav>
+</header>
 
-    <p>Salvador · Bahia · Brasil 🇧🇷</p>
+<main>
 
-    <nav class="languages" aria-label="Selecionar idioma">
-
-      <a
-        href="/geladinho-salvador/"
-        class="active"
-      >
-        Português
-      </a>
-
-      <a href="/geladinho-salvador/en/">
-        English
-      </a>
-
-      <a href="/geladinho-salvador/es/">
-        Español
-      </a>
-
-    </nav>
-
-  </header>
-
-  <main>
 <section class="price-banner">
+  <div class="price-main" data-i18n="priceMain">Qualquer sabor: R$ 15,00</div>
+  <div class="price-detail" data-i18n="priceDetail">Dinheiro ou Pix · Débito ou crédito: R$ 16,00</div>
+</section>
 
-      <div class="price-main">
-        Qualquer sabor: R$ 15,00
-      </div>
+<!-- ALCOÓLICOS COM VODKA -->
+<section class="category">
+  <h2 class="category-title" data-i18n="vodkaTitle">Alcoólicos com vodka</h2>
 
-      <div class="price-detail">
-        Dinheiro ou Pix · Débito ou crédito: R$ 16,00
-      </div>
+  <div class="warning" data-i18n="warning">
+    Contém bebida alcoólica. Venda exclusiva para maiores de 18 anos.
+  </div>
 
-    </section>
+  <article class="item"><h3 data-i18n="passionMousse">Mousse de maracujá</h3></article>
+  <article class="item"><h3 data-i18n="limeMousse">Mousse de limão</h3></article>
 
-    <!-- ALCOÓLICOS COM VODKA -->
+  <article class="item">
+    <h3 data-i18n="strawberryTruffle">Morango trufado</h3>
+    <p class="description" data-i18n="strawberryDesc">
+      Sorvete de iogurte de morango, calda de morango e chocolate.
+    </p>
+  </article>
 
-    <section class="category">
+  <article class="item">
+    <h3 data-i18n="acai">Açaí turbinado</h3>
+    <p class="description" data-i18n="acaiVodkaDesc">
+      Leite líquido, leite condensado, creme de leite, leite em pó, energético e guaraná.
+    </p>
+  </article>
 
-      <h2 class="category-title">
-        Alcoólicos com vodka
+  <article class="item"><h3 data-i18n="pineappleCoconut">Abacaxi com coco</h3></article>
+  <article class="item"><h3 data-i18n="pineappleWine">Abacaxi ao vinho</h3></article>
+
+  <article class="item">
+    <h3 data-i18n="watermelonLime">Melancia com limão</h3>
+    <span class="tag" data-i18n="zeroSugar">Zero açúcar</span>
+    <span class="tag" data-i18n="zeroLactose">Zero lactose</span>
+  </article>
+
+  <article class="item">
+    <h3 data-i18n="coconutLime">Coco com limão</h3>
+    <p class="description" data-i18n="noCoconutPulp">Preparado sem bagaço de coco.</p>
+    <span class="tag" data-i18n="zeroSugar">Zero açúcar</span>
+    <span class="tag" data-i18n="zeroLactose">Zero lactose</span>
+  </article>
+</section>
+
+<!-- ALCOÓLICOS COM CACHAÇA -->
+<section class="category">
+  <h2 class="category-title" data-i18n="cachacaTitle">Alcoólicos com Cachaça 51</h2>
+
+  <div class="warning" data-i18n="warning">
+    Contém bebida alcoólica. Venda exclusiva para maiores de 18 anos.
+  </div>
+
+  <article class="item"><h3 data-i18n="caipiLime">Caipirinha de limão</h3></article>
+
+  <article class="item">
+    <h3 data-i18n="caipiCashew">Caipirinha de caju</h3>
+    <p class="description" data-i18n="fruitPieces">Preparada com pedaços da fruta.</p>
+  </article>
+
+  <article class="item">
+    <h3 data-i18n="coconutCondensed">Coco com leite condensado</h3>
+    <p class="description" data-i18n="withCoconutPulp">Preparado com bagaço de coco.</p>
+  </article>
+
+  <article class="item"><h3 data-i18n="peanut">Amendoim com paçoca</h3></article>
+
+  <article class="item">
+    <h3 data-i18n="dulce">Doce de leite</h3>
+    <p class="description" data-i18n="amarulaLike">Sabor cremoso semelhante à Amarula.</p>
+  </article>
+</section>
+
+<!-- GOURMET SEM ÁLCOOL -->
+<section class="category">
+  <h2 class="category-title" data-i18n="noAlcoholTitle">Gourmet sem álcool</h2>
+
+  <article class="item"><h3 data-i18n="passionMousse">Mousse de maracujá</h3></article>
+
+  <article class="item">
+    <h3 data-i18n="passionTruffle">Mousse de maracujá trufado</h3>
+    <p class="description" data-i18n="truffledChocolate">Trufado com chocolate.</p>
+  </article>
+
+  <article class="item"><h3 data-i18n="limeMousse">Mousse de limão</h3></article>
+
+  <article class="item">
+    <h3 data-i18n="strawberryTruffle">Morango trufado</h3>
+    <p class="description" data-i18n="strawberryDesc">
+      Sorvete de iogurte de morango, calda de morango e chocolate.
+    </p>
+  </article>
+
+  <article class="item">
+    <h3 data-i18n="acai">Açaí turbinado</h3>
+    <p class="description" data-i18n="acaiNoAlcoholDesc">
+      Leite líquido, leite condensado, creme de leite, leite em pó e energético.
+    </p>
+  </article>
+
+  <article class="item"><h3 data-i18n="pineappleCoconut">Abacaxi com coco</h3></article>
+  <article class="item"><h3 data-i18n="pineappleWine">Abacaxi ao vinho</h3></article>
+  <article class="item"><h3 data-i18n="dulce">Doce de leite</h3></article>
+
+  <article class="item">
+    <h3 data-i18n="coconutCondensed">Coco com leite condensado</h3>
+    <p class="description" data-i18n="beijinho">Sabor beijinho.</p>
+  </article>
+
+  <article class="item">
+    <h3 data-i18n="cashewPieces">Caju com pedaços da fruta</h3>
+    <span class="tag" data-i18n="zeroLactose">Zero lactose</span>
+  </article>
+
+  <article class="item">
+    <h3 data-i18n="mangoPieces">Manga com pedaços da fruta</h3>
+    <span class="tag" data-i18n="zeroLactose">Zero lactose</span>
+  </article>
+
+  <article class="item">
+    <h3 data-i18n="watermelonLime">Melancia com limão</h3>
+    <span class="tag" data-i18n="zeroSugar">Zero açúcar</span>
+    <span class="tag" data-i18n="zeroLactose">Zero lactose</span>
+  </article>
+
+  <article class="item">
+    <h3 data-i18n="coconutLime">Coco com limão</h3>
+    <p class="description" data-i18n="noCoconutPulp">Preparado sem bagaço de coco.</p>
+    <span class="tag" data-i18n="zeroSugar">Zero açúcar</span>
+    <span class="tag" data-i18n="zeroLactose">Zero lactose</span>
+  </article>
+</section>
+
+<!-- DIVISÃO -->
+<div class="experience-divider">
+  <span>🏝️ <span data-i18n="experiencesTitle">Experiências em Salvador</span></span>
+</div>
+
+<!-- BOTÕES ILHAS + AFRO TOUR -->
+<div class="experience-links">
+  <a class="experience-link islands" href="#ilhas">
+    <span>🏝️</span>
+    <span>
+      <span data-i18n="islandsQuick">Passeio às Ilhas</span>
+      <small>20% OFF</small>
+    </span>
+  </a>
+
+  <a class="experience-link afro" href="https://toknowsalvador.com" target="_blank" rel="noopener">
+    <span>✊🏿</span>
+    <span>
+      Afro Tour
+      <small data-i18n="discover">Conhecer</small>
+    </span>
+  </a>
+</div>
+
+<!-- OFERTA ILHAS -->
+<section class="islands-offer" id="ilhas">
+
+  <div class="island-backgrounds">
+    <img src="/IMG-20240215-WA0016_Original.jpeg" class="island-bg active" alt="Passeio às Ilhas">
+    <img src="/20240228_102953_Original.jpeg" class="island-bg" alt="Passeio às Ilhas">
+  </div>
+
+  <div class="islands-overlay"></div>
+
+  <div class="islands-content-wrapper">
+
+    <div class="islands-top" data-i18n="offerTop">
+      🏝️ PASSEIO ÀS ILHAS · 20% OFF
+    </div>
+
+    <div class="islands-content">
+
+      <div class="islands-icon">🏝️</div>
+
+      <h2 data-i18n="islandTitle">
+        Ilha de Itaparica + Ilha dos Frades
       </h2>
 
-      <div class="warning">
-        Contém bebida alcoólica. Venda exclusiva para maiores de 18 anos.
+      <p class="islands-description" data-i18n="fullDay">
+        Passeio de dia inteiro pela Baía de Todos-os-Santos.
+      </p>
+
+      <div class="offer-price">
+        R$ 150,00
+        <small data-i18n="perPerson">por pessoa</small>
       </div>
 
-      <article class="item">
-        <h3>Mousse de maracujá</h3>
-      </article>
-
-      <article class="item">
-        <h3>Mousse de limão</h3>
-      </article>
-
-      <article class="item">
-
-        <h3>Morango trufado</h3>
-
-        <p class="description">
-          Sorvete de iogurte de morango, calda de morango e chocolate.
-        </p>
-
-      </article>
-
-      <article class="item">
-
-        <h3>Açaí turbinado</h3>
-
-        <p class="description">
-          Leite líquido, leite condensado, creme de leite, leite em pó, energético e guaraná.
-        </p>
-
-      </article>
-
-      <article class="item">
-        <h3>Abacaxi com coco</h3>
-      </article>
-
-      <article class="item">
-        <h3>Abacaxi ao vinho</h3>
-      </article>
-
-      <article class="item">
-
-        <h3>Melancia com limão</h3>
-
-        <span class="tag">Zero açúcar</span>
-        <span class="tag">Zero lactose</span>
-
-      </article>
-
-      <article class="item">
-
-        <h3>Coco com limão</h3>
-
-        <p class="description">
-          Preparado sem bagaço de coco.
-        </p>
-
-        <span class="tag">Zero açúcar</span>
-        <span class="tag">Zero lactose</span>
-
-      </article>
-
-    </section>
-
-    <!-- FAIXA MINIMALISTA DAS ILHAS -->
-
-    <aside class="islands-banner">
-
-      <div class="islands-text">
-
-        <h2>Passeios para as ilhas de Salvador</h2>
-
-        <p>
-          Consulte opções disponíveis e valores locais.
-        </p>
-
+      <div class="inclusions">
+        <div class="inclusion">✓ <span data-i18n="pickup">Busca no hotel</span></div>
+        <div class="inclusion">✓ <span data-i18n="dropoff">Retorno e deixa no hotel</span></div>
+        <div class="inclusion">✓ <span data-i18n="terminal">Terminal incluso</span></div>
+        <div class="inclusion">✓ <span data-i18n="fullDayIncluded">Passeio de dia inteiro</span></div>
       </div>
 
-      <a
-        class="islands-button"
-        href="https://wa.me/5511952473756?text=Ol%C3%A1%21%20Consegui%20este%20contato%20atrav%C3%A9s%20do%20pessoal%20do%20Geladinho%20Gourmet.%20Gostaria%20de%20consultar%20as%20op%C3%A7%C3%B5es%20dispon%C3%ADveis%20para%20conhecer%20as%20ilhas%20de%20Salvador."
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Consultar disponibilidade →
+      <a id="islandsWhatsapp" class="reserve-button" href="#" target="_blank" rel="noopener">
+        💬 <span data-i18n="reserve">Reservar pelo WhatsApp</span>
       </a>
 
-    </aside>
+    </div>
+  </div>
+</section>
+
+<!-- AFRO TOUR -->
+<section class="afro-card">
+  <h2>✊🏿 Afro Tour</h2>
+  <p data-i18n="afroDescription">
+    Conheça a história, a cultura e as influências africanas que moldaram Salvador.
+  </p>
+  <a class="afro-button" href="https://toknowsalvador.com" target="_blank" rel="noopener" data-i18n="afroButton">
+    Conhecer o Afro Tour
+  </a>
+</section>
+
+</main>
+
+<footer>
+  <span data-i18n="footerText">Salvador, Bahia · Experiências locais</span>
+</footer>
+
+<script>
+let currentLanguage = "pt";
+
+const translations = {
+pt:{
+location:"Salvador · Bahia · Brasil 🇧🇷",
+priceMain:"Qualquer sabor: R$ 15,00",
+priceDetail:"Dinheiro ou Pix · Débito ou crédito: R$ 16,00",
+vodkaTitle:"Alcoólicos com vodka",
+cachacaTitle:"Alcoólicos com Cachaça 51",
+noAlcoholTitle:"Gourmet sem álcool",
+warning:"Contém bebida alcoólica. Venda exclusiva para maiores de 18 anos.",
+passionMousse:"Mousse de maracujá",
+limeMousse:"Mousse de limão",
+strawberryTruffle:"Morango trufado",
+strawberryDesc:"Sorvete de iogurte de morango, calda de morango e chocolate.",
+acai:"Açaí turbinado",
+acaiVodkaDesc:"Leite líquido, leite condensado, creme de leite, leite em pó, energético e guaraná.",
+acaiNoAlcoholDesc:"Leite líquido, leite condensado, creme de leite, leite em pó e energético.",
+pineappleCoconut:"Abacaxi com coco",
+pineappleWine:"Abacaxi ao vinho",
+watermelonLime:"Melancia com limão",
+coconutLime:"Coco com limão",
+zeroSugar:"Zero açúcar",
+zeroLactose:"Zero lactose",
+noCoconutPulp:"Preparado sem bagaço de coco.",
+caipiLime:"Caipirinha de limão",
+caipiCashew:"Caipirinha de caju",
+fruitPieces:"Preparada com pedaços da fruta.",
+coconutCondensed:"Coco com leite condensado",
+withCoconutPulp:"Preparado com bagaço de coco.",
+peanut:"Amendoim com paçoca",
+dulce:"Doce de leite",
+amarulaLike:"Sabor cremoso semelhante à Amarula.",
+passionTruffle:"Mousse de maracujá trufado",
+truffledChocolate:"Trufado com chocolate.",
+beijinho:"Sabor beijinho.",
+cashewPieces:"Caju com pedaços da fruta",
+mangoPieces:"Manga com pedaços da fruta",
+experiencesTitle:"Experiências em Salvador",
+islandsQuick:"Passeio às Ilhas",
+discover:"Conhecer",
+offerTop:"🏝️ PASSEIO ÀS ILHAS · 20% OFF",
+islandTitle:"Ilha de Itaparica + Ilha dos Frades",
+fullDay:"Passeio de dia inteiro pela Baía de Todos-os-Santos.",
+perPerson:"por pessoa",
+pickup:"Busca no hotel",
+dropoff:"Retorno e deixa no hotel",
+terminal:"Terminal incluso",
+fullDayIncluded:"Passeio de dia inteiro",
+reserve:"Reservar pelo WhatsApp",
+afroDescription:"Conheça a história, a cultura e as influências africanas que moldaram Salvador.",
+afroButton:"Conhecer o Afro Tour",
+footerText:"Salvador, Bahia · Experiências locais",
+whatsapp:"Encontrei a oferta para as ilhas no Geladinho Gourmet e tenho interesse em fazer a reserva."
+},
+
+en:{
+location:"Salvador · Bahia · Brazil 🇧🇷",
+priceMain:"Any flavor: R$ 15.00",
+priceDetail:"Cash or Pix · Debit or credit card: R$ 16.00",
+vodkaTitle:"Alcoholic flavors with vodka",
+cachacaTitle:"Alcoholic flavors with Cachaça 51",
+noAlcoholTitle:"Gourmet non-alcoholic",
+warning:"Contains alcohol. Sale only to people aged 18 and over.",
+passionMousse:"Passion Fruit Mousse",
+limeMousse:"Lime Mousse",
+strawberryTruffle:"Truffled Strawberry",
+strawberryDesc:"Strawberry yogurt ice cream, strawberry sauce and chocolate.",
+acai:"Boosted Açaí",
+acaiVodkaDesc:"Milk, condensed milk, cream, powdered milk, energy drink and guaraná.",
+acaiNoAlcoholDesc:"Milk, condensed milk, cream, powdered milk and energy drink.",
+pineappleCoconut:"Pineapple with Coconut",
+pineappleWine:"Pineapple with Wine",
+watermelonLime:"Watermelon with Lime",
+coconutLime:"Coconut with Lime",
+zeroSugar:"Sugar free",
+zeroLactose:"Lactose free",
+noCoconutPulp:"Prepared without coconut pulp.",
+caipiLime:"Lime Caipirinha",
+caipiCashew:"Cashew Caipirinha",
+fruitPieces:"Prepared with pieces of fresh fruit.",
+coconutCondensed:"Coconut with Condensed Milk",
+withCoconutPulp:"Prepared with coconut pulp.",
+peanut:"Peanut with Paçoca",
+dulce:"Dulce de Leche",
+amarulaLike:"Creamy flavor similar to Amarula.",
+passionTruffle:"Truffled Passion Fruit Mousse",
+truffledChocolate:"Truffled with chocolate.",
+beijinho:"Beijinho-style coconut flavor.",
+cashewPieces:"Cashew with Fruit Pieces",
+mangoPieces:"Mango with Fruit Pieces",
+experiencesTitle:"Experiences in Salvador",
+islandsQuick:"Island Tour",
+discover:"Discover",
+offerTop:"🏝️ ISLAND TOUR · 20% OFF",
+islandTitle:"Itaparica Island + Frades Island",
+fullDay:"Full-day tour through All Saints Bay.",
+perPerson:"per person",
+pickup:"Hotel pickup",
+dropoff:"Return transfer and hotel drop-off",
+terminal:"Terminal included",
+fullDayIncluded:"Full-day tour",
+reserve:"Book on WhatsApp",
+afroDescription:"Discover the history, culture and African influences that shaped Salvador.",
+afroButton:"Discover the Afro Tour",
+footerText:"Salvador, Bahia · Local experiences",
+whatsapp:"I found the island tour offer at Geladinho Gourmet and I am interested in making a reservation."
+},
+
+es:{
+location:"Salvador · Bahia · Brasil 🇧🇷",
+priceMain:"Cualquier sabor: R$ 15,00",
+priceDetail:"Efectivo o Pix · Débito o crédito: R$ 16,00",
+vodkaTitle:"Sabores alcohólicos con vodka",
+cachacaTitle:"Sabores alcohólicos con Cachaça 51",
+noAlcoholTitle:"Gourmet sin alcohol",
+warning:"Contiene alcohol. Venta exclusiva para mayores de 18 años.",
+passionMousse:"Mousse de Maracuyá",
+limeMousse:"Mousse de Limón",
+strawberryTruffle:"Fresa Trufada",
+strawberryDesc:"Helado de yogur de fresa, salsa de fresa y chocolate.",
+acai:"Açaí Turbinado",
+acaiVodkaDesc:"Leche, leche condensada, crema, leche en polvo, bebida energética y guaraná.",
+acaiNoAlcoholDesc:"Leche, leche condensada, crema, leche en polvo y bebida energética.",
+pineappleCoconut:"Piña con Coco",
+pineappleWine:"Piña al Vino",
+watermelonLime:"Sandía con Limón",
+coconutLime:"Coco con Limón",
+zeroSugar:"Sin azúcar",
+zeroLactose:"Sin lactosa",
+noCoconutPulp:"Preparado sin pulpa de coco.",
+caipiLime:"Caipirinha de Limón",
+caipiCashew:"Caipirinha de Cajú",
+fruitPieces:"Preparada con trozos de fruta.",
+coconutCondensed:"Coco con Leche Condensada",
+withCoconutPulp:"Preparado con pulpa de coco.",
+peanut:"Cacahuete con Paçoca",
+dulce:"Dulce de Leche",
+amarulaLike:"Sabor cremoso similar a Amarula.",
+passionTruffle:"Mousse de Maracuyá Trufado",
+truffledChocolate:"Trufado con chocolate.",
+beijinho:"Sabor beijinho.",
+cashewPieces:"Cajú con Trozos de Fruta",
+mangoPieces:"Mango con Trozos de Fruta",
+experiencesTitle:"Experiencias en Salvador",
+islandsQuick:"Paseo a las Islas",
+discover:"Conocer",
+offerTop:"🏝️ PASEO A LAS ISLAS · 20% OFF",
+islandTitle:"Isla de Itaparica + Isla de los Frailes",
+fullDay:"Paseo de día completo por la Bahía de Todos los Santos.",
+perPerson:"por persona",
+pickup:"Recogida en el hotel",
+dropoff:"Regreso y traslado al hotel",
+terminal:"Terminal incluido",
+fullDayIncluded:"Paseo de día completo",
+reserve:"Reservar por WhatsApp",
+afroDescription:"Conoce la historia, la cultura y las influencias africanas que dieron forma a Salvador.",
+afroButton:"Conocer el Afro Tour",
+footerText:"Salvador, Bahia · Experiencias locales",
+whatsapp:"Encontré la oferta para las islas en Geladinho Gourmet y estoy interesado en hacer una reserva."
+},
+
+it:{
+location:"Salvador · Bahia · Brasile 🇧🇷",
+priceMain:"Qualsiasi gusto: R$ 15,00",
+priceDetail:"Contanti o Pix · Carta di debito o credito: R$ 16,00",
+vodkaTitle:"Gusti alcolici con vodka",
+cachacaTitle:"Gusti alcolici con Cachaça 51",
+noAlcoholTitle:"Gourmet analcolico",
+warning:"Contiene alcol. Vendita riservata ai maggiori di 18 anni.",
+passionMousse:"Mousse al Frutto della Passione",
+limeMousse:"Mousse al Lime",
+strawberryTruffle:"Fragola Tartufata",
+strawberryDesc:"Gelato allo yogurt alla fragola, salsa di fragole e cioccolato.",
+acai:"Açaí Potenziato",
+acaiVodkaDesc:"Latte, latte condensato, panna, latte in polvere, bevanda energetica e guaraná.",
+acaiNoAlcoholDesc:"Latte, latte condensato, panna, latte in polvere e bevanda energetica.",
+pineappleCoconut:"Ananas con Cocco",
+pineappleWine:"Ananas al Vino",
+watermelonLime:"Anguria con Lime",
+coconutLime:"Cocco con Lime",
+zeroSugar:"Senza zucchero",
+zeroLactose:"Senza lattosio",
+noCoconutPulp:"Preparato senza polpa di cocco.",
+caipiLime:"Caipirinha al Lime",
+caipiCashew:"Caipirinha al Caju",
+fruitPieces:"Preparata con pezzi di frutta.",
+coconutCondensed:"Cocco con Latte Condensato",
+withCoconutPulp:"Preparato con polpa di cocco.",
+peanut:"Arachidi con Paçoca",
+dulce:"Dulce de Leche",
+amarulaLike:"Sapore cremoso simile all'Amarula.",
+passionTruffle:"Mousse Tartufata al Frutto della Passione",
+truffledChocolate:"Tartufato con cioccolato.",
+beijinho:"Gusto beijinho.",
+cashewPieces:"Caju con Pezzi di Frutta",
+mangoPieces:"Mango con Pezzi di Frutta",
+experiencesTitle:"Esperienze a Salvador",
+islandsQuick:"Tour delle Isole",
+discover:"Scopri",
+offerTop:"🏝️ TOUR DELLE ISOLE · 20% OFF",
+islandTitle:"Isola di Itaparica + Ilha dos Frades",
+fullDay:"Tour di un'intera giornata nella Baia di Tutti i Santi.",
+perPerson:"a persona",
+pickup:"Prelievo in hotel",
+dropoff:"Ritorno e accompagnamento in hotel",
+terminal:"Terminal incluso",
+fullDayIncluded:"Tour di un'intera giornata",
+reserve:"Prenota su WhatsApp",
+afroDescription:"Scopri la storia, la cultura e le influenze africane che hanno plasmato Salvador.",
+afroButton:"Scopri l'Afro Tour",
+footerText:"Salvador, Bahia · Esperienze locali",
+whatsapp:"Ho trovato l'offerta per il tour delle isole presso Geladinho Gourmet e sono interessato a effettuare una prenotazione."
+},
+
+fr:{
+location:"Salvador · Bahia · Brésil 🇧🇷",
+priceMain:"Tous les parfums : R$ 15,00",
+priceDetail:"Espèces ou Pix · Carte de débit ou crédit : R$ 16,00",
+vodkaTitle:"Parfums alcoolisés à la vodka",
+cachacaTitle:"Parfums alcoolisés à la Cachaça 51",
+noAlcoholTitle:"Gourmet sans alcool",
+warning:"Contient de l'alcool. Vente réservée aux personnes de 18 ans et plus.",
+passionMousse:"Mousse au Fruit de la Passion",
+limeMousse:"Mousse au Citron Vert",
+strawberryTruffle:"Fraise Truffée",
+strawberryDesc:"Glace au yaourt à la fraise, coulis de fraise et chocolat.",
+acai:"Açaí Énergisant",
+acaiVodkaDesc:"Lait, lait concentré, crème, lait en poudre, boisson énergisante et guaraná.",
+acaiNoAlcoholDesc:"Lait, lait concentré, crème, lait en poudre et boisson énergisante.",
+pineappleCoconut:"Ananas à la Noix de Coco",
+pineappleWine:"Ananas au Vin",
+watermelonLime:"Pastèque au Citron Vert",
+coconutLime:"Noix de Coco au Citron Vert",
+zeroSugar:"Sans sucre",
+zeroLactose:"Sans lactose",
+noCoconutPulp:"Préparé sans pulpe de noix de coco.",
+caipiLime:"Caipirinha au Citron Vert",
+caipiCashew:"Caipirinha au Caju",
+fruitPieces:"Préparée avec des morceaux de fruit.",
+coconutCondensed:"Noix de Coco au Lait Concentré",
+withCoconutPulp:"Préparé avec de la pulpe de noix de coco.",
+peanut:"Cacahuète avec Paçoca",
+dulce:"Dulce de Leche",
+amarulaLike:"Saveur crémeuse similaire à l'Amarula.",
+passionTruffle:"Mousse Truffée au Fruit de la Passion",
+truffledChocolate:"Truffée au chocolat.",
+beijinho:"Saveur beijinho.",
+cashewPieces:"Caju avec Morceaux de Fruit",
+mangoPieces:"Mangue avec Morceaux de Fruit",
+experiencesTitle:"Expériences à Salvador",
+islandsQuick:"Excursion aux Îles",
+discover:"Découvrir",
+offerTop:"🏝️ EXCURSION AUX ÎLES · 20% OFF",
+islandTitle:"Île d'Itaparica + Ilha dos Frades",
+fullDay:"Excursion d'une journée dans la Baie de Tous les Saints.",
+perPerson:"par personne",
+pickup:"Prise en charge à l'hôtel",
+dropoff:"Retour et dépose à l'hôtel",
+terminal:"Terminal inclus",
+fullDayIncluded:"Excursion d'une journée",
+reserve:"Réserver sur WhatsApp",
+afroDescription:"Découvrez l'histoire, la culture et les influences africaines qui ont façonné Salvador.",
+afroButton:"Découvrir l'Afro Tour",
+footerText:"Salvador, Bahia · Expériences locales",
+whatsapp:"J'ai trouvé l'offre pour l'excursion aux îles chez Geladinho Gourmet et je souhaite effectuer une réservation."
+}
+};
+
+function changeLanguage(language,button){
+  currentLanguage = language;
+  document.documentElement.lang = language;
+
+  document.querySelectorAll("[data-i18n]").forEach(element=>{
+    const key = element.getAttribute("data-i18n");
+    if(translations[language] && translations[language][key]){
+      element.textContent = translations[language][key];
+    }
+  });
+
+  document.querySelectorAll(".languages button").forEach(btn=>btn.classList.remove("active"));
+  button.classList.add("active");
+
+  updateWhatsApp();
+}
+
+function updateWhatsApp(){
+  const phone = "5571993719791";
+  const message = translations[currentLanguage].whatsapp;
+  document.getElementById("islandsWhatsapp").href =
+    "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+}
+
+const islandImages = document.querySelectorAll(".island-bg");
+let islandImageIndex = 0;
+
+function changeIslandImage(){
+  islandImages[islandImageIndex].classList.remove("active");
+  islandImageIndex = (islandImageIndex + 1) % islandImages.length;
+  islandImages[islandImageIndex].classList.add("active");
+}
+
+setInterval(changeIslandImage,3000);
+updateWhatsApp();
+</script>
 
-    <!-- ALCOÓLICOS COM CACHAÇA 51 -->
-
-    <section class="category">
-
-      <h2 class="category-title">
-        Alcoólicos com Cachaça 51
-      </h2>
-
-      <div class="warning">
-        Contém bebida alcoólica. Venda exclusiva para maiores de 18 anos.
-      </div>
-
-      <article class="item">
-        <h3>Caipirinha de limão</h3>
-      </article>
-
-      <article class="item">
-
-        <h3>Caipirinha de caju</h3>
-
-        <p class="description">
-          Preparada com pedaços da fruta.
-        </p>
-
-      </article>
-
-      <article class="item">
-
-        <h3>Coco com leite condensado</h3>
-
-        <p class="description">
-          Preparado com bagaço de coco.
-        </p>
-
-      </article>
-
-      <article class="item">
-        <h3>Amendoim com paçoca</h3>
-      </article>
-
-      <article class="item">
-
-        <h3>Doce de leite</h3>
-
-        <p class="description">
-          Sabor cremoso semelhante à Amarula.
-        </p>
-
-      </article>
-
-    </section>
-
-    <!-- GOURMET SEM ÁLCOOL -->
-
-    <section class="category">
-
-      <h2 class="category-title">
-        Gourmet sem álcool
-      </h2>
-
-      <article class="item">
-        <h3>Mousse de maracujá</h3>
-      </article>
-
-      <article class="item">
-
-        <h3>Mousse de maracujá trufado</h3>
-
-        <p class="description">
-          Trufado com chocolate.
-        </p>
-
-      </article>
-
-      <article class="item">
-        <h3>Mousse de limão</h3>
-      </article>
-
-      <article class="item">
-
-        <h3>Morango trufado</h3>
-
-        <p class="description">
-          Sorvete de iogurte de morango, calda de morango e chocolate.
-        </p>
-
-      </article>
-
-      <article class="item">
-
-        <h3>Açaí turbinado</h3>
-
-        <p class="description">
-          Leite líquido, leite condensado, creme de leite, leite em pó e energético.
-        </p>
-
-      </article>
-
-      <article class="item">
-        <h3>Abacaxi com coco</h3>
-      </article>
-
-      <article class="item">
-        <h3>Abacaxi ao vinho</h3>
-      </article>
-
-      <article class="item">
-        <h3>Doce de leite</h3>
-      </article>
-
-      <article class="item">
-
-        <h3>Coco com leite condensado</h3>
-
-        <p class="description">
-          Sabor beijinho.
-        </p>
-
-      </article>
-
-      <article class="item">
-
-        <h3>Caju com pedaços da fruta</h3>
-
-        <span class="tag">Zero lactose</span>
-
-      </article>
-
-      <article class="item">
-
-        <h3>Manga com pedaços da fruta</h3>
-
-        <span class="tag">Zero lactose</span>
-
-      </article>
-
-      <article class="item">
-
-        <h3>Melancia com limão</h3>
-
-        <span class="tag">Zero açúcar</span>
-        <span class="tag">Zero lactose</span>
-
-      </article>
-
-      <article class="item">
-
-        <h3>Coco com limão</h3>
-
-        <p class="description">
-          Preparado sem bagaço de coco.
-        </p>
-
-        <span class="tag">Zero açúcar</span>
-        <span class="tag">Zero lactose</span>
-
-      </article>
-
-    </section>
-
-    <!-- FREE WALKING TOUR -->
-
-    <aside class="free-tour-banner">
-      <div class="free-tour-text">
-        <h2>Free Walking Tour pelo Pelourinho</h2>
-      </div>
-
-      <a
-        class="free-tour-button"
-        href="https://wa.me/5511952473756?text=Ol%C3%A1%21%20Consegui%20este%20contato%20atrav%C3%A9s%20do%20pessoal%20do%20Geladinho%20Gourmet%20e%20gostaria%20de%20reservar%20o%20Free%20Walking%20Tour%20pelo%20Pelourinho.%20Poderiam%20me%20informar%20os%20hor%C3%A1rios%20dispon%C3%ADveis%3F"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Ver horários →
-      </a>
-    </aside>
-
-  </main>
-
-  <footer>
-    Salvador, Bahia · <a href="https://toknowsalvador.com/" target="_blank" rel="noopener noreferrer">To Know Salvador</a>
-  </footer>
 </body>
-
 </html>
