@@ -273,9 +273,9 @@ padding:4px 16px 12px;
 
 .item{
 display:grid;
-grid-template-columns:minmax(0,1fr) auto;
+grid-template-columns:auto minmax(0,1fr) auto;
 gap:12px;
-align-items:end;
+align-items:center;
 padding:11px 0;
 border-bottom:1px dotted #aeb7c3;
 }
@@ -288,6 +288,20 @@ border-bottom:none;
 font-size:15px;
 font-weight:700;
 color:#172337;
+}
+
+.item-code{
+display:grid;
+place-items:center;
+width:34px;
+height:34px;
+border-radius:7px;
+background:#ffe05c;
+border:1px solid #e4c437;
+color:#07376f;
+font-size:13px;
+font-weight:900;
+line-height:1;
 }
 
 .item-description{
@@ -521,6 +535,143 @@ box-shadow:0 8px 20px rgba(0,0,0,.32);
 
 
 /* =====================================
+   PASSEIOS E EXPERIÊNCIAS
+===================================== */
+
+.experience-section{
+padding:30px 0 34px;
+background:#f4f6f9;
+border-top:6px solid #07376f;
+}
+
+.island-divider,
+.islands-offer{
+display:none;
+}
+
+.experience-heading{
+padding:0 16px 17px;
+}
+
+.experience-kicker{
+margin:0 0 5px;
+color:#b9001c;
+font-size:12px;
+font-weight:900;
+letter-spacing:1.2px;
+text-transform:uppercase;
+}
+
+.experience-heading h2{
+margin:0;
+color:#07376f;
+font-size:25px;
+line-height:1.15;
+}
+
+.experience-policy{
+display:flex;
+flex-wrap:wrap;
+gap:5px 12px;
+margin:14px 0 0;
+padding:12px 14px;
+background:#ffffff;
+border:1px solid #d8dee8;
+border-radius:9px;
+color:#172337;
+font-size:13px;
+}
+
+.experience-policy strong{
+color:#b9001c;
+}
+
+.experience-scroll{
+display:flex;
+gap:12px;
+padding:0 16px 12px;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+scrollbar-width:none;
+-webkit-overflow-scrolling:touch;
+}
+
+.experience-scroll::-webkit-scrollbar{
+display:none;
+}
+
+.experience-card{
+position:relative;
+display:flex;
+flex:0 0 270px;
+min-height:265px;
+flex-direction:column;
+align-items:flex-start;
+padding:20px;
+overflow:hidden;
+color:#ffffff;
+text-decoration:none;
+border-radius:13px;
+scroll-snap-align:start;
+box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+
+.experience-card.blue{
+background:linear-gradient(145deg,#0a4c88,#07376f);
+}
+
+.experience-card.red{
+background:linear-gradient(145deg,#d31332,#8e0016);
+}
+
+.experience-card.teal{
+background:linear-gradient(145deg,#087e8b,#064f64);
+}
+
+.experience-card.dark{
+background:linear-gradient(145deg,#29374b,#111b2b);
+}
+
+.experience-card .experience-icon{
+font-size:36px;
+line-height:1;
+}
+
+.experience-card h3{
+margin:15px 0 7px;
+font-size:21px;
+line-height:1.13;
+}
+
+.experience-card p{
+margin:0 0 14px;
+font-size:13px;
+line-height:1.45;
+opacity:.9;
+}
+
+.experience-tag{
+display:inline-block;
+margin-bottom:13px;
+padding:6px 9px;
+background:#ffe05c;
+color:#172337;
+border-radius:6px;
+font-size:12px;
+font-weight:900;
+}
+
+.experience-action{
+margin-top:auto;
+padding-top:12px;
+border-top:1px solid rgba(255,255,255,.28);
+width:100%;
+font-size:13px;
+font-weight:900;
+}
+
+
+/* =====================================
    RODAPÉ
 ===================================== */
 
@@ -562,6 +713,15 @@ font-size:14px;
 font-size:11px;
 }
 
+.item{
+gap:9px;
+}
+
+.item-code{
+width:31px;
+height:31px;
+}
+
 .menu-nav a{
 min-width:112px;
 padding:12px 8px;
@@ -586,6 +746,11 @@ font-size:27px;
 
 .offer-price{
 font-size:41px;
+}
+
+.experience-card{
+flex-basis:82vw;
+max-width:300px;
 }
 
 }
@@ -688,6 +853,24 @@ onclick="changeLanguage('fr',this)"
 </button>
 
 
+<button
+onclick="changeLanguage('ru',this)"
+>
+
+🇷🇺 Русский
+
+</button>
+
+
+<button
+onclick="changeLanguage('he',this)"
+>
+
+🇮🇱 עברית
+
+</button>
+
+
 </div>
 
 
@@ -756,7 +939,7 @@ Drinks
 
 <a
 class="islands"
-href="#ilhas"
+href="#experiencias"
 >
 
 <span class="nav-icon">
@@ -764,11 +947,11 @@ href="#ilhas"
 </span>
 
 <span data-i18n="navIslands">
-Passeio às Ilhas
+Passeios
 </span>
 
-<strong class="nav-offer">
-20% OFF
+<strong class="nav-offer" data-i18n="navExperiencesOffer">
+Reserve agora
 </strong>
 
 </a>
@@ -1837,6 +2020,70 @@ Reservar pelo WhatsApp
 
 
 
+<section class="experience-section" id="experiencias">
+
+<div class="experience-heading">
+<p class="experience-kicker" data-i18n="experienceDivider">Experiências em Salvador</p>
+<h2 data-i18n="experiencesTitle">Passeios e experiências</h2>
+
+<p class="experience-policy">
+<strong data-i18n="reservePayNow">Reserve agora. Pague na hora.</strong>
+<span data-i18n="paymentMethods">Crédito, débito, Pix ou espécie.</span>
+</p>
+</div>
+
+<div class="experience-scroll">
+
+<a class="experience-card blue" href="#" data-whatsapp-key="whatsapp" target="_blank" rel="noopener">
+<span class="experience-icon">🏝️</span>
+<h3 data-i18n="islandTitle">Ilha de Itaparica + Ilha dos Frades</h3>
+<p data-i18n="fullDay">Passeio de dia inteiro pela Baía de Todos-os-Santos.</p>
+<span class="experience-tag" data-i18n="islandPrice">R$ 150 por pessoa</span>
+<span class="experience-action" data-i18n="reserveNow">Reservar agora →</span>
+</a>
+
+<a class="experience-card red" href="#" data-whatsapp-key="morroWhatsapp" target="_blank" rel="noopener">
+<span class="experience-icon">🌴</span>
+<h3>Morro de São Paulo</h3>
+<p data-i18n="morroDescription">Passeio para um dos destinos mais desejados da Bahia.</p>
+<span class="experience-tag">20% OFF</span>
+<span class="experience-action" data-i18n="reserveNow">Reservar agora →</span>
+</a>
+
+<a class="experience-card teal" href="#" data-whatsapp-key="forteWhatsapp" target="_blank" rel="noopener">
+<span class="experience-icon">🐢</span>
+<h3 data-i18n="forteTitle">Praia do Forte</h3>
+<p data-i18n="forteDescription">Praia, vila e natureza no Litoral Norte da Bahia.</p>
+<span class="experience-action" data-i18n="reserveNow">Reservar agora →</span>
+</a>
+
+<a class="experience-card dark" href="#" data-whatsapp-key="arenaWhatsapp" target="_blank" rel="noopener">
+<span class="experience-icon">⚽</span>
+<h3>Arena Fonte Nova</h3>
+<p data-i18n="arenaDescription">Viva a experiência de assistir a uma partida em Salvador.</p>
+<span class="experience-action" data-i18n="reserveNow">Reservar agora →</span>
+</a>
+
+<a class="experience-card teal" href="#" data-whatsapp-key="divingWhatsapp" target="_blank" rel="noopener">
+<span class="experience-icon">🤿</span>
+<h3 data-i18n="divingTitle">Mergulho no Porto da Barra</h3>
+<p data-i18n="divingDescription">Consulte horários e disponibilidade para mergulhar.</p>
+<span class="experience-action" data-i18n="reserveNow">Reservar agora →</span>
+</a>
+
+<a class="experience-card blue" href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit" target="_blank" rel="noopener">
+<span class="experience-icon">👣</span>
+<h3>Free Walking Tour</h3>
+<p data-i18n="walkingDescription">Reserve sua caminhada histórica por Salvador.</p>
+<span class="experience-action" data-i18n="openForm">Abrir formulário →</span>
+</a>
+
+</div>
+
+</section>
+
+
+
 <footer class="footer">
 
 <strong>
@@ -1845,7 +2092,7 @@ Reservar pelo WhatsApp
 
 <span data-i18n="footerLanguages">
 
-Cardápio disponível em português, inglês, espanhol, italiano e francês.
+Cardápio disponível em português, inglês, espanhol, italiano, francês, russo e hebraico.
 
 </span>
 
@@ -1879,8 +2126,10 @@ navPetiscos:"Petiscos",
 navTira:"Tira-gosto",
 navBebidas:"Bebidas",
 navDrinks:"Drinks",
-navIslands:"Passeio às Ilhas",
+navIslands:"Passeios",
+navExperiencesOffer:"Reserve agora",
 navAfro:"Conhecer",
+
 
 sectionPetiscos:"Petiscos e pratos",
 sectionTira:"Tira-gosto",
@@ -1974,7 +2223,20 @@ outrasVodkas:"Outras Vodkas",
 
 caipirinhas:"Caipirinhas",
 
-experienceDivider:"Experiência especial",
+experienceDivider:"Experiências em Salvador",
+experiencesTitle:"Passeios e experiências",
+reservePayNow:"Reserve agora. Pague na hora.",
+paymentMethods:"Crédito, débito, Pix ou espécie.",
+islandPrice:"R$ 150 por pessoa",
+morroDescription:"Passeio para um dos destinos mais desejados da Bahia.",
+forteTitle:"Praia do Forte",
+forteDescription:"Praia, vila e natureza no Litoral Norte da Bahia.",
+arenaDescription:"Viva a experiência de assistir a uma partida em Salvador.",
+divingTitle:"Mergulho no Porto da Barra",
+divingDescription:"Consulte horários e disponibilidade para mergulhar.",
+walkingDescription:"Reserve sua caminhada histórica por Salvador.",
+reserveNow:"Reservar agora →",
+openForm:"Abrir formulário →",
 
 offerTop:"🏝️ PASSEIO ÀS ILHAS · 20% OFF",
 
@@ -1995,10 +2257,22 @@ fulldayIncluded:"Passeio de dia inteiro",
 reserve:"Reservar pelo WhatsApp",
 
 footerLanguages:
-"Cardápio disponível em português, inglês, espanhol, italiano e francês.",
+"Cardápio disponível em português, inglês, espanhol, italiano, francês, russo e hebraico.",
 
 whatsapp:
-"Encontrei a oferta para as ilhas na Barraca do Papai Noel e tenho interesse em fazer a reserva."
+"Encontrei o passeio para Ilha de Itaparica e Ilha dos Frades na Barraca do Papai Noel e quero reservar.",
+
+morroWhatsapp:
+"Encontrei a oferta de 20% para Morro de São Paulo na Barraca do Papai Noel e quero reservar.",
+
+forteWhatsapp:
+"Encontrei o passeio para Praia do Forte na Barraca do Papai Noel e quero reservar.",
+
+arenaWhatsapp:
+"Encontrei a experiência para assistir a um jogo na Arena Fonte Nova na Barraca do Papai Noel e quero reservar.",
+
+divingWhatsapp:
+"Encontrei a experiência de mergulho no Porto da Barra na Barraca do Papai Noel e quero reservar."
 
 },
 
@@ -2020,9 +2294,11 @@ navBebidas:"Drinks",
 
 navDrinks:"Cocktails",
 
-navIslands:"Island Tour",
+navIslands:"Tours",
+navExperiencesOffer:"Book now",
 
 navAfro:"Discover",
+
 
 sectionPetiscos:"Food & dishes",
 
@@ -2120,7 +2396,20 @@ outrasVodkas:"Other Vodkas",
 
 caipirinhas:"Caipirinhas",
 
-experienceDivider:"Special experience",
+experienceDivider:"Experiences in Salvador",
+experiencesTitle:"Tours and experiences",
+reservePayNow:"Book now. Pay on the day.",
+paymentMethods:"Credit card, debit card, Pix or cash.",
+islandPrice:"R$ 150 per person",
+morroDescription:"Visit one of Bahia's most sought-after destinations.",
+forteTitle:"Praia do Forte",
+forteDescription:"Beach, village and nature on Bahia's North Coast.",
+arenaDescription:"Experience a live football match in Salvador.",
+divingTitle:"Diving at Porto da Barra",
+divingDescription:"Ask about diving times and availability.",
+walkingDescription:"Book your historical walking tour in Salvador.",
+reserveNow:"Book now →",
+openForm:"Open form →",
 
 offerTop:"🏝️ ISLAND TOUR · 20% OFF",
 
@@ -2141,10 +2430,22 @@ fulldayIncluded:"Full-day tour",
 reserve:"Book on WhatsApp",
 
 footerLanguages:
-"Menu available in Portuguese, English, Spanish, Italian and French.",
+"Menu available in Portuguese, English, Spanish, Italian, French, Russian and Hebrew.",
 
 whatsapp:
-"I found the island tour offer at Barraca do Papai Noel and I am interested in making a reservation."
+"I found the Itaparica and Frades Islands tour at Barraca do Papai Noel and I would like to book.",
+
+morroWhatsapp:
+"I found the 20% offer for Morro de São Paulo at Barraca do Papai Noel and I would like to book.",
+
+forteWhatsapp:
+"I found the Praia do Forte tour at Barraca do Papai Noel and I would like to book.",
+
+arenaWhatsapp:
+"I found the Arena Fonte Nova match experience at Barraca do Papai Noel and I would like to book.",
+
+divingWhatsapp:
+"I found the Porto da Barra diving experience at Barraca do Papai Noel and I would like to book."
 
 },
 
@@ -2166,9 +2467,11 @@ navBebidas:"Bebidas",
 
 navDrinks:"Cócteles",
 
-navIslands:"Paseo a las Islas",
+navIslands:"Paseos",
+navExperiencesOffer:"Reserva ahora",
 
 navAfro:"Conocer",
+
 
 sectionPetiscos:"Comidas y platos",
 
@@ -2266,7 +2569,20 @@ outrasVodkas:"Otros Vodkas",
 
 caipirinhas:"Caipirinhas",
 
-experienceDivider:"Experiencia especial",
+experienceDivider:"Experiencias en Salvador",
+experiencesTitle:"Paseos y experiencias",
+reservePayNow:"Reserva ahora. Paga en el momento.",
+paymentMethods:"Crédito, débito, Pix o efectivo.",
+islandPrice:"R$ 150 por persona",
+morroDescription:"Visita uno de los destinos más deseados de Bahía.",
+forteTitle:"Praia do Forte",
+forteDescription:"Playa, villa y naturaleza en el Litoral Norte de Bahía.",
+arenaDescription:"Vive la experiencia de ver un partido en Salvador.",
+divingTitle:"Buceo en Porto da Barra",
+divingDescription:"Consulta horarios y disponibilidad para bucear.",
+walkingDescription:"Reserva tu paseo histórico a pie por Salvador.",
+reserveNow:"Reservar ahora →",
+openForm:"Abrir formulario →",
 
 offerTop:"🏝️ PASEO A LAS ISLAS · 20% OFF",
 
@@ -2287,10 +2603,22 @@ fulldayIncluded:"Paseo de día completo",
 reserve:"Reservar por WhatsApp",
 
 footerLanguages:
-"Menú disponible en portugués, inglés, español, italiano y francés.",
+"Menú disponible en portugués, inglés, español, italiano, francés, ruso y hebreo.",
 
 whatsapp:
-"Encontré la oferta para las islas en Barraca do Papai Noel y estoy interesado en hacer una reserva."
+"Encontré el paseo a Itaparica y la Isla de los Frailes en Barraca do Papai Noel y quiero reservar.",
+
+morroWhatsapp:
+"Encontré la oferta del 20% para Morro de São Paulo en Barraca do Papai Noel y quiero reservar.",
+
+forteWhatsapp:
+"Encontré el paseo a Praia do Forte en Barraca do Papai Noel y quiero reservar.",
+
+arenaWhatsapp:
+"Encontré la experiencia para ver un partido en Arena Fonte Nova en Barraca do Papai Noel y quiero reservar.",
+
+divingWhatsapp:
+"Encontré la experiencia de buceo en Porto da Barra en Barraca do Papai Noel y quiero reservar."
 
 },
 
@@ -2312,9 +2640,11 @@ navBebidas:"Bevande",
 
 navDrinks:"Cocktail",
 
-navIslands:"Tour delle Isole",
+navIslands:"Escursioni",
+navExperiencesOffer:"Prenota ora",
 
 navAfro:"Scopri",
+
 
 sectionPetiscos:"Piatti e specialità",
 
@@ -2412,7 +2742,20 @@ outrasVodkas:"Altre Vodke",
 
 caipirinhas:"Caipirinhas",
 
-experienceDivider:"Esperienza speciale",
+experienceDivider:"Esperienze a Salvador",
+experiencesTitle:"Escursioni ed esperienze",
+reservePayNow:"Prenota ora. Paga sul posto.",
+paymentMethods:"Carta di credito, debito, Pix o contanti.",
+islandPrice:"R$ 150 a persona",
+morroDescription:"Visita una delle destinazioni più desiderate di Bahia.",
+forteTitle:"Praia do Forte",
+forteDescription:"Spiaggia, villaggio e natura sulla Costa Nord di Bahia.",
+arenaDescription:"Vivi l'esperienza di assistere a una partita a Salvador.",
+divingTitle:"Immersioni a Porto da Barra",
+divingDescription:"Chiedi orari e disponibilità per le immersioni.",
+walkingDescription:"Prenota la tua passeggiata storica a Salvador.",
+reserveNow:"Prenota ora →",
+openForm:"Apri il modulo →",
 
 offerTop:"🏝️ TOUR DELLE ISOLE · 20% OFF",
 
@@ -2433,10 +2776,22 @@ fulldayIncluded:"Tour di un'intera giornata",
 reserve:"Prenota su WhatsApp",
 
 footerLanguages:
-"Menù disponibile in portoghese, inglese, spagnolo, italiano e francese.",
+"Menù disponibile in portoghese, inglese, spagnolo, italiano, francese, russo ed ebraico.",
 
 whatsapp:
-"Ho trovato l'offerta per il tour delle isole presso Barraca do Papai Noel e sono interessato a effettuare una prenotazione."
+"Ho trovato il tour di Itaparica e Ilha dos Frades alla Barraca do Papai Noel e vorrei prenotare.",
+
+morroWhatsapp:
+"Ho trovato l'offerta del 20% per Morro de São Paulo alla Barraca do Papai Noel e vorrei prenotare.",
+
+forteWhatsapp:
+"Ho trovato il tour di Praia do Forte alla Barraca do Papai Noel e vorrei prenotare.",
+
+arenaWhatsapp:
+"Ho trovato l'esperienza per assistere a una partita all'Arena Fonte Nova alla Barraca do Papai Noel e vorrei prenotare.",
+
+divingWhatsapp:
+"Ho trovato l'esperienza di immersione a Porto da Barra alla Barraca do Papai Noel e vorrei prenotare."
 
 },
 
@@ -2458,9 +2813,11 @@ navBebidas:"Boissons",
 
 navDrinks:"Cocktails",
 
-navIslands:"Excursion aux Îles",
+navIslands:"Excursions",
+navExperiencesOffer:"Réserver",
 
 navAfro:"Découvrir",
+
 
 sectionPetiscos:"Plats et spécialités",
 
@@ -2558,7 +2915,20 @@ outrasVodkas:"Autres Vodkas",
 
 caipirinhas:"Caipirinhas",
 
-experienceDivider:"Expérience spéciale",
+experienceDivider:"Expériences à Salvador",
+experiencesTitle:"Excursions et expériences",
+reservePayNow:"Réservez maintenant. Payez sur place.",
+paymentMethods:"Carte de crédit, débit, Pix ou espèces.",
+islandPrice:"R$ 150 par personne",
+morroDescription:"Visitez l'une des destinations les plus recherchées de Bahia.",
+forteTitle:"Praia do Forte",
+forteDescription:"Plage, village et nature sur la Côte Nord de Bahia.",
+arenaDescription:"Vivez l'expérience d'un match de football à Salvador.",
+divingTitle:"Plongée à Porto da Barra",
+divingDescription:"Demandez les horaires et disponibilités pour plonger.",
+walkingDescription:"Réservez votre visite historique à pied de Salvador.",
+reserveNow:"Réserver maintenant →",
+openForm:"Ouvrir le formulaire →",
 
 offerTop:"🏝️ EXCURSION AUX ÎLES · 20% OFF",
 
@@ -2579,10 +2949,222 @@ fulldayIncluded:"Excursion d'une journée",
 reserve:"Réserver sur WhatsApp",
 
 footerLanguages:
-"Menu disponible en portugais, anglais, espagnol, italien et français.",
+"Menu disponible en portugais, anglais, espagnol, italien, français, russe et hébreu.",
 
 whatsapp:
-"J'ai trouvé l'offre pour l'excursion aux îles à la Barraca do Papai Noel et je souhaite effectuer une réservation."
+"J'ai trouvé l'excursion à Itaparica et Ilha dos Frades à la Barraca do Papai Noel et je souhaite réserver.",
+
+morroWhatsapp:
+"J'ai trouvé l'offre de 20% pour Morro de São Paulo à la Barraca do Papai Noel et je souhaite réserver.",
+
+forteWhatsapp:
+"J'ai trouvé l'excursion à Praia do Forte à la Barraca do Papai Noel et je souhaite réserver.",
+
+arenaWhatsapp:
+"J'ai trouvé l'expérience pour assister à un match à l'Arena Fonte Nova à la Barraca do Papai Noel et je souhaite réserver.",
+
+divingWhatsapp:
+"J'ai trouvé l'expérience de plongée à Porto da Barra à la Barraca do Papai Noel et je souhaite réserver."
+
+},
+
+
+/* =====================================
+   РУССКИЙ
+===================================== */
+
+ru:{
+
+officialMenu:"Официальное меню",
+navPetiscos:"Блюда",
+navTira:"Закуски",
+navBebidas:"Напитки",
+navDrinks:"Коктейли",
+navIslands:"Экскурсии",
+navExperiencesOffer:"Забронировать",
+navAfro:"Узнать больше",
+
+sectionPetiscos:"Закуски и блюда",
+sectionTira:"Закуски",
+sectionBebidas:"Напитки",
+
+corvinaM:"Жареная корвина — средняя порция",
+corvinaG:"Жареная корвина — большая порция",
+vermelhoM:"Жареная красная рыба — средняя порция",
+vermelhoG:"Жареная красная рыба — большая порция",
+frangoPassarinha:"Жареная курица по-бразильски",
+saladaFarofa:"Подаётся с салатом и фарофой.",
+carneSol:"Вяленая говядина по-бразильски",
+frangoMilanesa:"Куриное филе в панировке",
+frangoGrelhado:"Куриное филе на гриле",
+pratoFrutas:"Фруктовая тарелка",
+moquecaPeixe:"Рыбная мокека",
+peixeDesc:"Красная или жёлтая рыба.",
+moqueca:"Мокека",
+moquecaOpts:"Варианты: рыба, краб или креветки.",
+camaraoEmp:"Креветки в панировке",
+tartaro:"Подаются с соусом тартар.",
+camaraoAlho:"Креветки с чесноком и маслом",
+batata:"Картофель фри",
+lagosta:"Лобстер",
+vermelhoGrelhado:"Красная рыба на гриле",
+legumes:"Подаётся с овощами.",
+pirao:"Подаётся с пюре из маниока.",
+withFries:"Подаётся с картофелем фри.",
+iscaPeixe:"Рыбные полоски",
+iscaFrango:"Куриные полоски",
+lula:"Жареный кальмар",
+bolinhoBacalhau:"Крокеты из трески",
+bolinhoCamarao:"Крокеты с креветками",
+sixUnits:"6 штук.",
+caldoSururu:"Бульон из моллюсков суруру",
+caldoLambreta:"Бульон из моллюсков ламбрета",
+refrigerante:"Газированный напиток",
+aguaGas:"Газированная вода",
+agua:"Негазированная вода",
+aguaCoco:"Кокосовая вода",
+suco:"Свежий фруктовый сок",
+sucoOpts:"Апельсин, лайм или маракуйя.",
+roskas:"Роски",
+frutas:"Фрукты",
+abacaxi:"Ананас",
+maracuja:"Маракуйя",
+limao:"Лайм",
+morango:"Клубника",
+outrasVodkas:"Другие виды водки",
+caipirinhas:"Кайпириньи",
+
+experienceDivider:"Впечатления в Салвадоре",
+experiencesTitle:"Экскурсии и развлечения",
+reservePayNow:"Забронируйте сейчас. Оплатите на месте.",
+paymentMethods:"Кредитная карта, дебетовая карта, Pix или наличные.",
+islandPrice:"R$ 150 с человека",
+morroDescription:"Посетите одно из самых популярных мест Баии.",
+forteTitle:"Прайя-ду-Форте",
+forteDescription:"Пляж, посёлок и природа северного побережья Баии.",
+arenaDescription:"Посмотрите футбольный матч в Салвадоре.",
+divingTitle:"Дайвинг в Порту-да-Барра",
+divingDescription:"Уточните время и наличие мест для дайвинга.",
+walkingDescription:"Забронируйте историческую прогулку по Салвадору.",
+reserveNow:"Забронировать →",
+openForm:"Открыть форму →",
+
+offerTop:"🏝️ ЭКСКУРСИЯ НА ОСТРОВА · 20% OFF",
+islandTitle:"Остров Итапарика + остров Фрадес",
+fullDay:"Экскурсия на целый день по заливу Всех Святых.",
+perPerson:"с человека",
+pickup:"Трансфер из отеля",
+dropoff:"Обратный трансфер до отеля",
+terminal:"Терминал включён",
+fulldayIncluded:"Экскурсия на целый день",
+reserve:"Забронировать в WhatsApp",
+footerLanguages:"Меню доступно на португальском, английском, испанском, итальянском, французском, русском и иврите.",
+
+whatsapp:"Я нашёл экскурсию на острова Итапарика и Фрадес в Barraca do Papai Noel и хочу забронировать.",
+morroWhatsapp:"Я нашёл предложение со скидкой 20% на поездку в Морро-де-Сан-Паулу в Barraca do Papai Noel и хочу забронировать.",
+forteWhatsapp:"Я нашёл экскурсию в Прайя-ду-Форте в Barraca do Papai Noel и хочу забронировать.",
+arenaWhatsapp:"Я нашёл поездку на матч на Арене Фонте-Нова в Barraca do Papai Noel и хочу забронировать.",
+divingWhatsapp:"Я нашёл дайвинг в Порту-да-Барра в Barraca do Papai Noel и хочу забронировать."
+
+},
+
+
+/* =====================================
+   עברית
+===================================== */
+
+he:{
+
+officialMenu:"תפריט רשמי",
+navPetiscos:"מנות",
+navTira:"מנות פתיחה",
+navBebidas:"משקאות",
+navDrinks:"קוקטיילים",
+navIslands:"סיורים",
+navExperiencesOffer:"הזמינו עכשיו",
+navAfro:"לפרטים",
+
+sectionPetiscos:"מנות ואוכל",
+sectionTira:"מנות פתיחה",
+sectionBebidas:"משקאות",
+
+corvinaM:"דג קורבינה מטוגן — בינוני",
+corvinaG:"דג קורבינה מטוגן — גדול",
+vermelhoM:"דג אדום מטוגן — בינוני",
+vermelhoG:"דג אדום מטוגן — גדול",
+frangoPassarinha:"עוף מטוגן בסגנון ברזילאי",
+saladaFarofa:"מוגש עם סלט ופארופה.",
+carneSol:"בשר מיובש בסגנון ברזילאי",
+frangoMilanesa:"פילה עוף מצופה פירורי לחם",
+frangoGrelhado:"פילה עוף על הגריל",
+pratoFrutas:"צלחת פירות",
+moquecaPeixe:"מוקקה דגים",
+peixeDesc:"דג אדום או דג צהוב.",
+moqueca:"מוקקה",
+moquecaOpts:"אפשרויות: דג, סרטן או שרימפס.",
+camaraoEmp:"שרימפס מצופה פירורי לחם",
+tartaro:"מוגש עם רוטב טרטר.",
+camaraoAlho:"שרימפס עם שום ושמן",
+batata:"צ׳יפס",
+lagosta:"לובסטר",
+vermelhoGrelhado:"דג אדום על הגריל",
+legumes:"מוגש עם ירקות.",
+pirao:"מוגש עם מחית קסאווה.",
+withFries:"מוגש עם צ׳יפס.",
+iscaPeixe:"רצועות דג",
+iscaFrango:"רצועות עוף",
+lula:"קלמרי מטוגן",
+bolinhoBacalhau:"קרוקט בקלה",
+bolinhoCamarao:"קרוקט שרימפס",
+sixUnits:"6 יחידות.",
+caldoSururu:"מרק צדפות סורורו",
+caldoLambreta:"מרק צדפות למברטה",
+refrigerante:"משקה קל",
+aguaGas:"מים מוגזים",
+agua:"מים ללא גז",
+aguaCoco:"מי קוקוס",
+suco:"מיץ פירות טרי",
+sucoOpts:"תפוז, ליים או פסיפלורה.",
+roskas:"רוסקות",
+frutas:"פירות",
+abacaxi:"אננס",
+maracuja:"פסיפלורה",
+limao:"ליים",
+morango:"תות",
+outrasVodkas:"סוגי וודקה נוספים",
+caipirinhas:"קאיפיריניה",
+
+experienceDivider:"חוויות בסלבדור",
+experiencesTitle:"סיורים וחוויות",
+reservePayNow:"הזמינו עכשיו. שלמו במקום.",
+paymentMethods:"כרטיס אשראי, כרטיס חיוב, Pix או מזומן.",
+islandPrice:"R$ 150 לאדם",
+morroDescription:"בקרו באחד היעדים המבוקשים ביותר בבאהיה.",
+forteTitle:"פראיה דו פורטה",
+forteDescription:"חוף, כפר וטבע בחוף הצפוני של באהיה.",
+arenaDescription:"חוו משחק כדורגל חי בסלבדור.",
+divingTitle:"צלילה בפורטו דה בארה",
+divingDescription:"בדקו שעות וזמינות לצלילה.",
+walkingDescription:"הזמינו סיור הליכה היסטורי בסלבדור.",
+reserveNow:"הזמינו עכשיו ←",
+openForm:"פתחו את הטופס ←",
+
+offerTop:"🏝️ סיור לאיים · 20% OFF",
+islandTitle:"האי איטפריקה + האי פרדס",
+fullDay:"סיור יום שלם במפרץ כל הקדושים.",
+perPerson:"לאדם",
+pickup:"איסוף מהמלון",
+dropoff:"הסעה חזרה למלון",
+terminal:"הטרמינל כלול",
+fulldayIncluded:"סיור יום שלם",
+reserve:"הזמנה ב-WhatsApp",
+footerLanguages:"התפריט זמין בפורטוגזית, אנגלית, ספרדית, איטלקית, צרפתית, רוסית ועברית.",
+
+whatsapp:"מצאתי את הסיור לאיים איטפריקה ופרדס ב-Barraca do Papai Noel וברצוני להזמין.",
+morroWhatsapp:"מצאתי את ההנחה של 20% למורו דה סאו פאולו ב-Barraca do Papai Noel וברצוני להזמין.",
+forteWhatsapp:"מצאתי את הסיור לפראיה דו פורטה ב-Barraca do Papai Noel וברצוני להזמין.",
+arenaWhatsapp:"מצאתי את חוויית המשחק בארנה פונטה נובה ב-Barraca do Papai Noel וברצוני להזמין.",
+divingWhatsapp:"מצאתי את חוויית הצלילה בפורטו דה בארה ב-Barraca do Papai Noel וברצוני להזמין."
 
 }
 
@@ -2604,6 +3186,9 @@ language;
 
 document.documentElement.lang =
 language;
+
+document.documentElement.dir =
+language === "he" ? "rtl" : "ltr";
 
 
 document
@@ -2652,13 +3237,17 @@ function updateWhatsApp(){
 const phone =
 "5571993719791";
 
+document
+.querySelectorAll("[data-whatsapp-key]")
+.forEach(link=>{
+
+const messageKey =
+link.getAttribute("data-whatsapp-key");
 
 const message =
-translations[currentLanguage].whatsapp;
+translations[currentLanguage][messageKey];
 
-
-const url =
-
+link.href =
 "https://wa.me/"
 +
 phone
@@ -2667,11 +3256,43 @@ phone
 +
 encodeURIComponent(message);
 
+});
+
+}
+
+
+
+/* =====================================
+   NUMERAÇÃO DOS ITENS
+===================================== */
+
+function addItemNumbers(){
 
 document
-.getElementById("islandsWhatsapp")
-.href =
-url;
+.querySelectorAll(".item")
+.forEach((item,index)=>{
+
+if(item.querySelector(".item-code")){
+return;
+}
+
+const code =
+document.createElement("span");
+
+code.className =
+"item-code";
+
+code.textContent =
+String(index + 1).padStart(2,"0");
+
+code.setAttribute(
+"aria-label",
+"Item " + (index + 1)
+);
+
+item.prepend(code);
+
+});
 
 }
 
@@ -2681,6 +3302,7 @@ url;
    INICIALIZA
 ===================================== */
 
+addItemNumbers();
 updateWhatsApp();
 
 
