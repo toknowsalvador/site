@@ -1,3314 +1,1294 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
-<meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
->
-
-<meta name="theme-color" content="#b9001c">
-
-<title>Barraca do Papai Noel | Cardápio</title>
-
-
-<style>
-
-/* =====================================
-   GERAL
-===================================== */
-
-*{
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:#eef2f7;
-color:#172337;
-line-height:1.45;
-}
-
-.container{
-width:100%;
-max-width:760px;
-margin:0 auto;
-background:#ffffff;
-min-height:100vh;
-overflow:hidden;
-}
-
-
-/* =====================================
-   CABEÇALHO
-===================================== */
-
-.hero{
-background:#b9001c;
-color:#ffffff;
-padding:25px 18px 20px;
-text-align:center;
-border-bottom:7px solid #07376f;
-}
-
-.hero-small{
-margin:0 0 4px;
-font-size:12px;
-font-weight:700;
-letter-spacing:2px;
-text-transform:uppercase;
-}
-
-.hero h1{
-margin:0;
-font-size:34px;
-line-height:1.05;
-font-weight:900;
-}
-
-
-/* =====================================
-   GORRO
-===================================== */
-
-.santa-hat{
-position:relative;
-width:84px;
-height:62px;
-margin:0 auto 8px;
-transform:rotate(-7deg);
-}
-
-.hat-red{
-position:absolute;
-left:15px;
-top:1px;
-width:58px;
-height:47px;
-background:#ef1736;
-clip-path:polygon(
-0 100%,
-51% 0,
-100% 100%
-);
-}
-
-.hat-fold{
-position:absolute;
-left:7px;
-bottom:4px;
-width:70px;
-height:19px;
-background:#ffffff;
-border-radius:14px;
-}
-
-.hat-ball{
-position:absolute;
-right:0;
-top:0;
-width:22px;
-height:22px;
-background:#ffffff;
-border-radius:50%;
-}
-
-
-/* =====================================
-   IDIOMAS
-===================================== */
-
-.languages{
-display:flex;
-gap:7px;
-margin-top:18px;
-overflow-x:auto;
-padding-bottom:2px;
-scrollbar-width:none;
--webkit-overflow-scrolling:touch;
-}
-
-.languages::-webkit-scrollbar{
-display:none;
-}
-
-.languages button{
-flex:0 0 auto;
-display:flex;
-align-items:center;
-justify-content:center;
-min-height:40px;
-padding:8px 11px;
-border-radius:6px;
-font-size:12px;
-font-weight:800;
-border:1px solid rgba(255,255,255,.4);
-background:#07376f;
-color:#ffffff;
-cursor:pointer;
-}
-
-.languages button.active{
-background:#ffffff;
-color:#b9001c;
-}
-
-
-/* =====================================
-   NAVEGAÇÃO HORIZONTAL
-
-   NÃO É MAIS STICKY.
-   ELA FICA SOMENTE NO TOPO DO CARDÁPIO.
-===================================== */
-
-.menu-nav{
-display:flex;
-align-items:stretch;
-overflow-x:auto;
-overflow-y:hidden;
-white-space:nowrap;
-background:#ffffff;
-border-bottom:1px solid #d8dee8;
-box-shadow:0 3px 10px rgba(0,0,0,.06);
-scrollbar-width:none;
--webkit-overflow-scrolling:touch;
-}
-
-.menu-nav::-webkit-scrollbar{
-display:none;
-}
-
-.menu-nav a{
-flex:0 0 auto;
-min-width:122px;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-gap:4px;
-padding:13px 10px;
-text-align:center;
-text-decoration:none;
-font-size:12px;
-font-weight:800;
-color:#07376f;
-border-right:1px solid #e1e5eb;
-}
-
-.menu-nav .nav-icon{
-font-size:21px;
-line-height:1;
-}
-
-.menu-nav .islands{
-color:#b9001c;
-}
-
-.menu-nav .afro{
-background:#07376f;
-color:#ffffff;
-}
-
-.menu-nav .nav-offer{
-display:block;
-font-size:11px;
-color:#b9001c;
-}
-
-.menu-nav .afro .nav-offer{
-color:#ffffff;
-}
-
-
-/* =====================================
-   SEÇÕES
-===================================== */
-
-.menu-section{
-margin:0;
-background:#ffffff;
-border-top:1px solid #dfe4eb;
-}
-
-.section-title{
-display:flex;
-align-items:center;
-gap:9px;
-margin:0;
-padding:13px 16px;
-color:#ffffff;
-font-size:19px;
-font-weight:900;
-text-transform:uppercase;
-}
-
-.section-title.red{
-background:#b9001c;
-}
-
-.section-title.blue{
-background:#07376f;
-}
-
-.section-icon{
-font-size:20px;
-}
-
-
-/* =====================================
-   ITENS
-===================================== */
-
-.items{
-padding:4px 16px 12px;
-}
-
-.item{
-display:grid;
-grid-template-columns:auto minmax(0,1fr) auto;
-gap:12px;
-align-items:center;
-padding:11px 0;
-border-bottom:1px dotted #aeb7c3;
-}
-
-.item:last-child{
-border-bottom:none;
-}
-
-.item-name{
-font-size:15px;
-font-weight:700;
-color:#172337;
-}
-
-.item-code{
-display:grid;
-place-items:center;
-width:34px;
-height:34px;
-border-radius:7px;
-background:#ffe05c;
-border:1px solid #e4c437;
-color:#07376f;
-font-size:13px;
-font-weight:900;
-line-height:1;
-}
-
-.item-description{
-display:block;
-margin-top:2px;
-font-size:12px;
-font-weight:400;
-color:#667183;
-}
-
-.price{
-white-space:nowrap;
-font-size:15px;
-font-weight:900;
-color:#b9001c;
-}
-
-
-/* =====================================
-   DIVISÃO ANTES DAS ILHAS
-===================================== */
-
-.island-divider{
-position:relative;
-padding:34px 20px 25px;
-background:#f4f6f9;
-text-align:center;
-border-top:6px solid #07376f;
-}
-
-.island-divider::before{
-content:"";
-display:block;
-width:72%;
-max-width:440px;
-height:1px;
-margin:0 auto 20px;
-background:linear-gradient(
-to right,
-transparent,
-#b9001c,
-transparent
-);
-}
-
-.island-divider-icon{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:10px;
-font-size:13px;
-font-weight:900;
-color:#07376f;
-letter-spacing:1.4px;
-text-transform:uppercase;
-}
-
-.island-divider-icon span{
-font-size:24px;
-}
-
-
-/* =====================================
-   PASSEIO ÀS ILHAS
-===================================== */
-
-.islands-offer{
-position:relative;
-margin:0 16px 28px;
-min-height:590px;
-border-radius:14px;
-overflow:hidden;
-color:#ffffff;
-background:#07376f;
-box-shadow:0 12px 30px rgba(0,0,0,.23);
-}
-
-
-/* =====================================
-   FUNDO DA OFERTA SEM IMAGENS
-===================================== */
-
-
-
-
-/* =====================================
-   CONTEÚDO SOBRE AS FOTOS
-===================================== */
-
-.islands-content-wrapper{
-position:relative;
-z-index:2;
-min-height:590px;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-background:transparent;
-}
-
-.islands-top{
-background:rgba(185,0,28,.91);
-padding:14px 15px;
-text-align:center;
-font-size:13px;
-font-weight:900;
-letter-spacing:1.1px;
-text-shadow:0 1px 3px rgba(0,0,0,.5);
-}
-
-.islands-content{
-padding:38px 21px 32px;
-text-align:center;
-}
-
-.islands-icon{
-font-size:48px;
-filter:drop-shadow(
-0 3px 5px rgba(0,0,0,.6)
-);
-}
-
-.islands-content h2{
-max-width:560px;
-margin:10px auto 9px;
-font-size:30px;
-line-height:1.13;
-font-weight:900;
-color:#ffffff;
-text-shadow:
-0 2px 5px rgba(0,0,0,.9),
-0 4px 15px rgba(0,0,0,.55);
-}
-
-.islands-description{
-max-width:530px;
-margin:9px auto 0;
-font-size:15px;
-font-weight:700;
-color:#ffffff;
-text-shadow:
-0 2px 6px rgba(0,0,0,.9);
-}
-
-
-/* =====================================
-   PREÇO
-===================================== */
-
-.offer-price{
-margin:26px 0 15px;
-font-size:46px;
-font-weight:900;
-color:#ffffff;
-text-shadow:
-0 3px 10px rgba(0,0,0,.9);
-}
-
-.offer-price small{
-font-size:15px;
-font-weight:700;
-}
-
-
-/* =====================================
-   INCLUSÕES
-===================================== */
-
-.inclusions{
-max-width:490px;
-margin:22px auto 10px;
-padding:17px 18px;
-display:grid;
-gap:11px;
-text-align:left;
-
-background:rgba(0,0,0,.34);
-
-border:
-1px solid
-rgba(255,255,255,.28);
-
-border-radius:11px;
-
-backdrop-filter:blur(3px);
--webkit-backdrop-filter:blur(3px);
-}
-
-.inclusion{
-display:flex;
-align-items:flex-start;
-gap:9px;
-font-size:14px;
-font-weight:800;
-color:#ffffff;
-text-shadow:
-0 1px 4px rgba(0,0,0,.8);
-}
-
-.check{
-font-size:16px;
-font-weight:900;
-}
-
-
-/* =====================================
-   WHATSAPP
-===================================== */
-
-.reserve-button{
-display:block;
-width:100%;
-max-width:470px;
-margin:23px auto 0;
-padding:16px 14px;
-border-radius:8px;
-background:#25d366;
-color:#ffffff;
-text-decoration:none;
-font-size:16px;
-font-weight:900;
-box-shadow:0 5px 15px rgba(0,0,0,.28);
-transition:
-transform .2s ease,
-box-shadow .2s ease;
-}
-
-.reserve-button:hover{
-transform:translateY(-2px);
-box-shadow:0 8px 20px rgba(0,0,0,.32);
-}
-
-
-/* =====================================
-   PASSEIOS E EXPERIÊNCIAS
-===================================== */
-
-.experience-section{
-padding:30px 0 34px;
-background:#f4f6f9;
-border-top:6px solid #07376f;
-}
-
-.island-divider,
-.islands-offer{
-display:none;
-}
-
-.experience-heading{
-padding:0 16px 17px;
-}
-
-.experience-kicker{
-margin:0 0 5px;
-color:#b9001c;
-font-size:12px;
-font-weight:900;
-letter-spacing:1.2px;
-text-transform:uppercase;
-}
-
-.experience-heading h2{
-margin:0;
-color:#07376f;
-font-size:25px;
-line-height:1.15;
-}
-
-.experience-policy{
-display:flex;
-flex-wrap:wrap;
-gap:5px 12px;
-margin:14px 0 0;
-padding:12px 14px;
-background:#ffffff;
-border:1px solid #d8dee8;
-border-radius:9px;
-color:#172337;
-font-size:13px;
-}
-
-.experience-policy strong{
-color:#b9001c;
-}
-
-.experience-scroll{
-display:flex;
-gap:12px;
-padding:0 16px 12px;
-overflow-x:auto;
-scroll-snap-type:x mandatory;
-scrollbar-width:none;
--webkit-overflow-scrolling:touch;
-}
-
-.experience-scroll::-webkit-scrollbar{
-display:none;
-}
-
-.experience-card{
-position:relative;
-display:flex;
-flex:0 0 270px;
-min-height:265px;
-flex-direction:column;
-align-items:flex-start;
-padding:20px;
-overflow:hidden;
-color:#ffffff;
-text-decoration:none;
-border-radius:13px;
-scroll-snap-align:start;
-box-shadow:0 10px 25px rgba(0,0,0,.18);
-}
-
-.experience-card.blue{
-background:linear-gradient(145deg,#0a4c88,#07376f);
-}
-
-.experience-card.red{
-background:linear-gradient(145deg,#d31332,#8e0016);
-}
-
-.experience-card.teal{
-background:linear-gradient(145deg,#087e8b,#064f64);
-}
-
-.experience-card.dark{
-background:linear-gradient(145deg,#29374b,#111b2b);
-}
-
-.experience-card .experience-icon{
-font-size:36px;
-line-height:1;
-}
-
-.experience-card h3{
-margin:15px 0 7px;
-font-size:21px;
-line-height:1.13;
-}
-
-.experience-card p{
-margin:0 0 14px;
-font-size:13px;
-line-height:1.45;
-opacity:.9;
-}
-
-.experience-tag{
-display:inline-block;
-margin-bottom:13px;
-padding:6px 9px;
-background:#ffe05c;
-color:#172337;
-border-radius:6px;
-font-size:12px;
-font-weight:900;
-}
-
-.experience-action{
-margin-top:auto;
-padding-top:12px;
-border-top:1px solid rgba(255,255,255,.28);
-width:100%;
-font-size:13px;
-font-weight:900;
-}
-
-
-/* =====================================
-   RODAPÉ
-===================================== */
-
-.footer{
-margin-top:20px;
-padding:20px 12px;
-background:#07376f;
-color:#ffffff;
-text-align:center;
-font-size:12px;
-}
-
-.footer strong{
-display:block;
-margin-bottom:3px;
-font-size:15px;
-}
-
-
-/* =====================================
-   MOBILE
-===================================== */
-
-@media(max-width:520px){
-
-.hero h1{
-font-size:29px;
-}
-
-.item-name{
-font-size:14px;
-}
-
-.price{
-font-size:14px;
-}
-
-.languages button{
-font-size:11px;
-}
-
-.item{
-gap:9px;
-}
-
-.item-code{
-width:31px;
-height:31px;
-}
-
-.menu-nav a{
-min-width:112px;
-padding:12px 8px;
-}
-
-.islands-offer{
-min-height:620px;
-margin:0 12px 24px;
-}
-
-.islands-content-wrapper{
-min-height:620px;
-}
-
-.islands-content{
-padding:32px 18px 28px;
-}
-
-.islands-content h2{
-font-size:27px;
-}
-
-.offer-price{
-font-size:41px;
-}
-
-.experience-card{
-flex-basis:82vw;
-max-width:300px;
-}
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Cardápio digital do Point do Gelado, no Porto da Barra, Salvador."
+  >
+
+  <title>Point do Gelado | Cardápio</title>
+
+  <style>
+    :root {
+      --vermelho: #e7242d;
+      --vermelho-escuro: #b81420;
+      --azul: #073b78;
+      --azul-escuro: #042653;
+      --azul-claro: #19a9df;
+      --amarelo: #e7cf35;
+      --branco: #ffffff;
+      --texto-claro: #dcecff;
+      --linha: rgba(255, 255, 255, 0.24);
+      --verde: #25d366;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(
+          180deg,
+          var(--vermelho) 0,
+          var(--vermelho) 220px,
+          var(--azul) 220px,
+          var(--azul-escuro) 100%
+        );
+      color: var(--branco);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .pagina {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          180deg,
+          var(--vermelho) 0,
+          var(--vermelho) 215px,
+          var(--azul) 215px,
+          var(--azul-escuro) 100%
+        );
+      box-shadow: 0 0 35px rgba(0, 0, 0, 0.32);
+    }
+
+    /* TOPO */
+
+    .topo {
+      position: relative;
+      min-height: 215px;
+      padding: 22px 20px 38px;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .topo::after {
+      position: absolute;
+      right: -5%;
+      bottom: -42px;
+      left: -5%;
+      height: 82px;
+      content: "";
+      background: var(--azul);
+      border-radius: 50% 50% 0 0;
+    }
+
+    .idiomas {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .idiomas button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 44px;
+      padding: 8px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.12);
+      color: var(--branco);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .idiomas button:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateY(-1px);
+    }
+
+    .idiomas .ativo {
+      border-color: var(--amarelo);
+      background: var(--amarelo);
+      color: var(--azul-escuro);
+    }
+
+    .marca {
+      position: relative;
+      z-index: 3;
+      width: min(100%, 440px);
+      margin: 0 auto;
+    }
+
+    .marca-circulo {
+      width: 122px;
+      height: 122px;
+      margin: 0 auto 10px;
+      padding: 9px;
+      border: 6px solid var(--branco);
+      border-radius: 50%;
+      background:
+        linear-gradient(
+          180deg,
+          var(--azul) 0 55%,
+          #d5a84d 55% 100%
+        );
+      box-shadow:
+        0 0 0 5px rgba(231, 207, 53, 0.8),
+        0 8px 24px rgba(0, 0, 0, 0.26);
+    }
+
+    .marca-faixa {
+      display: flex;
+      width: 160px;
+      min-height: 56px;
+      margin: 24px 0 0 -28px;
+      padding: 6px 10px;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-radius: 10px;
+      background:
+        linear-gradient(
+          135deg,
+          #b2004b,
+          #ec185b
+        );
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+      transform: rotate(-2deg);
+    }
+
+    .marca-faixa strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    .marca-faixa span {
+      color: var(--amarelo);
+      font-family: cursive;
+      font-size: 23px;
+      font-style: italic;
+      line-height: 1;
+    }
+
+    .topo h1 {
+      margin-top: 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 6vw, 42px);
+      letter-spacing: -1px;
+    }
+
+    .topo p {
+      margin-top: 8px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: 14px;
+    }
+
+    /* CONTEÚDO */
+
+    main {
+      position: relative;
+      z-index: 2;
+      padding: 15px 18px 32px;
+    }
+
+    .introducao {
+      max-width: 580px;
+      margin: 0 auto 24px;
+      color: var(--texto-claro);
+      font-size: 14px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    /* ROLAGEM LATERAL */
+    .atalhos {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 28px;
+      overflow-x: auto;
+      padding-bottom: 5px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .atalhos::-webkit-scrollbar {
+      display: none;
+    }
+
+    .atalhos a {
+      flex: 0 0 auto;
+      padding: 9px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .atalhos .ilhas-link {
+      background: var(--amarelo);
+      color: var(--azul-escuro);
+      border-color: var(--amarelo);
+      font-weight: 900;
+    }
+
+    .atalhos .afro-link {
+      background: var(--branco);
+      color: var(--azul-escuro);
+      border-color: var(--branco);
+      font-weight: 900;
+    }
+
+    .categoria {
+      margin-bottom: 34px;
+      scroll-margin-top: 12px;
+    }
+
+    .titulo-categoria {
+      margin-bottom: 13px;
+      text-align: center;
+    }
+
+    .titulo-categoria h2 {
+      color: var(--amarelo);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(27px, 6vw, 38px);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .titulo-categoria::after {
+      display: block;
+      width: 115px;
+      height: 5px;
+      margin: 7px auto 0;
+      content: "";
+      border-radius: 50%;
+      background: var(--azul-claro);
+      box-shadow: 0 3px 9px rgba(25, 169, 223, 0.7);
+    }
+
+    .lista {
+      border-top: 1px solid var(--linha);
+    }
+
+    .item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+      min-height: 43px;
+      padding: 10px 3px;
+      border-bottom: 1px solid var(--linha);
+    }
+
+    .nome {
+      color: var(--branco);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.28;
+      text-transform: uppercase;
+    }
+
+    .descricao {
+      display: block;
+      margin-top: 4px;
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: none;
+    }
+
+    .preco {
+      min-width: 74px;
+      color: var(--branco);
+      font-size: 15px;
+      font-weight: 800;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .observacao {
+      margin: -15px 0 30px;
+      color: rgba(255, 255, 255, 0.69);
+      font-size: 12px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* PEDIR CONTA */
+
+    .servico {
+      margin-top: 42px;
+      padding: 24px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.17);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.06);
+      text-align: center;
+    }
+
+    .servico h3 {
+      margin-bottom: 7px;
+      color: var(--branco);
+      font-size: 19px;
+    }
+
+    .servico p {
+      max-width: 390px;
+      margin: 0 auto 17px;
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .botao-conta {
+      width: 100%;
+      max-width: 360px;
+      padding: 14px 18px;
+      border: 0;
+      border-radius: 999px;
+      background: var(--verde);
+      color: var(--branco);
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 800;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+    }
+
+    /* DIVISÃO DAS EXPERIÊNCIAS */
+
+    .divisor-experiencias {
+      margin: 42px 0 20px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.18);
+      text-align: center;
+    }
+
+    .divisor-experiencias span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--amarelo);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ILHAS SEM IMAGEM */
+
+    .ilhas-oferta {
+      position: relative;
+      margin-top: 12px;
+      padding: 0;
+      border-radius: 20px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 15%, rgba(25,169,223,.22), transparent 28%),
+        radial-gradient(circle at 85% 85%, rgba(231,207,53,.12), transparent 26%),
+        linear-gradient(145deg, #063b79 0%, #042653 65%, #031d42 100%);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 14px 30px rgba(0,0,0,.28);
+    }
+
+    .ilhas-topo {
+      background: rgba(231, 36, 45, 0.95);
+      padding: 14px 16px;
+      color: var(--branco);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    .ilhas-corpo {
+      padding: 38px 20px 32px;
+      text-align: center;
+    }
+
+    .ilhas-icone {
+      font-size: 48px;
+      margin-bottom: 8px;
+    }
+
+    .ilhas-corpo h2 {
+      max-width: 560px;
+      margin: 0 auto 10px;
+      color: var(--branco);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+      line-height: 1.15;
+    }
+
+    .ilhas-descricao {
+      max-width: 540px;
+      margin: 0 auto;
+      color: rgba(255,255,255,.86);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    .ilhas-preco {
+      margin: 24px 0 13px;
+      color: var(--branco);
+      font-size: 44px;
+      font-weight: 900;
+    }
+
+    .ilhas-preco small {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .ilhas-inclusoes {
+      width: 100%;
+      max-width: 490px;
+      margin: 18px auto 0;
+      padding: 16px 18px;
+      display: grid;
+      gap: 10px;
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 12px;
+      background: rgba(255,255,255,.07);
+      text-align: left;
+    }
+
+    .ilhas-inclusao {
+      display: flex;
+      gap: 9px;
+      color: var(--branco);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .botao-ilhas {
+      display: block;
+      width: 100%;
+      max-width: 470px;
+      margin: 22px auto 0;
+      padding: 16px 14px;
+      border-radius: 999px;
+      background: var(--verde);
+      color: var(--branco);
+      font-size: 16px;
+      font-weight: 900;
+      text-decoration: none;
+      box-shadow: 0 6px 16px rgba(0,0,0,.28);
+    }
+
+    /* AFRO TOUR */
+
+    .afro-tour {
+      margin-top: 18px;
+      padding: 22px 18px;
+      border: 1px solid rgba(255,255,255,.17);
+      border-radius: 18px;
+      background: rgba(255,255,255,.07);
+      text-align: center;
+    }
+
+    .afro-tour h3 {
+      margin-bottom: 8px;
+      color: var(--amarelo);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+    }
+
+    .afro-tour p {
+      max-width: 520px;
+      margin: 0 auto 16px;
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .botao-afro {
+      display: inline-block;
+      padding: 13px 18px;
+      border-radius: 999px;
+      background: var(--branco);
+      color: var(--azul-escuro);
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 18px 20px 30px;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 10px;
+      text-align: center;
+    }
+
+    @media (min-width: 700px) {
+      main {
+        padding-right: 36px;
+        padding-left: 36px;
+      }
+
+      .item {
+        min-height: 47px;
+      }
+
+      .nome {
+        font-size: 15px;
+      }
+
+      .preco {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .ilhas-corpo h2 {
+        font-size: 27px;
+      }
+
+      .ilhas-preco {
+        font-size: 40px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-
-<main class="container">
-
-
-<!-- =====================================
-     CABEÇALHO
-===================================== -->
-
-<header class="hero">
-
-
-<div
-class="santa-hat"
-aria-hidden="true"
->
-
-<div class="hat-red"></div>
-
-<div class="hat-fold"></div>
-
-<div class="hat-ball"></div>
-
-</div>
-
-
-<p
-class="hero-small"
-data-i18n="officialMenu"
->
-Cardápio oficial
-</p>
-
-
-<h1>
-
-Barraca do
-<br>
-Papai Noel
-
-</h1>
-
-
-<div class="languages">
-
-
-<button
-class="active"
-onclick="changeLanguage('pt',this)"
->
-
-🇧🇷 Português
-
-</button>
-
-
-<button
-onclick="changeLanguage('en',this)"
->
-
-🇺🇸 English
-
-</button>
-
-
-<button
-onclick="changeLanguage('es',this)"
->
-
-🇪🇸 Español
-
-</button>
-
-
-<button
-onclick="changeLanguage('it',this)"
->
-
-🇮🇹 Italiano
-
-</button>
-
-
-<button
-onclick="changeLanguage('fr',this)"
->
-
-🇫🇷 Français
-
-</button>
-
-
-<button
-onclick="changeLanguage('ru',this)"
->
-
-🇷🇺 Русский
-
-</button>
-
-
-<button
-onclick="changeLanguage('he',this)"
->
-
-🇮🇱 עברית
-
-</button>
-
-
-</div>
-
-
-</header>
-
-
-
-<!-- =====================================
-     MENU HORIZONTAL
-===================================== -->
-
-<nav class="menu-nav">
-
-
-<a href="#petiscos">
-
-<span class="nav-icon">
-🐟
-</span>
-
-<span data-i18n="navPetiscos">
-Petiscos
-</span>
-
-</a>
-
-
-<a href="#tiragosto">
-
-<span class="nav-icon">
-🍤
-</span>
-
-<span data-i18n="navTira">
-Tira-gosto
-</span>
-
-</a>
-
-
-<a href="#bebidas">
-
-<span class="nav-icon">
-🥤
-</span>
-
-<span data-i18n="navBebidas">
-Bebidas
-</span>
-
-</a>
-
-
-<a href="#drinks">
-
-<span class="nav-icon">
-🍹
-</span>
-
-<span data-i18n="navDrinks">
-Drinks
-</span>
-
-</a>
-
-
-<a
-class="islands"
-href="#experiencias"
->
-
-<span class="nav-icon">
-🏝️
-</span>
-
-<span data-i18n="navIslands">
-Passeios
-</span>
-
-<strong class="nav-offer" data-i18n="navExperiencesOffer">
-Reserve agora
-</strong>
-
-</a>
-
-
-<a
-class="afro"
-href="https://toknowsalvador.com"
-target="_blank"
-rel="noopener"
->
-
-<span class="nav-icon">
-✊🏿
-</span>
-
-<span>
-Afro Tour
-</span>
-
-<strong
-class="nav-offer"
-data-i18n="navAfro"
->
-Conhecer
-</strong>
-
-</a>
-
-
-</nav>
-
-
-
-<!-- =====================================
-     PETISCOS
-===================================== -->
-
-<section
-class="menu-section"
-id="petiscos"
->
-
-<h2 class="section-title red">
-
-<span class="section-icon">
-🐟
-</span>
-
-<span data-i18n="sectionPetiscos">
-Petiscos e pratos
-</span>
-
-</h2>
-
-
-<div class="items">
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="corvinaM"
->
-Peixe Corvina Frito — Médio
-</div>
-
-<div class="price">
-R$ 140,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="corvinaG"
->
-Peixe Corvina Frito — Grande
-</div>
-
-<div class="price">
-R$ 160,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="vermelhoM"
->
-Peixe Vermelho Frito — Médio
-</div>
-
-<div class="price">
-R$ 170,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="vermelhoG"
->
-Peixe Vermelho Frito — Grande
-</div>
-
-<div class="price">
-R$ 190,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="frangoPassarinha"
->
-Frango à Passarinha
-</div>
-
-<div class="price">
-R$ 110,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-name">
-
-Pititinga
-
-<span
-class="item-description"
-data-i18n="saladaFarofa"
->
-Acompanha salada e farofa.
-</span>
-
-</div>
-
-<div class="price">
-R$ 110,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="carneSol"
->
-Carne do Sol
-</div>
-
-<div class="price">
-R$ 110,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="frangoMilanesa"
->
-Filé de Frango à Milanesa
-</div>
-
-<div class="price">
-R$ 120,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="frangoGrelhado"
->
-Filé de Frango Grelhado
-</div>
-
-<div class="price">
-R$ 130,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="pratoFrutas"
->
-Prato de Frutas
-</div>
-
-<div class="price">
-R$ 100,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-name">
-
-<span data-i18n="moquecaPeixe">
-Moqueca de Peixe
-</span>
-
-<span
-class="item-description"
-data-i18n="peixeDesc"
->
-Peixe vermelho ou pescado amarelo.
-</span>
-
-</div>
-
-<div class="price">
-R$ 240,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-name">
-
-<span data-i18n="moqueca">
-Moqueca
-</span>
-
-<span
-class="item-description"
-data-i18n="moquecaOpts"
->
-Opções: peixe, siri ou camarão.
-</span>
-
-</div>
-
-<div class="price">
-R$ 270,00
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================
-     TIRA-GOSTO
-===================================== -->
-
-<section
-class="menu-section"
-id="tiragosto"
->
-
-<h2 class="section-title blue">
-
-<span class="section-icon">
-🍤
-</span>
-
-<span data-i18n="sectionTira">
-Tira-gosto
-</span>
-
-</h2>
-
-
-<div class="items">
-
-
-<div class="item">
-
-<div class="item-name">
-
-<span data-i18n="camaraoEmp">
-Camarão Empanado
-</span>
-
-<span
-class="item-description"
-data-i18n="tartaro"
->
-Acompanha molho tártaro.
-</span>
-
-</div>
-
-<div class="price">
-R$ 120,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="camaraoAlho"
->
-Camarão ao Alho e Óleo
-</div>
-
-<div class="price">
-R$ 130,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="batata"
->
-Batata Frita
-</div>
-
-<div class="price">
-R$ 60,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="lagosta"
->
-Lagosta
-</div>
-
-<div class="price">
-R$ 270,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-name">
-
-<span data-i18n="vermelhoGrelhado">
-Peixe Vermelho Grelhado
-</span>
-
-<span
-class="item-description"
-data-i18n="legumes"
->
-Acompanha legumes.
-</span>
-
-</div>
-
-<div class="price">
-R$ 210,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-name">
-
-<span data-i18n="carneSol">
-Carne do Sol
-</span>
-
-<span
-class="item-description"
-data-i18n="pirao"
->
-Acompanha pirão de aipim.
-</span>
-
-</div>
-
-<div class="price">
-R$ 130,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-name">
-
-<span data-i18n="carneSol">
-Carne do Sol
-</span>
-
-<span
-class="item-description"
-data-i18n="withFries"
->
-Acompanha batata frita.
-</span>
-
-</div>
-
-<div class="price">
-R$ 120,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="iscaPeixe"
->
-Isca de Peixe
-</div>
-
-<div class="price">
-R$ 110,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="iscaFrango"
->
-Isca de Frango
-</div>
-
-<div class="price">
-R$ 110,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="lula"
->
-Lula Frita
-</div>
-
-<div class="price">
-R$ 120,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-name">
-
-<span data-i18n="bolinhoBacalhau">
-Bolinho de Bacalhau
-</span>
-
-<span
-class="item-description"
-data-i18n="sixUnits"
->
-6 unidades.
-</span>
-
-</div>
-
-<div class="price">
-R$ 70,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div class="item-name">
-
-<span data-i18n="bolinhoCamarao">
-Bolinho de Camarão
-</span>
-
-<span
-class="item-description"
-data-i18n="sixUnits"
->
-6 unidades.
-</span>
-
-</div>
-
-<div class="price">
-R$ 70,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="caldoSururu"
->
-Caldo de Sururu
-</div>
-
-<div class="price">
-R$ 60,00
-</div>
-
-</div>
-
-
-<div class="item">
-
-<div
-class="item-name"
-data-i18n="caldoLambreta"
->
-Caldo de Lambreta
-</div>
-
-<div class="price">
-R$ 60,00
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================
-     BEBIDAS
-===================================== -->
-
-<section
-class="menu-section"
-id="bebidas"
->
-
-<h2 class="section-title red">
-
-<span class="section-icon">
-🥤
-</span>
-
-<span data-i18n="sectionBebidas">
-Bebidas
-</span>
-
-</h2>
-
-
-<div class="items">
-
-
-<div class="item">
-<div class="item-name" data-i18n="refrigerante">Refrigerante</div>
-<div class="price">R$ 10,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name" data-i18n="aguaGas">Água com Gás</div>
-<div class="price">R$ 10,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name" data-i18n="agua">Água sem Gás</div>
-<div class="price">R$ 6,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name" data-i18n="aguaCoco">Água de Coco</div>
-<div class="price">R$ 10,00</div>
-</div>
-
-
-<div class="item">
-
-<div class="item-name">
-
-<span data-i18n="suco">
-Suco da Fruta
-</span>
-
-<span
-class="item-description"
-data-i18n="sucoOpts"
->
-Laranja, limão ou maracujá.
-</span>
-
-</div>
-
-<div class="price">
-R$ 30,00
-</div>
-
-</div>
-
-
-<div class="item">
-<div class="item-name">Skol Latão — 473 ml</div>
-<div class="price">R$ 12,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Itaipava Latão — 473 ml</div>
-<div class="price">R$ 12,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Devassa ou Brahma Duplo Malte</div>
-<div class="price">R$ 12,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Heineken Long Neck</div>
-<div class="price">R$ 18,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Budweiser Long Neck</div>
-<div class="price">R$ 18,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Corona</div>
-<div class="price">R$ 20,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Smirnoff Ice</div>
-<div class="price">R$ 18,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Stella Artois Long Neck</div>
-<div class="price">R$ 18,00</div>
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================
-     ROSKAS
-===================================== -->
-
-<section
-class="menu-section"
-id="drinks"
->
-
-<h2 class="section-title blue">
-
-<span class="section-icon">
-🍹
-</span>
-
-<span data-i18n="roskas">
-Roskas
-</span>
-
-</h2>
-
-
-<div class="items">
-
-
-<div class="item">
-<div class="item-name" data-i18n="frutas">Frutas</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name" data-i18n="abacaxi">Abacaxi</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name" data-i18n="maracuja">Maracujá</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name" data-i18n="limao">Limão</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Umbu</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Seriguela</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Kiwi</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name" data-i18n="morango">Morango</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-
-<div class="item-name">
-
-<span data-i18n="outrasVodkas">
-Outras Vodkas
-</span>
-
-<span class="item-description">
-Orloff, Smirnoff ou Absolut.
-</span>
-
-</div>
-
-<div class="price">
-R$ 40,00
-</div>
-
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================
-     CAIPIRINHAS
-===================================== -->
-
-<section class="menu-section">
-
-<h2 class="section-title red">
-
-<span class="section-icon">
-🍸
-</span>
-
-<span data-i18n="caipirinhas">
-Caipirinhas
-</span>
-
-</h2>
-
-
-<div class="items">
-
-
-<div class="item">
-<div class="item-name" data-i18n="abacaxi">Abacaxi</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name" data-i18n="maracuja">Maracujá</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name" data-i18n="limao">Limão</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Umbu</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Seriguela</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name">Kiwi</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-<div class="item">
-<div class="item-name" data-i18n="morango">Morango</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================
-     SEPARAÇÃO CARDÁPIO / EXPERIÊNCIA
-===================================== -->
-
-<div class="island-divider">
-
-<div class="island-divider-icon">
-
-<span>
-🏝️
-</span>
-
-<div data-i18n="experienceDivider">
-
-Experiência especial
-
-</div>
-
-</div>
-
-</div>
-
-
-
-<!-- =====================================
-     PASSEIO ÀS ILHAS
-===================================== -->
-
-<section
-class="islands-offer"
-id="ilhas"
->
-
-
-<div class="islands-content-wrapper">
-
-
-<div
-class="islands-top"
-data-i18n="offerTop"
->
-
-🏝️ PASSEIO ÀS ILHAS · 20% OFF
-
-</div>
-
-
-
-<div class="islands-content">
-
-
-<div class="islands-icon">
-🏝️
-</div>
-
-
-<h2 data-i18n="islandTitle">
-
-Ilha de Itaparica + Ilha dos Frades
-
-</h2>
-
-
-<p
-class="islands-description"
-data-i18n="fullDay"
->
-
-Passeio de dia inteiro pela Baía de Todos-os-Santos.
-
-</p>
-
-
-
-<div class="offer-price">
-
-R$ 150,00
-
-<small data-i18n="perPerson">
-
-por pessoa
-
-</small>
-
-</div>
-
-
-
-<div class="inclusions">
-
-
-<div class="inclusion">
-
-<span class="check">
-✓
-</span>
-
-<span data-i18n="pickup">
-
-Busca no hotel
-
-</span>
-
-</div>
-
-
-<div class="inclusion">
-
-<span class="check">
-✓
-</span>
-
-<span data-i18n="dropoff">
-
-Retorno e deixa no hotel
-
-</span>
-
-</div>
-
-
-<div class="inclusion">
-
-<span class="check">
-✓
-</span>
-
-<span data-i18n="terminal">
-
-Terminal incluso
-
-</span>
-
-</div>
-
-
-<div class="inclusion">
-
-<span class="check">
-✓
-</span>
-
-<span data-i18n="fulldayIncluded">
-
-Passeio de dia inteiro
-
-</span>
-
-</div>
-
-
-</div>
-
-
-
-<a
-
-id="islandsWhatsapp"
-
-class="reserve-button"
-
-href="#"
-
-target="_blank"
-
-rel="noopener"
-
->
-
-💬
-
-<span data-i18n="reserve">
-
-Reservar pelo WhatsApp
-
-</span>
-
-</a>
-
-
-</div>
-
-</div>
-
-
-</section>
-
-
-
-<section class="experience-section" id="experiencias">
-
-<div class="experience-heading">
-<p class="experience-kicker" data-i18n="experienceDivider">Experiências em Salvador</p>
-<h2 data-i18n="experiencesTitle">Passeios e experiências</h2>
-
-<p class="experience-policy">
-<strong data-i18n="reservePayNow">Reserve agora. Pague na hora.</strong>
-<span data-i18n="paymentMethods">Crédito, débito, Pix ou espécie.</span>
-</p>
-</div>
-
-<div class="experience-scroll">
-
-<a class="experience-card blue" href="#" data-whatsapp-key="whatsapp" target="_blank" rel="noopener">
-<span class="experience-icon">🏝️</span>
-<h3 data-i18n="islandTitle">Ilha de Itaparica + Ilha dos Frades</h3>
-<p data-i18n="fullDay">Passeio de dia inteiro pela Baía de Todos-os-Santos.</p>
-<span class="experience-tag" data-i18n="islandPrice">R$ 150 por pessoa</span>
-<span class="experience-action" data-i18n="reserveNow">Reservar agora →</span>
-</a>
-
-<a class="experience-card red" href="#" data-whatsapp-key="morroWhatsapp" target="_blank" rel="noopener">
-<span class="experience-icon">🌴</span>
-<h3>Morro de São Paulo</h3>
-<p data-i18n="morroDescription">Passeio para um dos destinos mais desejados da Bahia.</p>
-<span class="experience-tag">20% OFF</span>
-<span class="experience-action" data-i18n="reserveNow">Reservar agora →</span>
-</a>
-
-<a class="experience-card teal" href="#" data-whatsapp-key="forteWhatsapp" target="_blank" rel="noopener">
-<span class="experience-icon">🐢</span>
-<h3 data-i18n="forteTitle">Praia do Forte</h3>
-<p data-i18n="forteDescription">Praia, vila e natureza no Litoral Norte da Bahia.</p>
-<span class="experience-action" data-i18n="reserveNow">Reservar agora →</span>
-</a>
-
-<a class="experience-card dark" href="#" data-whatsapp-key="arenaWhatsapp" target="_blank" rel="noopener">
-<span class="experience-icon">⚽</span>
-<h3>Arena Fonte Nova</h3>
-<p data-i18n="arenaDescription">Viva a experiência de assistir a uma partida em Salvador.</p>
-<span class="experience-action" data-i18n="reserveNow">Reservar agora →</span>
-</a>
-
-<a class="experience-card teal" href="#" data-whatsapp-key="divingWhatsapp" target="_blank" rel="noopener">
-<span class="experience-icon">🤿</span>
-<h3 data-i18n="divingTitle">Mergulho no Porto da Barra</h3>
-<p data-i18n="divingDescription">Consulte horários e disponibilidade para mergulhar.</p>
-<span class="experience-action" data-i18n="reserveNow">Reservar agora →</span>
-</a>
-
-<a class="experience-card blue" href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit" target="_blank" rel="noopener">
-<span class="experience-icon">👣</span>
-<h3>Free Walking Tour</h3>
-<p data-i18n="walkingDescription">Reserve sua caminhada histórica por Salvador.</p>
-<span class="experience-action" data-i18n="openForm">Abrir formulário →</span>
-</a>
-
-</div>
-
-</section>
-
-
-
-<footer class="footer">
-
-<strong>
-🎅 Barraca do Papai Noel
-</strong>
-
-<span data-i18n="footerLanguages">
-
-Cardápio disponível em português, inglês, espanhol, italiano, francês, russo e hebraico.
-
-</span>
-
-</footer>
-
-
-</main>
-
-
-
-<script>
-
-
-let currentLanguage =
-"pt";
-
-
-
-const translations = {
-
-
-/* =====================================
-   PORTUGUÊS
-===================================== */
-
-pt:{
-
-officialMenu:"Cardápio oficial",
-
-navPetiscos:"Petiscos",
-navTira:"Tira-gosto",
-navBebidas:"Bebidas",
-navDrinks:"Drinks",
-navIslands:"Passeios",
-navExperiencesOffer:"Reserve agora",
-navAfro:"Conhecer",
-
-
-sectionPetiscos:"Petiscos e pratos",
-sectionTira:"Tira-gosto",
-sectionBebidas:"Bebidas",
-
-corvinaM:"Peixe Corvina Frito — Médio",
-corvinaG:"Peixe Corvina Frito — Grande",
-
-vermelhoM:"Peixe Vermelho Frito — Médio",
-vermelhoG:"Peixe Vermelho Frito — Grande",
-
-frangoPassarinha:"Frango à Passarinha",
-
-saladaFarofa:"Acompanha salada e farofa.",
-
-carneSol:"Carne do Sol",
-
-frangoMilanesa:"Filé de Frango à Milanesa",
-
-frangoGrelhado:"Filé de Frango Grelhado",
-
-pratoFrutas:"Prato de Frutas",
-
-moquecaPeixe:"Moqueca de Peixe",
-
-peixeDesc:"Peixe vermelho ou pescado amarelo.",
-
-moqueca:"Moqueca",
-
-moquecaOpts:"Opções: peixe, siri ou camarão.",
-
-camaraoEmp:"Camarão Empanado",
-
-tartaro:"Acompanha molho tártaro.",
-
-camaraoAlho:"Camarão ao Alho e Óleo",
-
-batata:"Batata Frita",
-
-lagosta:"Lagosta",
-
-vermelhoGrelhado:"Peixe Vermelho Grelhado",
-
-legumes:"Acompanha legumes.",
-
-pirao:"Acompanha pirão de aipim.",
-
-withFries:"Acompanha batata frita.",
-
-iscaPeixe:"Isca de Peixe",
-
-iscaFrango:"Isca de Frango",
-
-lula:"Lula Frita",
-
-bolinhoBacalhau:"Bolinho de Bacalhau",
-
-bolinhoCamarao:"Bolinho de Camarão",
-
-sixUnits:"6 unidades.",
-
-caldoSururu:"Caldo de Sururu",
-
-caldoLambreta:"Caldo de Lambreta",
-
-refrigerante:"Refrigerante",
-
-aguaGas:"Água com Gás",
-
-agua:"Água sem Gás",
-
-aguaCoco:"Água de Coco",
-
-suco:"Suco da Fruta",
-
-sucoOpts:"Laranja, limão ou maracujá.",
-
-roskas:"Roskas",
-
-frutas:"Frutas",
-
-abacaxi:"Abacaxi",
-
-maracuja:"Maracujá",
-
-limao:"Limão",
-
-morango:"Morango",
-
-outrasVodkas:"Outras Vodkas",
-
-caipirinhas:"Caipirinhas",
-
-experienceDivider:"Experiências em Salvador",
-experiencesTitle:"Passeios e experiências",
-reservePayNow:"Reserve agora. Pague na hora.",
-paymentMethods:"Crédito, débito, Pix ou espécie.",
-islandPrice:"R$ 150 por pessoa",
-morroDescription:"Passeio para um dos destinos mais desejados da Bahia.",
-forteTitle:"Praia do Forte",
-forteDescription:"Praia, vila e natureza no Litoral Norte da Bahia.",
-arenaDescription:"Viva a experiência de assistir a uma partida em Salvador.",
-divingTitle:"Mergulho no Porto da Barra",
-divingDescription:"Consulte horários e disponibilidade para mergulhar.",
-walkingDescription:"Reserve sua caminhada histórica por Salvador.",
-reserveNow:"Reservar agora →",
-openForm:"Abrir formulário →",
-
-offerTop:"🏝️ PASSEIO ÀS ILHAS · 20% OFF",
-
-islandTitle:"Ilha de Itaparica + Ilha dos Frades",
-
-fullDay:"Passeio de dia inteiro pela Baía de Todos-os-Santos.",
-
-perPerson:"por pessoa",
-
-pickup:"Busca no hotel",
-
-dropoff:"Retorno e deixa no hotel",
-
-terminal:"Terminal incluso",
-
-fulldayIncluded:"Passeio de dia inteiro",
-
-reserve:"Reservar pelo WhatsApp",
-
-footerLanguages:
-"Cardápio disponível em português, inglês, espanhol, italiano, francês, russo e hebraico.",
-
-whatsapp:
-"Encontrei o passeio para Ilha de Itaparica e Ilha dos Frades na Barraca do Papai Noel e quero reservar.",
-
-morroWhatsapp:
-"Encontrei a oferta de 20% para Morro de São Paulo na Barraca do Papai Noel e quero reservar.",
-
-forteWhatsapp:
-"Encontrei o passeio para Praia do Forte na Barraca do Papai Noel e quero reservar.",
-
-arenaWhatsapp:
-"Encontrei a experiência para assistir a um jogo na Arena Fonte Nova na Barraca do Papai Noel e quero reservar.",
-
-divingWhatsapp:
-"Encontrei a experiência de mergulho no Porto da Barra na Barraca do Papai Noel e quero reservar."
-
-},
-
-
-
-/* =====================================
-   ENGLISH
-===================================== */
-
-en:{
-
-officialMenu:"Official menu",
-
-navPetiscos:"Food",
-
-navTira:"Appetizers",
-
-navBebidas:"Drinks",
-
-navDrinks:"Cocktails",
-
-navIslands:"Tours",
-navExperiencesOffer:"Book now",
-
-navAfro:"Discover",
-
-
-sectionPetiscos:"Food & dishes",
-
-sectionTira:"Appetizers",
-
-sectionBebidas:"Drinks",
-
-corvinaM:"Fried Croaker Fish — Medium",
-
-corvinaG:"Fried Croaker Fish — Large",
-
-vermelhoM:"Fried Red Fish — Medium",
-
-vermelhoG:"Fried Red Fish — Large",
-
-frangoPassarinha:"Brazilian Fried Chicken",
-
-saladaFarofa:"Served with salad and farofa.",
-
-carneSol:"Brazilian Sun-Dried Beef",
-
-frangoMilanesa:"Breaded Chicken Fillet",
-
-frangoGrelhado:"Grilled Chicken Fillet",
-
-pratoFrutas:"Fruit Platter",
-
-moquecaPeixe:"Fish Moqueca",
-
-peixeDesc:"Red fish or yellow fish.",
-
-moqueca:"Moqueca",
-
-moquecaOpts:"Options: fish, crab or shrimp.",
-
-camaraoEmp:"Breaded Shrimp",
-
-tartaro:"Served with tartar sauce.",
-
-camaraoAlho:"Garlic & Oil Shrimp",
-
-batata:"French Fries",
-
-lagosta:"Lobster",
-
-vermelhoGrelhado:"Grilled Red Fish",
-
-legumes:"Served with vegetables.",
-
-pirao:"Served with cassava purée.",
-
-withFries:"Served with French fries.",
-
-iscaPeixe:"Fish Strips",
-
-iscaFrango:"Chicken Strips",
-
-lula:"Fried Squid",
-
-bolinhoBacalhau:"Codfish Croquettes",
-
-bolinhoCamarao:"Shrimp Croquettes",
-
-sixUnits:"6 pieces.",
-
-caldoSururu:"Sururu Broth",
-
-caldoLambreta:"Lambreta Shellfish Broth",
-
-refrigerante:"Soft Drink",
-
-aguaGas:"Sparkling Water",
-
-agua:"Still Water",
-
-aguaCoco:"Coconut Water",
-
-suco:"Fresh Fruit Juice",
-
-sucoOpts:"Orange, lime or passion fruit.",
-
-roskas:"Roskas",
-
-frutas:"Mixed Fruit",
-
-abacaxi:"Pineapple",
-
-maracuja:"Passion Fruit",
-
-limao:"Lime",
-
-morango:"Strawberry",
-
-outrasVodkas:"Other Vodkas",
-
-caipirinhas:"Caipirinhas",
-
-experienceDivider:"Experiences in Salvador",
-experiencesTitle:"Tours and experiences",
-reservePayNow:"Book now. Pay on the day.",
-paymentMethods:"Credit card, debit card, Pix or cash.",
-islandPrice:"R$ 150 per person",
-morroDescription:"Visit one of Bahia's most sought-after destinations.",
-forteTitle:"Praia do Forte",
-forteDescription:"Beach, village and nature on Bahia's North Coast.",
-arenaDescription:"Experience a live football match in Salvador.",
-divingTitle:"Diving at Porto da Barra",
-divingDescription:"Ask about diving times and availability.",
-walkingDescription:"Book your historical walking tour in Salvador.",
-reserveNow:"Book now →",
-openForm:"Open form →",
-
-offerTop:"🏝️ ISLAND TOUR · 20% OFF",
-
-islandTitle:"Itaparica Island + Frades Island",
-
-fullDay:"Full-day tour through All Saints Bay.",
-
-perPerson:"per person",
-
-pickup:"Hotel pickup",
-
-dropoff:"Return transfer and hotel drop-off",
-
-terminal:"Terminal included",
-
-fulldayIncluded:"Full-day tour",
-
-reserve:"Book on WhatsApp",
-
-footerLanguages:
-"Menu available in Portuguese, English, Spanish, Italian, French, Russian and Hebrew.",
-
-whatsapp:
-"I found the Itaparica and Frades Islands tour at Barraca do Papai Noel and I would like to book.",
-
-morroWhatsapp:
-"I found the 20% offer for Morro de São Paulo at Barraca do Papai Noel and I would like to book.",
-
-forteWhatsapp:
-"I found the Praia do Forte tour at Barraca do Papai Noel and I would like to book.",
-
-arenaWhatsapp:
-"I found the Arena Fonte Nova match experience at Barraca do Papai Noel and I would like to book.",
-
-divingWhatsapp:
-"I found the Porto da Barra diving experience at Barraca do Papai Noel and I would like to book."
-
-},
-
-
-
-/* =====================================
-   ESPAÑOL
-===================================== */
-
-es:{
-
-officialMenu:"Menú oficial",
-
-navPetiscos:"Comidas",
-
-navTira:"Aperitivos",
-
-navBebidas:"Bebidas",
-
-navDrinks:"Cócteles",
-
-navIslands:"Paseos",
-navExperiencesOffer:"Reserva ahora",
-
-navAfro:"Conocer",
-
-
-sectionPetiscos:"Comidas y platos",
-
-sectionTira:"Aperitivos",
-
-sectionBebidas:"Bebidas",
-
-corvinaM:"Corvina Frita — Mediana",
-
-corvinaG:"Corvina Frita — Grande",
-
-vermelhoM:"Pescado Rojo Frito — Mediano",
-
-vermelhoG:"Pescado Rojo Frito — Grande",
-
-frangoPassarinha:"Pollo Frito Brasileño",
-
-saladaFarofa:"Acompañado de ensalada y farofa.",
-
-carneSol:"Carne de Sol",
-
-frangoMilanesa:"Filete de Pollo Empanado",
-
-frangoGrelhado:"Filete de Pollo a la Parrilla",
-
-pratoFrutas:"Plato de Frutas",
-
-moquecaPeixe:"Moqueca de Pescado",
-
-peixeDesc:"Pescado rojo o pescado amarillo.",
-
-moqueca:"Moqueca",
-
-moquecaOpts:"Opciones: pescado, cangrejo o camarón.",
-
-camaraoEmp:"Camarón Empanado",
-
-tartaro:"Acompañado de salsa tártara.",
-
-camaraoAlho:"Camarón al Ajo y Aceite",
-
-batata:"Papas Fritas",
-
-lagosta:"Langosta",
-
-vermelhoGrelhado:"Pescado Rojo a la Parrilla",
-
-legumes:"Acompañado de verduras.",
-
-pirao:"Acompañado de puré de yuca.",
-
-withFries:"Acompañado de papas fritas.",
-
-iscaPeixe:"Tiras de Pescado",
-
-iscaFrango:"Tiras de Pollo",
-
-lula:"Calamar Frito",
-
-bolinhoBacalhau:"Croquetas de Bacalao",
-
-bolinhoCamarao:"Croquetas de Camarón",
-
-sixUnits:"6 unidades.",
-
-caldoSururu:"Caldo de Sururu",
-
-caldoLambreta:"Caldo de Mariscos Lambreta",
-
-refrigerante:"Refresco",
-
-aguaGas:"Agua con Gas",
-
-agua:"Agua sin Gas",
-
-aguaCoco:"Agua de Coco",
-
-suco:"Jugo Natural",
-
-sucoOpts:"Naranja, limón o maracuyá.",
-
-roskas:"Roskas",
-
-frutas:"Frutas",
-
-abacaxi:"Piña",
-
-maracuja:"Maracuyá",
-
-limao:"Limón",
-
-morango:"Fresa",
-
-outrasVodkas:"Otros Vodkas",
-
-caipirinhas:"Caipirinhas",
-
-experienceDivider:"Experiencias en Salvador",
-experiencesTitle:"Paseos y experiencias",
-reservePayNow:"Reserva ahora. Paga en el momento.",
-paymentMethods:"Crédito, débito, Pix o efectivo.",
-islandPrice:"R$ 150 por persona",
-morroDescription:"Visita uno de los destinos más deseados de Bahía.",
-forteTitle:"Praia do Forte",
-forteDescription:"Playa, villa y naturaleza en el Litoral Norte de Bahía.",
-arenaDescription:"Vive la experiencia de ver un partido en Salvador.",
-divingTitle:"Buceo en Porto da Barra",
-divingDescription:"Consulta horarios y disponibilidad para bucear.",
-walkingDescription:"Reserva tu paseo histórico a pie por Salvador.",
-reserveNow:"Reservar ahora →",
-openForm:"Abrir formulario →",
-
-offerTop:"🏝️ PASEO A LAS ISLAS · 20% OFF",
-
-islandTitle:"Isla de Itaparica + Isla de los Frailes",
-
-fullDay:"Paseo de día completo por la Bahía de Todos los Santos.",
-
-perPerson:"por persona",
-
-pickup:"Recogida en el hotel",
-
-dropoff:"Regreso y traslado al hotel",
-
-terminal:"Terminal incluido",
-
-fulldayIncluded:"Paseo de día completo",
-
-reserve:"Reservar por WhatsApp",
-
-footerLanguages:
-"Menú disponible en portugués, inglés, español, italiano, francés, ruso y hebreo.",
-
-whatsapp:
-"Encontré el paseo a Itaparica y la Isla de los Frailes en Barraca do Papai Noel y quiero reservar.",
-
-morroWhatsapp:
-"Encontré la oferta del 20% para Morro de São Paulo en Barraca do Papai Noel y quiero reservar.",
-
-forteWhatsapp:
-"Encontré el paseo a Praia do Forte en Barraca do Papai Noel y quiero reservar.",
-
-arenaWhatsapp:
-"Encontré la experiencia para ver un partido en Arena Fonte Nova en Barraca do Papai Noel y quiero reservar.",
-
-divingWhatsapp:
-"Encontré la experiencia de buceo en Porto da Barra en Barraca do Papai Noel y quiero reservar."
-
-},
-
-
-
-/* =====================================
-   ITALIANO
-===================================== */
-
-it:{
-
-officialMenu:"Menù ufficiale",
-
-navPetiscos:"Piatti",
-
-navTira:"Antipasti",
-
-navBebidas:"Bevande",
-
-navDrinks:"Cocktail",
-
-navIslands:"Escursioni",
-navExperiencesOffer:"Prenota ora",
-
-navAfro:"Scopri",
-
-
-sectionPetiscos:"Piatti e specialità",
-
-sectionTira:"Antipasti",
-
-sectionBebidas:"Bevande",
-
-corvinaM:"Corvina Fritta — Media",
-
-corvinaG:"Corvina Fritta — Grande",
-
-vermelhoM:"Pesce Rosso Fritto — Medio",
-
-vermelhoG:"Pesce Rosso Fritto — Grande",
-
-frangoPassarinha:"Pollo Fritto Brasiliano",
-
-saladaFarofa:"Servito con insalata e farofa.",
-
-carneSol:"Carne do Sol",
-
-frangoMilanesa:"Filetto di Pollo Impanato",
-
-frangoGrelhado:"Filetto di Pollo alla Griglia",
-
-pratoFrutas:"Piatto di Frutta",
-
-moquecaPeixe:"Moqueca di Pesce",
-
-peixeDesc:"Pesce rosso o pesce giallo.",
-
-moqueca:"Moqueca",
-
-moquecaOpts:"Opzioni: pesce, granchio o gamberi.",
-
-camaraoEmp:"Gamberi Impanati",
-
-tartaro:"Serviti con salsa tartara.",
-
-camaraoAlho:"Gamberi all'Aglio e Olio",
-
-batata:"Patatine Fritte",
-
-lagosta:"Aragosta",
-
-vermelhoGrelhado:"Pesce Rosso alla Griglia",
-
-legumes:"Servito con verdure.",
-
-pirao:"Servito con purea di manioca.",
-
-withFries:"Servito con patatine fritte.",
-
-iscaPeixe:"Strisce di Pesce",
-
-iscaFrango:"Strisce di Pollo",
-
-lula:"Calamari Fritti",
-
-bolinhoBacalhau:"Crocchette di Baccalà",
-
-bolinhoCamarao:"Crocchette di Gamberi",
-
-sixUnits:"6 pezzi.",
-
-caldoSururu:"Brodo di Sururu",
-
-caldoLambreta:"Brodo di Molluschi Lambreta",
-
-refrigerante:"Bibita",
-
-aguaGas:"Acqua Frizzante",
-
-agua:"Acqua Naturale",
-
-aguaCoco:"Acqua di Cocco",
-
-suco:"Succo di Frutta",
-
-sucoOpts:"Arancia, lime o frutto della passione.",
-
-roskas:"Roskas",
-
-frutas:"Frutta",
-
-abacaxi:"Ananas",
-
-maracuja:"Frutto della Passione",
-
-limao:"Lime",
-
-morango:"Fragola",
-
-outrasVodkas:"Altre Vodke",
-
-caipirinhas:"Caipirinhas",
-
-experienceDivider:"Esperienze a Salvador",
-experiencesTitle:"Escursioni ed esperienze",
-reservePayNow:"Prenota ora. Paga sul posto.",
-paymentMethods:"Carta di credito, debito, Pix o contanti.",
-islandPrice:"R$ 150 a persona",
-morroDescription:"Visita una delle destinazioni più desiderate di Bahia.",
-forteTitle:"Praia do Forte",
-forteDescription:"Spiaggia, villaggio e natura sulla Costa Nord di Bahia.",
-arenaDescription:"Vivi l'esperienza di assistere a una partita a Salvador.",
-divingTitle:"Immersioni a Porto da Barra",
-divingDescription:"Chiedi orari e disponibilità per le immersioni.",
-walkingDescription:"Prenota la tua passeggiata storica a Salvador.",
-reserveNow:"Prenota ora →",
-openForm:"Apri il modulo →",
-
-offerTop:"🏝️ TOUR DELLE ISOLE · 20% OFF",
-
-islandTitle:"Isola di Itaparica + Ilha dos Frades",
-
-fullDay:"Tour di un'intera giornata nella Baia di Tutti i Santi.",
-
-perPerson:"a persona",
-
-pickup:"Prelievo in hotel",
-
-dropoff:"Ritorno e accompagnamento in hotel",
-
-terminal:"Terminal incluso",
-
-fulldayIncluded:"Tour di un'intera giornata",
-
-reserve:"Prenota su WhatsApp",
-
-footerLanguages:
-"Menù disponibile in portoghese, inglese, spagnolo, italiano, francese, russo ed ebraico.",
-
-whatsapp:
-"Ho trovato il tour di Itaparica e Ilha dos Frades alla Barraca do Papai Noel e vorrei prenotare.",
-
-morroWhatsapp:
-"Ho trovato l'offerta del 20% per Morro de São Paulo alla Barraca do Papai Noel e vorrei prenotare.",
-
-forteWhatsapp:
-"Ho trovato il tour di Praia do Forte alla Barraca do Papai Noel e vorrei prenotare.",
-
-arenaWhatsapp:
-"Ho trovato l'esperienza per assistere a una partita all'Arena Fonte Nova alla Barraca do Papai Noel e vorrei prenotare.",
-
-divingWhatsapp:
-"Ho trovato l'esperienza di immersione a Porto da Barra alla Barraca do Papai Noel e vorrei prenotare."
-
-},
-
-
-
-/* =====================================
-   FRANÇAIS
-===================================== */
-
-fr:{
-
-officialMenu:"Menu officiel",
-
-navPetiscos:"Plats",
-
-navTira:"Apéritifs",
-
-navBebidas:"Boissons",
-
-navDrinks:"Cocktails",
-
-navIslands:"Excursions",
-navExperiencesOffer:"Réserver",
-
-navAfro:"Découvrir",
-
-
-sectionPetiscos:"Plats et spécialités",
-
-sectionTira:"Apéritifs",
-
-sectionBebidas:"Boissons",
-
-corvinaM:"Corvina Frite — Moyenne",
-
-corvinaG:"Corvina Frite — Grande",
-
-vermelhoM:"Poisson Rouge Frit — Moyen",
-
-vermelhoG:"Poisson Rouge Frit — Grand",
-
-frangoPassarinha:"Poulet Frit Brésilien",
-
-saladaFarofa:"Servi avec salade et farofa.",
-
-carneSol:"Carne do Sol",
-
-frangoMilanesa:"Filet de Poulet Pané",
-
-frangoGrelhado:"Filet de Poulet Grillé",
-
-pratoFrutas:"Assiette de Fruits",
-
-moquecaPeixe:"Moqueca de Poisson",
-
-peixeDesc:"Poisson rouge ou poisson jaune.",
-
-moqueca:"Moqueca",
-
-moquecaOpts:"Options : poisson, crabe ou crevettes.",
-
-camaraoEmp:"Crevettes Panées",
-
-tartaro:"Servies avec sauce tartare.",
-
-camaraoAlho:"Crevettes à l'Ail et à l'Huile",
-
-batata:"Frites",
-
-lagosta:"Langouste",
-
-vermelhoGrelhado:"Poisson Rouge Grillé",
-
-legumes:"Servi avec des légumes.",
-
-pirao:"Servi avec purée de manioc.",
-
-withFries:"Servi avec des frites.",
-
-iscaPeixe:"Lamelles de Poisson",
-
-iscaFrango:"Lamelles de Poulet",
-
-lula:"Calamars Frits",
-
-bolinhoBacalhau:"Croquettes de Morue",
-
-bolinhoCamarao:"Croquettes de Crevettes",
-
-sixUnits:"6 pièces.",
-
-caldoSururu:"Bouillon de Sururu",
-
-caldoLambreta:"Bouillon de Coquillages Lambreta",
-
-refrigerante:"Boisson Gazeuse",
-
-aguaGas:"Eau Gazeuse",
-
-agua:"Eau Plate",
-
-aguaCoco:"Eau de Coco",
-
-suco:"Jus de Fruit",
-
-sucoOpts:"Orange, citron vert ou fruit de la passion.",
-
-roskas:"Roskas",
-
-frutas:"Fruits",
-
-abacaxi:"Ananas",
-
-maracuja:"Fruit de la Passion",
-
-limao:"Citron Vert",
-
-morango:"Fraise",
-
-outrasVodkas:"Autres Vodkas",
-
-caipirinhas:"Caipirinhas",
-
-experienceDivider:"Expériences à Salvador",
-experiencesTitle:"Excursions et expériences",
-reservePayNow:"Réservez maintenant. Payez sur place.",
-paymentMethods:"Carte de crédit, débit, Pix ou espèces.",
-islandPrice:"R$ 150 par personne",
-morroDescription:"Visitez l'une des destinations les plus recherchées de Bahia.",
-forteTitle:"Praia do Forte",
-forteDescription:"Plage, village et nature sur la Côte Nord de Bahia.",
-arenaDescription:"Vivez l'expérience d'un match de football à Salvador.",
-divingTitle:"Plongée à Porto da Barra",
-divingDescription:"Demandez les horaires et disponibilités pour plonger.",
-walkingDescription:"Réservez votre visite historique à pied de Salvador.",
-reserveNow:"Réserver maintenant →",
-openForm:"Ouvrir le formulaire →",
-
-offerTop:"🏝️ EXCURSION AUX ÎLES · 20% OFF",
-
-islandTitle:"Île d'Itaparica + Ilha dos Frades",
-
-fullDay:"Excursion d'une journée dans la Baie de Tous les Saints.",
-
-perPerson:"par personne",
-
-pickup:"Prise en charge à l'hôtel",
-
-dropoff:"Retour et dépose à l'hôtel",
-
-terminal:"Terminal inclus",
-
-fulldayIncluded:"Excursion d'une journée",
-
-reserve:"Réserver sur WhatsApp",
-
-footerLanguages:
-"Menu disponible en portugais, anglais, espagnol, italien, français, russe et hébreu.",
-
-whatsapp:
-"J'ai trouvé l'excursion à Itaparica et Ilha dos Frades à la Barraca do Papai Noel et je souhaite réserver.",
-
-morroWhatsapp:
-"J'ai trouvé l'offre de 20% pour Morro de São Paulo à la Barraca do Papai Noel et je souhaite réserver.",
-
-forteWhatsapp:
-"J'ai trouvé l'excursion à Praia do Forte à la Barraca do Papai Noel et je souhaite réserver.",
-
-arenaWhatsapp:
-"J'ai trouvé l'expérience pour assister à un match à l'Arena Fonte Nova à la Barraca do Papai Noel et je souhaite réserver.",
-
-divingWhatsapp:
-"J'ai trouvé l'expérience de plongée à Porto da Barra à la Barraca do Papai Noel et je souhaite réserver."
-
-},
-
-
-/* =====================================
-   РУССКИЙ
-===================================== */
-
-ru:{
-
-officialMenu:"Официальное меню",
-navPetiscos:"Блюда",
-navTira:"Закуски",
-navBebidas:"Напитки",
-navDrinks:"Коктейли",
-navIslands:"Экскурсии",
-navExperiencesOffer:"Забронировать",
-navAfro:"Узнать больше",
-
-sectionPetiscos:"Закуски и блюда",
-sectionTira:"Закуски",
-sectionBebidas:"Напитки",
-
-corvinaM:"Жареная корвина — средняя порция",
-corvinaG:"Жареная корвина — большая порция",
-vermelhoM:"Жареная красная рыба — средняя порция",
-vermelhoG:"Жареная красная рыба — большая порция",
-frangoPassarinha:"Жареная курица по-бразильски",
-saladaFarofa:"Подаётся с салатом и фарофой.",
-carneSol:"Вяленая говядина по-бразильски",
-frangoMilanesa:"Куриное филе в панировке",
-frangoGrelhado:"Куриное филе на гриле",
-pratoFrutas:"Фруктовая тарелка",
-moquecaPeixe:"Рыбная мокека",
-peixeDesc:"Красная или жёлтая рыба.",
-moqueca:"Мокека",
-moquecaOpts:"Варианты: рыба, краб или креветки.",
-camaraoEmp:"Креветки в панировке",
-tartaro:"Подаются с соусом тартар.",
-camaraoAlho:"Креветки с чесноком и маслом",
-batata:"Картофель фри",
-lagosta:"Лобстер",
-vermelhoGrelhado:"Красная рыба на гриле",
-legumes:"Подаётся с овощами.",
-pirao:"Подаётся с пюре из маниока.",
-withFries:"Подаётся с картофелем фри.",
-iscaPeixe:"Рыбные полоски",
-iscaFrango:"Куриные полоски",
-lula:"Жареный кальмар",
-bolinhoBacalhau:"Крокеты из трески",
-bolinhoCamarao:"Крокеты с креветками",
-sixUnits:"6 штук.",
-caldoSururu:"Бульон из моллюсков суруру",
-caldoLambreta:"Бульон из моллюсков ламбрета",
-refrigerante:"Газированный напиток",
-aguaGas:"Газированная вода",
-agua:"Негазированная вода",
-aguaCoco:"Кокосовая вода",
-suco:"Свежий фруктовый сок",
-sucoOpts:"Апельсин, лайм или маракуйя.",
-roskas:"Роски",
-frutas:"Фрукты",
-abacaxi:"Ананас",
-maracuja:"Маракуйя",
-limao:"Лайм",
-morango:"Клубника",
-outrasVodkas:"Другие виды водки",
-caipirinhas:"Кайпириньи",
-
-experienceDivider:"Впечатления в Салвадоре",
-experiencesTitle:"Экскурсии и развлечения",
-reservePayNow:"Забронируйте сейчас. Оплатите на месте.",
-paymentMethods:"Кредитная карта, дебетовая карта, Pix или наличные.",
-islandPrice:"R$ 150 с человека",
-morroDescription:"Посетите одно из самых популярных мест Баии.",
-forteTitle:"Прайя-ду-Форте",
-forteDescription:"Пляж, посёлок и природа северного побережья Баии.",
-arenaDescription:"Посмотрите футбольный матч в Салвадоре.",
-divingTitle:"Дайвинг в Порту-да-Барра",
-divingDescription:"Уточните время и наличие мест для дайвинга.",
-walkingDescription:"Забронируйте историческую прогулку по Салвадору.",
-reserveNow:"Забронировать →",
-openForm:"Открыть форму →",
-
-offerTop:"🏝️ ЭКСКУРСИЯ НА ОСТРОВА · 20% OFF",
-islandTitle:"Остров Итапарика + остров Фрадес",
-fullDay:"Экскурсия на целый день по заливу Всех Святых.",
-perPerson:"с человека",
-pickup:"Трансфер из отеля",
-dropoff:"Обратный трансфер до отеля",
-terminal:"Терминал включён",
-fulldayIncluded:"Экскурсия на целый день",
-reserve:"Забронировать в WhatsApp",
-footerLanguages:"Меню доступно на португальском, английском, испанском, итальянском, французском, русском и иврите.",
-
-whatsapp:"Я нашёл экскурсию на острова Итапарика и Фрадес в Barraca do Papai Noel и хочу забронировать.",
-morroWhatsapp:"Я нашёл предложение со скидкой 20% на поездку в Морро-де-Сан-Паулу в Barraca do Papai Noel и хочу забронировать.",
-forteWhatsapp:"Я нашёл экскурсию в Прайя-ду-Форте в Barraca do Papai Noel и хочу забронировать.",
-arenaWhatsapp:"Я нашёл поездку на матч на Арене Фонте-Нова в Barraca do Papai Noel и хочу забронировать.",
-divingWhatsapp:"Я нашёл дайвинг в Порту-да-Барра в Barraca do Papai Noel и хочу забронировать."
-
-},
-
-
-/* =====================================
-   עברית
-===================================== */
-
-he:{
-
-officialMenu:"תפריט רשמי",
-navPetiscos:"מנות",
-navTira:"מנות פתיחה",
-navBebidas:"משקאות",
-navDrinks:"קוקטיילים",
-navIslands:"סיורים",
-navExperiencesOffer:"הזמינו עכשיו",
-navAfro:"לפרטים",
-
-sectionPetiscos:"מנות ואוכל",
-sectionTira:"מנות פתיחה",
-sectionBebidas:"משקאות",
-
-corvinaM:"דג קורבינה מטוגן — בינוני",
-corvinaG:"דג קורבינה מטוגן — גדול",
-vermelhoM:"דג אדום מטוגן — בינוני",
-vermelhoG:"דג אדום מטוגן — גדול",
-frangoPassarinha:"עוף מטוגן בסגנון ברזילאי",
-saladaFarofa:"מוגש עם סלט ופארופה.",
-carneSol:"בשר מיובש בסגנון ברזילאי",
-frangoMilanesa:"פילה עוף מצופה פירורי לחם",
-frangoGrelhado:"פילה עוף על הגריל",
-pratoFrutas:"צלחת פירות",
-moquecaPeixe:"מוקקה דגים",
-peixeDesc:"דג אדום או דג צהוב.",
-moqueca:"מוקקה",
-moquecaOpts:"אפשרויות: דג, סרטן או שרימפס.",
-camaraoEmp:"שרימפס מצופה פירורי לחם",
-tartaro:"מוגש עם רוטב טרטר.",
-camaraoAlho:"שרימפס עם שום ושמן",
-batata:"צ׳יפס",
-lagosta:"לובסטר",
-vermelhoGrelhado:"דג אדום על הגריל",
-legumes:"מוגש עם ירקות.",
-pirao:"מוגש עם מחית קסאווה.",
-withFries:"מוגש עם צ׳יפס.",
-iscaPeixe:"רצועות דג",
-iscaFrango:"רצועות עוף",
-lula:"קלמרי מטוגן",
-bolinhoBacalhau:"קרוקט בקלה",
-bolinhoCamarao:"קרוקט שרימפס",
-sixUnits:"6 יחידות.",
-caldoSururu:"מרק צדפות סורורו",
-caldoLambreta:"מרק צדפות למברטה",
-refrigerante:"משקה קל",
-aguaGas:"מים מוגזים",
-agua:"מים ללא גז",
-aguaCoco:"מי קוקוס",
-suco:"מיץ פירות טרי",
-sucoOpts:"תפוז, ליים או פסיפלורה.",
-roskas:"רוסקות",
-frutas:"פירות",
-abacaxi:"אננס",
-maracuja:"פסיפלורה",
-limao:"ליים",
-morango:"תות",
-outrasVodkas:"סוגי וודקה נוספים",
-caipirinhas:"קאיפיריניה",
-
-experienceDivider:"חוויות בסלבדור",
-experiencesTitle:"סיורים וחוויות",
-reservePayNow:"הזמינו עכשיו. שלמו במקום.",
-paymentMethods:"כרטיס אשראי, כרטיס חיוב, Pix או מזומן.",
-islandPrice:"R$ 150 לאדם",
-morroDescription:"בקרו באחד היעדים המבוקשים ביותר בבאהיה.",
-forteTitle:"פראיה דו פורטה",
-forteDescription:"חוף, כפר וטבע בחוף הצפוני של באהיה.",
-arenaDescription:"חוו משחק כדורגל חי בסלבדור.",
-divingTitle:"צלילה בפורטו דה בארה",
-divingDescription:"בדקו שעות וזמינות לצלילה.",
-walkingDescription:"הזמינו סיור הליכה היסטורי בסלבדור.",
-reserveNow:"הזמינו עכשיו ←",
-openForm:"פתחו את הטופס ←",
-
-offerTop:"🏝️ סיור לאיים · 20% OFF",
-islandTitle:"האי איטפריקה + האי פרדס",
-fullDay:"סיור יום שלם במפרץ כל הקדושים.",
-perPerson:"לאדם",
-pickup:"איסוף מהמלון",
-dropoff:"הסעה חזרה למלון",
-terminal:"הטרמינל כלול",
-fulldayIncluded:"סיור יום שלם",
-reserve:"הזמנה ב-WhatsApp",
-footerLanguages:"התפריט זמין בפורטוגזית, אנגלית, ספרדית, איטלקית, צרפתית, רוסית ועברית.",
-
-whatsapp:"מצאתי את הסיור לאיים איטפריקה ופרדס ב-Barraca do Papai Noel וברצוני להזמין.",
-morroWhatsapp:"מצאתי את ההנחה של 20% למורו דה סאו פאולו ב-Barraca do Papai Noel וברצוני להזמין.",
-forteWhatsapp:"מצאתי את הסיור לפראיה דו פורטה ב-Barraca do Papai Noel וברצוני להזמין.",
-arenaWhatsapp:"מצאתי את חוויית המשחק בארנה פונטה נובה ב-Barraca do Papai Noel וברצוני להזמין.",
-divingWhatsapp:"מצאתי את חוויית הצלילה בפורטו דה בארה ב-Barraca do Papai Noel וברצוני להזמין."
-
-}
-
-};
-
-
-
-/* =====================================
-   TROCA DE IDIOMA
-===================================== */
-
-function changeLanguage(
-language,
-button
-){
-
-currentLanguage =
-language;
-
-document.documentElement.lang =
-language;
-
-document.documentElement.dir =
-language === "he" ? "rtl" : "ltr";
-
-
-document
-.querySelectorAll("[data-i18n]")
-.forEach(element=>{
-
-const key =
-element.getAttribute("data-i18n");
-
-if(
-translations[language]
-&&
-translations[language][key]
-){
-
-element.textContent =
-translations[language][key];
-
-}
-
-});
-
-
-document
-.querySelectorAll(".languages button")
-.forEach(btn=>
-btn.classList.remove("active")
-);
-
-
-button.classList.add("active");
-
-
-updateWhatsApp();
-
-}
-
-
-
-/* =====================================
-   WHATSAPP
-===================================== */
-
-function updateWhatsApp(){
-
-const phone =
-"5571993719791";
-
-document
-.querySelectorAll("[data-whatsapp-key]")
-.forEach(link=>{
-
-const messageKey =
-link.getAttribute("data-whatsapp-key");
-
-const message =
-translations[currentLanguage][messageKey];
-
-link.href =
-"https://wa.me/"
-+
-phone
-+
-"?text="
-+
-encodeURIComponent(message);
-
-});
-
-}
-
-
-
-/* =====================================
-   NUMERAÇÃO DOS ITENS
-===================================== */
-
-function addItemNumbers(){
-
-document
-.querySelectorAll(".item")
-.forEach((item,index)=>{
-
-if(item.querySelector(".item-code")){
-return;
-}
-
-const code =
-document.createElement("span");
-
-code.className =
-"item-code";
-
-code.textContent =
-String(index + 1).padStart(2,"0");
-
-code.setAttribute(
-"aria-label",
-"Item " + (index + 1)
-);
-
-item.prepend(code);
-
-});
-
-}
-
-
-
-/* =====================================
-   INICIALIZA
-===================================== */
-
-addItemNumbers();
-updateWhatsApp();
-
-
-</script>
-
+  <div class="pagina">
+
+    <header class="topo">
+
+      <nav class="idiomas" aria-label="Selecionar idioma">
+        <button class="ativo" onclick="trocarIdioma('pt', this)">🇧🇷 PT</button>
+        <button onclick="trocarIdioma('en', this)">🇺🇸 EN</button>
+        <button onclick="trocarIdioma('es', this)">🇪🇸 ES</button>
+        <button onclick="trocarIdioma('fr', this)">🇫🇷 FR</button>
+        <button onclick="trocarIdioma('it', this)">🇮🇹 IT</button>
+      </nav>
+
+      <div class="marca">
+
+        <div class="marca-circulo">
+          <div class="marca-faixa">
+            <strong>Point do</strong>
+            <span>Gelado</span>
+          </div>
+        </div>
+
+        <h1>Point do Gelado</h1>
+
+        <p data-i18n="location">Porto da Barra • Salvador, Bahia</p>
+
+      </div>
+
+    </header>
+
+    <main>
+
+      <p class="introducao" data-i18n="intro">
+        Bebidas geladas, petiscos e refeições para aproveitar seu dia no Porto da Barra.
+      </p>
+
+      <nav class="atalhos" aria-label="Categorias do cardápio">
+        <a href="#bebidas" data-i18n="navDrinks">Bebidas</a>
+        <a href="#sucos" data-i18n="navJuices">Sucos e caipirinhas</a>
+        <a href="#roska">Roska</a>
+        <a href="#refeicoes" data-i18n="navMeals">Refeições</a>
+        <a href="#tira-gosto" data-i18n="navSnacks">Tira-gosto</a>
+        <a class="ilhas-link" href="#ilhas"><span data-i18n="navIslands">Ilhas</span> • 20% OFF</a>
+        <a class="afro-link" href="https://toknowsalvador.com" target="_blank" rel="noopener">Afro Tour</a>
+      </nav>
+
+      <section class="categoria" id="bebidas">
+
+        <div class="titulo-categoria">
+          <h2 data-i18n="drinksTitle">Bebidas</h2>
+        </div>
+
+        <div class="lista">
+
+          <div class="item"><div class="nome" data-i18n="sodaCan">Refrigerante em lata</div><div class="preco">R$ 8,00</div></div>
+          <div class="item"><div class="nome" data-i18n="sodaLiter">Refrigerante de 1 litro</div><div class="preco">R$ 15,00</div></div>
+          <div class="item"><div class="nome">H2O</div><div class="preco">R$ 10,00</div></div>
+          <div class="item"><div class="nome" data-i18n="water">Água</div><div class="preco">R$ 5,00</div></div>
+          <div class="item"><div class="nome" data-i18n="sparklingWater">Água com gás</div><div class="preco">R$ 7,00</div></div>
+          <div class="item"><div class="nome" data-i18n="coconutWater">Água de coco</div><div class="preco">R$ 10,00</div></div>
+          <div class="item"><div class="nome">Skol latão</div><div class="preco">R$ 12,00</div></div>
+          <div class="item"><div class="nome">Itaipava latão</div><div class="preco">R$ 12,00</div></div>
+          <div class="item"><div class="nome">Brahma Chopp</div><div class="preco">R$ 12,00</div></div>
+          <div class="item"><div class="nome">Brahma Duplo Malte</div><div class="preco">R$ 10,00</div></div>
+          <div class="item"><div class="nome">Amstel</div><div class="preco">R$ 10,00</div></div>
+          <div class="item"><div class="nome">Devassa 350 ml</div><div class="preco">R$ 10,00</div></div>
+          <div class="item"><div class="nome">Budweiser Long Neck</div><div class="preco">R$ 20,00</div></div>
+          <div class="item"><div class="nome">Heineken Long Neck</div><div class="preco">R$ 20,00</div></div>
+          <div class="item"><div class="nome">Stella Long Neck</div><div class="preco">R$ 20,00</div></div>
+          <div class="item"><div class="nome">Eisenbahn Long Neck</div><div class="preco">R$ 20,00</div></div>
+          <div class="item"><div class="nome">Smirnoff Ice Long Neck</div><div class="preco">R$ 20,00</div></div>
+          <div class="item"><div class="nome">Cuba Libre</div><div class="preco">R$ 65,00</div></div>
+          <div class="item"><div class="nome">Coco Luty</div><div class="preco">R$ 65,00</div></div>
+
+        </div>
+
+      </section>
+
+      <section class="categoria" id="sucos">
+
+        <div class="titulo-categoria">
+          <h2 data-i18n="juicesTitle">Sucos e Caipirinha</h2>
+        </div>
+
+        <div class="lista">
+          <div class="item"><div class="nome" data-i18n="lime">Limão</div><div class="preco">R$ 25,00</div></div>
+          <div class="item"><div class="nome" data-i18n="pineapple">Abacaxi</div><div class="preco">R$ 25,00</div></div>
+          <div class="item"><div class="nome" data-i18n="passionFruit">Maracujá</div><div class="preco">R$ 25,00</div></div>
+          <div class="item"><div class="nome">Kiwi</div><div class="preco">R$ 25,00</div></div>
+        </div>
+
+      </section>
+
+      <section class="categoria" id="roska">
+
+        <div class="titulo-categoria">
+          <h2>Roska</h2>
+        </div>
+
+        <div class="lista">
+          <div class="item"><div class="nome" data-i18n="lime">Limão</div><div class="preco">R$ 30,00</div></div>
+          <div class="item"><div class="nome" data-i18n="pineapple">Abacaxi</div><div class="preco">R$ 30,00</div></div>
+          <div class="item"><div class="nome" data-i18n="passionFruit">Maracujá</div><div class="preco">R$ 30,00</div></div>
+          <div class="item"><div class="nome">Kiwi</div><div class="preco">R$ 30,00</div></div>
+        </div>
+
+      </section>
+
+      <section class="categoria" id="refeicoes">
+
+        <div class="titulo-categoria">
+          <h2 data-i18n="mealsTitle">Refeições</h2>
+        </div>
+
+        <div class="lista">
+
+          <div class="item">
+            <div class="nome">
+              <span data-i18n="friedCroaker">Peixe corvina frito</span>
+              <span class="descricao" data-i18n="largeSize">Tamanho grande</span>
+            </div>
+            <div class="preco">R$ 230,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">
+              <span data-i18n="friedRedFish">Peixe vermelho frito</span>
+              <span class="descricao" data-i18n="largeSize">Tamanho grande</span>
+            </div>
+            <div class="preco">R$ 250,00</div>
+          </div>
+
+          <div class="item"><div class="nome" data-i18n="friedChicken">Frango a passarinha</div><div class="preco">R$ 125,00</div></div>
+          <div class="item"><div class="nome" data-i18n="sunDriedBeef">Carne do sol</div><div class="preco">R$ 130,00</div></div>
+          <div class="item"><div class="nome" data-i18n="breadedChicken">Filé de frango à milanesa</div><div class="preco">R$ 125,00</div></div>
+          <div class="item"><div class="nome" data-i18n="grilledChicken">Filé de frango grelhado</div><div class="preco">R$ 115,00</div></div>
+          <div class="item"><div class="nome" data-i18n="fruitPlate">Prato de frutas</div><div class="preco">R$ 70,00</div></div>
+
+          <div class="item">
+            <div class="nome">
+              <span data-i18n="fishMoqueca">Moqueca de peixe</span>
+              <span class="descricao" data-i18n="fishOptions">Vermelho, pescada ou amarela</span>
+            </div>
+            <div class="preco">R$ 230,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome" data-i18n="mixedMoqueca">Moqueca de peixe, siri e camarão</div>
+            <div class="preco">R$ 250,00</div>
+          </div>
+
+        </div>
+
+      </section>
+
+      <section class="categoria" id="tira-gosto">
+
+        <div class="titulo-categoria">
+          <h2 data-i18n="snacksTitle">Tira-Gosto</h2>
+        </div>
+
+        <div class="lista">
+
+          <div class="item"><div class="nome" data-i18n="breadedShrimp">Camarão empanado com molho tártaro</div><div class="preco">R$ 150,00</div></div>
+          <div class="item"><div class="nome" data-i18n="garlicShrimp">Camarão ao alho e óleo</div><div class="preco">R$ 130,00</div></div>
+          <div class="item"><div class="nome" data-i18n="fries">Batata frita</div><div class="preco">R$ 50,00</div></div>
+          <div class="item"><div class="nome" data-i18n="lobster">Lagosta</div><div class="preco">R$ 270,00</div></div>
+          <div class="item"><div class="nome" data-i18n="grilledFishVeg">Peixe grelhado com legumes</div><div class="preco">R$ 160,00</div></div>
+          <div class="item"><div class="nome" data-i18n="fishStrips">Isca de peixe</div><div class="preco">R$ 135,00</div></div>
+          <div class="item"><div class="nome" data-i18n="breadedSquid">Lula empanada</div><div class="preco">R$ 130,00</div></div>
+
+          <div class="item">
+            <div class="nome">
+              <span data-i18n="codCroquettes">Bolinho de bacalhau</span>
+              <span class="descricao" data-i18n="sixUnits">6 unidades</span>
+            </div>
+            <div class="preco">R$ 80,00</div>
+          </div>
+
+          <div class="item">
+            <div class="nome">
+              <span data-i18n="shrimpCroquettes">Bolinho de camarão</span>
+              <span class="descricao" data-i18n="sixUnits">6 unidades</span>
+            </div>
+            <div class="preco">R$ 80,00</div>
+          </div>
+
+          <div class="item"><div class="nome" data-i18n="chickenSkewer">Espeto de frango</div><div class="preco">R$ 125,00</div></div>
+          <div class="item"><div class="nome" data-i18n="friedPititinga">Pititinga frita</div><div class="preco">R$ 90,00</div></div>
+          <div class="item"><div class="nome" data-i18n="chickenMedallion">Espeto de medalhão de frango</div><div class="preco">R$ 125,00</div></div>
+
+        </div>
+
+      </section>
+
+      <p class="observacao" data-i18n="note">
+        Consulte a equipe sobre disponibilidade, acompanhamentos e tempo de preparo.
+      </p>
+
+      <section class="servico">
+
+        <h3 data-i18n="billTitle">Pedir a conta</h3>
+
+        <p data-i18n="billText">
+          Toque no botão abaixo e informe somente o número da mesa.
+        </p>
+
+        <button
+          class="botao-conta"
+          type="button"
+          onclick="pedirConta()"
+          data-i18n="billButton"
+        >
+          Pedir a conta
+        </button>
+
+      </section>
+
+      <div class="divisor-experiencias">
+        <span>🏝️ <span data-i18n="experiences">Experiências em Salvador</span></span>
+      </div>
+
+      <section class="ilhas-oferta" id="ilhas">
+
+        <div class="ilhas-topo" data-i18n="islandsTop">
+          🏝️ PASSEIO ÀS ILHAS · 20% OFF
+        </div>
+
+        <div class="ilhas-corpo">
+
+          <div class="ilhas-icone">🏝️</div>
+
+          <h2 data-i18n="islandsTitle">
+            Ilha de Itaparica + Ilha dos Frades
+          </h2>
+
+          <p class="ilhas-descricao" data-i18n="islandsDescription">
+            Passeio de dia inteiro pela Baía de Todos-os-Santos.
+          </p>
+
+          <div class="ilhas-preco">
+            R$ 150,00
+            <small data-i18n="perPerson">por pessoa</small>
+          </div>
+
+          <div class="ilhas-inclusoes">
+            <div class="ilhas-inclusao">✓ <span data-i18n="pickup">Busca no hotel</span></div>
+            <div class="ilhas-inclusao">✓ <span data-i18n="dropoff">Retorno e deixa no hotel</span></div>
+            <div class="ilhas-inclusao">✓ <span data-i18n="terminal">Terminal incluso</span></div>
+            <div class="ilhas-inclusao">✓ <span data-i18n="fullDay">Passeio de dia inteiro</span></div>
+          </div>
+
+          <a
+            id="ilhasWhatsapp"
+            class="botao-ilhas"
+            href="#"
+            target="_blank"
+            rel="noopener"
+          >
+            💬 <span data-i18n="reserve">Reservar pelo WhatsApp</span>
+          </a>
+
+        </div>
+
+      </section>
+
+      <section class="afro-tour">
+        <h3>✊🏿 Afro Tour</h3>
+
+        <p data-i18n="afroText">
+          Conheça a história, a cultura e as influências africanas que moldaram Salvador.
+        </p>
+
+        <a
+          class="botao-afro"
+          href="https://toknowsalvador.com"
+          target="_blank"
+          rel="noopener"
+          data-i18n="afroButton"
+        >
+          Conhecer o Afro Tour
+        </a>
+      </section>
+
+    </main>
+
+    <footer>
+      Point do Gelado • Porto da Barra
+    </footer>
+
+  </div>
+
+  <script>
+
+    let idiomaAtual = "pt";
+
+    const traducoes = {
+
+      pt: {
+        location:"Porto da Barra • Salvador, Bahia",
+        intro:"Bebidas geladas, petiscos e refeições para aproveitar seu dia no Porto da Barra.",
+        navDrinks:"Bebidas",
+        navJuices:"Sucos e caipirinhas",
+        navMeals:"Refeições",
+        navSnacks:"Tira-gosto",
+        navIslands:"Ilhas",
+        drinksTitle:"Bebidas",
+        juicesTitle:"Sucos e Caipirinha",
+        mealsTitle:"Refeições",
+        snacksTitle:"Tira-Gosto",
+        sodaCan:"Refrigerante em lata",
+        sodaLiter:"Refrigerante de 1 litro",
+        water:"Água",
+        sparklingWater:"Água com gás",
+        coconutWater:"Água de coco",
+        lime:"Limão",
+        pineapple:"Abacaxi",
+        passionFruit:"Maracujá",
+        friedCroaker:"Peixe corvina frito",
+        friedRedFish:"Peixe vermelho frito",
+        largeSize:"Tamanho grande",
+        friedChicken:"Frango a passarinha",
+        sunDriedBeef:"Carne do sol",
+        breadedChicken:"Filé de frango à milanesa",
+        grilledChicken:"Filé de frango grelhado",
+        fruitPlate:"Prato de frutas",
+        fishMoqueca:"Moqueca de peixe",
+        fishOptions:"Vermelho, pescada ou amarela",
+        mixedMoqueca:"Moqueca de peixe, siri e camarão",
+        breadedShrimp:"Camarão empanado com molho tártaro",
+        garlicShrimp:"Camarão ao alho e óleo",
+        fries:"Batata frita",
+        lobster:"Lagosta",
+        grilledFishVeg:"Peixe grelhado com legumes",
+        fishStrips:"Isca de peixe",
+        breadedSquid:"Lula empanada",
+        codCroquettes:"Bolinho de bacalhau",
+        shrimpCroquettes:"Bolinho de camarão",
+        sixUnits:"6 unidades",
+        chickenSkewer:"Espeto de frango",
+        friedPititinga:"Pititinga frita",
+        chickenMedallion:"Espeto de medalhão de frango",
+        note:"Consulte a equipe sobre disponibilidade, acompanhamentos e tempo de preparo.",
+        billTitle:"Pedir a conta",
+        billText:"Toque no botão abaixo e informe somente o número da mesa.",
+        billButton:"Pedir a conta",
+        experiences:"Experiências em Salvador",
+        islandsTop:"🏝️ PASSEIO ÀS ILHAS · 20% OFF",
+        islandsTitle:"Ilha de Itaparica + Ilha dos Frades",
+        islandsDescription:"Passeio de dia inteiro pela Baía de Todos-os-Santos.",
+        perPerson:"por pessoa",
+        pickup:"Busca no hotel",
+        dropoff:"Retorno e deixa no hotel",
+        terminal:"Terminal incluso",
+        fullDay:"Passeio de dia inteiro",
+        reserve:"Reservar pelo WhatsApp",
+        afroText:"Conheça a história, a cultura e as influências africanas que moldaram Salvador.",
+        afroButton:"Conhecer o Afro Tour",
+        whatsapp:"Encontrei a oferta para as ilhas no Point do Gelado e tenho interesse em fazer a reserva.",
+        tablePrompt:"Digite somente o número da sua mesa:",
+        tableMissing:"Por favor, informe o número da mesa.",
+        tablePhoneMissing:"O telefone para solicitar a conta será adicionado em breve."
+      },
+
+      en: {
+        location:"Porto da Barra • Salvador, Bahia",
+        intro:"Cold drinks, snacks and meals to enjoy your day at Porto da Barra.",
+        navDrinks:"Drinks",
+        navJuices:"Juices & Caipirinhas",
+        navMeals:"Meals",
+        navSnacks:"Snacks",
+        navIslands:"Islands",
+        drinksTitle:"Drinks",
+        juicesTitle:"Juices & Caipirinhas",
+        mealsTitle:"Meals",
+        snacksTitle:"Snacks",
+        sodaCan:"Canned soft drink",
+        sodaLiter:"1-liter soft drink",
+        water:"Water",
+        sparklingWater:"Sparkling water",
+        coconutWater:"Coconut water",
+        lime:"Lime",
+        pineapple:"Pineapple",
+        passionFruit:"Passion fruit",
+        friedCroaker:"Fried croaker fish",
+        friedRedFish:"Fried red fish",
+        largeSize:"Large size",
+        friedChicken:"Brazilian fried chicken",
+        sunDriedBeef:"Brazilian sun-dried beef",
+        breadedChicken:"Breaded chicken fillet",
+        grilledChicken:"Grilled chicken fillet",
+        fruitPlate:"Fruit platter",
+        fishMoqueca:"Fish moqueca",
+        fishOptions:"Red fish, hake or yellow fish",
+        mixedMoqueca:"Fish, crab and shrimp moqueca",
+        breadedShrimp:"Breaded shrimp with tartar sauce",
+        garlicShrimp:"Garlic and oil shrimp",
+        fries:"French fries",
+        lobster:"Lobster",
+        grilledFishVeg:"Grilled fish with vegetables",
+        fishStrips:"Fish strips",
+        breadedSquid:"Breaded squid",
+        codCroquettes:"Codfish croquettes",
+        shrimpCroquettes:"Shrimp croquettes",
+        sixUnits:"6 pieces",
+        chickenSkewer:"Chicken skewer",
+        friedPititinga:"Fried pititinga",
+        chickenMedallion:"Chicken medallion skewer",
+        note:"Ask the staff about availability, side dishes and preparation time.",
+        billTitle:"Request the bill",
+        billText:"Tap the button below and enter only your table number.",
+        billButton:"Request the bill",
+        experiences:"Experiences in Salvador",
+        islandsTop:"🏝️ ISLAND TOUR · 20% OFF",
+        islandsTitle:"Itaparica Island + Frades Island",
+        islandsDescription:"Full-day tour through All Saints Bay.",
+        perPerson:"per person",
+        pickup:"Hotel pickup",
+        dropoff:"Return transfer and hotel drop-off",
+        terminal:"Terminal included",
+        fullDay:"Full-day tour",
+        reserve:"Book on WhatsApp",
+        afroText:"Discover the history, culture and African influences that shaped Salvador.",
+        afroButton:"Discover the Afro Tour",
+        whatsapp:"I found the island tour offer at Point do Gelado and I am interested in making a reservation.",
+        tablePrompt:"Enter only your table number:",
+        tableMissing:"Please enter your table number.",
+        tablePhoneMissing:"The phone number for requesting the bill will be added soon."
+      },
+
+      es: {
+        location:"Porto da Barra • Salvador, Bahia",
+        intro:"Bebidas frías, aperitivos y comidas para disfrutar tu día en Porto da Barra.",
+        navDrinks:"Bebidas",
+        navJuices:"Jugos y Caipirinhas",
+        navMeals:"Comidas",
+        navSnacks:"Aperitivos",
+        navIslands:"Islas",
+        drinksTitle:"Bebidas",
+        juicesTitle:"Jugos y Caipirinha",
+        mealsTitle:"Comidas",
+        snacksTitle:"Aperitivos",
+        sodaCan:"Refresco en lata",
+        sodaLiter:"Refresco de 1 litro",
+        water:"Agua",
+        sparklingWater:"Agua con gas",
+        coconutWater:"Agua de coco",
+        lime:"Limón",
+        pineapple:"Piña",
+        passionFruit:"Maracuyá",
+        friedCroaker:"Corvina frita",
+        friedRedFish:"Pescado rojo frito",
+        largeSize:"Tamaño grande",
+        friedChicken:"Pollo frito brasileño",
+        sunDriedBeef:"Carne de sol",
+        breadedChicken:"Filete de pollo empanado",
+        grilledChicken:"Filete de pollo a la parrilla",
+        fruitPlate:"Plato de frutas",
+        fishMoqueca:"Moqueca de pescado",
+        fishOptions:"Pescado rojo, merluza o pescado amarillo",
+        mixedMoqueca:"Moqueca de pescado, cangrejo y camarón",
+        breadedShrimp:"Camarón empanado con salsa tártara",
+        garlicShrimp:"Camarón al ajo y aceite",
+        fries:"Papas fritas",
+        lobster:"Langosta",
+        grilledFishVeg:"Pescado a la parrilla con verduras",
+        fishStrips:"Tiras de pescado",
+        breadedSquid:"Calamar empanado",
+        codCroquettes:"Croquetas de bacalao",
+        shrimpCroquettes:"Croquetas de camarón",
+        sixUnits:"6 unidades",
+        chickenSkewer:"Brocheta de pollo",
+        friedPititinga:"Pititinga frita",
+        chickenMedallion:"Brocheta de medallón de pollo",
+        note:"Consulte al equipo sobre disponibilidad, acompañamientos y tiempo de preparación.",
+        billTitle:"Pedir la cuenta",
+        billText:"Toque el botón e informe solamente el número de su mesa.",
+        billButton:"Pedir la cuenta",
+        experiences:"Experiencias en Salvador",
+        islandsTop:"🏝️ PASEO A LAS ISLAS · 20% OFF",
+        islandsTitle:"Isla de Itaparica + Isla de los Frailes",
+        islandsDescription:"Paseo de día completo por la Bahía de Todos los Santos.",
+        perPerson:"por persona",
+        pickup:"Recogida en el hotel",
+        dropoff:"Regreso y traslado al hotel",
+        terminal:"Terminal incluido",
+        fullDay:"Paseo de día completo",
+        reserve:"Reservar por WhatsApp",
+        afroText:"Conoce la historia, la cultura y las influencias africanas que dieron forma a Salvador.",
+        afroButton:"Conocer el Afro Tour",
+        whatsapp:"Encontré la oferta para las islas en Point do Gelado y estoy interesado en hacer una reserva.",
+        tablePrompt:"Digite solamente el número de su mesa:",
+        tableMissing:"Por favor, informe el número de la mesa.",
+        tablePhoneMissing:"El teléfono para solicitar la cuenta será agregado próximamente."
+      },
+
+      fr: {
+        location:"Porto da Barra • Salvador, Bahia",
+        intro:"Boissons fraîches, apéritifs et repas pour profiter de votre journée à Porto da Barra.",
+        navDrinks:"Boissons",
+        navJuices:"Jus et Caipirinhas",
+        navMeals:"Repas",
+        navSnacks:"Apéritifs",
+        navIslands:"Îles",
+        drinksTitle:"Boissons",
+        juicesTitle:"Jus et Caipirinha",
+        mealsTitle:"Repas",
+        snacksTitle:"Apéritifs",
+        sodaCan:"Boisson gazeuse en canette",
+        sodaLiter:"Boisson gazeuse de 1 litre",
+        water:"Eau",
+        sparklingWater:"Eau gazeuse",
+        coconutWater:"Eau de coco",
+        lime:"Citron vert",
+        pineapple:"Ananas",
+        passionFruit:"Fruit de la passion",
+        friedCroaker:"Corvina frite",
+        friedRedFish:"Poisson rouge frit",
+        largeSize:"Grande taille",
+        friedChicken:"Poulet frit brésilien",
+        sunDriedBeef:"Carne do sol",
+        breadedChicken:"Filet de poulet pané",
+        grilledChicken:"Filet de poulet grillé",
+        fruitPlate:"Assiette de fruits",
+        fishMoqueca:"Moqueca de poisson",
+        fishOptions:"Poisson rouge, merlu ou poisson jaune",
+        mixedMoqueca:"Moqueca de poisson, crabe et crevettes",
+        breadedShrimp:"Crevettes panées avec sauce tartare",
+        garlicShrimp:"Crevettes à l'ail et à l'huile",
+        fries:"Frites",
+        lobster:"Langouste",
+        grilledFishVeg:"Poisson grillé avec légumes",
+        fishStrips:"Lamelles de poisson",
+        breadedSquid:"Calamars panés",
+        codCroquettes:"Croquettes de morue",
+        shrimpCroquettes:"Croquettes de crevettes",
+        sixUnits:"6 pièces",
+        chickenSkewer:"Brochette de poulet",
+        friedPititinga:"Pititinga frite",
+        chickenMedallion:"Brochette de médaillon de poulet",
+        note:"Demandez à l'équipe les disponibilités, accompagnements et temps de préparation.",
+        billTitle:"Demander l'addition",
+        billText:"Touchez le bouton ci-dessous et indiquez uniquement le numéro de votre table.",
+        billButton:"Demander l'addition",
+        experiences:"Expériences à Salvador",
+        islandsTop:"🏝️ EXCURSION AUX ÎLES · 20% OFF",
+        islandsTitle:"Île d'Itaparica + Ilha dos Frades",
+        islandsDescription:"Excursion d'une journée dans la Baie de Tous les Saints.",
+        perPerson:"par personne",
+        pickup:"Prise en charge à l'hôtel",
+        dropoff:"Retour et dépose à l'hôtel",
+        terminal:"Terminal inclus",
+        fullDay:"Excursion d'une journée",
+        reserve:"Réserver sur WhatsApp",
+        afroText:"Découvrez l'histoire, la culture et les influences africaines qui ont façonné Salvador.",
+        afroButton:"Découvrir l'Afro Tour",
+        whatsapp:"J'ai trouvé l'offre pour l'excursion aux îles au Point do Gelado et je souhaite effectuer une réservation.",
+        tablePrompt:"Entrez uniquement le numéro de votre table :",
+        tableMissing:"Veuillez indiquer le numéro de la table.",
+        tablePhoneMissing:"Le numéro pour demander l'addition sera ajouté prochainement."
+      },
+
+      it: {
+        location:"Porto da Barra • Salvador, Bahia",
+        intro:"Bevande fresche, antipasti e pasti per goderti la giornata a Porto da Barra.",
+        navDrinks:"Bevande",
+        navJuices:"Succhi e Caipirinhas",
+        navMeals:"Pasti",
+        navSnacks:"Antipasti",
+        navIslands:"Isole",
+        drinksTitle:"Bevande",
+        juicesTitle:"Succhi e Caipirinha",
+        mealsTitle:"Pasti",
+        snacksTitle:"Antipasti",
+        sodaCan:"Bibita in lattina",
+        sodaLiter:"Bibita da 1 litro",
+        water:"Acqua",
+        sparklingWater:"Acqua frizzante",
+        coconutWater:"Acqua di cocco",
+        lime:"Lime",
+        pineapple:"Ananas",
+        passionFruit:"Frutto della passione",
+        friedCroaker:"Corvina fritta",
+        friedRedFish:"Pesce rosso fritto",
+        largeSize:"Formato grande",
+        friedChicken:"Pollo fritto brasiliano",
+        sunDriedBeef:"Carne do sol",
+        breadedChicken:"Filetto di pollo impanato",
+        grilledChicken:"Filetto di pollo alla griglia",
+        fruitPlate:"Piatto di frutta",
+        fishMoqueca:"Moqueca di pesce",
+        fishOptions:"Pesce rosso, nasello o pesce giallo",
+        mixedMoqueca:"Moqueca di pesce, granchio e gamberi",
+        breadedShrimp:"Gamberi impanati con salsa tartara",
+        garlicShrimp:"Gamberi all'aglio e olio",
+        fries:"Patatine fritte",
+        lobster:"Aragosta",
+        grilledFishVeg:"Pesce alla griglia con verdure",
+        fishStrips:"Strisce di pesce",
+        breadedSquid:"Calamari impanati",
+        codCroquettes:"Crocchette di baccalà",
+        shrimpCroquettes:"Crocchette di gamberi",
+        sixUnits:"6 pezzi",
+        chickenSkewer:"Spiedino di pollo",
+        friedPititinga:"Pititinga fritta",
+        chickenMedallion:"Spiedino di medaglione di pollo",
+        note:"Chiedi allo staff disponibilità, contorni e tempi di preparazione.",
+        billTitle:"Chiedere il conto",
+        billText:"Tocca il pulsante e inserisci solo il numero del tavolo.",
+        billButton:"Chiedere il conto",
+        experiences:"Esperienze a Salvador",
+        islandsTop:"🏝️ TOUR DELLE ISOLE · 20% OFF",
+        islandsTitle:"Isola di Itaparica + Ilha dos Frades",
+        islandsDescription:"Tour di un'intera giornata nella Baia di Tutti i Santi.",
+        perPerson:"a persona",
+        pickup:"Prelievo in hotel",
+        dropoff:"Ritorno e accompagnamento in hotel",
+        terminal:"Terminal incluso",
+        fullDay:"Tour di un'intera giornata",
+        reserve:"Prenota su WhatsApp",
+        afroText:"Scopri la storia, la cultura e le influenze africane che hanno plasmato Salvador.",
+        afroButton:"Scopri l'Afro Tour",
+        whatsapp:"Ho trovato l'offerta per il tour delle isole al Point do Gelado e sono interessato a effettuare una prenotazione.",
+        tablePrompt:"Inserisci solo il numero del tavolo:",
+        tableMissing:"Per favore, inserisci il numero del tavolo.",
+        tablePhoneMissing:"Il numero per richiedere il conto sarà aggiunto a breve."
+      }
+
+    };
+
+    function trocarIdioma(idioma, botao) {
+      idiomaAtual = idioma;
+      document.documentElement.lang = idioma;
+
+      document
+        .querySelectorAll("[data-i18n]")
+        .forEach(elemento => {
+          const chave = elemento.getAttribute("data-i18n");
+
+          if (
+            traducoes[idioma] &&
+            traducoes[idioma][chave]
+          ) {
+            elemento.textContent = traducoes[idioma][chave];
+          }
+        });
+
+      document
+        .querySelectorAll(".idiomas button")
+        .forEach(btn => btn.classList.remove("ativo"));
+
+      botao.classList.add("ativo");
+
+      atualizarWhatsAppIlhas();
+    }
+
+    function atualizarWhatsAppIlhas() {
+      const telefone = "5571993719791";
+      const mensagem = traducoes[idiomaAtual].whatsapp;
+
+      document
+        .getElementById("ilhasWhatsapp")
+        .href =
+          "https://wa.me/" +
+          telefone +
+          "?text=" +
+          encodeURIComponent(mensagem);
+    }
+
+    /*
+      Se depois você receber o WhatsApp da própria barraca
+      para solicitar a conta, coloque aqui.
+    */
+    const telefoneBarraca = "";
+
+    function pedirConta() {
+
+      const numeroMesa = prompt(
+        traducoes[idiomaAtual].tablePrompt
+      );
+
+      if (numeroMesa === null) {
+        return;
+      }
+
+      const mesa = numeroMesa.trim();
+
+      if (!mesa) {
+        alert(traducoes[idiomaAtual].tableMissing);
+        return;
+      }
+
+      if (!telefoneBarraca) {
+        alert(traducoes[idiomaAtual].tablePhoneMissing);
+        return;
+      }
+
+      const mensagem = encodeURIComponent(
+        "Mesa " + mesa
+      );
+
+      window.open(
+        "https://wa.me/" +
+        telefoneBarraca +
+        "?text=" +
+        mensagem,
+        "_blank"
+      );
+    }
+
+    atualizarWhatsAppIlhas();
+
+  </script>
 
 </body>
-
 </html>
