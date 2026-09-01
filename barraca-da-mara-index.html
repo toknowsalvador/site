@@ -158,15 +158,24 @@
     .category-scroll::-webkit-scrollbar { display: none; }
 
     .category-scroll button {
-      flex: 0 0 auto;
-      padding: 10px 15px;
-      color: white;
+      flex: 0 0 116px;
+      min-height: 72px;
+      padding: 10px;
+      color: var(--navy);
       font-weight: 800;
-      white-space: nowrap;
-      background: linear-gradient(135deg, var(--blue), var(--navy));
-      border: 0;
-      border-radius: 999px;
-      box-shadow: 0 5px 14px rgba(7,29,53,.13);
+      line-height: 1.18;
+      white-space: normal;
+      text-align: center;
+      background: white;
+      border: 1px solid #b9dce9;
+      border-radius: 14px;
+      box-shadow: 0 5px 14px rgba(7,29,53,.1);
+    }
+
+    .category-scroll button:active {
+      color: white;
+      background: var(--blue);
+      transform: translateY(1px);
     }
 
     .languages button,
@@ -256,6 +265,32 @@
       white-space: nowrap;
     }
 
+    .menu-item-main {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      min-width: 0;
+    }
+
+    .item-number {
+      display: inline-grid;
+      flex: 0 0 30px;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      color: var(--navy);
+      font-size: .78rem;
+      font-weight: 900;
+      line-height: 1;
+      background: var(--yellow);
+      border: 1px solid #e5c83c;
+      border-radius: 8px;
+    }
+
+    .item-name {
+      min-width: 0;
+    }
+
     .side-option {
       width: 100%;
       padding: 0;
@@ -289,17 +324,10 @@
       content: "‹";
     }
 
-    .tap-hint {
-      display: block;
-      margin-top: 3px;
-      color: #587082;
-      font-size: .72rem;
-      font-weight: normal;
-    }
-
-    .side-guide {
-      margin: 0 20px 18px;
-      padding: 14px 16px;
+    .side-guide-global {
+      max-width: 1060px;
+      margin: 0 auto 14px;
+      padding: 11px 16px;
       color: var(--navy);
       font-weight: 800;
       background: #ddf6fb;
@@ -512,6 +540,11 @@
     }
 
     @media (max-width: 520px) {
+      .category-scroll button {
+        flex-basis: 106px;
+        min-height: 68px;
+      }
+
       .menu-grid {
         grid-template-columns: 1fr;
       }
@@ -562,6 +595,7 @@
   </div>
 
   <main>
+    <p id="sideHint" class="side-guide-global">Toque a opção para ver os acompanhamentos.</p>
     <section id="menuGrid" class="menu-grid"></section>
 
     <p id="fruitNotice" class="notice" hidden></p>
@@ -1024,12 +1058,12 @@
     };
 
     const extraText = {
-      pt: { choose: "Escolha uma categoria", tap: "Toque para ver os acompanhamentos", legend: "Legenda dos acompanhamentos", guide: "ℹ️ Pura, Simples, Tradicional e Completa: toque sobre a opção para ver exatamente quais acompanhamentos estão incluídos." },
-      en: { choose: "Choose a category", tap: "Tap to see the side dishes", legend: "Side dish guide", guide: "ℹ️ Plain, Simple, Traditional and Complete: tap an option to see exactly which side dishes are included." },
-      es: { choose: "Elige una categoría", tap: "Toca para ver los acompañamientos", legend: "Guía de acompañamientos", guide: "ℹ️ Pura, Simple, Tradicional y Completa: toca una opción para ver exactamente qué acompañamientos incluye." },
-      it: { choose: "Scegli una categoria", tap: "Tocca per vedere i contorni", legend: "Guida ai contorni", guide: "ℹ️ Senza contorni, Semplice, Tradizionale e Completa: tocca un'opzione per vedere esattamente i contorni inclusi." },
-      fr: { choose: "Choisissez une catégorie", tap: "Touchez pour voir les accompagnements", legend: "Guide des accompagnements", guide: "ℹ️ Nature, Simple, Traditionnelle et Complète : touchez une option pour voir exactement les accompagnements inclus." },
-      he: { choose: "בחרו קטגוריה", tap: "לחצו לצפייה בתוספות", legend: "מדריך התוספות", guide: "ℹ️ ללא תוספות, פשוטה, מסורתית ומלאה: לחצו על האפשרות כדי לראות בדיוק אילו תוספות כלולות." }
+      pt: { choose: "Escolha uma categoria", tap: "Toque a opção para ver os acompanhamentos.", legend: "Legenda dos acompanhamentos" },
+      en: { choose: "Choose a category", tap: "Tap the option to see the side dishes.", legend: "Side dish guide" },
+      es: { choose: "Elige una categoría", tap: "Toca la opción para ver los acompañamientos.", legend: "Guía de acompañamientos" },
+      it: { choose: "Scegli una categoria", tap: "Tocca l'opzione per vedere i contorni.", legend: "Guida ai contorni" },
+      fr: { choose: "Choisissez une catégorie", tap: "Touchez l’option pour voir les accompagnements.", legend: "Guide des accompagnements" },
+      he: { choose: "בחרו קטגוריה", tap: "לחצו על האפשרות לצפייה בתוספות.", legend: "מדריך התוספות" }
     };
 
     const sideOptions = {
@@ -1293,6 +1327,10 @@
       const menuGrid = document.getElementById("menuGrid");
       menuGrid.innerHTML = "";
 
+      let runningItemNumber = isFood
+        ? 1
+        : foodGroups.slice(0, 12).reduce((total, group) => total + group.length, 0) + 1;
+
       groups.forEach((items, index) => {
         const card = document.createElement("article");
         card.className = "menu-card";
@@ -1307,12 +1345,6 @@
         itemsContainer.className = "items";
 
         const usesSideOptions = isFood && index >= 3 && index <= 6;
-        if (usesSideOptions) {
-          const guide = document.createElement("div");
-          guide.className = "side-guide";
-          guide.textContent = extraText[currentLanguage].guide;
-          itemsContainer.appendChild(guide);
-        }
 
         items.forEach(([name, price]) => {
           const optionKey = usesSideOptions && sideOptions[name] ? name : null;
@@ -1325,10 +1357,20 @@
           const row = document.createElement("div");
           row.className = "menu-row";
 
+          const itemMain = document.createElement("span");
+          itemMain.className = "menu-item-main";
+
+          const numberElement = document.createElement("span");
+          numberElement.className = "item-number";
+          numberElement.textContent = runningItemNumber;
+          numberElement.setAttribute("aria-label", "Item " + runningItemNumber);
+          runningItemNumber += 1;
+
           const nameElement = document.createElement("span");
+          nameElement.className = "item-name";
           if (optionKey) {
             const option = sideOptions[optionKey][currentLanguage];
-            nameElement.innerHTML = "<strong>" + option[0] + "</strong><small class='tap-hint'>" + extraText[currentLanguage].tap + "</small>";
+            nameElement.innerHTML = "<strong>" + option[0] + "</strong>";
             wrapper.addEventListener("click", () => openSideModal(optionKey));
           } else {
             nameElement.textContent = translateItem(name);
@@ -1337,7 +1379,9 @@
           const priceElement = document.createElement("strong");
           priceElement.textContent = price;
 
-          row.appendChild(nameElement);
+          itemMain.appendChild(numberElement);
+          itemMain.appendChild(nameElement);
+          row.appendChild(itemMain);
           row.appendChild(priceElement);
           wrapper.appendChild(row);
           itemsContainer.appendChild(wrapper);
@@ -1349,6 +1393,8 @@
       });
 
       document.getElementById("fruitNotice").hidden = isFood;
+      document.getElementById("sideHint").hidden = !isFood;
+      document.getElementById("sideHint").textContent = extraText[currentLanguage].tap;
     }
 
     function openSideModal(optionKey) {
