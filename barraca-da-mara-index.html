@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Barraca da Mara — Cardápio</title>
+
+  <meta
+    name="description"
+    content="Cardápio multilíngue da Barraca da Mara, no Porto da Barra, Salvador."
+  >
+
+  <style>
+    :root {
+      --navy: #071d35;
+      --blue: #005e94;
+      --aqua: #19b8dc;
+      --paper: #f6fbfd;
+      --ink: #10283c;
+      --line: #d8e8ef;
+      --white: #ffffff;
+      --whatsapp: #25d366;
+      --yellow: #ffe25d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    button,
+    a {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 250px;
+      padding: 55px 22px 80px;
+      overflow: hidden;
+      color: white;
+      background:
+        radial-gradient(circle at 82% 16%, #1776a7 0, transparent 28%),
+        linear-gradient(140deg, #06172b, #083d62 68%, #037ea8);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .location {
+      color: #7ce6f7;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      margin: 20px 0 10px;
+      font-size: clamp(2.4rem, 8vw, 5.5rem);
+      line-height: 0.92;
+      letter-spacing: 0.035em;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #bcecf5;
+      font-size: 1.3rem;
+    }
+
+    .wave {
+      position: absolute;
+      right: -5%;
+      bottom: -45px;
+      left: -5%;
+      z-index: 1;
+      height: 120px;
+      background: var(--aqua);
+      border-radius: 50% 50% 0 0 / 35% 35% 0 0;
+      transform: rotate(-2deg);
+    }
+
+    .wave::after {
+      position: absolute;
+      inset: 28px 0 0;
+      content: "";
+      background: var(--paper);
+      border-radius: 50% 50% 0 0 / 32% 32% 0 0;
+    }
+
+    .languages {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      gap: 8px;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 20px 15px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .languages::-webkit-scrollbar {
+      display: none;
+    }
+
+    .languages button,
+    .tabs button {
+      padding: 10px 16px;
+      color: var(--ink);
+      font-weight: 700;
+      white-space: nowrap;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+    }
+
+    .languages button.active {
+      color: white;
+      background: var(--navy);
+      border-color: var(--navy);
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      max-width: 1100px;
+      margin: 12px auto 22px;
+      padding: 0 20px;
+    }
+
+    .tabs button {
+      min-width: 130px;
+      font-size: 1.05rem;
+    }
+
+    .tabs button.active {
+      color: var(--navy);
+      background: var(--aqua);
+      border-color: var(--aqua);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+      gap: 16px;
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 20px 26px;
+    }
+
+    .menu-card {
+      overflow: hidden;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(7, 29, 53, 0.06);
+    }
+
+    .menu-card h2 {
+      margin: 0;
+      padding: 13px 16px;
+      color: white;
+      font-size: 1.08rem;
+      background: linear-gradient(100deg, var(--navy), var(--blue));
+    }
+
+    .items {
+      padding: 8px 15px;
+    }
+
+    .menu-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 8px 0;
+      font-size: 0.95rem;
+      line-height: 1.35;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .menu-row:last-child {
+      border: 0;
+    }
+
+    .menu-row strong {
+      color: var(--blue);
+      white-space: nowrap;
+    }
+
+    .notice,
+    .card-notice {
+      max-width: 1060px;
+      margin: 0 auto 18px;
+      padding: 0 20px;
+      color: #587082;
+    }
+
+    .card-notice {
+      font-size: 0.86rem;
+      text-align: center;
+    }
+
+    .promotion {
+      margin-top: 26px;
+      padding: 38px 20px;
+      color: white;
+      background:
+        radial-gradient(circle at 85% 30%, rgba(25, 184, 220, 0.4), transparent 30%),
+        linear-gradient(130deg, #051b30, #005e94);
+    }
+
+    .promotion-content {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .discount {
+      display: inline-block;
+      padding: 8px 14px;
+      color: var(--navy);
+      font-weight: 900;
+      background: var(--yellow);
+      border-radius: 999px;
+    }
+
+    .promotion-icon {
+      display: block;
+      margin-top: 24px;
+      font-size: 2.2rem;
+    }
+
+    .promotion h2 {
+      margin: 8px 0;
+      font-size: clamp(2rem, 6vw, 4rem);
+    }
+
+    .promotion p {
+      color: #d5f4fa;
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-top: 10px;
+      padding: 14px 18px;
+      color: #062b17;
+      font-weight: 900;
+      text-decoration: none;
+      background: var(--whatsapp);
+      border-radius: 12px;
+      box-shadow: 0 10px 24px rgba(37, 211, 102, 0.25);
+    }
+
+    .experiences {
+      max-width: 1100px;
+      margin: 32px auto 50px;
+      padding: 0 20px;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .experience-scroll {
+      display: flex;
+      gap: 14px;
+      padding: 3px 0 15px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
+
+    .experience-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 15px;
+      min-width: min(82vw, 340px);
+      min-height: 150px;
+      padding: 22px;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      scroll-snap-align: start;
+      box-shadow: 0 12px 28px rgba(7, 29, 53, 0.15);
+    }
+
+    .experience-icon {
+      font-size: 2rem;
+    }
+
+    .experience-arrow {
+      font-size: 1.7rem;
+    }
+
+    .experience-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.25rem;
+    }
+
+    .experience-card p {
+      margin: 0;
+      line-height: 1.4;
+      opacity: 0.84;
+    }
+
+    .walking {
+      background: linear-gradient(145deg, #0a3150, #071d35);
+    }
+
+    .diving {
+      background: linear-gradient(145deg, #0088b6, #005e94);
+    }
+
+    .nails {
+      background: linear-gradient(145deg, #147a87, #0c4c67);
+    }
+
+    footer {
+      padding: 24px;
+      color: #b9d7e4;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-align: center;
+      background: var(--navy);
+    }
+
+    footer span {
+      color: var(--aqua);
+    }
+
+    [dir="rtl"] .menu-row,
+    [dir="rtl"] .promotion-content,
+    [dir="rtl"] .experience-card {
+      text-align: right;
+    }
+
+    @media (max-width: 780px) {
+      .hero {
+        min-height: 220px;
+        padding-top: 42px;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 11px;
+      }
+
+      .menu-card h2 {
+        font-size: 1rem;
+      }
+
+      .menu-row {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .tabs button {
+        flex: 1;
+      }
+
+      .hero h1 {
+        max-width: 330px;
+      }
+
+      .experience-card {
+        min-width: 88vw;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="wave"></div>
+
+    <div class="hero-content">
+      <span class="location">Salvador · Bahia</span>
+      <h1>BARRACA DA MARA</h1>
+      <p id="menuTitle">Cardápio</p>
+    </div>
+  </header>
+
+  <nav class="languages" aria-label="Seleção de idioma">
+    <button type="button" data-language="pt" class="active">Português</button>
+    <button type="button" data-language="en">English</button>
+    <button type="button" data-language="es">Español</button>
+    <button type="button" data-language="it">Italiano</button>
+    <button type="button" data-language="fr">Français</button>
+    <button type="button" data-language="he">עברית</button>
+  </nav>
+
+  <div class="tabs">
+    <button id="foodButton" class="active" type="button">Comidas</button>
+    <button id="drinksButton" type="button">Bebidas</button>
+  </div>
+
+  <main>
+    <section id="menuGrid" class="menu-grid"></section>
+
+    <p id="fruitNotice" class="notice" hidden></p>
+    <p id="cardNotice" class="card-notice"></p>
+
+    <section class="promotion">
+      <div class="promotion-content">
+        <span id="discount" class="discount">20% OFF</span>
+        <span class="promotion-icon">🌴</span>
+
+        <h2 id="promotionTitle">Morro de São Paulo</h2>
+
+        <p>
+          <span id="pickupText">Busca e deixa no hotel</span><br>
+          <span id="dailyText">Saídas diárias</span>
+        </p>
+
+        <a
+          id="promotionButton"
+          class="whatsapp-button"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>💬</span>
+          <span id="redeemText">Resgatar a promoção</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="experiences">
+      <p id="experiencesTitle" class="section-label">
+        Experiências em Salvador
+      </p>
+
+      <div class="experience-scroll">
+        <a
+          class="experience-card walking"
+          href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="experience-icon">👣</span>
+
+          <div>
+            <h3 id="walkingTitle">Free Walking Tour</h3>
+            <p id="walkingDescription">Reserve sua caminhada histórica</p>
+          </div>
+
+          <span class="experience-arrow">›</span>
+        </a>
+
+        <a
+          id="divingButton"
+          class="experience-card diving"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="experience-icon">🤿</span>
+
+          <div>
+            <h3 id="divingTitle">Mergulho no Porto</h3>
+            <p id="divingDescription">
+              Pergunte sobre horários e disponibilidade
+            </p>
+          </div>
+
+          <span class="experience-arrow">›</span>
+        </a>
+
+        <a
+          id="nailsButton"
+          class="experience-card nails"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="experience-icon">✨</span>
+
+          <div>
+            <h3 id="nailsTitle">Unhas e cuidados pessoais</h3>
+            <p id="nailsDescription">Agende seu atendimento</p>
+          </div>
+
+          <span class="experience-arrow">›</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    BARRACA DA MARA <span>·</span> Porto da Barra, Salvador
+  </footer>
+
+  <script>
+    const whatsappNumber = "5571993719791";
+
+    let currentLanguage = "pt";
+    let currentSection = "food";
+
+    const translations = {
+      pt: {
+        menu: "Cardápio",
+        food: "Comidas",
+        drinks: "Bebidas",
+        fruitNotice:
+          "Consulte o atendente sobre a disponibilidade das frutas.",
+        cardNotice:
+          "Pagamentos com cartão de crédito ou débito têm acréscimo de 10%.",
+        promotion: "Morro de São Paulo",
+        discount: "20% OFF",
+        pickup: "Busca e deixa no hotel",
+        daily: "Saídas diárias",
+        redeem: "Resgatar a promoção",
+        experiences: "Experiências em Salvador",
+        walking: "Free Walking Tour",
+        walkingDescription: "Reserve sua caminhada histórica",
+        diving: "Mergulho no Porto",
+        divingDescription:
+          "Pergunte sobre horários e disponibilidade",
+        nails: "Unhas e cuidados pessoais",
+        nailsDescription: "Agende seu atendimento",
+
+        promotionMessage:
+          "Olá! Estou na Barraca da Mara e quero resgatar o desconto de 20% para Morro de São Paulo.",
+
+        divingMessage:
+          "Olá! Estou na Barraca da Mara e quero informações sobre mergulho no Porto.",
+
+        nailsMessage:
+          "Olá! Estou na Barraca da Mara e quero informações sobre unhas e cuidados pessoais.",
+
+        categories: [
+          "Peixes",
+          "Filé de frango",
+          "Bife de carne",
+          "Carne do sol",
+          "Isca de peixe",
+          "Isca de frango",
+          "Frango à passarinha",
+          "Moquecas",
+          "Petiscos",
+          "Caldos",
+          "Bolinhos",
+          "Camarão",
+          "Acompanhamentos",
+          "Sem álcool",
+          "Cervejas long neck",
+          "Cervejas 350 ml",
+          "Cervejas 473 ml",
+          "Cervejas 600 ml",
+          "Drinks",
+          "Alcoólicos gaseificados",
+          "Doses",
+          "Energéticos",
+          "Caipirinhas",
+          "Caipiroskas"
+        ]
+      },
+
+      en: {
+        menu: "Menu",
+        food: "Food",
+        drinks: "Drinks",
+        fruitNotice:
+          "Please ask your server which fruits are available.",
+        cardNotice:
+          "Credit and debit card payments have a 10% surcharge.",
+        promotion: "Morro de São Paulo",
+        discount: "20% OFF",
+        pickup: "Hotel pickup and drop-off",
+        daily: "Daily departures",
+        redeem: "Claim this offer",
+        experiences: "Experiences in Salvador",
+        walking: "Free Walking Tour",
+        walkingDescription: "Book your historic walking tour",
+        diving: "Porto da Barra Diving",
+        divingDescription: "Ask about times and availability",
+        nails: "Nails & personal care",
+        nailsDescription: "Book your appointment",
+
+        promotionMessage:
+          "Hi! I am at Barraca da Mara and I would like to claim the 20% discount for Morro de São Paulo.",
+
+        divingMessage:
+          "Hi! I am at Barraca da Mara and I would like information about diving at Porto da Barra.",
+
+        nailsMessage:
+          "Hi! I am at Barraca da Mara and I would like information about nails and personal care.",
+
+        categories: [
+          "Fish",
+          "Chicken fillet",
+          "Beef steak",
+          "Sun-dried beef",
+          "Fish strips",
+          "Chicken strips",
+          "Brazilian fried chicken",
+          "Moquecas — Bahian stew",
+          "Snacks",
+          "Broths",
+          "Croquettes",
+          "Shrimp",
+          "Side dishes",
+          "Non-alcoholic",
+          "Long-neck beers",
+          "350 ml beers",
+          "473 ml beers",
+          "600 ml beers",
+          "Cocktails",
+          "Sparkling alcoholic drinks",
+          "Shots",
+          "Energy drinks",
+          "Caipirinhas",
+          "Vodka caipirinhas"
+        ]
+      },
+
+      es: {
+        menu: "Menú",
+        food: "Comidas",
+        drinks: "Bebidas",
+        fruitNotice:
+          "Consulte al personal sobre las frutas disponibles.",
+        cardNotice:
+          "Los pagos con tarjeta tienen un recargo del 10%.",
+        promotion: "Morro de São Paulo",
+        discount: "20% DTO.",
+        pickup: "Recogida y regreso al hotel",
+        daily: "Salidas diarias",
+        redeem: "Canjear la promoción",
+        experiences: "Experiencias en Salvador",
+        walking: "Free Walking Tour",
+        walkingDescription: "Reserva tu paseo histórico",
+        diving: "Buceo en Porto da Barra",
+        divingDescription:
+          "Pregunta por horarios y disponibilidad",
+        nails: "Uñas y cuidado personal",
+        nailsDescription: "Reserva tu cita",
+
+        promotionMessage:
+          "¡Hola! Estoy en Barraca da Mara y quiero canjear el 20% de descuento para Morro de São Paulo.",
+
+        divingMessage:
+          "¡Hola! Estoy en Barraca da Mara y quiero información sobre buceo en Porto da Barra.",
+
+        nailsMessage:
+          "¡Hola! Estoy en Barraca da Mara y quiero información sobre uñas y cuidado personal.",
+
+        categories: [
+          "Pescados",
+          "Filete de pollo",
+          "Filete de res",
+          "Carne de sol",
+          "Tiras de pescado",
+          "Tiras de pollo",
+          "Pollo frito brasileño",
+          "Moquecas",
+          "Aperitivos",
+          "Caldos",
+          "Buñuelos",
+          "Camarones",
+          "Acompañamientos",
+          "Sin alcohol",
+          "Cervezas long neck",
+          "Cervezas 350 ml",
+          "Cervezas 473 ml",
+          "Cervezas 600 ml",
+          "Cócteles",
+          "Bebidas alcohólicas con gas",
+          "Dosis",
+          "Energéticas",
+          "Caipiriñas",
+          "Caipiroskas"
+        ]
+      },
+
+      it: {
+        menu: "Menù",
+        food: "Piatti",
+        drinks: "Bevande",
+        fruitNotice:
+          "Chiedi al personale quali frutti sono disponibili.",
+        cardNotice:
+          "I pagamenti con carta prevedono un supplemento del 10%.",
+        promotion: "Morro de São Paulo",
+        discount: "20% DI SCONTO",
+        pickup: "Transfer da e per l’hotel",
+        daily: "Partenze giornaliere",
+        redeem: "Riscatta la promozione",
+        experiences: "Esperienze a Salvador",
+        walking: "Free Walking Tour",
+        walkingDescription: "Prenota la passeggiata storica",
+        diving: "Immersioni a Porto da Barra",
+        divingDescription: "Chiedi orari e disponibilità",
+        nails: "Unghie e cura personale",
+        nailsDescription: "Prenota il tuo appuntamento",
+
+        promotionMessage:
+          "Ciao! Sono alla Barraca da Mara e vorrei riscattare lo sconto del 20% per Morro de São Paulo.",
+
+        divingMessage:
+          "Ciao! Sono alla Barraca da Mara e vorrei informazioni sulle immersioni a Porto da Barra.",
+
+        nailsMessage:
+          "Ciao! Sono alla Barraca da Mara e vorrei informazioni su unghie e cura personale.",
+
+        categories: [
+          "Pesce",
+          "Filetto di pollo",
+          "Bistecca di manzo",
+          "Carne do sol",
+          "Strisce di pesce",
+          "Strisce di pollo",
+          "Pollo fritto brasiliano",
+          "Moquecas",
+          "Stuzzichini",
+          "Zuppe",
+          "Crocchette",
+          "Gamberi",
+          "Contorni",
+          "Analcolici",
+          "Birre long neck",
+          "Birre 350 ml",
+          "Birre 473 ml",
+          "Birre 600 ml",
+          "Cocktail",
+          "Alcolici gassati",
+          "Distillati",
+          "Energy drink",
+          "Caipirinha",
+          "Caipiroska"
+        ]
+      },
+
+      fr: {
+        menu: "Carte",
+        food: "Plats",
+        drinks: "Boissons",
+        fruitNotice:
+          "Demandez au personnel quels fruits sont disponibles.",
+        cardNotice:
+          "Les paiements par carte comportent un supplément de 10 %.",
+        promotion: "Morro de São Paulo",
+        discount: "–20 %",
+        pickup: "Prise en charge et retour à l’hôtel",
+        daily: "Départs quotidiens",
+        redeem: "Profiter de la promotion",
+        experiences: "Expériences à Salvador",
+        walking: "Free Walking Tour",
+        walkingDescription: "Réservez votre visite historique",
+        diving: "Plongée à Porto da Barra",
+        divingDescription:
+          "Demandez les horaires et disponibilités",
+        nails: "Ongles et soins personnels",
+        nailsDescription: "Prenez rendez-vous",
+
+        promotionMessage:
+          "Bonjour ! Je suis à la Barraca da Mara et je souhaite profiter de la réduction de 20 % pour Morro de São Paulo.",
+
+        divingMessage:
+          "Bonjour ! Je suis à la Barraca da Mara et je souhaite des informations sur la plongée à Porto da Barra.",
+
+        nailsMessage:
+          "Bonjour ! Je suis à la Barraca da Mara et je souhaite des informations sur les soins des ongles et les soins personnels.",
+
+        categories: [
+          "Poissons",
+          "Filet de poulet",
+          "Steak de bœuf",
+          "Carne do sol",
+          "Bâtonnets de poisson",
+          "Bâtonnets de poulet",
+          "Poulet frit brésilien",
+          "Moquecas",
+          "Petites assiettes",
+          "Bouillons",
+          "Croquettes",
+          "Crevettes",
+          "Accompagnements",
+          "Sans alcool",
+          "Bières long neck",
+          "Bières 350 ml",
+          "Bières 473 ml",
+          "Bières 600 ml",
+          "Cocktails",
+          "Alcools gazeux",
+          "Doses",
+          "Boissons énergétiques",
+          "Caipirinhas",
+          "Caipiroskas"
+        ]
+      },
+
+      he: {
+        menu: "תפריט",
+        food: "אוכל",
+        drinks: "משקאות",
+        fruitNotice: "נא לשאול את הצוות אילו פירות זמינים.",
+        cardNotice: "לתשלום בכרטיס תתווסף עמלה של 10%.",
+        promotion: "מורו דה סאו פאולו",
+        discount: "20% הנחה",
+        pickup: "איסוף והחזרה למלון",
+        daily: "יציאות מדי יום",
+        redeem: "מימוש ההטבה",
+        experiences: "חוויות בסלבדור",
+        walking: "סיור הליכה חינמי",
+        walkingDescription: "הזמינו סיור היסטורי רגלי",
+        diving: "צלילה בפורטו דה בארה",
+        divingDescription: "שאלו על שעות וזמינות",
+        nails: "ציפורניים וטיפוח אישי",
+        nailsDescription: "קבעו תור",
+
+        promotionMessage:
+          "שלום! אני ב-Barraca da Mara ורוצה לממש 20% הנחה למורו דה סאו פאולו.",
+
+        divingMessage:
+          "שלום! אני ב-Barraca da Mara ורוצה מידע על צלילה בפורטו דה בארה.",
+
+        nailsMessage:
+          "שלום! אני ב-Barraca da Mara ורוצה מידע על טיפוח ציפורניים וטיפוח אישי.",
+
+        categories: [
+          "דגים",
+          "פילה עוף",
+          "סטייק בקר",
+          "בשר מיובש",
+          "רצועות דג",
+          "רצועות עוף",
+          "עוף מטוגן ברזילאי",
+          "מוקקה",
+          "נשנושים",
+          "מרקים",
+          "קרוקטים",
+          "שרימפס",
+          "תוספות",
+          "ללא אלכוהול",
+          "בירות לונג נק",
+          "בירות 350 מ״ל",
+          "בירות 473 מ״ל",
+          "בירות 600 מ״ל",
+          "קוקטיילים",
+          "אלכוהול מוגז",
+          "מנות אלכוהול",
+          "משקאות אנרגיה",
+          "קאיפיריניה",
+          "קאיפירוסקה"
+        ]
+      }
+    };
+
+    const foodGroups = [
+      [
+        ["Vermelho", "R$ 280"],
+        ["Corvina", "R$ 180"],
+        ["Pititinga", "R$ 100"]
+      ],
+      [
+        ["Grelhado", "R$ 130"],
+        ["À milanesa", "R$ 140"]
+      ],
+      [
+        ["Grelhado", "R$ 140"],
+        ["À milanesa", "R$ 150"]
+      ],
+      [
+        ["Simples", "R$ 120"],
+        ["Tradicional", "R$ 130"],
+        ["Completa", "R$ 140"]
+      ],
+      [
+        ["Pura", "R$ 110"],
+        ["Simples", "R$ 130"],
+        ["Tradicional", "R$ 140"],
+        ["Completa", "R$ 150"]
+      ],
+      [
+        ["Pura", "R$ 100"],
+        ["Simples", "R$ 120"],
+        ["Tradicional", "R$ 130"],
+        ["Completa", "R$ 140"]
+      ],
+      [
+        ["Pura", "R$ 100"],
+        ["Simples", "R$ 120"],
+        ["Tradicional", "R$ 130"],
+        ["Completa", "R$ 140"]
+      ],
+      [
+        ["Peixe vermelho", "R$ 290"],
+        ["Peixe corvina", "R$ 180"],
+        ["Pescada amarela", "R$ 290"],
+        ["Polvo", "R$ 330"],
+        ["Camarão", "R$ 340"],
+        ["Mariscada", "R$ 350"]
+      ],
+      [
+        ["Aipim frito", "R$ 50"],
+        ["Batata frita", "R$ 50"],
+        ["Calabresa acebolada", "R$ 85"],
+        ["Tábua de frios", "R$ 80"]
+      ],
+      [
+        ["Polvo", "R$ 65"],
+        ["Camarão", "R$ 65"],
+        ["Sururu", "R$ 55"]
+      ],
+      [
+        ["Bacalhau", "R$ 65"],
+        ["Camarão", "R$ 70"],
+        ["Charque", "R$ 60"]
+      ],
+      [
+        ["Alho e óleo", "R$ 140"],
+        ["Empanado", "R$ 160"]
+      ],
+      [
+        ["Pura — sem acompanhamento", ""],
+        ["Simples — batata ou aipim", ""],
+        ["Tradicional — farofa, salada e arroz", ""],
+        [
+          "Completa — farofa, salada, arroz e batata ou aipim",
+          ""
+        ]
+      ]
+    ];
+
+    const drinkGroups = [
+      [
+        ["Refrigerante lata", "R$ 10"],
+        ["Refrigerante 1 litro", "R$ 16"],
+        ["Água com gás", "R$ 10"],
+        ["Água sem gás", "R$ 8"],
+        ["Água de coco", "R$ 10"],
+        ["Tônica", "R$ 12"],
+        ["Suco", "R$ 30"],
+        ["H2O", "R$ 12"]
+      ],
+      [
+        ["Corona", "R$ 23"],
+        ["Heineken", "R$ 22"],
+        ["Stella", "R$ 23"],
+        ["Budweiser", "R$ 22"],
+        ["Spaten", "R$ 23"]
+      ],
+      [
+        ["Amstel", "R$ 13"],
+        ["Original", "R$ 15"],
+        ["Skol", "R$ 13"],
+        ["Devassa", "R$ 13"],
+        ["Brahma Duplo", "R$ 13"],
+        ["Brahma Chopp", "R$ 13"],
+        ["Brahma Zero", "R$ 13"],
+        ["Corona", "R$ 15"],
+        ["Stella", "R$ 15"],
+        ["Heineken", "R$ 15"],
+        ["Budweiser", "R$ 15"],
+        ["Spaten", "R$ 15"]
+      ],
+      [
+        ["Itaipava", "R$ 13"],
+        ["Skol", "R$ 15"],
+        ["Brahma Chopp", "R$ 15"]
+      ],
+      [
+        ["Heineken", "R$ 30"],
+        ["Eisenbahn", "R$ 25"]
+      ],
+      [
+        ["Cuba Libre", "R$ 32"],
+        ["Piña Colada", "R$ 70"],
+        ["Hi-Fi", "R$ 30"],
+        ["Coconut", "R$ 55"],
+        ["Espanhola", "R$ 65"],
+        ["Limonada Colombiana", "R$ 45"],
+        ["Cacau da Kika", "R$ 50"],
+        ["Com gin", "R$ 70"],
+        ["Coquetel", "R$ 45"]
+      ],
+      [
+        ["Smirnoff", "R$ 20"],
+        ["Cabaré", "R$ 18"],
+        ["51", "R$ 20"],
+        ["Skol Beats", "R$ 16"],
+        ["Schweppes", "R$ 16"],
+        ["Citrus", "R$ 12"]
+      ],
+      [
+        ["Whisky Red Label", "R$ 40"],
+        ["Whisky 12 anos", "R$ 45"],
+        ["Gin", "R$ 25"],
+        ["Campari", "R$ 20"],
+        ["Vodka Slova", "R$ 8"],
+        ["Vodka Smirnoff", "R$ 10"],
+        ["Vodka Sky", "R$ 12"],
+        ["51", "R$ 7"]
+      ],
+      [
+        ["Red Bull 250 ml", "R$ 26"]
+      ],
+      [
+        [
+          "Abacaxi · Acerola · Cajá · Cajú · Lima · Limão · Maracujá · Umbu · Umbu Cajá · Seriguela · Tamarindo",
+          "R$ 30"
+        ],
+        [
+          "Açaí · Amora · Cacau · Morango · Kiwi · 2 frutas",
+          "R$ 35"
+        ]
+      ],
+      [
+        [
+          "Abacaxi · Acerola · Cajá · Cajú · Lima · Limão · Maracujá · Umbu · Umbu Cajá · Seriguela · Tamarindo",
+          "R$ 40"
+        ],
+        [
+          "Açaí · Amora · Cacau · Morango · Kiwi · 2 frutas",
+          "R$ 45"
+        ]
+      ]
+    ];
+
+    function createWhatsAppLink(message) {
+      return (
+        "https://wa.me/" +
+        whatsappNumber +
+        "?text=" +
+        encodeURIComponent(message)
+      );
+    }
+
+    function renderMenu() {
+      const language = translations[currentLanguage];
+      const isFood = currentSection === "food";
+
+      const groups = isFood ? foodGroups : drinkGroups;
+      const categoryOffset = isFood ? 0 : 13;
+
+      const menuGrid = document.getElementById("menuGrid");
+      menuGrid.innerHTML = "";
+
+      groups.forEach((items, index) => {
+        const card = document.createElement("article");
+        card.className = "menu-card";
+
+        const title = document.createElement("h2");
+        title.textContent =
+          language.categories[categoryOffset + index];
+
+        const itemsContainer = document.createElement("div");
+        itemsContainer.className = "items";
+
+        items.forEach(([name, price]) => {
+          const row = document.createElement("div");
+          row.className = "menu-row";
+
+          const nameElement = document.createElement("span");
+          nameElement.textContent = name;
+
+          const priceElement = document.createElement("strong");
+          priceElement.textContent = price;
+
+          row.appendChild(nameElement);
+          row.appendChild(priceElement);
+          itemsContainer.appendChild(row);
+        });
+
+        card.appendChild(title);
+        card.appendChild(itemsContainer);
+        menuGrid.appendChild(card);
+      });
+
+      document.getElementById("fruitNotice").hidden = isFood;
+    }
+
+    function updateLanguage() {
+      const t = translations[currentLanguage];
+
+      document.documentElement.lang =
+        currentLanguage === "pt" ? "pt-BR" : currentLanguage;
+
+      document.body.dir =
+        currentLanguage === "he" ? "rtl" : "ltr";
+
+      document.getElementById("menuTitle").textContent = t.menu;
+      document.getElementById("foodButton").textContent = t.food;
+      document.getElementById("drinksButton").textContent = t.drinks;
+      document.getElementById("fruitNotice").textContent =
+        t.fruitNotice;
+      document.getElementById("cardNotice").textContent =
+        t.cardNotice;
+
+      document.getElementById("discount").textContent = t.discount;
+      document.getElementById("promotionTitle").textContent =
+        t.promotion;
+      document.getElementById("pickupText").textContent = t.pickup;
+      document.getElementById("dailyText").textContent = t.daily;
+      document.getElementById("redeemText").textContent = t.redeem;
+
+      document.getElementById("experiencesTitle").textContent =
+        t.experiences;
+      document.getElementById("walkingTitle").textContent =
+        t.walking;
+      document.getElementById("walkingDescription").textContent =
+        t.walkingDescription;
+      document.getElementById("divingTitle").textContent =
+        t.diving;
+      document.getElementById("divingDescription").textContent =
+        t.divingDescription;
+      document.getElementById("nailsTitle").textContent = t.nails;
+      document.getElementById("nailsDescription").textContent =
+        t.nailsDescription;
+
+      document.getElementById("promotionButton").href =
+        createWhatsAppLink(t.promotionMessage);
+
+      document.getElementById("divingButton").href =
+        createWhatsAppLink(t.divingMessage);
+
+      document.getElementById("nailsButton").href =
+        createWhatsAppLink(t.nailsMessage);
+
+      document.querySelectorAll("[data-language]").forEach(button => {
+        button.classList.toggle(
+          "active",
+          button.dataset.language === currentLanguage
+        );
+      });
+
+      renderMenu();
+    }
+
+    document.querySelectorAll("[data-language]").forEach(button => {
+      button.addEventListener("click", () => {
+        currentLanguage = button.dataset.language;
+        updateLanguage();
+      });
+    });
+
+    document
+      .getElementById("foodButton")
+      .addEventListener("click", () => {
+        currentSection = "food";
+
+        document
+          .getElementById("foodButton")
+          .classList.add("active");
+
+        document
+          .getElementById("drinksButton")
+          .classList.remove("active");
+
+        renderMenu();
+      });
+
+    document
+      .getElementById("drinksButton")
+      .addEventListener("click", () => {
+        currentSection = "drinks";
+
+        document
+          .getElementById("drinksButton")
+          .classList.add("active");
+
+        document
+          .getElementById("foodButton")
+          .classList.remove("active");
+
+        renderMenu();
+      });
+
+    updateLanguage();
+  </script>
+</body>
+</html>
