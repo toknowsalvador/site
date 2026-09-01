@@ -124,6 +124,51 @@
       display: none;
     }
 
+    .category-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      padding: 5px 0 9px;
+      background: rgba(246, 251, 253, 0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .category-intro {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 20px 5px;
+      color: var(--blue);
+      font-size: .76rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .category-scroll {
+      display: flex;
+      gap: 8px;
+      max-width: 1100px;
+      margin: auto;
+      padding: 4px 20px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .category-scroll::-webkit-scrollbar { display: none; }
+
+    .category-scroll button {
+      flex: 0 0 auto;
+      padding: 10px 15px;
+      color: white;
+      font-weight: 800;
+      white-space: nowrap;
+      background: linear-gradient(135deg, var(--blue), var(--navy));
+      border: 0;
+      border-radius: 999px;
+      box-shadow: 0 5px 14px rgba(7,29,53,.13);
+    }
+
     .languages button,
     .tabs button {
       padding: 10px 16px;
@@ -171,6 +216,7 @@
     }
 
     .menu-card {
+      scroll-margin-top: 135px;
       overflow: hidden;
       background: white;
       border: 1px solid var(--line);
@@ -209,6 +255,87 @@
       color: var(--blue);
       white-space: nowrap;
     }
+
+    .side-option {
+      width: 100%;
+      padding: 0;
+      color: inherit;
+      text-align: inherit;
+      background: none;
+      border: 0;
+    }
+
+    .side-option .menu-row {
+      position: relative;
+      padding-right: 24px;
+    }
+
+    [dir="rtl"] .side-option .menu-row {
+      padding-right: 0;
+      padding-left: 24px;
+    }
+
+    .side-option .menu-row::after {
+      position: absolute;
+      right: 0;
+      color: var(--aqua);
+      font-size: 1.35rem;
+      content: "›";
+    }
+
+    [dir="rtl"] .side-option .menu-row::after {
+      right: auto;
+      left: 0;
+      content: "‹";
+    }
+
+    .tap-hint {
+      display: block;
+      margin-top: 3px;
+      color: #587082;
+      font-size: .72rem;
+      font-weight: normal;
+    }
+
+    .side-guide {
+      margin: 0 20px 18px;
+      padding: 14px 16px;
+      color: var(--navy);
+      font-weight: 800;
+      background: #ddf6fb;
+      border: 1px solid #aee6f0;
+      border-radius: 14px;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(3,17,31,.76);
+      backdrop-filter: blur(6px);
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal-box {
+      position: relative;
+      width: 100%;
+      max-width: 470px;
+      padding: 26px;
+      background: white;
+      border-radius: 22px;
+      box-shadow: 0 25px 70px rgba(0,0,0,.3);
+    }
+
+    .modal-box h2 { margin: 16px 0 10px; color: var(--navy); }
+    .modal-box p { margin: 0; color: #587082; font-size: 1.05rem; line-height: 1.6; }
+    .modal-label { padding: 6px 11px; color: white; font-size: .75rem; font-weight: 900; background: var(--blue); border-radius: 999px; }
+    .modal-close { position: absolute; top: 13px; right: 13px; width: 40px; height: 40px; color: var(--navy); font-size: 1.4rem; font-weight: bold; background: #e7f4f7; border: 0; border-radius: 50%; }
+    [dir="rtl"] .modal-close { right: auto; left: 13px; }
 
     .notice,
     .card-notice {
@@ -424,6 +551,11 @@
     <button type="button" data-language="he">עברית</button>
   </nav>
 
+  <section class="category-wrap">
+    <p id="categoryIntro" class="category-intro">Escolha uma categoria</p>
+    <nav id="categoryScroll" class="category-scroll"></nav>
+  </section>
+
   <div class="tabs">
     <button id="foodButton" class="active" type="button">Comidas</button>
     <button id="drinksButton" type="button">Bebidas</button>
@@ -524,6 +656,15 @@
   <footer>
     BARRACA DA MARA <span>·</span> Porto da Barra, Salvador
   </footer>
+
+  <div id="sideModal" class="modal-overlay">
+    <div class="modal-box" role="dialog" aria-modal="true">
+      <button id="modalClose" class="modal-close" type="button">×</button>
+      <span id="modalLabel" class="modal-label">Legenda dos acompanhamentos</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalText"></p>
+    </div>
+  </div>
 
   <script>
     const whatsappNumber = "5571993719791";
@@ -882,6 +1023,86 @@
       }
     };
 
+    const extraText = {
+      pt: { choose: "Escolha uma categoria", tap: "Toque para ver os acompanhamentos", legend: "Legenda dos acompanhamentos", guide: "ℹ️ Pura, Simples, Tradicional e Completa: toque sobre a opção para ver exatamente quais acompanhamentos estão incluídos." },
+      en: { choose: "Choose a category", tap: "Tap to see the side dishes", legend: "Side dish guide", guide: "ℹ️ Plain, Simple, Traditional and Complete: tap an option to see exactly which side dishes are included." },
+      es: { choose: "Elige una categoría", tap: "Toca para ver los acompañamientos", legend: "Guía de acompañamientos", guide: "ℹ️ Pura, Simple, Tradicional y Completa: toca una opción para ver exactamente qué acompañamientos incluye." },
+      it: { choose: "Scegli una categoria", tap: "Tocca per vedere i contorni", legend: "Guida ai contorni", guide: "ℹ️ Senza contorni, Semplice, Tradizionale e Completa: tocca un'opzione per vedere esattamente i contorni inclusi." },
+      fr: { choose: "Choisissez une catégorie", tap: "Touchez pour voir les accompagnements", legend: "Guide des accompagnements", guide: "ℹ️ Nature, Simple, Traditionnelle et Complète : touchez une option pour voir exactement les accompagnements inclus." },
+      he: { choose: "בחרו קטגוריה", tap: "לחצו לצפייה בתוספות", legend: "מדריך התוספות", guide: "ℹ️ ללא תוספות, פשוטה, מסורתית ומלאה: לחצו על האפשרות כדי לראות בדיוק אילו תוספות כלולות." }
+    };
+
+    const sideOptions = {
+      "Pura": {
+        pt:["Pura","Sem acompanhamento"], en:["Plain","No side dishes"], es:["Pura","Sin acompañamiento"],
+        it:["Senza contorni","Nessun contorno"], fr:["Nature","Sans accompagnement"], he:["ללא תוספות","מוגש ללא תוספות"]
+      },
+      "Simples": {
+        pt:["Simples","Batata frita ou aipim frito"], en:["Simple","French fries or fried cassava"], es:["Simple","Papas fritas o yuca frita"],
+        it:["Semplice","Patatine fritte o manioca fritta"], fr:["Simple","Frites ou manioc frit"], he:["פשוטה","צ׳יפס או קסאווה מטוגנת"]
+      },
+      "Tradicional": {
+        pt:["Tradicional","Farofa, salada e arroz"], en:["Traditional","Toasted cassava flour, salad and rice"], es:["Tradicional","Farofa, ensalada y arroz"],
+        it:["Tradizionale","Farofa, insalata e riso"], fr:["Traditionnelle","Farofa, salade et riz"], he:["מסורתית","פארופה, סלט ואורז"]
+      },
+      "Completa": {
+        pt:["Completa","Farofa, salada, arroz e batata frita ou aipim frito"], en:["Complete","Toasted cassava flour, salad, rice and French fries or fried cassava"], es:["Completa","Farofa, ensalada, arroz y papas fritas o yuca frita"],
+        it:["Completa","Farofa, insalata, riso e patatine fritte o manioca fritta"], fr:["Complète","Farofa, salade, riz et frites ou manioc frit"], he:["מלאה","פארופה, סלט, אורז וצ׳יפס או קסאווה מטוגנת"]
+      }
+    };
+
+    const itemMap = {
+      "Vermelho":["Red snapper","Pargo rojo","Dentice rosso","Vivaneau rouge","סנאפר אדום"],
+      "Corvina":["Croaker fish","Corvina","Ombrina","Courbine","דג קורבינה"],
+      "Pititinga":["Small fried fish","Pescaditos fritos","Pesciolini fritti","Petits poissons frits","דגים קטנים מטוגנים"],
+      "Grelhado":["Grilled","A la parrilla","Alla griglia","Grillé","על הגריל"],
+      "À milanesa":["Breaded","Empanado","Impanato","Pané","מצופה פירורי לחם"],
+      "Peixe vermelho":["Red snapper","Pargo rojo","Dentice rosso","Vivaneau rouge","סנאפר אדום"],
+      "Peixe corvina":["Croaker fish","Corvina","Ombrina","Courbine","דג קורבינה"],
+      "Pescada amarela":["Yellow hake","Pescadilla amarilla","Nasello giallo","Merlu jaune","בקלה צהובה"],
+      "Polvo":["Octopus","Pulpo","Polpo","Poulpe","תמנון"],
+      "Camarão":["Shrimp","Camarones","Gamberi","Crevettes","שרימפס"],
+      "Mariscada":["Mixed seafood","Mariscada","Frutti di mare misti","Fruits de mer variés","פירות ים מעורבים"],
+      "Aipim frito":["Fried cassava","Yuca frita","Manioca fritta","Manioc frit","קסאווה מטוגנת"],
+      "Batata frita":["French fries","Papas fritas","Patatine fritte","Frites","צ׳יפס"],
+      "Calabresa acebolada":["Sausage with onions","Salchicha con cebolla","Salsiccia con cipolle","Saucisse aux oignons","נקניק עם בצל"],
+      "Tábua de frios":["Cold cuts board","Tabla de embutidos","Tagliere di salumi","Planche de charcuterie","מגש נקניקים וגבינות"],
+      "Sururu":["Mussel broth","Caldo de mejillones","Zuppa di cozze","Bouillon de moules","מרק מולים"],
+      "Bacalhau":["Salt cod","Bacalao","Baccalà","Morue","בקלה מלוחה"],
+      "Charque":["Dried beef","Carne seca","Carne secca","Bœuf séché","בשר מיובש"],
+      "Alho e óleo":["Garlic and oil","Ajo y aceite","Aglio e olio","Ail et huile","שום ושמן"],
+      "Empanado":["Breaded","Empanado","Impanato","Pané","מצופה פירורי לחם"],
+      "Refrigerante lata":["Canned soft drink","Refresco en lata","Bibita in lattina","Soda en canette","משקה קל בפחית"],
+      "Refrigerante 1 litro":["1-litre soft drink","Refresco de 1 litro","Bibita da 1 litro","Soda de 1 litre","משקה קל 1 ליטר"],
+      "Água com gás":["Sparkling water","Agua con gas","Acqua frizzante","Eau gazeuse","מים מוגזים"],
+      "Água sem gás":["Still water","Agua sin gas","Acqua naturale","Eau plate","מים ללא גז"],
+      "Água de coco":["Coconut water","Agua de coco","Acqua di cocco","Eau de coco","מי קוקוס"],
+      "Tônica":["Tonic water","Agua tónica","Acqua tonica","Eau tonique","מי טוניק"],
+      "Suco":["Juice","Jugo","Succo","Jus","מיץ"],
+      "Com gin":["With gin","Con ginebra","Con gin","Avec gin","עם ג׳ין"],
+      "Coquetel":["Cocktail","Cóctel","Cocktail","Cocktail","קוקטייל"],
+      "Whisky 12 anos":["12-year-old whisky","Whisky de 12 años","Whisky 12 anni","Whisky 12 ans","ויסקי בן 12 שנים"],
+      "Abacaxi · Acerola · Cajá · Cajú · Lima · Limão · Maracujá · Umbu · Umbu Cajá · Seriguela · Tamarindo":[
+        "Pineapple · Acerola · Cajá · Cashew fruit · Lime · Lemon · Passion fruit · Umbu · Umbu-cajá · Seriguela · Tamarind",
+        "Piña · Acerola · Cajá · Anacardo · Lima · Limón · Maracuyá · Umbu · Umbu-cajá · Seriguela · Tamarindo",
+        "Ananas · Acerola · Cajá · Frutto di anacardio · Lime · Limone · Frutto della passione · Umbu · Umbu-cajá · Seriguela · Tamarindo",
+        "Ananas · Acérola · Cajá · Pomme de cajou · Citron vert · Citron · Fruit de la passion · Umbu · Umbu-cajá · Seriguela · Tamarin",
+        "אננס · אסרולה · קאז׳ה · פרי קשיו · ליים · לימון · פסיפלורה · אומבו · אומבו-קאז׳ה · סריגואלה · תמרהינדי"
+      ],
+      "Açaí · Amora · Cacau · Morango · Kiwi · 2 frutas":[
+        "Special: Açaí · Blackberry · Cacao · Strawberry · Kiwi · 2 fruits",
+        "Especial: Açaí · Mora · Cacao · Fresa · Kiwi · 2 frutas",
+        "Speciale: Açaí · Mora · Cacao · Fragola · Kiwi · 2 frutti",
+        "Spéciale : Açaï · Mûre · Cacao · Fraise · Kiwi · 2 fruits",
+        "מיוחד: אסאי · אוכמנייה · קקאו · תות · קיווי · שני פירות"
+      ]
+    };
+
+    function translateItem(name) {
+      if (currentLanguage === "pt" || !itemMap[name]) return name;
+      return itemMap[name][["en","es","it","fr","he"].indexOf(currentLanguage)];
+    }
+
     const foodGroups = [
       [
         ["Vermelho", "R$ 280"],
@@ -1066,7 +1287,7 @@
       const language = translations[currentLanguage];
       const isFood = currentSection === "food";
 
-      const groups = isFood ? foodGroups : drinkGroups;
+      const groups = isFood ? foodGroups.slice(0, 12) : drinkGroups;
       const categoryOffset = isFood ? 0 : 13;
 
       const menuGrid = document.getElementById("menuGrid");
@@ -1075,27 +1296,51 @@
       groups.forEach((items, index) => {
         const card = document.createElement("article");
         card.className = "menu-card";
+        card.id = (isFood ? "food-" : "drink-") + index;
 
         const title = document.createElement("h2");
-        title.textContent =
-          language.categories[categoryOffset + index];
+        const iconsFood = ["🐟","🍗","🥩","🥩","🐟","🍗","🍗","🥘","🍟","🍲","🧆","🦐"];
+        const iconsDrink = ["🥤","🍺","🍺","🍺","🍺","🍸","🧊","🥃","⚡","🍋","🍹"];
+        title.textContent = (isFood ? iconsFood[index] : iconsDrink[index]) + " " + language.categories[categoryOffset + index];
 
         const itemsContainer = document.createElement("div");
         itemsContainer.className = "items";
 
+        const usesSideOptions = isFood && index >= 3 && index <= 6;
+        if (usesSideOptions) {
+          const guide = document.createElement("div");
+          guide.className = "side-guide";
+          guide.textContent = extraText[currentLanguage].guide;
+          itemsContainer.appendChild(guide);
+        }
+
         items.forEach(([name, price]) => {
+          const optionKey = usesSideOptions && sideOptions[name] ? name : null;
+          const wrapper = document.createElement(optionKey ? "button" : "div");
+          if (optionKey) {
+            wrapper.type = "button";
+            wrapper.className = "side-option";
+          }
+
           const row = document.createElement("div");
           row.className = "menu-row";
 
           const nameElement = document.createElement("span");
-          nameElement.textContent = name;
+          if (optionKey) {
+            const option = sideOptions[optionKey][currentLanguage];
+            nameElement.innerHTML = "<strong>" + option[0] + "</strong><small class='tap-hint'>" + extraText[currentLanguage].tap + "</small>";
+            wrapper.addEventListener("click", () => openSideModal(optionKey));
+          } else {
+            nameElement.textContent = translateItem(name);
+          }
 
           const priceElement = document.createElement("strong");
           priceElement.textContent = price;
 
           row.appendChild(nameElement);
           row.appendChild(priceElement);
-          itemsContainer.appendChild(row);
+          wrapper.appendChild(row);
+          itemsContainer.appendChild(wrapper);
         });
 
         card.appendChild(title);
@@ -1104,6 +1349,50 @@
       });
 
       document.getElementById("fruitNotice").hidden = isFood;
+    }
+
+    function openSideModal(optionKey) {
+      const option = sideOptions[optionKey][currentLanguage];
+      document.getElementById("modalLabel").textContent = extraText[currentLanguage].legend;
+      document.getElementById("modalTitle").textContent = option[0];
+      document.getElementById("modalText").textContent = option[1];
+      document.getElementById("sideModal").classList.add("open");
+    }
+
+    function closeSideModal() {
+      document.getElementById("sideModal").classList.remove("open");
+    }
+
+    function selectSection(section) {
+      currentSection = section;
+      document.getElementById("foodButton").classList.toggle("active", section === "food");
+      document.getElementById("drinksButton").classList.toggle("active", section === "drinks");
+      renderMenu();
+    }
+
+    function renderCategoryBar() {
+      const bar = document.getElementById("categoryScroll");
+      const language = translations[currentLanguage];
+      const order = [
+        ["drinks",9,"🍋"],["drinks",10,"🍹"],["food",8,"🍟"],["food",7,"🥘"],
+        ["food",0,"🐟"],["food",11,"🦐"],["food",9,"🍲"],["food",10,"🧆"],
+        ["drinks",5,"🍸"],["drinks",1,"🍺"],["drinks",0,"🥤"],
+        ["food",3,"🥩"],["food",4,"🐟"],["food",5,"🍗"],["food",6,"🍗"]
+      ];
+      bar.innerHTML = "";
+      order.forEach(([section,index,icon]) => {
+        const button = document.createElement("button");
+        const categoryIndex = section === "food" ? index : 13 + index;
+        button.textContent = icon + " " + language.categories[categoryIndex];
+        button.addEventListener("click", () => {
+          selectSection(section);
+          setTimeout(() => {
+            const card = document.getElementById((section === "food" ? "food-" : "drink-") + index);
+            if (card) card.scrollIntoView({behavior:"smooth",block:"start"});
+          }, 60);
+        });
+        bar.appendChild(button);
+      });
     }
 
     function updateLanguage() {
@@ -1116,6 +1405,7 @@
         currentLanguage === "he" ? "rtl" : "ltr";
 
       document.getElementById("menuTitle").textContent = t.menu;
+      document.getElementById("categoryIntro").textContent = extraText[currentLanguage].choose;
       document.getElementById("foodButton").textContent = t.food;
       document.getElementById("drinksButton").textContent = t.drinks;
       document.getElementById("fruitNotice").textContent =
@@ -1160,6 +1450,8 @@
         );
       });
 
+      closeSideModal();
+      renderCategoryBar();
       renderMenu();
     }
 
@@ -1173,34 +1465,22 @@
     document
       .getElementById("foodButton")
       .addEventListener("click", () => {
-        currentSection = "food";
-
-        document
-          .getElementById("foodButton")
-          .classList.add("active");
-
-        document
-          .getElementById("drinksButton")
-          .classList.remove("active");
-
-        renderMenu();
+        selectSection("food");
       });
 
     document
       .getElementById("drinksButton")
       .addEventListener("click", () => {
-        currentSection = "drinks";
-
-        document
-          .getElementById("drinksButton")
-          .classList.add("active");
-
-        document
-          .getElementById("foodButton")
-          .classList.remove("active");
-
-        renderMenu();
+        selectSection("drinks");
       });
+
+    document.getElementById("modalClose").addEventListener("click", closeSideModal);
+    document.getElementById("sideModal").addEventListener("click", event => {
+      if (event.target.id === "sideModal") closeSideModal();
+    });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeSideModal();
+    });
 
     updateLanguage();
   </script>
