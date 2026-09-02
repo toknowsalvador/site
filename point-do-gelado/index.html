@@ -298,12 +298,27 @@
 
     .item {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
-      gap: 14px;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 10px;
       align-items: center;
       min-height: 43px;
       padding: 10px 3px;
       border-bottom: 1px solid var(--linha);
+    }
+
+    .item-code {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      background: var(--amarelo);
+      color: var(--azul-escuro);
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1;
+      box-shadow: 0 3px 9px rgba(0, 0, 0, 0.2);
     }
 
     .nome {
@@ -399,106 +414,94 @@
       text-transform: uppercase;
     }
 
-    /* ILHAS SEM IMAGEM */
+    /* PASSEIOS EM ROLAGEM LATERAL */
 
-    .ilhas-oferta {
-      position: relative;
-      margin-top: 12px;
-      padding: 0;
-      border-radius: 20px;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 20% 15%, rgba(25,169,223,.22), transparent 28%),
-        radial-gradient(circle at 85% 85%, rgba(231,207,53,.12), transparent 26%),
-        linear-gradient(145deg, #063b79 0%, #042653 65%, #031d42 100%);
-      border: 1px solid rgba(255,255,255,.18);
-      box-shadow: 0 14px 30px rgba(0,0,0,.28);
-    }
-
-    .ilhas-topo {
-      background: rgba(231, 36, 45, 0.95);
-      padding: 14px 16px;
+    .experiencias-politica {
+      margin: 0 0 16px;
+      padding: 13px 15px;
+      border: 1px solid rgba(231, 207, 53, 0.35);
+      border-radius: 13px;
+      background: rgba(231, 207, 53, 0.1);
       color: var(--branco);
       font-size: 13px;
-      font-weight: 900;
-      letter-spacing: 1px;
+      font-weight: 800;
+      line-height: 1.55;
       text-align: center;
     }
 
-    .ilhas-corpo {
-      padding: 38px 20px 32px;
-      text-align: center;
+    .experiencias-politica strong {
+      color: var(--amarelo);
     }
 
-    .ilhas-icone {
-      font-size: 48px;
-      margin-bottom: 8px;
+    .experiencias-scroll {
+      display: flex;
+      gap: 14px;
+      padding: 2px 2px 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: var(--amarelo) rgba(255,255,255,.08);
+      scrollbar-width: thin;
     }
 
-    .ilhas-corpo h2 {
-      max-width: 560px;
-      margin: 0 auto 10px;
+    .experiencia-card {
+      display: flex;
+      flex: 0 0 min(78vw, 285px);
+      flex-direction: column;
+      min-height: 300px;
+      padding: 22px 18px 18px;
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 85% 8%, rgba(25,169,223,.24), transparent 27%),
+        linear-gradient(145deg, #063b79 0%, #031d42 100%);
+      box-shadow: 0 10px 24px rgba(0,0,0,.24);
+      scroll-snap-align: start;
+    }
+
+    .experiencia-icone {
+      margin-bottom: 12px;
+      font-size: 38px;
+    }
+
+    .experiencia-card h3 {
+      margin: 0 0 9px;
       color: var(--branco);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 30px;
+      font-size: 22px;
       line-height: 1.15;
     }
 
-    .ilhas-descricao {
-      max-width: 540px;
-      margin: 0 auto;
-      color: rgba(255,255,255,.86);
-      font-size: 15px;
-      font-weight: 700;
-      line-height: 1.55;
+    .experiencia-card p {
+      margin: 0 0 14px;
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+      line-height: 1.5;
     }
 
-    .ilhas-preco {
-      margin: 24px 0 13px;
-      color: var(--branco);
-      font-size: 44px;
+    .experiencia-preco {
+      margin-top: auto;
+      color: var(--amarelo);
+      font-size: 24px;
       font-weight: 900;
     }
 
-    .ilhas-preco small {
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .ilhas-inclusoes {
-      width: 100%;
-      max-width: 490px;
-      margin: 18px auto 0;
-      padding: 16px 18px;
-      display: grid;
-      gap: 10px;
-      border: 1px solid rgba(255,255,255,.20);
-      border-radius: 12px;
-      background: rgba(255,255,255,.07);
-      text-align: left;
-    }
-
-    .ilhas-inclusao {
-      display: flex;
-      gap: 9px;
-      color: var(--branco);
-      font-size: 14px;
-      font-weight: 800;
-    }
-
-    .botao-ilhas {
+    .experiencia-preco small {
       display: block;
-      width: 100%;
-      max-width: 470px;
-      margin: 22px auto 0;
-      padding: 16px 14px;
+      color: rgba(255,255,255,.72);
+      font-size: 11px;
+    }
+
+    .botao-experiencia {
+      display: block;
+      margin-top: 16px;
+      padding: 13px 12px;
       border-radius: 999px;
       background: var(--verde);
       color: var(--branco);
-      font-size: 16px;
+      font-size: 13px;
       font-weight: 900;
+      text-align: center;
       text-decoration: none;
-      box-shadow: 0 6px 16px rgba(0,0,0,.28);
     }
 
     /* AFRO TOUR */
@@ -563,14 +566,10 @@
       }
     }
 
-    @media (max-width: 560px) {
-      .ilhas-corpo h2 {
-        font-size: 27px;
-      }
-
-      .ilhas-preco {
-        font-size: 40px;
-      }
+    @media (max-width: 380px) {
+      .item-code { width: 29px; height: 29px; }
+      .nome { font-size: 13px; }
+      .preco { min-width: 68px; font-size: 14px; }
     }
   </style>
 </head>
@@ -618,7 +617,7 @@
         <a href="#roska">Roska</a>
         <a href="#refeicoes" data-i18n="navMeals">Refeições</a>
         <a href="#tira-gosto" data-i18n="navSnacks">Tira-gosto</a>
-        <a class="ilhas-link" href="#ilhas"><span data-i18n="navIslands">Ilhas</span> • 20% OFF</a>
+        <a class="ilhas-link" href="#experiencias"><span data-i18n="navIslands">Passeios</span> • <span data-i18n="navExperienceOffer">Reserve agora</span></a>
         <a class="afro-link" href="https://toknowsalvador.com" target="_blank" rel="noopener">Afro Tour</a>
       </nav>
 
@@ -798,45 +797,46 @@
         <span>🏝️ <span data-i18n="experiences">Experiências em Salvador</span></span>
       </div>
 
-      <section class="ilhas-oferta" id="ilhas">
+      <section id="experiencias" aria-label="Passeios em Salvador">
 
-        <div class="ilhas-topo" data-i18n="islandsTop">
-          🏝️ PASSEIO ÀS ILHAS · 20% OFF
-        </div>
+        <p class="experiencias-politica">
+          <strong data-i18n="reservePayNow">Reserve agora. Pague na hora.</strong><br>
+          <span data-i18n="paymentMethods">Crédito, débito, Pix ou espécie.</span>
+        </p>
 
-        <div class="ilhas-corpo">
+        <div class="experiencias-scroll">
 
-          <div class="ilhas-icone">🏝️</div>
+          <article class="experiencia-card">
+            <div class="experiencia-icone">🏝️</div>
+            <h3 data-i18n="islandsTitle">Ilha de Itaparica + Ilha dos Frades</h3>
+            <p data-i18n="islandsDescription">Passeio de dia inteiro pela Baía de Todos-os-Santos.</p>
+            <div class="experiencia-preco">R$ 150,00 <small data-i18n="perPerson">por pessoa</small></div>
+            <a class="botao-experiencia" href="#" target="_blank" rel="noopener" data-whatsapp-key="whatsapp">💬 <span data-i18n="reserve">Reservar pelo WhatsApp</span></a>
+          </article>
 
-          <h2 data-i18n="islandsTitle">
-            Ilha de Itaparica + Ilha dos Frades
-          </h2>
+          <article class="experiencia-card">
+            <div class="experiencia-icone">🐢</div>
+            <h3 data-i18n="forteTitle">Praia do Forte</h3>
+            <p data-i18n="forteDescription">Descubra uma das praias mais famosas do litoral norte da Bahia.</p>
+            <div class="experiencia-preco"><small data-i18n="askPrice">Consulte o valor</small></div>
+            <a class="botao-experiencia" href="#" target="_blank" rel="noopener" data-whatsapp-key="forteWhatsapp">💬 <span data-i18n="reserve">Reservar pelo WhatsApp</span></a>
+          </article>
 
-          <p class="ilhas-descricao" data-i18n="islandsDescription">
-            Passeio de dia inteiro pela Baía de Todos-os-Santos.
-          </p>
+          <article class="experiencia-card">
+            <div class="experiencia-icone">⚽</div>
+            <h3>Arena Fonte Nova</h3>
+            <p data-i18n="arenaDescription">Viva a emoção de assistir a um jogo na Arena Fonte Nova.</p>
+            <div class="experiencia-preco"><small data-i18n="askPrice">Consulte o valor</small></div>
+            <a class="botao-experiencia" href="#" target="_blank" rel="noopener" data-whatsapp-key="arenaWhatsapp">💬 <span data-i18n="reserve">Reservar pelo WhatsApp</span></a>
+          </article>
 
-          <div class="ilhas-preco">
-            R$ 150,00
-            <small data-i18n="perPerson">por pessoa</small>
-          </div>
-
-          <div class="ilhas-inclusoes">
-            <div class="ilhas-inclusao">✓ <span data-i18n="pickup">Busca no hotel</span></div>
-            <div class="ilhas-inclusao">✓ <span data-i18n="dropoff">Retorno e deixa no hotel</span></div>
-            <div class="ilhas-inclusao">✓ <span data-i18n="terminal">Terminal incluso</span></div>
-            <div class="ilhas-inclusao">✓ <span data-i18n="fullDay">Passeio de dia inteiro</span></div>
-          </div>
-
-          <a
-            id="ilhasWhatsapp"
-            class="botao-ilhas"
-            href="#"
-            target="_blank"
-            rel="noopener"
-          >
-            💬 <span data-i18n="reserve">Reservar pelo WhatsApp</span>
-          </a>
+          <article class="experiencia-card">
+            <div class="experiencia-icone">🚶🏽</div>
+            <h3>Free Walking Tour</h3>
+            <p data-i18n="walkingDescription">Conheça Salvador a pé com um guia local.</p>
+            <div class="experiencia-preco"><small data-i18n="freeContribution">Contribuição livre</small></div>
+            <a class="botao-experiencia" href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit" target="_blank" rel="noopener">📝 <span data-i18n="openForm">Abrir formulário</span></a>
+          </article>
 
         </div>
 
@@ -881,7 +881,8 @@
         navJuices:"Sucos e caipirinhas",
         navMeals:"Refeições",
         navSnacks:"Tira-gosto",
-        navIslands:"Ilhas",
+        navIslands:"Passeios",
+        navExperienceOffer:"Reserve agora",
         drinksTitle:"Bebidas",
         juicesTitle:"Sucos e Caipirinha",
         mealsTitle:"Refeições",
@@ -923,10 +924,19 @@
         billText:"Toque no botão abaixo e informe somente o número da mesa.",
         billButton:"Pedir a conta",
         experiences:"Experiências em Salvador",
-        islandsTop:"🏝️ PASSEIO ÀS ILHAS · 20% OFF",
+        reservePayNow:"Reserve agora e pague depois.",
+        paymentMethods:"Crédito, débito, Pix ou espécie.",
+        islandsTop:"🏝️ PASSEIO ÀS ILHAS",
         islandsTitle:"Ilha de Itaparica + Ilha dos Frades",
         islandsDescription:"Passeio de dia inteiro pela Baía de Todos-os-Santos.",
         perPerson:"por pessoa",
+        forteTitle:"Praia do Forte",
+        forteDescription:"Descubra uma das praias mais famosas do litoral norte da Bahia.",
+        arenaDescription:"Viva a emoção de assistir a um jogo na Arena Fonte Nova.",
+        walkingDescription:"Conheça Salvador a pé com um guia local.",
+        askPrice:"Consulte o valor",
+        freeContribution:"Contribuição livre",
+        openForm:"Abrir formulário",
         pickup:"Busca no hotel",
         dropoff:"Retorno e deixa no hotel",
         terminal:"Terminal incluso",
@@ -934,7 +944,9 @@
         reserve:"Reservar pelo WhatsApp",
         afroText:"Conheça a história, a cultura e as influências africanas que moldaram Salvador.",
         afroButton:"Conhecer o Afro Tour",
-        whatsapp:"Encontrei a oferta para as ilhas no Point do Gelado e tenho interesse em fazer a reserva.",
+        whatsapp:"Olá! Quero reservar o passeio para a Ilha de Itaparica + Ilha dos Frades. Vi a opção no cardápio do Point do Gelado.",
+        forteWhatsapp:"Olá! Quero reservar o passeio para a Praia do Forte. Vi a opção no cardápio do Point do Gelado.",
+        arenaWhatsapp:"Olá! Quero reservar a experiência de assistir a um jogo na Arena Fonte Nova. Vi a opção no cardápio do Point do Gelado.",
         tablePrompt:"Digite somente o número da sua mesa:",
         tableMissing:"Por favor, informe o número da mesa.",
         tablePhoneMissing:"O telefone para solicitar a conta será adicionado em breve."
@@ -947,7 +959,8 @@
         navJuices:"Juices & Caipirinhas",
         navMeals:"Meals",
         navSnacks:"Snacks",
-        navIslands:"Islands",
+        navIslands:"Tours",
+        navExperienceOffer:"Book now",
         drinksTitle:"Drinks",
         juicesTitle:"Juices & Caipirinhas",
         mealsTitle:"Meals",
@@ -989,10 +1002,19 @@
         billText:"Tap the button below and enter only your table number.",
         billButton:"Request the bill",
         experiences:"Experiences in Salvador",
-        islandsTop:"🏝️ ISLAND TOUR · 20% OFF",
+        reservePayNow:"Book now and pay later.",
+        paymentMethods:"Credit card, debit card, Pix or cash.",
+        islandsTop:"🏝️ ISLAND TOUR",
         islandsTitle:"Itaparica Island + Frades Island",
         islandsDescription:"Full-day tour through All Saints Bay.",
         perPerson:"per person",
+        forteTitle:"Praia do Forte",
+        forteDescription:"Discover one of the most famous beaches on Bahia's northern coast.",
+        arenaDescription:"Experience the excitement of watching a match at Arena Fonte Nova.",
+        walkingDescription:"Explore Salvador on foot with a local guide.",
+        askPrice:"Ask for the price",
+        freeContribution:"Pay what you want",
+        openForm:"Open form",
         pickup:"Hotel pickup",
         dropoff:"Return transfer and hotel drop-off",
         terminal:"Terminal included",
@@ -1000,7 +1022,9 @@
         reserve:"Book on WhatsApp",
         afroText:"Discover the history, culture and African influences that shaped Salvador.",
         afroButton:"Discover the Afro Tour",
-        whatsapp:"I found the island tour offer at Point do Gelado and I am interested in making a reservation.",
+        whatsapp:"Hello! I would like to book the Itaparica Island + Frades Island tour. I saw it on the Point do Gelado menu.",
+        forteWhatsapp:"Hello! I would like to book the Praia do Forte tour. I saw it on the Point do Gelado menu.",
+        arenaWhatsapp:"Hello! I would like to book the experience of watching a match at Arena Fonte Nova. I saw it on the Point do Gelado menu.",
         tablePrompt:"Enter only your table number:",
         tableMissing:"Please enter your table number.",
         tablePhoneMissing:"The phone number for requesting the bill will be added soon."
@@ -1013,7 +1037,8 @@
         navJuices:"Jugos y Caipirinhas",
         navMeals:"Comidas",
         navSnacks:"Aperitivos",
-        navIslands:"Islas",
+        navIslands:"Paseos",
+        navExperienceOffer:"Reserva ahora",
         drinksTitle:"Bebidas",
         juicesTitle:"Jugos y Caipirinha",
         mealsTitle:"Comidas",
@@ -1055,10 +1080,19 @@
         billText:"Toque el botón e informe solamente el número de su mesa.",
         billButton:"Pedir la cuenta",
         experiences:"Experiencias en Salvador",
-        islandsTop:"🏝️ PASEO A LAS ISLAS · 20% OFF",
+        reservePayNow:"Reserva ahora y paga después.",
+        paymentMethods:"Crédito, débito, Pix o efectivo.",
+        islandsTop:"🏝️ PASEO A LAS ISLAS",
         islandsTitle:"Isla de Itaparica + Isla de los Frailes",
         islandsDescription:"Paseo de día completo por la Bahía de Todos los Santos.",
         perPerson:"por persona",
+        forteTitle:"Praia do Forte",
+        forteDescription:"Descubre una de las playas más famosas del litoral norte de Bahía.",
+        arenaDescription:"Vive la emoción de ver un partido en la Arena Fonte Nova.",
+        walkingDescription:"Conoce Salvador a pie con un guía local.",
+        askPrice:"Consulta el precio",
+        freeContribution:"Contribución libre",
+        openForm:"Abrir formulario",
         pickup:"Recogida en el hotel",
         dropoff:"Regreso y traslado al hotel",
         terminal:"Terminal incluido",
@@ -1066,7 +1100,9 @@
         reserve:"Reservar por WhatsApp",
         afroText:"Conoce la historia, la cultura y las influencias africanas que dieron forma a Salvador.",
         afroButton:"Conocer el Afro Tour",
-        whatsapp:"Encontré la oferta para las islas en Point do Gelado y estoy interesado en hacer una reserva.",
+        whatsapp:"¡Hola! Quiero reservar el paseo a la Isla de Itaparica + Isla de los Frailes. Vi la opción en el menú de Point do Gelado.",
+        forteWhatsapp:"¡Hola! Quiero reservar el paseo a Praia do Forte. Vi la opción en el menú de Point do Gelado.",
+        arenaWhatsapp:"¡Hola! Quiero reservar la experiencia de ver un partido en la Arena Fonte Nova. Vi la opción en el menú de Point do Gelado.",
         tablePrompt:"Digite solamente el número de su mesa:",
         tableMissing:"Por favor, informe el número de la mesa.",
         tablePhoneMissing:"El teléfono para solicitar la cuenta será agregado próximamente."
@@ -1079,7 +1115,8 @@
         navJuices:"Jus et Caipirinhas",
         navMeals:"Repas",
         navSnacks:"Apéritifs",
-        navIslands:"Îles",
+        navIslands:"Excursions",
+        navExperienceOffer:"Réservez",
         drinksTitle:"Boissons",
         juicesTitle:"Jus et Caipirinha",
         mealsTitle:"Repas",
@@ -1121,10 +1158,19 @@
         billText:"Touchez le bouton ci-dessous et indiquez uniquement le numéro de votre table.",
         billButton:"Demander l'addition",
         experiences:"Expériences à Salvador",
-        islandsTop:"🏝️ EXCURSION AUX ÎLES · 20% OFF",
+        reservePayNow:"Réservez maintenant et payez plus tard.",
+        paymentMethods:"Crédit, débit, Pix ou espèces.",
+        islandsTop:"🏝️ EXCURSION AUX ÎLES",
         islandsTitle:"Île d'Itaparica + Ilha dos Frades",
         islandsDescription:"Excursion d'une journée dans la Baie de Tous les Saints.",
         perPerson:"par personne",
+        forteTitle:"Praia do Forte",
+        forteDescription:"Découvrez l'une des plages les plus célèbres de la côte nord de Bahia.",
+        arenaDescription:"Vivez l'émotion d'un match à l'Arena Fonte Nova.",
+        walkingDescription:"Découvrez Salvador à pied avec un guide local.",
+        askPrice:"Demandez le tarif",
+        freeContribution:"Participation libre",
+        openForm:"Ouvrir le formulaire",
         pickup:"Prise en charge à l'hôtel",
         dropoff:"Retour et dépose à l'hôtel",
         terminal:"Terminal inclus",
@@ -1132,7 +1178,9 @@
         reserve:"Réserver sur WhatsApp",
         afroText:"Découvrez l'histoire, la culture et les influences africaines qui ont façonné Salvador.",
         afroButton:"Découvrir l'Afro Tour",
-        whatsapp:"J'ai trouvé l'offre pour l'excursion aux îles au Point do Gelado et je souhaite effectuer une réservation.",
+        whatsapp:"Bonjour ! Je souhaite réserver l'excursion à l'île d'Itaparica + Ilha dos Frades. J'ai vu l'option sur le menu du Point do Gelado.",
+        forteWhatsapp:"Bonjour ! Je souhaite réserver l'excursion à Praia do Forte. J'ai vu l'option sur le menu du Point do Gelado.",
+        arenaWhatsapp:"Bonjour ! Je souhaite réserver l'expérience d'un match à l'Arena Fonte Nova. J'ai vu l'option sur le menu du Point do Gelado.",
         tablePrompt:"Entrez uniquement le numéro de votre table :",
         tableMissing:"Veuillez indiquer le numéro de la table.",
         tablePhoneMissing:"Le numéro pour demander l'addition sera ajouté prochainement."
@@ -1145,7 +1193,8 @@
         navJuices:"Succhi e Caipirinhas",
         navMeals:"Pasti",
         navSnacks:"Antipasti",
-        navIslands:"Isole",
+        navIslands:"Tour",
+        navExperienceOffer:"Prenota ora",
         drinksTitle:"Bevande",
         juicesTitle:"Succhi e Caipirinha",
         mealsTitle:"Pasti",
@@ -1187,10 +1236,19 @@
         billText:"Tocca il pulsante e inserisci solo il numero del tavolo.",
         billButton:"Chiedere il conto",
         experiences:"Esperienze a Salvador",
-        islandsTop:"🏝️ TOUR DELLE ISOLE · 20% OFF",
+        reservePayNow:"Prenota ora e paga dopo.",
+        paymentMethods:"Credito, debito, Pix o contanti.",
+        islandsTop:"🏝️ TOUR DELLE ISOLE",
         islandsTitle:"Isola di Itaparica + Ilha dos Frades",
         islandsDescription:"Tour di un'intera giornata nella Baia di Tutti i Santi.",
         perPerson:"a persona",
+        forteTitle:"Praia do Forte",
+        forteDescription:"Scopri una delle spiagge più famose della costa nord di Bahia.",
+        arenaDescription:"Vivi l'emozione di assistere a una partita all'Arena Fonte Nova.",
+        walkingDescription:"Scopri Salvador a piedi con una guida locale.",
+        askPrice:"Chiedi il prezzo",
+        freeContribution:"Contributo libero",
+        openForm:"Apri il modulo",
         pickup:"Prelievo in hotel",
         dropoff:"Ritorno e accompagnamento in hotel",
         terminal:"Terminal incluso",
@@ -1198,7 +1256,9 @@
         reserve:"Prenota su WhatsApp",
         afroText:"Scopri la storia, la cultura e le influenze africane che hanno plasmato Salvador.",
         afroButton:"Scopri l'Afro Tour",
-        whatsapp:"Ho trovato l'offerta per il tour delle isole al Point do Gelado e sono interessato a effettuare una prenotazione.",
+        whatsapp:"Ciao! Vorrei prenotare il tour Isola di Itaparica + Ilha dos Frades. Ho visto l'opzione nel menu del Point do Gelado.",
+        forteWhatsapp:"Ciao! Vorrei prenotare il tour di Praia do Forte. Ho visto l'opzione nel menu del Point do Gelado.",
+        arenaWhatsapp:"Ciao! Vorrei prenotare l'esperienza di assistere a una partita all'Arena Fonte Nova. Ho visto l'opzione nel menu del Point do Gelado.",
         tablePrompt:"Inserisci solo il numero del tavolo:",
         tableMissing:"Per favore, inserisci il numero del tavolo.",
         tablePhoneMissing:"Il numero per richiedere il conto sarà aggiunto a breve."
@@ -1229,20 +1289,36 @@
 
       botao.classList.add("ativo");
 
-      atualizarWhatsAppIlhas();
+      atualizarLinksWhatsApp();
     }
 
-    function atualizarWhatsAppIlhas() {
+    function atualizarLinksWhatsApp() {
       const telefone = "5571993719791";
-      const mensagem = traducoes[idiomaAtual].whatsapp;
 
-      document
-        .getElementById("ilhasWhatsapp")
-        .href =
+      document.querySelectorAll("[data-whatsapp-key]").forEach(link => {
+        const chave = link.getAttribute("data-whatsapp-key");
+        const mensagem = traducoes[idiomaAtual][chave];
+
+        link.href =
           "https://wa.me/" +
           telefone +
           "?text=" +
           encodeURIComponent(mensagem);
+      });
+    }
+
+    function adicionarNumerosItens() {
+      document.querySelectorAll(".item").forEach((item, indice) => {
+        if (item.querySelector(".item-code")) {
+          return;
+        }
+
+        const codigo = document.createElement("span");
+        codigo.className = "item-code";
+        codigo.textContent = String(indice + 1).padStart(2, "0");
+        codigo.setAttribute("aria-label", "Item " + (indice + 1));
+        item.prepend(codigo);
+      });
     }
 
     /*
@@ -1286,7 +1362,8 @@
       );
     }
 
-    atualizarWhatsAppIlhas();
+    adicionarNumerosItens();
+    atualizarLinksWhatsApp();
 
   </script>
 
