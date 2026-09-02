@@ -1,741 +1,500 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cardápio digital multilíngue da Barraca da Família, no Porto da Barra, Salvador.">
+  <title>Barraca da Família | Cardápio Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root{
+      --red:#a60d18;
+      --red-dark:#6f0710;
+      --blue:#075aa8;
+      --green:#12633c;
+      --yellow:#ffd95a;
+      --cream:#fff9df;
+      --white:#ffffff;
+      --ink:#2e261d;
+      --muted:#71675e;
+      --line:rgba(111,7,16,.14);
+    }
 
-<title>Barraca da Família</title>
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:
+        radial-gradient(circle at 90% 0%,rgba(255,255,255,.72),transparent 28%),
+        linear-gradient(145deg,#ffe983,#ffc94c);
+      color:var(--ink);
+      font-family:"Poppins",Arial,sans-serif;
+    }
+    button,a{font:inherit}
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    .hero{
+      padding:28px 18px 24px;
+      background:linear-gradient(120deg,var(--red),var(--red-dark));
+      color:var(--white);
+      text-align:center;
+      box-shadow:0 6px 24px rgba(70,0,0,.22);
+    }
+    .hero-mark{font-size:38px;line-height:1}
+    .hero h1{margin:8px 0 3px;font-size:clamp(30px,8vw,48px);line-height:1.05}
+    .hero p{margin:0;color:#ffeab0;font-size:15px}
 
-<style>
+    .languages{
+      display:flex;
+      gap:8px;
+      margin:18px auto 0;
+      padding:2px 2px 5px;
+      max-width:760px;
+      overflow-x:auto;
+      scrollbar-width:none;
+    }
+    .languages::-webkit-scrollbar{display:none}
+    .languages button{
+      flex:0 0 auto;
+      min-height:42px;
+      padding:9px 14px;
+      border:1px solid rgba(255,255,255,.45);
+      border-radius:999px;
+      background:rgba(255,255,255,.1);
+      color:var(--white);
+      cursor:pointer;
+      font-size:13px;
+      font-weight:700;
+    }
+    .languages button.active{background:var(--yellow);border-color:var(--yellow);color:var(--red-dark)}
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+    .page{width:min(100% - 24px,900px);margin:0 auto;padding:22px 0 40px}
+    .intro{
+      padding:18px;
+      border:1px solid rgba(255,255,255,.8);
+      border-radius:18px;
+      background:rgba(255,255,255,.78);
+      box-shadow:0 12px 28px rgba(87,47,0,.12);
+      text-align:center;
+    }
+    .intro strong{display:block;color:var(--red);font-size:20px}
+    .intro span{display:block;margin-top:5px;color:var(--muted);font-size:14px}
 
-body{
+    .category-scroll{
+      display:grid;
+      grid-auto-flow:column;
+      grid-auto-columns:138px;
+      gap:10px;
+      margin:18px 0 12px;
+      padding:1px 1px 8px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scrollbar-color:var(--red) rgba(255,255,255,.35);
+      scrollbar-width:thin;
+    }
+    .category-scroll a{
+      display:flex;
+      min-height:72px;
+      align-items:center;
+      justify-content:center;
+      padding:10px;
+      border-radius:14px;
+      background:var(--white);
+      color:var(--red-dark);
+      box-shadow:0 7px 18px rgba(87,47,0,.12);
+      font-size:13px;
+      font-weight:800;
+      line-height:1.25;
+      text-align:center;
+      text-decoration:none;
+      scroll-snap-align:start;
+    }
+    .category-scroll a:last-child{background:var(--blue);color:var(--white)}
 
-background:#ffe88c;
-background-image:
-radial-gradient(circle at top right,#fff4c8 0%,transparent 35%),
-radial-gradient(circle at bottom left,#ffd65c 0%,transparent 35%);
-color:#222;
+    .tap-hint{
+      margin:10px 0 18px;
+      color:#664713;
+      font-size:13px;
+      font-weight:700;
+      text-align:center;
+    }
 
-}
+    .menu-section{margin:0 0 24px;scroll-margin-top:12px}
+    .section-title{
+      margin:0 0 12px;
+      padding:13px 16px;
+      border-radius:14px;
+      background:var(--green);
+      color:var(--white);
+      font-size:20px;
+      text-align:center;
+    }
+    .menu-grid{display:grid;grid-template-columns:1fr;gap:10px}
+    .menu-card{
+      width:100%;
+      padding:14px;
+      border:1px solid var(--line);
+      border-radius:14px;
+      background:var(--white);
+      color:var(--ink);
+      cursor:pointer;
+      box-shadow:0 7px 18px rgba(87,47,0,.1);
+      text-align:left;
+    }
+    .item-main{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center}
+    .item-code{
+      display:inline-flex;
+      width:34px;
+      height:34px;
+      align-items:center;
+      justify-content:center;
+      border-radius:9px;
+      background:var(--yellow);
+      color:var(--red-dark);
+      font-size:12px;
+      font-weight:800;
+    }
+    .item-name{font-size:15px;font-weight:700;line-height:1.3}
+    .item-price{color:var(--red);font-size:16px;font-weight:800;white-space:nowrap}
+    .item-desc{
+      max-height:0;
+      margin:0 0 0 44px;
+      overflow:hidden;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.45;
+      opacity:0;
+      transition:max-height .2s ease,margin .2s ease,opacity .2s ease;
+    }
+    .menu-card.open .item-desc{max-height:100px;margin-top:9px;opacity:1}
+    .menu-card.no-detail{cursor:default}
+    .menu-card.highlight{border:2px solid var(--red);background:#fffbed}
 
-header{
+    .experiences{margin-top:34px;scroll-margin-top:12px}
+    .experience-heading{margin:0 0 12px;color:var(--red-dark);font-size:23px;text-align:center}
+    .experience-policy{
+      margin:0 0 15px;
+      padding:14px 16px;
+      border-radius:14px;
+      background:var(--green);
+      color:var(--white);
+      font-size:13px;
+      font-weight:700;
+      line-height:1.55;
+      text-align:center;
+    }
+    .experience-policy strong{color:#ffe776}
+    .experience-scroll{
+      display:flex;
+      gap:13px;
+      padding:2px 2px 15px;
+      overflow-x:auto;
+      scroll-snap-type:x mandatory;
+      scrollbar-color:var(--red) rgba(255,255,255,.35);
+      scrollbar-width:thin;
+    }
+    .experience-card{
+      display:flex;
+      flex:0 0 min(79vw,280px);
+      flex-direction:column;
+      min-height:300px;
+      padding:21px 17px 17px;
+      border:1px solid var(--line);
+      border-radius:17px;
+      background:var(--cream);
+      box-shadow:0 10px 24px rgba(87,47,0,.14);
+      scroll-snap-align:start;
+    }
+    .experience-icon{margin-bottom:10px;font-size:38px}
+    .experience-badge{
+      align-self:flex-start;
+      margin:-2px 0 10px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--red);
+      color:var(--white);
+      font-size:12px;
+      font-weight:800;
+    }
+    .experience-card h3{margin:0 0 9px;color:var(--red-dark);font-size:21px;line-height:1.18}
+    .experience-card p{margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.5}
+    .experience-price{margin-top:auto;color:var(--red);font-size:22px;font-weight:800}
+    .experience-price small{display:block;color:var(--muted);font-size:11px;font-weight:600}
+    .experience-action{
+      display:block;
+      margin-top:15px;
+      padding:12px 10px;
+      border-radius:999px;
+      background:var(--blue);
+      color:var(--white);
+      font-size:13px;
+      font-weight:800;
+      text-align:center;
+      text-decoration:none;
+    }
 
-background:linear-gradient(90deg,#c31818,#8b0000);
-padding:25px;
-text-align:center;
-color:white;
-box-shadow:0 4px 15px rgba(0,0,0,.25);
+    footer{
+      margin-top:28px;
+      padding:24px 16px;
+      border-radius:18px 18px 0 0;
+      background:linear-gradient(120deg,var(--red),var(--red-dark));
+      color:var(--white);
+      text-align:center;
+    }
+    footer strong{display:block;font-size:20px}
+    footer span{display:block;margin-top:6px;color:#ffeab0;font-size:13px}
 
-}
+    html[dir="rtl"] .menu-card,
+    html[dir="rtl"] .experience-card{text-align:right}
+    html[dir="rtl"] .item-desc{margin-right:44px;margin-left:0}
 
-header h1{
-
-font-size:38px;
-
-}
-
-header p{
-
-margin-top:8px;
-font-size:18px;
-
-}
-
-.languages{
-
-display:flex;
-justify-content:center;
-gap:12px;
-margin-top:20px;
-
-}
-
-.languages a{
-
-background:#005bbb;
-color:white;
-padding:12px 20px;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-transition:.3s;
-
-}
-
-.languages a:hover{
-
-background:#003d80;
-
-}
-
-.banner{
-
-margin:25px;
-background:white;
-border-radius:18px;
-padding:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.15);
-text-align:center;
-
-}
-
-.banner h2{
-
-font-size:34px;
-color:#b30000;
-margin-bottom:10px;
-
-}
-
-.banner p{
-
-font-size:18px;
-
-}
-
-.section{
-
-margin:25px;
-
-}
-
-.section-title{
-
-background:#0d5e34;
-color:white;
-padding:14px;
-font-size:26px;
-border-radius:12px;
-text-align:center;
-margin-bottom:18px;
-
-}
-
-.card{
-
-background:white;
-padding:18px;
-margin-bottom:16px;
-border-radius:14px;
-box-shadow:0 8px 20px rgba(0,0,0,.12);
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-}
-
-.food{
-
-font-size:20px;
-font-weight:600;
-
-}
-
-.price{
-
-font-size:22px;
-font-weight:bold;
-color:#b30000;
-
-}
-
-.obs{
-
-font-size:14px;
-color:#666;
-margin-top:6px;
-
-}
-
-.highlight{
-
-background:#fff3cd;
-border-left:8px solid #e10000;
-
-}
-
-.cta{
-
-background:#005bbb;
-color:white;
-padding:18px;
-text-align:center;
-border-radius:14px;
-margin:25px;
-font-size:20px;
-font-weight:bold;
-
-}
-
-</style>
-
+    @media(min-width:700px){
+      .menu-grid{grid-template-columns:1fr 1fr}
+      .page{padding-top:28px}
+    }
+  </style>
 </head>
 
 <body>
-
-<header>
-
-<h1>🎅 Barraca da Família</h1>
-
-<p>Sabores da Praia do Porto da Barra</p>
-
-<div class="languages">
-
-<a href="../en/">🇺🇸 English</a>
-
-<a href="../es/">🇪🇸 Español</a>
-
-</div>
-
-</header>
-
-<div class="banner">
-
-<h2>🍤 Cardápio Digital</h2>
-
-<p>Confira nossos pratos preparados na hora.</p>
-
-</div>
-
-<div class="section">
-
-<div class="section-title">
-
-🍤 PETISCOS
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Carne do Sol com Aipim</div>
-
-<div class="obs">
-Acompanha aipim frito.
-</div>
-
-</div>
-
-<div class="price">R$ 85</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Picanha Acebolada</div>
-
-<div class="obs">
-Acompanha fritas.
-</div>
-
-</div>
-
-<div class="price">R$ 95</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Calabresa Acebolada</div>
-
-<div class="obs">
-Ideal para compartilhar.
-</div>
-
-</div>
-
-<div class="price">R$ 55</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Frango à Passarinho</div>
-
-<div class="obs">
-Porção crocante.
-</div>
-
-</div>
-
-<div class="price">R$ 58</div>
-
-</div>
-
-<div class="card highlight">
-
-<div>
-
-<div class="food">🐟 Pititinga Frita</div>
-
-<div class="obs">
-
-Especialidade da barraca.
-
-</div>
-
-</div>
-
-<div class="price">R$ 75</div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<div class="section-title">
-
-🍟 TIRA-GOSTO
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Batata Frita</div>
-
-</div>
-
-<div class="price">R$ 35</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Macaxeira Frita</div>
-
-</div>
-
-<div class="price">R$ 35</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Queijo Coalho</div>
-
-</div>
-
-<div class="price">R$ 30</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Aipim com Carne do Sol</div>
-
-</div>
-
-<div class="price">R$ 58</div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<div class="section-title">
-
-🍺 BEBIDAS
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Cerveja Long Neck</div>
-
-<div class="obs">
-Consulte as marcas disponíveis.
-</div>
-
-</div>
-
-<div class="price">R$ 15</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Heineken 600 ml</div>
-
-</div>
-
-<div class="price">R$ 22</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Original 600 ml</div>
-
-</div>
-
-<div class="price">R$ 20</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Budweiser</div>
-
-</div>
-
-<div class="price">R$ 16</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Skol</div>
-
-</div>
-
-<div class="price">R$ 15</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Água Mineral</div>
-
-</div>
-
-<div class="price">R$ 6</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Água com Gás</div>
-
-</div>
-
-<div class="price">R$ 7</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Refrigerante Lata</div>
-
-</div>
-
-<div class="price">R$ 8</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Suco Natural</div>
-
-<div class="obs">
-Limão • Maracujá • Abacaxi • Cajá
-</div>
-
-</div>
-
-<div class="price">R$ 12</div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<div class="section-title">
-
-🍹 CAIPIRINHAS & ROSKAS
-
-</div>
-
-<div class="card highlight">
-
-<div>
-
-<div class="food">Caipirinha Tradicional</div>
-
-<div class="obs">
-Limão • Cachaça
-</div>
-
-</div>
-
-<div class="price">R$ 18</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Caipiroska de Vodka</div>
-
-<div class="obs">
-Escolha sua fruta favorita.
-</div>
-
-</div>
-
-<div class="price">R$ 22</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Caipiroska Premium</div>
-
-<div class="obs">
-Absolut ou Smirnoff.
-</div>
-
-</div>
-
-<div class="price">R$ 28</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Caipiríssima</div>
-
-<div class="obs">
-Rum + frutas frescas.
-</div>
-
-</div>
-
-<div class="price">R$ 22</div>
-
-</div>
-
-<div class="card">
-
-<div>
-
-<div class="food">Caipifruta Especial</div>
-
-<div class="obs">
-Morango • Kiwi • Maracujá • Abacaxi
-</div>
-
-</div>
-
-<div class="price">R$ 25</div>
-
-</div>
-
-<div class="cta">
-
-🌴 Produtos preparados na hora.<br>
-
-Aproveite sua experiência na Praia do Porto da Barra!
-
-</div>
-
-<div class="section">
-
-<div class="section-title">
-
-🚶 PELOURINHO FREE WALKING TOUR
-
-</div>
-
-<div class="card highlight" style="display:block;text-align:center;">
-
-<h2 style="color:#b30000;margin-bottom:12px;">
-Conheça a verdadeira história de Salvador
-</h2>
-
-<p style="font-size:18px;line-height:1.7;margin-bottom:18px;">
-
-Explore o Centro Histórico com um guia local apaixonado pela cultura baiana.
-
-Conheça curiosidades, história, arquitetura, religiões afro-brasileiras, gastronomia e muito mais.
-
-</p>
-
-<a href="https://wa.me/5571993719791"
-
-style="display:inline-block;
-background:#005bbb;
-color:#fff;
-padding:16px 28px;
-border-radius:12px;
-text-decoration:none;
-font-size:20px;
-font-weight:bold;">
-
-🚶 Reservar Free Walking Tour
-
-</a>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<div class="section-title">
-
-🏝️ PASSEIO ÀS ILHAS
-
-</div>
-
-<div class="card highlight" style="display:block;text-align:center;background:#fff8d6;">
-
-<h1 style="font-size:42px;color:#d10000;margin-bottom:10px;">
-
-🔥 30% OFF
-
-</h1>
-
-<h2 style="margin-bottom:15px;color:#0d5e34;">
-
-Oferta exclusiva para clientes da Barraca da Família
-
-</h2>
-
-<p style="font-size:18px;line-height:1.8;margin-bottom:22px;">
-
-Visite as paradisíacas ilhas da Baía de Todos-os-Santos.
-
-✔ Transporte
-
-✔ Praias paradisíacas
-
-✔ Águas cristalinas
-
-✔ Passeio de dia inteiro
-
-</p>
-
-<a href="https://wa.me/5511952473756"
-
-style="display:inline-block;
-background:#0d5e34;
-color:#fff;
-padding:18px 32px;
-border-radius:12px;
-text-decoration:none;
-font-size:22px;
-font-weight:bold;">
-
-🏝️ Quero meu desconto
-
-</a>
-
-</div>
-
-</div>
-
-<div style="margin:35px;">
-
-<div style="
-background:#ffffff;
-border-radius:18px;
-padding:22px;
-box-shadow:0 10px 30px rgba(0,0,0,.15);
-text-align:center;">
-
-<h2 style="color:#b30000;">
-
-🎅 Obrigado pela preferência!
-
-</h2>
-
-<p style="margin-top:15px;font-size:17px;line-height:1.8;">
-
-Esperamos que você aproveite sua experiência na
-
-<strong>Praia do Porto da Barra.</strong>
-
-</p>
-
-<p style="margin-top:15px;font-size:16px;color:#666;">
-
-Aceitamos dinheiro, PIX e cartões.
-
-</p>
-
-</div>
-
-</div>
-
-<footer style="
-background:linear-gradient(90deg,#c31818,#8b0000);
-color:white;
-text-align:center;
-padding:28px;
-margin-top:30px;">
-
-<h2>
-
-🌴 Barraca da Família
-
-</h2>
-
-<p style="margin-top:10px;">
-
-Porto da Barra • Salvador • Bahia
-
-</p>
-
-<p style="margin-top:8px;">
-
-Bom atendimento, comida saborosa e a melhor experiência na praia.
-
-</p>
-
-</footer>
-
+  <header class="hero">
+    <div class="hero-mark">🎅</div>
+    <h1>Barraca da Família</h1>
+    <p data-i18n="subtitle">Sabores da Praia do Porto da Barra</p>
+
+    <nav class="languages" aria-label="Selecionar idioma">
+      <button class="active" data-lang="pt">🇧🇷 Português</button>
+      <button data-lang="en">🇺🇸 English</button>
+      <button data-lang="es">🇪🇸 Español</button>
+      <button data-lang="fr">🇫🇷 Français</button>
+      <button data-lang="it">🇮🇹 Italiano</button>
+      <button data-lang="ru">🇷🇺 Русский</button>
+      <button data-lang="he">🇮🇱 עברית</button>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <strong data-i18n="digitalMenu">🍤 Cardápio digital</strong>
+      <span data-i18n="freshFood">Pratos preparados na hora.</span>
+    </section>
+
+    <nav class="category-scroll" id="categoryNav" aria-label="Categorias do cardápio"></nav>
+    <p class="tap-hint" data-i18n="tapHint">Toque a opção para ver os acompanhamentos.</p>
+    <div id="menu"></div>
+
+    <section class="experiences" id="experiences">
+      <h2 class="experience-heading" data-i18n="experiencesTitle">Experiências em Salvador</h2>
+      <p class="experience-policy">
+        <strong data-i18n="redeemPayLater">Resgate agora e pague depois.</strong><br>
+        <span data-i18n="paymentMethods">Crédito, débito, Pix ou espécie.</span>
+      </p>
+
+      <div class="experience-scroll">
+        <article class="experience-card">
+          <div class="experience-icon">🏝️</div>
+          <h3 data-i18n="islandsTitle">Ilha de Itaparica + Ilha dos Frades</h3>
+          <p data-i18n="islandsDescription">Passeio de dia inteiro pela Baía de Todos-os-Santos.</p>
+          <div class="experience-price">R$ 150 <small data-i18n="perPerson">por pessoa</small></div>
+          <a class="experience-action" data-whatsapp="islandsMessage" href="#" target="_blank" rel="noopener">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+        </article>
+
+        <article class="experience-card">
+          <div class="experience-icon">🌴</div>
+          <div class="experience-badge">20% OFF</div>
+          <h3>Morro de São Paulo</h3>
+          <p data-i18n="morroDescription">Um dos destinos mais desejados da Bahia.</p>
+          <div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
+          <a class="experience-action" data-whatsapp="morroMessage" href="#" target="_blank" rel="noopener">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+        </article>
+
+        <article class="experience-card">
+          <div class="experience-icon">🐢</div>
+          <h3>Praia do Forte</h3>
+          <p data-i18n="forteDescription">Descubra uma das praias mais famosas do litoral norte da Bahia.</p>
+          <div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
+          <a class="experience-action" data-whatsapp="forteMessage" href="#" target="_blank" rel="noopener">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+        </article>
+
+        <article class="experience-card">
+          <div class="experience-icon">🤿</div>
+          <h3 data-i18n="divingTitle">Mergulho</h3>
+          <p data-i18n="divingDescription">Descubra as águas de Salvador em uma experiência de mergulho.</p>
+          <div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
+          <a class="experience-action" data-whatsapp="divingMessage" href="#" target="_blank" rel="noopener">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+        </article>
+
+        <article class="experience-card">
+          <div class="experience-icon">⚽</div>
+          <h3>Arena Fonte Nova</h3>
+          <p data-i18n="arenaDescription">Viva a emoção de assistir a um jogo na Arena Fonte Nova.</p>
+          <div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
+          <a class="experience-action" data-whatsapp="arenaMessage" href="#" target="_blank" rel="noopener">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+        </article>
+
+        <article class="experience-card">
+          <div class="experience-icon">🚶🏽</div>
+          <h3>Free Walking Tour</h3>
+          <p data-i18n="walkingDescription">Conheça Salvador a pé com um guia local.</p>
+          <div class="experience-price"><small data-i18n="freeContribution">Contribuição livre</small></div>
+          <a class="experience-action" href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit" target="_blank" rel="noopener">📝 <span data-i18n="openForm">Abrir formulário</span></a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>🎅 Barraca da Família</strong>
+    <span data-i18n="footerText">Porto da Barra • Salvador • Bahia</span>
+  </footer>
+
+  <script>
+    const catalog = [
+      {id:"snacks",icon:"🍤",items:[0,1,2,3,4]},
+      {id:"sides",icon:"🍟",items:[5,6,7,8]},
+      {id:"drinks",icon:"🍺",items:[9,10,11,12,13,14,15,16,17]},
+      {id:"cocktails",icon:"🍹",items:[18,19,20,21,22]}
+    ];
+
+    const prices = ["R$ 85","R$ 95","R$ 55","R$ 58","R$ 75","R$ 35","R$ 35","R$ 30","R$ 58","R$ 15","R$ 22","R$ 20","R$ 16","R$ 15","R$ 6","R$ 7","R$ 8","R$ 12","R$ 18","R$ 22","R$ 28","R$ 22","R$ 25"];
+
+    const translations = {
+      pt:{
+        subtitle:"Sabores da Praia do Porto da Barra",digitalMenu:"🍤 Cardápio digital",freshFood:"Pratos preparados na hora.",tapHint:"Toque a opção para ver os acompanhamentos.",
+        categories:["PETISCOS","TIRA-GOSTO","BEBIDAS","CAIPIRINHAS & ROSKAS"],tourNav:"PASSEIOS",
+        items:[["Carne do Sol com Aipim","Acompanha aipim frito."],["Picanha Acebolada","Acompanha fritas."],["Calabresa Acebolada","Ideal para compartilhar."],["Frango à Passarinho","Porção crocante."],["🐟 Pititinga Frita","Especialidade da barraca."],["Batata Frita",""],["Macaxeira Frita",""],["Queijo Coalho",""],["Aipim com Carne do Sol",""],["Cerveja Long Neck","Consulte as marcas disponíveis."],["Heineken 600 ml",""],["Original 600 ml",""],["Budweiser",""],["Skol",""],["Água Mineral",""],["Água com Gás",""],["Refrigerante Lata",""],["Suco Natural","Limão • Maracujá • Abacaxi • Cajá"],["Caipirinha Tradicional","Limão • Cachaça"],["Caipiroska de Vodka","Escolha sua fruta favorita."],["Caipiroska Premium","Absolut ou Smirnoff."],["Caipiríssima","Rum + frutas frescas."],["Caipifruta Especial","Morango • Kiwi • Maracujá • Abacaxi"]],
+        experiencesTitle:"Experiências em Salvador",redeemPayLater:"Resgate agora e pague depois.",paymentMethods:"Crédito, débito, Pix ou espécie.",islandsTitle:"Ilha de Itaparica + Ilha dos Frades",islandsDescription:"Passeio de dia inteiro pela Baía de Todos-os-Santos.",perPerson:"por pessoa",morroDescription:"Um dos destinos mais desejados da Bahia.",forteDescription:"Descubra uma das praias mais famosas do litoral norte da Bahia.",divingTitle:"Mergulho",divingDescription:"Descubra as águas de Salvador em uma experiência de mergulho.",arenaDescription:"Viva a emoção de assistir a um jogo na Arena Fonte Nova.",walkingDescription:"Conheça Salvador a pé com um guia local.",askPrice:"Consulte o valor",freeContribution:"Contribuição livre",openForm:"Abrir formulário",redeemWhatsapp:"Resgatar pelo WhatsApp",footerText:"Porto da Barra • Salvador • Bahia",
+        islandsMessage:"Olá! Estou na Barraca da Família e quero resgatar o passeio para a Ilha de Itaparica + Ilha dos Frades.",morroMessage:"Olá! Estou na Barraca da Família e quero resgatar a oferta de 20% OFF para Morro de São Paulo.",forteMessage:"Olá! Estou na Barraca da Família e quero resgatar o passeio para a Praia do Forte.",divingMessage:"Olá! Estou na Barraca da Família e quero resgatar a experiência de mergulho.",arenaMessage:"Olá! Estou na Barraca da Família e quero resgatar a experiência de assistir a um jogo na Arena Fonte Nova."
+      },
+      en:{
+        subtitle:"Flavors of Porto da Barra Beach",digitalMenu:"🍤 Digital menu",freshFood:"Dishes prepared to order.",tapHint:"Tap an option to see the side dishes.",
+        categories:["SNACKS","SIDE DISHES","DRINKS","CAIPIRINHAS & ROSKAS"],tourNav:"TOURS",
+        items:[["Sun-dried Beef with Cassava","Served with fried cassava."],["Picanha with Onions","Served with French fries."],["Calabresa Sausage with Onions","Ideal for sharing."],["Brazilian Fried Chicken","Crispy portion."],["🐟 Fried Pititinga","House specialty."],["French Fries",""],["Fried Cassava",""],["Coalho Cheese",""],["Cassava with Sun-dried Beef",""],["Long Neck Beer","Ask about the available brands."],["Heineken 600 ml",""],["Original 600 ml",""],["Budweiser",""],["Skol",""],["Mineral Water",""],["Sparkling Water",""],["Canned Soft Drink",""],["Fresh Juice","Lime • Passion fruit • Pineapple • Cajá"],["Traditional Caipirinha","Lime • Cachaça"],["Vodka Caipiroska","Choose your favorite fruit."],["Premium Caipiroska","Absolut or Smirnoff."],["Caipiríssima","Rum + fresh fruit."],["Special Fruit Caipirinha","Strawberry • Kiwi • Passion fruit • Pineapple"]],
+        experiencesTitle:"Experiences in Salvador",redeemPayLater:"Redeem now and pay later.",paymentMethods:"Credit card, debit card, Pix or cash.",islandsTitle:"Itaparica Island + Frades Island",islandsDescription:"Full-day tour through All Saints Bay.",perPerson:"per person",morroDescription:"One of Bahia's most sought-after destinations.",forteDescription:"Discover one of the most famous beaches on Bahia's northern coast.",divingTitle:"Diving",divingDescription:"Discover Salvador's waters on a diving experience.",arenaDescription:"Experience the excitement of watching a match at Arena Fonte Nova.",walkingDescription:"Explore Salvador on foot with a local guide.",askPrice:"Ask for the price",freeContribution:"Pay what you want",openForm:"Open form",redeemWhatsapp:"Redeem via WhatsApp",footerText:"Porto da Barra • Salvador • Bahia",
+        islandsMessage:"Hello! I am at Barraca da Família and would like to redeem the Itaparica Island + Frades Island tour.",morroMessage:"Hello! I am at Barraca da Família and would like to redeem the 20% OFF offer for Morro de São Paulo.",forteMessage:"Hello! I am at Barraca da Família and would like to redeem the Praia do Forte tour.",divingMessage:"Hello! I am at Barraca da Família and would like to redeem the diving experience.",arenaMessage:"Hello! I am at Barraca da Família and would like to redeem the experience of watching a match at Arena Fonte Nova."
+      },
+      es:{
+        subtitle:"Sabores de la Playa de Porto da Barra",digitalMenu:"🍤 Menú digital",freshFood:"Platos preparados al momento.",tapHint:"Toca una opción para ver los acompañamientos.",
+        categories:["APERITIVOS","GUARNICIONES","BEBIDAS","CAIPIRINHAS Y ROSKAS"],tourNav:"PASEOS",
+        items:[["Carne de Sol con Yuca","Acompañada de yuca frita."],["Picanha con Cebolla","Acompañada de papas fritas."],["Calabresa con Cebolla","Ideal para compartir."],["Pollo Frito Brasileño","Porción crujiente."],["🐟 Pititinga Frita","Especialidad del puesto."],["Papas Fritas",""],["Yuca Frita",""],["Queso Coalho",""],["Yuca con Carne de Sol",""],["Cerveza Long Neck","Consulta las marcas disponibles."],["Heineken 600 ml",""],["Original 600 ml",""],["Budweiser",""],["Skol",""],["Agua Mineral",""],["Agua con Gas",""],["Refresco en Lata",""],["Jugo Natural","Limón • Maracuyá • Piña • Cajá"],["Caipirinha Tradicional","Limón • Cachaça"],["Caipiroska de Vodka","Elige tu fruta favorita."],["Caipiroska Premium","Absolut o Smirnoff."],["Caipiríssima","Ron + frutas frescas."],["Caipifruta Especial","Fresa • Kiwi • Maracuyá • Piña"]],
+        experiencesTitle:"Experiencias en Salvador",redeemPayLater:"Canjea ahora y paga después.",paymentMethods:"Crédito, débito, Pix o efectivo.",islandsTitle:"Isla de Itaparica + Isla de los Frailes",islandsDescription:"Paseo de día completo por la Bahía de Todos los Santos.",perPerson:"por persona",morroDescription:"Uno de los destinos más deseados de Bahía.",forteDescription:"Descubre una de las playas más famosas del litoral norte de Bahía.",divingTitle:"Buceo",divingDescription:"Descubre las aguas de Salvador en una experiencia de buceo.",arenaDescription:"Vive la emoción de ver un partido en la Arena Fonte Nova.",walkingDescription:"Conoce Salvador a pie con un guía local.",askPrice:"Consulta el precio",freeContribution:"Contribución libre",openForm:"Abrir formulario",redeemWhatsapp:"Canjear por WhatsApp",footerText:"Porto da Barra • Salvador • Bahía",
+        islandsMessage:"¡Hola! Estoy en la Barraca da Família y quiero canjear el paseo a la Isla de Itaparica + Isla de los Frailes.",morroMessage:"¡Hola! Estoy en la Barraca da Família y quiero canjear la oferta de 20% OFF para Morro de São Paulo.",forteMessage:"¡Hola! Estoy en la Barraca da Família y quiero canjear el paseo a Praia do Forte.",divingMessage:"¡Hola! Estoy en la Barraca da Família y quiero canjear la experiencia de buceo.",arenaMessage:"¡Hola! Estoy en la Barraca da Família y quiero canjear la experiencia de ver un partido en la Arena Fonte Nova."
+      },
+      fr:{
+        subtitle:"Saveurs de la plage de Porto da Barra",digitalMenu:"🍤 Menu numérique",freshFood:"Plats préparés à la commande.",tapHint:"Touchez une option pour voir les accompagnements.",
+        categories:["ENTRÉES","ACCOMPAGNEMENTS","BOISSONS","CAIPIRINHAS ET ROSKAS"],tourNav:"EXCURSIONS",
+        items:[["Carne do Sol au Manioc","Servie avec du manioc frit."],["Picanha aux Oignons","Servie avec des frites."],["Saucisse Calabresa aux Oignons","Idéale à partager."],["Poulet Frit Brésilien","Portion croustillante."],["🐟 Pititinga Frite","Spécialité du kiosque."],["Frites",""],["Manioc Frit",""],["Fromage Coalho",""],["Manioc à la Carne do Sol",""],["Bière Long Neck","Demandez les marques disponibles."],["Heineken 600 ml",""],["Original 600 ml",""],["Budweiser",""],["Skol",""],["Eau Minérale",""],["Eau Gazeuse",""],["Boisson Gazeuse en Canette",""],["Jus de Fruits Frais","Citron vert • Fruit de la passion • Ananas • Cajá"],["Caipirinha Traditionnelle","Citron vert • Cachaça"],["Caipiroska à la Vodka","Choisissez votre fruit préféré."],["Caipiroska Premium","Absolut ou Smirnoff."],["Caipiríssima","Rhum + fruits frais."],["Caipifruta Spéciale","Fraise • Kiwi • Fruit de la passion • Ananas"]],
+        experiencesTitle:"Expériences à Salvador",redeemPayLater:"Profitez-en maintenant et payez plus tard.",paymentMethods:"Crédit, débit, Pix ou espèces.",islandsTitle:"Île d'Itaparica + Ilha dos Frades",islandsDescription:"Excursion d'une journée dans la Baie de Tous les Saints.",perPerson:"par personne",morroDescription:"L'une des destinations les plus prisées de Bahia.",forteDescription:"Découvrez l'une des plages les plus célèbres de la côte nord de Bahia.",divingTitle:"Plongée",divingDescription:"Découvrez les eaux de Salvador lors d'une expérience de plongée.",arenaDescription:"Vivez l'émotion d'un match à l'Arena Fonte Nova.",walkingDescription:"Découvrez Salvador à pied avec un guide local.",askPrice:"Demandez le tarif",freeContribution:"Participation libre",openForm:"Ouvrir le formulaire",redeemWhatsapp:"Profiter via WhatsApp",footerText:"Porto da Barra • Salvador • Bahia",
+        islandsMessage:"Bonjour ! Je suis à la Barraca da Família et je souhaite profiter de l'excursion à l'île d'Itaparica + Ilha dos Frades.",morroMessage:"Bonjour ! Je suis à la Barraca da Família et je souhaite profiter de l'offre de 20 % pour Morro de São Paulo.",forteMessage:"Bonjour ! Je suis à la Barraca da Família et je souhaite profiter de l'excursion à Praia do Forte.",divingMessage:"Bonjour ! Je suis à la Barraca da Família et je souhaite profiter de l'expérience de plongée.",arenaMessage:"Bonjour ! Je suis à la Barraca da Família et je souhaite profiter de l'expérience d'un match à l'Arena Fonte Nova."
+      },
+      it:{
+        subtitle:"Sapori della spiaggia di Porto da Barra",digitalMenu:"🍤 Menù digitale",freshFood:"Piatti preparati al momento.",tapHint:"Tocca un'opzione per vedere i contorni.",
+        categories:["ANTIPASTI","CONTORNI","BEVANDE","CAIPIRINHAS E ROSKAS"],tourNav:"TOUR",
+        items:[["Carne do Sol con Manioca","Servita con manioca fritta."],["Picanha con Cipolle","Servita con patatine fritte."],["Salsiccia Calabresa con Cipolle","Ideale da condividere."],["Pollo Fritto Brasiliano","Porzione croccante."],["🐟 Pititinga Fritta","Specialità del chiosco."],["Patatine Fritte",""],["Manioca Fritta",""],["Formaggio Coalho",""],["Manioca con Carne do Sol",""],["Birra Long Neck","Chiedi quali marche sono disponibili."],["Heineken 600 ml",""],["Original 600 ml",""],["Budweiser",""],["Skol",""],["Acqua Minerale",""],["Acqua Frizzante",""],["Bibita in Lattina",""],["Succo Naturale","Lime • Frutto della passione • Ananas • Cajá"],["Caipirinha Tradizionale","Lime • Cachaça"],["Caipiroska alla Vodka","Scegli il tuo frutto preferito."],["Caipiroska Premium","Absolut o Smirnoff."],["Caipiríssima","Rum + frutta fresca."],["Caipifruta Speciale","Fragola • Kiwi • Frutto della passione • Ananas"]],
+        experiencesTitle:"Esperienze a Salvador",redeemPayLater:"Riscatta ora e paga dopo.",paymentMethods:"Credito, debito, Pix o contanti.",islandsTitle:"Isola di Itaparica + Ilha dos Frades",islandsDescription:"Tour di un'intera giornata nella Baia di Tutti i Santi.",perPerson:"a persona",morroDescription:"Una delle destinazioni più desiderate di Bahia.",forteDescription:"Scopri una delle spiagge più famose della costa nord di Bahia.",divingTitle:"Immersione",divingDescription:"Scopri le acque di Salvador con un'esperienza di immersione.",arenaDescription:"Vivi l'emozione di assistere a una partita all'Arena Fonte Nova.",walkingDescription:"Scopri Salvador a piedi con una guida locale.",askPrice:"Chiedi il prezzo",freeContribution:"Contributo libero",openForm:"Apri il modulo",redeemWhatsapp:"Riscatta su WhatsApp",footerText:"Porto da Barra • Salvador • Bahia",
+        islandsMessage:"Ciao! Sono alla Barraca da Família e vorrei riscattare il tour Isola di Itaparica + Ilha dos Frades.",morroMessage:"Ciao! Sono alla Barraca da Família e vorrei riscattare l'offerta del 20% OFF per Morro de São Paulo.",forteMessage:"Ciao! Sono alla Barraca da Família e vorrei riscattare il tour di Praia do Forte.",divingMessage:"Ciao! Sono alla Barraca da Família e vorrei riscattare l'esperienza di immersione.",arenaMessage:"Ciao! Sono alla Barraca da Família e vorrei riscattare l'esperienza di assistere a una partita all'Arena Fonte Nova."
+      },
+      ru:{
+        subtitle:"Вкусы пляжа Порту-да-Барра",digitalMenu:"🍤 Цифровое меню",freshFood:"Блюда готовятся после заказа.",tapHint:"Нажмите на позицию, чтобы увидеть гарниры.",
+        categories:["ЗАКУСКИ","ГАРНИРЫ","НАПИТКИ","КАЙПИРИНЬЯ И РОСКА"],tourNav:"ЭКСКУРСИИ",
+        items:[["Вяленая Говядина с Маниоком","Подаётся с жареным маниоком."],["Пиканья с Луком","Подаётся с картофелем фри."],["Колбаса Калабреза с Луком","Идеально для компании."],["Жареный Цыплёнок по-Бразильски","Хрустящая порция."],["🐟 Жареная Пититинга","Фирменное блюдо киоска."],["Картофель Фри",""],["Жареный Маниок",""],["Сыр Коальо",""],["Маниок с Вяленой Говядиной",""],["Пиво Long Neck","Уточните доступные марки."],["Heineken 600 мл",""],["Original 600 мл",""],["Budweiser",""],["Skol",""],["Минеральная Вода",""],["Газированная Вода",""],["Газированный Напиток в Банке",""],["Свежий Сок","Лайм • Маракуйя • Ананас • Кажа"],["Традиционная Кайпиринья","Лайм • Кашаса"],["Кайпироска с Водкой","Выберите любимый фрукт."],["Премиальная Кайпироска","Absolut или Smirnoff."],["Кайпириссима","Ром + свежие фрукты."],["Особая Фруктовая Кайпиринья","Клубника • Киви • Маракуйя • Ананас"]],
+        experiencesTitle:"Впечатления в Салвадоре",redeemPayLater:"Получите сейчас, оплатите позже.",paymentMethods:"Кредитная карта, дебетовая карта, Pix или наличные.",islandsTitle:"Остров Итапарика + остров Фрадес",islandsDescription:"Экскурсия на целый день по заливу Всех Святых.",perPerson:"с человека",morroDescription:"Одно из самых популярных направлений Баии.",forteDescription:"Откройте для себя один из самых известных пляжей северного побережья Баии.",divingTitle:"Дайвинг",divingDescription:"Откройте для себя воды Салвадора во время дайвинга.",arenaDescription:"Почувствуйте атмосферу футбольного матча на стадионе Арена Фонте-Нова.",walkingDescription:"Познакомьтесь с Салвадором пешком с местным гидом.",askPrice:"Уточнить стоимость",freeContribution:"Свободная оплата",openForm:"Открыть форму",redeemWhatsapp:"Получить через WhatsApp",footerText:"Порту-да-Барра • Салвадор • Баия",
+        islandsMessage:"Здравствуйте! Я нахожусь в Barraca da Família и хочу получить экскурсию на остров Итапарика + остров Фрадес.",morroMessage:"Здравствуйте! Я нахожусь в Barraca da Família и хочу получить скидку 20% на поездку в Морру-ди-Сан-Паулу.",forteMessage:"Здравствуйте! Я нахожусь в Barraca da Família и хочу получить экскурсию в Прайя-ду-Форте.",divingMessage:"Здравствуйте! Я нахожусь в Barraca da Família и хочу получить предложение на дайвинг.",arenaMessage:"Здравствуйте! Я нахожусь в Barraca da Família и хочу получить предложение на посещение матча на Арене Фонте-Нова."
+      },
+      he:{
+        subtitle:"הטעמים של חוף פורטו דה בארה",digitalMenu:"🍤 תפריט דיגיטלי",freshFood:"המנות מוכנות לפי הזמנה.",tapHint:"לחצו על אפשרות כדי לראות את התוספות.",
+        categories:["מנות פתיחה","תוספות","משקאות","קאיפיריניה ורוסקה"],tourNav:"סיורים",
+        items:[["בשר מיובש עם קסאווה","מוגש עם קסאווה מטוגנת."],["פיקניה עם בצל","מוגשת עם צ'יפס."],["נקניק קלברזה עם בצל","מתאים לחלוקה."],["עוף מטוגן בסגנון ברזילאי","מנה פריכה."],["🐟 פיטיטינגה מטוגנת","מנת הבית."],["צ'יפס",""],["קסאווה מטוגנת",""],["גבינת קואליו",""],["קסאווה עם בשר מיובש",""],["בירה Long Neck","שאלו אילו מותגים זמינים."],["Heineken 600 מ״ל",""],["Original 600 מ״ל",""],["Budweiser",""],["Skol",""],["מים מינרליים",""],["מים מוגזים",""],["משקה קל בפחית",""],["מיץ טבעי","ליים • פסיפלורה • אננס • קז'ה"],["קאיפיריניה מסורתית","ליים • קשאסה"],["קאיפירוסקה וודקה","בחרו את הפרי האהוב עליכם."],["קאיפירוסקה פרימיום","Absolut או Smirnoff."],["קאיפיריסימה","רום + פירות טריים."],["קאיפיפרוטה מיוחדת","תות • קיווי • פסיפלורה • אננס"]],
+        experiencesTitle:"חוויות בסלבדור",redeemPayLater:"ממשו עכשיו ושלמו אחר כך.",paymentMethods:"אשראי, חיוב, Pix או מזומן.",islandsTitle:"האי איטפריקה + האי פראדס",islandsDescription:"סיור של יום שלם במפרץ כל הקדושים.",perPerson:"לאדם",morroDescription:"אחד היעדים המבוקשים ביותר בבאהיה.",forteDescription:"גלו את אחד החופים המפורסמים ביותר בחוף הצפוני של באהיה.",divingTitle:"צלילה",divingDescription:"גלו את מימי סלבדור בחוויית צלילה.",arenaDescription:"חוו את ההתרגשות של צפייה במשחק בארנה פונטה נובה.",walkingDescription:"גלו את סלבדור ברגל עם מדריך מקומי.",askPrice:"בירור מחיר",freeContribution:"תשלום לפי רצונכם",openForm:"פתיחת הטופס",redeemWhatsapp:"מימוש דרך WhatsApp",footerText:"פורטו דה בארה • סלבדור • באהיה",
+        islandsMessage:"שלום! אני ב-Barraca da Família ורוצה לממש את הסיור לאי איטפריקה + האי פראדס.",morroMessage:"שלום! אני ב-Barraca da Família ורוצה לממש את הנחת 20% לסיור במורו דה סאו פאולו.",forteMessage:"שלום! אני ב-Barraca da Família ורוצה לממש את הסיור לפראיה דו פורטה.",divingMessage:"שלום! אני ב-Barraca da Família ורוצה לממש את חוויית הצלילה.",arenaMessage:"שלום! אני ב-Barraca da Família ורוצה לממש את החוויה של צפייה במשחק בארנה פונטה נובה."
+      }
+    };
+
+    let currentLanguage="pt";
+
+    function renderMenu(){
+      const lang=translations[currentLanguage];
+      const nav=document.getElementById("categoryNav");
+      const menu=document.getElementById("menu");
+      nav.innerHTML="";
+      menu.innerHTML="";
+
+      catalog.forEach((category,categoryIndex)=>{
+        const link=document.createElement("a");
+        link.href="#"+category.id;
+        link.textContent=category.icon+" "+lang.categories[categoryIndex];
+        nav.appendChild(link);
+
+        const section=document.createElement("section");
+        section.className="menu-section";
+        section.id=category.id;
+        section.innerHTML='<h2 class="section-title">'+category.icon+' '+lang.categories[categoryIndex]+'</h2>';
+
+        const grid=document.createElement("div");
+        grid.className="menu-grid";
+
+        category.items.forEach(index=>{
+          const item=lang.items[index];
+          const card=document.createElement("button");
+          card.type="button";
+          card.className="menu-card"+(index===4||index===18?" highlight":"")+(item[1]?"":" no-detail");
+          card.setAttribute("aria-expanded","false");
+          card.innerHTML='<span class="item-main"><span class="item-code">'+String(index+1).padStart(2,"0")+'</span><span class="item-name">'+item[0]+'</span><span class="item-price">'+prices[index]+'</span></span>'+(item[1]?'<span class="item-desc">'+item[1]+'</span>':"");
+
+          if(item[1]){
+            card.addEventListener("click",()=>{
+              const open=card.classList.toggle("open");
+              card.setAttribute("aria-expanded",String(open));
+            });
+          }
+          grid.appendChild(card);
+        });
+
+        section.appendChild(grid);
+        menu.appendChild(section);
+      });
+
+      const tours=document.createElement("a");
+      tours.href="#experiences";
+      tours.textContent="🌴 "+lang.tourNav;
+      nav.appendChild(tours);
+    }
+
+    function updateStaticText(){
+      const lang=translations[currentLanguage];
+      document.querySelectorAll("[data-i18n]").forEach(element=>{
+        const key=element.getAttribute("data-i18n");
+        if(lang[key]) element.textContent=lang[key];
+      });
+    }
+
+    function updateWhatsApp(){
+      const lang=translations[currentLanguage];
+      const phone="5571993719791";
+      document.querySelectorAll("[data-whatsapp]").forEach(link=>{
+        const key=link.getAttribute("data-whatsapp");
+        link.href="https://wa.me/"+phone+"?text="+encodeURIComponent(lang[key]);
+      });
+    }
+
+    function changeLanguage(language,button){
+      currentLanguage=language;
+      document.documentElement.lang=language;
+      document.documentElement.dir=language==="he"?"rtl":"ltr";
+      document.querySelectorAll(".languages button").forEach(item=>item.classList.remove("active"));
+      button.classList.add("active");
+      updateStaticText();
+      renderMenu();
+      updateWhatsApp();
+    }
+
+    document.querySelectorAll(".languages button").forEach(button=>{
+      button.addEventListener("click",()=>changeLanguage(button.dataset.lang,button));
+    });
+
+    changeLanguage("pt",document.querySelector('.languages button[data-lang="pt"]'));
+  </script>
 </body>
-
 </html>
