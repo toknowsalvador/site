@@ -163,11 +163,24 @@
 
         .menu-item {
             display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            gap: 16px;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            gap: 10px;
             align-items: start;
             padding: 13px 0;
             border-bottom: 1px dashed rgba(255, 255, 255, 0.16);
+        }
+
+        .item-code {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+            font-size: 12px;
+            font-weight: 900;
         }
 
         .menu-item:last-child {
@@ -267,76 +280,6 @@
         .footer a {
             color: var(--amarelo);
             text-decoration: none;
-        }
-
-
-        .checkout-card {
-            margin-top: 38px;
-            padding: 26px 20px;
-            border: 1px solid rgba(234, 216, 117, 0.5);
-            border-radius: 20px;
-            background:
-                radial-gradient(circle at top, rgba(234, 216, 117, 0.16), transparent 55%),
-                linear-gradient(145deg, rgba(111, 36, 49, 0.72), rgba(23, 21, 20, 0.94));
-            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
-            text-align: center;
-        }
-
-        .checkout-card small {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--amarelo);
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 1.4px;
-            text-transform: uppercase;
-        }
-
-        .checkout-card h2 {
-            margin: 0;
-            font-family: Georgia, "Times New Roman", serif;
-            font-size: clamp(25px, 7vw, 34px);
-            line-height: 1.1;
-        }
-
-        .checkout-card p {
-            max-width: 500px;
-            margin: 12px auto 18px;
-            color: var(--bege);
-            font-size: 14px;
-            line-height: 1.55;
-        }
-
-        .checkout-button {
-            display: flex;
-            width: 100%;
-            min-height: 60px;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 20px;
-            border-radius: 16px;
-            background: var(--amarelo);
-            color: var(--vinho-escuro);
-            font-size: 16px;
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
-            transition: transform 160ms ease, filter 160ms ease;
-        }
-
-        .checkout-button:hover,
-        .checkout-button:focus {
-            transform: translateY(-2px);
-            filter: brightness(1.04);
-        }
-
-        .checkout-hint {
-            display: block;
-            margin-top: 12px;
-            color: rgba(255, 255, 255, 0.64);
-            font-size: 12px;
-            line-height: 1.45;
         }
 
         @media (min-width: 680px) {
@@ -500,6 +443,109 @@
             border: 1px solid rgba(234,216,117,.42);
         }
 
+        .experiences-policy {
+            margin: 32px 0 15px;
+            padding: 14px 16px;
+            border: 1px solid rgba(234, 216, 117, 0.35);
+            border-radius: 14px;
+            background: rgba(234, 216, 117, 0.09);
+            color: var(--bege);
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 1.55;
+            text-align: center;
+        }
+
+        .experiences-policy strong {
+            color: var(--amarelo);
+        }
+
+        .experiences-scroll {
+            display: flex;
+            gap: 13px;
+            padding: 2px 2px 15px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-color: var(--amarelo) rgba(255,255,255,.08);
+            scrollbar-width: thin;
+        }
+
+        .experience-card {
+            display: flex;
+            flex: 0 0 min(78vw, 280px);
+            flex-direction: column;
+            min-height: 300px;
+            padding: 21px 17px 17px;
+            border: 1px solid rgba(234, 216, 117, 0.28);
+            border-radius: 17px;
+            background: linear-gradient(145deg, rgba(111,36,49,.84), rgba(23,21,20,.96));
+            box-shadow: 0 12px 28px rgba(0,0,0,.24);
+            scroll-snap-align: start;
+        }
+
+        .experience-icon {
+            margin-bottom: 10px;
+            font-size: 37px;
+        }
+
+        .experience-badge {
+            align-self: flex-start;
+            margin: -2px 0 10px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #b82f3f;
+            color: var(--branco);
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .experience-card h2 {
+            margin: 0 0 9px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 22px;
+            line-height: 1.18;
+        }
+
+        .experience-card p {
+            margin: 0 0 14px;
+            color: var(--bege);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .experience-price {
+            margin-top: auto;
+            color: var(--amarelo);
+            font-size: 23px;
+            font-weight: 900;
+        }
+
+        .experience-price small {
+            display: block;
+            color: var(--cinza);
+            font-size: 11px;
+            font-weight: normal;
+        }
+
+        .experience-action {
+            display: block;
+            margin-top: 15px;
+            padding: 12px 11px;
+            border-radius: 999px;
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        html[dir="rtl"] .menu-item,
+        html[dir="rtl"] .item-name,
+        html[dir="rtl"] .experience-card {
+            text-align: right;
+        }
+
     </style>
 </head>
 
@@ -518,6 +564,8 @@
             <button onclick="changeLanguage('es', this)">Español</button>
             <button onclick="changeLanguage('fr', this)">Français</button>
             <button onclick="changeLanguage('it', this)">Italiano</button>
+            <button onclick="changeLanguage('ru', this)">Русский</button>
+            <button onclick="changeLanguage('he', this)">🇮🇱 עברית</button>
         </nav>
     </header>
 
@@ -527,15 +575,14 @@
         <a href="#cervejas" data-i18n="navCervejas">Cervejas</a>
         <a href="#bebidas" data-i18n="navBebidas">Bebidas</a>
         <a href="#drinks" data-i18n="navCaipirinhas">Caipirinhas</a>
-        <a class="islands-shortcut" href="#ilhas"><span data-i18n="navIlhas">Ilhas</span> • 20% OFF</a>
+        <a class="islands-shortcut" href="#experiencias"><span data-i18n="navIlhas">Passeios</span> • <span data-i18n="navRedeem">Resgate agora</span></a>
         <a class="afro-shortcut" href="https://toknowsalvador.com" target="_blank" rel="noopener">Afro Tour</a>
     </nav>
 
     <main class="container">
 
-        <div class="notice">
-            Consulte a equipe para confirmar disponibilidade,
-            acompanhamentos e possíveis alterações de preço.
+        <div class="notice" data-i18n="notice">
+            Toque a opção para ver os acompanhamentos.
         </div>
 
         <!-- PETISCOS -->
@@ -1000,66 +1047,54 @@
             </div>
         </section>
 
-        <section class="checkout-card" id="help">
-            <small>💳 Finalizar atendimento</small>
-            <h2>Quero fechar a conta</h2>
-            <p>Toque no botão e informe o número da sua mesa no WhatsApp.</p>
-
-            <a
-                class="checkout-button"
-                href="https://wa.me/5571982005713?text=Traga%20minha%20conta%2C%20por%20favor.%20Estou%20na%20mesa%3A%20%0A%0ATr%C3%A1igame%20la%20cuenta%2C%20por%20favor.%20Estoy%20en%20la%20mesa%3A%20%0A%0ATraga%20minha%20conta%2C%20por%20favor.%20Estou%20na%20mesa%3A%20"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                <span>💳</span>
-                <span>Pedir minha conta</span>
-            </a>
-
-            <span class="checkout-hint">A mensagem já ficará pronta. Basta completar com o número da mesa.</span>
-        </section>
-
-
         <!-- EXPERIÊNCIAS -->
-        <section class="islands-mini" id="ilhas">
-            <small data-i18n="discountCall">Resgate o seu desconto</small>
-            <h2 data-i18n="islandsTitle">Ilha de Itaparica + Ilha dos Frades</h2>
-
-            <p data-i18n="islandsDescription">
-                Passeio de dia inteiro pela Baía de Todos-os-Santos.
+        <section id="experiencias" aria-label="Passeios em Salvador">
+            <p class="experiences-policy">
+                <strong data-i18n="redeemPayLater">Resgate agora e pague depois.</strong><br>
+                <span data-i18n="paymentMethods">Crédito, débito, Pix ou espécie.</span>
             </p>
 
-            <div class="mini-price">
-                R$ 150
-                <span data-i18n="perPerson">por pessoa</span>
-            </div>
+            <div class="experiences-scroll">
+                <article class="experience-card">
+                    <div class="experience-icon">🏝️</div>
+                    <h2 data-i18n="islandsTitle">Ilha de Itaparica + Ilha dos Frades</h2>
+                    <p data-i18n="islandsDescription">Passeio de dia inteiro pela Baía de Todos-os-Santos.</p>
+                    <div class="experience-price">R$ 150 <small data-i18n="perPerson">por pessoa</small></div>
+                    <a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="whatsapp">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+                </article>
 
-            <div class="mini-info">
-                <span>✓ <span data-i18n="pickup">Busca no hotel</span></span>
-                <span>✓ <span data-i18n="dropoff">Retorno ao hotel</span></span>
-                <span>✓ <span data-i18n="terminal">Terminal incluso</span></span>
-                <span>✓ <span data-i18n="fullDay">Dia inteiro</span></span>
-            </div>
+                <article class="experience-card">
+                    <div class="experience-icon">🌴</div>
+                    <div class="experience-badge">20% OFF</div>
+                    <h2>Morro de São Paulo</h2>
+                    <p data-i18n="morroDescription">Um dos destinos mais desejados da Bahia.</p>
+                    <div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
+                    <a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="morroWhatsapp">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+                </article>
 
-            <div class="mini-actions">
-                <a
-                    id="islandsWhatsapp"
-                    class="mini-button"
-                    href="#"
-                    target="_blank"
-                    rel="noopener"
-                    data-i18n="reserve"
-                >
-                    Reservar pelo WhatsApp
-                </a>
+                <article class="experience-card">
+                    <div class="experience-icon">🐢</div>
+                    <h2>Praia do Forte</h2>
+                    <p data-i18n="forteDescription">Descubra uma das praias mais famosas do litoral norte da Bahia.</p>
+                    <div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
+                    <a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="forteWhatsapp">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+                </article>
 
-                <a
-                    class="mini-button secondary"
-                    href="https://toknowsalvador.com"
-                    target="_blank"
-                    rel="noopener"
-                >
-                    Afro Tour
-                </a>
+                <article class="experience-card">
+                    <div class="experience-icon">⚽</div>
+                    <h2>Arena Fonte Nova</h2>
+                    <p data-i18n="arenaDescription">Viva a emoção de assistir a um jogo na Arena Fonte Nova.</p>
+                    <div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
+                    <a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="arenaWhatsapp">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+                </article>
+
+                <article class="experience-card">
+                    <div class="experience-icon">🚶🏽</div>
+                    <h2>Free Walking Tour</h2>
+                    <p data-i18n="walkingDescription">Conheça Salvador a pé com um guia local.</p>
+                    <div class="experience-price"><small data-i18n="freeContribution">Contribuição livre</small></div>
+                    <a class="experience-action" href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit" target="_blank" rel="noopener">📝 <span data-i18n="openForm">Abrir formulário</span></a>
+                </article>
             </div>
         </section>
 
@@ -1067,11 +1102,11 @@
 
     <footer class="footer">
         <strong>Point da Ana</strong><br>
-        Praia do Porto da Barra — Salvador, Bahia
+        <span data-i18n="footerPlace">Praia do Porto da Barra — Salvador, Bahia</span>
 
         <br><br>
 
-        Cardápio digital desenvolvido por
+        <span data-i18n="footerCredit">Cardápio digital desenvolvido por</span>
         <a href="https://toknowsalvador.com/">
             To Know Salvador
         </a>
@@ -1081,7 +1116,7 @@
 <script>
 let currentLanguage = "pt";
 
-const translations = {
+const legacyTranslations = {
   pt: {
     heroSmall: "Cardápio digital",
     heroPlace: "Praia do Porto da Barra",
@@ -1209,9 +1244,131 @@ const translations = {
   }
 };
 
+const translations = {
+  pt: {
+    heroSmall:"Cardápio digital", heroPlace:"Praia do Porto da Barra",
+    navPetiscos:"Petiscos", navMoquecas:"Moquecas", navCervejas:"Cervejas", navBebidas:"Bebidas", navCaipirinhas:"Caipirinhas", navIlhas:"Passeios", navRedeem:"Resgate agora",
+    notice:"Toque a opção para ver os acompanhamentos.", titlePetiscos:"Petiscos", titleMoquecas:"Moquecas", titleCervejas:"Cervejas", titleBebidas:"Bebidas", titleDrinks:"Caipirinhas e Caipiroscas",
+    redeemPayLater:"Resgate agora e pague depois.", paymentMethods:"Crédito, débito, Pix ou espécie.",
+    islandsTitle:"Ilha de Itaparica + Ilha dos Frades", islandsDescription:"Passeio de dia inteiro pela Baía de Todos-os-Santos.", perPerson:"por pessoa",
+    morroDescription:"Um dos destinos mais desejados da Bahia.", forteDescription:"Descubra uma das praias mais famosas do litoral norte da Bahia.", arenaDescription:"Viva a emoção de assistir a um jogo na Arena Fonte Nova.", walkingDescription:"Conheça Salvador a pé com um guia local.",
+    askPrice:"Consulte o valor", freeContribution:"Contribuição livre", openForm:"Abrir formulário", redeemWhatsapp:"Resgatar pelo WhatsApp",
+    footerPlace:"Praia do Porto da Barra — Salvador, Bahia", footerCredit:"Cardápio digital desenvolvido por",
+    whatsapp:"Olá! Estou na barraca Point da Ana e quero resgatar o passeio para a Ilha de Itaparica + Ilha dos Frades.",
+    morroWhatsapp:"Olá! Estou na barraca Point da Ana e quero resgatar a oferta de 20% OFF para Morro de São Paulo.",
+    forteWhatsapp:"Olá! Estou na barraca Point da Ana e quero resgatar o passeio para a Praia do Forte.",
+    arenaWhatsapp:"Olá! Estou na barraca Point da Ana e quero resgatar a experiência de assistir a um jogo na Arena Fonte Nova."
+  },
+  en: {
+    heroSmall:"Digital menu", heroPlace:"Porto da Barra Beach",
+    navPetiscos:"Snacks", navMoquecas:"Moquecas", navCervejas:"Beers", navBebidas:"Drinks", navCaipirinhas:"Caipirinhas", navIlhas:"Tours", navRedeem:"Redeem now",
+    notice:"Tap an option to see the side dishes.", titlePetiscos:"Snacks", titleMoquecas:"Moquecas", titleCervejas:"Beers", titleBebidas:"Drinks", titleDrinks:"Caipirinhas and Caipiroscas",
+    redeemPayLater:"Redeem now and pay later.", paymentMethods:"Credit card, debit card, Pix or cash.",
+    islandsTitle:"Itaparica Island + Frades Island", islandsDescription:"Full-day tour through All Saints Bay.", perPerson:"per person",
+    morroDescription:"One of Bahia's most sought-after destinations.", forteDescription:"Discover one of the most famous beaches on Bahia's northern coast.", arenaDescription:"Experience the excitement of watching a match at Arena Fonte Nova.", walkingDescription:"Explore Salvador on foot with a local guide.",
+    askPrice:"Ask for the price", freeContribution:"Pay what you want", openForm:"Open form", redeemWhatsapp:"Redeem via WhatsApp",
+    footerPlace:"Porto da Barra Beach — Salvador, Bahia", footerCredit:"Digital menu developed by",
+    whatsapp:"Hello! I am at the Point da Ana beach stand and would like to redeem the Itaparica Island + Frades Island tour.",
+    morroWhatsapp:"Hello! I am at the Point da Ana beach stand and would like to redeem the 20% OFF offer for Morro de São Paulo.",
+    forteWhatsapp:"Hello! I am at the Point da Ana beach stand and would like to redeem the Praia do Forte tour.",
+    arenaWhatsapp:"Hello! I am at the Point da Ana beach stand and would like to redeem the experience of watching a match at Arena Fonte Nova."
+  },
+  es: {
+    heroSmall:"Menú digital", heroPlace:"Playa de Porto da Barra",
+    navPetiscos:"Aperitivos", navMoquecas:"Moquecas", navCervejas:"Cervezas", navBebidas:"Bebidas", navCaipirinhas:"Caipirinhas", navIlhas:"Paseos", navRedeem:"Canjea ahora",
+    notice:"Toca una opción para ver los acompañamientos.", titlePetiscos:"Aperitivos", titleMoquecas:"Moquecas", titleCervejas:"Cervezas", titleBebidas:"Bebidas", titleDrinks:"Caipirinhas y Caipiroscas",
+    redeemPayLater:"Canjea ahora y paga después.", paymentMethods:"Crédito, débito, Pix o efectivo.",
+    islandsTitle:"Isla de Itaparica + Isla de los Frailes", islandsDescription:"Paseo de día completo por la Bahía de Todos los Santos.", perPerson:"por persona",
+    morroDescription:"Uno de los destinos más deseados de Bahía.", forteDescription:"Descubre una de las playas más famosas del litoral norte de Bahía.", arenaDescription:"Vive la emoción de ver un partido en la Arena Fonte Nova.", walkingDescription:"Conoce Salvador a pie con un guía local.",
+    askPrice:"Consulta el precio", freeContribution:"Contribución libre", openForm:"Abrir formulario", redeemWhatsapp:"Canjear por WhatsApp",
+    footerPlace:"Playa de Porto da Barra — Salvador, Bahía", footerCredit:"Menú digital desarrollado por",
+    whatsapp:"¡Hola! Estoy en el puesto de playa Point da Ana y quiero canjear el paseo a la Isla de Itaparica + Isla de los Frailes.",
+    morroWhatsapp:"¡Hola! Estoy en el puesto de playa Point da Ana y quiero canjear la oferta de 20% OFF para Morro de São Paulo.",
+    forteWhatsapp:"¡Hola! Estoy en el puesto de playa Point da Ana y quiero canjear el paseo a Praia do Forte.",
+    arenaWhatsapp:"¡Hola! Estoy en el puesto de playa Point da Ana y quiero canjear la experiencia de ver un partido en la Arena Fonte Nova."
+  },
+  fr: {
+    heroSmall:"Menu numérique", heroPlace:"Plage de Porto da Barra",
+    navPetiscos:"Entrées", navMoquecas:"Moquecas", navCervejas:"Bières", navBebidas:"Boissons", navCaipirinhas:"Caipirinhas", navIlhas:"Excursions", navRedeem:"Profitez-en",
+    notice:"Touchez une option pour voir les accompagnements.", titlePetiscos:"Entrées", titleMoquecas:"Moquecas", titleCervejas:"Bières", titleBebidas:"Boissons", titleDrinks:"Caipirinhas et Caipiroscas",
+    redeemPayLater:"Profitez-en maintenant et payez plus tard.", paymentMethods:"Crédit, débit, Pix ou espèces.",
+    islandsTitle:"Île d'Itaparica + Ilha dos Frades", islandsDescription:"Excursion d'une journée dans la Baie de Tous les Saints.", perPerson:"par personne",
+    morroDescription:"L'une des destinations les plus prisées de Bahia.", forteDescription:"Découvrez l'une des plages les plus célèbres de la côte nord de Bahia.", arenaDescription:"Vivez l'émotion d'un match à l'Arena Fonte Nova.", walkingDescription:"Découvrez Salvador à pied avec un guide local.",
+    askPrice:"Demandez le tarif", freeContribution:"Participation libre", openForm:"Ouvrir le formulaire", redeemWhatsapp:"Profiter via WhatsApp",
+    footerPlace:"Plage de Porto da Barra — Salvador, Bahia", footerCredit:"Menu numérique développé par",
+    whatsapp:"Bonjour ! Je suis au kiosque de plage Point da Ana et je souhaite profiter de l'excursion à l'île d'Itaparica + Ilha dos Frades.",
+    morroWhatsapp:"Bonjour ! Je suis au kiosque de plage Point da Ana et je souhaite profiter de l'offre de 20 % pour Morro de São Paulo.",
+    forteWhatsapp:"Bonjour ! Je suis au kiosque de plage Point da Ana et je souhaite profiter de l'excursion à Praia do Forte.",
+    arenaWhatsapp:"Bonjour ! Je suis au kiosque de plage Point da Ana et je souhaite profiter de l'expérience d'un match à l'Arena Fonte Nova."
+  },
+  it: {
+    heroSmall:"Menù digitale", heroPlace:"Spiaggia di Porto da Barra",
+    navPetiscos:"Antipasti", navMoquecas:"Moquecas", navCervejas:"Birre", navBebidas:"Bevande", navCaipirinhas:"Caipirinhas", navIlhas:"Tour", navRedeem:"Riscatta ora",
+    notice:"Tocca un'opzione per vedere i contorni.", titlePetiscos:"Antipasti", titleMoquecas:"Moquecas", titleCervejas:"Birre", titleBebidas:"Bevande", titleDrinks:"Caipirinhas e Caipiroscas",
+    redeemPayLater:"Riscatta ora e paga dopo.", paymentMethods:"Credito, debito, Pix o contanti.",
+    islandsTitle:"Isola di Itaparica + Ilha dos Frades", islandsDescription:"Tour di un'intera giornata nella Baia di Tutti i Santi.", perPerson:"a persona",
+    morroDescription:"Una delle destinazioni più desiderate di Bahia.", forteDescription:"Scopri una delle spiagge più famose della costa nord di Bahia.", arenaDescription:"Vivi l'emozione di assistere a una partita all'Arena Fonte Nova.", walkingDescription:"Scopri Salvador a piedi con una guida locale.",
+    askPrice:"Chiedi il prezzo", freeContribution:"Contributo libero", openForm:"Apri il modulo", redeemWhatsapp:"Riscatta su WhatsApp",
+    footerPlace:"Spiaggia di Porto da Barra — Salvador, Bahia", footerCredit:"Menù digitale sviluppato da",
+    whatsapp:"Ciao! Sono al chiosco sulla spiaggia Point da Ana e vorrei riscattare il tour Isola di Itaparica + Ilha dos Frades.",
+    morroWhatsapp:"Ciao! Sono al chiosco sulla spiaggia Point da Ana e vorrei riscattare l'offerta del 20% OFF per Morro de São Paulo.",
+    forteWhatsapp:"Ciao! Sono al chiosco sulla spiaggia Point da Ana e vorrei riscattare il tour di Praia do Forte.",
+    arenaWhatsapp:"Ciao! Sono al chiosco sulla spiaggia Point da Ana e vorrei riscattare l'esperienza di assistere a una partita all'Arena Fonte Nova."
+  },
+  ru: {
+    heroSmall:"Цифровое меню", heroPlace:"Пляж Порту-да-Барра",
+    navPetiscos:"Закуски", navMoquecas:"Мокека", navCervejas:"Пиво", navBebidas:"Напитки", navCaipirinhas:"Кайпиринья", navIlhas:"Экскурсии", navRedeem:"Получить сейчас",
+    notice:"Нажмите на позицию, чтобы увидеть гарниры.", titlePetiscos:"Закуски", titleMoquecas:"Мокека", titleCervejas:"Пиво", titleBebidas:"Напитки", titleDrinks:"Кайпиринья и кайпироска",
+    redeemPayLater:"Получите сейчас, оплатите позже.", paymentMethods:"Кредитная карта, дебетовая карта, Pix или наличные.",
+    islandsTitle:"Остров Итапарика + остров Фрадес", islandsDescription:"Экскурсия на целый день по заливу Всех Святых.", perPerson:"с человека",
+    morroDescription:"Одно из самых популярных направлений Баии.", forteDescription:"Откройте для себя один из самых известных пляжей северного побережья Баии.", arenaDescription:"Почувствуйте атмосферу футбольного матча на стадионе Арена Фонте-Нова.", walkingDescription:"Познакомьтесь с Салвадором пешком с местным гидом.",
+    askPrice:"Уточнить стоимость", freeContribution:"Свободная оплата", openForm:"Открыть форму", redeemWhatsapp:"Получить через WhatsApp",
+    footerPlace:"Пляж Порту-да-Барра — Салвадор, Баия", footerCredit:"Цифровое меню разработано",
+    whatsapp:"Здравствуйте! Я нахожусь в пляжном киоске Point da Ana и хочу получить экскурсию на остров Итапарика + остров Фрадес.",
+    morroWhatsapp:"Здравствуйте! Я нахожусь в пляжном киоске Point da Ana и хочу получить скидку 20% на поездку в Морру-ди-Сан-Паулу.",
+    forteWhatsapp:"Здравствуйте! Я нахожусь в пляжном киоске Point da Ana и хочу получить экскурсию в Прайя-ду-Форте.",
+    arenaWhatsapp:"Здравствуйте! Я нахожусь в пляжном киоске Point da Ana и хочу получить предложение на посещение матча на Арене Фонте-Нова."
+  },
+  he: {
+    heroSmall:"תפריט דיגיטלי", heroPlace:"חוף פורטו דה בארה",
+    navPetiscos:"מנות פתיחה", navMoquecas:"מוקקה", navCervejas:"בירות", navBebidas:"משקאות", navCaipirinhas:"קאיפיריניה", navIlhas:"סיורים", navRedeem:"למימוש עכשיו",
+    notice:"לחצו על אפשרות כדי לראות את התוספות.", titlePetiscos:"מנות פתיחה", titleMoquecas:"מוקקה", titleCervejas:"בירות", titleBebidas:"משקאות", titleDrinks:"קאיפיריניה וקאיפירוסקה",
+    redeemPayLater:"ממשו עכשיו ושלמו אחר כך.", paymentMethods:"אשראי, חיוב, Pix או מזומן.",
+    islandsTitle:"האי איטפריקה + האי פראדס", islandsDescription:"סיור של יום שלם במפרץ כל הקדושים.", perPerson:"לאדם",
+    morroDescription:"אחד היעדים המבוקשים ביותר בבאהיה.", forteDescription:"גלו את אחד החופים המפורסמים ביותר בחוף הצפוני של באהיה.", arenaDescription:"חוו את ההתרגשות של צפייה במשחק בארנה פונטה נובה.", walkingDescription:"גלו את סלבדור ברגל עם מדריך מקומי.",
+    askPrice:"בירור מחיר", freeContribution:"תשלום לפי רצונכם", openForm:"פתיחת הטופס", redeemWhatsapp:"מימוש דרך WhatsApp",
+    footerPlace:"חוף פורטו דה בארה — סלבדור, באהיה", footerCredit:"התפריט הדיגיטלי פותח על ידי",
+    whatsapp:"שלום! אני בדוכן החוף Point da Ana ורוצה לממש את הסיור לאי איטפריקה + האי פראדס.",
+    morroWhatsapp:"שלום! אני בדוכן החוף Point da Ana ורוצה לממש את הנחת 20% לסיור במורו דה סאו פאולו.",
+    forteWhatsapp:"שלום! אני בדוכן החוף Point da Ana ורוצה לממש את הסיור לפראיה דו פורטה.",
+    arenaWhatsapp:"שלום! אני בדוכן החוף Point da Ana ורוצה לממש את החוויה של צפייה במשחק בארנה פונטה נובה."
+  }
+};
+
+const menuItems = {
+  pt: ["Peixe vermelho frito","Peixe corvina","Isca de peixe","Isca de peixe completa","Camarão ao alho e óleo","Camarão empanado","Pituinga","Salada de polvo","Lagosta grelhada","Lagosta na chapa","Lagosta com legumes","Lambreta — dúzia","Carne do sol completa","Carne do sol","Frango à passarinha completo","Frango à passarinha","Isca de frango completa","Isca de frango","Bolinho de bacalhau","Bolinho de camarão","Caldo de camarão","Caldo de sururu","Moqueca de vermelho","Moqueca de dourado","Moqueca de pescada-amarela","Moqueca de pescada-branca","Moqueca de camarão","Moqueca mista","Mariscada","Moqueca de lagosta","Moqueca de lagosta com camarão","Brahma Chopp latão","Skol latão","Brahma Duplo Malte","Itaipava latão","Original lata","Amstel","Devassa","Heineken long neck","Heineken lata","Heineken 0% álcool long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona 0% álcool","Água mineral","Água com gás","Água de coco","Suco de frutas","Coca-Cola litro","Coca-Cola lata","Guaraná litro","Guaraná lata","Skinka","H2OH!","Smirnoff Ice","Caipirinha de limão","Caipirinha de maracujá","Caipirinha de siriguela","Caipirinha de abacaxi","Caipirinha de kiwi","Caipirinha de morango","Caipirinha de caju","Caipirosca de limão","Caipirosca de maracujá","Caipirosca de siriguela","Caipirosca de abacaxi","Caipirosca de kiwi","Caipirosca de morango","Caipirosca de caju"],
+  en: ["Fried red fish","Croaker fish","Fish strips","Fish strips with side dishes","Shrimp with garlic and oil","Breaded shrimp","Pituinga fish","Octopus salad","Grilled lobster","Griddled lobster","Lobster with vegetables","Lambreta shellfish — dozen","Sun-dried beef with side dishes","Sun-dried beef","Brazilian fried chicken with side dishes","Brazilian fried chicken","Chicken strips with side dishes","Chicken strips","Codfish fritters","Shrimp fritters","Shrimp broth","Sururu shellfish broth","Red fish moqueca","Mahi-mahi moqueca","Yellow hake moqueca","White hake moqueca","Shrimp moqueca","Mixed moqueca","Mixed seafood stew","Lobster moqueca","Lobster and shrimp moqueca","Brahma Chopp large can","Skol large can","Brahma Double Malt","Itaipava large can","Original can","Amstel","Devassa","Heineken long neck","Heineken can","Heineken 0% alcohol long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona 0% alcohol","Mineral water","Sparkling water","Coconut water","Fruit juice","1-liter Coca-Cola","Canned Coca-Cola","1-liter Guaraná","Canned Guaraná","Skinka","H2OH!","Smirnoff Ice","Lime caipirinha","Passion fruit caipirinha","Siriguela caipirinha","Pineapple caipirinha","Kiwi caipirinha","Strawberry caipirinha","Cashew fruit caipirinha","Lime caipirosca","Passion fruit caipirosca","Siriguela caipirosca","Pineapple caipirosca","Kiwi caipirosca","Strawberry caipirosca","Cashew fruit caipirosca"],
+  es: ["Pescado rojo frito","Corvina","Tiras de pescado","Tiras de pescado con acompañamientos","Camarones al ajo y aceite","Camarones empanados","Pituinga","Ensalada de pulpo","Langosta a la parrilla","Langosta a la plancha","Langosta con verduras","Moluscos lambreta — docena","Carne de sol con acompañamientos","Carne de sol","Pollo frito brasileño con acompañamientos","Pollo frito brasileño","Tiras de pollo con acompañamientos","Tiras de pollo","Buñuelos de bacalao","Buñuelos de camarón","Caldo de camarón","Caldo de sururu","Moqueca de pescado rojo","Moqueca de dorado","Moqueca de pescadilla amarilla","Moqueca de pescadilla blanca","Moqueca de camarón","Moqueca mixta","Guiso de mariscos","Moqueca de langosta","Moqueca de langosta con camarón","Brahma Chopp lata grande","Skol lata grande","Brahma Doble Malta","Itaipava lata grande","Original lata","Amstel","Devassa","Heineken long neck","Heineken lata","Heineken 0% alcohol long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona 0% alcohol","Agua mineral","Agua con gas","Agua de coco","Jugo de frutas","Coca-Cola de 1 litro","Coca-Cola en lata","Guaraná de 1 litro","Guaraná en lata","Skinka","H2OH!","Smirnoff Ice","Caipirinha de limón","Caipirinha de maracuyá","Caipirinha de ciruela brasileña","Caipirinha de piña","Caipirinha de kiwi","Caipirinha de fresa","Caipirinha de anacardo","Caipirosca de limón","Caipirosca de maracuyá","Caipirosca de ciruela brasileña","Caipirosca de piña","Caipirosca de kiwi","Caipirosca de fresa","Caipirosca de anacardo"],
+  fr: ["Poisson rouge frit","Corvina","Lamelles de poisson","Lamelles de poisson avec accompagnements","Crevettes à l'ail et à l'huile","Crevettes panées","Pituinga","Salade de poulpe","Langouste grillée","Langouste à la plancha","Langouste aux légumes","Coquillages lambreta — douzaine","Carne do sol avec accompagnements","Carne do sol","Poulet frit brésilien avec accompagnements","Poulet frit brésilien","Lamelles de poulet avec accompagnements","Lamelles de poulet","Beignets de morue","Beignets de crevettes","Bouillon de crevettes","Bouillon de sururu","Moqueca de poisson rouge","Moqueca de dorade coryphène","Moqueca de merlu jaune","Moqueca de merlu blanc","Moqueca de crevettes","Moqueca mixte","Ragoût de fruits de mer","Moqueca de langouste","Moqueca de langouste aux crevettes","Brahma Chopp grande canette","Skol grande canette","Brahma Double Malt","Itaipava grande canette","Original canette","Amstel","Devassa","Heineken long neck","Heineken canette","Heineken 0 % alcool long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona 0 % alcool","Eau minérale","Eau gazeuse","Eau de coco","Jus de fruits","Coca-Cola 1 litre","Coca-Cola en canette","Guaraná 1 litre","Guaraná en canette","Skinka","H2OH!","Smirnoff Ice","Caipirinha au citron vert","Caipirinha au fruit de la passion","Caipirinha à la siriguela","Caipirinha à l'ananas","Caipirinha au kiwi","Caipirinha à la fraise","Caipirinha à la noix de cajou","Caipirosca au citron vert","Caipirosca au fruit de la passion","Caipirosca à la siriguela","Caipirosca à l'ananas","Caipirosca au kiwi","Caipirosca à la fraise","Caipirosca à la noix de cajou"],
+  it: ["Pesce rosso fritto","Corvina","Strisce di pesce","Strisce di pesce con contorni","Gamberi all'aglio e olio","Gamberi impanati","Pituinga","Insalata di polpo","Aragosta alla griglia","Aragosta alla piastra","Aragosta con verdure","Molluschi lambreta — dozzina","Carne do sol con contorni","Carne do sol","Pollo fritto brasiliano con contorni","Pollo fritto brasiliano","Strisce di pollo con contorni","Strisce di pollo","Frittelle di baccalà","Frittelle di gamberi","Brodo di gamberi","Brodo di sururu","Moqueca di pesce rosso","Moqueca di lampuga","Moqueca di nasello giallo","Moqueca di nasello bianco","Moqueca di gamberi","Moqueca mista","Zuppa di frutti di mare","Moqueca di aragosta","Moqueca di aragosta con gamberi","Brahma Chopp lattina grande","Skol lattina grande","Brahma Doppio Malto","Itaipava lattina grande","Original lattina","Amstel","Devassa","Heineken long neck","Heineken lattina","Heineken 0% alcol long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona 0% alcol","Acqua minerale","Acqua frizzante","Acqua di cocco","Succo di frutta","Coca-Cola da 1 litro","Coca-Cola in lattina","Guaraná da 1 litro","Guaraná in lattina","Skinka","H2OH!","Smirnoff Ice","Caipirinha al lime","Caipirinha al frutto della passione","Caipirinha alla siriguela","Caipirinha all'ananas","Caipirinha al kiwi","Caipirinha alla fragola","Caipirinha all'anacardio","Caipirosca al lime","Caipirosca al frutto della passione","Caipirosca alla siriguela","Caipirosca all'ananas","Caipirosca al kiwi","Caipirosca alla fragola","Caipirosca all'anacardio"],
+  ru: ["Жареная красная рыба","Рыба корвина","Рыбные полоски","Рыбные полоски с гарнирами","Креветки с чесноком и маслом","Креветки в панировке","Рыба питуинга","Салат с осьминогом","Лобстер на гриле","Лобстер на жарочной поверхности","Лобстер с овощами","Моллюски ламбрета — дюжина","Вяленая говядина с гарнирами","Вяленая говядина","Жареный цыплёнок с гарнирами","Жареный цыплёнок","Куриные полоски с гарнирами","Куриные полоски","Крокеты из трески","Крокеты из креветок","Бульон с креветками","Бульон из моллюсков суруру","Мокека из красной рыбы","Мокека из дорадо","Мокека из жёлтого хека","Мокека из белого хека","Мокека с креветками","Смешанная мокека","Рагу из морепродуктов","Мокека с лобстером","Мокека с лобстером и креветками","Brahma Chopp, большая банка","Skol, большая банка","Brahma Double Malt","Itaipava, большая банка","Original, банка","Amstel","Devassa","Heineken long neck","Heineken, банка","Heineken 0% алкоголя long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona 0% алкоголя","Минеральная вода","Газированная вода","Кокосовая вода","Фруктовый сок","Coca-Cola, 1 литр","Coca-Cola, банка","Guaraná, 1 литр","Guaraná, банка","Skinka","H2OH!","Smirnoff Ice","Кайпиринья с лаймом","Кайпиринья с маракуйей","Кайпиринья с сиригелой","Кайпиринья с ананасом","Кайпиринья с киви","Кайпиринья с клубникой","Кайпиринья с кешью","Кайпироска с лаймом","Кайпироска с маракуйей","Кайпироска с сиригелой","Кайпироска с ананасом","Кайпироска с киви","Кайпироска с клубникой","Кайпироска с кешью"],
+  he: ["דג אדום מטוגן","דג קורבינה","רצועות דג","רצועות דג עם תוספות","שרימפס בשום ושמן","שרימפס בציפוי פריך","דג פיטואינגה","סלט תמנון","לובסטר בגריל","לובסטר על הפלאנצ'ה","לובסטר עם ירקות","צדפות למברטה — תריסר","בשר מיובש עם תוספות","בשר מיובש","עוף מטוגן עם תוספות","עוף מטוגן","רצועות עוף עם תוספות","רצועות עוף","לביבות בקלה","לביבות שרימפס","מרק שרימפס","מרק צדפות סורורו","מוקקה מדג אדום","מוקקה מדג דוראדו","מוקקה מדג הייק צהוב","מוקקה מדג הייק לבן","מוקקה שרימפס","מוקקה מעורבת","תבשיל פירות ים","מוקקה לובסטר","מוקקה לובסטר ושרימפס","Brahma Chopp פחית גדולה","Skol פחית גדולה","Brahma דאבל מאלט","Itaipava פחית גדולה","Original פחית","Amstel","Devassa","Heineken בקבוק long neck","Heineken פחית","Heineken ללא אלכוהול long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona ללא אלכוהול","מים מינרליים","מים מוגזים","מי קוקוס","מיץ פירות","Coca-Cola ליטר","Coca-Cola פחית","Guaraná ליטר","Guaraná פחית","Skinka","H2OH!","Smirnoff Ice","קאיפיריניה ליים","קאיפיריניה פסיפלורה","קאיפיריניה סיריגלה","קאיפיריניה אננס","קאיפיריניה קיווי","קאיפיריניה תות","קאיפיריניה קשיו","קאיפירוסקה ליים","קאיפירוסקה פסיפלורה","קאיפירוסקה סיריגלה","קאיפירוסקה אננס","קאיפירוסקה קיווי","קאיפירוסקה תות","קאיפירוסקה קשיו"]
+};
+
+const menuDescriptions = {
+  pt:{3:"Batata, arroz, farofa e salada",18:"8 unidades",19:"6 unidades"},
+  en:{3:"French fries, rice, toasted cassava flour and salad",18:"8 pieces",19:"6 pieces"},
+  es:{3:"Papas fritas, arroz, farofa y ensalada",18:"8 unidades",19:"6 unidades"},
+  fr:{3:"Frites, riz, farine de manioc grillée et salade",18:"8 pièces",19:"6 pièces"},
+  it:{3:"Patatine fritte, riso, farina di manioca tostata e insalata",18:"8 pezzi",19:"6 pezzi"},
+  ru:{3:"Картофель фри, рис, обжаренная маниоковая мука и салат",18:"8 штук",19:"6 штук"},
+  he:{3:"צ'יפס, אורז, קמח קסאווה קלוי וסלט",18:"8 יחידות",19:"6 יחידות"}
+};
+
 function changeLanguage(language, button) {
   currentLanguage = language;
   document.documentElement.lang = language;
+  document.documentElement.dir = language === "he" ? "rtl" : "ltr";
 
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
@@ -1223,17 +1380,59 @@ function changeLanguage(language, button) {
   document.querySelectorAll(".language-selector button").forEach(btn => btn.classList.remove("active"));
   button.classList.add("active");
 
-  updateWhatsApp();
+  updateMenuItems();
+  updateWhatsAppLinks();
 }
 
-function updateWhatsApp() {
+function prepareMenuItems() {
+  document.querySelectorAll(".menu-item").forEach((item, index) => {
+    if (!item.querySelector(".item-code")) {
+      const code = document.createElement("span");
+      code.className = "item-code";
+      code.textContent = String(index + 1).padStart(2, "0");
+      code.setAttribute("aria-label", "Item " + (index + 1));
+      item.prepend(code);
+    }
+
+    const name = item.querySelector(".item-name");
+    if (name && !name.querySelector(".item-label")) {
+      const description = name.querySelector(".item-description");
+      const label = document.createElement("span");
+      label.className = "item-label";
+
+      Array.from(name.childNodes).forEach(node => {
+        if (node !== description) node.remove();
+      });
+
+      name.prepend(label);
+    }
+  });
+}
+
+function updateMenuItems() {
+  document.querySelectorAll(".menu-item").forEach((item, index) => {
+    const label = item.querySelector(".item-label");
+    const description = item.querySelector(".item-description");
+
+    if (label) label.textContent = menuItems[currentLanguage][index];
+    if (description) {
+      description.textContent = menuDescriptions[currentLanguage][index] || "";
+    }
+  });
+}
+
+function updateWhatsAppLinks() {
   const phone = "5571993719791";
-  const message = translations[currentLanguage].whatsapp;
-  document.getElementById("islandsWhatsapp").href =
-    "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+
+  document.querySelectorAll("[data-whatsapp-key]").forEach(link => {
+    const key = link.getAttribute("data-whatsapp-key");
+    const message = translations[currentLanguage][key];
+    link.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+  });
 }
 
-updateWhatsApp();
+prepareMenuItems();
+changeLanguage("pt", document.querySelector(".language-selector button"));
 </script>
 
 </body>
