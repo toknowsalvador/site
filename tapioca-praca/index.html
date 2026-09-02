@@ -1,1593 +1,1310 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
+    <meta charset="UTF-8">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<title>Tapioca & Crepioca da Praça</title>
+    <meta
+        name="description"
+        content="Cardápio digital da Point da Ana, na Praia do Porto da Barra, Salvador."
+    >
 
-<style>
+    <title>Point da Ana | Porto da Barra</title>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    <style>
+        :root {
+            --vinho: #6f2431;
+            --vinho-escuro: #3b151d;
+            --preto: #171514;
+            --amarelo: #ead875;
+            --bege: #f5ecd3;
+            --branco: #fffdf7;
+            --cinza: #d8d1c2;
+        }
 
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#8e1717;
-color:#4d2b00;
-padding:30px 24px 0;
-}
+        * {
+            box-sizing: border-box;
+        }
 
-.container{
-max-width:900px;
-margin:0 auto;
-background:#f6d332;
-background-image:linear-gradient(180deg,#f7da45,#f3c821);
-min-height:calc(100vh - 30px);
-padding:25px;
-border-radius:18px 18px 0 0;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-.language-menu{
-display:flex;
-justify-content:center;
-gap:10px;
-flex-wrap:wrap;
-margin-bottom:25px;
-}
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(111, 36, 49, 0.96),
+                    rgba(23, 21, 20, 0.98)
+                );
+            color: var(--branco);
+            min-height: 100vh;
+        }
 
-.language-menu a{
-display:inline-block;
-padding:9px 15px;
-background:#fff5c9;
-color:#7d1111;
-text-decoration:none;
-font-weight:bold;
-border:2px solid #7d1111;
-border-radius:8px;
-font-size:14px;
-}
+        a {
+            color: inherit;
+        }
 
-.language-menu a.active{
-background:#7d1111;
-color:#ffffff;
-}
+        .hero {
+            padding: 42px 20px 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(234, 216, 117, 0.15),
+                    transparent 45%
+                );
+        }
 
-h1{
-text-align:center;
-font-size:42px;
-color:#7d1111;
-margin-bottom:10px;
-}
+        .hero-small {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--amarelo);
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-.line{
-width:120px;
-height:3px;
-background:#7d1111;
-margin:auto;
-margin-bottom:25px;
-}
+        .hero h1 {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(42px, 12vw, 72px);
+            font-style: italic;
+            font-weight: normal;
+            line-height: 0.95;
+        }
 
-.info{
-background:#fff5c9;
-border-left:6px solid #7d1111;
-padding:18px;
-border-radius:10px;
-margin-bottom:30px;
-line-height:1.8;
-}
+        .hero p {
+            margin: 15px 0 0;
+            color: var(--bege);
+            font-size: 17px;
+        }
 
-.info strong{
-color:#7d1111;
-}
+        .quick-nav {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: flex;
+            gap: 8px;
+            padding: 12px 14px;
+            overflow-x: auto;
+            background: rgba(23, 21, 20, 0.96);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(8px);
+        }
 
-.category{
-display:inline-block;
-background:#7d1111;
-color:white;
-padding:10px 22px;
-font-size:25px;
-font-weight:bold;
-margin-top:20px;
-margin-bottom:15px;
-}
+        .quick-nav a {
+            flex: 0 0 auto;
+            padding: 9px 14px;
+            border: 1px solid rgba(234, 216, 117, 0.35);
+            border-radius: 999px;
+            color: var(--amarelo);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+        }
 
-.item{
-display:flex;
-justify-content:space-between;
-align-items:flex-start;
-gap:15px;
-padding:9px 0;
-border-bottom:1px dashed rgba(0,0,0,.15);
-}
+        .container {
+            width: min(100% - 28px, 760px);
+            margin: 0 auto;
+            padding: 24px 0 50px;
+        }
 
-.name{
-font-size:20px;
-font-weight:bold;
-}
+        .notice {
+            margin-bottom: 22px;
+            padding: 14px 16px;
+            border: 1px solid rgba(234, 216, 117, 0.3);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--bege);
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+        }
 
-.price{
-font-size:20px;
-font-weight:bold;
-color:#7d1111;
-white-space:nowrap;
-}
+        .menu-section {
+            margin-bottom: 25px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 18px;
+            background: rgba(17, 15, 14, 0.78);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+        }
 
-.desc{
-font-size:14px;
-color:#6b4300;
-margin-top:2px;
-}
+        .section-title {
+            margin: 0;
+            padding: 17px 18px;
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--vinho),
+                    var(--vinho-escuro)
+                );
+            color: var(--amarelo);
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 23px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
 
-@media(max-width:600px){
+        .menu-list {
+            margin: 0;
+            padding: 6px 17px 12px;
+            list-style: none;
+        }
 
-body{
-padding:22px 14px 0;
-}
+        .menu-item {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            gap: 10px;
+            align-items: start;
+            padding: 13px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.16);
+        }
 
-.container{
-padding:18px;
-border-radius:14px 14px 0 0;
-}
+        .item-code {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+            font-size: 12px;
+            font-weight: 900;
+        }
 
-h1{
-font-size:31px;
-}
+        .menu-item:last-child {
+            border-bottom: 0;
+        }
 
-.category{
-font-size:21px;
-}
+        .item-name {
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 1.35;
+            text-transform: uppercase;
+        }
 
-.name,
-.price{
-font-size:17px;
-}
+        .item-description {
+            display: block;
+            margin-top: 4px;
+            color: var(--cinza);
+            font-size: 12px;
+            font-weight: normal;
+            line-height: 1.4;
+            text-transform: none;
+        }
 
-.language-menu a{
-font-size:13px;
-padding:8px 12px;
-}
+        .item-price {
+            min-width: 58px;
+            padding: 6px 8px;
+            border-radius: 7px;
+            background: var(--bege);
+            color: var(--vinho-escuro);
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            white-space: nowrap;
+        }
 
-}
+        .drink-columns {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
 
+        .experience {
+            margin-top: 38px;
+            padding: 22px 18px;
+            border: 1px solid rgba(234, 216, 117, 0.3);
+            border-radius: 17px;
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(111, 36, 49, 0.5),
+                    rgba(23, 21, 20, 0.85)
+                );
+            text-align: center;
+        }
 
-.language-menu{
-  justify-content:flex-start;
-  flex-wrap:nowrap;
-  overflow-x:auto;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-  padding-bottom:4px;
-}
-.language-menu::-webkit-scrollbar{display:none}
+        .experience small {
+            display: block;
+            margin-bottom: 7px;
+            color: var(--amarelo);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
 
-.language-menu button,
-.language-menu .menu-action{
-  flex:0 0 auto;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:9px 15px;
-  background:#fff5c9;
-  color:#7d1111;
-  text-decoration:none;
-  font-weight:bold;
-  border:2px solid #7d1111;
-  border-radius:8px;
-  font-size:14px;
-  cursor:pointer;
-  white-space:nowrap;
-}
+        .experience h2 {
+            margin: 0 0 8px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 22px;
+        }
 
-.language-menu button.active{
-  background:#7d1111;
-  color:#fff;
-}
+        .experience p {
+            margin: 0 auto 17px;
+            color: var(--bege);
+            font-size: 14px;
+            line-height: 1.5;
+        }
 
-.language-menu .menu-action.islands{
-  background:#7d1111;
-  color:#fff;
-}
+        .experience-button {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 999px;
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-.language-menu .menu-action.afro{
-  background:#4d2b00;
-  color:#fff5c9;
-  border-color:#4d2b00;
-}
+        .footer {
+            padding: 0 18px 35px;
+            color: rgba(255, 255, 255, 0.62);
+            text-align: center;
+            font-size: 12px;
+            line-height: 1.6;
+        }
 
-.islands-mini{
-  margin-top:42px;
-  padding:20px 18px;
-  background:#fff5c9;
-  border-radius:14px;
-  text-align:center;
-  border:2px solid rgba(125,17,17,.15);
-}
+        .footer a {
+            color: var(--amarelo);
+            text-decoration: none;
+        }
 
-.islands-mini small{
-  display:block;
-  color:#7d1111;
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  margin-bottom:6px;
-}
+        @media (min-width: 680px) {
+            .drink-columns {
+                grid-template-columns: 1fr 1fr;
+                gap: 18px;
+            }
+        }
 
-.islands-mini h2{
-  color:#7d1111;
-  font-size:24px;
-  margin-bottom:7px;
-}
+        .language-selector {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-top: 22px;
+        }
 
-.islands-mini p{
-  max-width:560px;
-  margin:0 auto 10px;
-  font-size:14px;
-  line-height:1.5;
-  color:#5d3500;
-}
+        .language-selector a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 104px;
+            padding: 11px 15px;
+            border: 1px solid rgba(234, 216, 117, 0.55);
+            border-radius: 999px;
+            background: rgba(23, 21, 20, 0.46);
+            color: var(--amarelo);
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+        }
 
-.islands-price{
-  color:#7d1111;
-  font-size:26px;
-  font-weight:900;
-  margin:10px 0 12px;
-}
-.islands-price span{
-  font-size:13px;
-  font-weight:700;
-}
-
-.islands-includes{
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:7px 12px;
-  margin-bottom:14px;
-  color:#6b4300;
-  font-size:12px;
-  line-height:1.4;
-}
-
-.islands-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  justify-content:center;
-}
-
-.islands-button,
-.afro-button{
-  display:inline-block;
-  padding:11px 16px;
-  border-radius:9px;
-  font-size:13px;
-  font-weight:bold;
-  text-decoration:none;
-}
-
-.islands-button{
-  background:#7d1111;
-  color:#fff;
-}
-
-.afro-button{
-  background:#4d2b00;
-  color:#fff5c9;
-}
-
-@media(max-width:600px){
-  .language-menu button,
-  .language-menu .menu-action{
-    font-size:13px;
-    padding:8px 12px;
-  }
-
-  .islands-mini{
-    padding:18px 14px;
-  }
-
-  .islands-mini h2{
-    font-size:21px;
-  }
-
-  .islands-price{
-    font-size:23px;
-  }
-}
+        .language-selector a:hover,
+        .language-selector a:focus,
+        .language-selector a.active {
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+        }
 
 
-html[dir="rtl"] .item{
-  direction:rtl;
-}
-html[dir="rtl"] .name,
-html[dir="rtl"] .desc{
-  text-align:right;
-}
-html[dir="rtl"] .price{
-  text-align:left;
-}
-html[dir="rtl"] .language-menu{
-  direction:rtl;
-}
-html[dir="rtl"] .islands-mini{
-  direction:rtl;
-}
+        .language-selector button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 104px;
+            padding: 11px 15px;
+            border: 1px solid rgba(234, 216, 117, 0.55);
+            border-radius: 999px;
+            background: rgba(23, 21, 20, 0.46);
+            color: var(--amarelo);
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 0.7px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
 
-</style>
+        .language-selector button:hover,
+        .language-selector button:focus,
+        .language-selector button.active {
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+        }
 
+        .quick-nav .islands-shortcut {
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+            border-color: var(--amarelo);
+        }
+
+        .quick-nav .afro-shortcut {
+            background: var(--vinho);
+            color: var(--branco);
+            border-color: rgba(255,255,255,.18);
+        }
+
+        .islands-mini {
+            margin-top: 28px;
+            padding: 18px 16px;
+            border: 1px solid rgba(234, 216, 117, 0.34);
+            border-radius: 16px;
+            background: rgba(17, 15, 14, 0.74);
+            text-align: center;
+        }
+
+        .islands-mini small {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--amarelo);
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+        }
+
+        .islands-mini h2 {
+            margin: 0 0 7px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 21px;
+            line-height: 1.2;
+        }
+
+        .islands-mini p {
+            margin: 0 auto 10px;
+            max-width: 520px;
+            color: var(--bege);
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .islands-mini .mini-price {
+            margin: 8px 0 12px;
+            color: var(--amarelo);
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        .islands-mini .mini-price span {
+            font-size: 12px;
+            color: var(--bege);
+            font-weight: normal;
+        }
+
+        .islands-mini .mini-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 6px 10px;
+            margin-bottom: 13px;
+            color: var(--cinza);
+            font-size: 12px;
+        }
+
+        .islands-mini .mini-info span {
+            white-space: nowrap;
+        }
+
+        .islands-mini .mini-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .islands-mini .mini-button {
+            display: inline-block;
+            padding: 10px 14px;
+            border-radius: 999px;
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .islands-mini .mini-button.secondary {
+            background: transparent;
+            color: var(--amarelo);
+            border: 1px solid rgba(234,216,117,.42);
+        }
+
+        .experiences-policy {
+            margin: 32px 0 15px;
+            padding: 14px 16px;
+            border: 1px solid rgba(234, 216, 117, 0.35);
+            border-radius: 14px;
+            background: rgba(234, 216, 117, 0.09);
+            color: var(--bege);
+            font-size: 13px;
+            font-weight: bold;
+            line-height: 1.55;
+            text-align: center;
+        }
+
+        .experiences-policy strong {
+            color: var(--amarelo);
+        }
+
+        .experiences-scroll {
+            display: flex;
+            gap: 13px;
+            padding: 2px 2px 15px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-color: var(--amarelo) rgba(255,255,255,.08);
+            scrollbar-width: thin;
+        }
+
+        .experience-card {
+            display: flex;
+            flex: 0 0 min(78vw, 280px);
+            flex-direction: column;
+            min-height: 300px;
+            padding: 21px 17px 17px;
+            border: 1px solid rgba(234, 216, 117, 0.28);
+            border-radius: 17px;
+            background: linear-gradient(145deg, rgba(111,36,49,.84), rgba(23,21,20,.96));
+            box-shadow: 0 12px 28px rgba(0,0,0,.24);
+            scroll-snap-align: start;
+        }
+
+        .experience-icon {
+            margin-bottom: 10px;
+            font-size: 37px;
+        }
+
+        .experience-badge {
+            align-self: flex-start;
+            margin: -2px 0 10px;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: #b82f3f;
+            color: var(--branco);
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+        .experience-card h2 {
+            margin: 0 0 9px;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 22px;
+            line-height: 1.18;
+        }
+
+        .experience-card p {
+            margin: 0 0 14px;
+            color: var(--bege);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .experience-price {
+            margin-top: auto;
+            color: var(--amarelo);
+            font-size: 23px;
+            font-weight: 900;
+        }
+
+        .experience-price small {
+            display: block;
+            color: var(--cinza);
+            font-size: 11px;
+            font-weight: normal;
+        }
+
+        .experience-action {
+            display: block;
+            margin-top: 15px;
+            padding: 12px 11px;
+            border-radius: 999px;
+            background: var(--amarelo);
+            color: var(--vinho-escuro);
+            font-size: 13px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        html[dir="rtl"] .menu-item,
+        html[dir="rtl"] .item-name,
+        html[dir="rtl"] .experience-card {
+            text-align: right;
+        }
+
+    </style>
 </head>
 
 <body>
 
-<div class="container">
-
-<div class="language-menu">
-<button class="active" onclick="changeLanguage('pt',this)">Português</button>
-<button onclick="changeLanguage('en',this)">English</button>
-<button onclick="changeLanguage('es',this)">Español</button>
-<button onclick="changeLanguage('fr',this)">Français</button>
-<button onclick="changeLanguage('it',this)">Italiano</button>
-<button onclick="changeLanguage('he',this)">עברית</button>
-
-<a class="menu-action islands" href="#ilhas">
-<span data-i18n="navIslands">Ilhas</span>&nbsp;•&nbsp;20% OFF
-</a>
-
-<a class="menu-action afro" href="https://toknowsalvador.com" target="_blank" rel="noopener">
-Afro Tour
-</a>
-</div>
-
-<h1 data-i18n="title">TAPIOCA & CREPIOCA DA PRAÇA</h1>
-
-<div class="line"></div>
-
-<div class="info">
-
-<strong data-i18n="artisan">Massa artesanal.</strong><br>
-
-<span data-i18n="noCorn">✔ Não contém amido de milho.</span><br>
-
-<span data-i18n="noPreservatives">✔ Não contém conservantes.</span>
-
-</div>
-
-<div class="category" data-i18n="catSweet">DOCES</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item1">Leite Condensado com Coco</div>
-<div class="desc" data-i18n="desc1">Leite condensado + coco.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item2">Banana com Chocolate</div>
-<div class="desc" data-i18n="desc2">Banana + chocolate.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item3">Prestígio</div>
-<div class="desc" data-i18n="desc3">Coco + chocolate.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item4">Doce de Leite com Chocolate</div>
-<div class="desc" data-i18n="desc4">Doce de leite + chocolate.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item5">Doce de Leite com Coco</div>
-<div class="desc" data-i18n="desc5">Doce de leite + coco.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item6">Goiabada com Coco</div>
-<div class="desc" data-i18n="desc6">Goiabada + coco.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item7">Doce de Leite com Banana</div>
-<div class="desc" data-i18n="desc7">Doce de leite + banana.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item8">Brigadeiro</div>
-<div class="desc" data-i18n="desc8">Granulado + chocolate.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item9">Nutella com Morango</div>
-</div>
-<div class="price">R$ 28,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item10">Nutella</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item11">Cuscuz</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="category" data-i18n="catMixed">DOCES & SALGADAS</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item12">Romeu e Julieta</div>
-<div class="desc" data-i18n="desc9">Goiabada + queijo.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item13">Leite Condensado com Queijo</div>
-<div class="desc" data-i18n="desc10">Leite condensado + queijo.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item14">Doce de Leite com Queijo</div>
-<div class="desc" data-i18n="desc11">Doce de leite + queijo.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-<div class="item">
-<div>
-<div class="name" data-i18n="item15">Banana com Queijo e Canela</div>
-<div class="desc" data-i18n="desc12">Banana + queijo + canela.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item16">Presunto e Queijo</div>
-<div class="desc" data-i18n="desc13">Presunto + queijo.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item17">Leite Condensado com Queijo Coalho</div>
-<div class="desc" data-i18n="desc14">Leite condensado + queijo coalho.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item18">Coco, Queijo e Goiabada</div>
-<div class="desc" data-i18n="desc15">Coco + queijo + goiabada.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item19">Morango com Chocolate</div>
-<div class="desc" data-i18n="desc16">Morango + chocolate.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="category" data-i18n="catVegetarian">VEGETARIANO</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item20">Tomate Seco com Queijo</div>
-<div class="desc" data-i18n="desc17">Tomate seco + queijo.</div>
-</div>
-<div class="price">R$ 28,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item21">Tomate Seco com Azeitona</div>
-<div class="desc" data-i18n="desc18">Tomate seco + azeitona.</div>
-</div>
-<div class="price">R$ 28,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item22">Tomate Seco com Rúcula</div>
-<div class="desc" data-i18n="desc19">Tomate seco + rúcula.</div>
-</div>
-<div class="price">R$ 28,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item23">Azeitona com Milho</div>
-<div class="desc" data-i18n="desc20">Azeitona + milho.</div>
-</div>
-<div class="price">R$ 28,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item24">Rúcula com Azeitona</div>
-<div class="desc" data-i18n="desc21">Rúcula + azeitona.</div>
-</div>
-<div class="price">R$ 28,00</div>
-</div>
-
-<div class="category" data-i18n="catSavory">SALGADAS</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item25">Ovo com Queijo</div>
-<div class="desc" data-i18n="desc22">Ovo + queijo.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item26">Ovo com Presunto</div>
-<div class="desc" data-i18n="desc23">Ovo + presunto.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item27">Tapioca Pizza</div>
-<div class="desc" data-i18n="desc24">Tomate + queijo + orégano.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item28">Queijo Coalho</div>
-<div class="desc" data-i18n="desc25">Queijo coalho.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item29">Quatro Queijos</div>
-<div class="desc" data-i18n="desc26">Queijo coalho + mussarela + cheddar.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item30">Calabresa com Queijo</div>
-<div class="desc" data-i18n="desc27">Calabresa + queijo.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item31">Calabresa com Catupiry</div>
-<div class="desc" data-i18n="desc28">Calabresa + Catupiry.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item32">Carne de Sol com Queijo</div>
-<div class="desc" data-i18n="desc29">Carne de sol + queijo.</div>
-</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item33">Carne de Sol com Catupiry</div>
-<div class="desc" data-i18n="desc30">Carne de sol + Catupiry.</div>
-</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item34">Carne de Sol com Aipim</div>
-<div class="desc" data-i18n="desc31">Carne de sol + aipim.</div>
-</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item35">Charque com Aipim</div>
-<div class="desc" data-i18n="desc32">Charque + aipim.</div>
-</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item36">Charque com Queijo</div>
-<div class="desc" data-i18n="desc33">Charque + queijo.</div>
-</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item37">Calabresa, Charque e Queijo</div>
-<div class="desc" data-i18n="desc34">Calabresa + charque + queijo.</div>
-</div>
-<div class="price">R$ 35,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item38">Calabresa, Charque e Aipim</div>
-<div class="desc" data-i18n="desc35">Calabresa + charque + aipim.</div>
-</div>
-<div class="price">R$ 35,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item39">Calabresa, Charque e Catupiry</div>
-<div class="desc" data-i18n="desc36">Calabresa + charque + Catupiry.</div>
-</div>
-<div class="price">R$ 35,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item40">Frango com Queijo</div>
-<div class="desc" data-i18n="desc37">Frango + queijo.</div>
-</div>
-<div class="price">R$ 28,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item41">Frango com Catupiry</div>
-<div class="desc" data-i18n="desc38">Frango + Catupiry.</div>
-</div>
-<div class="price">R$ 28,00</div>
-</div>
-<div class="item">
-<div>
-<div class="name" data-i18n="item42">Bacon com Queijo</div>
-<div class="desc" data-i18n="desc39">Bacon + queijo.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item43">Peito de Peru com Queijo</div>
-<div class="desc" data-i18n="desc40">Peito de peru + queijo.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item44">Peito de Peru com Catupiry</div>
-<div class="desc" data-i18n="desc41">Peito de peru + Catupiry.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item45">Camarão com Queijo</div>
-<div class="desc" data-i18n="desc42">Camarão + queijo.</div>
-</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item46">Camarão com Catupiry</div>
-<div class="desc" data-i18n="desc43">Camarão + Catupiry.</div>
-</div>
-<div class="price">R$ 30,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item47">Atum com Queijo</div>
-<div class="desc" data-i18n="desc44">Atum + queijo.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item48">Salaminho com Queijo</div>
-<div class="desc" data-i18n="desc45">Salaminho + queijo.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item49">Salaminho com Catupiry</div>
-<div class="desc" data-i18n="desc46">Salaminho + Catupiry.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item50">Lombinho com Queijo</div>
-<div class="desc" data-i18n="desc47">Lombinho + queijo.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item51">Lombinho com Catupiry</div>
-<div class="desc" data-i18n="desc48">Lombinho + Catupiry.</div>
-</div>
-<div class="price">R$ 25,00</div>
-</div>
-
-<div class="item">
-<div>
-<div class="name" data-i18n="item52">Banana-da-Terra, Carne de Sol e Queijo</div>
-<div class="desc" data-i18n="desc49">Banana-da-terra + carne de sol + queijo.</div>
-</div>
-<div class="price">R$ 35,00</div>
-</div>
-
-<section class="islands-mini" id="ilhas">
-<small data-i18n="discountCall">Resgate o seu desconto</small>
-
-<h2 data-i18n="islandsTitle">Ilha dos Frades + Ilha de Itaparica</h2>
-
-<p data-i18n="islandsDescription">
-Passeio de dia inteiro pela Baía de Todos-os-Santos.
-</p>
-
-<div class="islands-price">
-R$ 150,00 <span data-i18n="perPerson">por pessoa</span>
-</div>
-
-<div class="islands-includes">
-<span>✓ <span data-i18n="pickup">Busca no hotel</span></span>
-<span>✓ <span data-i18n="dropoff">Retorno e deixa no hotel</span></span>
-<span>✓ <span data-i18n="terminal">Terminal incluso</span></span>
-<span>✓ <span data-i18n="fullDay">Passeio de dia inteiro</span></span>
-</div>
-
-<div class="islands-actions">
-<a id="islandsWhatsapp" class="islands-button" href="#" target="_blank" rel="noopener">
-<span data-i18n="reserve">Reservar pelo WhatsApp</span>
-</a>
-
-<a class="afro-button" href="https://toknowsalvador.com" target="_blank" rel="noopener">
-Afro Tour
-</a>
-</div>
-</section>
-
-<div style="
-margin-top:35px;
-padding-top:20px;
-border-top:1px solid rgba(0,0,0,.15);
-text-align:center;
-font-size:13px;
-color:#6b4300;
-">
-
-Tapioca & Crepioca da Praça
-</div>
-
-</div>
+    <header class="hero">
+        <span class="hero-small" data-i18n="heroSmall">Cardápio digital</span>
+
+        <h1>Point da Ana</h1>
+
+        <p data-i18n="heroPlace">Praia do Porto da Barra</p>
+
+        <nav class="language-selector" aria-label="Selecionar idioma">
+            <button class="active" onclick="changeLanguage('pt', this)">Português</button>
+            <button onclick="changeLanguage('en', this)">English</button>
+            <button onclick="changeLanguage('es', this)">Español</button>
+            <button onclick="changeLanguage('fr', this)">Français</button>
+            <button onclick="changeLanguage('it', this)">Italiano</button>
+            <button onclick="changeLanguage('ru', this)">Русский</button>
+            <button onclick="changeLanguage('he', this)">🇮🇱 עברית</button>
+        </nav>
+    </header>
+
+    <nav class="quick-nav" aria-label="Categorias do cardápio">
+        <a href="#petiscos" data-i18n="navPetiscos">Petiscos</a>
+        <a href="#moquecas" data-i18n="navMoquecas">Moquecas</a>
+        <a href="#cervejas" data-i18n="navCervejas">Cervejas</a>
+        <a href="#bebidas" data-i18n="navBebidas">Bebidas</a>
+        <a href="#drinks" data-i18n="navCaipirinhas">Caipirinhas</a>
+        <a class="islands-shortcut" href="#experiencias"><span data-i18n="navIlhas">Passeios</span> • <span data-i18n="navRedeem">Resgate agora</span></a>
+        <a class="afro-shortcut" href="https://toknowsalvador.com" target="_blank" rel="noopener">Afro Tour</a>
+    </nav>
+
+    <main class="container">
+
+        <div class="notice" data-i18n="notice">
+            Toque a opção para ver os acompanhamentos.
+        </div>
+
+        <!-- PETISCOS -->
+
+        <section class="menu-section" id="petiscos">
+            <h2 class="section-title" data-i18n="titlePetiscos">Petiscos</h2>
+
+            <ul class="menu-list">
+
+                <li class="menu-item">
+                    <div class="item-name">Peixe vermelho frito</div>
+                    <div class="item-price">R$ 230</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Peixe corvina</div>
+                    <div class="item-price">R$ 210</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Isca de peixe</div>
+                    <div class="item-price">R$ 115</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">
+                        Isca de peixe completa
+
+                        <span class="item-description">
+                            Batata, arroz, farofa e salada
+                        </span>
+                    </div>
+
+                    <div class="item-price">R$ 140</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Camarão ao alho e óleo</div>
+                    <div class="item-price">R$ 155</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Camarão empanado</div>
+                    <div class="item-price">R$ 165</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Pituinga</div>
+                    <div class="item-price">R$ 90</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Salada de polvo</div>
+                    <div class="item-price">R$ 160</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Lagosta grelhada</div>
+                    <div class="item-price">R$ 245</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Lagosta na chapa</div>
+                    <div class="item-price">R$ 245</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Lagosta com legumes</div>
+                    <div class="item-price">R$ 245</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Lambreta — dúzia</div>
+                    <div class="item-price">R$ 60</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Carne do sol completa</div>
+                    <div class="item-price">R$ 140</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Carne do sol</div>
+                    <div class="item-price">R$ 140</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Frango à passarinha completo</div>
+                    <div class="item-price">R$ 140</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Frango à passarinha</div>
+                    <div class="item-price">R$ 110</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Isca de frango completa</div>
+                    <div class="item-price">R$ 140</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Isca de frango</div>
+                    <div class="item-price">R$ 110</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">
+                        Bolinho de bacalhau
+                        <span class="item-description">8 unidades</span>
+                    </div>
+
+                    <div class="item-price">R$ 65</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">
+                        Bolinho de camarão
+                        <span class="item-description">6 unidades</span>
+                    </div>
+
+                    <div class="item-price">R$ 70</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Caldo de camarão</div>
+                    <div class="item-price">R$ 35</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Caldo de sururu</div>
+                    <div class="item-price">R$ 35</div>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- MOQUECAS -->
+
+        <section class="menu-section" id="moquecas">
+            <h2 class="section-title" data-i18n="titleMoquecas">Moquecas</h2>
+
+            <ul class="menu-list">
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca de vermelho</div>
+                    <div class="item-price">R$ 215</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca de dourado</div>
+                    <div class="item-price">R$ 200</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca de pescada-amarela</div>
+                    <div class="item-price">R$ 200</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca de pescada-branca</div>
+                    <div class="item-price">R$ 200</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca de camarão</div>
+                    <div class="item-price">R$ 210</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca mista</div>
+                    <div class="item-price">R$ 230</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Mariscada</div>
+                    <div class="item-price">R$ 230</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Moqueca de lagosta</div>
+                    <div class="item-price">R$ 260</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">
+                        Moqueca de lagosta com camarão
+                    </div>
+
+                    <div class="item-price">R$ 275</div>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- CERVEJAS -->
+
+        <section class="menu-section" id="cervejas">
+            <h2 class="section-title" data-i18n="titleCervejas">Cervejas</h2>
+
+            <ul class="menu-list">
+
+                <li class="menu-item">
+                    <div class="item-name">Brahma Chopp latão</div>
+                    <div class="item-price">R$ 12</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Skol latão</div>
+                    <div class="item-price">R$ 12</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Brahma Duplo Malte</div>
+                    <div class="item-price">R$ 10</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Itaipava latão</div>
+                    <div class="item-price">R$ 12</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Original lata</div>
+                    <div class="item-price">R$ 12</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Amstel</div>
+                    <div class="item-price">R$ 10</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Devassa</div>
+                    <div class="item-price">R$ 10</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Heineken long neck</div>
+                    <div class="item-price">R$ 16</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Heineken lata</div>
+                    <div class="item-price">R$ 13</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">
+                        Heineken 0% álcool long neck
+                    </div>
+
+                    <div class="item-price">R$ 16</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Stella Artois long neck</div>
+                    <div class="item-price">R$ 16</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Stella Gold</div>
+                    <div class="item-price">R$ 17</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Budweiser long neck</div>
+                    <div class="item-price">R$ 16</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Corona long neck</div>
+                    <div class="item-price">R$ 17</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Corona 0% álcool</div>
+                    <div class="item-price">R$ 17</div>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- BEBIDAS -->
+
+        <section class="menu-section" id="bebidas">
+            <h2 class="section-title" data-i18n="titleBebidas">Bebidas</h2>
+
+            <ul class="menu-list">
+
+                <li class="menu-item">
+                    <div class="item-name">Água mineral</div>
+                    <div class="item-price">R$ 5</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Água com gás</div>
+                    <div class="item-price">R$ 8</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Água de coco</div>
+                    <div class="item-price">R$ 10</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Suco de frutas</div>
+                    <div class="item-price">R$ 25</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Coca-Cola litro</div>
+                    <div class="item-price">R$ 15</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Coca-Cola lata</div>
+                    <div class="item-price">R$ 10</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Guaraná litro</div>
+                    <div class="item-price">R$ 15</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Guaraná lata</div>
+                    <div class="item-price">R$ 10</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Skinka</div>
+                    <div class="item-price">R$ 13</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">H2OH!</div>
+                    <div class="item-price">R$ 12</div>
+                </li>
+
+                <li class="menu-item">
+                    <div class="item-name">Smirnoff Ice</div>
+                    <div class="item-price">R$ 17</div>
+                </li>
+
+            </ul>
+        </section>
+
+        <!-- CAIPIRINHAS E CAIPIROSCAS -->
+
+        <section class="menu-section" id="drinks">
+            <h2 class="section-title" data-i18n="titleDrinks">Caipirinhas e Caipiroscas</h2>
+
+            <div class="drink-columns">
+
+                <div>
+                    <ul class="menu-list">
+
+                        <li class="menu-item">
+                            <div class="item-name">Caipirinha de limão</div>
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirinha de maracujá
+                            </div>
+
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirinha de siriguela
+                            </div>
+
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirinha de abacaxi
+                            </div>
+
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">Caipirinha de kiwi</div>
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirinha de morango
+                            </div>
+
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">Caipirinha de caju</div>
+                            <div class="item-price">R$ 25</div>
+                        </li>
+
+                    </ul>
+                </div>
+
+                <div>
+                    <ul class="menu-list">
+
+                        <li class="menu-item">
+                            <div class="item-name">Caipirosca de limão</div>
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirosca de maracujá
+                            </div>
+
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirosca de siriguela
+                            </div>
+
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirosca de abacaxi
+                            </div>
+
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">Caipirosca de kiwi</div>
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">
+                                Caipirosca de morango
+                            </div>
+
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                        <li class="menu-item">
+                            <div class="item-name">Caipirosca de caju</div>
+                            <div class="item-price">R$ 30</div>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EXPERIÊNCIAS -->
+        <section id="experiencias" aria-label="Passeios em Salvador">
+            <p class="experiences-policy">
+                <strong data-i18n="redeemPayLater">Resgate agora e pague depois.</strong><br>
+                <span data-i18n="paymentMethods">Crédito, débito, Pix ou espécie.</span>
+            </p>
+
+            <div class="experiences-scroll">
+                <article class="experience-card">
+                    <div class="experience-icon">🏝️</div>
+                    <h2 data-i18n="islandsTitle">Ilha de Itaparica + Ilha dos Frades</h2>
+                    <p data-i18n="islandsDescription">Passeio de dia inteiro pela Baía de Todos-os-Santos.</p>
+                    <div class="experience-price">R$ 150 <small data-i18n="perPerson">por pessoa</small></div>
+                    <a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="whatsapp">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+                </article>
+
+                <article class="experience-card">
+                    <div class="experience-icon">🌴</div>
+                    <div class="experience-badge">20% OFF</div>
+                    <h2>Morro de São Paulo</h2>
+                    <p data-i18n="morroDescription">Um dos destinos mais desejados da Bahia.</p>
+                    <div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
+                    <a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="morroWhatsapp">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+                </article>
+
+                <article class="experience-card">
+                    <div class="experience-icon">🐢</div>
+                    <h2>Praia do Forte</h2>
+                    <p data-i18n="forteDescription">Descubra uma das praias mais famosas do litoral norte da Bahia.</p>
+                    <div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
+                    <a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="forteWhatsapp">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+                </article>
+
+                <article class="experience-card">
+                    <div class="experience-icon">⚽</div>
+                    <h2>Arena Fonte Nova</h2>
+                    <p data-i18n="arenaDescription">Viva a emoção de assistir a um jogo na Arena Fonte Nova.</p>
+                    <div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
+                    <a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="arenaWhatsapp">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+                </article>
+
+                <article class="experience-card">
+                    <div class="experience-icon">🚶🏽</div>
+                    <h2>Free Walking Tour</h2>
+                    <p data-i18n="walkingDescription">Conheça Salvador a pé com um guia local.</p>
+                    <div class="experience-price"><small data-i18n="freeContribution">Contribuição livre</small></div>
+                    <a class="experience-action" href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit" target="_blank" rel="noopener">📝 <span data-i18n="openForm">Abrir formulário</span></a>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <strong>Point da Ana</strong><br>
+        <span data-i18n="footerPlace">Praia do Porto da Barra — Salvador, Bahia</span>
+
+        <br><br>
+
+        <span data-i18n="footerCredit">Cardápio digital desenvolvido por</span>
+        <a href="https://toknowsalvador.com/">
+            To Know Salvador
+        </a>
+    </footer>
 
 
 <script>
 let currentLanguage = "pt";
+
 const translations = {
-  "pt": {
-    "title": "TAPIOCA & CREPIOCA DA PRAÇA",
-    "artisan": "Massa artesanal.",
-    "noCorn": "✔ Não contém amido de milho.",
-    "noPreservatives": "✔ Não contém conservantes.",
-    "catSweet": "DOCES",
-    "catMixed": "DOCES & SALGADAS",
-    "catVegetarian": "VEGETARIANO",
-    "catSavory": "SALGADAS",
-    "navIslands": "Ilhas",
-    "discountCall": "Resgate o seu desconto",
-    "islandsTitle": "Ilha dos Frades + Ilha de Itaparica",
-    "islandsDescription": "Passeio de dia inteiro pela Baía de Todos-os-Santos.",
-    "perPerson": "por pessoa",
-    "pickup": "Busca no hotel",
-    "dropoff": "Retorno e deixa no hotel",
-    "terminal": "Terminal incluso",
-    "fullDay": "Passeio de dia inteiro",
-    "reserve": "Reservar pelo WhatsApp",
-    "whatsapp": "Encontrei a oferta para as ilhas na Tapioca & Crepioca da Praça e tenho interesse em fazer a reserva.",
-    "item1": "Leite Condensado com Coco",
-    "item2": "Banana com Chocolate",
-    "item3": "Prestígio",
-    "item4": "Doce de Leite com Chocolate",
-    "item5": "Doce de Leite com Coco",
-    "item6": "Goiabada com Coco",
-    "item7": "Doce de Leite com Banana",
-    "item8": "Brigadeiro",
-    "item9": "Nutella com Morango",
-    "item10": "Nutella",
-    "item11": "Cuscuz",
-    "item12": "Romeu e Julieta",
-    "item13": "Leite Condensado com Queijo",
-    "item14": "Doce de Leite com Queijo",
-    "item15": "Banana com Queijo e Canela",
-    "item16": "Presunto e Queijo",
-    "item17": "Leite Condensado com Queijo Coalho",
-    "item18": "Coco, Queijo e Goiabada",
-    "item19": "Morango com Chocolate",
-    "item20": "Tomate Seco com Queijo",
-    "item21": "Tomate Seco com Azeitona",
-    "item22": "Tomate Seco com Rúcula",
-    "item23": "Azeitona com Milho",
-    "item24": "Rúcula com Azeitona",
-    "item25": "Ovo com Queijo",
-    "item26": "Ovo com Presunto",
-    "item27": "Tapioca Pizza",
-    "item28": "Queijo Coalho",
-    "item29": "Quatro Queijos",
-    "item30": "Calabresa com Queijo",
-    "item31": "Calabresa com Catupiry",
-    "item32": "Carne de Sol com Queijo",
-    "item33": "Carne de Sol com Catupiry",
-    "item34": "Carne de Sol com Aipim",
-    "item35": "Charque com Aipim",
-    "item36": "Charque com Queijo",
-    "item37": "Calabresa, Charque e Queijo",
-    "item38": "Calabresa, Charque e Aipim",
-    "item39": "Calabresa, Charque e Catupiry",
-    "item40": "Frango com Queijo",
-    "item41": "Frango com Catupiry",
-    "item42": "Bacon com Queijo",
-    "item43": "Peito de Peru com Queijo",
-    "item44": "Peito de Peru com Catupiry",
-    "item45": "Camarão com Queijo",
-    "item46": "Camarão com Catupiry",
-    "item47": "Atum com Queijo",
-    "item48": "Salaminho com Queijo",
-    "item49": "Salaminho com Catupiry",
-    "item50": "Lombinho com Queijo",
-    "item51": "Lombinho com Catupiry",
-    "item52": "Banana-da-Terra, Carne de Sol e Queijo",
-    "desc1": "Leite condensado + coco.",
-    "desc2": "Banana + chocolate.",
-    "desc3": "Coco + chocolate.",
-    "desc4": "Doce de leite + chocolate.",
-    "desc5": "Doce de leite + coco.",
-    "desc6": "Goiabada + coco.",
-    "desc7": "Doce de leite + banana.",
-    "desc8": "Granulado + chocolate.",
-    "desc9": "Goiabada + queijo.",
-    "desc10": "Leite condensado + queijo.",
-    "desc11": "Doce de leite + queijo.",
-    "desc12": "Banana + queijo + canela.",
-    "desc13": "Presunto + queijo.",
-    "desc14": "Leite condensado + queijo coalho.",
-    "desc15": "Coco + queijo + goiabada.",
-    "desc16": "Morango + chocolate.",
-    "desc17": "Tomate seco + queijo.",
-    "desc18": "Tomate seco + azeitona.",
-    "desc19": "Tomate seco + rúcula.",
-    "desc20": "Azeitona + milho.",
-    "desc21": "Rúcula + azeitona.",
-    "desc22": "Ovo + queijo.",
-    "desc23": "Ovo + presunto.",
-    "desc24": "Tomate + queijo + orégano.",
-    "desc25": "Queijo coalho.",
-    "desc26": "Queijo coalho + mussarela + cheddar.",
-    "desc27": "Calabresa + queijo.",
-    "desc28": "Calabresa + Catupiry.",
-    "desc29": "Carne de sol + queijo.",
-    "desc30": "Carne de sol + Catupiry.",
-    "desc31": "Carne de sol + aipim.",
-    "desc32": "Charque + aipim.",
-    "desc33": "Charque + queijo.",
-    "desc34": "Calabresa + charque + queijo.",
-    "desc35": "Calabresa + charque + aipim.",
-    "desc36": "Calabresa + charque + Catupiry.",
-    "desc37": "Frango + queijo.",
-    "desc38": "Frango + Catupiry.",
-    "desc39": "Bacon + queijo.",
-    "desc40": "Peito de peru + queijo.",
-    "desc41": "Peito de peru + Catupiry.",
-    "desc42": "Camarão + queijo.",
-    "desc43": "Camarão + Catupiry.",
-    "desc44": "Atum + queijo.",
-    "desc45": "Salaminho + queijo.",
-    "desc46": "Salaminho + Catupiry.",
-    "desc47": "Lombinho + queijo.",
-    "desc48": "Lombinho + Catupiry.",
-    "desc49": "Banana-da-terra + carne de sol + queijo."
+  pt: {
+    heroSmall:"Cardápio digital", heroPlace:"Praia do Porto da Barra",
+    navPetiscos:"Petiscos", navMoquecas:"Moquecas", navCervejas:"Cervejas", navBebidas:"Bebidas", navCaipirinhas:"Caipirinhas", navIlhas:"Passeios", navRedeem:"Resgate agora",
+    notice:"Toque a opção para ver os acompanhamentos.", titlePetiscos:"Petiscos", titleMoquecas:"Moquecas", titleCervejas:"Cervejas", titleBebidas:"Bebidas", titleDrinks:"Caipirinhas e Caipiroscas",
+    redeemPayLater:"Resgate agora e pague depois.", paymentMethods:"Crédito, débito, Pix ou espécie.",
+    islandsTitle:"Ilha de Itaparica + Ilha dos Frades", islandsDescription:"Passeio de dia inteiro pela Baía de Todos-os-Santos.", perPerson:"por pessoa",
+    morroDescription:"Um dos destinos mais desejados da Bahia.", forteDescription:"Descubra uma das praias mais famosas do litoral norte da Bahia.", arenaDescription:"Viva a emoção de assistir a um jogo na Arena Fonte Nova.", walkingDescription:"Conheça Salvador a pé com um guia local.",
+    askPrice:"Consulte o valor", freeContribution:"Contribuição livre", openForm:"Abrir formulário", redeemWhatsapp:"Resgatar pelo WhatsApp",
+    footerPlace:"Praia do Porto da Barra — Salvador, Bahia", footerCredit:"Cardápio digital desenvolvido por",
+    whatsapp:"Olá! Estou na barraca Point da Ana e quero resgatar o passeio para a Ilha de Itaparica + Ilha dos Frades.",
+    morroWhatsapp:"Olá! Estou na barraca Point da Ana e quero resgatar a oferta de 20% OFF para Morro de São Paulo.",
+    forteWhatsapp:"Olá! Estou na barraca Point da Ana e quero resgatar o passeio para a Praia do Forte.",
+    arenaWhatsapp:"Olá! Estou na barraca Point da Ana e quero resgatar a experiência de assistir a um jogo na Arena Fonte Nova."
   },
-  "en": {
-    "title": "TAPIOCA & CREPIOCA DA PRAÇA",
-    "artisan": "Handmade dough.",
-    "noCorn": "✔ No cornstarch.",
-    "noPreservatives": "✔ No preservatives.",
-    "catSweet": "SWEET",
-    "catMixed": "SWEET & SAVORY",
-    "catVegetarian": "VEGETARIAN",
-    "catSavory": "SAVORY",
-    "navIslands": "Islands",
-    "discountCall": "Claim your discount",
-    "islandsTitle": "Frades Island + Itaparica Island",
-    "islandsDescription": "Full-day tour through All Saints Bay.",
-    "perPerson": "per person",
-    "pickup": "Hotel pickup",
-    "dropoff": "Return transfer and hotel drop-off",
-    "terminal": "Terminal included",
-    "fullDay": "Full-day tour",
-    "reserve": "Book on WhatsApp",
-    "whatsapp": "I found the island tour offer at Tapioca & Crepioca da Praça and I am interested in making a reservation.",
-    "item1": "Condensed Milk with Coconut",
-    "item2": "Banana with Chocolate",
-    "item3": "Prestígio",
-    "item4": "Dulce de Leche with Chocolate",
-    "item5": "Dulce de Leche with Coconut",
-    "item6": "Guava Paste with Coconut",
-    "item7": "Dulce de Leche with Banana",
-    "item8": "Brigadeiro",
-    "item9": "Nutella with Strawberry",
-    "item10": "Nutella",
-    "item11": "Couscous",
-    "item12": "Romeo and Juliet",
-    "item13": "Condensed Milk with Cheese",
-    "item14": "Dulce de Leche with Cheese",
-    "item15": "Banana with Cheese and Cinnamon",
-    "item16": "Ham and Cheese",
-    "item17": "Condensed Milk with Coalho Cheese",
-    "item18": "Coconut, Cheese and Guava Paste",
-    "item19": "Strawberry with Chocolate",
-    "item20": "Sun-Dried Tomato with Cheese",
-    "item21": "Sun-Dried Tomato with Olives",
-    "item22": "Sun-Dried Tomato with Arugula",
-    "item23": "Olives with Corn",
-    "item24": "Arugula with Olives",
-    "item25": "Egg with Cheese",
-    "item26": "Egg with Ham",
-    "item27": "Tapioca Pizza",
-    "item28": "Coalho Cheese",
-    "item29": "Four Cheeses",
-    "item30": "Calabresa Sausage with Cheese",
-    "item31": "Calabresa Sausage with Catupiry",
-    "item32": "Sun-Dried Beef with Cheese",
-    "item33": "Sun-Dried Beef with Catupiry",
-    "item34": "Sun-Dried Beef with Cassava",
-    "item35": "Charque with Cassava",
-    "item36": "Charque with Cheese",
-    "item37": "Calabresa, Charque and Cheese",
-    "item38": "Calabresa, Charque and Cassava",
-    "item39": "Calabresa, Charque and Catupiry",
-    "item40": "Chicken with Cheese",
-    "item41": "Chicken with Catupiry",
-    "item42": "Bacon with Cheese",
-    "item43": "Turkey Breast with Cheese",
-    "item44": "Turkey Breast with Catupiry",
-    "item45": "Shrimp with Cheese",
-    "item46": "Shrimp with Catupiry",
-    "item47": "Tuna with Cheese",
-    "item48": "Salami with Cheese",
-    "item49": "Salami with Catupiry",
-    "item50": "Pork Loin with Cheese",
-    "item51": "Pork Loin with Catupiry",
-    "item52": "Plantain, Sun-Dried Beef and Cheese",
-    "desc1": "Condensed milk + coconut.",
-    "desc2": "Banana + chocolate.",
-    "desc3": "Coconut + chocolate.",
-    "desc4": "Dulce de leche + chocolate.",
-    "desc5": "Dulce de leche + coconut.",
-    "desc6": "Guava paste + coconut.",
-    "desc7": "Dulce de leche + banana.",
-    "desc8": "Chocolate sprinkles + chocolate.",
-    "desc9": "Guava paste + cheese.",
-    "desc10": "Condensed milk + cheese.",
-    "desc11": "Dulce de leche + cheese.",
-    "desc12": "Banana + cheese + cinnamon.",
-    "desc13": "Ham + cheese.",
-    "desc14": "Condensed milk + coalho cheese.",
-    "desc15": "Coconut + cheese + guava paste.",
-    "desc16": "Strawberry + chocolate.",
-    "desc17": "Sun-dried tomato + cheese.",
-    "desc18": "Sun-dried tomato + olives.",
-    "desc19": "Sun-dried tomato + arugula.",
-    "desc20": "Olives + corn.",
-    "desc21": "Arugula + olives.",
-    "desc22": "Egg + cheese.",
-    "desc23": "Egg + ham.",
-    "desc24": "Tomato + cheese + oregano.",
-    "desc25": "Coalho cheese.",
-    "desc26": "Coalho cheese + mozzarella + cheddar.",
-    "desc27": "Calabresa sausage + cheese.",
-    "desc28": "Calabresa sausage + Catupiry.",
-    "desc29": "Sun-dried beef + cheese.",
-    "desc30": "Sun-dried beef + Catupiry.",
-    "desc31": "Sun-dried beef + cassava.",
-    "desc32": "Charque + cassava.",
-    "desc33": "Charque + cheese.",
-    "desc34": "Calabresa + charque + cheese.",
-    "desc35": "Calabresa + charque + cassava.",
-    "desc36": "Calabresa + charque + Catupiry.",
-    "desc37": "Chicken + cheese.",
-    "desc38": "Chicken + Catupiry.",
-    "desc39": "Bacon + cheese.",
-    "desc40": "Turkey breast + cheese.",
-    "desc41": "Turkey breast + Catupiry.",
-    "desc42": "Shrimp + cheese.",
-    "desc43": "Shrimp + Catupiry.",
-    "desc44": "Tuna + cheese.",
-    "desc45": "Salami + cheese.",
-    "desc46": "Salami + Catupiry.",
-    "desc47": "Pork loin + cheese.",
-    "desc48": "Pork loin + Catupiry.",
-    "desc49": "Plantain + sun-dried beef + cheese."
+  en: {
+    heroSmall:"Digital menu", heroPlace:"Porto da Barra Beach",
+    navPetiscos:"Snacks", navMoquecas:"Moquecas", navCervejas:"Beers", navBebidas:"Drinks", navCaipirinhas:"Caipirinhas", navIlhas:"Tours", navRedeem:"Redeem now",
+    notice:"Tap an option to see the side dishes.", titlePetiscos:"Snacks", titleMoquecas:"Moquecas", titleCervejas:"Beers", titleBebidas:"Drinks", titleDrinks:"Caipirinhas and Caipiroscas",
+    redeemPayLater:"Redeem now and pay later.", paymentMethods:"Credit card, debit card, Pix or cash.",
+    islandsTitle:"Itaparica Island + Frades Island", islandsDescription:"Full-day tour through All Saints Bay.", perPerson:"per person",
+    morroDescription:"One of Bahia's most sought-after destinations.", forteDescription:"Discover one of the most famous beaches on Bahia's northern coast.", arenaDescription:"Experience the excitement of watching a match at Arena Fonte Nova.", walkingDescription:"Explore Salvador on foot with a local guide.",
+    askPrice:"Ask for the price", freeContribution:"Pay what you want", openForm:"Open form", redeemWhatsapp:"Redeem via WhatsApp",
+    footerPlace:"Porto da Barra Beach — Salvador, Bahia", footerCredit:"Digital menu developed by",
+    whatsapp:"Hello! I am at the Point da Ana beach stand and would like to redeem the Itaparica Island + Frades Island tour.",
+    morroWhatsapp:"Hello! I am at the Point da Ana beach stand and would like to redeem the 20% OFF offer for Morro de São Paulo.",
+    forteWhatsapp:"Hello! I am at the Point da Ana beach stand and would like to redeem the Praia do Forte tour.",
+    arenaWhatsapp:"Hello! I am at the Point da Ana beach stand and would like to redeem the experience of watching a match at Arena Fonte Nova."
   },
-  "es": {
-    "title": "TAPIOCA & CREPIOCA DA PRAÇA",
-    "artisan": "Masa artesanal.",
-    "noCorn": "✔ No contiene almidón de maíz.",
-    "noPreservatives": "✔ No contiene conservantes.",
-    "catSweet": "DULCES",
-    "catMixed": "DULCES Y SALADAS",
-    "catVegetarian": "VEGETARIANO",
-    "catSavory": "SALADAS",
-    "navIslands": "Islas",
-    "discountCall": "Obtén tu descuento",
-    "islandsTitle": "Isla de los Frailes + Isla de Itaparica",
-    "islandsDescription": "Paseo de día completo por la Bahía de Todos los Santos.",
-    "perPerson": "por persona",
-    "pickup": "Recogida en el hotel",
-    "dropoff": "Regreso y traslado al hotel",
-    "terminal": "Terminal incluido",
-    "fullDay": "Paseo de día completo",
-    "reserve": "Reservar por WhatsApp",
-    "whatsapp": "Encontré la oferta para las islas en Tapioca & Crepioca da Praça y estoy interesado en hacer una reserva.",
-    "item1": "Leche Condensada con Coco",
-    "item2": "Banana con Chocolate",
-    "item3": "Prestigio",
-    "item4": "Dulce de Leche con Chocolate",
-    "item5": "Dulce de Leche con Coco",
-    "item6": "Goiabada con Coco",
-    "item7": "Dulce de Leche con Banana",
-    "item8": "Brigadeiro",
-    "item9": "Nutella con Fresa",
-    "item10": "Nutella",
-    "item11": "Cuscús",
-    "item12": "Romeo y Julieta",
-    "item13": "Leche Condensada con Queso",
-    "item14": "Dulce de Leche con Queso",
-    "item15": "Banana con Queso y Canela",
-    "item16": "Jamón y Queso",
-    "item17": "Leche Condensada con Queso Coalho",
-    "item18": "Coco, Queso y Goiabada",
-    "item19": "Fresa con Chocolate",
-    "item20": "Tomate Seco con Queso",
-    "item21": "Tomate Seco con Aceituna",
-    "item22": "Tomate Seco con Rúcula",
-    "item23": "Aceituna con Maíz",
-    "item24": "Rúcula con Aceituna",
-    "item25": "Huevo con Queso",
-    "item26": "Huevo con Jamón",
-    "item27": "Tapioca Pizza",
-    "item28": "Queso Coalho",
-    "item29": "Cuatro Quesos",
-    "item30": "Calabresa con Queso",
-    "item31": "Calabresa con Catupiry",
-    "item32": "Carne de Sol con Queso",
-    "item33": "Carne de Sol con Catupiry",
-    "item34": "Carne de Sol con Yuca",
-    "item35": "Charque con Yuca",
-    "item36": "Charque con Queso",
-    "item37": "Calabresa, Charque y Queso",
-    "item38": "Calabresa, Charque y Yuca",
-    "item39": "Calabresa, Charque y Catupiry",
-    "item40": "Pollo con Queso",
-    "item41": "Pollo con Catupiry",
-    "item42": "Bacon con Queso",
-    "item43": "Pechuga de Pavo con Queso",
-    "item44": "Pechuga de Pavo con Catupiry",
-    "item45": "Camarón con Queso",
-    "item46": "Camarón con Catupiry",
-    "item47": "Atún con Queso",
-    "item48": "Salami con Queso",
-    "item49": "Salami con Catupiry",
-    "item50": "Lomo con Queso",
-    "item51": "Lomo con Catupiry",
-    "item52": "Plátano, Carne de Sol y Queso",
-    "desc1": "Leche condensada + coco.",
-    "desc2": "Banana + chocolate.",
-    "desc3": "Coco + chocolate.",
-    "desc4": "Dulce de leche + chocolate.",
-    "desc5": "Dulce de leche + coco.",
-    "desc6": "Goiabada + coco.",
-    "desc7": "Dulce de leche + banana.",
-    "desc8": "Granulado + chocolate.",
-    "desc9": "Goiabada + queso.",
-    "desc10": "Leche condensada + queso.",
-    "desc11": "Dulce de leche + queso.",
-    "desc12": "Banana + queso + canela.",
-    "desc13": "Jamón + queso.",
-    "desc14": "Leche condensada + queso coalho.",
-    "desc15": "Coco + queso + goiabada.",
-    "desc16": "Fresa + chocolate.",
-    "desc17": "Tomate seco + queso.",
-    "desc18": "Tomate seco + aceituna.",
-    "desc19": "Tomate seco + rúcula.",
-    "desc20": "Aceituna + maíz.",
-    "desc21": "Rúcula + aceituna.",
-    "desc22": "Huevo + queso.",
-    "desc23": "Huevo + jamón.",
-    "desc24": "Tomate + queso + orégano.",
-    "desc25": "Queso coalho.",
-    "desc26": "Queso coalho + mozzarella + cheddar.",
-    "desc27": "Calabresa + queso.",
-    "desc28": "Calabresa + Catupiry.",
-    "desc29": "Carne de sol + queso.",
-    "desc30": "Carne de sol + Catupiry.",
-    "desc31": "Carne de sol + yuca.",
-    "desc32": "Charque + yuca.",
-    "desc33": "Charque + queso.",
-    "desc34": "Calabresa + charque + queso.",
-    "desc35": "Calabresa + charque + yuca.",
-    "desc36": "Calabresa + charque + Catupiry.",
-    "desc37": "Pollo + queso.",
-    "desc38": "Pollo + Catupiry.",
-    "desc39": "Bacon + queso.",
-    "desc40": "Pechuga de pavo + queso.",
-    "desc41": "Pechuga de pavo + Catupiry.",
-    "desc42": "Camarón + queso.",
-    "desc43": "Camarón + Catupiry.",
-    "desc44": "Atún + queso.",
-    "desc45": "Salami + queso.",
-    "desc46": "Salami + Catupiry.",
-    "desc47": "Lomo + queso.",
-    "desc48": "Lomo + Catupiry.",
-    "desc49": "Plátano + carne de sol + queso."
+  es: {
+    heroSmall:"Menú digital", heroPlace:"Playa de Porto da Barra",
+    navPetiscos:"Aperitivos", navMoquecas:"Moquecas", navCervejas:"Cervezas", navBebidas:"Bebidas", navCaipirinhas:"Caipirinhas", navIlhas:"Paseos", navRedeem:"Canjea ahora",
+    notice:"Toca una opción para ver los acompañamientos.", titlePetiscos:"Aperitivos", titleMoquecas:"Moquecas", titleCervejas:"Cervezas", titleBebidas:"Bebidas", titleDrinks:"Caipirinhas y Caipiroscas",
+    redeemPayLater:"Canjea ahora y paga después.", paymentMethods:"Crédito, débito, Pix o efectivo.",
+    islandsTitle:"Isla de Itaparica + Isla de los Frailes", islandsDescription:"Paseo de día completo por la Bahía de Todos los Santos.", perPerson:"por persona",
+    morroDescription:"Uno de los destinos más deseados de Bahía.", forteDescription:"Descubre una de las playas más famosas del litoral norte de Bahía.", arenaDescription:"Vive la emoción de ver un partido en la Arena Fonte Nova.", walkingDescription:"Conoce Salvador a pie con un guía local.",
+    askPrice:"Consulta el precio", freeContribution:"Contribución libre", openForm:"Abrir formulario", redeemWhatsapp:"Canjear por WhatsApp",
+    footerPlace:"Playa de Porto da Barra — Salvador, Bahía", footerCredit:"Menú digital desarrollado por",
+    whatsapp:"¡Hola! Estoy en el puesto de playa Point da Ana y quiero canjear el paseo a la Isla de Itaparica + Isla de los Frailes.",
+    morroWhatsapp:"¡Hola! Estoy en el puesto de playa Point da Ana y quiero canjear la oferta de 20% OFF para Morro de São Paulo.",
+    forteWhatsapp:"¡Hola! Estoy en el puesto de playa Point da Ana y quiero canjear el paseo a Praia do Forte.",
+    arenaWhatsapp:"¡Hola! Estoy en el puesto de playa Point da Ana y quiero canjear la experiencia de ver un partido en la Arena Fonte Nova."
   },
-  "fr": {
-    "title": "TAPIOCA & CREPIOCA DA PRAÇA",
-    "artisan": "Pâte artisanale.",
-    "noCorn": "✔ Sans amidon de maïs.",
-    "noPreservatives": "✔ Sans conservateurs.",
-    "catSweet": "SUCRÉES",
-    "catMixed": "SUCRÉES & SALÉES",
-    "catVegetarian": "VÉGÉTARIEN",
-    "catSavory": "SALÉES",
-    "navIslands": "Îles",
-    "discountCall": "Profitez de votre réduction",
-    "islandsTitle": "Île de Frades + Île d'Itaparica",
-    "islandsDescription": "Excursion d'une journée dans la Baie de Tous les Saints.",
-    "perPerson": "par personne",
-    "pickup": "Prise en charge à l'hôtel",
-    "dropoff": "Retour et dépose à l'hôtel",
-    "terminal": "Terminal inclus",
-    "fullDay": "Excursion d'une journée",
-    "reserve": "Réserver sur WhatsApp",
-    "whatsapp": "J'ai trouvé l'offre pour l'excursion aux îles à Tapioca & Crepioca da Praça et je souhaite effectuer une réservation.",
-    "item1": "Lait Concentré avec Noix de Coco",
-    "item2": "Banane au Chocolat",
-    "item3": "Prestígio",
-    "item4": "Dulce de Leche au Chocolat",
-    "item5": "Dulce de Leche à la Noix de Coco",
-    "item6": "Pâte de Goyave à la Noix de Coco",
-    "item7": "Dulce de Leche à la Banane",
-    "item8": "Brigadeiro",
-    "item9": "Nutella aux Fraises",
-    "item10": "Nutella",
-    "item11": "Couscous",
-    "item12": "Roméo et Juliette",
-    "item13": "Lait Concentré au Fromage",
-    "item14": "Dulce de Leche au Fromage",
-    "item15": "Banane au Fromage et à la Cannelle",
-    "item16": "Jambon et Fromage",
-    "item17": "Lait Concentré au Fromage Coalho",
-    "item18": "Noix de Coco, Fromage et Pâte de Goyave",
-    "item19": "Fraise au Chocolat",
-    "item20": "Tomate Séchée au Fromage",
-    "item21": "Tomate Séchée aux Olives",
-    "item22": "Tomate Séchée à la Roquette",
-    "item23": "Olives au Maïs",
-    "item24": "Roquette aux Olives",
-    "item25": "Œuf au Fromage",
-    "item26": "Œuf au Jambon",
-    "item27": "Tapioca Pizza",
-    "item28": "Fromage Coalho",
-    "item29": "Quatre Fromages",
-    "item30": "Calabresa au Fromage",
-    "item31": "Calabresa au Catupiry",
-    "item32": "Carne do Sol au Fromage",
-    "item33": "Carne do Sol au Catupiry",
-    "item34": "Carne do Sol au Manioc",
-    "item35": "Charque au Manioc",
-    "item36": "Charque au Fromage",
-    "item37": "Calabresa, Charque et Fromage",
-    "item38": "Calabresa, Charque et Manioc",
-    "item39": "Calabresa, Charque et Catupiry",
-    "item40": "Poulet au Fromage",
-    "item41": "Poulet au Catupiry",
-    "item42": "Bacon au Fromage",
-    "item43": "Poitrine de Dinde au Fromage",
-    "item44": "Poitrine de Dinde au Catupiry",
-    "item45": "Crevettes au Fromage",
-    "item46": "Crevettes au Catupiry",
-    "item47": "Thon au Fromage",
-    "item48": "Salami au Fromage",
-    "item49": "Salami au Catupiry",
-    "item50": "Filet de Porc au Fromage",
-    "item51": "Filet de Porc au Catupiry",
-    "item52": "Banane Plantain, Carne do Sol et Fromage",
-    "desc1": "Lait concentré + noix de coco.",
-    "desc2": "Banane + chocolat.",
-    "desc3": "Noix de coco + chocolat.",
-    "desc4": "Dulce de leche + chocolat.",
-    "desc5": "Dulce de leche + noix de coco.",
-    "desc6": "Pâte de goyave + noix de coco.",
-    "desc7": "Dulce de leche + banane.",
-    "desc8": "Vermicelles chocolatés + chocolat.",
-    "desc9": "Pâte de goyave + fromage.",
-    "desc10": "Lait concentré + fromage.",
-    "desc11": "Dulce de leche + fromage.",
-    "desc12": "Banane + fromage + cannelle.",
-    "desc13": "Jambon + fromage.",
-    "desc14": "Lait concentré + fromage coalho.",
-    "desc15": "Noix de coco + fromage + pâte de goyave.",
-    "desc16": "Fraise + chocolat.",
-    "desc17": "Tomate séchée + fromage.",
-    "desc18": "Tomate séchée + olives.",
-    "desc19": "Tomate séchée + roquette.",
-    "desc20": "Olives + maïs.",
-    "desc21": "Roquette + olives.",
-    "desc22": "Œuf + fromage.",
-    "desc23": "Œuf + jambon.",
-    "desc24": "Tomate + fromage + origan.",
-    "desc25": "Fromage coalho.",
-    "desc26": "Fromage coalho + mozzarella + cheddar.",
-    "desc27": "Calabresa + fromage.",
-    "desc28": "Calabresa + Catupiry.",
-    "desc29": "Carne do Sol + fromage.",
-    "desc30": "Carne do Sol + Catupiry.",
-    "desc31": "Carne do Sol + manioc.",
-    "desc32": "Charque + manioc.",
-    "desc33": "Charque + fromage.",
-    "desc34": "Calabresa + charque + fromage.",
-    "desc35": "Calabresa + charque + manioc.",
-    "desc36": "Calabresa + charque + Catupiry.",
-    "desc37": "Poulet + fromage.",
-    "desc38": "Poulet + Catupiry.",
-    "desc39": "Bacon + fromage.",
-    "desc40": "Poitrine de dinde + fromage.",
-    "desc41": "Poitrine de dinde + Catupiry.",
-    "desc42": "Crevettes + fromage.",
-    "desc43": "Crevettes + Catupiry.",
-    "desc44": "Thon + fromage.",
-    "desc45": "Salami + fromage.",
-    "desc46": "Salami + Catupiry.",
-    "desc47": "Filet de porc + fromage.",
-    "desc48": "Filet de porc + Catupiry.",
-    "desc49": "Banane plantain + carne do sol + fromage."
+  fr: {
+    heroSmall:"Menu numérique", heroPlace:"Plage de Porto da Barra",
+    navPetiscos:"Entrées", navMoquecas:"Moquecas", navCervejas:"Bières", navBebidas:"Boissons", navCaipirinhas:"Caipirinhas", navIlhas:"Excursions", navRedeem:"Profitez-en",
+    notice:"Touchez une option pour voir les accompagnements.", titlePetiscos:"Entrées", titleMoquecas:"Moquecas", titleCervejas:"Bières", titleBebidas:"Boissons", titleDrinks:"Caipirinhas et Caipiroscas",
+    redeemPayLater:"Profitez-en maintenant et payez plus tard.", paymentMethods:"Crédit, débit, Pix ou espèces.",
+    islandsTitle:"Île d'Itaparica + Ilha dos Frades", islandsDescription:"Excursion d'une journée dans la Baie de Tous les Saints.", perPerson:"par personne",
+    morroDescription:"L'une des destinations les plus prisées de Bahia.", forteDescription:"Découvrez l'une des plages les plus célèbres de la côte nord de Bahia.", arenaDescription:"Vivez l'émotion d'un match à l'Arena Fonte Nova.", walkingDescription:"Découvrez Salvador à pied avec un guide local.",
+    askPrice:"Demandez le tarif", freeContribution:"Participation libre", openForm:"Ouvrir le formulaire", redeemWhatsapp:"Profiter via WhatsApp",
+    footerPlace:"Plage de Porto da Barra — Salvador, Bahia", footerCredit:"Menu numérique développé par",
+    whatsapp:"Bonjour ! Je suis au kiosque de plage Point da Ana et je souhaite profiter de l'excursion à l'île d'Itaparica + Ilha dos Frades.",
+    morroWhatsapp:"Bonjour ! Je suis au kiosque de plage Point da Ana et je souhaite profiter de l'offre de 20 % pour Morro de São Paulo.",
+    forteWhatsapp:"Bonjour ! Je suis au kiosque de plage Point da Ana et je souhaite profiter de l'excursion à Praia do Forte.",
+    arenaWhatsapp:"Bonjour ! Je suis au kiosque de plage Point da Ana et je souhaite profiter de l'expérience d'un match à l'Arena Fonte Nova."
   },
-  "it": {
-    "title": "TAPIOCA & CREPIOCA DA PRAÇA",
-    "artisan": "Impasto artigianale.",
-    "noCorn": "✔ Senza amido di mais.",
-    "noPreservatives": "✔ Senza conservanti.",
-    "catSweet": "DOLCI",
-    "catMixed": "DOLCI & SALATI",
-    "catVegetarian": "VEGETARIANO",
-    "catSavory": "SALATI",
-    "navIslands": "Isole",
-    "discountCall": "Ottieni il tuo sconto",
-    "islandsTitle": "Isola dos Frades + Isola di Itaparica",
-    "islandsDescription": "Tour di un'intera giornata nella Baia di Tutti i Santi.",
-    "perPerson": "a persona",
-    "pickup": "Prelievo in hotel",
-    "dropoff": "Ritorno e accompagnamento in hotel",
-    "terminal": "Terminal incluso",
-    "fullDay": "Tour di un'intera giornata",
-    "reserve": "Prenota su WhatsApp",
-    "whatsapp": "Ho trovato l'offerta per il tour delle isole presso Tapioca & Crepioca da Praça e sono interessato a effettuare una prenotazione.",
-    "item1": "Latte Condensato con Cocco",
-    "item2": "Banana con Cioccolato",
-    "item3": "Prestígio",
-    "item4": "Dulce de Leche con Cioccolato",
-    "item5": "Dulce de Leche con Cocco",
-    "item6": "Pasta di Guava con Cocco",
-    "item7": "Dulce de Leche con Banana",
-    "item8": "Brigadeiro",
-    "item9": "Nutella con Fragola",
-    "item10": "Nutella",
-    "item11": "Couscous",
-    "item12": "Romeo e Giulietta",
-    "item13": "Latte Condensato con Formaggio",
-    "item14": "Dulce de Leche con Formaggio",
-    "item15": "Banana con Formaggio e Cannella",
-    "item16": "Prosciutto e Formaggio",
-    "item17": "Latte Condensato con Formaggio Coalho",
-    "item18": "Cocco, Formaggio e Pasta di Guava",
-    "item19": "Fragola con Cioccolato",
-    "item20": "Pomodoro Secco con Formaggio",
-    "item21": "Pomodoro Secco con Olive",
-    "item22": "Pomodoro Secco con Rucola",
-    "item23": "Olive con Mais",
-    "item24": "Rucola con Olive",
-    "item25": "Uovo con Formaggio",
-    "item26": "Uovo con Prosciutto",
-    "item27": "Tapioca Pizza",
-    "item28": "Formaggio Coalho",
-    "item29": "Quattro Formaggi",
-    "item30": "Calabresa con Formaggio",
-    "item31": "Calabresa con Catupiry",
-    "item32": "Carne do Sol con Formaggio",
-    "item33": "Carne do Sol con Catupiry",
-    "item34": "Carne do Sol con Manioca",
-    "item35": "Charque con Manioca",
-    "item36": "Charque con Formaggio",
-    "item37": "Calabresa, Charque e Formaggio",
-    "item38": "Calabresa, Charque e Manioca",
-    "item39": "Calabresa, Charque e Catupiry",
-    "item40": "Pollo con Formaggio",
-    "item41": "Pollo con Catupiry",
-    "item42": "Bacon con Formaggio",
-    "item43": "Petto di Tacchino con Formaggio",
-    "item44": "Petto di Tacchino con Catupiry",
-    "item45": "Gamberi con Formaggio",
-    "item46": "Gamberi con Catupiry",
-    "item47": "Tonno con Formaggio",
-    "item48": "Salame con Formaggio",
-    "item49": "Salame con Catupiry",
-    "item50": "Lonza con Formaggio",
-    "item51": "Lonza con Catupiry",
-    "item52": "Platano, Carne do Sol e Formaggio",
-    "desc1": "Latte condensato + cocco.",
-    "desc2": "Banana + cioccolato.",
-    "desc3": "Cocco + cioccolato.",
-    "desc4": "Dulce de leche + cioccolato.",
-    "desc5": "Dulce de leche + cocco.",
-    "desc6": "Pasta di guava + cocco.",
-    "desc7": "Dulce de leche + banana.",
-    "desc8": "Granella + cioccolato.",
-    "desc9": "Pasta di guava + formaggio.",
-    "desc10": "Latte condensato + formaggio.",
-    "desc11": "Dulce de leche + formaggio.",
-    "desc12": "Banana + formaggio + cannella.",
-    "desc13": "Prosciutto + formaggio.",
-    "desc14": "Latte condensato + formaggio coalho.",
-    "desc15": "Cocco + formaggio + pasta di guava.",
-    "desc16": "Fragola + cioccolato.",
-    "desc17": "Pomodoro secco + formaggio.",
-    "desc18": "Pomodoro secco + olive.",
-    "desc19": "Pomodoro secco + rucola.",
-    "desc20": "Olive + mais.",
-    "desc21": "Rucola + olive.",
-    "desc22": "Uovo + formaggio.",
-    "desc23": "Uovo + prosciutto.",
-    "desc24": "Pomodoro + formaggio + origano.",
-    "desc25": "Formaggio coalho.",
-    "desc26": "Formaggio coalho + mozzarella + cheddar.",
-    "desc27": "Calabresa + formaggio.",
-    "desc28": "Calabresa + Catupiry.",
-    "desc29": "Carne do Sol + formaggio.",
-    "desc30": "Carne do Sol + Catupiry.",
-    "desc31": "Carne do Sol + manioca.",
-    "desc32": "Charque + manioca.",
-    "desc33": "Charque + formaggio.",
-    "desc34": "Calabresa + charque + formaggio.",
-    "desc35": "Calabresa + charque + manioca.",
-    "desc36": "Calabresa + charque + Catupiry.",
-    "desc37": "Pollo + formaggio.",
-    "desc38": "Pollo + Catupiry.",
-    "desc39": "Bacon + formaggio.",
-    "desc40": "Petto di tacchino + formaggio.",
-    "desc41": "Petto di tacchino + Catupiry.",
-    "desc42": "Gamberi + formaggio.",
-    "desc43": "Gamberi + Catupiry.",
-    "desc44": "Tonno + formaggio.",
-    "desc45": "Salame + formaggio.",
-    "desc46": "Salame + Catupiry.",
-    "desc47": "Lonza + formaggio.",
-    "desc48": "Lonza + Catupiry.",
-    "desc49": "Platano + carne do sol + formaggio."
+  it: {
+    heroSmall:"Menù digitale", heroPlace:"Spiaggia di Porto da Barra",
+    navPetiscos:"Antipasti", navMoquecas:"Moquecas", navCervejas:"Birre", navBebidas:"Bevande", navCaipirinhas:"Caipirinhas", navIlhas:"Tour", navRedeem:"Riscatta ora",
+    notice:"Tocca un'opzione per vedere i contorni.", titlePetiscos:"Antipasti", titleMoquecas:"Moquecas", titleCervejas:"Birre", titleBebidas:"Bevande", titleDrinks:"Caipirinhas e Caipiroscas",
+    redeemPayLater:"Riscatta ora e paga dopo.", paymentMethods:"Credito, debito, Pix o contanti.",
+    islandsTitle:"Isola di Itaparica + Ilha dos Frades", islandsDescription:"Tour di un'intera giornata nella Baia di Tutti i Santi.", perPerson:"a persona",
+    morroDescription:"Una delle destinazioni più desiderate di Bahia.", forteDescription:"Scopri una delle spiagge più famose della costa nord di Bahia.", arenaDescription:"Vivi l'emozione di assistere a una partita all'Arena Fonte Nova.", walkingDescription:"Scopri Salvador a piedi con una guida locale.",
+    askPrice:"Chiedi il prezzo", freeContribution:"Contributo libero", openForm:"Apri il modulo", redeemWhatsapp:"Riscatta su WhatsApp",
+    footerPlace:"Spiaggia di Porto da Barra — Salvador, Bahia", footerCredit:"Menù digitale sviluppato da",
+    whatsapp:"Ciao! Sono al chiosco sulla spiaggia Point da Ana e vorrei riscattare il tour Isola di Itaparica + Ilha dos Frades.",
+    morroWhatsapp:"Ciao! Sono al chiosco sulla spiaggia Point da Ana e vorrei riscattare l'offerta del 20% OFF per Morro de São Paulo.",
+    forteWhatsapp:"Ciao! Sono al chiosco sulla spiaggia Point da Ana e vorrei riscattare il tour di Praia do Forte.",
+    arenaWhatsapp:"Ciao! Sono al chiosco sulla spiaggia Point da Ana e vorrei riscattare l'esperienza di assistere a una partita all'Arena Fonte Nova."
   },
-  "he": {
-    "title": "TAPIOCA & CREPIOCA DA PRAÇA",
-    "artisan": "בצק בעבודת יד.",
-    "noCorn": "✔ ללא עמילן תירס.",
-    "noPreservatives": "✔ ללא חומרים משמרים.",
-    "catSweet": "מתוקים",
-    "catMixed": "מתוקים ומלוחים",
-    "catVegetarian": "צמחוני",
-    "catSavory": "מלוחים",
-    "navIslands": "איים",
-    "discountCall": "ממשו את ההנחה שלכם",
-    "islandsTitle": "האי דוס פראדס + האי איטפריקה",
-    "islandsDescription": "טיול יום מלא במפרץ כל הקדושים.",
-    "perPerson": "לאדם",
-    "pickup": "איסוף מהמלון",
-    "dropoff": "החזרה למלון",
-    "terminal": "הטרמינל כלול",
-    "fullDay": "טיול יום מלא",
-    "reserve": "הזמנה ב-WhatsApp",
-    "whatsapp": "מצאתי את ההצעה לטיול לאיים ב-Tapioca & Crepioca da Praça ואני מעוניין לבצע הזמנה.",
-    "item1": "חלב מרוכז עם קוקוס",
-    "item2": "בננה עם שוקולד",
-    "item3": "פרסטיז'ו",
-    "item4": "דולסה דה לצ'ה עם שוקולד",
-    "item5": "דולסה דה לצ'ה עם קוקוס",
-    "item6": "גויאבאדה עם קוקוס",
-    "item7": "דולסה דה לצ'ה עם בננה",
-    "item8": "בריגדיירו",
-    "item9": "נוטלה עם תות",
-    "item10": "נוטלה",
-    "item11": "קוסקוס",
-    "item12": "רומיאו ויוליה",
-    "item13": "חלב מרוכז עם גבינה",
-    "item14": "דולסה דה לצ'ה עם גבינה",
-    "item15": "בננה עם גבינה וקינמון",
-    "item16": "חזיר וגבינה",
-    "item17": "חלב מרוכז עם גבינת קואליו",
-    "item18": "קוקוס, גבינה וגויאבאדה",
-    "item19": "תות עם שוקולד",
-    "item20": "עגבנייה מיובשת עם גבינה",
-    "item21": "עגבנייה מיובשת עם זיתים",
-    "item22": "עגבנייה מיובשת עם רוקט",
-    "item23": "זיתים עם תירס",
-    "item24": "רוקט עם זיתים",
-    "item25": "ביצה עם גבינה",
-    "item26": "ביצה עם חזיר",
-    "item27": "טפיוקה פיצה",
-    "item28": "גבינת קואליו",
-    "item29": "ארבע גבינות",
-    "item30": "קלברזה עם גבינה",
-    "item31": "קלברזה עם קטופירי",
-    "item32": "קרנה דו סול עם גבינה",
-    "item33": "קרנה דו סול עם קטופירי",
-    "item34": "קרנה דו סול עם קסאווה",
-    "item35": "שרקי עם קסאווה",
-    "item36": "שרקי עם גבינה",
-    "item37": "קלברזה, שרקי וגבינה",
-    "item38": "קלברזה, שרקי וקסאווה",
-    "item39": "קלברזה, שרקי וקטופירי",
-    "item40": "עוף עם גבינה",
-    "item41": "עוף עם קטופירי",
-    "item42": "בייקון עם גבינה",
-    "item43": "חזה הודו עם גבינה",
-    "item44": "חזה הודו עם קטופירי",
-    "item45": "שרימפס עם גבינה",
-    "item46": "שרימפס עם קטופירי",
-    "item47": "טונה עם גבינה",
-    "item48": "סלמי עם גבינה",
-    "item49": "סלמי עם קטופירי",
-    "item50": "חלציי חזיר עם גבינה",
-    "item51": "חלציי חזיר עם קטופירי",
-    "item52": "פלנטיין, קרנה דו סול וגבינה",
-    "desc1": "חלב מרוכז + קוקוס.",
-    "desc2": "בננה + שוקולד.",
-    "desc3": "קוקוס + שוקולד.",
-    "desc4": "דולסה דה לצ'ה + שוקולד.",
-    "desc5": "דולסה דה לצ'ה + קוקוס.",
-    "desc6": "גויאבאדה + קוקוס.",
-    "desc7": "דולסה דה לצ'ה + בננה.",
-    "desc8": "סוכריות שוקולד + שוקולד.",
-    "desc9": "גויאבאדה + גבינה.",
-    "desc10": "חלב מרוכז + גבינה.",
-    "desc11": "דולסה דה לצ'ה + גבינה.",
-    "desc12": "בננה + גבינה + קינמון.",
-    "desc13": "חזיר + גבינה.",
-    "desc14": "חלב מרוכז + גבינת קואליו.",
-    "desc15": "קוקוס + גבינה + גויאבאדה.",
-    "desc16": "תות + שוקולד.",
-    "desc17": "עגבנייה מיובשת + גבינה.",
-    "desc18": "עגבנייה מיובשת + זיתים.",
-    "desc19": "עגבנייה מיובשת + רוקט.",
-    "desc20": "זיתים + תירס.",
-    "desc21": "רוקט + זיתים.",
-    "desc22": "ביצה + גבינה.",
-    "desc23": "ביצה + חזיר.",
-    "desc24": "עגבנייה + גבינה + אורגנו.",
-    "desc25": "גבינת קואליו.",
-    "desc26": "גבינת קואליו + מוצרלה + צ'דר.",
-    "desc27": "קלברזה + גבינה.",
-    "desc28": "קלברזה + קטופירי.",
-    "desc29": "קרנה דו סול + גבינה.",
-    "desc30": "קרנה דו סול + קטופירי.",
-    "desc31": "קרנה דו סול + קסאווה.",
-    "desc32": "שרקי + קסאווה.",
-    "desc33": "שרקי + גבינה.",
-    "desc34": "קלברזה + שרקי + גבינה.",
-    "desc35": "קלברזה + שרקי + קסאווה.",
-    "desc36": "קלברזה + שרקי + קטופירי.",
-    "desc37": "עוף + גבינה.",
-    "desc38": "עוף + קטופירי.",
-    "desc39": "בייקון + גבינה.",
-    "desc40": "חזה הודו + גבינה.",
-    "desc41": "חזה הודו + קטופירי.",
-    "desc42": "שרימפס + גבינה.",
-    "desc43": "שרימפס + קטופירי.",
-    "desc44": "טונה + גבינה.",
-    "desc45": "סלמי + גבינה.",
-    "desc46": "סלמי + קטופירי.",
-    "desc47": "חלציי חזיר + גבינה.",
-    "desc48": "חלציי חזיר + קטופירי.",
-    "desc49": "פלנטיין + קרנה דו סול + גבינה."
+  ru: {
+    heroSmall:"Цифровое меню", heroPlace:"Пляж Порту-да-Барра",
+    navPetiscos:"Закуски", navMoquecas:"Мокека", navCervejas:"Пиво", navBebidas:"Напитки", navCaipirinhas:"Кайпиринья", navIlhas:"Экскурсии", navRedeem:"Получить сейчас",
+    notice:"Нажмите на позицию, чтобы увидеть гарниры.", titlePetiscos:"Закуски", titleMoquecas:"Мокека", titleCervejas:"Пиво", titleBebidas:"Напитки", titleDrinks:"Кайпиринья и кайпироска",
+    redeemPayLater:"Получите сейчас, оплатите позже.", paymentMethods:"Кредитная карта, дебетовая карта, Pix или наличные.",
+    islandsTitle:"Остров Итапарика + остров Фрадес", islandsDescription:"Экскурсия на целый день по заливу Всех Святых.", perPerson:"с человека",
+    morroDescription:"Одно из самых популярных направлений Баии.", forteDescription:"Откройте для себя один из самых известных пляжей северного побережья Баии.", arenaDescription:"Почувствуйте атмосферу футбольного матча на стадионе Арена Фонте-Нова.", walkingDescription:"Познакомьтесь с Салвадором пешком с местным гидом.",
+    askPrice:"Уточнить стоимость", freeContribution:"Свободная оплата", openForm:"Открыть форму", redeemWhatsapp:"Получить через WhatsApp",
+    footerPlace:"Пляж Порту-да-Барра — Салвадор, Баия", footerCredit:"Цифровое меню разработано",
+    whatsapp:"Здравствуйте! Я нахожусь в пляжном киоске Point da Ana и хочу получить экскурсию на остров Итапарика + остров Фрадес.",
+    morroWhatsapp:"Здравствуйте! Я нахожусь в пляжном киоске Point da Ana и хочу получить скидку 20% на поездку в Морру-ди-Сан-Паулу.",
+    forteWhatsapp:"Здравствуйте! Я нахожусь в пляжном киоске Point da Ana и хочу получить экскурсию в Прайя-ду-Форте.",
+    arenaWhatsapp:"Здравствуйте! Я нахожусь в пляжном киоске Point da Ana и хочу получить предложение на посещение матча на Арене Фонте-Нова."
+  },
+  he: {
+    heroSmall:"תפריט דיגיטלי", heroPlace:"חוף פורטו דה בארה",
+    navPetiscos:"מנות פתיחה", navMoquecas:"מוקקה", navCervejas:"בירות", navBebidas:"משקאות", navCaipirinhas:"קאיפיריניה", navIlhas:"סיורים", navRedeem:"למימוש עכשיו",
+    notice:"לחצו על אפשרות כדי לראות את התוספות.", titlePetiscos:"מנות פתיחה", titleMoquecas:"מוקקה", titleCervejas:"בירות", titleBebidas:"משקאות", titleDrinks:"קאיפיריניה וקאיפירוסקה",
+    redeemPayLater:"ממשו עכשיו ושלמו אחר כך.", paymentMethods:"אשראי, חיוב, Pix או מזומן.",
+    islandsTitle:"האי איטפריקה + האי פראדס", islandsDescription:"סיור של יום שלם במפרץ כל הקדושים.", perPerson:"לאדם",
+    morroDescription:"אחד היעדים המבוקשים ביותר בבאהיה.", forteDescription:"גלו את אחד החופים המפורסמים ביותר בחוף הצפוני של באהיה.", arenaDescription:"חוו את ההתרגשות של צפייה במשחק בארנה פונטה נובה.", walkingDescription:"גלו את סלבדור ברגל עם מדריך מקומי.",
+    askPrice:"בירור מחיר", freeContribution:"תשלום לפי רצונכם", openForm:"פתיחת הטופס", redeemWhatsapp:"מימוש דרך WhatsApp",
+    footerPlace:"חוף פורטו דה בארה — סלבדור, באהיה", footerCredit:"התפריט הדיגיטלי פותח על ידי",
+    whatsapp:"שלום! אני בדוכן החוף Point da Ana ורוצה לממש את הסיור לאי איטפריקה + האי פראדס.",
+    morroWhatsapp:"שלום! אני בדוכן החוף Point da Ana ורוצה לממש את הנחת 20% לסיור במורו דה סאו פאולו.",
+    forteWhatsapp:"שלום! אני בדוכן החוף Point da Ana ורוצה לממש את הסיור לפראיה דו פורטה.",
+    arenaWhatsapp:"שלום! אני בדוכן החוף Point da Ana ורוצה לממש את החוויה של צפייה במשחק בארנה פונטה נובה."
   }
 };
 
-function changeLanguage(language, button){
+const menuItems = {
+  pt: ["Peixe vermelho frito","Peixe corvina","Isca de peixe","Isca de peixe completa","Camarão ao alho e óleo","Camarão empanado","Pituinga","Salada de polvo","Lagosta grelhada","Lagosta na chapa","Lagosta com legumes","Lambreta — dúzia","Carne do sol completa","Carne do sol","Frango à passarinha completo","Frango à passarinha","Isca de frango completa","Isca de frango","Bolinho de bacalhau","Bolinho de camarão","Caldo de camarão","Caldo de sururu","Moqueca de vermelho","Moqueca de dourado","Moqueca de pescada-amarela","Moqueca de pescada-branca","Moqueca de camarão","Moqueca mista","Mariscada","Moqueca de lagosta","Moqueca de lagosta com camarão","Brahma Chopp latão","Skol latão","Brahma Duplo Malte","Itaipava latão","Original lata","Amstel","Devassa","Heineken long neck","Heineken lata","Heineken 0% álcool long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona 0% álcool","Água mineral","Água com gás","Água de coco","Suco de frutas","Coca-Cola litro","Coca-Cola lata","Guaraná litro","Guaraná lata","Skinka","H2OH!","Smirnoff Ice","Caipirinha de limão","Caipirinha de maracujá","Caipirinha de siriguela","Caipirinha de abacaxi","Caipirinha de kiwi","Caipirinha de morango","Caipirinha de caju","Caipirosca de limão","Caipirosca de maracujá","Caipirosca de siriguela","Caipirosca de abacaxi","Caipirosca de kiwi","Caipirosca de morango","Caipirosca de caju"],
+  en: ["Fried red fish","Croaker fish","Fish strips","Fish strips with side dishes","Shrimp with garlic and oil","Breaded shrimp","Pituinga fish","Octopus salad","Grilled lobster","Griddled lobster","Lobster with vegetables","Lambreta shellfish — dozen","Sun-dried beef with side dishes","Sun-dried beef","Brazilian fried chicken with side dishes","Brazilian fried chicken","Chicken strips with side dishes","Chicken strips","Codfish fritters","Shrimp fritters","Shrimp broth","Sururu shellfish broth","Red fish moqueca","Mahi-mahi moqueca","Yellow hake moqueca","White hake moqueca","Shrimp moqueca","Mixed moqueca","Mixed seafood stew","Lobster moqueca","Lobster and shrimp moqueca","Brahma Chopp large can","Skol large can","Brahma Double Malt","Itaipava large can","Original can","Amstel","Devassa","Heineken long neck","Heineken can","Heineken 0% alcohol long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona 0% alcohol","Mineral water","Sparkling water","Coconut water","Fruit juice","1-liter Coca-Cola","Canned Coca-Cola","1-liter Guaraná","Canned Guaraná","Skinka","H2OH!","Smirnoff Ice","Lime caipirinha","Passion fruit caipirinha","Siriguela caipirinha","Pineapple caipirinha","Kiwi caipirinha","Strawberry caipirinha","Cashew fruit caipirinha","Lime caipirosca","Passion fruit caipirosca","Siriguela caipirosca","Pineapple caipirosca","Kiwi caipirosca","Strawberry caipirosca","Cashew fruit caipirosca"],
+  es: ["Pescado rojo frito","Corvina","Tiras de pescado","Tiras de pescado con acompañamientos","Camarones al ajo y aceite","Camarones empanados","Pituinga","Ensalada de pulpo","Langosta a la parrilla","Langosta a la plancha","Langosta con verduras","Moluscos lambreta — docena","Carne de sol con acompañamientos","Carne de sol","Pollo frito brasileño con acompañamientos","Pollo frito brasileño","Tiras de pollo con acompañamientos","Tiras de pollo","Buñuelos de bacalao","Buñuelos de camarón","Caldo de camarón","Caldo de sururu","Moqueca de pescado rojo","Moqueca de dorado","Moqueca de pescadilla amarilla","Moqueca de pescadilla blanca","Moqueca de camarón","Moqueca mixta","Guiso de mariscos","Moqueca de langosta","Moqueca de langosta con camarón","Brahma Chopp lata grande","Skol lata grande","Brahma Doble Malta","Itaipava lata grande","Original lata","Amstel","Devassa","Heineken long neck","Heineken lata","Heineken 0% alcohol long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona 0% alcohol","Agua mineral","Agua con gas","Agua de coco","Jugo de frutas","Coca-Cola de 1 litro","Coca-Cola en lata","Guaraná de 1 litro","Guaraná en lata","Skinka","H2OH!","Smirnoff Ice","Caipirinha de limón","Caipirinha de maracuyá","Caipirinha de ciruela brasileña","Caipirinha de piña","Caipirinha de kiwi","Caipirinha de fresa","Caipirinha de anacardo","Caipirosca de limón","Caipirosca de maracuyá","Caipirosca de ciruela brasileña","Caipirosca de piña","Caipirosca de kiwi","Caipirosca de fresa","Caipirosca de anacardo"],
+  fr: ["Poisson rouge frit","Corvina","Lamelles de poisson","Lamelles de poisson avec accompagnements","Crevettes à l'ail et à l'huile","Crevettes panées","Pituinga","Salade de poulpe","Langouste grillée","Langouste à la plancha","Langouste aux légumes","Coquillages lambreta — douzaine","Carne do sol avec accompagnements","Carne do sol","Poulet frit brésilien avec accompagnements","Poulet frit brésilien","Lamelles de poulet avec accompagnements","Lamelles de poulet","Beignets de morue","Beignets de crevettes","Bouillon de crevettes","Bouillon de sururu","Moqueca de poisson rouge","Moqueca de dorade coryphène","Moqueca de merlu jaune","Moqueca de merlu blanc","Moqueca de crevettes","Moqueca mixte","Ragoût de fruits de mer","Moqueca de langouste","Moqueca de langouste aux crevettes","Brahma Chopp grande canette","Skol grande canette","Brahma Double Malt","Itaipava grande canette","Original canette","Amstel","Devassa","Heineken long neck","Heineken canette","Heineken 0 % alcool long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona 0 % alcool","Eau minérale","Eau gazeuse","Eau de coco","Jus de fruits","Coca-Cola 1 litre","Coca-Cola en canette","Guaraná 1 litre","Guaraná en canette","Skinka","H2OH!","Smirnoff Ice","Caipirinha au citron vert","Caipirinha au fruit de la passion","Caipirinha à la siriguela","Caipirinha à l'ananas","Caipirinha au kiwi","Caipirinha à la fraise","Caipirinha à la noix de cajou","Caipirosca au citron vert","Caipirosca au fruit de la passion","Caipirosca à la siriguela","Caipirosca à l'ananas","Caipirosca au kiwi","Caipirosca à la fraise","Caipirosca à la noix de cajou"],
+  it: ["Pesce rosso fritto","Corvina","Strisce di pesce","Strisce di pesce con contorni","Gamberi all'aglio e olio","Gamberi impanati","Pituinga","Insalata di polpo","Aragosta alla griglia","Aragosta alla piastra","Aragosta con verdure","Molluschi lambreta — dozzina","Carne do sol con contorni","Carne do sol","Pollo fritto brasiliano con contorni","Pollo fritto brasiliano","Strisce di pollo con contorni","Strisce di pollo","Frittelle di baccalà","Frittelle di gamberi","Brodo di gamberi","Brodo di sururu","Moqueca di pesce rosso","Moqueca di lampuga","Moqueca di nasello giallo","Moqueca di nasello bianco","Moqueca di gamberi","Moqueca mista","Zuppa di frutti di mare","Moqueca di aragosta","Moqueca di aragosta con gamberi","Brahma Chopp lattina grande","Skol lattina grande","Brahma Doppio Malto","Itaipava lattina grande","Original lattina","Amstel","Devassa","Heineken long neck","Heineken lattina","Heineken 0% alcol long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona 0% alcol","Acqua minerale","Acqua frizzante","Acqua di cocco","Succo di frutta","Coca-Cola da 1 litro","Coca-Cola in lattina","Guaraná da 1 litro","Guaraná in lattina","Skinka","H2OH!","Smirnoff Ice","Caipirinha al lime","Caipirinha al frutto della passione","Caipirinha alla siriguela","Caipirinha all'ananas","Caipirinha al kiwi","Caipirinha alla fragola","Caipirinha all'anacardio","Caipirosca al lime","Caipirosca al frutto della passione","Caipirosca alla siriguela","Caipirosca all'ananas","Caipirosca al kiwi","Caipirosca alla fragola","Caipirosca all'anacardio"],
+  ru: ["Жареная красная рыба","Рыба корвина","Рыбные полоски","Рыбные полоски с гарнирами","Креветки с чесноком и маслом","Креветки в панировке","Рыба питуинга","Салат с осьминогом","Лобстер на гриле","Лобстер на жарочной поверхности","Лобстер с овощами","Моллюски ламбрета — дюжина","Вяленая говядина с гарнирами","Вяленая говядина","Жареный цыплёнок с гарнирами","Жареный цыплёнок","Куриные полоски с гарнирами","Куриные полоски","Крокеты из трески","Крокеты из креветок","Бульон с креветками","Бульон из моллюсков суруру","Мокека из красной рыбы","Мокека из дорадо","Мокека из жёлтого хека","Мокека из белого хека","Мокека с креветками","Смешанная мокека","Рагу из морепродуктов","Мокека с лобстером","Мокека с лобстером и креветками","Brahma Chopp, большая банка","Skol, большая банка","Brahma Double Malt","Itaipava, большая банка","Original, банка","Amstel","Devassa","Heineken long neck","Heineken, банка","Heineken 0% алкоголя long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona 0% алкоголя","Минеральная вода","Газированная вода","Кокосовая вода","Фруктовый сок","Coca-Cola, 1 литр","Coca-Cola, банка","Guaraná, 1 литр","Guaraná, банка","Skinka","H2OH!","Smirnoff Ice","Кайпиринья с лаймом","Кайпиринья с маракуйей","Кайпиринья с сиригелой","Кайпиринья с ананасом","Кайпиринья с киви","Кайпиринья с клубникой","Кайпиринья с кешью","Кайпироска с лаймом","Кайпироска с маракуйей","Кайпироска с сиригелой","Кайпироска с ананасом","Кайпироска с киви","Кайпироска с клубникой","Кайпироска с кешью"],
+  he: ["דג אדום מטוגן","דג קורבינה","רצועות דג","רצועות דג עם תוספות","שרימפס בשום ושמן","שרימפס בציפוי פריך","דג פיטואינגה","סלט תמנון","לובסטר בגריל","לובסטר על הפלאנצ'ה","לובסטר עם ירקות","צדפות למברטה — תריסר","בשר מיובש עם תוספות","בשר מיובש","עוף מטוגן עם תוספות","עוף מטוגן","רצועות עוף עם תוספות","רצועות עוף","לביבות בקלה","לביבות שרימפס","מרק שרימפס","מרק צדפות סורורו","מוקקה מדג אדום","מוקקה מדג דוראדו","מוקקה מדג הייק צהוב","מוקקה מדג הייק לבן","מוקקה שרימפס","מוקקה מעורבת","תבשיל פירות ים","מוקקה לובסטר","מוקקה לובסטר ושרימפס","Brahma Chopp פחית גדולה","Skol פחית גדולה","Brahma דאבל מאלט","Itaipava פחית גדולה","Original פחית","Amstel","Devassa","Heineken בקבוק long neck","Heineken פחית","Heineken ללא אלכוהול long neck","Stella Artois long neck","Stella Gold","Budweiser long neck","Corona long neck","Corona ללא אלכוהול","מים מינרליים","מים מוגזים","מי קוקוס","מיץ פירות","Coca-Cola ליטר","Coca-Cola פחית","Guaraná ליטר","Guaraná פחית","Skinka","H2OH!","Smirnoff Ice","קאיפיריניה ליים","קאיפיריניה פסיפלורה","קאיפיריניה סיריגלה","קאיפיריניה אננס","קאיפיריניה קיווי","קאיפיריניה תות","קאיפיריניה קשיו","קאיפירוסקה ליים","קאיפירוסקה פסיפלורה","קאיפירוסקה סיריגלה","קאיפירוסקה אננס","קאיפירוסקה קיווי","קאיפירוסקה תות","קאיפירוסקה קשיו"]
+};
+
+const menuDescriptions = {
+  pt:{3:"Batata, arroz, farofa e salada",18:"8 unidades",19:"6 unidades"},
+  en:{3:"French fries, rice, toasted cassava flour and salad",18:"8 pieces",19:"6 pieces"},
+  es:{3:"Papas fritas, arroz, farofa y ensalada",18:"8 unidades",19:"6 unidades"},
+  fr:{3:"Frites, riz, farine de manioc grillée et salade",18:"8 pièces",19:"6 pièces"},
+  it:{3:"Patatine fritte, riso, farina di manioca tostata e insalata",18:"8 pezzi",19:"6 pezzi"},
+  ru:{3:"Картофель фри, рис, обжаренная маниоковая мука и салат",18:"8 штук",19:"6 штук"},
+  he:{3:"צ'יפס, אורז, קמח קסאווה קלוי וסלט",18:"8 יחידות",19:"6 יחידות"}
+};
+
+function changeLanguage(language, button) {
   currentLanguage = language;
   document.documentElement.lang = language;
   document.documentElement.dir = language === "he" ? "rtl" : "ltr";
 
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
+  document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
-    if(translations[language] && translations[language][key]){
+    if (translations[language] && translations[language][key]) {
       el.textContent = translations[language][key];
     }
   });
 
-  document.querySelectorAll(".language-menu button").forEach(btn=>btn.classList.remove("active"));
+  document.querySelectorAll(".language-selector button").forEach(btn => btn.classList.remove("active"));
   button.classList.add("active");
-  updateWhatsApp();
+
+  updateMenuItems();
+  updateWhatsAppLinks();
 }
 
-function updateWhatsApp(){
+function prepareMenuItems() {
+  document.querySelectorAll(".menu-item").forEach((item, index) => {
+    if (!item.querySelector(".item-code")) {
+      const code = document.createElement("span");
+      code.className = "item-code";
+      code.textContent = String(index + 1).padStart(2, "0");
+      code.setAttribute("aria-label", "Item " + (index + 1));
+      item.prepend(code);
+    }
+
+    const name = item.querySelector(".item-name");
+    if (name && !name.querySelector(".item-label")) {
+      const description = name.querySelector(".item-description");
+      const label = document.createElement("span");
+      label.className = "item-label";
+
+      Array.from(name.childNodes).forEach(node => {
+        if (node !== description) node.remove();
+      });
+
+      name.prepend(label);
+    }
+  });
+}
+
+function updateMenuItems() {
+  document.querySelectorAll(".menu-item").forEach((item, index) => {
+    const label = item.querySelector(".item-label");
+    const description = item.querySelector(".item-description");
+
+    if (label) label.textContent = menuItems[currentLanguage][index];
+    if (description) {
+      description.textContent = menuDescriptions[currentLanguage][index] || "";
+    }
+  });
+}
+
+function updateWhatsAppLinks() {
   const phone = "5571993719791";
-  const message = translations[currentLanguage].whatsapp;
-  const btn = document.getElementById("islandsWhatsapp");
-  if(btn){
-    btn.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
-  }
+
+  document.querySelectorAll("[data-whatsapp-key]").forEach(link => {
+    const key = link.getAttribute("data-whatsapp-key");
+    const message = translations[currentLanguage][key];
+    link.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
+  });
 }
 
-updateWhatsApp();
+prepareMenuItems();
+changeLanguage("pt", document.querySelector(".language-selector button"));
 </script>
 
 </body>
