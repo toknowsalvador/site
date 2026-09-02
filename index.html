@@ -3078,6 +3078,134 @@
     @media (min-width: 560px) {
       .creator-grid.two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
+
+    /* Minimal hero offer accordions — keeps the existing palette and typography */
+    .hero-offers {
+      width: min(100%, 430px);
+    }
+
+    .hero-offer {
+      width: 100%;
+    }
+
+    .hero-offer summary {
+      width: 100%;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .hero-offer summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* HERO SERVICE COLORS — preserve the exact original three-button palette */
+    .hero-actions > .hero-offer > summary.free-tour-button {
+      width: min(100%, 430px);
+    }
+
+    .hero-actions > .hero-offer:nth-of-type(1) > summary.free-tour-button {
+      background: linear-gradient(180deg, #e4c15f 0%, #d4ad3f 100%);
+      color: #111111;
+      border: 1px solid rgba(255, 226, 139, 0.72);
+      box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    }
+
+    .hero-actions > .hero-offer:nth-of-type(2) > summary.free-tour-button {
+      background: rgba(5, 5, 5, 0.84);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.58);
+      box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-actions > .hero-offer:nth-of-type(3) > summary.free-tour-button {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(53, 39, 16, 0.9),
+          rgba(20, 16, 10, 0.94)
+        );
+      color: #ead59d;
+      border: 1px solid rgba(234, 213, 157, 0.64);
+      box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .hero-actions > .hero-offer:nth-of-type(1) > summary.free-tour-button:hover {
+      background: linear-gradient(180deg, #e8c96e 0%, #d7b24b 100%);
+    }
+
+    .hero-actions > .hero-offer:nth-of-type(2) > summary.free-tour-button:hover {
+      background: rgba(8, 8, 8, 0.92);
+    }
+
+    .hero-actions > .hero-offer:nth-of-type(3) > summary.free-tour-button:hover {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(64, 47, 19, 0.94),
+          rgba(25, 19, 11, 0.96)
+        );
+    }
+
+    .hero-offer-info {
+      width: calc(100% - 22px);
+      margin: 8px auto 0;
+      padding: 13px 14px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.52);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      text-align: left;
+    }
+
+    .hero-offer-info p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .hero-offer-cta {
+      display: inline-flex;
+      min-height: 38px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 11px;
+      padding: 0 15px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #111111;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .afro-tour-minimal {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .afro-tour-minimal-button {
+      border: 0;
+      border-bottom: 1px solid rgba(234, 213, 157, 0.42);
+      padding: 4px 2px;
+      background: transparent;
+      color: rgba(234, 213, 157, 0.84);
+      font: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 <body>
@@ -3087,86 +3215,37 @@
 <img alt="To Know Salvador" class="hero-logo" src="/public/E7EAE1FB-BF6E-4FA9-A174-010CE2B2BEE5.png"/>
 </div>
 <div class="hero-content">
-<div class="hero-actions">
-<button class="free-tour-button" id="openOldTownReservation" type="button">
-          Afro Tour Old Town
-        </button>
-<a class="free-tour-button" href="#praiaDoForteModal" id="openPraiaDoForte">
-          PRIVATE PRAIA DO FORTE
-        </a>
-<a class="free-tour-button" href="#bahia-night">
-          Bahian Food &amp; Folkloric Show
-        </a>
+<div class="hero-actions hero-offers">
+<details class="hero-offer">
+<summary class="free-tour-button">MORRO DE SÃO PAULO</summary>
+<div class="hero-offer-info">
+<p>Book now, pay later.</p>
+<p>Hotel pickup and drop-off.</p>
+<p>Daily departures.</p>
+<a class="hero-offer-cta" href="https://wa.me/5571993719791?text=Hello%21%20I%20want%20to%20redeem%20the%20To%20Know%20Salvador%20discount%20for%20Morro%20de%20S%C3%A3o%20Paulo." rel="noopener noreferrer" target="_blank">RESGATAR COM DESCONTO</a>
+</div>
+</details>
+<details class="hero-offer">
+<summary class="free-tour-button">PRAIA DO FORTE</summary>
+<div class="hero-offer-info">
+<p>Book now, pay later.</p>
+<p>Hotel pickup and drop-off.</p>
+<p>Daily departures.</p>
+<a class="hero-offer-cta" href="https://wa.me/5571993719791?text=Hello%21%20I%20want%20to%20redeem%20the%20To%20Know%20Salvador%20discount%20for%20Praia%20do%20Forte." rel="noopener noreferrer" target="_blank">RESGATAR COM DESCONTO</a>
+</div>
+</details>
+<details class="hero-offer">
+<summary class="free-tour-button">ITAPARICA + FRADES</summary>
+<div class="hero-offer-info">
+<p>Book now, pay later.</p>
+<p>Hotel pickup and drop-off.</p>
+<p>Daily departures.</p>
+<a class="hero-offer-cta" href="https://wa.me/5571993719791?text=Hello%21%20I%20want%20to%20redeem%20the%20To%20Know%20Salvador%20discount%20for%20Itaparica%20%2B%20Ilha%20dos%20Frades." rel="noopener noreferrer" target="_blank">RESGATAR COM DESCONTO</a>
+</div>
+</details>
 </div>
 </div>
 </header>
-<div aria-hidden="true" class="praia-modal" hidden="" id="praiaDoForteModal">
-<article aria-labelledby="praiaDoForteTitle" aria-modal="true" class="praia-modal-card" role="dialog">
-<button aria-label="Close" class="praia-modal-close" id="closePraiaDoForte" type="button">×</button>
-<p class="praia-kicker">Private experience</p>
-<h2 class="praia-title" id="praiaDoForteTitle">Private Praia do Forte</h2>
-<p class="praia-copy">
-        Private driver and car for a safe and comfortable transfer from your hotel to Praia do Forte for a day trip.
-      </p>
-<div class="praia-facts">
-<div class="praia-fact"><strong>Departure:</strong> 9:00 AM from your hotel.</div>
-<div class="praia-fact"><strong>Return:</strong> 4:00 PM from Praia do Forte.</div>
-<div class="praia-fact"><strong>Service:</strong> private vehicle and driver for your group.</div>
-</div>
-<details class="praia-more">
-<summary>Learn more ↓</summary>
-<p class="praia-copy">
-          Departures every day, with pickup at your hotel and return to the same location.
-          This private service is designed for guests who want to visit Praia do Forte
-          with greater comfort, flexibility and privacy.
-        </p>
-<div class="praia-price">
-<strong>€200 per group</strong>
-          Up to 4 people.
-        </div>
-<form action="https://formsubmit.co/toknowsalvador@gmail.com" id="praiaDoForteBookingForm" method="POST" style="margin-top:18px;">
-<input name="_subject" type="hidden" value="New Private Praia do Forte Reservation"/>
-<input name="_template" type="hidden" value="table"/>
-<input name="_captcha" type="hidden" value="false"/>
-<input name="Experience" type="hidden" value="Private Praia do Forte"/>
-<input name="Price" type="hidden" value="€200 per group — up to 4 people"/>
-<div class="reservation-field">
-<label for="praiaHotel">Hotel / accommodation</label>
-<input id="praiaHotel" name="Hotel / accommodation" required="" type="text"/>
-</div>
-<div class="reservation-field">
-<label for="praiaDate">Preferred date</label>
-<input id="praiaDate" name="Preferred date" required="" type="date"/>
-</div>
-<div class="reservation-field">
-<label for="praiaGuests">Number of people</label>
-<input id="praiaGuests" max="4" min="1" name="Number of people" required="" type="number" value="1"/>
-</div>
-<div class="reservation-field">
-<label for="praiaName">Name</label>
-<input autocomplete="name" id="praiaName" name="Name" required="" type="text"/>
-</div>
-<div class="reservation-field">
-<label for="praiaContact">Email and/or WhatsApp</label>
-<input id="praiaContact" name="Email and/or WhatsApp" placeholder="Email or WhatsApp number" required="" type="text"/>
-</div>
-<button class="praia-paypal" style="border:0; width:100%; cursor:pointer;" type="submit">
-            Confirm reservation details
-          </button>
-</form>
-<div hidden="" id="praiaBookingSuccess">
-<p class="praia-copy" style="margin-top:18px;">
-            Your reservation details have been sent successfully.
-            Please continue to payment to complete your reservation.
-            Your voucher will be sent by email and/or WhatsApp after payment confirmation.
-          </p>
-<a aria-disabled="true" class="praia-paypal is-placeholder" href="#" onclick="return false;" title="The PayPal link will be added soon">
-            Continue to payment — PayPal link coming soon
-          </a>
-</div>
-</details>
-</article>
-</div>
 <!-- LANGUAGES -->
 <section class="language-section">
 <div class="container">
@@ -3184,6 +3263,9 @@
           🇪🇸 Spanish
         </a>
 </nav>
+<div class="afro-tour-minimal">
+<button class="afro-tour-minimal-button" id="openOldTownReservation" type="button">AFRO TOUR OLD TOWN</button>
+</div>
 </div>
 </section>
 <div class="free-walking-access">
