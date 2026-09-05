@@ -4,27 +4,35 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
-<title>To Know Salvador - Free Walking Tour &amp; Local Experiences in Salvador, Bahia</title>
+<title>To Know Salvador - Free Walking Tour ed Esperienze Locali a Salvador, Bahia</title>
 <meta content="Afro Tour nel Centro Storico, esperienze locali, consigli e supporto a Salvador, Bahia." name="description"/>
 <meta content="#070707" name="theme-color"/>
-<link href="https://toknowsalvador.com/" rel="canonical"/>
+<link href="https://toknowsalvador.com/it/" rel="canonical"/>
+<link href="https://toknowsalvador.com/" hreflang="en" rel="alternate"/>
+<link href="https://toknowsalvador.com/pt/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://toknowsalvador.com/es/" hreflang="es" rel="alternate"/>
+<link href="https://toknowsalvador.com/it/" hreflang="it" rel="alternate"/>
+<link href="https://toknowsalvador.com/fr/" hreflang="fr" rel="alternate"/>
+<link href="https://toknowsalvador.com/de/" hreflang="de" rel="alternate"/>
+<link href="https://toknowsalvador.com/he/" hreflang="he" rel="alternate"/>
+<link href="https://toknowsalvador.com/" hreflang="x-default" rel="alternate"/>
 <!-- WHATSAPP, FACEBOOK AND SOCIAL PREVIEW -->
 <meta content="To Know Salvador - Afro Tour Old Town &amp; Local Experiences" property="og:title"/>
-<meta content="Afro Tour nel Centro Storico, Notte Bahiana, esperienze locali e servizi di fiducia a Salvador, Bahia." property="og:description"/>
+<meta content="Afro Tour nel Centro Storico, Bahia Night, esperienze locali e servizi di fiducia a Salvador, Bahia." property="og:description"/>
 <meta content="https://toknowsalvador.com/public/EEEA4113-7576-4AF0-ADD8-6B9462CD30F8.png" property="og:image"/>
 <meta content="https://toknowsalvador.com/public/EEEA4113-7576-4AF0-ADD8-6B9462CD30F8.png" property="og:image:secure_url"/>
 <meta content="image/png" property="og:image:type"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
 <meta content="To Know Salvador" property="og:image:alt"/>
-<meta content="https://toknowsalvador.com/" property="og:url"/>
+<meta content="https://toknowsalvador.com/it/" property="og:url"/>
 <meta content="website" property="og:type"/>
 <meta content="To Know Salvador" property="og:site_name"/>
 <meta content="it_IT" property="og:locale"/>
 <!-- X / TWITTER -->
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="To Know Salvador - Afro Tour Old Town &amp; Local Experiences" name="twitter:title"/>
-<meta content="Afro Tour nel Centro Storico, Notte Bahiana, esperienze locali e servizi di fiducia a Salvador, Bahia." name="twitter:description"/>
+<meta content="Afro Tour nel Centro Storico, Bahia Night, esperienze locali e servizi di fiducia a Salvador, Bahia." name="twitter:description"/>
 <meta content="https://toknowsalvador.com/public/EEEA4113-7576-4AF0-ADD8-6B9462CD30F8.png" name="twitter:image"/>
 <meta content="To Know Salvador" name="twitter:image:alt"/>
 <!-- GOOGLE SEARCH ICON / FAVICON -->
@@ -38,7 +46,7 @@
     "@type": "LocalBusiness",
     "@id": "https://toknowsalvador.com/#business",
     "name": "To Know Salvador",
-    "alternateNome": "To Know Salvador Brazil",
+    "alternateName": "To Know Salvador Brazil",
     "url": "https://toknowsalvador.com/",
     "logo": {
       "@type": "ImageObject",
@@ -71,32 +79,7 @@
       "https://www.instagram.com/toknowsalvador/"
     ]
   }
-  
-    // Reliable WhatsApp routing for all clickable service cards.
-    document.querySelectorAll(".whatsapp-question").forEach((link) => {
-      link.addEventListener("click", (event) => {
-        event.preventDefault();
-
-        const questionKey = link.dataset.questionKey;
-        const item = translations.en.questions[questionKey];
-        if (!item) return;
-
-        const number =
-          questionKey === "nails"
-            ? whatsappNumbers.manicure
-            : questionKey === "hairMakeup"
-              ? whatsappNumbers.beautySalon
-              : whatsappNumbers.adriano;
-
-        window.open(
-          `https://wa.me/${number}?text=${encodeURIComponent(item.message)}`,
-          "_blank",
-          "noopener,noreferrer"
-        );
-      });
-    });
-
-  </script>
+</script>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
@@ -405,7 +388,7 @@
 
     .stories-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
 
@@ -1363,7 +1346,7 @@
     .language-switcher {
       width: min(100%, 520px);
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 8px;
       padding: 7px;
       border: 1px solid rgba(234, 213, 157, 0.28);
@@ -1664,6 +1647,10 @@
         padding: 5px;
       }
 
+      .language-switcher {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .language-button {
         min-height: 43px;
         padding: 0 5px;
@@ -1742,7 +1729,7 @@
       font-size: 12px;
       box-shadow: none;
     }
-/* Notte Bahiana */
+/* Bahia Night */
     .bahia-night-section {
       padding: 72px 0;
       background:
@@ -2894,7 +2881,60 @@
       .network-destinations { grid-template-columns: 1fr; }
     }
 
-  </style>
+  
+/* =========================================================
+   LANGUAGE SWITCHER — HORIZONTAL SCROLL
+   Keeps all languages on one line without breaking the layout.
+   ========================================================= */
+.language-section .container {
+  overflow: visible;
+}
+
+.language-switcher {
+  width: 100%;
+  max-width: 100%;
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 7px;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+
+.language-switcher::-webkit-scrollbar {
+  display: none;
+}
+
+.language-button {
+  flex: 0 0 auto;
+  min-width: max-content;
+  white-space: nowrap;
+  scroll-snap-align: start;
+}
+
+@media (max-width: 480px) {
+  .language-switcher {
+    display: flex !important;
+    grid-template-columns: none !important;
+    gap: 7px;
+    padding: 6px;
+  }
+
+  .language-button {
+    flex: 0 0 auto;
+    min-width: max-content;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+}
+
+</style>
 <style>
     /* CONTENT CREATOR COLLABORATIONS */
     .creator-collab-link {
@@ -3078,6 +3118,137 @@
     @media (min-width: 560px) {
       .creator-grid.two-col { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
+
+    /* Minimal hero offer accordions — keeps the existing palette and typography */
+    .hero-offers {
+      width: min(100%, 430px);
+    }
+
+    .hero-offer {
+      width: 100%;
+    }
+
+    .hero-offer summary {
+      width: 100%;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .hero-offer summary::-webkit-details-marker {
+      display: none;
+    }
+
+    /* HERO SERVICE COLORS — preserve the exact original three-button palette */
+    .hero-actions > .hero-offer > summary.free-tour-button {
+      width: min(100%, 430px);
+    }
+
+    .hero-actions > .hero-offer:nth-of-type(1) > summary.free-tour-button {
+      background: linear-gradient(180deg, #e4c15f 0%, #d4ad3f 100%);
+      color: #111111;
+      border: 1px solid rgba(255, 226, 139, 0.72);
+      box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.28);
+    }
+
+    .hero-actions > .hero-offer:nth-of-type(2) > summary.free-tour-button {
+      background: rgba(5, 5, 5, 0.84);
+      color: #ffffff;
+      border: 1px solid rgba(255, 255, 255, 0.58);
+      box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    }
+
+    .hero-actions > .hero-offer:nth-of-type(3) > summary.free-tour-button {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(53, 39, 16, 0.9),
+          rgba(20, 16, 10, 0.94)
+        );
+      color: #ead59d;
+      border: 1px solid rgba(234, 213, 157, 0.64);
+      box-shadow:
+        0 14px 34px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    }
+
+    .hero-actions > .hero-offer:nth-of-type(1) > summary.free-tour-button:hover {
+      background: linear-gradient(180deg, #e8c96e 0%, #d7b24b 100%);
+    }
+
+    .hero-actions > .hero-offer:nth-of-type(2) > summary.free-tour-button:hover {
+      background: rgba(8, 8, 8, 0.92);
+    }
+
+    .hero-actions > .hero-offer:nth-of-type(3) > summary.free-tour-button:hover {
+      background:
+        linear-gradient(
+          135deg,
+          rgba(64, 47, 19, 0.94),
+          rgba(25, 19, 11, 0.96)
+        );
+    }
+
+    .hero-offer-info {
+      width: calc(100% - 22px);
+      margin: 8px auto 0;
+      padding: 13px 14px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.52);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      text-align: left;
+    }
+
+    .hero-offer-info p {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .hero-offer-cta {
+      display: inline-flex;
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      min-height: 38px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 11px;
+      padding: 0 15px;
+      border-radius: 999px;
+      background: var(--gold);
+      color: #111111;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .afro-tour-minimal {
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .afro-tour-minimal-button {
+      border: 0;
+      border-bottom: 1px solid rgba(234, 213, 157, 0.42);
+      padding: 4px 2px;
+      background: transparent;
+      color: rgba(234, 213, 157, 0.84);
+      font: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 <body>
@@ -3087,164 +3258,374 @@
 <img alt="To Know Salvador" class="hero-logo" src="/public/E7EAE1FB-BF6E-4FA9-A174-010CE2B2BEE5.png"/>
 </div>
 <div class="hero-content">
-<div class="hero-actions">
-<button class="free-tour-button" id="openOldTownReservation" type="button">
-          Afro Tour Old Town
-        </button>
-<a class="free-tour-button" href="#praiaDoForteModal" id="openPraiaDoForte">
-          PRAIA DO FORTE PRIVATA
-        </a>
-<a class="free-tour-button" href="#bahia-night">
-          Bahian Food &amp; Spettacolo Folcloristico
-        </a>
+<div class="hero-actions hero-offers">
+<details class="hero-offer">
+<summary class="free-tour-button">MORRO DE SÃO PAULO</summary>
+<div class="hero-offer-info">
+<p><strong>R$ 250 a persona.</strong></p>
+<p>Prelievo in hotel/alloggio alle <strong>05:20</strong>.</p>
+<p>Partenze giornaliere.</p>
+<button class="hero-offer-cta excursion-book-button" data-tour="morro" type="button">PRENOTA ORA</button>
+</div>
+</details>
+
+<details class="hero-offer">
+<summary class="free-tour-button">PRAIA DO FORTE + GUARAJUBA</summary>
+<div class="hero-offer-info">
+<p><strong>R$ 120 a persona.</strong></p>
+<p>Prelievo in hotel/alloggio alle <strong>07:00</strong>.</p>
+<p>Praia do Forte + Guarajuba · partenze giornaliere.</p>
+<button class="hero-offer-cta excursion-book-button" data-tour="praia" type="button">PRENOTA ORA</button>
+</div>
+</details>
+
+<details class="hero-offer">
+<summary class="free-tour-button">ILHA DE ITAPARICA + ILHA DOS FRADES</summary>
+<div class="hero-offer-info">
+<p><strong>R$ 120 a persona.</strong></p>
+<p><strong>Prenota ora e paga dopo.</strong></p>
+<p>Prelievo in hotel/alloggio alle <strong>07:00</strong>.</p>
+<p><strong>Tassa d'imbarco inclusa.</strong></p>
+<p>Partenze giornaliere.</p>
+<button class="hero-offer-cta excursion-book-button" data-tour="ilhas" type="button">PRENOTA ORA — PAGA DOPO</button>
+</div>
+</details>
 </div>
 </div>
 </header>
-<div aria-hidden="true" class="praia-modal" hidden="" id="praiaDoForteModal">
-<article aria-labelledby="praiaDoForteTitle" aria-modal="true" class="praia-modal-card" role="dialog">
-<button aria-label="Chiudi" class="praia-modal-close" id="closePraiaDoForte" type="button">×</button>
-<p class="praia-kicker">Esperienza privata</p>
-<h2 class="praia-title" id="praiaDoForteTitle">Praia do Forte privata</h2>
-<p class="praia-copy">
-        Autista e auto privata per un transfer sicuro e confortevole dal tuo hotel a Praia do Forte per trascorrere una giornata.
-      </p>
-<div class="praia-facts">
-<div class="praia-fact"><strong>Partenza:</strong> 09:00 dal tuo hotel.</div>
-<div class="praia-fact"><strong>Ritorno:</strong> 16:00 da Praia do Forte.</div>
-<div class="praia-fact"><strong>Servizio:</strong> veicolo e autista privati per il tuo gruppo.</div>
-</div>
-<details class="praia-more">
-<summary>Scopri di più ↓</summary>
-<p class="praia-copy">
-          Departures every day, with pickup at your hotel and return to the same location.
-          This private service is designed for guests who want to visit Praia do Forte
-          with greater comfort, flexibility and privacy.
-        </p>
-<div class="praia-price">
-<strong>€200 per gruppo</strong>
-          Fino a 4 persone.
-        </div>
-<form action="https://formsubmit.co/toknowsalvador@gmail.com" id="praiaDoForteBookingForm" method="POST" style="margin-top:18px;">
-<input name="_subject" type="hidden" value="New Praia do Forte privata Reservation"/>
-<input name="_template" type="hidden" value="table"/>
-<input name="_captcha" type="hidden" value="false"/>
-<input name="Experience" type="hidden" value="Praia do Forte privata"/>
-<input name="Price" type="hidden" value="€200 per gruppo — up to 4 people"/>
-<div class="reservation-field">
-<label for="praiaHotel">Hotel / alloggio</label>
-<input id="praiaHotel" name="Hotel / alloggio" required="" type="text"/>
-</div>
-<div class="reservation-field">
-<label for="praiaDate">Data desiderata</label>
-<input id="praiaDate" name="Data desiderata" required="" type="date"/>
-</div>
-<div class="reservation-field">
-<label for="praiaGuests">Numero di persone</label>
-<input id="praiaGuests" max="4" min="1" name="Numero di persone" required="" type="number" value="1"/>
-</div>
-<div class="reservation-field">
-<label for="praiaNome">Nome</label>
-<input autocomplete="name" id="praiaNome" name="Nome" required="" type="text"/>
-</div>
-<div class="reservation-field">
-<label for="praiaContact">Email e/o WhatsApp</label>
-<input id="praiaContact" name="Email e/o WhatsApp" placeholder="Email o numero WhatsApp" required="" type="text"/>
-</div>
-<button class="praia-paypal" style="border:0; width:100%; cursor:pointer;" type="submit">
-            Conferma i dati della prenotazione
-          </button>
-</form>
-<div hidden="" id="praiaBookingSuccess">
-<p class="praia-copy" style="margin-top:18px;">
-            I dati della prenotazione sono stati inviati correttamente.
-            Procedi al pagamento per completare la prenotazione.
-            Il voucher sarà inviato via email e/o WhatsApp dopo la conferma del pagamento.
-          </p>
-<a aria-disabled="true" class="praia-paypal is-placeholder" href="#" onclick="return false;" title="Il link PayPal sarà aggiunto prossimamente">
-            Procedi al pagamento — link PayPal in arrivo
-          </a>
-</div>
-</details>
-</article>
-</div>
 <!-- LANGUAGES -->
 <section class="language-section">
 <div class="container">
 <p class="language-label">
-        Seleziona your language
+        Seleziona la lingua
       </p>
 <nav aria-label="Seleziona la lingua" class="language-switcher">
-<a class="language-button" href="/">
-          🇬🇧 Inglese
-        </a>
-<a aria-current="page" class="language-button active" href="/pt/">
-          🇮🇹 Italiano
-        </a>
-<a class="language-button" href="/es/">
-          🇪🇸 Spagnolo
-        </a>
+<a class="language-button" href="/">🇬🇧 English</a>
+<a class="language-button" href="/pt/">🇧🇷 Português</a>
+<a class="language-button" href="/es/">🇪🇸 Español</a>
+<a aria-current="page" class="language-button active" href="/it/">🇮🇹 Italiano</a>
+<a class="language-button" href="/fr/">🇫🇷 Français</a>
+<a class="language-button" href="/de/">🇩🇪 Deutsch</a>
+<a class="language-button" href="/he/">🇮🇱 עברית</a>
 </nav>
+<div class="afro-tour-minimal">
+<button class="afro-tour-minimal-button" id="openOldTownReservation" type="button">AFRO TOUR OLD TOWN</button>
+</div>
 </div>
 </section>
 <div class="free-walking-access">
 <div class="container">
 <a aria-label="Formulário de acesso ao Free Walking Tour" href="https://docs.google.com/forms/d/e/1FAIpQLSeNEuT8lhgCT6F2dMunEJ8a64QnLSmTa0v5uKMLwRiynwehXg/viewform?usp=header" rel="noopener noreferrer" target="_blank">
-        Accesso al Free Walking Tour
+        Accedi al Free Walking Tour
       </a>
 </div>
 </div>
+
+<!-- DAY TRIPS RESERVATION — MORRO / PRAIA DO FORTE + GUARAJUBA / ISLANDS -->
+<div class="reservation-modal" hidden="" id="excursionModal">
+<div aria-labelledby="excursionReservationTitle" aria-modal="true" class="reservation-dialog" role="dialog">
+<div class="reservation-dialog-header">
+<div>
+<p class="bahia-night-kicker">To Know Salvador</p>
+<h2 id="excursionReservationTitle">Prenota la tua escursione</h2>
+</div>
+<button aria-label="Chiudi" class="reservation-close" id="closeExcursionReservation" type="button">×</button>
+</div>
+
+<p class="old-town-intro" id="excursionIntro"></p>
+<div class="old-town-important" id="excursionImportant"></div>
+
+<form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="reservation-form" id="excursionForm" method="POST">
+<input id="excursionSubject" name="_subject" type="hidden" value="Nuova prenotazione escursione"/>
+<input name="_template" type="hidden" value="table"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input id="excursionExperience" name="Esperienza" type="hidden" value=""/>
+<input id="excursionPrice" name="Prezzo per persona" type="hidden" value=""/>
+<input id="excursionPickup" name="Orario di prelievo" type="hidden" value=""/>
+<input id="excursionFeeInfo" name="Tassa d\'imbarco / Informazioni" type="hidden" value=""/>
+<input id="excursionTotalHidden" name="Totale" type="hidden" value=""/>
+<input name="Lingua della pagina" type="hidden" value="Italiano"/>
+
+<div class="reservation-field">
+<label for="excursionResponsible">Nome del responsabile della prenotazione</label>
+<input autocomplete="name" id="excursionResponsible" name="Responsabile della prenotazione" placeholder="Nome e cognome" required="" type="text"/>
+</div>
+
+<div class="reservation-field">
+<label for="excursionHotel">Hotel / alloggio</label>
+<input autocomplete="street-address" id="excursionHotel" name="Hotel / alloggio" placeholder="Nome dell'hotel o dell'alloggio" required="" type="text"/>
+</div>
+
+<div class="reservation-field">
+<label for="excursionGuests">Numero di persone</label>
+<input id="excursionGuests" min="1" name="Numero di persone" placeholder="1" required="" step="1" type="number"/>
+</div>
+
+<div class="reservation-field">
+<label for="excursionDate">Data dell'escursione</label>
+<input id="excursionDate" name="Data dell'escursione" required="" type="date"/>
+</div>
+
+<div class="reservation-field">
+<label for="excursionPhone">WhatsApp valido con prefisso internazionale / DDD</label>
+<input autocomplete="tel" id="excursionPhone" inputmode="tel" name="WhatsApp valido" pattern="[+0-9() .-]{10,22}" placeholder="+39 ... / +55 71 ..." required="" type="tel"/>
+</div>
+
+<div class="reservation-total" id="excursionTotal">Totale: —</div>
+<p class="reservation-error" hidden="" id="excursionError"></p>
+
+<button class="reservation-submit" id="excursionSubmit" type="submit">CONFERMA PRENOTAZIONE</button>
+<p class="reservation-note">
+Inserisci un numero WhatsApp valido con prefisso internazionale/DDD. I dati del tour scelto, il prezzo e l'orario di prelievo vengono inviati automaticamente.
+</p>
+</form>
+
+<div class="reservation-success" hidden="" id="excursionSuccess">
+<h3>Prenotazione confermata!</h3>
+<p id="excursionSuccessText">
+La tua prenotazione è stata confermata e i dati sono stati inviati a To Know Salvador.
+</p>
+<div class="old-town-important" id="excursionSuccessDetails"></div>
+<p>
+<strong>Consiglio:</strong> porta un cambio di vestiti, un asciugamano e la crema solare.
+</p>
+</div>
+</div>
+</div>
+
+<script>
+(() => {
+  const modal = document.getElementById("excursionModal");
+  const closeButton = document.getElementById("closeExcursionReservation");
+  const form = document.getElementById("excursionForm");
+  const submitButton = document.getElementById("excursionSubmit");
+  const errorBox = document.getElementById("excursionError");
+  const successBox = document.getElementById("excursionSuccess");
+  const successText = document.getElementById("excursionSuccessText");
+  const successDetails = document.getElementById("excursionSuccessDetails");
+  const title = document.getElementById("excursionReservationTitle");
+  const intro = document.getElementById("excursionIntro");
+  const important = document.getElementById("excursionImportant");
+  const guestsInput = document.getElementById("excursionGuests");
+  const phoneInput = document.getElementById("excursionPhone");
+  const dateInput = document.getElementById("excursionDate");
+  const totalLabel = document.getElementById("excursionTotal");
+  const totalHidden = document.getElementById("excursionTotalHidden");
+  const experienceHidden = document.getElementById("excursionExperience");
+  const priceHidden = document.getElementById("excursionPrice");
+  const pickupHidden = document.getElementById("excursionPickup");
+  const feeInfoHidden = document.getElementById("excursionFeeInfo");
+  const subjectHidden = document.getElementById("excursionSubject");
+
+  if (!modal || !closeButton || !form) return;
+
+  const TOURS = {
+    morro: {
+      name: "Morro de São Paulo",
+      price: 250,
+      pickup: "05:20",
+      payLater: false,
+      feeInfo: ""
+    },
+    praia: {
+      name: "Praia do Forte + Guarajuba",
+      price: 120,
+      pickup: "07:00",
+      payLater: false,
+      feeInfo: ""
+    },
+    ilhas: {
+      name: "Ilha de Itaparica + Ilha dos Frades",
+      price: 120,
+      pickup: "07:00",
+      payLater: true,
+      feeInfo: "Tassa d'imbarco inclusa"
+    }
+  };
+
+  let selectedTour = null;
+
+  function setMinimumDate() {
+    const now = new Date();
+    const local = new Date(now.getTime() - now.getTimezoneOffset() * 60000);
+    dateInput.min = local.toISOString().slice(0, 10);
+  }
+
+  function updateTotal() {
+    if (!selectedTour) return;
+    const guests = Number.parseInt(guestsInput.value, 10);
+
+    if (!Number.isInteger(guests) || guests < 1) {
+      totalLabel.textContent = `Totale: — · R$ ${selectedTour.price} a persona`;
+      totalHidden.value = "";
+      return;
+    }
+
+    const total = guests * selectedTour.price;
+    totalLabel.textContent = `Totale: R$ ${total} · R$ ${selectedTour.price} a persona`;
+    totalHidden.value = `R$ ${total}`;
+  }
+
+  function validWhatsApp(value) {
+    const digits = value.replace(/\D/g, "");
+    return digits.length >= 10 && digits.length <= 15;
+  }
+
+  function openModal(tourKey) {
+    selectedTour = TOURS[tourKey];
+    if (!selectedTour) return;
+
+    form.reset();
+    form.hidden = false;
+    successBox.hidden = true;
+    errorBox.hidden = true;
+    errorBox.textContent = "";
+
+    title.textContent = selectedTour.name;
+    intro.textContent = selectedTour.payLater
+      ? `R$ ${selectedTour.price} a persona. Prenota ora e paga dopo.`
+      : `R$ ${selectedTour.price} a persona.`;
+
+    important.textContent = selectedTour.feeInfo
+      ? `Prelievo in hotel/alloggio alle ${selectedTour.pickup}. ${selectedTour.feeInfo}. Partenza giornaliera.`
+      : `Prelievo in hotel/alloggio alle ${selectedTour.pickup}. Partenza giornaliera.`;
+
+    experienceHidden.value = selectedTour.name;
+    priceHidden.value = `R$ ${selectedTour.price}`;
+    pickupHidden.value = selectedTour.pickup;
+    feeInfoHidden.value = selectedTour.feeInfo || "—";
+    subjectHidden.value = `Nuova prenotazione — ${selectedTour.name}`;
+
+    setMinimumDate();
+    updateTotal();
+
+    modal.hidden = false;
+    document.body.style.overflow = "hidden";
+    setTimeout(() => document.getElementById("excursionHotel")?.focus(), 0);
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll(".excursion-book-button").forEach((button) => {
+    button.addEventListener("click", () => openModal(button.dataset.tour));
+  });
+
+  guestsInput.addEventListener("input", updateTotal);
+  closeButton.addEventListener("click", closeModal);
+
+  modal.addEventListener("click", (event) => {
+    if (event.target === modal) closeModal();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !modal.hidden) closeModal();
+  });
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    errorBox.hidden = true;
+    errorBox.textContent = "";
+
+    if (!form.reportValidity()) return;
+
+    if (!validWhatsApp(phoneInput.value)) {
+      errorBox.textContent = "Inserisci un numero WhatsApp valido con prefisso internazionale/DDD.";
+      errorBox.hidden = false;
+      phoneInput.focus();
+      return;
+    }
+
+    updateTotal();
+
+    submitButton.disabled = true;
+    submitButton.textContent = "CONFERMA IN CORSO...";
+
+    try {
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      });
+
+      if (!response.ok) {
+        throw new Error("Errore nell'invio della prenotazione.");
+      }
+
+      form.hidden = true;
+      successText.textContent =
+        `Prenotazione confermata per ${selectedTour.name}. To Know Salvador ha ricevuto i tuoi dati.`;
+
+      successDetails.textContent = selectedTour.feeInfo
+        ? `Prelievo previsto alle ${selectedTour.pickup}. ${selectedTour.feeInfo}. ${selectedTour.payLater ? "Prenotazione effettuata ora; pagamento successivo." : ""}`.trim()
+        : `Prelievo previsto alle ${selectedTour.pickup}.`;
+
+      successBox.hidden = false;
+    } catch (error) {
+      errorBox.textContent = "Non siamo riusciti a confermare la prenotazione. Controlla la connessione e riprova.";
+      errorBox.hidden = false;
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "CONFERMA PRENOTAZIONE";
+    }
+  });
+})();
+</script>
+
 <!-- BAHIA NIGHT — DINNER AND FOLKLORIC SHOW -->
 <section class="bahia-night-section" id="bahia-night">
 <div class="container">
 <article class="bahia-night-card">
-<p class="bahia-night-kicker">Bahian Food &amp; Spettacolo Folcloristico</p>
-<h2 class="bahia-night-title">Notte Bahiana</h2>
+<p class="bahia-night-kicker">Cucina Bahiana &amp; Spettacolo Folcloristico</p>
+<h2 class="bahia-night-title">Bahia Night</h2>
 <p class="bahia-night-days">Giovedì e sabato</p>
-<div aria-label="Photos of the Notte Bahiana buffet and folkloric show" class="bahia-night-gallery">
+<div aria-label="Foto del buffet e dello spettacolo folcloristico Bahia Night" class="bahia-night-gallery">
 <figure>
-<img alt="Bahian buffet at Coliseu da Bahia" loading="lazy" src="/public/14B42228-0DAF-40D8-BFBC-EF57ED275AB3.png"/>
+<img alt="Buffet bahiano al Coliseu da Bahia" loading="lazy" src="/public/14B42228-0DAF-40D8-BFBC-EF57ED275AB3.png"/>
 <figcaption>Buffet Bahiano</figcaption>
 </figure>
 <figure>
-<img alt="Bahia folkloric show at Coliseu da Bahia" loading="lazy" src="/public/29C8B64B-96B0-46CB-943C-7C235BD2E46E.png"/>
+<img alt="Spettacolo folcloristico della Bahia al Coliseu da Bahia" loading="lazy" src="/public/29C8B64B-96B0-46CB-943C-7C235BD2E46E.png"/>
 <figcaption>Spettacolo Folcloristico</figcaption>
 </figure>
 <figure>
-<img alt="Traditional Bahian food served at Coliseu da Bahia" loading="lazy" src="/public/16D86612-1A13-4F6C-BB23-B3C51D0F1CCF.png"/>
+<img alt="Cucina tradizionale bahiana servita al Coliseu da Bahia" loading="lazy" src="/public/16D86612-1A13-4F6C-BB23-B3C51D0F1CCF.png"/>
 <figcaption>Sapori della Bahia</figcaption>
 </figure>
 <figure>
-<img alt="Dinner and cultural experience at Coliseu da Bahia" loading="lazy" src="/public/589C6347-9AA5-4747-8438-6E1BA57E74AB.png"/>
+<img alt="Cena ed esperienza culturale al Coliseu da Bahia" loading="lazy" src="/public/589C6347-9AA5-4747-8438-6E1BA57E74AB.png"/>
 <figcaption>Esperienza Coliseu</figcaption>
 </figure>
 </div>
-<div aria-label="Notte Bahiana photo navigation" class="bahia-night-carousel-dots" id="bahiaNightCarouselDots"></div>
+<div aria-label="Navigazione foto Bahia Night" class="bahia-night-carousel-dots" id="bahiaNightCarouselDots"></div>
 <div class="bahia-night-schedule">
 <div class="bahia-night-item">
 <strong>🍽️ 18:30 – 20:00 | Cena Bahiana</strong>
 <p>Un buffet con una selezione di piatti tradizionali bahiani e locali.</p>
 </div>
 <div class="bahia-night-item">
-<strong>🎭 8:00 PM – 9:00 PM | Spettacolo Culturale della Bahia</strong>
-<p>Un viaggio attraverso alcune delle più importanti espressioni culturali afro-bahiane, con capoeira, samba, danze degli Orixás e spettacoli legati alle tradizioni e religioni afro-brasiliane.</p>
+<strong>🎭 20:00 – 21:00 | Spettacolo Culturale della Bahia</strong>
+<p>Un viaggio attraverso alcune delle più importanti espressioni culturali afro-bahiane, con capoeira, samba, danze degli Orixás e performance legate alle tradizioni e religioni afro-brasiliane.</p>
 </div>
 </div>
 <div class="bahia-night-meta">
 <span>📍 Coliseu — Salvador, Bahia</span>
-<span>✅ Prenota ora per garantire il tuo posto.</span>
+<span>✅ Prenota ora per assicurarti il posto.</span>
 </div>
 <div class="bahia-night-actions">
 <button class="bahia-night-book" id="openBahiaNightReservation" type="button">
-            PRENOTA ORA — GARANTISCI IL TUO POSTO
+            PRENOTA ORA — ASSICURATI IL POSTO
           </button>
 <details class="bahia-night-buffet">
-<summary>🍽️ View Buffet</summary>
+<summary>🍽️ Vedi il Buffet</summary>
 <div class="bahia-night-buffet-menu">
 <p><strong>🥗 Antipasti:</strong> Insalata Salvador con uova di quaglia, Insalata Bahiana con salmone, Insalata Coliseu, vinaigrette con pomodoro, cipolla e peperone, Acarajé, Vatapá.</p>
-<p><strong>🍛 Piatti principali:</strong> Bobó di gamberi, Moqueca di pesce, Baccalà alla Coliseu, Lasagna Coliseu con banana platano, Stroganoff di pollo, Arrosto di manzo con patate, Lasagna Pelourinho con pollo.</p>
+<p><strong>🍛 Piatti principali:</strong> Bobó di gamberi, Moqueca di pesce, baccalà alla Coliseu, lasagna Coliseu con platano, stroganoff di pollo, arrosto di manzo con patate, lasagna Pelourinho con pollo.</p>
 <p><strong>🔥 Alla griglia:</strong> Filetto di pollo alla griglia.</p>
 <p><strong>🍚 Contorni:</strong> Spaghetti aglio e olio con salsa di pomodoro, riso bianco, patatine fritte, pane e crostini.</p>
-<p><strong>🥣 Complementi:</strong> Banana fritta, farofa al dendê, farofa al burro, salsa piccante.</p>
+<p><strong>🥣 Extra:</strong> Platano fritto, farofa al dendê, farofa al burro, salsa piccante.</p>
 <p><strong>🍍 Frutta di stagione.</strong></p>
 </div>
 </details>
@@ -3257,16 +3638,16 @@
 <div aria-labelledby="bahiaNightReservationTitle" aria-modal="true" class="reservation-dialog" role="dialog">
 <div class="reservation-dialog-header">
 <div>
-<p class="bahia-night-kicker">Notte Bahiana</p>
+<p class="bahia-night-kicker">Bahia Night</p>
 <h2 id="bahiaNightReservationTitle">Prenota il tuo posto</h2>
 </div>
 <button aria-label="Chiudi" class="reservation-close" id="closeBahiaNightReservation" type="button">×</button>
 </div>
 <form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="reservation-form" id="bahiaNightForm" method="POST">
-<input name="_subject" type="hidden" value="New Notte Bahiana Reservation"/>
+<input name="_subject" type="hidden" value="New Bahia Night Reservation"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
-<input name="Experience" type="hidden" value="Notte Bahiana — Bahian Food &amp; Spettacolo Folcloristico"/>
+<input name="Experience" type="hidden" value="Bahia Night — Cucina Bahiana &amp; Spettacolo Folcloristico"/>
 <input name="Price per person" type="hidden" value="US$65"/>
 <input id="bahiaNightTotalHidden" name="Total" type="hidden" value="US$65"/>
 <div class="reservation-price-highlight">
@@ -3277,8 +3658,8 @@
 <input autocomplete="name" id="bahiaNightNome" name="Nome" required="" type="text"/>
 </div>
 <div class="reservation-field">
-<label for="bahiaNightDate">Data desiderata — Thursday or Saturday</label>
-<input id="bahiaNightDate" name="Data desiderata" required="" type="date"/>
+<label for="bahiaNightDate">Data preferita — giovedì o sabato</label>
+<input id="bahiaNightDate" name="Preferred date" required="" type="date"/>
 </div>
 <div class="reservation-field">
 <label for="bahiaNightGuests">Numero di persone</label>
@@ -3301,15 +3682,15 @@
 <div class="reservation-total" id="bahiaNightTotal">Total: US$65</div>
 <p class="reservation-error" hidden="" id="bahiaNightError"></p>
 <button class="reservation-submit" id="bahiaNightSubmit" type="submit">
-          INVIA PRENOTAZIONE
+          INVIA LA PRENOTAZIONE
         </button>
 <p class="reservation-note">
-          I dati della tua prenotazione saranno inviati a To Know Salvador. Il pagamento viene effettuato dopo l’invio della richiesta di prenotazione.
+          I dettagli della prenotazione saranno inviati a To Know Salvador. Il pagamento viene completato dopo l’invio della richiesta.
         </p>
 </form>
 <div class="reservation-success" hidden="" id="bahiaNightSuccess">
-<h3>Informazioni inviate correttamente!</h3>
-<p>I dati della tua prenotazione sono stati ricevuti da To Know Salvador. Ora completa il pagamento qui sotto per confermare e garantire il tuo posto.</p>
+<h3>Informazioni inviate con successo!</h3>
+<p>To Know Salvador ha ricevuto i dettagli della tua prenotazione. Ora completa il pagamento qui sotto per confermare e assicurarti il posto.</p>
 <a class="paypal-button" href="https://www.paypal.com/ncp/payment/4J7JEH69L9ZUQ" rel="noopener noreferrer" target="_blank">
           PAGA ORA CON PAYPAL
         </a>
@@ -3320,36 +3701,37 @@
 <section class="football-tour-section" id="football-tour">
 <div class="container">
 <article class="football-tour-card">
-<p class="football-tour-kicker">Esperienza di calcio locale</p>
+<p class="football-tour-kicker">Esperienza di Calcio Locale</p>
 <h2 class="football-tour-title">Tour di Calcio — Arena Fonte Nova</h2>
 <p class="football-tour-copy">
-          Vivi l’atmosfera del calcio di Salvador dall’interno dello stadio, tra tifosi locali, cori, colori e tutta l’energia del giorno della partita.
+          Vivi l’atmosfera del calcio di Salvador dall’interno dello stadio,
+          tra tifosi locali, cori, colori e l’energia del giorno della partita.
         </p>
 <div aria-label="Foto del Tour di Calcio all’Arena Fonte Nova" class="football-tour-gallery">
 <figure>
-<img alt="Guests wearing Bahia football colors inside Arena Fonte Nova" loading="lazy" src="/public/IMG_8163.jpeg"/>
-<figcaption>Allegria e divertimento</figcaption>
+<img alt="Ospiti con i colori del Bahia all’interno dell’Arena Fonte Nova" loading="lazy" src="/public/IMG_8163.jpeg"/>
+<figcaption>Gioia &amp; Divertimento</figcaption>
 </figure>
 <figure>
-<img alt="Football Tour guests enjoying the local match-day atmosphere in Salvador" loading="lazy" src="/public/IMG_8166.jpeg"/>
-<figcaption>Esperienza nel giorno della partita</figcaption>
+<img alt="Ospiti del Tour di Calcio durante l’atmosfera della partita a Salvador" loading="lazy" src="/public/IMG_8166.jpeg"/>
+<figcaption>Esperienza Giorno Partita</figcaption>
 </figure>
 <figure>
-<img alt="Supporters and flags inside Arena Fonte Nova in Salvador" loading="lazy" src="/public/IMG_8169.jpeg"/>
+<img alt="Tifosi e bandiere all’interno dell’Arena Fonte Nova a Salvador" loading="lazy" src="/public/IMG_8169.jpeg"/>
 <figcaption>Arena Fonte Nova</figcaption>
 </figure>
 <figure>
-<img alt="Football Tour experience in Salvador" loading="lazy" src="/public/IMG_8173.jpeg"/>
+<img alt="Esperienza del Tour di Calcio a Salvador" loading="lazy" src="/public/IMG_8173.jpeg"/>
 <figcaption>Calcio a Salvador</figcaption>
 </figure>
 </div>
-<div aria-label="Navigazione delle foto del Tour di Calcio" class="football-tour-carousel-dots" id="footballTourCarouselDots"></div>
+<div aria-label="Football Tour photo navigation" class="football-tour-carousel-dots" id="footballTourCarouselDots"></div>
 <div class="football-tour-meta">
-<span>⚽ Esperienza nel giorno della partita all’Arena Fonte Nova</span>
+<span>⚽ Esperienza di partita all’Arena Fonte Nova</span>
 <span>📍 Salvador, Bahia</span>
 <span>📅 La disponibilità dipende dal calendario calcistico locale</span>
 </div>
-<a class="football-tour-book" href="https://wa.me/5571992439176?text=Ciao%20Eduardo%2C%20ti%20ho%20trovato%20tramite%20To%20Know%20Salvador.%20Puoi%20dirmi%20quando%20possiamo%20fare%20il%20tour%20nel%20giorno%20della%20partita%20e%20quali%20sono%20i%20prezzi%3F" rel="noopener noreferrer" target="_blank">
+<a class="football-tour-book" href="https://wa.me/5571992439176?text=Hello%20Eduardo%2C%20I%20found%20you%20through%20To%20Know%20Salvador.%20Could%20you%20please%20tell%20me%20when%20we%20can%20do%20the%20match-day%20tour%20and%20the%20prices%3F" rel="noopener noreferrer" target="_blank">
           Chiedi informazioni sulla prossima partita
         </a>
 </article>
@@ -3376,7 +3758,7 @@
 </a>
 <a class="question-card" href="#bahia-night">
 <span class="question-icon">💃</span>
-<span class="question-text">Bahian Food &amp; Spettacolo Folcloristico — Notte Bahiana</span>
+<span class="question-text">Cucina Bahiana &amp; Spettacolo Folcloristico — Bahia Night</span>
 <span class="question-arrow">→</span>
 </a>
 <a class="whatsapp-question question-card" data-question-key="favelaTour" href="#">
@@ -3402,19 +3784,19 @@
 <span class="question-arrow">→</span>
 </summary>
 <p class="network-card-copy">
-            Utilizza la nostra rete di supporto e fiducia in tutto il Brasile.
+            Usa la nostra rete di contatti di fiducia in tutto il Brasile.
           </p>
 <div class="network-destinations">
-<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20S%C3%83O%20PAULO.%20Puoi%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">SÃO PAULO</a>
-<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20RIO%20DE%20JANEIRO.%20Puoi%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">RIO DE JANEIRO</a>
-<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20CHAPADA%20DIAMANTINA.%20Puoi%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">CHAPADA DIAMANTINA</a>
-<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20GOI%C3%82NIA.%20Puoi%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">GOIÂNIA</a>
-<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20BEL%C3%89M.%20Puoi%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">BELÉM</a>
-<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20AMAZONAS.%20Puoi%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">AMAZONAS</a>
-<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20LEN%C3%87%C3%93IS.%20Puoi%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">LENÇÓIS</a>
-<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20CURITIBA.%20Puoi%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">CURITIBA</a>
-<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20JALAP%C3%83O.%20Puoi%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">JALAPÃO</a>
-<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20MORRO%20DE%20S%C3%83O%20PAULO.%20Puoi%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">MORRO DE SÃO PAULO</a>
+<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20S%C3%83O%20PAULO.%20Potresti%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">SÃO PAULO</a>
+<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20RIO%20DE%20JANEIRO.%20Potresti%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">RIO DE JANEIRO</a>
+<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20CHAPADA%20DIAMANTINA.%20Potresti%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">CHAPADA DIAMANTINA</a>
+<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20GOI%C3%82NIA.%20Potresti%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">GOIÂNIA</a>
+<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20BEL%C3%89M.%20Potresti%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">BELÉM</a>
+<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20AMAZONAS.%20Potresti%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">AMAZONAS</a>
+<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20LEN%C3%87%C3%93IS.%20Potresti%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">LENÇÓIS</a>
+<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20CURITIBA.%20Potresti%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">CURITIBA</a>
+<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20JALAP%C3%83O.%20Potresti%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">JALAPÃO</a>
+<a class="network-destination" href="https://wa.me/5571993719791?text=Ciao%21%20Ho%20trovato%20To%20Know%20Salvador%20e%20vorrei%20un%20contatto%20locale%20di%20fiducia%20per%20MORRO%20DE%20S%C3%83O%20PAULO.%20Potresti%20aiutarmi%3F" rel="noopener noreferrer" target="_blank">MORRO DE SÃO PAULO</a>
 </div>
 </details>
 </section>
@@ -3427,7 +3809,7 @@
 <summary aria-label="Open orientações para agendar uma visita a um terreiro de Candomblé">
 <img alt="Visita a terreiro de Candomblé em Salvador" class="terreiro-image" src="/public/DFCA324B-11F9-4961-832A-D7FD8913590C.jpeg"/>
 <div class="terreiro-overlay">
-<span class="terreiro-kicker">Experiência cultural</span>
+<span class="terreiro-kicker">Esperienza culturale</span>
 <h2 class="terreiro-title">
               Prenota la tua visita a un Terreiro di Candomblé
             </h2>
@@ -3438,15 +3820,15 @@
 </summary>
 <div class="terreiro-info">
 <p>
-            Prima della visita, segui le indicazioni della casa:
+            Prima della visita, segui le regole della casa:
           </p>
 <ul class="terreiro-guidelines">
 <li>Rispetta la casa, le persone e gli spazi sacri.</li>
 <li>Indossa abiti bianchi e pantaloni lunghi.</li>
-<li>Non sono consentite fotografie, riprese video o registrazioni audio.</li>
+<li>Non sono consentiti fotografie, video o registrazioni audio.</li>
 </ul>
 <a class="terreiro-button" href="https://wa.me/5571993719791?text=Hello%21%20I%27m%20interested%20in%20scheduling%20a%20visit%20to%20a%20Candombl%C3%A9%20Terreiro%20in%20Salvador.%20Could%20you%20send%20me%20the%20available%20dates%2C%20instructions%20and%20price%3F" rel="noopener noreferrer" target="_blank">
-            Book now
+            Prenota ora
           </a>
 </div>
 </details>
@@ -3459,7 +3841,7 @@
 <video aria-hidden="true" autoplay="" class="premium-video-bg" loop="" muted="" playsinline="" preload="metadata" src="/public/72fde68d578b4b03afc6052c0becdfc5.mp4"></video>
 <div class="premium-intro">
 <p class="eyebrow premium-eyebrow">
-            Soporte Premium
+            Supporto Premium
           </p>
 <h2 class="premium-title">
             Supporto locale per agenzie e gruppi privati.
@@ -3509,13 +3891,13 @@
 <article class="history-card">
 <div class="history-content">
 <p class="eyebrow history-eyebrow">
-            Collaborations in Salvador
+            Collaborazioni a Salvador
           </p>
 <h2 class="history-title">
             Content creator, influencer o vlogger? Collabora con noi.
           </h2>
 <p class="history-copy">
-            Crei contenuti attivamente? Raccontaci del tuo pubblico, delle tue piattaforme e del tuo soggiorno a Salvador per valutare una possibile collaborazione.
+            Crei contenuti attivamente? Raccontaci del tuo pubblico, delle tue piattaforme e del tuo soggiorno a Salvador, così potremo valutare una possibile collaborazione.
           </p>
 <button class="history-button" id="openCreatorCollab" type="button">
 <span class="history-button-text">
@@ -3535,7 +3917,7 @@
 <div class="creator-header">
 <div>
 <p class="creator-kicker">Partnership e collaborazioni</p>
-<h2 id="creatorCollabTitle">Crie em Salvador conosco.</h2>
+<h2 id="creatorCollabTitle">Crea a Salvador con noi.</h2>
 <p class="creator-intro">Per influencer, vlogger e content creator attivi interessati a collaborare con To Know Salvador.</p>
 </div>
 <button aria-label="Chiudi" class="creator-close" id="closeCreatorCollab" type="button">×</button>
@@ -3566,16 +3948,16 @@
 </div>
 </div>
 <div class="creator-field" style="margin-top:15px;">
-<label for="creatorChannels">Instagram, TikTok, YouTube or other channel links</label>
+<label for="creatorChannels">Link Instagram, TikTok, YouTube o altri canali</label>
 <input id="creatorChannels" name="Social media / channel links" placeholder="https://..." required="" type="text"/>
 </div>
 <div class="creator-grid two-col" style="margin-top:15px;">
 <div class="creator-field">
-<label for="creatorFollowers">Numero approssimativo di follower</label>
-<input id="creatorFollowers" min="0" name="Numero approssimativo di follower" placeholder="e.g. 25000" required="" step="1" type="number"/>
+<label for="creatorFollowers">Numero totale approssimativo di follower</label>
+<input id="creatorFollowers" min="0" name="Numero totale approssimativo di follower" placeholder="es. 25000" required="" step="1" type="number"/>
 </div>
 <div class="creator-field">
-<label for="creatorDays">Quantos dias em Salvador?</label>
+<label for="creatorDays">Quanti giorni a Salvador?</label>
 <input id="creatorDays" min="1" name="Days in Salvador" placeholder="e.g. 4" required="" step="1" type="number"/>
 </div>
 </div>
@@ -3588,26 +3970,26 @@
 <label for="creatorContent">Tipo principale di contenuto</label>
 <select id="creatorContent" name="Tipo principale di contenuto" required="">
 <option value="">Seleziona</option>
-<option>Viagem</option>
+<option>Viaggi</option>
 <option>Cultura</option>
 <option>Gastronomia</option>
 <option>Lifestyle</option>
 <option>Fotografia</option>
 <option>Video / Vlog</option>
-<option>Outro</option>
+<option>Altro</option>
 </select>
 </div>
 </div>
 <div class="creator-field" style="margin-top:15px;">
 <label for="creatorIdea">Raccontaci brevemente del tuo contenuto o della tua idea di collaborazione</label>
-<textarea id="creatorIdea" name="Content / collaboration idea" placeholder="O que você gostaria de criar em Salvador?"></textarea>
+<textarea id="creatorIdea" name="Content / collaboration idea" placeholder="Cosa vorresti creare a Salvador?"></textarea>
 </div>
 <p class="creator-error" hidden="" id="creatorCollabError"></p>
 <button class="creator-submit" id="creatorCollabSubmit" type="submit">INVIA RICHIESTA DI COLLABORAZIONE</button>
 </form>
 <div class="creator-success" hidden="" id="creatorCollabSuccess">
 <h3>Grazie!</h3>
-<p>Le tue informazioni sono state inviate a To Know Salvador. Il nostro team le esaminerà e ti contatterà per organizzare una possibile collaborazione a Salvador.</p>
+<p>Le tue informazioni sono state inviate a To Know Salvador. Il nostro team le esaminerà e ti contatterà per valutare una possibile collaborazione a Salvador.</p>
 </div>
 </div>
 </div>
@@ -3615,7 +3997,7 @@
 <section class="connection-section">
 <div class="container">
 <p class="eyebrow connection-eyebrow">
-        Selezione di Adriano Marques
+        Selezionato da Adriano Marques
       </p>
 <h2 class="section-title connection-title">
         Il tuo contatto locale a Salvador.
@@ -3656,17 +4038,17 @@
     ];
 
     const translations = {
-      en: {
+      it: {
         documentTitle: "To Know Salvador - Free Walking Tour ed Esperienze Locali a Salvador, Bahia",
         metaDescription: "Afro Tour nel Centro Storico, esperienze locali, consigli e supporto a Salvador, Bahia.",
-        languageLabel: "Seleziona your language",
-        languageSelezionaorLabel: "Seleziona la lingua",
-        heroHelp: "EXPLORA LAS ISLAS — 20% DE DESCUENTO",
-        experiencesTitle: "Experiencia To Know Salvador",
-        tapToWatch: "Toca para ver",
-        questionsEyebrow: "Elige una opción",
-        questionsTitle: "¿Qué necesitas hoy?",
-        questionsDescription: "Toca una opción para ver la respuesta o abrir WhatsApp con un mensaje listo para enviar.",
+        languageLabel: "Seleziona la lingua",
+        languageSelectorLabel: "Seleziona la lingua",
+        heroHelp: "ESPLORA LE ISOLE — 20% DI SCONTO",
+        experiencesTitle: "Esperienze To Know Salvador",
+        tapToWatch: "Tocca per vedere",
+        questionsEyebrow: "Scegli un'opzione",
+        questionsTitle: "Di cosa hai bisogno oggi?",
+        questionsDescription: "Tocca un'opzione per vedere la risposta o aprire WhatsApp con un messaggio già pronto.",
 
         groups: {
           personalCare: "Cura personale"
@@ -3674,111 +4056,111 @@
 
         questions: {
           praiaDoForte: {
-            text: "I want to visit Praia do Forte.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I want to visit Praia do Forte. Could you send me the available options, schedules and prices?"
+            text: "Voglio visitare Praia do Forte.",
+            message: "Ciao! Adriano di To Know Salvador mi ha consigliato il tuo contatto. Vorrei visitare Praia do Forte. Potresti inviarmi le opzioni disponibili, gli orari e i prezzi?"
           },
           islands: {
-            text: "I want to visit the islands.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in visiting the islands. Could you send me the available options, schedules and prices?"
+            text: "Voglio visitare le isole.",
+            message: "Ciao! Adriano di To Know Salvador mi ha consigliato il tuo contatto. Sono interessato a visitare le isole. Potresti inviarmi le opzioni disponibili, gli orari e i prezzi?"
           },
           favelaTour: {
             text: "Favela Tour con guida locale",
-            message: "Hello! I’m interested in a Favela Tour in Salvador with a local guide. Could you send me availability, duration and price?"
+            message: "Ciao! Sono interessato a un Favela Tour a Salvador con una guida locale. Potresti inviarmi disponibilità, durata e prezzo?"
           },
           folkloricShow: {
-            text: "Bahia Spettacolo Folcloristico",
-            message: "Hello! I’m interested in the Bahia Spettacolo Folcloristico. Could you send me the available dates, schedule and price?"
+            text: "Spettacolo Folcloristico della Bahia",
+            message: "Ciao! Sono interessato allo Spettacolo Folcloristico della Bahia. Potresti inviarmi le date disponibili, l'orario e il prezzo?"
           },
           capoeiraMusic: {
             text: "Lezione di prova di Capoeira",
-            message: "Hello! I’m interested in a trial Capoeira class in Salvador. Could you send me availability, location and price?"
+            message: "Ciao! Sono interessato a una lezione di prova di Capoeira a Salvador. Potresti inviarmi disponibilità, luogo e prezzo?"
           },
           foodTour: {
             text: "Tour Gastronomico",
-            message: "Hello! I’m interested in a Tour Gastronomico in Salvador. Could you send me the available options, duration and price?"
+            message: "Ciao! Sono interessato a un Tour Gastronomico a Salvador. Potresti inviarmi le opzioni disponibili, la durata e il prezzo?"
           },
           footballTour: {
             text: "Tour di Calcio — Arena Fonte Nova",
-            message: "Hello! I’m interested in the Football Tour at Arena Fonte Nova in Salvador. Could you send me availability, what is included and the price?"
+            message: "Ciao! Sono interessato al Tour di Calcio all'Arena Fonte Nova di Salvador. Potresti inviarmi disponibilità, cosa è incluso e il prezzo?"
           },
           morroTours: {
             text: "Ho bisogno di un contatto locale di fiducia a Morro de São Paulo.",
-            message: "Hello! Adriano from To Know Salvador and the To Know Rete Brasile recommended your contact. I would like information about the services, tours, experiences or other options available in Morro de São Paulo."
+            message: "Ciao! Adriano di To Know Salvador e la Rete To Know Brasil mi hanno consigliato il tuo contatto. Vorrei informazioni sui servizi, tour, esperienze o altre opzioni disponibili a Morro de São Paulo."
           },
           paddleKayak: {
-            text: "I want to book stand-up paddle or kayaking.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in booking stand-up paddle or kayaking at Porto da Barra. Could you send me availability and prices?"
+            text: "Voglio prenotare stand-up paddle o kayak.",
+            message: "Ciao! Adriano di To Know Salvador mi ha consigliato il tuo contatto. Sono interessato a prenotare stand-up paddle o kayak a Porto da Barra. Potresti inviarmi disponibilità e prezzi?"
           },
           beachKit: {
-            text: "I want to book a beach kit with chairs, a table and a beach umbrella.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in booking a beach kit at Porto da Barra with chairs, a table and a beach umbrella. Could you send me availability and prices?"
+            text: "Voglio prenotare un kit spiaggia con sedie, tavolo e ombrellone.",
+            message: "Ciao! Adriano di To Know Salvador mi ha consigliato il tuo contatto. Sono interessato a prenotare un kit spiaggia a Porto da Barra con sedie, tavolo e ombrellone. Potresti inviarmi disponibilità e prezzi?"
           },
           diving: {
-            text: "I want to go diving at Porto da Barra.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in diving at Porto da Barra. Could you send me information about availability and prices?"
+            text: "Voglio fare immersioni a Porto da Barra.",
+            message: "Ciao! Adriano di To Know Salvador mi ha consigliato il tuo contatto. Sono interessato a fare immersioni a Porto da Barra. Potresti inviarmi informazioni su disponibilità e prezzi?"
           },
           hairMakeup: {
             text: "Salone di bellezza",
-            message: "Hello! I’m looking for a beauty salon in Salvador. I came through To Know Salvador. Could you send me information about services, availability and prices?"
+            message: "Ciao! Sto cercando un salone di bellezza a Salvador. Ho trovato il contatto tramite To Know Salvador. Potresti inviarmi informazioni su servizi, disponibilità e prezzi?"
           },
           nails: {
             text: "Vorrei prenotare una manicure.",
-            message: "Hello! I’m interested in booking a manicure in Salvador. I came through To Know Salvador. Could you send me availability and prices?"
+            message: "Ciao! Sono interessato a prenotare una manicure a Salvador. Ho trovato il contatto tramite To Know Salvador. Potresti inviarmi disponibilità e prezzi?"
           },
           hairCare: {
             text: "Vorrei servizi per la cura dei capelli.",
-            message: "Hello! Adriano from To Know Salvador recommended your contact. I am interested in hair care services in Salvador. Could you help me with a trusted recommendation?"
+            message: "Ciao! Adriano di To Know Salvador mi ha consigliato il tuo contatto. Sono interessato a servizi per la cura dei capelli a Salvador. Potresti aiutarmi con una raccomandazione di fiducia?"
           },
           rio: {
             text: "Ho bisogno di un contatto locale di fiducia a Rio de Janeiro.",
-            message: "Hello! Adriano from To Know Salvador and the To Know Rete Brasile recommended your contact. I would like information about the services, tours, experiences or other options available in Rio de Janeiro."
+            message: "Ciao! Adriano di To Know Salvador e la Rete To Know Brasil mi hanno consigliato il tuo contatto. Vorrei informazioni sui servizi, tour, esperienze o altre opzioni disponibili a Rio de Janeiro."
           },
           fortaleza: {
             text: "Ho bisogno di un contatto locale di fiducia a Fortaleza.",
-            message: "Hello! Adriano from To Know Salvador and the To Know Rete Brasile recommended your contact. I would like information about the services, tours, experiences or other options available in Fortaleza."
+            message: "Ciao! Adriano di To Know Salvador e la Rete To Know Brasil mi hanno consigliato il tuo contatto. Vorrei informazioni sui servizi, tour, esperienze o altre opzioni disponibili a Fortaleza."
           },
           chapada: {
             text: "Ho bisogno di un contatto locale di fiducia nella Chapada Diamantina.",
-            message: "Hello! Adriano from To Know Salvador and the To Know Rete Brasile recommended your contact. I would like information about the services, tours, experiences or other options available in Chapada Diamantina."
+            message: "Ciao! Adriano di To Know Salvador e la Rete To Know Brasil mi hanno consigliato il tuo contatto. Vorrei informazioni sui servizi, tour, esperienze o altre opzioni disponibili nella Chapada Diamantina."
           }
         },
 
-        premiumEyebrow: "Soporte Premium",
+        premiumEyebrow: "Supporto Premium",
         premiumTitle: "Supporto locale per agenzie e gruppi privati.",
         premiumCopy: "Per agenzie internazionali, aziende, istituzioni e gruppi privati che necessitano di un coordinamento locale di fiducia a Salvador.",
 
         premium: {
           clients: {
             text: "Ho bisogno di supporto locale per i miei clienti a Salvador.",
-            message: "Hello! Adriano from To Know Salvador recommended this contact. I represent an agency or organization and need local support for clients visiting Salvador."
+            message: "Ciao! Adriano di To Know Salvador mi ha consigliato questo contatto. Rappresento un'agenzia o un'organizzazione e ho bisogno di supporto locale per clienti in visita a Salvador."
           },
           logistics: {
             text: "Ho bisogno di aiuto per organizzare trasporti, guide e prenotazioni.",
-            message: "Hello! Adriano from To Know Salvador recommended this contact. I need help arranging transportation, guides and reservations in Salvador."
+            message: "Ciao! Adriano di To Know Salvador mi ha consigliato questo contatto. Ho bisogno di aiuto per organizzare trasporti, guide e prenotazioni a Salvador."
           },
           itinerary: {
             text: "Ho bisogno di un itinerario personalizzato per i miei clienti.",
-            message: "Hello! Adriano from To Know Salvador recommended this contact. I need a customized itinerary for clients visiting Salvador."
+            message: "Ciao! Adriano di To Know Salvador mi ha consigliato questo contatto. Ho bisogno di un itinerario personalizzato per clienti in visita a Salvador."
           },
           coordination: {
             text: "Ho bisogno di coordinamento locale durante il viaggio.",
-            message: "Hello! Adriano from To Know Salvador recommended this contact. I need trusted local coordination during a trip to Salvador."
+            message: "Ciao! Adriano di To Know Salvador mi ha consigliato questo contatto. Ho bisogno di un coordinamento locale di fiducia durante un viaggio a Salvador."
           },
           lastMinute: {
-            text: "Ho bisogno di aiuto per una modifica dell’ultimo minuto.",
-            message: "Hello! Adriano from To Know Salvador recommended this contact. I need help with a last-minute change involving clients or a group in Salvador."
+            text: "Ho bisogno di aiuto per una modifica dell'ultimo minuto.",
+            message: "Ciao! Adriano di To Know Salvador mi ha consigliato questo contatto. Ho bisogno di aiuto per una modifica dell'ultimo minuto che riguarda clienti o un gruppo a Salvador."
           },
           quote: {
             text: "Ho bisogno di un preventivo per un gruppo privato.",
-            message: "Hello! Adriano from To Know Salvador recommended this contact. I would like to request a quote for a private group in Salvador."
+            message: "Ciao! Adriano di To Know Salvador mi ha consigliato questo contatto. Vorrei richiedere un preventivo per un gruppo privato a Salvador."
           }
         },
 
-        historyEyebrow: "Collaborations in Salvador",
+        historyEyebrow: "Collaborazioni a Salvador",
         historyTitle: "Content creator, influencer o vlogger? Collabora con noi.",
-        historyCopy: "Crei contenuti attivamente? Raccontaci del tuo pubblico, delle tue piattaforme e del tuo soggiorno a Salvador per valutare una possibile collaborazione.",
+        historyCopy: "Crei contenuti attivamente? Raccontaci del tuo pubblico, delle tue piattaforme e del tuo soggiorno a Salvador, così potremo valutare una possibile collaborazione.",
         historyButton: "Richiedi una collaborazione",
-        connectionEyebrow: "Selezione di Adriano Marques",
+        connectionEyebrow: "Selezionato da Adriano Marques",
         connectionTitle: "Il tuo contatto locale a Salvador.",
         connectionCopy: "Informazioni pratiche, consigli locali e contatti di fiducia per rendere più semplice la tua esperienza in città.",
         footerLocation: "Salvador, Bahia, Brasile"
@@ -3874,7 +4256,7 @@
       if (languageSwitcher) {
         languageSwitcher.setAttribute(
           "aria-label",
-          content.languageSelezionaorLabel
+          content.languageSelectorLabel
         );
       }
 
@@ -3967,28 +4349,21 @@
 
     
     /*
-      This file contains Inglese only.
-      Ignore old Inglese or Spagnolo preferences saved by previous versions,
-      otherwise changeLanguage() stops before creating the WhatsApp links.
+      Questa pagina contiene solo la versione italiana.
+      Non utilizziamo preferenze salvate da altre pagine per evitare
+      che un vecchio idioma interferisca con i link e i messaggi.
     */
-    const savedLanguage = "en";
-    const initialLanguage =
-      savedLanguage && translations[savedLanguage]
-        ? savedLanguage
-        : "en";
+    const savedLanguage = "it";
+    const initialLanguage = "it";
 
-    if (!translations[initialLanguage]) {
-      localStorage.removeItem("toKnowSalvadorLanguage");
-    }
-
-    changeLanguage(translations[initialLanguage] ? initialLanguage : "en");
+    changeLanguage("it");
 
     document.querySelectorAll(".whatsapp-question").forEach((link) => {
       link.addEventListener("click", (event) => {
         event.preventDefault();
 
         const questionKey = link.dataset.questionKey;
-        const item = translations.en.questions[questionKey];
+        const item = translations.it.questions[questionKey];
 
         if (!item) return;
 
@@ -4030,7 +4405,7 @@
         const rawValue = guestsInput.value.trim();
 
         if (rawValue === "") {
-          totalLabel.textContent = "Total: —";
+          totalLabel.textContent = "Totale: —";
           totalHidden.value = "";
           return;
         }
@@ -4038,13 +4413,13 @@
         const guests = Number.parseInt(rawValue, 10);
 
         if (!Number.isInteger(guests) || guests < 1) {
-          totalLabel.textContent = "Total: —";
+          totalLabel.textContent = "Totale: —";
           totalHidden.value = "";
           return;
         }
 
         const total = guests * PRICE;
-        totalLabel.textContent = `Total: US$${total}`;
+        totalLabel.textContent = `Totale: US$${total}`;
         totalHidden.value = `US$${total}`;
       }
 
@@ -4081,13 +4456,23 @@
       guestsInput.addEventListener("input", updateTotal);
       updateTotal();
 
+      // Se il cliente torna alla pagina dopo aver aperto PayPal,
+      // ripristina la schermata con il punto d'incontro.
+      if (localStorage.getItem("toKnowSalvadorAfroTourPaymentStep") === "1") {
+        form.hidden = true;
+        successBox.hidden = false;
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+        setTimeout(renderPayPalButton, 150);
+      }
+
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorBox.hidden = true;
         errorBox.textContent = "";
 
         if (!isThursdayOrSaturday(dateInput.value)) {
-          errorBox.textContent = "Notte Bahiana is available only on Giovedì e sabato. Please select one of these days.";
+          errorBox.textContent = "Bahia Night è disponibile solo il giovedì e il sabato. Seleziona uno di questi giorni.";
           errorBox.hidden = false;
           dateInput.focus();
           return;
@@ -4097,7 +4482,7 @@
 
         updateTotal();
         submitButton.disabled = true;
-        submitButton.textContent = "SENDING...";
+        submitButton.textContent = "INVIO IN CORSO...";
 
         try {
           const response = await fetch(form.action, {
@@ -4107,7 +4492,7 @@
           });
 
           if (!response.ok) {
-            throw new Error("Reservation service returned an error.");
+            throw new Error("Il servizio di prenotazione ha restituito un errore.");
           }
 
           form.hidden = true;
@@ -4117,7 +4502,7 @@
           errorBox.hidden = false;
         } finally {
           submitButton.disabled = false;
-          submitButton.textContent = "INVIA PRENOTAZIONE";
+          submitButton.textContent = "INVIA LA PRENOTAZIONE";
         }
       });
     })();
@@ -4133,11 +4518,11 @@
 <button aria-label="Chiudi" class="old-town-close" id="closeOldTownReservation" type="button">×</button>
 </div>
 <p class="old-town-intro">
-        US$40 por pessoa.<br/>
-        Per prima cosa, invia i dati della prenotazione. Dopo aver ricevuto la richiesta, completa il pagamento qui sotto per confermare la prenotazione.
+        US$40 a persona.<br/>
+        Per prima cosa, inviaci i dettagli della prenotazione. Dopo aver ricevuto la richiesta, completa il pagamento qui sotto per confermare.
       </p>
 <div class="old-town-important">
-        Disponibile dal lunedì al sabato · Scegli le 09:30 o le 15:00 nel modulo qui sotto.
+        Disponibile dal lunedì al sabato · Scegli le 10:00 o le 14:30 nel modulo qui sotto.
       </div>
 <form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="old-town-form" id="oldTownForm" method="POST">
 <input name="_subject" type="hidden" value="New Afro Tour Old Town Reservation"/>
@@ -4151,15 +4536,15 @@
 <input autocomplete="name" id="oldTownNome" name="Nome" required="" type="text"/>
 </div>
 <div class="old-town-field">
-<label for="oldTownDate">Data desiderata — Monday to Saturday</label>
-<input id="oldTownDate" name="Data desiderata" required="" type="date"/>
+<label for="oldTownDate">Data preferita — dal lunedì al sabato</label>
+<input id="oldTownDate" name="Preferred date" required="" type="date"/>
 </div>
 <div class="old-town-field">
-<label for="oldTownTime">Orario desiderato</label>
-<select id="oldTownTime" name="Orario desiderato" required="">
-<option value="">Seleziona a time</option>
-<option value="09:30">9:30 AM</option>
-<option value="15:00">3:00 PM</option>
+<label for="oldTownTime">Orario preferito</label>
+<select id="oldTownTime" name="Orario preferito" required="">
+<option value="">Seleziona un orario</option>
+<option value="10:00">10:00</option>
+<option value="14:30">14:30</option>
 </select>
 </div>
 <div class="old-town-field">
@@ -4168,11 +4553,11 @@
 </div>
 <div class="reservation-total" id="oldTownTotal">Total: —</div>
 <div class="old-town-field">
-<label for="oldTownLanguage">Lingua desiderata</label>
-<select id="oldTownLanguage" name="Lingua desiderata" required="">
+<label for="oldTownLanguage">Lingua preferita</label>
+<select id="oldTownLanguage" name="Lingua preferita" required="">
 <option value="">Seleziona</option>
-<option value="Inglese">Inglese</option>
-<option value="Spagnolo">Spagnolo</option>
+<option value="English">Inglese</option>
+<option value="Spanish">Spagnolo</option>
 <option value="Italiano">Italiano</option>
 </select>
 </div>
@@ -4186,18 +4571,26 @@
 </div>
 <p class="old-town-error" hidden="" id="oldTownError"></p>
 <button class="old-town-submit" id="oldTownSubmit" type="submit">
-          INVIA PRENOTAZIONE
+          INVIA LA PRENOTAZIONE
         </button>
 </form>
 <div class="old-town-success" hidden="" id="oldTownSuccess">
-<h3>Informazioni inviate correttamente!</h3>
+<h3>Informazioni inviate con successo!</h3>
 <p>
-          I dati della tua prenotazione sono stati ricevuti da To Know Salvador. Ora completa il pagamento tramite PayPal per confermare la prenotazione.
+          To Know Salvador ha ricevuto i dettagli della tua prenotazione. Ora completa il pagamento PayPal per confermare la prenotazione.
         </p>
 <p class="old-town-paypal-note">
-          Prenotazione prima ✓  Pagamento dopo ✓
+          Prima prenota ✓ &nbsp; Poi paga ✓
         </p>
 <div id="paypal-container-X4ZNWPV789W4Q"></div>
+
+<div class="old-town-important" id="oldTownMeetingPoint">
+<strong>Dopo il pagamento — Punto d'incontro:</strong><br/>
+Cine Glauber Rocha / Praça Castro Alves.<br/>
+<a href="https://share.google/abI3eURD2uoGZoeNK" rel="noopener noreferrer" target="_blank" style="text-decoration:underline;font-weight:800;">
+Apri il punto d'incontro sulla mappa
+</a>
+</div>
 </div>
 </div>
 </div>
@@ -4224,7 +4617,7 @@
         const rawValue = guestsInput.value.trim();
 
         if (rawValue === "") {
-          totalLabel.textContent = "Total: —";
+          totalLabel.textContent = "Totale: —";
           totalHidden.value = "";
           return;
         }
@@ -4232,13 +4625,13 @@
         const guests = Number.parseInt(rawValue, 10);
 
         if (!Number.isInteger(guests) || guests < 1) {
-          totalLabel.textContent = "Total: —";
+          totalLabel.textContent = "Totale: —";
           totalHidden.value = "";
           return;
         }
 
         const total = guests * OLD_TOWN_PRICE;
-        totalLabel.textContent = `Total: US$${total}`;
+        totalLabel.textContent = `Totale: US$${total}`;
         totalHidden.value = `US$${total}`;
       }
 
@@ -4279,7 +4672,7 @@
       function renderPayPalButton() {
         if (paypalRendered) return;
         if (!window.paypal || !paypal.HostedButtons) {
-          errorBox.textContent = "PayPal could not load. Please refresh the page and try again.";
+          errorBox.textContent = "PayPal non è stato caricato. Aggiorna la pagina e riprova.";
           errorBox.hidden = false;
           return;
         }
@@ -4302,14 +4695,14 @@
 
         const dateInput = document.getElementById("oldTownDate");
         if (!isMondayToSaturday(dateInput.value)) {
-          errorBox.textContent = "Afro Tour Old Town is available Monday to Saturday. Please choose a valid date.";
+          errorBox.textContent = "Afro Tour Old Town è disponibile dal lunedì al sabato. Scegli una data valida.";
           errorBox.hidden = false;
           dateInput.focus();
           return;
         }
 
         submitButton.disabled = true;
-        submitButton.textContent = "SENDING...";
+        submitButton.textContent = "INVIO IN CORSO...";
 
         try {
           const response = await fetch(form.action, {
@@ -4319,18 +4712,19 @@
           });
 
           if (!response.ok) {
-            throw new Error("Reservation service returned an error.");
+            throw new Error("Il servizio di prenotazione ha restituito un errore.");
           }
 
           form.hidden = true;
           successBox.hidden = false;
+          localStorage.setItem("toKnowSalvadorAfroTourPaymentStep", "1");
           renderPayPalButton();
         } catch (error) {
-          errorBox.textContent = "We could not send your reservation right now. Please try again.";
+          errorBox.textContent = "Non siamo riusciti a inviare la prenotazione. Riprova.";
           errorBox.hidden = false;
         } finally {
           submitButton.disabled = false;
-          submitButton.textContent = "INVIA PRENOTAZIONE";
+          submitButton.textContent = "INVIA LA PRENOTAZIONE";
         }
       });
     })();
@@ -4374,7 +4768,7 @@
         if (!form.reportValidity()) return;
 
         submitButton.disabled = true;
-        submitButton.textContent = "SENDING...";
+        submitButton.textContent = "INVIO IN CORSO...";
 
         try {
           const response = await fetch(form.action, {
@@ -4382,11 +4776,11 @@
             body: new FormData(form),
             headers: { "Accept": "application/json" }
           });
-          if (!response.ok) throw new Error("Submission service returned an error.");
+          if (!response.ok) throw new Error("Il servizio di invio ha restituito un errore.");
           form.hidden = true;
           success.hidden = false;
         } catch (error) {
-          errorBox.textContent = "We could not send your information right now. Please try again.";
+          errorBox.textContent = "Non siamo riusciti a inviare le informazioni. Riprova.";
           errorBox.hidden = false;
         } finally {
           submitButton.disabled = false;
@@ -4411,7 +4805,7 @@
       const dots = slides.map((_, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.className = "bahia-night-carousel-dot";
+        dot.classNome = "bahia-night-carousel-dot";
         dot.setAttribute("aria-label", `Mostrar foto ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
@@ -4468,8 +4862,8 @@
         }, 90);
       }, { passive: true });
 
-      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
-        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
+      ["touchstart", "pointerdown", "wheel"].forEach((eventNome) => {
+        carousel.addEventListener(eventNome, restartAfterInteraction, { passive: true });
       });
 
       document.addEventListener("visibilitychange", () => {
@@ -4525,7 +4919,7 @@
     const submitButton = form.querySelector('button[type="submit"]');
     const originalText = submitButton.textContent;
     submitButton.disabled = true;
-    submitButton.textContent = "Invio in corso...";
+    submitButton.textContent = "Sending...";
 
     try {
       const response = await fetch(form.action, {
@@ -4541,7 +4935,7 @@
     } catch (error) {
       submitButton.disabled = false;
       submitButton.textContent = originalText;
-      alert("Non è stato possibile inviare i dati della prenotazione. Riprova.");
+      alert("Non siamo riusciti a inviare i dettagli della prenotazione. Riprova.");
     }
   });
 })();
@@ -4562,8 +4956,8 @@
       const dots = slides.map((_, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.className = "football-tour-carousel-dot";
-        dot.setAttribute("aria-label", `Mostra foto del calcio ${index + 1}`);
+        dot.classNome = "football-tour-carousel-dot";
+        dot.setAttribute("aria-label", `Show football photo ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
           restartAfterInteraction();
@@ -4621,8 +5015,8 @@
         }, 90);
       }, { passive: true });
 
-      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
-        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
+      ["touchstart", "pointerdown", "wheel"].forEach((eventNome) => {
+        carousel.addEventListener(eventNome, restartAfterInteraction, { passive: true });
       });
 
       document.addEventListener("visibilitychange", () => {
