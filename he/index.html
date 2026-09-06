@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 
 <html lang="he" dir="rtl">
 <head>
@@ -46,7 +46,7 @@
     "@type": "LocalBusiness",
     "@id": "https://toknowsalvador.com/#business",
     "name": "To Know Salvador",
-    "alternateשם": "To Know Salvador Brazil",
+    "alternateName": "To Know Salvador Brazil",
     "url": "https://toknowsalvador.com/",
     "logo": {
       "@type": "ImageObject",
@@ -3305,6 +3305,52 @@ html[dir="rtl"] .inline-answer {
     }
 
   </style>
+
+<style>
+/* CAROUSELS — SMALL, DISCREET DOTS */
+#bahiaNightCarouselDots,
+#footballTourCarouselDots {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  min-height: 24px;
+  margin: 10px 0 4px !important;
+  direction: ltr;
+}
+
+#bahiaNightCarouselDots .bahia-night-carousel-dot,
+#footballTourCarouselDots .football-tour-carousel-dot {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  display: block !important;
+  flex: 0 0 7px !important;
+  width: 7px !important;
+  min-width: 7px !important;
+  max-width: 7px !important;
+  height: 7px !important;
+  min-height: 7px !important;
+  max-height: 7px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.28) !important;
+  box-shadow: none !important;
+  line-height: 0 !important;
+  cursor: pointer;
+}
+
+#bahiaNightCarouselDots .bahia-night-carousel-dot.is-active,
+#footballTourCarouselDots .football-tour-carousel-dot.is-active {
+  flex-basis: 21px !important;
+  width: 21px !important;
+  min-width: 21px !important;
+  max-width: 21px !important;
+  background: var(--gold-light) !important;
+}
+</style>
+
 </head>
 <body>
 <!-- HERO -->
@@ -3342,7 +3388,7 @@ html[dir="rtl"] .inline-answer {
 <p>איסוף מהמלון/מקום הלינה בשעה <strong>07:00</strong>.</p>
 <p><strong>דמי העלייה לסירה כלולים.</strong></p>
 <p>יציאות יומיות.</p>
-<button class="hero-offer-cta excursion-book-button" data-tour="ilhas" type="button">להזמין עכשיו — PAGUE DEPOIS</button>
+<button class="hero-offer-cta excursion-book-button" data-tour="ilhas" type="button">להזמין עכשיו — לשלם אחר כך</button>
 </div>
 </details>
 </div>
@@ -3423,7 +3469,7 @@ html[dir="rtl"] .inline-answer {
 
 <div class="reservation-field">
 <label for="excursionPhone">מספר WhatsApp תקין עם קידומת אזור/מדינה</label>
-<input autocomplete="tel" id="excursionPhone" inputmode="tel" name="WhatsApp valido" pattern="[+0-9() .-]{10,22}" placeholder="+972 ... / +55 71 ..." required="" type="tel"/>
+<input autocomplete="tel" id="excursionPhone" inputmode="tel" name="WhatsApp תקין" pattern="[+0-9() .-]{10,22}" placeholder="+972 ... / +55 71 ..." required="" type="tel"/>
 </div>
 
 <div class="reservation-total" id="excursionTotal">Total: —</div>
@@ -3564,7 +3610,7 @@ html[dir="rtl"] .inline-answer {
     document.body.style.overflow = "";
   }
 
-  document.queryבחרוorAll(".excursion-book-button").forEach((button) => {
+  document.querySelectorAll(".excursion-book-button").forEach((button) => {
     button.addEventListener("click", () => openModal(button.dataset.tour));
   });
 
@@ -3636,7 +3682,7 @@ html[dir="rtl"] .inline-answer {
 <p class="bahia-night-kicker">אוכל באהיאני &amp; מופע פולקלור</p>
 <h2 class="bahia-night-title">Bahia Night</h2>
 <p class="bahia-night-days">חמישי ושבת</p>
-<div aria-label="Foto del buffet e dello spettacolo folcloristico Bahia Night" class="bahia-night-gallery">
+<div aria-label="תמונות הבופה ומופע הפולקלור Bahia Night" class="bahia-night-gallery">
 <figure>
 <img alt="בופה באהיאני ב-Coliseu da Bahia" loading="lazy" src="/public/14B42228-0DAF-40D8-BFBC-EF57ED275AB3.png"/>
 <figcaption>בופה באהיאני</figcaption>
@@ -3654,7 +3700,7 @@ html[dir="rtl"] .inline-answer {
 <figcaption>חוויית Coliseu</figcaption>
 </figure>
 </div>
-<div aria-label="Navigazione foto Bahia Night" class="bahia-night-carousel-dots" id="bahiaNightCarouselDots"></div>
+<div aria-label="ניווט בתמונות Bahia Night" class="bahia-night-carousel-dots" id="bahiaNightCarouselDots"></div>
 <div class="bahia-night-schedule">
 <div class="bahia-night-item">
 <strong>🍽️ 18:30 – 20:00 | ארוחת ערב באהיאנית</strong>
@@ -3671,7 +3717,7 @@ html[dir="rtl"] .inline-answer {
 </div>
 <div class="bahia-night-actions">
 <button class="bahia-night-book" id="openBahiaNightReservation" type="button">
-            להזמין עכשיו — ASSICURATI IL POSTO
+            להזמין עכשיו — להבטיח מקום
           </button>
 <details class="bahia-night-buffet">
 <summary>🍽️ לצפייה בבופה</summary>
@@ -3699,7 +3745,7 @@ html[dir="rtl"] .inline-answer {
 <button aria-label="סגירה" class="reservation-close" id="closeBahiaNightReservation" type="button">×</button>
 </div>
 <form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="reservation-form" id="bahiaNightForm" method="POST">
-<input name="_subject" type="hidden" value="New Bahia Night Reservation"/>
+<input name="_subject" type="hidden" value="הזמנה חדשה — Bahia Night"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input name="חוויה" type="hidden" value="Bahia Night — אוכל באהיאני &amp; מופע פולקלור"/>
@@ -3709,8 +3755,8 @@ html[dir="rtl"] .inline-answer {
           US$65 לאדם
         </div>
 <div class="reservation-field">
-<label for="bahiaNightשם">שם</label>
-<input autocomplete="name" id="bahiaNightשם" name="שם" required="" type="text"/>
+<label for="bahiaNightName">שם</label>
+<input autocomplete="name" id="bahiaNightName" name="שם" required="" type="text"/>
 </div>
 <div class="reservation-field">
 <label for="bahiaNightDate">תאריך מועדף — חמישי או שבת</label>
@@ -3759,24 +3805,24 @@ html[dir="rtl"] .inline-answer {
 <p class="football-tour-kicker">חוויית כדורגל מקומית</p>
 <h2 class="football-tour-title">סיור כדורגל — Arena Fonte Nova</h2>
 <p class="football-tour-copy">
-          Vivi l’atmosfera del calcio di Salvador dall’interno dello stadio,
-          tra tifosi locali, cori, colori e l’energia del giorno della partita.
+          חוו את אווירת הכדורגל של סלבדור מתוך האצטדיון,
+          בין אוהדים מקומיים, שירים, צבעים והאנרגיה של יום המשחק.
         </p>
-<div aria-label="Foto del Tour di Calcio all’Arena Fonte Nova" class="football-tour-gallery">
+<div aria-label="תמונות מסיור הכדורגל ב-Arena Fonte Nova" class="football-tour-gallery">
 <figure>
-<img alt="Ospiti con i colori del Bahia all’interno dell’Arena Fonte Nova" loading="lazy" src="/public/IMG_8163.jpeg"/>
+<img alt="מבקרים בצבעי Bahia בתוך Arena Fonte Nova" loading="lazy" src="/public/IMG_8163.jpeg"/>
 <figcaption>שמחה &amp; כיף</figcaption>
 </figure>
 <figure>
-<img alt="Ospiti del Tour di Calcio durante l’atmosfera della partita a Salvador" loading="lazy" src="/public/IMG_8166.jpeg"/>
+<img alt="מבקרים בסיור הכדורגל במהלך אווירת המשחק בסלבדור" loading="lazy" src="/public/IMG_8166.jpeg"/>
 <figcaption>חוויית יום משחק</figcaption>
 </figure>
 <figure>
-<img alt="Tifosi e bandiere all’interno dell’Arena Fonte Nova a Salvador" loading="lazy" src="/public/IMG_8169.jpeg"/>
+<img alt="אוהדים ודגלים בתוך Arena Fonte Nova בסלבדור" loading="lazy" src="/public/IMG_8169.jpeg"/>
 <figcaption>Arena Fonte Nova</figcaption>
 </figure>
 <figure>
-<img alt="Esperienza del Tour di כדורגל בסלבדור" loading="lazy" src="/public/IMG_8173.jpeg"/>
+<img alt="חוויית סיור הכדורגל בסלבדור" loading="lazy" src="/public/IMG_8173.jpeg"/>
 <figcaption>כדורגל בסלבדור</figcaption>
 </figure>
 </div>
@@ -3978,14 +4024,14 @@ html[dir="rtl"] .inline-answer {
 <button aria-label="סגירה" class="creator-close" id="closeCreatorCollab" type="button">×</button>
 </div>
 <form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="creator-form" id="creatorCollabForm" method="POST">
-<input name="_subject" type="hidden" value="New Content Creator Collaboration Request"/>
+<input name="_subject" type="hidden" value="בקשת שיתוף פעולה חדשה — יוצר תוכן"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
-<input name="Request" type="hidden" value="Content Creator / Influencer Collaboration"/>
+<input name="בקשה" type="hidden" value="שיתוף פעולה — יוצר תוכן / משפיען"/>
 <div class="creator-grid two-col">
 <div class="creator-field">
-<label for="creatorשם">שם</label>
-<input autocomplete="name" id="creatorשם" name="שם" required="" type="text"/>
+<label for="creatorName">שם</label>
+<input autocomplete="name" id="creatorName" name="שם" required="" type="text"/>
 </div>
 <div class="creator-field">
 <label for="creatorCountry">מדינת מוצא</label>
@@ -4004,7 +4050,7 @@ html[dir="rtl"] .inline-answer {
 </div>
 <div class="creator-field" style="margin-top:15px;">
 <label for="creatorChannels">קישורים ל-Instagram, TikTok, YouTube או ערוצים אחרים</label>
-<input id="creatorChannels" name="Social media / channel links" placeholder="https://..." required="" type="text"/>
+<input id="creatorChannels" name="קישורים לרשתות חברתיות / ערוצים" placeholder="https://..." required="" type="text"/>
 </div>
 <div class="creator-grid two-col" style="margin-top:15px;">
 <div class="creator-field">
@@ -4013,7 +4059,7 @@ html[dir="rtl"] .inline-answer {
 </div>
 <div class="creator-field">
 <label for="creatorDays">כמה ימים בסלבדור?</label>
-<input id="creatorDays" min="1" name="Days in Salvador" placeholder="e.g. 4" required="" step="1" type="number"/>
+<input id="creatorDays" min="1" name="מספר ימים בסלבדור" placeholder="לדוגמה: 4" required="" step="1" type="number"/>
 </div>
 </div>
 <div class="creator-grid two-col" style="margin-top:15px;">
@@ -4037,7 +4083,7 @@ html[dir="rtl"] .inline-answer {
 </div>
 <div class="creator-field" style="margin-top:15px;">
 <label for="creatorIdea">ספרו לנו בקצרה על התוכן או רעיון שיתוף הפעולה שלכם</label>
-<textarea id="creatorIdea" name="Content / collaboration idea" placeholder="מה תרצו ליצור בסלבדור?"></textarea>
+<textarea id="creatorIdea" name="תוכן / רעיון לשיתוף פעולה" placeholder="מה תרצו ליצור בסלבדור?"></textarea>
 </div>
 <p class="creator-error" hidden="" id="creatorCollabError"></p>
 <button class="creator-submit" id="creatorCollabSubmit" type="submit">שליחת בקשת שיתוף פעולה</button>
@@ -4052,7 +4098,7 @@ html[dir="rtl"] .inline-answer {
 <section class="connection-section">
 <div class="container">
 <p class="eyebrow connection-eyebrow">
-        בחרוto da Adriano Marques
+        נבחר על ידי Adriano Marques
       </p>
 <h2 class="section-title connection-title">
         החיבור המקומי שלכם בסלבדור.
@@ -4222,10 +4268,10 @@ html[dir="rtl"] .inline-answer {
       }
     };
 
-    const collapsibleGroupLabels = document.queryבחרוorAll(".collapsible-group-label");
+    const collapsibleGroupLabels = document.querySelectorAll(".collapsible-group-label");
 
     collapsibleGroupLabels.forEach((label) => {
-      const list = label.parentElement.queryבחרוor(".question-list");
+      const list = label.parentElement.querySelector(".question-list");
 
       if (!list) return;
 
@@ -4247,11 +4293,11 @@ html[dir="rtl"] .inline-answer {
       });
     });
 
-    const languageButtons = document.queryבחרוorAll(".language-button");
-    const languageSwitcher = document.queryבחרוor(".language-switcher");
-    const languageLabel = document.queryבחרוor(".language-label");
-    const standardQuestionLinks = document.queryבחרוorAll("[data-question-key]");
-    const premiumQuestionLinks = document.queryבחרוorAll("[data-premium-key]");
+    const languageButtons = document.querySelectorAll(".language-button");
+    const languageSwitcher = document.querySelector(".language-switcher");
+    const languageLabel = document.querySelector(".language-label");
+    const standardQuestionLinks = document.querySelectorAll("[data-question-key]");
+    const premiumQuestionLinks = document.querySelectorAll("[data-premium-key]");
 
     function createWhatsAppLink(number, message) {
       return "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
@@ -4264,7 +4310,7 @@ html[dir="rtl"] .inline-answer {
     }
 
     function setText(selector, value) {
-      const element = document.queryבחרוor(selector);
+      const element = document.querySelector(selector);
 
       if (element) {
         element.textContent = value;
@@ -4298,7 +4344,7 @@ html[dir="rtl"] .inline-answer {
       document.documentElement.lang = language;
       document.title = content.documentTitle;
 
-      const metaDescription = document.queryבחרוor('meta[name="description"]');
+      const metaDescription = document.querySelector('meta[name="description"]');
 
       if (metaDescription) {
         metaDescription.setAttribute("content", content.metaDescription);
@@ -4311,7 +4357,7 @@ html[dir="rtl"] .inline-answer {
       if (languageSwitcher) {
         languageSwitcher.setAttribute(
           "aria-label",
-          content.languageבחרוorLabel
+          content.languageSelectorLabel
         );
       }
 
@@ -4320,7 +4366,7 @@ html[dir="rtl"] .inline-answer {
       setText(".questions-intro .section-title", content.questionsTitle);
       setText(".questions-intro p:last-child", content.questionsDescription);
 
-      document.queryבחרוorAll("[data-group-label]").forEach((label) => {
+      document.querySelectorAll("[data-group-label]").forEach((label) => {
         const key = label.dataset.groupLabel;
 
         if (content.groups[key]) {
@@ -4336,7 +4382,7 @@ html[dir="rtl"] .inline-answer {
           return;
         }
 
-        const text = link.queryבחרוor(".question-text");
+        const text = link.querySelector(".question-text");
 
         if (text) {
           text.textContent = question.text;
@@ -4361,7 +4407,7 @@ html[dir="rtl"] .inline-answer {
           return;
         }
 
-        const text = link.queryבחרוor(".premium-text");
+        const text = link.querySelector(".premium-text");
 
         if (text) {
           text.textContent = premiumQuestion.text;
@@ -4391,7 +4437,7 @@ html[dir="rtl"] .inline-answer {
       setText(".connection-title", content.connectionTitle);
       setText(".connection-copy", content.connectionCopy);
 
-      const footerCopy = document.queryבחרוor(".footer-copy");
+      const footerCopy = document.querySelector(".footer-copy");
 
       if (footerCopy) {
         footerCopy.innerHTML =
@@ -4413,7 +4459,7 @@ html[dir="rtl"] .inline-answer {
 
     changeLanguage("he");
 
-    document.queryבחרוorAll(".whatsapp-question").forEach((link) => {
+    document.querySelectorAll(".whatsapp-question").forEach((link) => {
       link.addEventListener("click", (event) => {
         event.preventDefault();
 
@@ -4489,7 +4535,7 @@ html[dir="rtl"] .inline-answer {
       function showModal() {
         modal.hidden = false;
         document.body.style.overflow = "hidden";
-        setTimeout(() => document.getElementById("bahiaNightשם")?.focus(), 0);
+        setTimeout(() => document.getElementById("bahiaNightName")?.focus(), 0);
       }
 
       function hideModal() {
@@ -4511,23 +4557,13 @@ html[dir="rtl"] .inline-answer {
       guestsInput.addEventListener("input", updateTotal);
       updateTotal();
 
-      // אם האורח חוזר לעמוד לאחר פתיחת PayPal,
-      // יש לשחזר את המסך עם נקודת המפגש.
-      if (localStorage.getItem("toKnowSalvadorAfroTourPaymentStep") === "1") {
-        form.hidden = true;
-        successBox.hidden = false;
-        modal.hidden = false;
-        document.body.style.overflow = "hidden";
-        setTimeout(renderPayPalButton, 150);
-      }
-
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorBox.hidden = true;
         errorBox.textContent = "";
 
         if (!isThursdayOrSaturday(dateInput.value)) {
-          errorBox.textContent = "Bahia Night está disponível apenas às quintas-feiras e aos sábados. בחרו um desses dias.";
+          errorBox.textContent = "Bahia Night זמין רק בימי חמישי ושבת. אנא בחרו אחד מהימים האלה.";
           errorBox.hidden = false;
           dateInput.focus();
           return;
@@ -4537,7 +4573,7 @@ html[dir="rtl"] .inline-answer {
 
         updateTotal();
         submitButton.disabled = true;
-        submitButton.textContent = "INVIO IN CORSO...";
+        submitButton.textContent = "שולח...";
 
         try {
           const response = await fetch(form.action, {
@@ -4553,7 +4589,7 @@ html[dir="rtl"] .inline-answer {
           form.hidden = true;
           successBox.hidden = false;
         } catch (error) {
-          errorBox.textContent = "Não foi possível enviar sua reserva agora. Tente novamente ou entre em contato com a To Know Salvador pelo WhatsApp.";
+          errorBox.textContent = "לא הצלחנו לשלוח את ההזמנה כרגע. נסו שוב או צרו קשר עם To Know Salvador דרך WhatsApp.";
           errorBox.hidden = false;
         } finally {
           submitButton.disabled = false;
@@ -4580,15 +4616,15 @@ html[dir="rtl"] .inline-answer {
         זמין מיום שני עד שבת · בחרו 10:00 או 14:30 בטופס למטה.
       </div>
 <form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="old-town-form" id="oldTownForm" method="POST">
-<input name="_subject" type="hidden" value="New Afro Tour Old Town Reservation"/>
+<input name="_subject" type="hidden" value="הזמנה חדשה — Afro Tour Old Town"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input name="חוויה" type="hidden" value="Afro Tour Old Town"/>
 <input name="מחיר לאדם" type="hidden" value="US$40"/>
 <input id="oldTownTotalHidden" name="Total" type="hidden" value=""/>
 <div class="old-town-field">
-<label for="oldTownשם">שם</label>
-<input autocomplete="name" id="oldTownשם" name="שם" required="" type="text"/>
+<label for="oldTownName">שם</label>
+<input autocomplete="name" id="oldTownName" name="שם" required="" type="text"/>
 </div>
 <div class="old-town-field">
 <label for="oldTownDate">תאריך מועדף — שני עד שבת</label>
@@ -4639,7 +4675,7 @@ html[dir="rtl"] .inline-answer {
           To Know Salvador קיבלה את פרטי ההזמנה. כעת השלימו את תשלום PayPal כדי לאשר את ההזמנה.
         </p>
 <p class="old-town-paypal-note">
-          Primeiro reserve ✓ &nbsp; Depois pague ✓
+          קודם מזמינים ✓ &nbsp; אחר כך משלמים ✓
         </p>
 <div id="paypal-container-X4ZNWPV789W4Q"></div>
 
@@ -4700,7 +4736,7 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
       function showModal() {
         modal.hidden = false;
         document.body.style.overflow = "hidden";
-        setTimeout(() => document.getElementById("oldTownשם")?.focus(), 0);
+        setTimeout(() => document.getElementById("oldTownName")?.focus(), 0);
       }
 
       function hideModal() {
@@ -4743,6 +4779,16 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
         paypalRendered = true;
       }
 
+      // אם הלקוח חוזר לעמוד לאחר פתיחת PayPal,
+      // משחזרים את שלב התשלום ואת נקודת המפגש של ה-Afro Tour.
+      if (localStorage.getItem("toKnowSalvadorAfroTourPaymentStep") === "1") {
+        form.hidden = true;
+        successBox.hidden = false;
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+        setTimeout(renderPayPalButton, 150);
+      }
+
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorBox.hidden = true;
@@ -4761,7 +4807,7 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
         }
 
         submitButton.disabled = true;
-        submitButton.textContent = "INVIO IN CORSO...";
+        submitButton.textContent = "שולח...";
 
         try {
           const response = await fetch(form.action, {
@@ -4803,7 +4849,7 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
       function openModal() {
         modal.hidden = false;
         document.body.style.overflow = "hidden";
-        setTimeout(() => document.getElementById("creatorשם")?.focus(), 0);
+        setTimeout(() => document.getElementById("creatorName")?.focus(), 0);
       }
 
       function closeModal() {
@@ -4827,7 +4873,7 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
         if (!form.reportValidity()) return;
 
         submitButton.disabled = true;
-        submitButton.textContent = "INVIO IN CORSO...";
+        submitButton.textContent = "שולח...";
 
         try {
           const response = await fetch(form.action, {
@@ -4835,7 +4881,7 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
             body: new FormData(form),
             headers: { "Accept": "application/json" }
           });
-          if (!response.ok) throw new Error("Il servizio di invio ha restituito un errore.");
+          if (!response.ok) throw new Error("שירות השליחה החזיר שגיאה.");
           form.hidden = true;
           success.hidden = false;
         } catch (error) {
@@ -4850,11 +4896,11 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
   </script>
 <script>
     (() => {
-      const carousel = document.queryבחרוor("#bahia-night .bahia-night-gallery");
+      const carousel = document.querySelector("#bahia-night .bahia-night-gallery");
       const dotsWrap = document.getElementById("bahiaNightCarouselDots");
       if (!carousel || !dotsWrap) return;
 
-      const slides = Array.from(carousel.queryבחרוorAll("figure"));
+      const slides = Array.from(carousel.querySelectorAll("figure"));
       if (slides.length < 2) return;
 
       let currentIndex = 0;
@@ -4864,8 +4910,8 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
       const dots = slides.map((_, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.classשם = "bahia-night-carousel-dot";
-        dot.setAttribute("aria-label", `Mostrar foto ${index + 1}`);
+        dot.className = "bahia-night-carousel-dot";
+        dot.setAttribute("aria-label", `הצגת תמונה ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
           restartAfterInteraction();
@@ -4921,8 +4967,8 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
         }, 90);
       }, { passive: true });
 
-      ["touchstart", "pointerdown", "wheel"].forEach((eventשם) => {
-        carousel.addEventListener(eventשם, restartAfterInteraction, { passive: true });
+      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
+        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
       });
 
       document.addEventListener("visibilitychange", () => {
@@ -4975,7 +5021,7 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const submitButton = form.queryבחרוor('button[type="submit"]');
+    const submitButton = form.querySelector('button[type="submit"]');
     const originalText = submitButton.textContent;
     submitButton.disabled = true;
     submitButton.textContent = "Sending...";
@@ -5001,11 +5047,11 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
 </script>
 <script>
     (() => {
-      const carousel = document.queryבחרוor("#football-tour .football-tour-gallery");
+      const carousel = document.querySelector("#football-tour .football-tour-gallery");
       const dotsWrap = document.getElementById("footballTourCarouselDots");
       if (!carousel || !dotsWrap) return;
 
-      const slides = Array.from(carousel.queryבחרוorAll("figure"));
+      const slides = Array.from(carousel.querySelectorAll("figure"));
       if (slides.length < 2) return;
 
       let currentIndex = 0;
@@ -5015,8 +5061,8 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
       const dots = slides.map((_, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.classשם = "football-tour-carousel-dot";
-        dot.setAttribute("aria-label", `Show football photo ${index + 1}`);
+        dot.className = "football-tour-carousel-dot";
+        dot.setAttribute("aria-label", `הצגת תמונת כדורגל ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
           restartAfterInteraction();
@@ -5074,8 +5120,8 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
         }, 90);
       }, { passive: true });
 
-      ["touchstart", "pointerdown", "wheel"].forEach((eventשם) => {
-        carousel.addEventListener(eventשם, restartAfterInteraction, { passive: true });
+      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
+        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
       });
 
       document.addEventListener("visibilitychange", () => {
