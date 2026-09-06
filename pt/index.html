@@ -1501,7 +1501,7 @@
       border-color: var(--gold-light);
     }
 
-    /* SELECTED EXPERIENCES */
+    /* EXPERIÊNCIAS SELECIONADAS */
 
     .questions-section {
       position: relative;
@@ -3250,6 +3250,48 @@
     }
 
   </style>
+
+<style>
+/* BAHIA NIGHT — INDICADORES DISCRETOS DO CARROSSEL */
+#bahiaNightCarouselDots {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  min-height: 24px;
+  margin: 10px 0 4px !important;
+}
+
+#bahiaNightCarouselDots .bahia-night-carousel-dot {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  display: block !important;
+  flex: 0 0 7px !important;
+  width: 7px !important;
+  min-width: 7px !important;
+  max-width: 7px !important;
+  height: 7px !important;
+  min-height: 7px !important;
+  max-height: 7px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.28) !important;
+  box-shadow: none !important;
+  line-height: 0 !important;
+  cursor: pointer;
+}
+
+#bahiaNightCarouselDots .bahia-night-carousel-dot.is-active {
+  flex-basis: 21px !important;
+  width: 21px !important;
+  min-width: 21px !important;
+  max-width: 21px !important;
+  background: var(--gold-light) !important;
+}
+</style>
+
 </head>
 <body>
 <!-- HERO -->
@@ -3371,7 +3413,7 @@
 <input autocomplete="tel" id="excursionPhone" inputmode="tel" name="WhatsApp valido" pattern="[+0-9() .-]{10,22}" placeholder="+55 71 ... / +351 ..." required="" type="tel"/>
 </div>
 
-<div class="reservation-total" id="excursionTotal">Totale: —</div>
+<div class="reservation-total" id="excursionTotal">Total: —</div>
 <p class="reservation-error" hidden="" id="excursionError"></p>
 
 <button class="reservation-submit" id="excursionSubmit" type="submit">CONFIRMAR RESERVA</button>
@@ -3581,7 +3623,7 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
 <p class="bahia-night-kicker">Culinária Baiana &amp; Show Folclórico</p>
 <h2 class="bahia-night-title">Bahia Night</h2>
 <p class="bahia-night-days">Quinta-feira e sábado</p>
-<div aria-label="Foto del buffet e dello spettacolo folcloristico Bahia Night" class="bahia-night-gallery">
+<div aria-label="Fotos do buffet e do show folclórico Bahia Night" class="bahia-night-gallery">
 <figure>
 <img alt="Buffet baiano no Coliseu da Bahia" loading="lazy" src="/public/14B42228-0DAF-40D8-BFBC-EF57ED275AB3.png"/>
 <figcaption>Buffet Baiano</figcaption>
@@ -3599,7 +3641,7 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
 <figcaption>Experiência Coliseu</figcaption>
 </figure>
 </div>
-<div aria-label="Navigazione foto Bahia Night" class="bahia-night-carousel-dots" id="bahiaNightCarouselDots"></div>
+<div aria-label="Navegação das fotos do Bahia Night" class="bahia-night-carousel-dots" id="bahiaNightCarouselDots"></div>
 <div class="bahia-night-schedule">
 <div class="bahia-night-item">
 <strong>🍽️ 18:30 – 20:00 | Jantar Baiano</strong>
@@ -3616,7 +3658,7 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
 </div>
 <div class="bahia-night-actions">
 <button class="bahia-night-book" id="openBahiaNightReservation" type="button">
-            RESERVE AGORA — ASSICURATI IL POSTO
+            RESERVE AGORA — GARANTA SUA VAGA
           </button>
 <details class="bahia-night-buffet">
 <summary>🍽️ Ver Buffet</summary>
@@ -3659,7 +3701,7 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
 </div>
 <div class="reservation-field">
 <label for="bahiaNightDate">Data preferida — quinta-feira ou sábado</label>
-<input id="bahiaNightDate" name="Preferred date" required="" type="date"/>
+<input id="bahiaNightDate" name="Data preferida" required="" type="date"/>
 </div>
 <div class="reservation-field">
 <label for="bahiaNightGuests">Quantidade de pessoas</label>
@@ -3704,24 +3746,24 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
 <p class="football-tour-kicker">Experiência de Futebol Local</p>
 <h2 class="football-tour-title">Tour de Futebol — Arena Fonte Nova</h2>
 <p class="football-tour-copy">
-          Vivi l’atmosfera del calcio di Salvador dall’interno dello stadio,
-          tra tifosi locali, cori, colori e l’energia del giorno della partita.
+          Viva a atmosfera do futebol de Salvador de dentro do estádio,
+          entre torcedores locais, cantos, cores e a energia do dia do jogo.
         </p>
-<div aria-label="Foto del Tour di Calcio all’Arena Fonte Nova" class="football-tour-gallery">
+<div aria-label="Fotos do Tour de Futebol na Arena Fonte Nova" class="football-tour-gallery">
 <figure>
-<img alt="Ospiti con i colori del Bahia all’interno dell’Arena Fonte Nova" loading="lazy" src="/public/IMG_8163.jpeg"/>
+<img alt="Visitantes com as cores do Bahia dentro da Arena Fonte Nova" loading="lazy" src="/public/IMG_8163.jpeg"/>
 <figcaption>Alegria &amp; Diversão</figcaption>
 </figure>
 <figure>
-<img alt="Ospiti del Tour di Calcio durante l’atmosfera della partita a Salvador" loading="lazy" src="/public/IMG_8166.jpeg"/>
+<img alt="Visitantes do Tour de Futebol durante a atmosfera da partida em Salvador" loading="lazy" src="/public/IMG_8166.jpeg"/>
 <figcaption>Experiência em Dia de Jogo</figcaption>
 </figure>
 <figure>
-<img alt="Tifosi e bandiere all’interno dell’Arena Fonte Nova a Salvador" loading="lazy" src="/public/IMG_8169.jpeg"/>
+<img alt="Torcedores e bandeiras dentro da Arena Fonte Nova em Salvador" loading="lazy" src="/public/IMG_8169.jpeg"/>
 <figcaption>Arena Fonte Nova</figcaption>
 </figure>
 <figure>
-<img alt="Esperienza del Tour di Futebol em Salvador" loading="lazy" src="/public/IMG_8173.jpeg"/>
+<img alt="Experiência do Tour de Futebol em Salvador" loading="lazy" src="/public/IMG_8173.jpeg"/>
 <figcaption>Futebol em Salvador</figcaption>
 </figure>
 </div>
@@ -3740,7 +3782,7 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
 <!-- MAIN QUESTIONS -->
 <main class="questions-section" id="questions">
 <div class="container">
-<!-- SELECTED EXPERIENCES -->
+<!-- EXPERIÊNCIAS SELECIONADAS -->
 <section class="question-group">
 <h3 class="group-label">
           Experiências selecionadas
@@ -3834,7 +3876,7 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
 </details>
 </div>
 </section>
-<!-- PREMIUM SUPPORT -->
+<!-- SUPORTE PREMIUM -->
 <section class="premium-section" id="b2b">
 <div class="container">
 <article class="premium-card">
@@ -3997,7 +4039,7 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
 <section class="connection-section">
 <div class="container">
 <p class="eyebrow connection-eyebrow">
-        Selecioneto da Adriano Marques
+        Selecionado por Adriano Marques
       </p>
 <h2 class="section-title connection-title">
         Sua conexão local em Salvador.
@@ -4405,7 +4447,7 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
         const rawValue = guestsInput.value.trim();
 
         if (rawValue === "") {
-          totalLabel.textContent = "Totale: —";
+          totalLabel.textContent = "Total: —";
           totalHidden.value = "";
           return;
         }
@@ -4413,7 +4455,7 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
         const guests = Number.parseInt(rawValue, 10);
 
         if (!Number.isInteger(guests) || guests < 1) {
-          totalLabel.textContent = "Totale: —";
+          totalLabel.textContent = "Total: —";
           totalHidden.value = "";
           return;
         }
@@ -4456,16 +4498,6 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
       guestsInput.addEventListener("input", updateTotal);
       updateTotal();
 
-      // Se o cliente voltar à página depois de abrir o PayPal,
-      // restaura a tela com o local de encontro.
-      if (localStorage.getItem("toKnowSalvadorAfroTourPaymentStep") === "1") {
-        form.hidden = true;
-        successBox.hidden = false;
-        modal.hidden = false;
-        document.body.style.overflow = "hidden";
-        setTimeout(renderPayPalButton, 150);
-      }
-
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorBox.hidden = true;
@@ -4482,7 +4514,7 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
 
         updateTotal();
         submitButton.disabled = true;
-        submitButton.textContent = "INVIO IN CORSO...";
+        submitButton.textContent = "ENVIANDO...";
 
         try {
           const response = await fetch(form.action, {
@@ -4537,12 +4569,12 @@ Sua reserva foi confirmada e os dados foram enviados para a To Know Salvador.
 </div>
 <div class="old-town-field">
 <label for="oldTownDate">Data preferida — de segunda a sábado</label>
-<input id="oldTownDate" name="Preferred date" required="" type="date"/>
+<input id="oldTownDate" name="Data preferida" required="" type="date"/>
 </div>
 <div class="old-town-field">
 <label for="oldTownTime">Horário preferido</label>
 <select id="oldTownTime" name="Horário preferido" required="">
-<option value="">Selecione un orario</option>
+<option value="">Selecione um horário</option>
 <option value="10:00">10:00</option>
 <option value="14:30">14:30</option>
 </select>
@@ -4618,7 +4650,7 @@ Abrir o local de encontro no mapa
         const rawValue = guestsInput.value.trim();
 
         if (rawValue === "") {
-          totalLabel.textContent = "Totale: —";
+          totalLabel.textContent = "Total: —";
           totalHidden.value = "";
           return;
         }
@@ -4626,7 +4658,7 @@ Abrir o local de encontro no mapa
         const guests = Number.parseInt(rawValue, 10);
 
         if (!Number.isInteger(guests) || guests < 1) {
-          totalLabel.textContent = "Totale: —";
+          totalLabel.textContent = "Total: —";
           totalHidden.value = "";
           return;
         }
@@ -4703,7 +4735,7 @@ Abrir o local de encontro no mapa
         }
 
         submitButton.disabled = true;
-        submitButton.textContent = "INVIO IN CORSO...";
+        submitButton.textContent = "ENVIANDO...";
 
         try {
           const response = await fetch(form.action, {
@@ -4769,7 +4801,7 @@ Abrir o local de encontro no mapa
         if (!form.reportValidity()) return;
 
         submitButton.disabled = true;
-        submitButton.textContent = "INVIO IN CORSO...";
+        submitButton.textContent = "ENVIANDO...";
 
         try {
           const response = await fetch(form.action, {
@@ -4777,7 +4809,7 @@ Abrir o local de encontro no mapa
             body: new FormData(form),
             headers: { "Accept": "application/json" }
           });
-          if (!response.ok) throw new Error("Il servizio di invio ha restituito un errore.");
+          if (!response.ok) throw new Error("O serviço de envio retornou um erro.");
           form.hidden = true;
           success.hidden = false;
         } catch (error) {
@@ -4806,7 +4838,7 @@ Abrir o local de encontro no mapa
       const dots = slides.map((_, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.classNome = "bahia-night-carousel-dot";
+        dot.className = "bahia-night-carousel-dot";
         dot.setAttribute("aria-label", `Mostrar foto ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
@@ -4863,8 +4895,8 @@ Abrir o local de encontro no mapa
         }, 90);
       }, { passive: true });
 
-      ["touchstart", "pointerdown", "wheel"].forEach((eventNome) => {
-        carousel.addEventListener(eventNome, restartAfterInteraction, { passive: true });
+      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
+        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
       });
 
       document.addEventListener("visibilitychange", () => {
@@ -4957,7 +4989,7 @@ Abrir o local de encontro no mapa
       const dots = slides.map((_, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.classNome = "football-tour-carousel-dot";
+        dot.className = "football-tour-carousel-dot";
         dot.setAttribute("aria-label", `Show football photo ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
@@ -5016,8 +5048,8 @@ Abrir o local de encontro no mapa
         }, 90);
       }, { passive: true });
 
-      ["touchstart", "pointerdown", "wheel"].forEach((eventNome) => {
-        carousel.addEventListener(eventNome, restartAfterInteraction, { passive: true });
+      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
+        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
       });
 
       document.addEventListener("visibilitychange", () => {
