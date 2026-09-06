@@ -1369,7 +1369,7 @@
       box-shadow: 0 8px 24px rgba(200, 168, 90, 0.28);
     }
 
-    /* PORTUGUESE IMMERSION */
+    /* ITALIAN IMMERSION */
 
     .immersion-section {
       position: relative;
@@ -1501,7 +1501,7 @@
       border-color: var(--gold-light);
     }
 
-    /* SELECTED EXPERIENCES */
+    /* ESPERIENZE SELEZIONATE */
 
     .questions-section {
       position: relative;
@@ -1674,7 +1674,7 @@
 
   
     /* =========================================================
-       FINAL UPDATE — ISLANDS / PORTUGUESE IMMERSION / BAHIA NIGHT
+       FINAL UPDATE — ISLANDS / ITALIAN IMMERSION / BAHIA NIGHT
        ========================================================= */
 
     /* Italiano Immersion: intentionally more discreet */
@@ -3250,6 +3250,51 @@
     }
 
   </style>
+
+<style>
+/* CAROUSEL — INDICATORI PICCOLI E DISCRETI */
+#bahiaNightCarouselDots,
+#footballTourCarouselDots {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  min-height: 24px;
+  margin: 10px 0 4px !important;
+}
+
+#bahiaNightCarouselDots .bahia-night-carousel-dot,
+#footballTourCarouselDots .football-tour-carousel-dot {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  display: block !important;
+  flex: 0 0 7px !important;
+  width: 7px !important;
+  min-width: 7px !important;
+  max-width: 7px !important;
+  height: 7px !important;
+  min-height: 7px !important;
+  max-height: 7px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.28) !important;
+  box-shadow: none !important;
+  line-height: 0 !important;
+  cursor: pointer;
+}
+
+#bahiaNightCarouselDots .bahia-night-carousel-dot.is-active,
+#footballTourCarouselDots .football-tour-carousel-dot.is-active {
+  flex-basis: 21px !important;
+  width: 21px !important;
+  min-width: 21px !important;
+  max-width: 21px !important;
+  background: var(--gold-light) !important;
+}
+</style>
+
 </head>
 <body>
 <!-- HERO -->
@@ -3644,7 +3689,7 @@ La tua prenotazione è stata confermata e i dati sono stati inviati a To Know Sa
 <button aria-label="Chiudi" class="reservation-close" id="closeBahiaNightReservation" type="button">×</button>
 </div>
 <form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="reservation-form" id="bahiaNightForm" method="POST">
-<input name="_subject" type="hidden" value="New Bahia Night Reservation"/>
+<input name="_subject" type="hidden" value="Nuova prenotazione — Bahia Night"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input name="Experience" type="hidden" value="Bahia Night — Cucina Bahiana &amp; Spettacolo Folcloristico"/>
@@ -3659,7 +3704,7 @@ La tua prenotazione è stata confermata e i dati sono stati inviati a To Know Sa
 </div>
 <div class="reservation-field">
 <label for="bahiaNightDate">Data preferita — giovedì o sabato</label>
-<input id="bahiaNightDate" name="Preferred date" required="" type="date"/>
+<input id="bahiaNightDate" name="Data preferita" required="" type="date"/>
 </div>
 <div class="reservation-field">
 <label for="bahiaNightGuests">Numero di persone</label>
@@ -3923,10 +3968,10 @@ La tua prenotazione è stata confermata e i dati sono stati inviati a To Know Sa
 <button aria-label="Chiudi" class="creator-close" id="closeCreatorCollab" type="button">×</button>
 </div>
 <form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="creator-form" id="creatorCollabForm" method="POST">
-<input name="_subject" type="hidden" value="New Content Creator Collaboration Request"/>
+<input name="_subject" type="hidden" value="Nuova richiesta di collaborazione — Content Creator"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
-<input name="Request" type="hidden" value="Content Creator / Influencer Collaboration"/>
+<input name="Richiesta" type="hidden" value="Collaborazione — Content Creator / Influencer"/>
 <div class="creator-grid two-col">
 <div class="creator-field">
 <label for="creatorNome">Nome</label>
@@ -3949,7 +3994,7 @@ La tua prenotazione è stata confermata e i dati sono stati inviati a To Know Sa
 </div>
 <div class="creator-field" style="margin-top:15px;">
 <label for="creatorChannels">Link Instagram, TikTok, YouTube o altri canali</label>
-<input id="creatorChannels" name="Social media / channel links" placeholder="https://..." required="" type="text"/>
+<input id="creatorChannels" name="Link social media / canali" placeholder="https://..." required="" type="text"/>
 </div>
 <div class="creator-grid two-col" style="margin-top:15px;">
 <div class="creator-field">
@@ -3958,7 +4003,7 @@ La tua prenotazione è stata confermata e i dati sono stati inviati a To Know Sa
 </div>
 <div class="creator-field">
 <label for="creatorDays">Quanti giorni a Salvador?</label>
-<input id="creatorDays" min="1" name="Days in Salvador" placeholder="e.g. 4" required="" step="1" type="number"/>
+<input id="creatorDays" min="1" name="Giorni a Salvador" placeholder="es. 4" required="" step="1" type="number"/>
 </div>
 </div>
 <div class="creator-grid two-col" style="margin-top:15px;">
@@ -3982,7 +4027,7 @@ La tua prenotazione è stata confermata e i dati sono stati inviati a To Know Sa
 </div>
 <div class="creator-field" style="margin-top:15px;">
 <label for="creatorIdea">Raccontaci brevemente del tuo contenuto o della tua idea di collaborazione</label>
-<textarea id="creatorIdea" name="Content / collaboration idea" placeholder="Cosa vorresti creare a Salvador?"></textarea>
+<textarea id="creatorIdea" name="Contenuto / idea di collaborazione" placeholder="Cosa vorresti creare a Salvador?"></textarea>
 </div>
 <p class="creator-error" hidden="" id="creatorCollabError"></p>
 <button class="creator-submit" id="creatorCollabSubmit" type="submit">INVIA RICHIESTA DI COLLABORAZIONE</button>
@@ -3993,7 +4038,7 @@ La tua prenotazione è stata confermata e i dati sono stati inviati a To Know Sa
 </div>
 </div>
 </div>
-<!-- LOCAL CONNECTION -->
+<!-- CONTATTO LOCALE -->
 <section class="connection-section">
 <div class="container">
 <p class="eyebrow connection-eyebrow">
@@ -4456,16 +4501,6 @@ La tua prenotazione è stata confermata e i dati sono stati inviati a To Know Sa
       guestsInput.addEventListener("input", updateTotal);
       updateTotal();
 
-      // Se il cliente torna alla pagina dopo aver aperto PayPal,
-      // ripristina la schermata con il punto d'incontro.
-      if (localStorage.getItem("toKnowSalvadorAfroTourPaymentStep") === "1") {
-        form.hidden = true;
-        successBox.hidden = false;
-        modal.hidden = false;
-        document.body.style.overflow = "hidden";
-        setTimeout(renderPayPalButton, 150);
-      }
-
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorBox.hidden = true;
@@ -4525,7 +4560,7 @@ La tua prenotazione è stata confermata e i dati sono stati inviati a To Know Sa
         Disponibile dal lunedì al sabato · Scegli le 10:00 o le 14:30 nel modulo qui sotto.
       </div>
 <form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="old-town-form" id="oldTownForm" method="POST">
-<input name="_subject" type="hidden" value="New Afro Tour Old Town Reservation"/>
+<input name="_subject" type="hidden" value="Nuova prenotazione — Afro Tour Old Town"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input name="Experience" type="hidden" value="Afro Tour Old Town"/>
@@ -4537,7 +4572,7 @@ La tua prenotazione è stata confermata e i dati sono stati inviati a To Know Sa
 </div>
 <div class="old-town-field">
 <label for="oldTownDate">Data preferita — dal lunedì al sabato</label>
-<input id="oldTownDate" name="Preferred date" required="" type="date"/>
+<input id="oldTownDate" name="Data preferita" required="" type="date"/>
 </div>
 <div class="old-town-field">
 <label for="oldTownTime">Orario preferito</label>
@@ -4684,6 +4719,16 @@ Apri il punto d'incontro sulla mappa
         paypalRendered = true;
       }
 
+      // Se il cliente torna alla pagina dopo aver aperto PayPal,
+      // ripristina la fase di pagamento e il punto d'incontro dell'Afro Tour.
+      if (localStorage.getItem("toKnowSalvadorAfroTourPaymentStep") === "1") {
+        form.hidden = true;
+        successBox.hidden = false;
+        modal.hidden = false;
+        document.body.style.overflow = "hidden";
+        setTimeout(renderPayPalButton, 150);
+      }
+
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorBox.hidden = true;
@@ -4805,8 +4850,8 @@ Apri il punto d'incontro sulla mappa
       const dots = slides.map((_, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.classNome = "bahia-night-carousel-dot";
-        dot.setAttribute("aria-label", `Mostrar foto ${index + 1}`);
+        dot.className = "bahia-night-carousel-dot";
+        dot.setAttribute("aria-label", `Mostra foto ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
           restartAfterInteraction();
@@ -4862,8 +4907,8 @@ Apri il punto d'incontro sulla mappa
         }, 90);
       }, { passive: true });
 
-      ["touchstart", "pointerdown", "wheel"].forEach((eventNome) => {
-        carousel.addEventListener(eventNome, restartAfterInteraction, { passive: true });
+      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
+        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
       });
 
       document.addEventListener("visibilitychange", () => {
@@ -4919,7 +4964,7 @@ Apri il punto d'incontro sulla mappa
     const submitButton = form.querySelector('button[type="submit"]');
     const originalText = submitButton.textContent;
     submitButton.disabled = true;
-    submitButton.textContent = "Sending...";
+    submitButton.textContent = "INVIO IN CORSO...";
 
     try {
       const response = await fetch(form.action, {
@@ -4928,7 +4973,7 @@ Apri il punto d'incontro sulla mappa
         headers: { "Accept": "application/json" }
       });
 
-      if (!response.ok) throw new Error("Submission failed");
+      if (!response.ok) throw new Error("Invio non riuscito");
 
       form.hidden = true;
       success.hidden = false;
@@ -4956,8 +5001,8 @@ Apri il punto d'incontro sulla mappa
       const dots = slides.map((_, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.classNome = "football-tour-carousel-dot";
-        dot.setAttribute("aria-label", `Show football photo ${index + 1}`);
+        dot.className = "football-tour-carousel-dot";
+        dot.setAttribute("aria-label", `Mostra foto di calcio ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
           restartAfterInteraction();
@@ -5015,8 +5060,8 @@ Apri il punto d'incontro sulla mappa
         }, 90);
       }, { passive: true });
 
-      ["touchstart", "pointerdown", "wheel"].forEach((eventNome) => {
-        carousel.addEventListener(eventNome, restartAfterInteraction, { passive: true });
+      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
+        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
       });
 
       document.addEventListener("visibilitychange", () => {
