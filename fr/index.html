@@ -46,7 +46,7 @@
     "@type": "LocalBusiness",
     "@id": "https://toknowsalvador.com/#business",
     "name": "To Know Salvador",
-    "alternateNom": "To Know Salvador Brazil",
+    "alternateName": "To Know Salvador Brazil",
     "url": "https://toknowsalvador.com/",
     "logo": {
       "@type": "ImageObject",
@@ -3250,6 +3250,51 @@
     }
 
   </style>
+
+<style>
+/* CARROUSELS — INDICATEURS DISCRETS */
+#bahiaNightCarouselDots,
+#footballTourCarouselDots {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+  min-height: 24px;
+  margin: 10px 0 4px !important;
+}
+
+#bahiaNightCarouselDots .bahia-night-carousel-dot,
+#footballTourCarouselDots .football-tour-carousel-dot {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  display: block !important;
+  flex: 0 0 7px !important;
+  width: 7px !important;
+  min-width: 7px !important;
+  max-width: 7px !important;
+  height: 7px !important;
+  min-height: 7px !important;
+  max-height: 7px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  background: rgba(255,255,255,.28) !important;
+  box-shadow: none !important;
+  line-height: 0 !important;
+  cursor: pointer;
+}
+
+#bahiaNightCarouselDots .bahia-night-carousel-dot.is-active,
+#footballTourCarouselDots .football-tour-carousel-dot.is-active {
+  flex-basis: 21px !important;
+  width: 21px !important;
+  min-width: 21px !important;
+  max-width: 21px !important;
+  background: var(--gold-light) !important;
+}
+</style>
+
 </head>
 <body>
 <!-- HERO -->
@@ -3344,7 +3389,7 @@
 <input id="excursionPickup" name="Heure de prise en charge" type="hidden" value=""/>
 <input id="excursionFeeInfo" name="Taxe d’embarquement / Informations" type="hidden" value=""/>
 <input id="excursionTotalHidden" name="Total" type="hidden" value=""/>
-<input name="Page language" type="hidden" value="Anglais"/>
+<input name="Langue de la page" type="hidden" value="Français"/>
 
 <div class="reservation-field">
 <label for="excursionResponsible">Nom du responsable de la réservation</label>
@@ -3368,7 +3413,7 @@
 
 <div class="reservation-field">
 <label for="excursionPhone">Numéro WhatsApp valide avec indicatif régional/international</label>
-<input autocomplete="tel" id="excursionPhone" inputmode="tel" name="WhatsApp valido" pattern="[+0-9() .-]{10,22}" placeholder="+33 ... / +32 ... / +55 71 ..." required="" type="tel"/>
+<input autocomplete="tel" id="excursionPhone" inputmode="tel" name="WhatsApp valide" pattern="[+0-9() .-]{10,22}" placeholder="+33 ... / +32 ... / +55 71 ..." required="" type="tel"/>
 </div>
 
 <div class="reservation-total" id="excursionTotal">Total: —</div>
@@ -3509,7 +3554,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
     document.body.style.overflow = "";
   }
 
-  document.querySélectionnerorAll(".excursion-book-button").forEach((button) => {
+  document.querySelectorAll(".excursion-book-button").forEach((button) => {
     button.addEventListener("click", () => openModal(button.dataset.tour));
   });
 
@@ -3581,7 +3626,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 <p class="bahia-night-kicker">Cuisine Bahianaise &amp; Spectacle Folklorique</p>
 <h2 class="bahia-night-title">Bahia Night</h2>
 <p class="bahia-night-days">Jeudi et samedi</p>
-<div aria-label="Foto del buffet e dello spettacolo folcloristico Bahia Night" class="bahia-night-gallery">
+<div aria-label="Photos du buffet et du spectacle folklorique Bahia Night" class="bahia-night-gallery">
 <figure>
 <img alt="Buffet bahianais au Coliseu da Bahia" loading="lazy" src="/public/14B42228-0DAF-40D8-BFBC-EF57ED275AB3.png"/>
 <figcaption>Buffet Bahianais</figcaption>
@@ -3599,7 +3644,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 <figcaption>Expérience Coliseu</figcaption>
 </figure>
 </div>
-<div aria-label="Navigazione foto Bahia Night" class="bahia-night-carousel-dots" id="bahiaNightCarouselDots"></div>
+<div aria-label="Navigation des photos Bahia Night" class="bahia-night-carousel-dots" id="bahiaNightCarouselDots"></div>
 <div class="bahia-night-schedule">
 <div class="bahia-night-item">
 <strong>🍽️ 18:30 – 20:00 | Dîner Bahianais</strong>
@@ -3616,7 +3661,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 </div>
 <div class="bahia-night-actions">
 <button class="bahia-night-book" id="openBahiaNightReservation" type="button">
-            RÉSERVER MAINTENANT — ASSICURATI IL POSTO
+            RÉSERVER MAINTENANT — GARANTIR VOTRE PLACE
           </button>
 <details class="bahia-night-buffet">
 <summary>🍽️ Voir le Buffet</summary>
@@ -3644,7 +3689,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 <button aria-label="Fermer" class="reservation-close" id="closeBahiaNightReservation" type="button">×</button>
 </div>
 <form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="reservation-form" id="bahiaNightForm" method="POST">
-<input name="_subject" type="hidden" value="New Bahia Night Reservation"/>
+<input name="_subject" type="hidden" value="Nouvelle réservation Bahia Night"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input name="Expérience" type="hidden" value="Bahia Night — Cuisine Bahianaise &amp; Spectacle Folklorique"/>
@@ -3659,7 +3704,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 </div>
 <div class="reservation-field">
 <label for="bahiaNightDate">Date souhaitée — jeudi ou samedi</label>
-<input id="bahiaNightDate" name="Preferred date" required="" type="date"/>
+<input id="bahiaNightDate" name="Date souhaitée" required="" type="date"/>
 </div>
 <div class="reservation-field">
 <label for="bahiaNightGuests">Nombre de personnes</label>
@@ -3671,7 +3716,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 </div>
 <div class="reservation-field">
 <label for="bahiaNightEmail">Email</label>
-<input autocomplete="email" id="bahiaNightEmail" name="Customer email" required="" type="email"/>
+<input autocomplete="email" id="bahiaNightEmail" name="E-mail du client" required="" type="email"/>
 </div>
 <div class="reservation-field">
 <label for="bahiaNightPayment">Mode de paiement</label>
@@ -3704,20 +3749,20 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 <p class="football-tour-kicker">Expérience Football Locale</p>
 <h2 class="football-tour-title">Football Tour — Arena Fonte Nova</h2>
 <p class="football-tour-copy">
-          Vivi l’atmosfera del calcio di Salvador dall’interno dello stadio,
-          tra tifosi locali, cori, colori e l’energia del giorno della partita.
+          Vivez l’atmosphère du football à Salvador depuis l’intérieur du stade,
+          entouré de supporters locaux, de chants, de couleurs et de l’énergie du jour de match.
         </p>
-<div aria-label="Foto del Tour di Calcio all’Arena Fonte Nova" class="football-tour-gallery">
+<div aria-label="Photos du Football Tour à l’Arena Fonte Nova" class="football-tour-gallery">
 <figure>
-<img alt="Ospiti con i colori del Bahia all’interno dell’Arena Fonte Nova" loading="lazy" src="/public/IMG_8163.jpeg"/>
+<img alt="Visiteurs aux couleurs de Bahia à l’intérieur de l’Arena Fonte Nova" loading="lazy" src="/public/IMG_8163.jpeg"/>
 <figcaption>Joie &amp; Plaisir</figcaption>
 </figure>
 <figure>
-<img alt="Ospiti del Tour di Calcio durante l’atmosfera della partita a Salvador" loading="lazy" src="/public/IMG_8166.jpeg"/>
+<img alt="Visiteurs du Football Tour pendant l’ambiance du match à Salvador" loading="lazy" src="/public/IMG_8166.jpeg"/>
 <figcaption>Expérience Jour de Match</figcaption>
 </figure>
 <figure>
-<img alt="Tifosi e bandiere all’interno dell’Arena Fonte Nova a Salvador" loading="lazy" src="/public/IMG_8169.jpeg"/>
+<img alt="Supporters et drapeaux à l’intérieur de l’Arena Fonte Nova à Salvador" loading="lazy" src="/public/IMG_8169.jpeg"/>
 <figcaption>Arena Fonte Nova</figcaption>
 </figure>
 <figure>
@@ -3923,10 +3968,10 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 <button aria-label="Fermer" class="creator-close" id="closeCreatorCollab" type="button">×</button>
 </div>
 <form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="creator-form" id="creatorCollabForm" method="POST">
-<input name="_subject" type="hidden" value="New Content Creator Collaboration Request"/>
+<input name="_subject" type="hidden" value="Nouvelle demande de collaboration — créateur de contenu"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
-<input name="Request" type="hidden" value="Content Creator / Influencer Collaboration"/>
+<input name="Demande" type="hidden" value="Collaboration Créateur de contenu / Influenceur"/>
 <div class="creator-grid two-col">
 <div class="creator-field">
 <label for="creatorNom">Nom</label>
@@ -3949,7 +3994,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 </div>
 <div class="creator-field" style="margin-top:15px;">
 <label for="creatorChannels">Liens Instagram, TikTok, YouTube ou autres chaînes</label>
-<input id="creatorChannels" name="Social media / channel links" placeholder="https://..." required="" type="text"/>
+<input id="creatorChannels" name="Liens réseaux sociaux / chaînes" placeholder="https://..." required="" type="text"/>
 </div>
 <div class="creator-grid two-col" style="margin-top:15px;">
 <div class="creator-field">
@@ -3958,7 +4003,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 </div>
 <div class="creator-field">
 <label for="creatorDays">Combien de jours à Salvador ?</label>
-<input id="creatorDays" min="1" name="Days in Salvador" placeholder="e.g. 4" required="" step="1" type="number"/>
+<input id="creatorDays" min="1" name="Nombre de jours à Salvador" placeholder="ex. 4" required="" step="1" type="number"/>
 </div>
 </div>
 <div class="creator-grid two-col" style="margin-top:15px;">
@@ -3982,7 +4027,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 </div>
 <div class="creator-field" style="margin-top:15px;">
 <label for="creatorIdea">Parlez-nous brièvement de votre contenu ou de votre idée de collaboration</label>
-<textarea id="creatorIdea" name="Content / collaboration idea" placeholder="Que souhaitez-vous créer à Salvador ?"></textarea>
+<textarea id="creatorIdea" name="Contenu / idée de collaboration" placeholder="Que souhaitez-vous créer à Salvador ?"></textarea>
 </div>
 <p class="creator-error" hidden="" id="creatorCollabError"></p>
 <button class="creator-submit" id="creatorCollabSubmit" type="submit">ENVOYER LA DEMANDE DE COLLABORATION</button>
@@ -3997,7 +4042,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 <section class="connection-section">
 <div class="container">
 <p class="eyebrow connection-eyebrow">
-        Sélectionnerto da Adriano Marques
+        Sélectionné par Adriano Marques
       </p>
 <h2 class="section-title connection-title">
         Votre contact local à Salvador.
@@ -4167,10 +4212,10 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
       }
     };
 
-    const collapsibleGroupLabels = document.querySélectionnerorAll(".collapsible-group-label");
+    const collapsibleGroupLabels = document.querySelectorAll(".collapsible-group-label");
 
     collapsibleGroupLabels.forEach((label) => {
-      const list = label.parentElement.querySélectionneror(".question-list");
+      const list = label.parentElement.querySelector(".question-list");
 
       if (!list) return;
 
@@ -4192,11 +4237,11 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
       });
     });
 
-    const languageButtons = document.querySélectionnerorAll(".language-button");
-    const languageSwitcher = document.querySélectionneror(".language-switcher");
-    const languageLabel = document.querySélectionneror(".language-label");
-    const standardQuestionLinks = document.querySélectionnerorAll("[data-question-key]");
-    const premiumQuestionLinks = document.querySélectionnerorAll("[data-premium-key]");
+    const languageButtons = document.querySelectorAll(".language-button");
+    const languageSwitcher = document.querySelector(".language-switcher");
+    const languageLabel = document.querySelector(".language-label");
+    const standardQuestionLinks = document.querySelectorAll("[data-question-key]");
+    const premiumQuestionLinks = document.querySelectorAll("[data-premium-key]");
 
     function createWhatsAppLink(number, message) {
       return "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
@@ -4209,7 +4254,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
     }
 
     function setText(selector, value) {
-      const element = document.querySélectionneror(selector);
+      const element = document.querySelector(selector);
 
       if (element) {
         element.textContent = value;
@@ -4243,7 +4288,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
       document.documentElement.lang = language;
       document.title = content.documentTitle;
 
-      const metaDescription = document.querySélectionneror('meta[name="description"]');
+      const metaDescription = document.querySelector('meta[name="description"]');
 
       if (metaDescription) {
         metaDescription.setAttribute("content", content.metaDescription);
@@ -4256,7 +4301,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
       if (languageSwitcher) {
         languageSwitcher.setAttribute(
           "aria-label",
-          content.languageSélectionnerorLabel
+          content.languageSelectorLabel
         );
       }
 
@@ -4265,7 +4310,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
       setText(".questions-intro .section-title", content.questionsTitle);
       setText(".questions-intro p:last-child", content.questionsDescription);
 
-      document.querySélectionnerorAll("[data-group-label]").forEach((label) => {
+      document.querySelectorAll("[data-group-label]").forEach((label) => {
         const key = label.dataset.groupLabel;
 
         if (content.groups[key]) {
@@ -4281,7 +4326,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
           return;
         }
 
-        const text = link.querySélectionneror(".question-text");
+        const text = link.querySelector(".question-text");
 
         if (text) {
           text.textContent = question.text;
@@ -4306,7 +4351,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
           return;
         }
 
-        const text = link.querySélectionneror(".premium-text");
+        const text = link.querySelector(".premium-text");
 
         if (text) {
           text.textContent = premiumQuestion.text;
@@ -4336,7 +4381,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
       setText(".connection-title", content.connectionTitle);
       setText(".connection-copy", content.connectionCopy);
 
-      const footerCopy = document.querySélectionneror(".footer-copy");
+      const footerCopy = document.querySelector(".footer-copy");
 
       if (footerCopy) {
         footerCopy.innerHTML =
@@ -4358,7 +4403,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 
     changeLanguage("fr");
 
-    document.querySélectionnerorAll(".whatsapp-question").forEach((link) => {
+    document.querySelectorAll(".whatsapp-question").forEach((link) => {
       link.addEventListener("click", (event) => {
         event.preventDefault();
 
@@ -4456,23 +4501,13 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
       guestsInput.addEventListener("input", updateTotal);
       updateTotal();
 
-      // Si le client revient sur la page après avoir ouvert PayPal,
-      // restaurer l’écran avec le point de rendez-vous.
-      if (localStorage.getItem("toKnowSalvadorAfroTourPaymentStep") === "1") {
-        form.hidden = true;
-        successBox.hidden = false;
-        modal.hidden = false;
-        document.body.style.overflow = "hidden";
-        setTimeout(renderPayPalButton, 150);
-      }
-
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorBox.hidden = true;
         errorBox.textContent = "";
 
         if (!isThursdayOrSaturday(dateInput.value)) {
-          errorBox.textContent = "Bahia Night está disponível apenas às quintas-feiras e aos sábados. Sélectionner um desses dias.";
+          errorBox.textContent = "Bahia Night est disponible uniquement le jeudi et le samedi. Veuillez sélectionner l’un de ces jours.";
           errorBox.hidden = false;
           dateInput.focus();
           return;
@@ -4482,7 +4517,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 
         updateTotal();
         submitButton.disabled = true;
-        submitButton.textContent = "INVIO IN CORSO...";
+        submitButton.textContent = "ENVOI EN COURS...";
 
         try {
           const response = await fetch(form.action, {
@@ -4525,7 +4560,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
         Disponible du lundi au samedi · Choisissez 10h00 ou 14h30 dans le formulaire ci-dessous.
       </div>
 <form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="old-town-form" id="oldTownForm" method="POST">
-<input name="_subject" type="hidden" value="New Afro Tour Old Town Reservation"/>
+<input name="_subject" type="hidden" value="Nouvelle réservation Afro Tour Old Town"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input name="Expérience" type="hidden" value="Afro Tour Old Town"/>
@@ -4537,12 +4572,12 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 </div>
 <div class="old-town-field">
 <label for="oldTownDate">Date souhaitée — du lundi au samedi</label>
-<input id="oldTownDate" name="Preferred date" required="" type="date"/>
+<input id="oldTownDate" name="Date souhaitée" required="" type="date"/>
 </div>
 <div class="old-town-field">
 <label for="oldTownTime">Horaire souhaité</label>
 <select id="oldTownTime" name="Horaire souhaité" required="">
-<option value="">Sélectionner un orario</option>
+<option value="">Sélectionner un horaire</option>
 <option value="10:00">10:00</option>
 <option value="14:30">14:30</option>
 </select>
@@ -4569,7 +4604,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
 </div>
 <div class="old-town-field">
 <label for="oldTownEmail">Email</label>
-<input autocomplete="email" id="oldTownEmail" name="Customer email" required="" type="email"/>
+<input autocomplete="email" id="oldTownEmail" name="E-mail du client" required="" type="email"/>
 </div>
 <p class="old-town-error" hidden="" id="oldTownError"></p>
 <button class="old-town-submit" id="oldTownSubmit" type="submit">
@@ -4582,7 +4617,7 @@ Votre réservation a été confirmée et vos informations ont été envoyées à
           To Know Salvador a reçu les informations de votre réservation. Effectuez maintenant le paiement PayPal pour confirmer votre réservation.
         </p>
 <p class="old-town-paypal-note">
-          Primeiro reserve ✓ &nbsp; Depois pague ✓
+          Réservez d’abord ✓ &nbsp; Payez ensuite ✓
         </p>
 <div id="paypal-container-X4ZNWPV789W4Q"></div>
 
@@ -4704,7 +4739,7 @@ Ouvrir le point de rendez-vous sur la carte
         }
 
         submitButton.disabled = true;
-        submitButton.textContent = "INVIO IN CORSO...";
+        submitButton.textContent = "ENVOI EN COURS...";
 
         try {
           const response = await fetch(form.action, {
@@ -4770,7 +4805,7 @@ Ouvrir le point de rendez-vous sur la carte
         if (!form.reportValidity()) return;
 
         submitButton.disabled = true;
-        submitButton.textContent = "INVIO IN CORSO...";
+        submitButton.textContent = "ENVOI EN COURS...";
 
         try {
           const response = await fetch(form.action, {
@@ -4778,7 +4813,7 @@ Ouvrir le point de rendez-vous sur la carte
             body: new FormData(form),
             headers: { "Accept": "application/json" }
           });
-          if (!response.ok) throw new Error("Il servizio di invio ha restituito un errore.");
+          if (!response.ok) throw new Error("Le service d’envoi a renvoyé une erreur.");
           form.hidden = true;
           success.hidden = false;
         } catch (error) {
@@ -4793,11 +4828,11 @@ Ouvrir le point de rendez-vous sur la carte
   </script>
 <script>
     (() => {
-      const carousel = document.querySélectionneror("#bahia-night .bahia-night-gallery");
+      const carousel = document.querySelector("#bahia-night .bahia-night-gallery");
       const dotsWrap = document.getElementById("bahiaNightCarouselDots");
       if (!carousel || !dotsWrap) return;
 
-      const slides = Array.from(carousel.querySélectionnerorAll("figure"));
+      const slides = Array.from(carousel.querySelectorAll("figure"));
       if (slides.length < 2) return;
 
       let currentIndex = 0;
@@ -4807,8 +4842,8 @@ Ouvrir le point de rendez-vous sur la carte
       const dots = slides.map((_, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.classNom = "bahia-night-carousel-dot";
-        dot.setAttribute("aria-label", `Mostrar foto ${index + 1}`);
+        dot.className = "bahia-night-carousel-dot";
+        dot.setAttribute("aria-label", `Afficher la photo ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
           restartAfterInteraction();
@@ -4864,8 +4899,8 @@ Ouvrir le point de rendez-vous sur la carte
         }, 90);
       }, { passive: true });
 
-      ["touchstart", "pointerdown", "wheel"].forEach((eventNom) => {
-        carousel.addEventListener(eventNom, restartAfterInteraction, { passive: true });
+      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
+        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
       });
 
       document.addEventListener("visibilitychange", () => {
@@ -4918,10 +4953,10 @@ Ouvrir le point de rendez-vous sur la carte
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    const submitButton = form.querySélectionneror('button[type="submit"]');
+    const submitButton = form.querySelector('button[type="submit"]');
     const originalText = submitButton.textContent;
     submitButton.disabled = true;
-    submitButton.textContent = "Sending...";
+    submitButton.textContent = "ENVOI EN COURS...";
 
     try {
       const response = await fetch(form.action, {
@@ -4930,7 +4965,7 @@ Ouvrir le point de rendez-vous sur la carte
         headers: { "Accept": "application/json" }
       });
 
-      if (!response.ok) throw new Error("Submission failed");
+      if (!response.ok) throw new Error("Échec de l’envoi");
 
       form.hidden = true;
       success.hidden = false;
@@ -4944,11 +4979,11 @@ Ouvrir le point de rendez-vous sur la carte
 </script>
 <script>
     (() => {
-      const carousel = document.querySélectionneror("#football-tour .football-tour-gallery");
+      const carousel = document.querySelector("#football-tour .football-tour-gallery");
       const dotsWrap = document.getElementById("footballTourCarouselDots");
       if (!carousel || !dotsWrap) return;
 
-      const slides = Array.from(carousel.querySélectionnerorAll("figure"));
+      const slides = Array.from(carousel.querySelectorAll("figure"));
       if (slides.length < 2) return;
 
       let currentIndex = 0;
@@ -4958,8 +4993,8 @@ Ouvrir le point de rendez-vous sur la carte
       const dots = slides.map((_, index) => {
         const dot = document.createElement("button");
         dot.type = "button";
-        dot.classNom = "football-tour-carousel-dot";
-        dot.setAttribute("aria-label", `Show football photo ${index + 1}`);
+        dot.className = "football-tour-carousel-dot";
+        dot.setAttribute("aria-label", `Afficher la photo de football ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
           restartAfterInteraction();
@@ -5017,8 +5052,8 @@ Ouvrir le point de rendez-vous sur la carte
         }, 90);
       }, { passive: true });
 
-      ["touchstart", "pointerdown", "wheel"].forEach((eventNom) => {
-        carousel.addEventListener(eventNom, restartAfterInteraction, { passive: true });
+      ["touchstart", "pointerdown", "wheel"].forEach((eventName) => {
+        carousel.addEventListener(eventName, restartAfterInteraction, { passive: true });
       });
 
       document.addEventListener("visibilitychange", () => {
