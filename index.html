@@ -3527,7 +3527,10 @@
 <p><strong>US$30 per person · Day Use.</strong></p>
 <p>Hotel/accommodation pickup at <strong>07:00</strong>.</p>
 <p>Instant booking confirmation after payment.</p>
+<div class="hero-offer-actions">
 <button class="hero-offer-cta excursion-book-button" data-tour="praia" type="button">BOOK NOW</button>
+<a aria-label="Ask about a private Praia do Forte and Guarajuba experience on WhatsApp" class="hero-offer-cta hero-private-cta" href="https://wa.me/5571993719791?text=Hello%21%20I%27m%20interested%20in%20a%20private%20Praia%20do%20Forte%20%2B%20Guarajuba%20experience.%20Could%20you%20send%20me%20availability%20and%20details%3F" rel="noopener noreferrer" target="_blank">PRIVATE OPTION</a>
+</div>
 </div>
 </details>
 
@@ -3538,13 +3541,40 @@
 <p>Hotel/accommodation pickup at <strong>07:00</strong>.</p>
 <p><strong>Salvador Maritime Terminal fees included.</strong></p>
 <p>Instant booking confirmation after payment.</p>
+<div class="hero-offer-actions">
 <button class="hero-offer-cta excursion-book-button" data-tour="ilhas" type="button">BOOK NOW</button>
+<a aria-label="Ask about a private Itaparica and Ilha dos Frades experience on WhatsApp" class="hero-offer-cta hero-private-cta" href="https://wa.me/5571993719791?text=Hello%21%20I%27m%20interested%20in%20a%20private%20Itaparica%20%2B%20Ilha%20dos%20Frades%20experience.%20Could%20you%20send%20me%20availability%20and%20details%3F" rel="noopener noreferrer" target="_blank">PRIVATE OPTION</a>
+</div>
 </div>
 </details>
 
 </div>
 </div>
 </header>
+
+<script>
+(() => {
+  const heroOffers = Array.from(document.querySelectorAll(".hero-offer"));
+
+  heroOffers.forEach((details) => {
+    const summary = details.querySelector(":scope > summary");
+    if (!summary) return;
+
+    summary.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const shouldOpen = !details.open;
+
+      heroOffers.forEach((other) => {
+        if (other !== details) other.open = false;
+      });
+
+      details.open = shouldOpen;
+    });
+  });
+})();
+</script>
+
 <!-- LANGUAGES -->
 <section class="language-section">
 <div class="container">
