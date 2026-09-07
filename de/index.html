@@ -3295,6 +3295,79 @@
 }
 </style>
 
+
+<style id="reservation-flow-fixes">
+  .reservation-modal,
+  .old-town-modal {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+    overscroll-behavior: contain;
+    padding:
+      max(12px, env(safe-area-inset-top))
+      max(12px, env(safe-area-inset-right))
+      max(12px, env(safe-area-inset-bottom))
+      max(12px, env(safe-area-inset-left)) !important;
+  }
+
+  .reservation-modal[hidden],
+  .old-town-modal[hidden] {
+    display: none !important;
+  }
+
+  .reservation-dialog,
+  .old-town-dialog {
+    position: relative;
+    width: min(calc(100vw - 24px), 560px) !important;
+    max-height: calc(100dvh - 24px) !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .reservation-dialog.is-success > :not(.reservation-success),
+  .old-town-dialog.is-success > :not(.old-town-success) {
+    display: none !important;
+  }
+
+  .reservation-dialog.is-success,
+  .old-town-dialog.is-success {
+    width: min(calc(100vw - 24px), 520px) !important;
+  }
+
+  .success-back-button {
+    display: flex;
+    width: 100%;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 14px;
+    background: rgba(255,255,255,.06);
+    color: #fff;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  @media (max-width: 480px) {
+    .reservation-dialog,
+    .old-town-dialog {
+      width: calc(100vw - 20px) !important;
+      max-height: calc(100dvh - 20px) !important;
+      padding: 20px 16px !important;
+      border-radius: 20px !important;
+    }
+  }
+</style>
+
 </head>
 <body>
 <!-- HERO -->
@@ -3308,9 +3381,11 @@
 <summary class="free-tour-button">MORRO DE SÃO PAULO</summary>
 <div class="hero-offer-info">
 <p><strong>R$ 250 pro Person.</strong></p>
+<p><strong>Jetzt buchen und später bezahlen.</strong></p>
 <p>Abholung am Hotel/an der Unterkunft um <strong>05:20</strong>.</p>
+<p><strong>Einschiffungsgebühr inklusive.</strong></p>
 <p>Tägliche Abfahrten.</p>
-<button class="hero-offer-cta excursion-book-button" data-tour="morro" type="button">JETZT BUCHEN</button>
+<button class="hero-offer-cta excursion-book-button" data-tour="morro" type="button">JETZT BUCHEN — SPÄTER BEZAHLEN</button>
 </div>
 </details>
 
@@ -3318,9 +3393,10 @@
 <summary class="free-tour-button">PRAIA DO FORTE + GUARAJUBA</summary>
 <div class="hero-offer-info">
 <p><strong>R$ 120 pro Person.</strong></p>
+<p><strong>Jetzt buchen und später bezahlen.</strong></p>
 <p>Abholung am Hotel/an der Unterkunft um <strong>07:00</strong>.</p>
 <p>Praia do Forte + Guarajuba · tägliche Abfahrten.</p>
-<button class="hero-offer-cta excursion-book-button" data-tour="praia" type="button">JETZT BUCHEN</button>
+<button class="hero-offer-cta excursion-book-button" data-tour="praia" type="button">JETZT BUCHEN — SPÄTER BEZAHLEN</button>
 </div>
 </details>
 
@@ -3346,12 +3422,12 @@
       </p>
 <nav aria-label="Sprache auswählen" class="language-switcher">
 <a class="language-button" href="/">🇬🇧 Englisch</a>
-<a class="language-button" href="/pt/">🇧🇷 Português</a>
-<a class="language-button" href="/es/">🇪🇸 Español</a>
-<a class="language-button" href="/it/">🇮🇹 Italiano</a>
-<a class="language-button" href="/fr/">🇫🇷 Français</a>
+<a class="language-button" href="/pt/">🇧🇷 Portugiesisch</a>
+<a class="language-button" href="/es/">🇪🇸 Spanisch</a>
+<a class="language-button" href="/it/">🇮🇹 Italienisch</a>
+<a class="language-button" href="/fr/">🇫🇷 Französisch</a>
 <a aria-current="page" class="language-button active" href="/de/">🇩🇪 Deutsch</a>
-<a class="language-button" href="/he/">🇮🇱 עברית</a>
+<a class="language-button" href="/he/">🇮🇱 Hebräisch</a>
 </nav>
 <div class="afro-tour-minimal">
 <button class="afro-tour-minimal-button" id="openOldTownReservation" type="button">AFRO TOUR OLD TOWN</button>
@@ -3360,7 +3436,7 @@
 </section>
 <div class="free-walking-access">
 <div class="container">
-<a aria-label="Formulário de acesso ao Free Walking Tour" href="https://docs.google.com/forms/d/e/1FAIpQLSeNEuT8lhgCT6F2dMunEJ8a64QnLSmTa0v5uKMLwRiynwehXg/viewform?usp=header" rel="noopener noreferrer" target="_blank">
+<a aria-label="Zugang zum Free Walking Tour Formular" href="https://docs.google.com/forms/d/e/1FAIpQLSeNEuT8lhgCT6F2dMunEJ8a64QnLSmTa0v5uKMLwRiynwehXg/viewform?usp=header" rel="noopener noreferrer" target="_blank">
         Zum Free Walking Tour
       </a>
 </div>
@@ -3413,7 +3489,7 @@
 
 <div class="reservation-field">
 <label for="excursionPhone">Gültige WhatsApp-Nummer mit Vorwahl/Ländercode</label>
-<input autocomplete="tel" id="excursionPhone" inputmode="tel" name="Gültige WhatsApp-Nummer" pattern="[+0-9() .-]{10,22}" placeholder="+49 ... / +43 ... / +55 71 ..." required="" type="tel"/>
+<input autocomplete="tel" id="excursionPhone" inputmode="tel" name="Gültige WhatsApp-Nummer" pattern="[+0-9() .-]{10,22}" placeholder="+49 ... / +43 ... / +55 71 ..." required="" type="tel" value="+"/>
 </div>
 
 <div class="reservation-total" id="excursionTotal">Total: —</div>
@@ -3442,6 +3518,8 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 (() => {
   const modal = document.getElementById("excursionModal");
   const closeButton = document.getElementById("closeExcursionReservation");
+  const successCloseButton = document.getElementById("closeExcursionSuccess");
+  const dialog = modal?.querySelector(".reservation-dialog");
   const form = document.getElementById("excursionForm");
   const submitButton = document.getElementById("excursionSubmit");
   const errorBox = document.getElementById("excursionError");
@@ -3469,14 +3547,14 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
       name: "Morro de São Paulo",
       price: 250,
       pickup: "05:20",
-      payLater: false,
-      feeInfo: ""
+      payLater: true,
+      feeInfo: "Einschiffungsgebühr inklusive"
     },
     praia: {
       name: "Praia do Forte + Guarajuba",
       price: 120,
       pickup: "07:00",
-      payLater: false,
+      payLater: true,
       feeInfo: ""
     },
     ilhas: {
@@ -3513,27 +3591,41 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 
   function validWhatsApp(value) {
     const digits = value.replace(/\D/g, "");
-    return digits.length >= 10 && digits.length <= 15;
+    return value.trim().startsWith("+") && digits.length >= 10 && digits.length <= 15;
   }
+
+  function keepLeadingPlus() {
+    const raw = phoneInput.value || "";
+    if (!raw.startsWith("+")) {
+      phoneInput.value = "+" + raw.replace(/\+/g, "");
+    }
+  }
+
+  phoneInput.addEventListener("focus", () => {
+    if (!phoneInput.value.trim()) phoneInput.value = "+";
+  });
+
+  phoneInput.addEventListener("input", keepLeadingPlus);
 
   function openModal(tourKey) {
     selectedTour = TOURS[tourKey];
     if (!selectedTour) return;
 
     form.reset();
+    phoneInput.value = "+";
     form.hidden = false;
     successBox.hidden = true;
+    dialog?.classList.remove("is-success");
     errorBox.hidden = true;
     errorBox.textContent = "";
 
     title.textContent = selectedTour.name;
-    intro.textContent = selectedTour.payLater
-      ? `R$ ${selectedTour.price} por pessoa. Jetzt buchen und später bezahlen.`
-      : `R$ ${selectedTour.price} pro Person.`;
+    intro.textContent =
+      `R$ ${selectedTour.price} pro Person. Jetzt buchen und später bezahlen.`;
 
     important.textContent = selectedTour.feeInfo
-      ? `Abholung am Hotel/an der Unterkunft um ${selectedTour.pickup}. ${selectedTour.feeInfo}. Saída diária.`
-      : `Abholung am Hotel/an der Unterkunft um ${selectedTour.pickup}. Saída diária.`;
+      ? `Abholung am Hotel/an der Unterkunft um ${selectedTour.pickup}. ${selectedTour.feeInfo}. Tägliche Abfahrten.`
+      : `Abholung am Hotel/an der Unterkunft um ${selectedTour.pickup}. Tägliche Abfahrten.`;
 
     experienceHidden.value = selectedTour.name;
     priceHidden.value = `R$ ${selectedTour.price}`;
@@ -3551,6 +3643,7 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 
   function closeModal() {
     modal.hidden = true;
+    dialog?.classList.remove("is-success");
     document.body.style.overflow = "";
   }
 
@@ -3560,6 +3653,7 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 
   guestsInput.addEventListener("input", updateTotal);
   closeButton.addEventListener("click", closeModal);
+  successCloseButton?.addEventListener("click", closeModal);
 
   modal.addEventListener("click", (event) => {
     if (event.target === modal) closeModal();
@@ -3712,7 +3806,7 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 </div>
 <div class="reservation-field">
 <label for="bahiaNightPhone">WhatsApp / Telefon</label>
-<input autocomplete="tel" id="bahiaNightPhone" name="WhatsApp / Telefon" placeholder="+55 ..." required="" type="tel"/>
+<input autocomplete="tel" id="bahiaNightPhone" inputmode="tel" name="WhatsApp / Telefon" placeholder="+49 ... / +55 ..." required="" type="tel" value="+"/>
 </div>
 <div class="reservation-field">
 <label for="bahiaNightEmail">Email</label>
@@ -3739,6 +3833,7 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 <a class="paypal-button" href="https://www.paypal.com/ncp/payment/4J7JEH69L9ZUQ" rel="noopener noreferrer" target="_blank">
           JETZT MIT PAYPAL BEZAHLEN
         </a>
+<button class="success-back-button" id="closeBahiaNightSuccess" type="button">ZURÜCK ZUR WEBSITE</button>
 </div>
 </div>
 </div>
@@ -3999,7 +4094,7 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 <div class="creator-grid two-col" style="margin-top:15px;">
 <div class="creator-field">
 <label for="creatorFollowers">Ungefähre Gesamtzahl der Follower</label>
-<input id="creatorFollowers" min="0" name="Ungefähre Gesamtzahl der Follower" placeholder="es. 25000" required="" step="1" type="number"/>
+<input id="creatorFollowers" min="0" name="Ungefähre Gesamtzahl der Follower" placeholder="z. B. 25000" required="" step="1" type="number"/>
 </div>
 <div class="creator-field">
 <label for="creatorDays">Wie viele Tage in Salvador?</label>
@@ -4394,9 +4489,9 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 
     
     /*
-      This page contains the Englisch version only.
-      We do not reuse language preferences saved by other pages,
-      so an old language setting cannot interfere with links or messages.
+      Diese Seite enthält ausschließlich die deutsche Version.
+      Sprachpräferenzen anderer Seiten werden hier nicht übernommen,
+      damit alte Spracheinstellungen Links oder Nachrichten nicht beeinflussen.
     */
     const savedLanguage = "de";
     const initialLanguage = "de";
@@ -4431,10 +4526,13 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 <script>
     (() => {
       const modal = document.getElementById("bahiaNightModal");
+      const dialog = modal?.querySelector(".reservation-dialog");
       const openButton = document.getElementById("openBahiaNightReservation");
       const closeButton = document.getElementById("closeBahiaNightReservation");
+      const successCloseButton = document.getElementById("closeBahiaNightSuccess");
       const form = document.getElementById("bahiaNightForm");
       const guestsInput = document.getElementById("bahiaNightGuests");
+      const phoneInput = document.getElementById("bahiaNightPhone");
       const dateInput = document.getElementById("bahiaNightDate");
       const totalLabel = document.getElementById("bahiaNightTotal");
       const totalHidden = document.getElementById("bahiaNightTotalHidden");
@@ -4476,7 +4574,27 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
         return weekday === 4 || weekday === 6;
       }
 
+      function keepLeadingPlus() {
+        const raw = phoneInput.value || "";
+        if (!raw.startsWith("+")) {
+          phoneInput.value = "+" + raw.replace(/\+/g, "");
+        }
+      }
+
+      phoneInput.addEventListener("focus", () => {
+        if (!phoneInput.value.trim()) phoneInput.value = "+";
+      });
+      phoneInput.addEventListener("input", keepLeadingPlus);
+
       function showModal() {
+        form.reset();
+        phoneInput.value = "+";
+        form.hidden = false;
+        successBox.hidden = true;
+        dialog?.classList.remove("is-success");
+        errorBox.hidden = true;
+        errorBox.textContent = "";
+        updateTotal();
         modal.hidden = false;
         document.body.style.overflow = "hidden";
         setTimeout(() => document.getElementById("bahiaNightName")?.focus(), 0);
@@ -4484,11 +4602,13 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 
       function hideModal() {
         modal.hidden = true;
+        dialog?.classList.remove("is-success");
         document.body.style.overflow = "";
       }
 
       openButton.addEventListener("click", showModal);
       closeButton.addEventListener("click", hideModal);
+      successCloseButton?.addEventListener("click", hideModal);
 
       modal.addEventListener("click", (event) => {
         if (event.target === modal) hideModal();
@@ -4532,6 +4652,8 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 
           form.hidden = true;
           successBox.hidden = false;
+          dialog?.classList.add("is-success");
+          if (dialog) dialog.scrollTop = 0;
         } catch (error) {
           errorBox.textContent = "Ihre Reservierung konnte gerade nicht gesendet werden. Versuchen Sie es erneut oder kontaktieren Sie To Know Salvador über WhatsApp.";
           errorBox.hidden = false;
@@ -4601,7 +4723,7 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 </div>
 <div class="old-town-field">
 <label for="oldTownPhone">WhatsApp / Telefon</label>
-<input autocomplete="tel" id="oldTownPhone" name="WhatsApp / Telefon" placeholder="+55 ..." required="" type="tel"/>
+<input autocomplete="tel" id="oldTownPhone" inputmode="tel" name="WhatsApp / Telefon" placeholder="+49 ... / +55 ..." required="" type="tel" value="+"/>
 </div>
 <div class="old-town-field">
 <label for="oldTownEmail">Email</label>
@@ -4637,13 +4759,16 @@ Treffpunkt auf der Karte öffnen
 <script>
     (() => {
       const modal = document.getElementById("oldTownModal");
+      const dialog = modal?.querySelector(".old-town-dialog");
       const openButton = document.getElementById("openOldTownReservation");
       const closeButton = document.getElementById("closeOldTownReservation");
+      const successCloseButton = document.getElementById("closeOldTownSuccess");
       const form = document.getElementById("oldTownForm");
       const successBox = document.getElementById("oldTownSuccess");
       const errorBox = document.getElementById("oldTownError");
       const submitButton = document.getElementById("oldTownSubmit");
       const guestsInput = document.getElementById("oldTownGuests");
+      const phoneInput = document.getElementById("oldTownPhone");
       const totalLabel = document.getElementById("oldTownTotal");
       const totalHidden = document.getElementById("oldTownTotalHidden");
 
@@ -4676,7 +4801,27 @@ Treffpunkt auf der Karte öffnen
       guestsInput.addEventListener("input", updateOldTownTotal);
       updateOldTownTotal();
 
+      function keepLeadingPlus() {
+        const raw = phoneInput.value || "";
+        if (!raw.startsWith("+")) {
+          phoneInput.value = "+" + raw.replace(/\+/g, "");
+        }
+      }
+
+      phoneInput.addEventListener("focus", () => {
+        if (!phoneInput.value.trim()) phoneInput.value = "+";
+      });
+      phoneInput.addEventListener("input", keepLeadingPlus);
+
       function showModal() {
+        form.reset();
+        phoneInput.value = "+";
+        form.hidden = false;
+        successBox.hidden = true;
+        dialog?.classList.remove("is-success");
+        errorBox.hidden = true;
+        errorBox.textContent = "";
+        updateOldTownTotal();
         modal.hidden = false;
         document.body.style.overflow = "hidden";
         setTimeout(() => document.getElementById("oldTownName")?.focus(), 0);
@@ -4684,11 +4829,13 @@ Treffpunkt auf der Karte öffnen
 
       function hideModal() {
         modal.hidden = true;
+        dialog?.classList.remove("is-success");
         document.body.style.overflow = "";
       }
 
       openButton.addEventListener("click", showModal);
       closeButton.addEventListener("click", hideModal);
+      successCloseButton?.addEventListener("click", hideModal);
 
       modal.addEventListener("click", (event) => {
         if (event.target === modal) hideModal();
@@ -4720,16 +4867,6 @@ Treffpunkt auf der Karte öffnen
         }).render("#paypal-container-X4ZNWPV789W4Q");
 
         paypalRendered = true;
-      }
-
-      // Wenn der Kunde nach dem Öffnen von PayPal zur Seite zurückkehrt,
-      // werden Zahlungsschritt und Treffpunkt des Afro Tours wiederhergestellt.
-      if (localStorage.getItem("toKnowSalvadorAfroTourPaymentStep") === "1") {
-        form.hidden = true;
-        successBox.hidden = false;
-        modal.hidden = false;
-        document.body.style.overflow = "hidden";
-        setTimeout(renderPayPalButton, 150);
       }
 
       form.addEventListener("submit", async (event) => {
@@ -4765,7 +4902,10 @@ Treffpunkt auf der Karte öffnen
 
           form.hidden = true;
           successBox.hidden = false;
-          localStorage.setItem("toKnowSalvadorAfroTourPaymentStep", "1");
+          dialog?.classList.add("is-success");
+          renderPayPalButton();
+          if (dialog) dialog.scrollTop = 0;
+          
           renderPayPalButton();
         } catch (error) {
           errorBox.textContent = "Ihre Reservierung konnte nicht gesendet werden. Bitte versuchen Sie es erneut.";
@@ -5076,5 +5216,53 @@ Treffpunkt auf der Karte öffnen
       startAuto();
     })();
   </script>
+
+<script>
+  (() => {
+    try {
+      localStorage.removeItem("toKnowSalvadorAfroTourPaymentStep");
+    } catch (error) {}
+
+    const paymentModalIds = ["bahiaNightModal", "oldTownModal"];
+    let leftWhilePaymentScreenWasOpen = false;
+
+    function paymentScreenIsOpen() {
+      return paymentModalIds.some((modalId) => {
+        const modal = document.getElementById(modalId);
+        if (!modal || modal.hidden) return false;
+        return Boolean(modal.querySelector(".is-success"));
+      });
+    }
+
+    function returnToNormalSite() {
+      ["excursionModal", "bahiaNightModal", "oldTownModal"].forEach((modalId) => {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.hidden = true;
+      });
+
+      document.querySelectorAll(".reservation-dialog.is-success, .old-town-dialog.is-success")
+        .forEach((dialog) => dialog.classList.remove("is-success"));
+
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden && paymentScreenIsOpen()) {
+        leftWhilePaymentScreenWasOpen = true;
+        return;
+      }
+
+      if (!document.hidden && leftWhilePaymentScreenWasOpen) {
+        leftWhilePaymentScreenWasOpen = false;
+        returnToNormalSite();
+      }
+    });
+
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) returnToNormalSite();
+    });
+  })();
+</script>
+
 </body>
 </html>
