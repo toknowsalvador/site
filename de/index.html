@@ -1369,7 +1369,7 @@
       box-shadow: 0 8px 24px rgba(200, 168, 90, 0.28);
     }
 
-    /* PORTUGUESE IMMERSION */
+    /* GERMAN IMMERSION */
 
     .immersion-section {
       position: relative;
@@ -1674,10 +1674,10 @@
 
   
     /* =========================================================
-       FINAL UPDATE — ISLANDS / PORTUGUESE IMMERSION / BAHIA NIGHT
+       FINAL UPDATE — ISLANDS / GERMAN IMMERSION / BAHIA NIGHT
        ========================================================= */
 
-    /* Italiano Immersion: intentionally more discreet */
+    /* German immersion: intentionally more discreet */
     .hero-immersion-button {
       min-height: 42px;
       padding: 0 18px;
@@ -3368,6 +3368,185 @@
   }
 </style>
 
+
+<style id="dayuse-payment-structure-de">
+  .hero-offer-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 11px;
+  }
+
+  .hero-offer-actions .hero-offer-cta {
+    margin-top: 0;
+  }
+
+  .hero-private-cta {
+    border: 1px solid rgba(234, 213, 157, 0.55) !important;
+    background: transparent !important;
+    color: var(--gold-light) !important;
+  }
+
+  .hero-private-cta:hover {
+    background: rgba(200, 168, 90, 0.12) !important;
+  }
+
+  .instant-confirmation-note {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    border: 1px solid rgba(200,168,90,.28);
+    border-radius: 14px;
+    background: rgba(200,168,90,.08);
+    color: rgba(255,255,255,.86) !important;
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  .payment-link-pending {
+    margin-top: 14px;
+    padding: 11px 13px;
+    border: 1px dashed rgba(255,255,255,.2);
+    border-radius: 12px;
+  }
+
+  .boipeba-section {
+    padding: 58px 0;
+    background:
+      radial-gradient(circle at top right, rgba(200,168,90,.14), transparent 38%),
+      #0a0a0a;
+  }
+
+  .boipeba-card {
+    padding: 30px 24px;
+    border: 1px solid rgba(200,168,90,.3);
+    border-radius: 26px;
+    background: linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
+    box-shadow: 0 22px 56px rgba(0,0,0,.22);
+  }
+
+  .boipeba-title {
+    margin: 10px 0 0;
+    font-family: "Playfair Display", serif;
+    font-size: clamp(30px, 8vw, 44px);
+    line-height: 1.04;
+  }
+
+  .boipeba-price {
+    margin: 15px 0 0;
+    color: var(--gold-light);
+    font-size: 18px;
+    font-weight: 800;
+  }
+
+  .boipeba-inclusions {
+    display: grid;
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .boipeba-inclusions span {
+    display: block;
+    padding: 10px 12px;
+    border: 1px solid rgba(255,255,255,.09);
+    border-radius: 12px;
+    background: rgba(255,255,255,.035);
+    color: rgba(255,255,255,.75);
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .boipeba-copy {
+    margin: 18px 0 0;
+    color: rgba(255,255,255,.62);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .boipeba-book {
+    display: inline-flex;
+    min-height: 46px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 0 20px;
+    border: 0;
+    border-radius: 999px;
+    background: var(--gold);
+    color: #111;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .agency-transparency {
+    position: relative;
+    z-index: 2;
+    margin: 0 0 24px;
+    padding: 18px;
+    border: 1px solid rgba(200,168,90,.24);
+    border-radius: 18px;
+    background: rgba(0,0,0,.24);
+  }
+
+  .agency-transparency-kicker {
+    margin: 0;
+    color: var(--gold-light);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .agency-transparency-copy {
+    margin: 9px 0 0;
+    color: rgba(255,255,255,.66);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .agency-transparency-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .agency-transparency-item {
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 13px;
+    background: rgba(255,255,255,.045);
+  }
+
+  .agency-transparency-item strong,
+  .agency-transparency-item span {
+    display: block;
+  }
+
+  .agency-transparency-item strong {
+    color: #fff;
+    font-size: 13px;
+  }
+
+  .agency-transparency-item span {
+    margin-top: 4px;
+    color: rgba(255,255,255,.58);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  @media (min-width: 620px) {
+    .agency-transparency-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>
+
 </head>
 <body>
 <!-- HERO -->
@@ -3377,43 +3556,76 @@
 </div>
 <div class="hero-content">
 <div class="hero-actions hero-offers">
+
 <details class="hero-offer">
 <summary class="free-tour-button">MORRO DE SÃO PAULO</summary>
 <div class="hero-offer-info">
-<p><strong>R$ 250 pro Person.</strong></p>
-<p><strong>Jetzt buchen und später bezahlen.</strong></p>
-<p>Abholung am Hotel/an der Unterkunft um <strong>05:20</strong>.</p>
-<p><strong>Einschiffungsgebühr inklusive.</strong></p>
-<p>Tägliche Abfahrten.</p>
-<button class="hero-offer-cta excursion-book-button" data-tour="morro" type="button">JETZT BUCHEN — SPÄTER BEZAHLEN</button>
+<p><strong>US$60 pro Person · Tagesausflug.</strong></p>
+<p><strong>Zwei unabhängige Abfahrts-/Hotelabholzeiten: 05:20 oder 09:30.</strong></p>
+<p>Die Abholung vom Hotel bzw. von der Unterkunft ist bei <strong>beiden Abfahrtszeiten</strong> inklusive.</p>
+<p><strong>Gebühren des Seeterminals von Salvador inklusive.</strong></p>
+<p><strong>Die Umweltgebühr von R$70 ist nicht enthalten.</strong></p>
+<p>Sofortige Buchungsbestätigung nach Zahlung.</p>
+<div class="hero-offer-actions">
+<button class="hero-offer-cta excursion-book-button" data-tour="morro" type="button">JETZT BUCHEN</button>
+<a aria-label="Private Option für Morro de São Paulo über WhatsApp anfragen" class="hero-offer-cta hero-private-cta" href="https://wa.me/5571993719791?text=Hallo%21%20Ich%20interessiere%20mich%20f%C3%BCr%20eine%20private%20Option%20nach%20Morro%20de%20S%C3%A3o%20Paulo.%20K%C3%B6nnen%20Sie%20mir%20Verf%C3%BCgbarkeit%20und%20weitere%20Details%20senden%3F" rel="noopener noreferrer" target="_blank">PRIVATE OPTION</a>
+</div>
 </div>
 </details>
 
 <details class="hero-offer">
 <summary class="free-tour-button">PRAIA DO FORTE + GUARAJUBA</summary>
 <div class="hero-offer-info">
-<p><strong>R$ 120 pro Person.</strong></p>
-<p><strong>Jetzt buchen und später bezahlen.</strong></p>
-<p>Abholung am Hotel/an der Unterkunft um <strong>07:00</strong>.</p>
-<p>Praia do Forte + Guarajuba · tägliche Abfahrten.</p>
-<button class="hero-offer-cta excursion-book-button" data-tour="praia" type="button">JETZT BUCHEN — SPÄTER BEZAHLEN</button>
+<p><strong>US$30 pro Person · Tagesausflug.</strong></p>
+<p>Abholung vom Hotel bzw. von der Unterkunft um <strong>07:00</strong>.</p>
+<p>Sofortige Buchungsbestätigung nach Zahlung.</p>
+<div class="hero-offer-actions">
+<button class="hero-offer-cta excursion-book-button" data-tour="praia" type="button">JETZT BUCHEN</button>
+<a aria-label="Private Option für Praia do Forte und Guarajuba über WhatsApp anfragen" class="hero-offer-cta hero-private-cta" href="https://wa.me/5571993719791?text=Hallo%21%20Ich%20interessiere%20mich%20f%C3%BCr%20eine%20private%20Option%20nach%20Praia%20do%20Forte%20%2B%20Guarajuba.%20K%C3%B6nnen%20Sie%20mir%20Verf%C3%BCgbarkeit%20und%20weitere%20Details%20senden%3F" rel="noopener noreferrer" target="_blank">PRIVATE OPTION</a>
+</div>
 </div>
 </details>
 
 <details class="hero-offer">
 <summary class="free-tour-button">ILHA DE ITAPARICA + ILHA DOS FRADES</summary>
 <div class="hero-offer-info">
-<p><strong>R$ 120 pro Person.</strong></p>
-<p><strong>Jetzt buchen und später bezahlen.</strong></p>
-<p>Abholung am Hotel/an der Unterkunft um <strong>07:00</strong>.</p>
-<p><strong>Einschiffungsgebühr inklusive.</strong></p>
-<p>Tägliche Abfahrten.</p>
-<button class="hero-offer-cta excursion-book-button" data-tour="ilhas" type="button">JETZT BUCHEN — SPÄTER BEZAHLEN</button>
+<p><strong>US$30 pro Person · Tagesausflug.</strong></p>
+<p>Abholung vom Hotel bzw. von der Unterkunft um <strong>07:00</strong>.</p>
+<p><strong>Gebühren des Seeterminals von Salvador inklusive.</strong></p>
+<p>Sofortige Buchungsbestätigung nach Zahlung.</p>
+<div class="hero-offer-actions">
+<button class="hero-offer-cta excursion-book-button" data-tour="ilhas" type="button">JETZT BUCHEN</button>
+<a aria-label="Private Option für Itaparica und Ilha dos Frades über WhatsApp anfragen" class="hero-offer-cta hero-private-cta" href="https://wa.me/5571993719791?text=Hallo%21%20Ich%20interessiere%20mich%20f%C3%BCr%20eine%20private%20Option%20nach%20Itaparica%20%2B%20Ilha%20dos%20Frades.%20K%C3%B6nnen%20Sie%20mir%20Verf%C3%BCgbarkeit%20und%20weitere%20Details%20senden%3F" rel="noopener noreferrer" target="_blank">PRIVATE OPTION</a>
+</div>
 </div>
 </details>
 </div>
 </div>
 </header>
+
+<script>
+(() => {
+  const heroOffers = Array.from(document.querySelectorAll(".hero-offer"));
+
+  heroOffers.forEach((details) => {
+    const summary = details.querySelector(":scope > summary");
+    if (!summary) return;
+
+    summary.addEventListener("click", (event) => {
+      event.preventDefault();
+
+      const shouldOpen = !details.open;
+
+      heroOffers.forEach((other) => {
+        if (other !== details) other.open = false;
+      });
+
+      details.open = shouldOpen;
+    });
+  });
+})();
+</script>
+
 <!-- LANGUAGES -->
 <section class="language-section">
 <div class="container">
@@ -3442,7 +3654,7 @@
 </div>
 </div>
 
-<!-- DAY TRIPS RESERVATION — MORRO / PRAIA DO FORTE + GUARAJUBA / ISLANDS -->
+<!-- AUSFLUGSBUCHUNG — MORRO / PRAIA DO FORTE + GUARAJUBA / ITAPARICA + FRADES / BOIPEBA -->
 <div class="reservation-modal" hidden="" id="excursionModal">
 <div aria-labelledby="excursionReservationTitle" aria-modal="true" class="reservation-dialog" role="dialog">
 <div class="reservation-dialog-header">
@@ -3457,19 +3669,30 @@
 <div class="old-town-important" id="excursionImportant"></div>
 
 <form action="https://formsubmit.co/ajax/toknowsalvador@gmail.com" class="reservation-form" id="excursionForm" method="POST">
-<input id="excursionSubject" name="_subject" type="hidden" value="Neue Ausflugsreservierung"/>
+<input id="excursionSubject" name="_subject" type="hidden" value="Neue Ausflugsbuchung"/>
 <input name="_template" type="hidden" value="table"/>
 <input name="_captcha" type="hidden" value="false"/>
 <input id="excursionExperience" name="Erlebnis" type="hidden" value=""/>
 <input id="excursionPrice" name="Preis pro Person" type="hidden" value=""/>
-<input id="excursionPickup" name="Abholzeit" type="hidden" value=""/>
-<input id="excursionFeeInfo" name="Einschiffungsgebühr / Informationen" type="hidden" value=""/>
-<input id="excursionTotalHidden" name="Total" type="hidden" value=""/>
+<input id="excursionPickup" name="Abholinformationen" type="hidden" value=""/>
+
+<div class="reservation-field" hidden="" id="excursionDepartureField">
+<label for="excursionDeparture">Abfahrts-/Hotelabholzeit</label>
+<select id="excursionDeparture" name="Abfahrt / Hotelabholung">
+<option value="">Uhrzeit auswählen</option>
+<option value="05:20">05:20 — Abholung vom Hotel / von der Unterkunft</option>
+<option value="09:30">09:30 — Abholung vom Hotel / von der Unterkunft</option>
+</select>
+</div>
+
+<input id="excursionFeeInfo" name="Gebühren / Informationen" type="hidden" value=""/>
+<input id="excursionTotalHidden" name="Gesamt" type="hidden" value=""/>
+<input name="Zahlungsstatus" type="hidden" value="PayPal-Zahlung ausstehend"/>
 <input name="Seitensprache" type="hidden" value="Deutsch"/>
 
 <div class="reservation-field">
 <label for="excursionResponsible">Name der für die Buchung verantwortlichen Person</label>
-<input autocomplete="name" id="excursionResponsible" name="Verantwortliche Person für die Buchung" placeholder="Vor- und Nachname" required="" type="text"/>
+<input autocomplete="name" id="excursionResponsible" name="Buchungsverantwortliche Person" placeholder="Vor- und Nachname" required="" type="text"/>
 </div>
 
 <div class="reservation-field">
@@ -3488,28 +3711,42 @@
 </div>
 
 <div class="reservation-field">
-<label for="excursionPhone">Gültige WhatsApp-Nummer mit Vorwahl/Ländercode</label>
+<label for="excursionPhone">Gültige WhatsApp-Nummer mit Ländervorwahl</label>
 <input autocomplete="tel" id="excursionPhone" inputmode="tel" name="Gültige WhatsApp-Nummer" pattern="[+0-9() .-]{10,22}" placeholder="+49 ... / +43 ... / +55 71 ..." required="" type="tel" value="+"/>
 </div>
 
-<div class="reservation-total" id="excursionTotal">Total: —</div>
+<div class="reservation-total" id="excursionTotal">Gesamt: —</div>
 <p class="reservation-error" hidden="" id="excursionError"></p>
 
-<button class="reservation-submit" id="excursionSubmit" type="submit">BUCHUNG BESTÄTIGEN</button>
+<button class="reservation-submit" id="excursionSubmit" type="submit">WEITER ZUR ZAHLUNG</button>
 <p class="reservation-note">
-Geben Sie eine gültige WhatsApp-Nummer mit Vorwahl/Ländercode ein. Der gewählte Ausflug, der Preis und die Abholzeit werden automatisch übermittelt.
+Zuerst senden wir Ihre Buchungsdaten. Anschließend schließen Sie die Zahlung über PayPal ab. Die Buchung wird sofort nach erfolgreicher Zahlung bestätigt.
 </p>
 </form>
 
 <div class="reservation-success" hidden="" id="excursionSuccess">
-<h3>Buchung bestätigt!</h3>
+<h3>Buchungsdaten erhalten</h3>
 <p id="excursionSuccessText">
-Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesendet.
+Ihre Daten wurden an To Know Salvador gesendet. Schließen Sie die PayPal-Zahlung unten ab, um Ihre Buchung zu bestätigen.
 </p>
 <div class="old-town-important" id="excursionSuccessDetails"></div>
-<p>
-<strong>Hinweis:</strong> Nehmen Sie Wechselkleidung, ein Handtuch und Sonnencreme mit.
+
+<a class="paypal-button excursion-paypal-button" hidden="" id="excursionPayPalLink" rel="noopener noreferrer" target="_blank">
+JETZT MIT PAYPAL BEZAHLEN
+</a>
+
+<p class="reservation-note payment-link-pending" id="excursionPaymentPending">
+Der PayPal-Link für diesen Ausflug ist noch nicht verbunden.
 </p>
+
+<p class="instant-confirmation-note">
+<strong>Sofortige Bestätigung:</strong> Ihre Buchung ist bestätigt, sobald die Zahlung abgeschlossen ist.
+</p>
+
+<p>
+<strong>Empfehlung:</strong> Für Tagesausflüge sollten Sie Wechselkleidung, ein Handtuch und Sonnenschutz mitbringen.
+</p>
+<button class="success-back-button" id="closeExcursionSuccess" type="button">ZURÜCK ZUR WEBSITE</button>
 </div>
 </div>
 </div>
@@ -3526,6 +3763,8 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
   const successBox = document.getElementById("excursionSuccess");
   const successText = document.getElementById("excursionSuccessText");
   const successDetails = document.getElementById("excursionSuccessDetails");
+  const paymentLink = document.getElementById("excursionPayPalLink");
+  const paymentPending = document.getElementById("excursionPaymentPending");
   const title = document.getElementById("excursionReservationTitle");
   const intro = document.getElementById("excursionIntro");
   const important = document.getElementById("excursionImportant");
@@ -3537,36 +3776,62 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
   const experienceHidden = document.getElementById("excursionExperience");
   const priceHidden = document.getElementById("excursionPrice");
   const pickupHidden = document.getElementById("excursionPickup");
+  const departureField = document.getElementById("excursionDepartureField");
+  const departureSelect = document.getElementById("excursionDeparture");
   const feeInfoHidden = document.getElementById("excursionFeeInfo");
   const subjectHidden = document.getElementById("excursionSubject");
 
   if (!modal || !closeButton || !form) return;
 
+  /*
+    PAYPAL-LINKS:
+    Morro de São Paulo ist bereits verbunden.
+    Die anderen paypalUrl-Felder bleiben leer, bis die jeweiligen Links bereitgestellt werden.
+  */
   const TOURS = {
     morro: {
       name: "Morro de São Paulo",
-      price: 250,
-      pickup: "05:20",
-      payLater: true,
-      feeInfo: "Einschiffungsgebühr inklusive"
+      price: 60,
+      currency: "US$",
+      type: "Tagesausflug",
+      pickupOptions: ["05:20", "09:30"],
+      feeInfo: "Gebühren des Seeterminals von Salvador inklusive. Die Umweltgebühr von R$70 ist nicht enthalten und muss separat bezahlt werden.",
+      paypalUrl: "https://www.paypal.com/ncp/payment/ZAZNCWD34RSXJ"
     },
     praia: {
       name: "Praia do Forte + Guarajuba",
-      price: 120,
+      price: 30,
+      currency: "US$",
+      type: "Tagesausflug",
       pickup: "07:00",
-      payLater: true,
-      feeInfo: ""
+      feeInfo: "Tagesausflug.",
+      paypalUrl: ""
     },
     ilhas: {
       name: "Ilha de Itaparica + Ilha dos Frades",
-      price: 120,
+      price: 30,
+      currency: "US$",
+      type: "Tagesausflug",
       pickup: "07:00",
-      payLater: true,
-      feeInfo: "Einschiffungsgebühr inklusive"
+      feeInfo: "Gebühren des Seeterminals von Salvador inklusive.",
+      paypalUrl: ""
+    },
+    boipeba: {
+      name: "Boipeba",
+      price: 120,
+      currency: "US$",
+      type: "Hin- und Rückfahrt",
+      pickup: "Abfahrts- und Rückfahrtdetails werden mit der Buchungsbestätigung mitgeteilt",
+      feeInfo: "Hin- und Rückfahrt inklusive. Alle Transport-, Boarding- und Terminalgebühren sind enthalten.",
+      paypalUrl: ""
     }
   };
 
   let selectedTour = null;
+
+  function money(amount) {
+    return `${selectedTour.currency}${amount}`;
+  }
 
   function setMinimumDate() {
     const now = new Date();
@@ -3579,14 +3844,14 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
     const guests = Number.parseInt(guestsInput.value, 10);
 
     if (!Number.isInteger(guests) || guests < 1) {
-      totalLabel.textContent = `Gesamt: — · R$ ${selectedTour.price} pro Person`;
+      totalLabel.textContent = `Gesamt: — · ${money(selectedTour.price)} pro Person`;
       totalHidden.value = "";
       return;
     }
 
     const total = guests * selectedTour.price;
-    totalLabel.textContent = `Gesamt: R$ ${total} · R$ ${selectedTour.price} pro Person`;
-    totalHidden.value = `R$ ${total}`;
+    totalLabel.textContent = `Gesamt: ${money(total)} · ${money(selectedTour.price)} pro Person`;
+    totalHidden.value = money(total);
   }
 
   function validWhatsApp(value) {
@@ -3604,8 +3869,21 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
   phoneInput.addEventListener("focus", () => {
     if (!phoneInput.value.trim()) phoneInput.value = "+";
   });
-
   phoneInput.addEventListener("input", keepLeadingPlus);
+
+  function configurePaymentButton() {
+    if (!selectedTour) return;
+
+    if (selectedTour.paypalUrl) {
+      paymentLink.href = selectedTour.paypalUrl;
+      paymentLink.hidden = false;
+      paymentPending.hidden = true;
+    } else {
+      paymentLink.removeAttribute("href");
+      paymentLink.hidden = true;
+      paymentPending.hidden = false;
+    }
+  }
 
   function openModal(tourKey) {
     selectedTour = TOURS[tourKey];
@@ -3618,19 +3896,40 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
     dialog?.classList.remove("is-success");
     errorBox.hidden = true;
     errorBox.textContent = "";
+    paymentLink.hidden = true;
+    paymentPending.hidden = false;
 
     title.textContent = selectedTour.name;
-    intro.textContent =
-      `R$ ${selectedTour.price} pro Person. Jetzt buchen und später bezahlen.`;
+    intro.textContent = `${money(selectedTour.price)} pro Person · ${selectedTour.type}.`;
 
-    important.textContent = selectedTour.feeInfo
-      ? `Abholung am Hotel/an der Unterkunft um ${selectedTour.pickup}. ${selectedTour.feeInfo}. Tägliche Abfahrten.`
-      : `Abholung am Hotel/an der Unterkunft um ${selectedTour.pickup}. Tägliche Abfahrten.`;
+    if (tourKey === "morro") {
+      departureField.hidden = false;
+      departureSelect.required = true;
+      departureSelect.disabled = false;
+      departureSelect.value = "";
+      important.textContent =
+        `Wählen Sie eine der beiden unabhängigen Abfahrts-/Hotelabholzeiten: 05:20 oder 09:30. Die Abholung vom Hotel bzw. von der Unterkunft ist für beide Zeiten inklusive. ${selectedTour.feeInfo} Die Buchung wird sofort nach der Zahlung bestätigt.`;
+    } else {
+      departureField.hidden = true;
+      departureSelect.required = false;
+      departureSelect.disabled = true;
+      departureSelect.value = "";
+
+      if (tourKey === "boipeba") {
+        important.textContent =
+          `${selectedTour.feeInfo} Die Buchung wird sofort nach der Zahlung bestätigt.`;
+      } else {
+        important.textContent =
+          `Abholung vom Hotel bzw. von der Unterkunft um ${selectedTour.pickup}. ${selectedTour.feeInfo} Die Buchung wird sofort nach der Zahlung bestätigt.`;
+      }
+    }
 
     experienceHidden.value = selectedTour.name;
-    priceHidden.value = `R$ ${selectedTour.price}`;
-    pickupHidden.value = selectedTour.pickup;
-    feeInfoHidden.value = selectedTour.feeInfo || "—";
+    priceHidden.value = `${money(selectedTour.price)} pro Person`;
+    pickupHidden.value = tourKey === "morro"
+      ? "Hotel-/Unterkunftsabholung inklusive — 05:20 oder 09:30 auswählen"
+      : selectedTour.pickup;
+    feeInfoHidden.value = selectedTour.feeInfo;
     subjectHidden.value = `Neue Buchung — ${selectedTour.name}`;
 
     setMinimumDate();
@@ -3638,6 +3937,7 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 
     modal.hidden = false;
     document.body.style.overflow = "hidden";
+    if (dialog) dialog.scrollTop = 0;
     setTimeout(() => document.getElementById("excursionHotel")?.focus(), 0);
   }
 
@@ -3671,16 +3971,23 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
     if (!form.reportValidity()) return;
 
     if (!validWhatsApp(phoneInput.value)) {
-      errorBox.textContent = "Geben Sie eine gültige WhatsApp-Nummer mit Vorwahl/Ländercode ein.";
+      errorBox.textContent = "Bitte geben Sie eine gültige WhatsApp-Nummer mit Ländervorwahl ein.";
       errorBox.hidden = false;
       phoneInput.focus();
+      return;
+    }
+
+    if (selectedTour?.name === "Morro de São Paulo" && !departureSelect.value) {
+      errorBox.textContent = "Bitte wählen Sie die Abfahrts-/Hotelabholzeit für Morro de São Paulo: 05:20 oder 09:30.";
+      errorBox.hidden = false;
+      departureSelect.focus();
       return;
     }
 
     updateTotal();
 
     submitButton.disabled = true;
-    submitButton.textContent = "WIRD BESTÄTIGT...";
+    submitButton.textContent = "WIRD GESENDET...";
 
     try {
       const response = await fetch(form.action, {
@@ -3690,28 +3997,37 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
       });
 
       if (!response.ok) {
-        throw new Error("Fehler beim Senden der Buchung.");
+        throw new Error("Buchung konnte nicht gesendet werden.");
       }
 
       form.hidden = true;
       successText.textContent =
-        `Buchung für ${selectedTour.name} bestätigt. To Know Salvador hat Ihre Angaben erhalten.`;
+        `Die Buchungsdaten für ${selectedTour.name} wurden empfangen. Schließen Sie die PayPal-Zahlung ab, um Ihre Buchung zu bestätigen.`;
 
-      successDetails.textContent = selectedTour.feeInfo
-        ? `Abholung geplant für ${selectedTour.pickup}. ${selectedTour.feeInfo}. ${selectedTour.payLater ? "Jetzt gebucht; Zahlung später." : ""}`.trim()
-        : `Abholung geplant für ${selectedTour.pickup}.`;
+      const departureSummary =
+        selectedTour.name === "Morro de São Paulo" && departureSelect.value
+          ? ` Abfahrt / Hotelabholung: ${departureSelect.value}.`
+          : "";
+
+      successDetails.textContent =
+        `${selectedTour.type} · ${money(selectedTour.price)} pro Person.${departureSummary} ${selectedTour.feeInfo}`;
+
+      configurePaymentButton();
 
       successBox.hidden = false;
+      dialog?.classList.add("is-success");
+      if (dialog) dialog.scrollTop = 0;
     } catch (error) {
-      errorBox.textContent = "Die Buchung konnte nicht bestätigt werden. Prüfen Sie Ihre Verbindung und versuchen Sie es erneut.";
+      errorBox.textContent = "Die Buchung konnte nicht gesendet werden. Bitte prüfen Sie Ihre Verbindung und versuchen Sie es erneut.";
       errorBox.hidden = false;
     } finally {
       submitButton.disabled = false;
-      submitButton.textContent = "BUCHUNG BESTÄTIGEN";
+      submitButton.textContent = "WEITER ZUR ZAHLUNG";
     }
   });
 })();
 </script>
+
 
 <!-- BAHIA NIGHT — DINNER AND FOLKLORIC SHOW -->
 <section class="bahia-night-section" id="bahia-night">
@@ -3942,6 +4258,26 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
 </section>
 </div>
 </main>
+<!-- BOIPEBA — NICHT AUF DEM STARTBILDSCHIRM -->
+<section class="boipeba-section" id="boipeba">
+<div class="container">
+<article class="boipeba-card">
+<p class="eyebrow">Weitere Küstenziele</p>
+<h2 class="boipeba-title">Boipeba — Hin- und Rückfahrt</h2>
+<p class="boipeba-price">US$120 pro Person</p>
+<div class="boipeba-inclusions">
+<span>↔ Hin- und Rückfahrt inklusive</span>
+<span>✓ Alle Transport-, Boarding- und Terminalgebühren inklusive</span>
+<span>✓ Sofortige Buchungsbestätigung nach Zahlung</span>
+</div>
+<p class="boipeba-copy">
+Eine einfache Option für Reisende, die Boipeba besuchen möchten, ohne den Startbildschirm mit zusätzlichen Informationen zu überladen. Abfahrts- und Rückfahrtdetails werden mit der Buchungsbestätigung mitgeteilt.
+</p>
+<button class="boipeba-book excursion-book-button" data-tour="boipeba" type="button">JETZT BUCHEN</button>
+</article>
+</div>
+</section>
+
 <!-- CANDOMBLÉ TERREIRO VISIT -->
 <section class="terreiro-section">
 <div class="container">
@@ -3990,6 +4326,19 @@ Ihre Buchung wurde bestätigt und Ihre Angaben wurden an To Know Salvador gesend
             Für internationale Agenturen, Unternehmen, Institutionen und private Gruppen, die eine vertrauenswürdige lokale Koordination in Salvador benötigen.
           </p>
 </div>
+<div class="agency-transparency">
+<p class="agency-transparency-kicker">Operative Transparenz</p>
+<p class="agency-transparency-copy">
+Wir machen die operative Struktur bereits vor der Bestätigung transparent, damit Agenturen und private Gruppen wissen, wer für Transport und lokale Koordination verantwortlich ist.
+</p>
+<div class="agency-transparency-grid">
+<div class="agency-transparency-item"><strong>Zugelassene Fahrer</strong><span>Professionelle Fahrer, die für den gebuchten Transportdienst autorisiert sind.</span></div>
+<div class="agency-transparency-item"><strong>Ordnungsgemäß registrierte Fahrzeuge</strong><span>Fahrzeuge, die bei den zuständigen Verkehrsbehörden für den jeweiligen Dienst registriert sind.</span></div>
+<div class="agency-transparency-item"><strong>Identifizierte lokale Partner</strong><span>Guides, Koordinatoren und Dienstleister werden für jeden Service klar benannt.</span></div>
+<div class="agency-transparency-item"><strong>Klare Buchungsbedingungen</strong><span>Preise, enthaltene Leistungen, Zahlungsbedingungen und Verantwortlichkeiten werden vor der Bestätigung kommuniziert.</span></div>
+</div>
+</div>
+
 <div class="premium-list">
 <a class="whatsapp-question premium-question" data-premium-key="clients" href="#">
 <span class="premium-icon">🌍</span>
@@ -5223,7 +5572,7 @@ Treffpunkt auf der Karte öffnen
       localStorage.removeItem("toKnowSalvadorAfroTourPaymentStep");
     } catch (error) {}
 
-    const paymentModalIds = ["bahiaNightModal", "oldTownModal"];
+    const paymentModalIds = ["excursionModal", "bahiaNightModal", "oldTownModal"];
     let leftWhilePaymentScreenWasOpen = false;
 
     function paymentScreenIsOpen() {
