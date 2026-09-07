@@ -1677,7 +1677,7 @@
        FINAL UPDATE — ISLANDS / PORTUGUESE IMMERSION / BAHIA NIGHT
        ========================================================= */
 
-    /* Italiano Immersion: intentionally more discreet */
+    /* Italian Immersion: intentionally more discreet */
     .hero-immersion-button {
       min-height: 42px;
       padding: 0 18px;
@@ -1832,18 +1832,32 @@
       position: fixed;
       z-index: 9999;
       inset: 0;
-      display: grid;
-      place-items: center;
-      padding: 18px;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      overscroll-behavior: contain;
+      padding:
+        max(12px, env(safe-area-inset-top))
+        max(12px, env(safe-area-inset-right))
+        max(12px, env(safe-area-inset-bottom))
+        max(12px, env(safe-area-inset-left));
       background: rgba(0,0,0,.78);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
     }
 
     .reservation-dialog {
-      width: min(100%, 560px);
-      max-height: min(90vh, 760px);
+      position: relative;
+      width: min(calc(100vw - 24px), 560px);
+      max-height: calc(100vh - 24px);
+      max-height: calc(100dvh - 24px);
       overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
       padding: 24px;
       border: 1px solid rgba(200,168,90,.34);
       border-radius: 24px;
@@ -1973,6 +1987,50 @@
       text-decoration: none;
     }
 
+
+    /* After a booking is submitted, show only the confirmation/payment panel. */
+    .reservation-dialog.is-success > :not(.reservation-success),
+    .old-town-dialog.is-success > :not(.old-town-success) {
+      display: none !important;
+    }
+
+    .reservation-dialog.is-success,
+    .old-town-dialog.is-success {
+      width: min(calc(100vw - 24px), 520px);
+      max-height: calc(100dvh - 24px);
+      overflow-y: auto;
+    }
+
+    .reservation-dialog.is-success .reservation-success,
+    .old-town-dialog.is-success .old-town-success {
+      margin-top: 0;
+    }
+
+    .success-back-button {
+      display: flex;
+      width: 100%;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 14px;
+      background: rgba(255,255,255,.06);
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    @media (max-width: 480px) {
+      .reservation-dialog,
+      .old-town-dialog {
+        width: calc(100vw - 20px);
+        max-height: calc(100dvh - 20px);
+        padding: 20px 16px;
+        border-radius: 20px;
+      }
+    }
+
     @media (min-width: 760px) {
       .bahia-night-schedule {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2017,7 +2075,7 @@
       background: rgba(0,0,0,.5);
     }
 
-    /* Italiano program moved away from hero and given its own quieter block */
+    /* Italian program moved away from hero and given its own quieter block */
     .immersion-section {
       margin-top: 0;
       padding: 34px 0 38px;
@@ -2083,18 +2141,32 @@
       position: fixed;
       z-index: 10000;
       inset: 0;
-      display: grid;
-      place-items: center;
-      padding: 18px;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      overscroll-behavior: contain;
+      padding:
+        max(12px, env(safe-area-inset-top))
+        max(12px, env(safe-area-inset-right))
+        max(12px, env(safe-area-inset-bottom))
+        max(12px, env(safe-area-inset-left));
       background: rgba(0,0,0,.8);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
     }
 
     .old-town-dialog {
-      width: min(100%, 560px);
-      max-height: min(90vh, 780px);
+      position: relative;
+      width: min(calc(100vw - 24px), 560px);
+      max-height: calc(100vh - 24px);
+      max-height: calc(100dvh - 24px);
       overflow-y: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
       padding: 24px;
       border: 1px solid rgba(200,168,90,.34);
       border-radius: 24px;
@@ -2237,7 +2309,7 @@
     #paypal-container-X4ZNWPV789W4Q {
       min-height: 48px;
     }
-/* Italiano Immersion — collapsed until clicked */
+/* Italian Immersion — collapsed until clicked */
     .immersion-details {
       border: 1px solid rgba(255,255,255,.08);
       border-radius: 20px;
@@ -3263,9 +3335,11 @@
 <summary class="free-tour-button">MORRO DE SÃO PAULO</summary>
 <div class="hero-offer-info">
 <p><strong>R$ 250 per person.</strong></p>
+<p><strong>Book now and pay later.</strong></p>
 <p>Hotel/accommodation pickup at <strong>05:20</strong>.</p>
+<p><strong>Boarding fee included.</strong></p>
 <p>Daily departures.</p>
-<button class="hero-offer-cta excursion-book-button" data-tour="morro" type="button">BOOK NOW</button>
+<button class="hero-offer-cta excursion-book-button" data-tour="morro" type="button">BOOK NOW — PAY LATER</button>
 </div>
 </details>
 
@@ -3273,9 +3347,10 @@
 <summary class="free-tour-button">PRAIA DO FORTE + GUARAJUBA</summary>
 <div class="hero-offer-info">
 <p><strong>R$ 120 per person.</strong></p>
+<p><strong>Book now and pay later.</strong></p>
 <p>Hotel/accommodation pickup at <strong>07:00</strong>.</p>
-<p>Praia do Forte + Guarajuba · daily departures.</p>
-<button class="hero-offer-cta excursion-book-button" data-tour="praia" type="button">BOOK NOW</button>
+<p>Daily departures.</p>
+<button class="hero-offer-cta excursion-book-button" data-tour="praia" type="button">BOOK NOW — PAY LATER</button>
 </div>
 </details>
 
@@ -3287,7 +3362,7 @@
 <p>Hotel/accommodation pickup at <strong>07:00</strong>.</p>
 <p><strong>Boarding fee included.</strong></p>
 <p>Daily departures.</p>
-<button class="hero-offer-cta excursion-book-button" data-tour="ilhas" type="button">BOOK NOW — PAGUE DEPOIS</button>
+<button class="hero-offer-cta excursion-book-button" data-tour="ilhas" type="button">BOOK NOW — PAY LATER</button>
 </div>
 </details>
 </div>
@@ -3301,12 +3376,12 @@
       </p>
 <nav aria-label="Select language" class="language-switcher">
 <a aria-current="page" class="language-button active" href="/">🇬🇧 English</a>
-<a class="language-button" href="/pt/">🇧🇷 Português</a>
-<a class="language-button" href="/es/">🇪🇸 Español</a>
-<a class="language-button" href="/it/">🇮🇹 Italiano</a>
-<a class="language-button" href="/fr/">🇫🇷 Français</a>
-<a class="language-button" href="/de/">🇩🇪 Deutsch</a>
-<a class="language-button" href="/he/">🇮🇱 עברית</a>
+<a class="language-button" href="/pt/">🇧🇷 Portuguese</a>
+<a class="language-button" href="/es/">🇪🇸 Spanish</a>
+<a class="language-button" href="/it/">🇮🇹 Italian</a>
+<a class="language-button" href="/fr/">🇫🇷 French</a>
+<a class="language-button" href="/de/">🇩🇪 German</a>
+<a class="language-button" href="/he/">🇮🇱 Hebrew</a>
 </nav>
 <div class="afro-tour-minimal">
 <button class="afro-tour-minimal-button" id="openOldTownReservation" type="button">AFRO TOUR OLD TOWN</button>
@@ -3315,7 +3390,7 @@
 </section>
 <div class="free-walking-access">
 <div class="container">
-<a aria-label="Formulário de acesso ao Free Walking Tour" href="https://docs.google.com/forms/d/e/1FAIpQLSeNEuT8lhgCT6F2dMunEJ8a64QnLSmTa0v5uKMLwRiynwehXg/viewform?usp=header" rel="noopener noreferrer" target="_blank">
+<a aria-label="Free Walking Tour access form" href="https://docs.google.com/forms/d/e/1FAIpQLSeNEuT8lhgCT6F2dMunEJ8a64QnLSmTa0v5uKMLwRiynwehXg/viewform?usp=header" rel="noopener noreferrer" target="_blank">
         Access the Free Walking Tour
       </a>
 </div>
@@ -3368,7 +3443,7 @@
 
 <div class="reservation-field">
 <label for="excursionPhone">Valid WhatsApp number with area/country code</label>
-<input autocomplete="tel" id="excursionPhone" inputmode="tel" name="WhatsApp valido" pattern="[+0-9() .-]{10,22}" placeholder="+1 ... / +44 ... / +55 71 ..." required="" type="tel"/>
+<input autocomplete="tel" id="excursionPhone" inputmode="tel" name="Valid WhatsApp" pattern="[+0-9() .-]{10,22}" placeholder="+1 ... / +44 ... / +55 71 ..." required="" type="tel" value="+"/>
 </div>
 
 <div class="reservation-total" id="excursionTotal">Total: —</div>
@@ -3389,6 +3464,7 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 <p>
 <strong>Suggestion:</strong> bring a change of clothes, a towel and sunscreen.
 </p>
+<button class="success-back-button" id="closeExcursionSuccess" type="button">BACK TO SITE</button>
 </div>
 </div>
 </div>
@@ -3397,6 +3473,8 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 (() => {
   const modal = document.getElementById("excursionModal");
   const closeButton = document.getElementById("closeExcursionReservation");
+  const successCloseButton = document.getElementById("closeExcursionSuccess");
+  const dialog = modal?.querySelector(".reservation-dialog");
   const form = document.getElementById("excursionForm");
   const submitButton = document.getElementById("excursionSubmit");
   const errorBox = document.getElementById("excursionError");
@@ -3424,14 +3502,14 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
       name: "Morro de São Paulo",
       price: 250,
       pickup: "05:20",
-      payLater: false,
-      feeInfo: ""
+      payLater: true,
+      feeInfo: "Boarding fee included"
     },
     praia: {
       name: "Praia do Forte + Guarajuba",
       price: 120,
       pickup: "07:00",
-      payLater: false,
+      payLater: true,
       feeInfo: ""
     },
     ilhas: {
@@ -3468,27 +3546,41 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 
   function validWhatsApp(value) {
     const digits = value.replace(/\D/g, "");
-    return digits.length >= 10 && digits.length <= 15;
+    return value.trim().startsWith("+") && digits.length >= 10 && digits.length <= 15;
   }
+
+  function keepLeadingPlus() {
+    const raw = phoneInput.value || "";
+    if (!raw.startsWith("+")) {
+      phoneInput.value = "+" + raw.replace(/\+/g, "");
+    }
+  }
+
+  phoneInput.addEventListener("focus", () => {
+    if (!phoneInput.value.trim()) phoneInput.value = "+";
+  });
+  phoneInput.addEventListener("input", keepLeadingPlus);
 
   function openModal(tourKey) {
     selectedTour = TOURS[tourKey];
     if (!selectedTour) return;
 
     form.reset();
+    phoneInput.value = "+";
     form.hidden = false;
     successBox.hidden = true;
+    dialog?.classList.remove("is-success");
     errorBox.hidden = true;
     errorBox.textContent = "";
 
     title.textContent = selectedTour.name;
     intro.textContent = selectedTour.payLater
-      ? `R$ ${selectedTour.price} por pessoa. Book now and pay later.`
+      ? `R$ ${selectedTour.price} per person. Book now and pay later.`
       : `R$ ${selectedTour.price} per person.`;
 
     important.textContent = selectedTour.feeInfo
-      ? `Hotel/accommodation pickup at ${selectedTour.pickup}. ${selectedTour.feeInfo}. Saída diária.`
-      : `Hotel/accommodation pickup at ${selectedTour.pickup}. Saída diária.`;
+      ? `Hotel/accommodation pickup at ${selectedTour.pickup}. ${selectedTour.feeInfo}. Daily departures.`
+      : `Hotel/accommodation pickup at ${selectedTour.pickup}. Daily departures.`;
 
     experienceHidden.value = selectedTour.name;
     priceHidden.value = `R$ ${selectedTour.price}`;
@@ -3506,6 +3598,7 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 
   function closeModal() {
     modal.hidden = true;
+    dialog?.classList.remove("is-success");
     document.body.style.overflow = "";
   }
 
@@ -3515,6 +3608,7 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 
   guestsInput.addEventListener("input", updateTotal);
   closeButton.addEventListener("click", closeModal);
+  successCloseButton?.addEventListener("click", closeModal);
 
   modal.addEventListener("click", (event) => {
     if (event.target === modal) closeModal();
@@ -3563,6 +3657,8 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
         : `Pickup scheduled for ${selectedTour.pickup}.`;
 
       successBox.hidden = false;
+      dialog?.classList.add("is-success");
+      if (dialog) dialog.scrollTop = 0;
     } catch (error) {
       errorBox.textContent = "We could not confirm the booking. Check your connection and try again.";
       errorBox.hidden = false;
@@ -3581,7 +3677,7 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 <p class="bahia-night-kicker">Bahian Food &amp; Folkloric Show</p>
 <h2 class="bahia-night-title">Bahia Night</h2>
 <p class="bahia-night-days">Thursday and Saturday</p>
-<div aria-label="Foto del buffet e dello spettacolo folcloristico Bahia Night" class="bahia-night-gallery">
+<div aria-label="Bahia Night buffet and folkloric show photos" class="bahia-night-gallery">
 <figure>
 <img alt="Bahian buffet at Coliseu da Bahia" loading="lazy" src="/public/14B42228-0DAF-40D8-BFBC-EF57ED275AB3.png"/>
 <figcaption>Bahian Buffet</figcaption>
@@ -3599,7 +3695,7 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 <figcaption>Coliseu Experience</figcaption>
 </figure>
 </div>
-<div aria-label="Navigazione foto Bahia Night" class="bahia-night-carousel-dots" id="bahiaNightCarouselDots"></div>
+<div aria-label="Bahia Night photo navigation" class="bahia-night-carousel-dots" id="bahiaNightCarouselDots"></div>
 <div class="bahia-night-schedule">
 <div class="bahia-night-item">
 <strong>🍽️ 18:30 – 20:00 | Bahian Dinner</strong>
@@ -3616,7 +3712,7 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 </div>
 <div class="bahia-night-actions">
 <button class="bahia-night-book" id="openBahiaNightReservation" type="button">
-            BOOK NOW — ASSICURATI IL POSTO
+            BOOK NOW — SECURE YOUR SPOT
           </button>
 <details class="bahia-night-buffet">
 <summary>🍽️ View Buffet</summary>
@@ -3667,7 +3763,7 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 </div>
 <div class="reservation-field">
 <label for="bahiaNightPhone">WhatsApp / Phone</label>
-<input autocomplete="tel" id="bahiaNightPhone" name="WhatsApp / Phone" placeholder="+55 ..." required="" type="tel"/>
+<input autocomplete="tel" id="bahiaNightPhone" inputmode="tel" name="WhatsApp / Phone" placeholder="+55 ..." required="" type="tel" value="+"/>
 </div>
 <div class="reservation-field">
 <label for="bahiaNightEmail">Email</label>
@@ -3691,9 +3787,10 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 <div class="reservation-success" hidden="" id="bahiaNightSuccess">
 <h3>Information sent successfully!</h3>
 <p>To Know Salvador received your reservation details. Now complete the payment below to confirm and secure your spot.</p>
-<a class="paypal-button" href="https://www.paypal.com/ncp/payment/4J7JEH69L9ZUQ" rel="noopener noreferrer" target="_blank">
+<a class="paypal-button" href="https://www.paypal.com/ncp/payment/4J7JEH69L9ZUQ" id="bahiaNightPayPalLink" rel="noopener noreferrer" target="_blank">
           PAY NOW WITH PAYPAL
         </a>
+<button class="success-back-button" id="closeBahiaNightSuccess" type="button">BACK TO SITE</button>
 </div>
 </div>
 </div>
@@ -3704,24 +3801,24 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 <p class="football-tour-kicker">Local Football Experience</p>
 <h2 class="football-tour-title">Football Tour — Arena Fonte Nova</h2>
 <p class="football-tour-copy">
-          Vivi l’atmosfera del calcio di Salvador dall’interno dello stadio,
-          tra tifosi locali, cori, colori e l’energia del giorno della partita.
+          Experience the atmosphere of Salvador football from inside the stadium,
+          surrounded by local fans, chants, colors and the energy of match day.
         </p>
-<div aria-label="Foto del Tour di Calcio all’Arena Fonte Nova" class="football-tour-gallery">
+<div aria-label="Football Tour photos at Arena Fonte Nova" class="football-tour-gallery">
 <figure>
-<img alt="Ospiti con i colori del Bahia all’interno dell’Arena Fonte Nova" loading="lazy" src="/public/IMG_8163.jpeg"/>
+<img alt="Guests wearing Bahia colors inside Arena Fonte Nova" loading="lazy" src="/public/IMG_8163.jpeg"/>
 <figcaption>Joy &amp; Fun</figcaption>
 </figure>
 <figure>
-<img alt="Ospiti del Tour di Calcio durante l’atmosfera della partita a Salvador" loading="lazy" src="/public/IMG_8166.jpeg"/>
+<img alt="Football Tour guests enjoying the match-day atmosphere in Salvador" loading="lazy" src="/public/IMG_8166.jpeg"/>
 <figcaption>Match-day Experience</figcaption>
 </figure>
 <figure>
-<img alt="Tifosi e bandiere all’interno dell’Arena Fonte Nova a Salvador" loading="lazy" src="/public/IMG_8169.jpeg"/>
+<img alt="Fans and flags inside Arena Fonte Nova in Salvador" loading="lazy" src="/public/IMG_8169.jpeg"/>
 <figcaption>Arena Fonte Nova</figcaption>
 </figure>
 <figure>
-<img alt="Esperienza del Tour di Football in Salvador" loading="lazy" src="/public/IMG_8173.jpeg"/>
+<img alt="Football Tour experience in Salvador" loading="lazy" src="/public/IMG_8173.jpeg"/>
 <figcaption>Football in Salvador</figcaption>
 </figure>
 </div>
@@ -3954,7 +4051,7 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 <div class="creator-grid two-col" style="margin-top:15px;">
 <div class="creator-field">
 <label for="creatorFollowers">Approximate total number of followers</label>
-<input id="creatorFollowers" min="0" name="Approximate total number of followers" placeholder="es. 25000" required="" step="1" type="number"/>
+<input id="creatorFollowers" min="0" name="Approximate total number of followers" placeholder="e.g. 25000" required="" step="1" type="number"/>
 </div>
 <div class="creator-field">
 <label for="creatorDays">How many days in Salvador?</label>
@@ -3997,7 +4094,7 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 <section class="connection-section">
 <div class="container">
 <p class="eyebrow connection-eyebrow">
-        Selectto da Adriano Marques
+        Selected by Adriano Marques
       </p>
 <h2 class="section-title connection-title">
         Your local connection in Salvador.
@@ -4324,14 +4421,6 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
       setText(".history-copy", content.historyCopy);
       setText(".history-button-text", content.historyButton);
 
-      if (historyLink) {
-        updateWhatsAppElement(
-          historyLink,
-          getGeneralReservationNumber(language),
-          content.historyMessage
-        );
-      }
-
       setText(".connection-eyebrow", content.connectionEyebrow);
       setText(".connection-title", content.connectionTitle);
       setText(".connection-copy", content.connectionCopy);
@@ -4386,11 +4475,14 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 <script>
     (() => {
       const modal = document.getElementById("bahiaNightModal");
+      const dialog = modal?.querySelector(".reservation-dialog");
       const openButton = document.getElementById("openBahiaNightReservation");
       const closeButton = document.getElementById("closeBahiaNightReservation");
+      const successCloseButton = document.getElementById("closeBahiaNightSuccess");
       const form = document.getElementById("bahiaNightForm");
       const guestsInput = document.getElementById("bahiaNightGuests");
       const dateInput = document.getElementById("bahiaNightDate");
+      const phoneInput = document.getElementById("bahiaNightPhone");
       const totalLabel = document.getElementById("bahiaNightTotal");
       const totalHidden = document.getElementById("bahiaNightTotalHidden");
       const errorBox = document.getElementById("bahiaNightError");
@@ -4431,19 +4523,46 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
         return weekday === 4 || weekday === 6;
       }
 
+      function keepLeadingPlus() {
+        const raw = phoneInput.value || "";
+        if (!raw.startsWith("+")) {
+          phoneInput.value = "+" + raw.replace(/\+/g, "");
+        }
+      }
+
+      phoneInput.addEventListener("focus", () => {
+        if (!phoneInput.value.trim()) phoneInput.value = "+";
+      });
+      phoneInput.addEventListener("input", keepLeadingPlus);
+
+      function resetModalState() {
+        form.reset();
+        phoneInput.value = "+";
+        form.hidden = false;
+        successBox.hidden = true;
+        dialog?.classList.remove("is-success");
+        errorBox.hidden = true;
+        errorBox.textContent = "";
+        updateTotal();
+      }
+
       function showModal() {
+        resetModalState();
         modal.hidden = false;
         document.body.style.overflow = "hidden";
+        if (dialog) dialog.scrollTop = 0;
         setTimeout(() => document.getElementById("bahiaNightName")?.focus(), 0);
       }
 
       function hideModal() {
         modal.hidden = true;
+        dialog?.classList.remove("is-success");
         document.body.style.overflow = "";
       }
 
       openButton.addEventListener("click", showModal);
       closeButton.addEventListener("click", hideModal);
+      successCloseButton?.addEventListener("click", hideModal);
 
       modal.addEventListener("click", (event) => {
         if (event.target === modal) hideModal();
@@ -4456,23 +4575,13 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
       guestsInput.addEventListener("input", updateTotal);
       updateTotal();
 
-      // If the guest returns to the page after opening PayPal,
-      // restore the screen with the meeting point.
-      if (localStorage.getItem("toKnowSalvadorAfroTourPaymentStep") === "1") {
-        form.hidden = true;
-        successBox.hidden = false;
-        modal.hidden = false;
-        document.body.style.overflow = "hidden";
-        setTimeout(renderPayPalButton, 150);
-      }
-
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
         errorBox.hidden = true;
         errorBox.textContent = "";
 
         if (!isThursdayOrSaturday(dateInput.value)) {
-          errorBox.textContent = "Bahia Night está disponível apenas às quintas-feiras e aos sábados. Select um desses dias.";
+          errorBox.textContent = "Bahia Night is available only on Thursdays and Saturdays. Please choose one of those days.";
           errorBox.hidden = false;
           dateInput.focus();
           return;
@@ -4482,7 +4591,7 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 
         updateTotal();
         submitButton.disabled = true;
-        submitButton.textContent = "INVIO IN CORSO...";
+        submitButton.textContent = "SENDING...";
 
         try {
           const response = await fetch(form.action, {
@@ -4497,8 +4606,10 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 
           form.hidden = true;
           successBox.hidden = false;
+          dialog?.classList.add("is-success");
+          if (dialog) dialog.scrollTop = 0;
         } catch (error) {
-          errorBox.textContent = "Não foi possível enviar sua reserva agora. Tente novamente ou entre em contato com a To Know Salvador pelo WhatsApp.";
+          errorBox.textContent = "We could not send your reservation right now. Please try again or contact To Know Salvador on WhatsApp.";
           errorBox.hidden = false;
         } finally {
           submitButton.disabled = false;
@@ -4542,7 +4653,7 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 <div class="old-town-field">
 <label for="oldTownTime">Preferred time</label>
 <select id="oldTownTime" name="Preferred time" required="">
-<option value="">Select un orario</option>
+<option value="">Select a time</option>
 <option value="10:00">10:00</option>
 <option value="14:30">14:30</option>
 </select>
@@ -4557,14 +4668,14 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
 <select id="oldTownLanguage" name="Preferred language" required="">
 <option value="">Select</option>
 <option value="English">English</option>
-<option value="Português">Português</option>
+<option value="Portuguese">Portuguese</option>
 <option value="Spanish">Spanish</option>
-<option value="Italiano">Italiano</option>
+<option value="Italian">Italian</option>
 </select>
 </div>
 <div class="old-town-field">
 <label for="oldTownPhone">WhatsApp / Phone</label>
-<input autocomplete="tel" id="oldTownPhone" name="WhatsApp / Phone" placeholder="+55 ..." required="" type="tel"/>
+<input autocomplete="tel" id="oldTownPhone" inputmode="tel" name="WhatsApp / Phone" placeholder="+55 ..." required="" type="tel" value="+"/>
 </div>
 <div class="old-town-field">
 <label for="oldTownEmail">Email</label>
@@ -4581,7 +4692,7 @@ Your booking has been confirmed and your details were sent to To Know Salvador.
           To Know Salvador received your reservation details. Now complete the PayPal payment to confirm your reservation.
         </p>
 <p class="old-town-paypal-note">
-          Primeiro reserve ✓ &nbsp; Depois pague ✓
+          First reserve ✓ &nbsp; Then pay ✓
         </p>
 <div id="paypal-container-X4ZNWPV789W4Q"></div>
 
@@ -4592,6 +4703,7 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
 Open the meeting point on the map
 </a>
 </div>
+<button class="success-back-button" id="closeOldTownSuccess" type="button">BACK TO SITE</button>
 </div>
 </div>
 </div>
@@ -4600,13 +4712,16 @@ Open the meeting point on the map
 <script>
     (() => {
       const modal = document.getElementById("oldTownModal");
+      const dialog = modal?.querySelector(".old-town-dialog");
       const openButton = document.getElementById("openOldTownReservation");
       const closeButton = document.getElementById("closeOldTownReservation");
+      const successCloseButton = document.getElementById("closeOldTownSuccess");
       const form = document.getElementById("oldTownForm");
       const successBox = document.getElementById("oldTownSuccess");
       const errorBox = document.getElementById("oldTownError");
       const submitButton = document.getElementById("oldTownSubmit");
       const guestsInput = document.getElementById("oldTownGuests");
+      const phoneInput = document.getElementById("oldTownPhone");
       const totalLabel = document.getElementById("oldTownTotal");
       const totalHidden = document.getElementById("oldTownTotalHidden");
 
@@ -4636,22 +4751,49 @@ Open the meeting point on the map
         totalHidden.value = `US$${total}`;
       }
 
+      function keepLeadingPlus() {
+        const raw = phoneInput.value || "";
+        if (!raw.startsWith("+")) {
+          phoneInput.value = "+" + raw.replace(/\+/g, "");
+        }
+      }
+
+      phoneInput.addEventListener("focus", () => {
+        if (!phoneInput.value.trim()) phoneInput.value = "+";
+      });
+      phoneInput.addEventListener("input", keepLeadingPlus);
+
       guestsInput.addEventListener("input", updateOldTownTotal);
       updateOldTownTotal();
 
+      function resetModalState() {
+        form.reset();
+        phoneInput.value = "+";
+        form.hidden = false;
+        successBox.hidden = true;
+        dialog?.classList.remove("is-success");
+        errorBox.hidden = true;
+        errorBox.textContent = "";
+        updateOldTownTotal();
+      }
+
       function showModal() {
+        resetModalState();
         modal.hidden = false;
         document.body.style.overflow = "hidden";
+        if (dialog) dialog.scrollTop = 0;
         setTimeout(() => document.getElementById("oldTownName")?.focus(), 0);
       }
 
       function hideModal() {
         modal.hidden = true;
+        dialog?.classList.remove("is-success");
         document.body.style.overflow = "";
       }
 
       openButton.addEventListener("click", showModal);
       closeButton.addEventListener("click", hideModal);
+      successCloseButton?.addEventListener("click", hideModal);
 
       modal.addEventListener("click", (event) => {
         if (event.target === modal) hideModal();
@@ -4703,7 +4845,7 @@ Open the meeting point on the map
         }
 
         submitButton.disabled = true;
-        submitButton.textContent = "INVIO IN CORSO...";
+        submitButton.textContent = "SENDING...";
 
         try {
           const response = await fetch(form.action, {
@@ -4718,7 +4860,8 @@ Open the meeting point on the map
 
           form.hidden = true;
           successBox.hidden = false;
-          localStorage.setItem("toKnowSalvadorAfroTourPaymentStep", "1");
+          dialog?.classList.add("is-success");
+          if (dialog) dialog.scrollTop = 0;
           renderPayPalButton();
         } catch (error) {
           errorBox.textContent = "We could not send your reservation right now. Please try again.";
@@ -4769,7 +4912,7 @@ Open the meeting point on the map
         if (!form.reportValidity()) return;
 
         submitButton.disabled = true;
-        submitButton.textContent = "INVIO IN CORSO...";
+        submitButton.textContent = "SENDING...";
 
         try {
           const response = await fetch(form.action, {
@@ -4777,7 +4920,7 @@ Open the meeting point on the map
             body: new FormData(form),
             headers: { "Accept": "application/json" }
           });
-          if (!response.ok) throw new Error("Il servizio di invio ha restituito un errore.");
+          if (!response.ok) throw new Error("The submission service returned an error.");
           form.hidden = true;
           success.hidden = false;
         } catch (error) {
@@ -4807,7 +4950,7 @@ Open the meeting point on the map
         const dot = document.createElement("button");
         dot.type = "button";
         dot.className = "bahia-night-carousel-dot";
-        dot.setAttribute("aria-label", `Mostrar foto ${index + 1}`);
+        dot.setAttribute("aria-label", `Show photo ${index + 1}`);
         dot.addEventListener("click", () => {
           goTo(index);
           restartAfterInteraction();
@@ -5029,5 +5172,54 @@ Open the meeting point on the map
       startAuto();
     })();
   </script>
+
+<script>
+  (() => {
+    try {
+      localStorage.removeItem("toKnowSalvadorAfroTourPaymentStep");
+    } catch (error) {
+      /* Storage can be unavailable in strict privacy modes; no action is required. */
+    }
+
+    const paymentModalIds = ["bahiaNightModal", "oldTownModal"];
+    let leftWhilePaymentScreenWasOpen = false;
+
+    function paymentScreenIsOpen() {
+      return paymentModalIds.some((modalId) => {
+        const modal = document.getElementById(modalId);
+        if (!modal || modal.hidden) return false;
+        return Boolean(modal.querySelector(".is-success"));
+      });
+    }
+
+    function returnToNormalSite() {
+      ["excursionModal", "bahiaNightModal", "oldTownModal"].forEach((modalId) => {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.hidden = true;
+      });
+
+      document.querySelectorAll(".reservation-dialog.is-success, .old-town-dialog.is-success")
+        .forEach((dialog) => dialog.classList.remove("is-success"));
+
+      document.body.style.overflow = "";
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden && paymentScreenIsOpen()) {
+        leftWhilePaymentScreenWasOpen = true;
+        return;
+      }
+
+      if (!document.hidden && leftWhilePaymentScreenWasOpen) {
+        leftWhilePaymentScreenWasOpen = false;
+        returnToNormalSite();
+      }
+    });
+
+    window.addEventListener("pageshow", (event) => {
+      if (event.persisted) returnToNormalSite();
+    });
+  })();
+</script>
 </body>
 </html>
