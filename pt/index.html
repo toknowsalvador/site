@@ -2934,6 +2934,97 @@
   }
 }
 
+
+  /* =========================================================
+     UX UPDATE — COMPACT LANGUAGE ACCESS / COLLAPSIBLE TRANSPARENCY
+     ========================================================= */
+
+  /* Mantém o seletor abaixo do hero, mas remove o título e reduz o espaço
+     vertical para que os idiomas apareçam mais cedo na primeira tela. */
+  .language-section-compact {
+    padding: 4px 0 12px;
+    margin-top: -12px;
+    background: var(--black);
+  }
+
+  .language-section-compact .language-switcher {
+    margin: 0 auto;
+  }
+
+  .language-section-compact .afro-tour-minimal {
+    margin-top: 10px;
+  }
+
+  @media (max-width: 480px) {
+    .language-section-compact {
+      padding-top: 2px;
+      margin-top: -14px;
+    }
+  }
+
+  /* A transparência operacional fica compacta até o visitante clicar. */
+  details.agency-transparency {
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .agency-transparency-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 17px 18px;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .agency-transparency-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .agency-transparency-summary-text {
+    display: block;
+    min-width: 0;
+  }
+
+  .agency-transparency-summary .agency-transparency-kicker {
+    display: block;
+  }
+
+  .agency-transparency-summary-copy {
+    display: block;
+    margin-top: 5px;
+    color: rgba(255,255,255,.58);
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .agency-transparency-arrow {
+    display: grid;
+    place-items: center;
+    flex: 0 0 32px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(200,168,90,.16);
+    color: var(--gold-light);
+    transition: transform 180ms ease, background 180ms ease;
+  }
+
+  details.agency-transparency[open] .agency-transparency-arrow {
+    transform: rotate(90deg);
+    background: rgba(200,168,90,.28);
+  }
+
+  .agency-transparency-body {
+    padding: 0 18px 18px;
+    border-top: 1px solid rgba(255,255,255,.07);
+  }
+
+  .agency-transparency-body .agency-transparency-copy {
+    margin-top: 15px;
+  }
+
 </style>
 <style>
     /* CONTENT CREATOR COLLABORATIONS */
@@ -3543,12 +3634,9 @@
 })();
 </script>
 
-<!-- LANGUAGES -->
-<section class="language-section">
+<!-- LANGUAGES + AFRO TOUR QUICK ACCESS -->
+<section class="language-section language-section-compact">
 <div class="container">
-<p class="language-label">
-        Selecione o idioma
-      </p>
 <nav aria-label="Selecione o idioma" class="language-switcher">
 <a class="language-button" href="/">🇬🇧 English</a>
 <a aria-current="page" class="language-button active" href="/pt/">🇧🇷 Português</a>
@@ -4180,8 +4268,15 @@ Uma opção para quem quer conhecer Boipeba sem sobrecarregar a tela inicial. Os
             Para agências internacionais, empresas, instituições e grupos privados que precisam de coordenação local de confiança em Salvador.
           </p>
 </div>
-<div class="agency-transparency">
-<p class="agency-transparency-kicker">Transparência operacional</p>
+<details class="agency-transparency">
+<summary class="agency-transparency-summary">
+<span class="agency-transparency-summary-text">
+<span class="agency-transparency-kicker">Transparência operacional</span>
+<span class="agency-transparency-summary-copy">Transporte, veículos e parceiros locais</span>
+</span>
+<span aria-hidden="true" class="agency-transparency-arrow">→</span>
+</summary>
+<div class="agency-transparency-body">
 <p class="agency-transparency-copy">
 Antes da confirmação, deixamos clara a estrutura do serviço para que agências e grupos privados saibam quem é responsável pelo transporte e pela coordenação local.
 </p>
@@ -4192,6 +4287,7 @@ Antes da confirmação, deixamos clara a estrutura do serviço para que agência
 <div class="agency-transparency-item"><strong>Condições claras</strong><span>Preços, inclusões, forma de pagamento e responsabilidades informados antes da confirmação.</span></div>
 </div>
 </div>
+</details>
 
 <div class="premium-list">
 <a class="whatsapp-question premium-question" data-premium-key="clients" href="#">
