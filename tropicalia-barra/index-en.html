@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Tropicália Restaurant menu in Salvador.">
+  <meta
+    name="description"
+    content="Menú del Restaurante Tropicália en Salvador."
+  >
   <meta name="theme-color" content="#171916">
 
-  <title>Tropicália Restaurant | Menu</title>
+  <title>Restaurante Tropicália | Menú</title>
 
   <style>
     :root {
-      --black: #171916;
-      --yellow: #f2c313;
-      --light-yellow: #ffdc57;
-      --white: #f8f4e8;
-      --gray: #c9c6ba;
-      --wood-1: #5f3c25;
-      --wood-2: #9c7045;
-      --border: rgba(255, 255, 255, 0.13);
+      --negro: #171916;
+      --amarillo: #f2c313;
+      --amarillo-claro: #ffdc57;
+      --blanco: #f8f4e8;
+      --gris: #c9c6ba;
+      --madera-1: #5f3c25;
+      --madera-2: #9c7045;
+      --borde: rgba(255, 255, 255, 0.13);
     }
 
     * {
@@ -30,9 +33,13 @@
       min-height: 100vh;
       padding: 18px 12px 38px;
       background:
-        radial-gradient(circle at top, rgba(255, 220, 87, 0.3), transparent 35%),
-        var(--yellow);
-      color: var(--white);
+        radial-gradient(
+          circle at top,
+          rgba(255, 220, 87, 0.3),
+          transparent 35%
+        ),
+        var(--amarillo);
+      color: var(--blanco);
       font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -41,52 +48,52 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .page {
+    .pagina {
       width: 100%;
       max-width: 650px;
       margin: auto;
     }
 
-    .languages {
+    .idiomas {
       display: flex;
       justify-content: center;
       gap: 8px;
       margin-bottom: 14px;
     }
 
-    .languages a {
+    .idiomas a {
       min-width: 50px;
       padding: 8px 12px;
       border-radius: 999px;
       background: rgba(255, 255, 255, 0.82);
-      color: var(--black);
+      color: var(--negro);
       font-size: 0.74rem;
       font-weight: 900;
       text-align: center;
       text-decoration: none;
     }
 
-    .languages a.active {
-      background: var(--black);
-      color: var(--yellow);
+    .idiomas a.activo {
+      background: var(--negro);
+      color: var(--amarillo);
     }
 
-    .frame {
+    .marco {
       padding: 9px;
       border-radius: 10px;
       background:
         linear-gradient(
           90deg,
-          var(--wood-1),
-          var(--wood-2) 20%,
+          var(--madera-1),
+          var(--madera-2) 20%,
           #6c452b 50%,
-          var(--wood-2) 80%,
-          var(--wood-1)
+          var(--madera-2) 80%,
+          var(--madera-1)
         );
       box-shadow: 0 18px 38px rgba(0, 0, 0, 0.36);
     }
 
-    .board {
+    .pizarra {
       overflow: hidden;
       border: 2px solid rgba(255, 255, 255, 0.12);
       border-radius: 4px;
@@ -102,17 +109,17 @@
           transparent 5px,
           rgba(255, 255, 255, 0.012) 6px
         ),
-        var(--black);
+        var(--negro);
       box-shadow: inset 0 0 46px rgba(0, 0, 0, 0.5);
     }
 
-    .header {
+    .cabecera {
       padding: 28px 20px 24px;
       text-align: center;
       border-bottom: 1px dashed rgba(255, 255, 255, 0.24);
     }
 
-    .brand {
+    .marca {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -120,7 +127,7 @@
       margin-bottom: 20px;
     }
 
-    .symbol {
+    .simbolo {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -142,12 +149,12 @@
       font-size: 2rem;
     }
 
-    .brand-text {
+    .marca-texto {
       text-align: left;
     }
 
-    .restaurant-name {
-      color: var(--yellow);
+    .nombre-restaurante {
+      color: var(--amarillo);
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(2rem, 9vw, 3.25rem);
       font-style: italic;
@@ -155,7 +162,7 @@
       line-height: 0.92;
     }
 
-    .restaurant-type {
+    .tipo-restaurante {
       margin-top: 6px;
       font-size: 0.68rem;
       font-weight: 900;
@@ -163,14 +170,14 @@
       text-transform: uppercase;
     }
 
-    .contacts {
+    .contactos {
       display: grid;
       gap: 8px;
       max-width: 430px;
       margin: 0 auto 23px;
     }
 
-    .contact {
+    .contacto {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -185,13 +192,13 @@
       text-decoration: none;
     }
 
-    .contact.phone {
-      border-color: var(--yellow);
-      background: var(--yellow);
-      color: var(--black);
+    .contacto.telefono {
+      border-color: var(--amarillo);
+      background: var(--amarillo);
+      color: var(--negro);
     }
 
-    .food-title {
+    .titulo-comida {
       font-size: clamp(2.7rem, 14vw, 5rem);
       font-weight: 950;
       letter-spacing: -0.055em;
@@ -199,51 +206,51 @@
       text-transform: uppercase;
     }
 
-    .homemade-title {
+    .titulo-casera {
       margin-top: 6px;
-      color: var(--yellow);
+      color: var(--amarillo);
       font-family: Georgia, "Times New Roman", serif;
       font-size: clamp(1.9rem, 9vw, 3.5rem);
       font-style: italic;
     }
 
-    .slogan {
+    .frase {
       margin-top: 16px;
-      color: var(--gray);
+      color: var(--gris);
       font-size: 0.94rem;
       line-height: 1.55;
     }
 
-    .slogan strong {
-      color: var(--white);
+    .frase strong {
+      color: var(--blanco);
     }
 
-    .section {
+    .seccion {
       padding: 25px 18px;
       border-top: 1px dashed rgba(255, 255, 255, 0.22);
     }
 
-    .section-title {
+    .titulo-seccion {
       margin-bottom: 17px;
-      color: var(--yellow);
+      color: var(--amarillo);
       font-size: 0.86rem;
       font-weight: 950;
       letter-spacing: 0.13em;
       text-transform: uppercase;
     }
 
-    .dish-list {
+    .lista-platos {
       display: grid;
       gap: 9px;
     }
 
-    .dish {
+    .plato {
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       align-items: center;
       gap: 12px;
       padding: 14px 13px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--borde);
       border-radius: 9px;
       background:
         linear-gradient(
@@ -253,20 +260,20 @@
         );
     }
 
-    .dish-name {
+    .nombre-plato {
       font-size: 1rem;
       font-weight: 800;
       line-height: 1.3;
     }
 
-    .price {
-      color: var(--light-yellow);
+    .precio {
+      color: var(--amarillo-claro);
       font-size: 1.05rem;
       font-weight: 950;
       white-space: nowrap;
     }
 
-    .availability {
+    .disponibilidad {
       margin-top: 17px;
       padding: 15px;
       border: 1px solid rgba(242, 195, 19, 0.23);
@@ -275,14 +282,16 @@
       text-align: center;
     }
 
-    .availability p {
-      color: var(--gray);
+    .disponibilidad p {
+      color: var(--gris);
       font-size: 0.82rem;
       line-height: 1.5;
     }
 
-    .availability-button {
+    .boton-disponibilidad {
       display: inline-flex;
+      align-items: center;
+      justify-content: center;
       margin-top: 12px;
       padding: 10px 16px;
       border: 1px solid rgba(255, 255, 255, 0.18);
@@ -293,39 +302,39 @@
       text-decoration: none;
     }
 
-    .choice-box {
+    .caja-opciones {
       padding: 18px;
       border: 1px solid rgba(242, 195, 19, 0.34);
       border-radius: 11px;
       background: rgba(242, 195, 19, 0.045);
     }
 
-    .choice-intro {
+    .introduccion {
       margin-bottom: 19px;
       font-size: 0.97rem;
       line-height: 1.5;
     }
 
-    .choice-group + .choice-group {
+    .grupo + .grupo {
       margin-top: 18px;
     }
 
-    .choice-name {
+    .nombre-opcion {
       margin-bottom: 8px;
-      color: var(--yellow);
+      color: var(--amarillo);
       font-size: 0.77rem;
       font-weight: 950;
       letter-spacing: 0.09em;
       text-transform: uppercase;
     }
 
-    .options {
+    .opciones {
       font-size: 0.98rem;
       line-height: 1.6;
     }
 
-    .or {
-      color: var(--yellow);
+    .o {
+      color: var(--amarillo);
       font-size: 0.8rem;
       font-weight: 950;
       text-transform: uppercase;
@@ -340,53 +349,53 @@
     .extras strong {
       display: block;
       margin-bottom: 7px;
-      color: var(--yellow);
+      color: var(--amarillo);
       font-size: 0.77rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .package {
+    .envase {
       display: flex;
       justify-content: space-between;
       gap: 15px;
       padding: 15px;
-      border: 1px solid var(--border);
+      border: 1px solid var(--borde);
       border-radius: 9px;
       background: rgba(255, 255, 255, 0.035);
     }
 
-    .review {
+    .resena {
       padding: 27px 19px;
       border-top: 1px dashed rgba(255, 255, 255, 0.22);
       text-align: center;
     }
 
-    .stars {
+    .estrellas {
       margin-bottom: 10px;
-      color: var(--yellow);
+      color: var(--amarillo);
       font-size: 1.2rem;
       letter-spacing: 0.1em;
     }
 
-    .review h2 {
+    .resena h2 {
       font-size: 1.05rem;
     }
 
-    .review p {
+    .resena p {
       max-width: 380px;
       margin: 9px auto 15px;
-      color: var(--gray);
+      color: var(--gris);
       font-size: 0.83rem;
       line-height: 1.5;
     }
 
-    .review-button {
+    .boton-resena {
       display: inline-flex;
       padding: 11px 19px;
       border-radius: 999px;
-      background: var(--yellow);
-      color: var(--black);
+      background: var(--amarillo);
+      color: var(--negro);
       font-size: 0.84rem;
       font-weight: 950;
       text-decoration: none;
@@ -408,7 +417,7 @@
     }
 
     .to-know a {
-      color: var(--light-yellow);
+      color: var(--amarillo-claro);
       font-size: 0.7rem;
       font-weight: 850;
       letter-spacing: 0.08em;
@@ -425,22 +434,22 @@
       text-transform: uppercase;
     }
 
-    .footer {
+    .pie {
       padding: 16px;
       border-top: 1px solid rgba(255, 255, 255, 0.06);
       text-align: center;
     }
 
-    .footer p {
+    .pie p {
       color: rgba(248, 244, 232, 0.45);
       font-size: 0.7rem;
       line-height: 1.5;
     }
 
     @media (min-width: 520px) {
-      .header,
-      .section,
-      .review {
+      .cabecera,
+      .seccion,
+      .resena {
         padding-left: 28px;
         padding-right: 28px;
       }
@@ -449,30 +458,30 @@
 </head>
 
 <body>
-  <main class="page">
+  <main class="pagina">
 
-    <nav class="languages" aria-label="Languages">
+    <nav class="idiomas" aria-label="Idiomas">
       <a href="index.html">PT</a>
-      <a class="active" href="index-en.html">EN</a>
-      <a href="index-es.html">ES</a>
+      <a href="index-en.html">EN</a>
+      <a class="activo" href="index-es.html">ES</a>
     </nav>
 
-    <div class="frame">
-      <article class="board">
+    <div class="marco">
+      <article class="pizarra">
 
-        <header class="header">
-          <div class="brand">
-            <div class="symbol" aria-hidden="true">🌴</div>
+        <header class="cabecera">
+          <div class="marca">
+            <div class="simbolo" aria-hidden="true">🌴</div>
 
-            <div class="brand-text">
-              <div class="restaurant-name">Tropicália</div>
-              <div class="restaurant-type">Bar and Restaurant</div>
+            <div class="marca-texto">
+              <div class="nombre-restaurante">Tropicália</div>
+              <div class="tipo-restaurante">Bar y Restaurante</div>
             </div>
           </div>
 
-          <div class="contacts">
+          <div class="contactos">
             <a
-              class="contact phone"
+              class="contacto telefono"
               href="https://wa.me/5571983163956"
               target="_blank"
               rel="noopener noreferrer"
@@ -481,7 +490,7 @@
             </a>
 
             <a
-              class="contact"
+              class="contacto"
               href="https://www.instagram.com/restaurantetropicallia/"
               target="_blank"
               rel="noopener noreferrer"
@@ -490,151 +499,171 @@
             </a>
           </div>
 
-          <div class="food-title">Homemade</div>
-          <div class="homemade-title">Food</div>
+          <div class="titulo-comida">Comida</div>
+          <div class="titulo-casera">Casera</div>
 
-          <p class="slogan">
-            Homemade food, <strong>full of flavor.</strong><br>
-            Prepared with <strong>our own seasoning.</strong>
+          <p class="frase">
+            Si es casero, <strong>tiene sabor.</strong><br>
+            Si tiene sabor, <strong>lleva nuestro sazón.</strong>
           </p>
         </header>
 
-        <section class="section">
-          <h2 class="section-title">Today's dishes</h2>
+        <section class="seccion">
+          <h2 class="titulo-seccion">Platos del día</h2>
 
-          <div class="dish-list">
-            <div class="dish">
-              <span class="dish-name">Beef liver strips</span>
-              <span class="price">R$ 23,00</span>
+          <div class="lista-platos">
+            <div class="plato">
+              <span class="nombre-plato">Pollo en salsa</span>
+              <span class="precio">R$ 23,00</span>
             </div>
 
-            <div class="dish">
-              <span class="dish-name">Grilled chicken fillet</span>
-              <span class="price">R$ 25,00</span>
+            <div class="plato">
+              <span class="nombre-plato">
+                Tiras de hígado de res
+              </span>
+              <span class="precio">R$ 25,00</span>
             </div>
 
-            <div class="dish">
-              <span class="dish-name">Brazilian-style pot roast</span>
-              <span class="price">R$ 27,00</span>
+            <div class="plato">
+              <span class="nombre-plato">
+                Filete de pollo a la plancha
+              </span>
+              <span class="precio">R$ 25,00</span>
             </div>
 
-            <div class="dish">
-              <span class="dish-name">Special beef steak</span>
-              <span class="price">R$ 32,00</span>
+            <div class="plato">
+              <span class="nombre-plato">
+                Mollejas de pollo en salsa
+              </span>
+              <span class="precio">R$ 26,00</span>
             </div>
 
-            <div class="dish">
-              <span class="dish-name">Beef steak with onions</span>
-              <span class="price">R$ 35,00</span>
+            <div class="plato">
+              <span class="nombre-plato">
+                Carne de res guisada
+              </span>
+              <span class="precio">R$ 29,00</span>
             </div>
 
-            <div class="dish">
-              <span class="dish-name">Brazilian sun-dried beef</span>
-              <span class="price">R$ 38,00</span>
+            <div class="plato">
+              <span class="nombre-plato">
+                Bistec con cebolla
+              </span>
+              <span class="precio">R$ 35,00</span>
             </div>
 
-            <div class="dish">
-              <span class="dish-name">Arrumadinho</span>
-              <span class="price">R$ 38,00</span>
+            <div class="plato">
+              <span class="nombre-plato">
+                Bistec a caballo
+              </span>
+              <span class="precio">R$ 38,00</span>
+            </div>
+
+            <div class="plato">
+              <span class="nombre-plato">Carne de sol</span>
+              <span class="precio">R$ 39,00</span>
             </div>
           </div>
 
-          <div class="availability">
+          <div class="disponibilidad">
             <p>
-              Some dishes may vary depending on the day's preparation.
+              Algunos platos pueden variar según la preparación del día.
             </p>
 
             <a
-              class="availability-button"
-              href="https://wa.me/5571983163956?text=Hello%2C%20I%20would%20like%20to%20check%20which%20dishes%20are%20available%20today."
+              class="boton-disponibilidad"
+              href="https://wa.me/5571983163956?text=Hola%2C%20me%20gustaría%20consultar%20qué%20platos%20están%20disponibles%20hoy."
               target="_blank"
               rel="noopener noreferrer"
             >
-              ✓ Check availability
+              ✓ Consultar disponibilidad
             </a>
           </div>
         </section>
 
-        <section class="section">
-          <h2 class="section-title">Side dishes</h2>
+        <section class="seccion">
+          <h2 class="titulo-seccion">Acompañamientos</h2>
 
-          <div class="choice-box">
-            <p class="choice-intro">
-              Choose one bean option and one salad option.
+          <div class="caja-opciones">
+            <p class="introduccion">
+              Elija una opción de frijoles y una opción de ensalada.
             </p>
 
-            <div class="choice-group">
-              <p class="choice-name">Beans</p>
+            <div class="grupo">
+              <p class="nombre-opcion">Frijoles</p>
 
-              <p class="options">
-                Beans in broth
-                <span class="or">or</span>
-                tropeiro beans
+              <p class="opciones">
+                Frijoles con caldo
+                <span class="o">o</span>
+                frijoles tropeiro
               </p>
             </div>
 
-            <div class="choice-group">
-              <p class="choice-name">Salad</p>
+            <div class="grupo">
+              <p class="nombre-opcion">Ensalada</p>
 
-              <p class="options">
-                Vinaigrette salad
-                <span class="or">or</span>
-                potato mayonnaise salad
+              <p class="opciones">
+                Vinagreta
+                <span class="o">o</span>
+                ensalada de mayonesa
               </p>
             </div>
 
             <div class="extras">
-              <strong>Tell your server</strong>
-              <p>Please let us know if you would like <b>hot sauce</b> and <b>farofa</b>.</p>
+              <strong>Informe al camarero</strong>
+
+              <p>
+                Díganos si desea <b>picante</b> y <b>farofa</b>.
+              </p>
             </div>
           </div>
         </section>
 
-        <section class="section">
-          <h2 class="section-title">Takeaway</h2>
+        <section class="seccion">
+          <h2 class="titulo-seccion">Para llevar</h2>
 
-          <div class="package">
-            <strong>Container</strong>
-            <span class="price">R$ 2,00</span>
+          <div class="envase">
+            <strong>Envase</strong>
+            <span class="precio">R$ 2,00</span>
           </div>
         </section>
 
-        <section class="review">
-          <div class="stars">★★★★★</div>
+        <section class="resena">
+          <div class="estrellas">★★★★★</div>
 
-          <h2>Did you enjoy your experience?</h2>
+          <h2>¿Disfrutó de su experiencia?</h2>
 
           <p>
-            Your review helps more people discover Tropicália.
+            Su reseña ayuda a más personas a conocer Tropicália.
           </p>
 
           <a
-            class="review-button"
+            class="boton-resena"
             href="https://share.google/NVNwTus3LGzz2FCiv"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Review us on Google
+            Dejar una reseña en Google
           </a>
         </section>
 
         <aside class="to-know">
-          <p>Discover Salvador beyond the beach.</p>
+          <p>Descubra Salvador más allá de la playa.</p>
 
           <a
             href="https://toknowsalvador.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            View experiences →
+            Ver experiencias →
           </a>
 
           <small>To Know Salvador</small>
         </aside>
 
-        <footer class="footer">
+        <footer class="pie">
           <p>
-            Tropicália Restaurant · Salvador, Bahia
+            Restaurante Tropicália · Salvador, Bahía
           </p>
         </footer>
 
