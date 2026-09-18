@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover Milton's traditional lime and coconut juice in Salvador and experiences recommended by him.">
+  <meta name="theme-color" content="#087a3e">
+  <title>Milton's Juice | Salvador</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23087a3e'/%3E%3Ccircle cx='32' cy='32' r='19' fill='%23f6cf34'/%3E%3Cpath d='M35 15c8 10 4 17-4 20-8 3-11 8-7 15' fill='none' stroke='%23fff' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --green-950: #033b24;
+      --green-900: #05552f;
+      --green-800: #087a3e;
+      --green-700: #0a9148;
+      --green-500: #23b35b;
+      --lime: #b9ec42;
+      --yellow: #f6cf34;
+      --cream: #fffbed;
+      --white: #ffffff;
+      --ink: #09261a;
+      --muted: #547062;
+      --shadow: 0 22px 60px rgba(1, 51, 29, 0.16);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--cream);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 10%, rgba(185, 236, 66, 0.18), transparent 25rem),
+        var(--cream);
+      font-family: "DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body.rtl { direction: rtl; }
+    body.rtl .brand,
+    body.rtl .language-wrap,
+    body.rtl .service-link,
+    body.rtl .location-row { direction: rtl; }
+
+    img { display: block; max-width: 100%; }
+    button, select, a { font: inherit; }
+    a { color: inherit; }
+
+    .container {
+      width: min(1160px, calc(100% - 36px));
+      margin-inline: auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(5, 85, 47, 0.93);
+      backdrop-filter: blur(16px);
+      color: var(--white);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--white);
+      text-decoration: none;
+      font-family: "Manrope", sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--green-950);
+      background: var(--yellow);
+      font-size: 1.2rem;
+    }
+
+    .language-wrap {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .language-wrap label {
+      font-size: 0.84rem;
+      font-weight: 700;
+      opacity: 0.9;
+    }
+
+    #languageSelect {
+      min-height: 44px;
+      padding: 8px 38px 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 999px;
+      color: var(--white);
+      background-color: rgba(255, 255, 255, 0.12);
+      cursor: pointer;
+      outline: none;
+    }
+
+    #languageSelect option { color: var(--ink); background: var(--white); }
+    #languageSelect:focus { box-shadow: 0 0 0 3px rgba(246, 207, 52, 0.45); }
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+      color: var(--white);
+      background: var(--green-800);
+      overflow: hidden;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 540px;
+      height: 540px;
+      top: -300px;
+      right: -130px;
+      background: rgba(185, 236, 66, 0.18);
+    }
+
+    .hero::after {
+      width: 420px;
+      height: 420px;
+      bottom: -280px;
+      left: 18%;
+      background: rgba(246, 207, 52, 0.14);
+    }
+
+    .hero-grid {
+      min-height: 680px;
+      padding: 76px 0 88px;
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 20px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin-top: 0;
+      font-family: "Manrope", sans-serif;
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+    }
+
+    h1 {
+      max-width: 650px;
+      margin-bottom: 24px;
+      font-size: clamp(3.1rem, 7vw, 6.35rem);
+      font-weight: 800;
+    }
+
+    .hero-copy {
+      max-width: 590px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(1.06rem, 2vw, 1.25rem);
+    }
+
+    .hero-image-wrap {
+      position: relative;
+      min-height: 520px;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      border: 10px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 30px 80px rgba(0, 39, 21, 0.34);
+    }
+
+    .hero-badge {
+      position: absolute;
+      left: -26px;
+      bottom: 34px;
+      max-width: 230px;
+      padding: 17px 20px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: var(--radius-md);
+      color: var(--green-950);
+      background: var(--yellow);
+      box-shadow: var(--shadow);
+      font-family: "Manrope", sans-serif;
+      font-weight: 800;
+      line-height: 1.2;
+      transform: rotate(-2deg);
+    }
+
+    .section { padding: 96px 0; }
+    .section-green { color: var(--white); background: var(--green-900); }
+
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--green-700);
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .section-green .section-kicker { color: var(--lime); }
+
+    h2 {
+      margin-bottom: 20px;
+      font-size: clamp(2.15rem, 5vw, 4rem);
+      font-weight: 800;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+    }
+
+    .section-green .lead { color: rgba(255, 255, 255, 0.8); }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .photo-stack {
+      position: relative;
+      min-height: 610px;
+    }
+
+    .story-photo-main,
+    .story-photo-small {
+      position: absolute;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .story-photo-main {
+      width: 82%;
+      height: 520px;
+      inset: 0 auto auto 0;
+    }
+
+    .story-photo-small {
+      width: 58%;
+      height: 310px;
+      right: 0;
+      bottom: 0;
+      border: 8px solid var(--cream);
+    }
+
+    .fact-list {
+      display: grid;
+      gap: 16px;
+      margin: 32px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .fact {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 20px;
+      border: 1px solid rgba(8, 122, 62, 0.12);
+      border-radius: var(--radius-md);
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .fact-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 15px;
+      background: #e4f6db;
+      font-size: 1.3rem;
+    }
+
+    .fact strong {
+      display: block;
+      margin-bottom: 4px;
+      font-family: "Manrope", sans-serif;
+      font-size: 1.04rem;
+    }
+
+    .fact p { margin: 0; color: var(--muted); }
+
+    .quote {
+      margin: 40px 0 0;
+      padding: 28px 30px;
+      border-left: 5px solid var(--yellow);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      background: #e8f6e9;
+      font-family: "Manrope", sans-serif;
+      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+      font-weight: 700;
+      line-height: 1.42;
+    }
+
+    body.rtl .quote {
+      border-left: 0;
+      border-right: 5px solid var(--yellow);
+      border-radius: var(--radius-md) 0 0 var(--radius-md);
+    }
+
+    .quote cite {
+      display: block;
+      margin-top: 12px;
+      color: var(--green-800);
+      font-family: "DM Sans", sans-serif;
+      font-size: 0.92rem;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .locations {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .location-card {
+      min-height: 180px;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .location-card .icon { font-size: 1.7rem; }
+    .location-card h3 { margin: 14px 0 10px; font-size: 1.3rem; }
+    .location-card p { margin: 0; color: rgba(255, 255, 255, 0.76); }
+
+    .services-heading { text-align: center; }
+    .services-heading .lead { margin-inline: auto; }
+
+    .services-grid {
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      position: relative;
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      padding: 26px;
+      border: 1px solid rgba(8, 122, 62, 0.13);
+      border-radius: var(--radius-lg);
+      background: var(--white);
+      box-shadow: 0 14px 38px rgba(3, 59, 36, 0.08);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(8, 122, 62, 0.3);
+      box-shadow: 0 24px 55px rgba(3, 59, 36, 0.14);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 17px;
+      color: var(--green-950);
+      background: var(--yellow);
+      font-size: 1.55rem;
+    }
+
+    .service-card h3 {
+      margin: 22px 0 10px;
+      font-size: 1.3rem;
+      letter-spacing: -0.025em;
+    }
+
+    .service-card p {
+      flex: 1;
+      margin: 0 0 24px;
+      color: var(--muted);
+    }
+
+    .service-link {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      color: var(--white);
+      background: var(--green-800);
+      text-decoration: none;
+      font-weight: 800;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .service-link:hover { background: var(--green-950); }
+    .service-link:active { transform: scale(0.98); }
+    .service-link:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+
+    footer {
+      padding: 36px 0;
+      color: rgba(255, 255, 255, 0.76);
+      background: var(--green-950);
+      text-align: center;
+    }
+
+    footer strong { color: var(--white); }
+    footer p { margin: 5px 0; }
+
+    .image-fallback {
+      background:
+        linear-gradient(135deg, rgba(185, 236, 66, 0.3), rgba(246, 207, 52, 0.14)),
+        var(--green-900);
+    }
+
+    @media (max-width: 940px) {
+      .hero-grid, .story-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 44px; padding-top: 58px; }
+      .hero-image-wrap { min-height: 440px; }
+      .hero-image { height: 440px; }
+      .photo-stack { min-height: 540px; }
+      .story-photo-main { height: 460px; }
+      .story-photo-small { height: 270px; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .locations { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(100% - 24px, 1160px); }
+      .nav { min-height: 66px; }
+      .brand span:last-child { display: none; }
+      .language-wrap label { display: none; }
+      #languageSelect { max-width: 190px; }
+      .hero-grid { min-height: auto; padding: 52px 0 70px; }
+      h1 { font-size: clamp(2.75rem, 15vw, 4.2rem); }
+      .hero-image-wrap { min-height: 370px; }
+      .hero-image { height: 370px; border-width: 6px; }
+      .hero-badge { left: 12px; bottom: 18px; max-width: 205px; }
+      .section { padding: 72px 0; }
+      .photo-stack { min-height: 430px; }
+      .story-photo-main { width: 88%; height: 350px; }
+      .story-photo-small { width: 62%; height: 220px; border-width: 5px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 0; }
+      .quote { padding: 22px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Milton's Juice">
+        <span class="brand-mark" aria-hidden="true">🥥</span>
+        <span>Milton's Juice</span>
+      </a>
+      <div class="language-wrap">
+        <label for="languageSelect" data-i18n="languageLabel">Language</label>
+        <select id="languageSelect" aria-label="Choose language">
+          <option value="en">English</option>
+          <option value="pt">Português</option>
+          <option value="es">Español</option>
+          <option value="de">Deutsch</option>
+          <option value="fr">Français</option>
+          <option value="zh">中文</option>
+          <option value="it">Italiano</option>
+          <option value="he">עברית</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow" data-i18n="heroEyebrow">A flavor of Salvador</p>
+          <h1 data-i18n="heroTitle">What is this juice?</h1>
+          <p class="hero-copy" data-i18n="heroText">A refreshing local drink made by Milton with lime, dried coconut and a little sugar — creamy, citrusy and unlike anything else in the Historic Center.</p>
+        </div>
+        <div class="hero-image-wrap">
+          <img class="hero-image" src="IMG_8984.webp" alt="Milton's traditional lime and coconut juice" data-i18n-alt="heroImageAlt">
+          <div class="hero-badge" data-i18n="heroBadge">Made by Milton in Salvador's Historic Center</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="story">
+      <div class="container story-grid">
+        <div class="photo-stack" aria-label="Milton and his juice stand">
+          <img class="story-photo-main" src="IMG_8986.jpeg" alt="Milton at his juice stand in Salvador" data-i18n-alt="miltonImageAlt">
+          <img class="story-photo-small" src="IMG_8988.jpeg" alt="The traditional juice served in Salvador" data-i18n-alt="juiceImageAlt">
+        </div>
+        <div>
+          <p class="section-kicker" data-i18n="storyKicker">The story behind the flavor</p>
+          <h2 data-i18n="storyTitle">Simple ingredients. A well-kept secret.</h2>
+          <p class="lead" data-i18n="storyLead">Milton reveals only the essentials: the drink contains lime, dried coconut and a little sugar. He prepares it himself and keeps it cold in eight-liter thermal bottles.</p>
+
+          <ul class="fact-list">
+            <li class="fact">
+              <span class="fact-icon" aria-hidden="true">🍋</span>
+              <div>
+                <strong data-i18n="factOneTitle">Fresh and creamy</strong>
+                <p data-i18n="factOneText">The coconut softens the lime's acidity and creates a smooth, distinctive texture.</p>
+              </div>
+            </li>
+            <li class="fact">
+              <span class="fact-icon" aria-hidden="true">🔐</span>
+              <div>
+                <strong data-i18n="factTwoTitle">The exact recipe stays secret</strong>
+                <p data-i18n="factTwoText">The proportions and preparation method are part of Milton's signature.</p>
+              </div>
+            </li>
+            <li class="fact">
+              <span class="fact-icon" aria-hidden="true">🤍</span>
+              <div>
+                <strong data-i18n="factThreeTitle">A white coconut drink</strong>
+                <p data-i18n="factThreeText">Despite the lime, the coconut gives the juice its characteristic light color.</p>
+              </div>
+            </li>
+          </ul>
+
+          <blockquote class="quote">
+            <span data-i18n="quote">“When I started, I never imagined it would become such a success.”</span>
+            <cite data-i18n="quoteAuthor">— Milton França</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-green" id="find">
+      <div class="container">
+        <p class="section-kicker" data-i18n="findKicker">Where to find it</p>
+        <h2 data-i18n="findTitle">Look for Milton in Salvador</h2>
+        <p class="lead" data-i18n="findLead">Locations and availability can vary during the day.</p>
+
+        <div class="locations">
+          <article class="location-card">
+            <span class="icon" aria-hidden="true">📍</span>
+            <h3 data-i18n="pelourinhoTitle">Pelourinho</h3>
+            <p data-i18n="pelourinhoText">Usually at Largo do Pelourinho, in front of Fundação Casa de Jorge Amado.</p>
+          </article>
+          <article class="location-card">
+            <span class="icon" aria-hidden="true">🌊</span>
+            <h3 data-i18n="barraTitle">Barra</h3>
+            <p data-i18n="barraText">There is also a point on the Barra waterfront, near Farol da Barra.</p>
+          </article>
+          <article class="location-card">
+            <span class="icon" aria-hidden="true">🥤</span>
+            <h3 data-i18n="priceTitle">Price</h3>
+            <p data-i18n="priceText">One cup costs R$10.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experiences">
+      <div class="container">
+        <div class="services-heading">
+          <p class="section-kicker" data-i18n="servicesKicker">Continue discovering Salvador</p>
+          <h2 data-i18n="servicesTitle">Partners recommended by Milton</h2>
+          <p class="lead" data-i18n="servicesLead">Choose an experience and request your reservation directly on WhatsApp.</p>
+        </div>
+
+        <div class="services-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>toknowsalvador.com</strong></p>
+      <p data-i18n="footerText">Local flavors and memorable experiences in Salvador, Bahia.</p>
+    </div>
+  </footer>
+
+  <script>
+    const PHONE = "5571993719791";
+
+    const services = [
+      { id: "itaparicaFrades", icon: "⛵" },
+      { id: "praiaForte", icon: "🐢" },
+      { id: "fradesOnly", icon: "🏝️" },
+      { id: "folkloricShow", icon: "🥁" },
+      { id: "beachRental", icon: "⛱️" },
+      { id: "diving", icon: "🤿" }
+    ];
+
+    const translations = {
+      en: {
+        languageLabel: "Language",
+        heroEyebrow: "A flavor of Salvador",
+        heroTitle: "What is this juice?",
+        heroText: "A refreshing local drink made by Milton with lime, dried coconut and a little sugar — creamy, citrusy and unlike anything else in the Historic Center.",
+        heroBadge: "Made by Milton in Salvador's Historic Center",
+        heroImageAlt: "Milton's traditional lime and coconut juice",
+        miltonImageAlt: "Milton at his juice stand in Salvador",
+        juiceImageAlt: "The traditional juice served in Salvador",
+        storyKicker: "The story behind the flavor",
+        storyTitle: "Simple ingredients. A well-kept secret.",
+        storyLead: "Milton reveals only the essentials: the drink contains lime, dried coconut and a little sugar. He prepares it himself and keeps it cold in eight-liter thermal bottles.",
+        factOneTitle: "Fresh and creamy",
+        factOneText: "The coconut softens the lime's acidity and creates a smooth, distinctive texture.",
+        factTwoTitle: "The exact recipe stays secret",
+        factTwoText: "The proportions and preparation method are part of Milton's signature.",
+        factThreeTitle: "A white coconut drink",
+        factThreeText: "Despite the lime, the coconut gives the juice its characteristic light color.",
+        quote: "“When I started, I never imagined it would become such a success.”",
+        quoteAuthor: "— Milton França",
+        findKicker: "Where to find it",
+        findTitle: "Look for Milton in Salvador",
+        findLead: "Locations and availability can vary during the day.",
+        pelourinhoTitle: "Pelourinho",
+        pelourinhoText: "Usually at Largo do Pelourinho, in front of Fundação Casa de Jorge Amado.",
+        barraTitle: "Barra",
+        barraText: "There is also a point on the Barra waterfront, near Farol da Barra.",
+        priceTitle: "Price",
+        priceText: "One cup costs R$10.",
+        servicesKicker: "Continue discovering Salvador",
+        servicesTitle: "Partners recommended by Milton",
+        servicesLead: "Choose an experience and request your reservation directly on WhatsApp.",
+        reserve: "Request reservation",
+        cardText: "Talk to the local team and check availability.",
+        footerText: "Local flavors and memorable experiences in Salvador, Bahia.",
+        whatsapp: "Hello! I came through Milton's recommendation and would like to request a reservation for: {service}.",
+        serviceNames: {
+          itaparicaFrades: "Itaparica Island + Frades Island",
+          praiaForte: "Praia do Forte + Guarajuba",
+          fradesOnly: "Frades Island only",
+          folkloricShow: "Bahia Folkloric Show",
+          beachRental: "Beach chair and umbrella rental at Porto da Barra",
+          diving: "Diving in the Bay of All Saints"
+        }
+      },
+      pt: {
+        languageLabel: "Idioma", heroEyebrow: "Um sabor de Salvador", heroTitle: "Que suco é esse?",
+        heroText: "Uma bebida local refrescante feita por Milton com limão, coco seco e um pouco de açúcar — cremosa, cítrica e diferente de tudo no Centro Histórico.",
+        heroBadge: "Feito por Milton no Centro Histórico de Salvador", heroImageAlt: "Suco tradicional de limão com coco do Milton", miltonImageAlt: "Milton em seu ponto de sucos em Salvador", juiceImageAlt: "O suco tradicional servido em Salvador",
+        storyKicker: "A história por trás do sabor", storyTitle: "Ingredientes simples. Um segredo bem guardado.", storyLead: "Milton revela apenas o essencial: o preparo leva limão, coco seco e um pouco de açúcar. Ele mesmo faz o suco e o mantém gelado em garrafas térmicas de oito litros.",
+        factOneTitle: "Refrescante e cremoso", factOneText: "O coco suaviza a acidez do limão e cria uma textura cremosa e única.", factTwoTitle: "A receita exata continua secreta", factTwoText: "As proporções e o modo de preparo fazem parte da assinatura de Milton.", factThreeTitle: "Um suco branco de coco", factThreeText: "Apesar do limão, é o coco que dá ao suco sua cor clara característica.",
+        quote: "“Quando comecei, não imaginava que seria esse sucesso todo.”", quoteAuthor: "— Milton França",
+        findKicker: "Onde encontrar", findTitle: "Procure por Milton em Salvador", findLead: "Os locais e a disponibilidade podem variar ao longo do dia.", pelourinhoTitle: "Pelourinho", pelourinhoText: "Geralmente no Largo do Pelourinho, em frente à Fundação Casa de Jorge Amado.", barraTitle: "Barra", barraText: "Há também um ponto na Orla da Barra, perto do Farol da Barra.", priceTitle: "Preço", priceText: "O copo custa R$10.",
+        servicesKicker: "Continue conhecendo Salvador", servicesTitle: "Parceiros recomendados por Milton", servicesLead: "Escolha uma experiência e solicite sua reserva diretamente pelo WhatsApp.", reserve: "Solicitar reserva", cardText: "Fale com a equipe local e consulte a disponibilidade.", footerText: "Sabores locais e experiências inesquecíveis em Salvador, Bahia.",
+        whatsapp: "Olá! Vim por recomendação do Milton e gostaria de solicitar uma reserva para: {service}.",
+        serviceNames: { itaparicaFrades: "Ilha de Itaparica + Ilha dos Frades", praiaForte: "Praia do Forte + Guarajuba", fradesOnly: "Apenas Ilha dos Frades", folkloricShow: "Show Folclórico da Bahia", beachRental: "Aluguel de barraca no Porto da Barra", diving: "Mergulho na Baía de Todos-os-Santos" }
+      },
+      es: {
+        languageLabel: "Idioma", heroEyebrow: "Un sabor de Salvador", heroTitle: "¿Qué jugo es este?", heroText: "Una bebida local refrescante preparada por Milton con limón, coco seco y un poco de azúcar: cremosa, cítrica y única en el Centro Histórico.", heroBadge: "Preparado por Milton en el Centro Histórico de Salvador", heroImageAlt: "Jugo tradicional de limón y coco de Milton", miltonImageAlt: "Milton en su puesto de jugos en Salvador", juiceImageAlt: "El jugo tradicional servido en Salvador",
+        storyKicker: "La historia detrás del sabor", storyTitle: "Ingredientes sencillos. Un secreto bien guardado.", storyLead: "Milton solo revela lo esencial: lleva limón, coco seco y un poco de azúcar. Él mismo lo prepara y lo mantiene frío en termos de ocho litros.", factOneTitle: "Fresco y cremoso", factOneText: "El coco suaviza la acidez del limón y crea una textura suave y especial.", factTwoTitle: "La receta exacta sigue siendo secreta", factTwoText: "Las proporciones y la preparación forman parte del sello de Milton.", factThreeTitle: "Una bebida blanca de coco", factThreeText: "Aunque lleva limón, el coco le da su característico color claro.", quote: "“Cuando empecé, nunca imaginé que tendría tanto éxito.”", quoteAuthor: "— Milton França",
+        findKicker: "Dónde encontrarlo", findTitle: "Busca a Milton en Salvador", findLead: "Los lugares y la disponibilidad pueden variar durante el día.", pelourinhoTitle: "Pelourinho", pelourinhoText: "Generalmente en Largo do Pelourinho, frente a la Fundação Casa de Jorge Amado.", barraTitle: "Barra", barraText: "También hay un punto en la costa de Barra, cerca del Farol da Barra.", priceTitle: "Precio", priceText: "El vaso cuesta R$10.", servicesKicker: "Sigue descubriendo Salvador", servicesTitle: "Socios recomendados por Milton", servicesLead: "Elige una experiencia y solicita tu reserva directamente por WhatsApp.", reserve: "Solicitar reserva", cardText: "Habla con el equipo local y consulta la disponibilidad.", footerText: "Sabores locales y experiencias inolvidables en Salvador de Bahía.", whatsapp: "¡Hola! Vengo por recomendación de Milton y quisiera solicitar una reserva para: {service}.", serviceNames: { itaparicaFrades: "Isla de Itaparica + Isla de los Frailes", praiaForte: "Praia do Forte + Guarajuba", fradesOnly: "Solo Isla de los Frailes", folkloricShow: "Espectáculo Folclórico de Bahía", beachRental: "Alquiler de sombrilla y sillas en Porto da Barra", diving: "Buceo en la Bahía de Todos los Santos" }
+      },
+      de: {
+        languageLabel: "Sprache", heroEyebrow: "Ein Geschmack von Salvador", heroTitle: "Was ist das für ein Saft?", heroText: "Ein erfrischendes lokales Getränk von Milton aus Limette, getrockneter Kokosnuss und etwas Zucker – cremig, zitronig und einzigartig in der Altstadt.", heroBadge: "Von Milton in Salvadors Altstadt zubereitet", heroImageAlt: "Miltons traditioneller Limetten-Kokos-Saft", miltonImageAlt: "Milton an seinem Saftstand in Salvador", juiceImageAlt: "Der traditionelle Saft aus Salvador", storyKicker: "Die Geschichte hinter dem Geschmack", storyTitle: "Einfache Zutaten. Ein gut gehütetes Geheimnis.", storyLead: "Milton verrät nur das Wesentliche: Limette, getrocknete Kokosnuss und etwas Zucker. Er bereitet den Saft selbst zu und hält ihn in Acht-Liter-Thermobehältern kühl.", factOneTitle: "Frisch und cremig", factOneText: "Die Kokosnuss mildert die Säure der Limette und sorgt für eine sanfte, besondere Textur.", factTwoTitle: "Das genaue Rezept bleibt geheim", factTwoText: "Mengenverhältnis und Zubereitung sind Teil von Miltons Handschrift.", factThreeTitle: "Ein weißes Kokosgetränk", factThreeText: "Trotz der Limette verleiht die Kokosnuss dem Saft seine typische helle Farbe.", quote: "„Als ich anfing, hätte ich nie gedacht, dass es so erfolgreich werden würde.“", quoteAuthor: "— Milton França", findKicker: "Wo man ihn findet", findTitle: "Finden Sie Milton in Salvador", findLead: "Standorte und Verfügbarkeit können sich im Laufe des Tages ändern.", pelourinhoTitle: "Pelourinho", pelourinhoText: "Meist am Largo do Pelourinho, gegenüber der Fundação Casa de Jorge Amado.", barraTitle: "Barra", barraText: "Einen weiteren Stand gibt es an der Uferpromenade von Barra, nahe dem Farol da Barra.", priceTitle: "Preis", priceText: "Ein Becher kostet R$10.", servicesKicker: "Salvador weiterentdecken", servicesTitle: "Von Milton empfohlene Partner", servicesLead: "Wählen Sie ein Erlebnis und fragen Sie Ihre Reservierung direkt per WhatsApp an.", reserve: "Reservierung anfragen", cardText: "Kontaktieren Sie das lokale Team und prüfen Sie die Verfügbarkeit.", footerText: "Lokale Aromen und unvergessliche Erlebnisse in Salvador, Bahia.", whatsapp: "Hallo! Ich komme auf Empfehlung von Milton und möchte eine Reservierung anfragen für: {service}.", serviceNames: { itaparicaFrades: "Insel Itaparica + Insel Frades", praiaForte: "Praia do Forte + Guarajuba", fradesOnly: "Nur Insel Frades", folkloricShow: "Folklore-Show von Bahia", beachRental: "Strandstuhl- und Sonnenschirmverleih in Porto da Barra", diving: "Tauchen in der Allerheiligenbucht" }
+      },
+      fr: {
+        languageLabel: "Langue", heroEyebrow: "Une saveur de Salvador", heroTitle: "Quel est ce jus ?", heroText: "Une boisson locale rafraîchissante préparée par Milton avec du citron vert, de la noix de coco séchée et un peu de sucre — crémeuse, citronnée et unique dans le Centre historique.", heroBadge: "Préparé par Milton dans le Centre historique de Salvador", heroImageAlt: "Jus traditionnel citron vert et coco de Milton", miltonImageAlt: "Milton à son stand de jus à Salvador", juiceImageAlt: "Le jus traditionnel servi à Salvador", storyKicker: "L'histoire derrière la saveur", storyTitle: "Des ingrédients simples. Un secret bien gardé.", storyLead: "Milton ne révèle que l'essentiel : du citron vert, de la noix de coco séchée et un peu de sucre. Il le prépare lui-même et le conserve au frais dans des bouteilles isothermes de huit litres.", factOneTitle: "Frais et crémeux", factOneText: "La noix de coco adoucit l'acidité du citron vert et crée une texture douce et unique.", factTwoTitle: "La recette exacte reste secrète", factTwoText: "Les proportions et la méthode de préparation font partie de la signature de Milton.", factThreeTitle: "Une boisson blanche à la noix de coco", factThreeText: "Malgré le citron vert, la noix de coco donne au jus sa couleur claire caractéristique.", quote: "« Quand j'ai commencé, je n'imaginais pas que ce serait un tel succès. »", quoteAuthor: "— Milton França", findKicker: "Où le trouver", findTitle: "Trouvez Milton à Salvador", findLead: "Les emplacements et la disponibilité peuvent varier pendant la journée.", pelourinhoTitle: "Pelourinho", pelourinhoText: "Généralement au Largo do Pelourinho, devant la Fundação Casa de Jorge Amado.", barraTitle: "Barra", barraText: "Il existe également un point sur le front de mer de Barra, près du Farol da Barra.", priceTitle: "Prix", priceText: "Un verre coûte R$10.", servicesKicker: "Continuez à découvrir Salvador", servicesTitle: "Partenaires recommandés par Milton", servicesLead: "Choisissez une expérience et demandez votre réservation directement sur WhatsApp.", reserve: "Demander une réservation", cardText: "Contactez l'équipe locale et vérifiez les disponibilités.", footerText: "Saveurs locales et expériences inoubliables à Salvador de Bahia.", whatsapp: "Bonjour ! Je viens sur la recommandation de Milton et je souhaite demander une réservation pour : {service}.", serviceNames: { itaparicaFrades: "Île d'Itaparica + Île de Frades", praiaForte: "Praia do Forte + Guarajuba", fradesOnly: "Île de Frades uniquement", folkloricShow: "Spectacle folklorique de Bahia", beachRental: "Location de chaise et parasol à Porto da Barra", diving: "Plongée dans la Baie de Tous les Saints" }
+      },
+      zh: {
+        languageLabel: "语言", heroEyebrow: "萨尔瓦多的味道", heroTitle: "这是什么果汁？", heroText: "这是米尔顿用青柠、椰蓉和少量糖制作的清爽当地饮品——口感细腻、清香酸甜，是历史中心独特的味道。", heroBadge: "由米尔顿在萨尔瓦多历史中心制作", heroImageAlt: "米尔顿的传统青柠椰子汁", miltonImageAlt: "米尔顿在萨尔瓦多的果汁摊", juiceImageAlt: "萨尔瓦多的传统果汁", storyKicker: "味道背后的故事", storyTitle: "简单的原料，珍藏的秘密。", storyLead: "米尔顿只透露基本原料：青柠、椰蓉和少量糖。他亲手制作，并装在八升保温瓶中保持冰凉。", factOneTitle: "清爽细腻", factOneText: "椰子柔化了青柠的酸味，带来顺滑而独特的口感。", factTwoTitle: "配方仍是秘密", factTwoText: "原料比例和制作方法是米尔顿独有的秘方。", factThreeTitle: "白色的椰子饮品", factThreeText: "虽然含有青柠，但椰子让果汁呈现特有的浅白色。", quote: "“刚开始时，我从没想到它会如此成功。”", quoteAuthor: "— 米尔顿·弗兰萨", findKicker: "在哪里找到", findTitle: "在萨尔瓦多寻找米尔顿", findLead: "地点和供应情况可能会在一天中有所变化。", pelourinhoTitle: "佩洛里尼奥", pelourinhoText: "通常在佩洛里尼奥广场，若热·阿马多之家基金会对面。", barraTitle: "巴拉", barraText: "巴拉海滨也有一个售卖点，靠近巴拉灯塔。", priceTitle: "价格", priceText: "每杯售价为10巴西雷亚尔。", servicesKicker: "继续探索萨尔瓦多", servicesTitle: "米尔顿推荐的合作伙伴", servicesLead: "选择一项体验，直接通过 WhatsApp 申请预订。", reserve: "申请预订", cardText: "联系当地团队并查询可用时间。", footerText: "巴伊亚萨尔瓦多的当地风味与难忘体验。", whatsapp: "您好！我是通过米尔顿的推荐联系您的，想申请预订：{service}。", serviceNames: { itaparicaFrades: "伊塔帕里卡岛 + 弗拉德斯岛", praiaForte: "普拉亚杜福尔特 + 瓜拉茹巴", fradesOnly: "仅弗拉德斯岛", folkloricShow: "巴伊亚民俗表演", beachRental: "巴拉港海滩椅和遮阳伞租赁", diving: "托多斯奥斯桑托斯湾潜水" }
+      },
+      it: {
+        languageLabel: "Lingua", heroEyebrow: "Un sapore di Salvador", heroTitle: "Che succo è questo?", heroText: "Una bevanda locale rinfrescante preparata da Milton con lime, cocco essiccato e un po' di zucchero: cremosa, agrumata e unica nel Centro Storico.", heroBadge: "Preparato da Milton nel Centro Storico di Salvador", heroImageAlt: "Succo tradizionale di lime e cocco di Milton", miltonImageAlt: "Milton al suo chiosco di succhi a Salvador", juiceImageAlt: "Il succo tradizionale servito a Salvador", storyKicker: "La storia dietro il sapore", storyTitle: "Ingredienti semplici. Un segreto ben custodito.", storyLead: "Milton rivela solo l'essenziale: lime, cocco essiccato e un po' di zucchero. Lo prepara personalmente e lo mantiene fresco in contenitori termici da otto litri.", factOneTitle: "Fresco e cremoso", factOneText: "Il cocco attenua l'acidità del lime e crea una consistenza morbida e unica.", factTwoTitle: "La ricetta esatta resta segreta", factTwoText: "Le proporzioni e il metodo di preparazione fanno parte della firma di Milton.", factThreeTitle: "Una bevanda bianca al cocco", factThreeText: "Nonostante il lime, il cocco conferisce al succo il suo caratteristico colore chiaro.", quote: "“Quando ho iniziato, non immaginavo che avrebbe avuto tutto questo successo.”", quoteAuthor: "— Milton França", findKicker: "Dove trovarlo", findTitle: "Trova Milton a Salvador", findLead: "I luoghi e la disponibilità possono variare durante la giornata.", pelourinhoTitle: "Pelourinho", pelourinhoText: "Di solito al Largo do Pelourinho, di fronte alla Fundação Casa de Jorge Amado.", barraTitle: "Barra", barraText: "C'è anche un punto sul lungomare di Barra, vicino al Farol da Barra.", priceTitle: "Prezzo", priceText: "Un bicchiere costa R$10.", servicesKicker: "Continua a scoprire Salvador", servicesTitle: "Partner consigliati da Milton", servicesLead: "Scegli un'esperienza e richiedi la prenotazione direttamente su WhatsApp.", reserve: "Richiedi prenotazione", cardText: "Contatta il team locale e verifica la disponibilità.", footerText: "Sapori locali ed esperienze indimenticabili a Salvador, Bahia.", whatsapp: "Ciao! Vi contatto su consiglio di Milton e vorrei richiedere una prenotazione per: {service}.", serviceNames: { itaparicaFrades: "Isola di Itaparica + Isola dos Frades", praiaForte: "Praia do Forte + Guarajuba", fradesOnly: "Solo Isola dos Frades", folkloricShow: "Spettacolo Folcloristico di Bahia", beachRental: "Noleggio sedia e ombrellone a Porto da Barra", diving: "Immersioni nella Baia di Tutti i Santi" }
+      },
+      he: {
+        languageLabel: "שפה", heroEyebrow: "הטעם של סלבדור", heroTitle: "איזה מיץ זה?", heroText: "משקה מקומי מרענן שמילטון מכין מליים, קוקוס מיובש ומעט סוכר — קרמי, הדרי וייחודי במרכז ההיסטורי.", heroBadge: "מיוצר על ידי מילטון במרכז ההיסטורי של סלבדור", heroImageAlt: "מיץ הליים והקוקוס המסורתי של מילטון", miltonImageAlt: "מילטון בדוכן המיצים שלו בסלבדור", juiceImageAlt: "המיץ המסורתי המוגש בסלבדור", storyKicker: "הסיפור שמאחורי הטעם", storyTitle: "מרכיבים פשוטים. סוד שמור היטב.", storyLead: "מילטון מגלה רק את העיקר: המשקה מכיל ליים, קוקוס מיובש ומעט סוכר. הוא מכין אותו בעצמו ושומר עליו קר במכלים תרמיים של שמונה ליטר.", factOneTitle: "מרענן וקרמי", factOneText: "הקוקוס מרכך את החמיצות של הליים ויוצר מרקם חלק וייחודי.", factTwoTitle: "המתכון המדויק נשאר סודי", factTwoText: "היחסים ושיטת ההכנה הם חלק מהחתימה של מילטון.", factThreeTitle: "משקה קוקוס לבן", factThreeText: "למרות הליים, הקוקוס מעניק למיץ את צבעו הבהיר האופייני.", quote: "״כשהתחלתי, לא דמיינתי שזו תהיה הצלחה כל כך גדולה.״", quoteAuthor: "— מילטון פרנסה", findKicker: "איפה למצוא", findTitle: "חפשו את מילטון בסלבדור", findLead: "המיקום והזמינות עשויים להשתנות במהלך היום.", pelourinhoTitle: "פלוריניו", pelourinhoText: "בדרך כלל בכיכר פלוריניו, מול קרן בית ז'ורז'ה אמאדו.", barraTitle: "בארה", barraText: "יש גם נקודה בטיילת בארה, ליד מגדלור בארה.", priceTitle: "מחיר", priceText: "מחיר כוס הוא 10 ריאל.", servicesKicker: "המשיכו לגלות את סלבדור", servicesTitle: "שותפים שמילטון ממליץ עליהם", servicesLead: "בחרו חוויה ובקשו הזמנה ישירות ב-WhatsApp.", reserve: "בקשת הזמנה", cardText: "צרו קשר עם הצוות המקומי ובדקו זמינות.", footerText: "טעמים מקומיים וחוויות בלתי נשכחות בסלבדור, באהיה.", whatsapp: "שלום! הגעתי דרך המלצה של מילטון וברצוני לבקש הזמנה עבור: {service}.", serviceNames: { itaparicaFrades: "האי איטפריקה + האי פרדס", praiaForte: "פראיה דו פורטה + גוארז'ובה", fradesOnly: "האי פרדס בלבד", folkloricShow: "מופע הפולקלור של באהיה", beachRental: "השכרת כיסאות ושמשייה בפורטו דה בארה", diving: "צלילה במפרץ כל הקדושים" }
+      }
+    };
+
+    const languageSelect = document.getElementById("languageSelect");
+    const servicesGrid = document.getElementById("servicesGrid");
+
+    function whatsappUrl(language, serviceName) {
+      const template = translations[language].whatsapp;
+      const message = template.replace("{service}", serviceName);
+      return `https://wa.me/${PHONE}?text=${encodeURIComponent(message)}`;
+    }
+
+    function renderServices(language) {
+      const copy = translations[language];
+      servicesGrid.innerHTML = services.map((service) => {
+        const name = copy.serviceNames[service.id];
+        return `
+          <article class="service-card">
+            <span class="service-icon" aria-hidden="true">${service.icon}</span>
+            <h3>${name}</h3>
+            <p>${copy.cardText}</p>
+            <a class="service-link" href="${whatsappUrl(language, name)}" target="_blank" rel="noopener noreferrer" aria-label="${copy.reserve}: ${name}">
+              <span aria-hidden="true">↗</span>
+              <span>${copy.reserve}</span>
+            </a>
+          </article>`;
+      }).join("");
+    }
+
+    function setLanguage(language) {
+      const copy = translations[language] || translations.en;
+      const isRTL = language === "he";
+
+      document.documentElement.lang = language;
+      document.documentElement.dir = isRTL ? "rtl" : "ltr";
+      document.body.classList.toggle("rtl", isRTL);
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const key = element.dataset.i18n;
+        if (copy[key]) element.textContent = copy[key];
+      });
+
+      document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
+        const key = element.dataset.i18nAlt;
+        if (copy[key]) element.alt = copy[key];
+      });
+
+      languageSelect.setAttribute("aria-label", copy.languageLabel);
+      document.title = `${copy.heroTitle} | Milton · Salvador`;
+      renderServices(language);
+      localStorage.setItem("miltonLanguage", language);
+    }
+
+    languageSelect.addEventListener("change", (event) => setLanguage(event.target.value));
+
+    document.querySelectorAll("img").forEach((image) => {
+      image.addEventListener("error", () => {
+        image.removeAttribute("src");
+        image.classList.add("image-fallback");
+      }, { once: true });
+    });
+
+    const savedLanguage = localStorage.getItem("miltonLanguage");
+    const initialLanguage = translations[savedLanguage] ? savedLanguage : "en";
+    languageSelect.value = initialLanguage;
+    setLanguage(initialLanguage);
+  </script>
+</body>
+</html>
