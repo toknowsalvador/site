@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <meta
     name="description"
-    content="Menú del Restaurante Tropicália en Salvador."
+    content="Menu of Tropicália Restaurant in Salvador."
   >
+
   <meta name="theme-color" content="#171916">
 
-  <title>Restaurante Tropicália | Menú</title>
+  <title>Tropicália Restaurant | Menu</title>
 
   <style>
     :root {
@@ -246,10 +248,10 @@
 
     .plato {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
-      gap: 12px;
-      padding: 14px 13px;
+      gap: 11px;
+      padding: 12px 13px;
       border: 1px solid var(--borde);
       border-radius: 9px;
       background:
@@ -258,6 +260,22 @@
           rgba(255, 255, 255, 0.045),
           rgba(255, 255, 255, 0.012)
         );
+    }
+
+    .numero-plato {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+      border: 1px solid rgba(242, 195, 19, 0.55);
+      border-radius: 50%;
+      background: rgba(242, 195, 19, 0.12);
+      color: var(--amarillo);
+      font-size: 0.76rem;
+      font-weight: 950;
+      letter-spacing: 0.03em;
     }
 
     .nombre-plato {
@@ -446,6 +464,27 @@
       line-height: 1.5;
     }
 
+    @media (max-width: 390px) {
+      .plato {
+        gap: 8px;
+        padding: 11px 10px;
+      }
+
+      .numero-plato {
+        width: 31px;
+        height: 31px;
+        font-size: 0.71rem;
+      }
+
+      .nombre-plato {
+        font-size: 0.91rem;
+      }
+
+      .precio {
+        font-size: 0.94rem;
+      }
+    }
+
     @media (min-width: 520px) {
       .cabecera,
       .seccion,
@@ -460,10 +499,10 @@
 <body>
   <main class="pagina">
 
-    <nav class="idiomas" aria-label="Idiomas">
+    <nav class="idiomas" aria-label="Languages">
       <a href="index.html">PT</a>
-      <a href="index-en.html">EN</a>
-      <a class="activo" href="index-es.html">ES</a>
+      <a class="activo" href="index-en.html">EN</a>
+      <a href="index-es.html">ES</a>
     </nav>
 
     <div class="marco">
@@ -475,7 +514,9 @@
 
             <div class="marca-texto">
               <div class="nombre-restaurante">Tropicália</div>
-              <div class="tipo-restaurante">Bar y Restaurante</div>
+              <div class="tipo-restaurante">
+                Bar and Restaurant
+              </div>
             </div>
           </div>
 
@@ -499,131 +540,139 @@
             </a>
           </div>
 
-          <div class="titulo-comida">Comida</div>
-          <div class="titulo-casera">Casera</div>
+          <div class="titulo-comida">Homemade</div>
+          <div class="titulo-casera">Food</div>
 
           <p class="frase">
-            Si es casero, <strong>tiene sabor.</strong><br>
-            Si tiene sabor, <strong>lleva nuestro sazón.</strong>
+            If it is homemade, <strong>it has flavor.</strong><br>
+            If it has flavor,
+            <strong>it has our special seasoning!</strong>
           </p>
         </header>
 
         <section class="seccion">
-          <h2 class="titulo-seccion">Platos del día</h2>
+          <h2 class="titulo-seccion">Dishes of the day</h2>
 
           <div class="lista-platos">
+
             <div class="plato">
-              <span class="nombre-plato">Pollo en salsa</span>
+              <span class="numero-plato">01</span>
+              <span class="nombre-plato">Chicken in sauce</span>
               <span class="precio">R$ 23,00</span>
             </div>
 
             <div class="plato">
+              <span class="numero-plato">02</span>
+              <span class="nombre-plato">Beef liver strips</span>
+              <span class="precio">R$ 25,00</span>
+            </div>
+
+            <div class="plato">
+              <span class="numero-plato">03</span>
               <span class="nombre-plato">
-                Tiras de hígado de res
+                Grilled chicken fillet
               </span>
               <span class="precio">R$ 25,00</span>
             </div>
 
             <div class="plato">
+              <span class="numero-plato">04</span>
               <span class="nombre-plato">
-                Filete de pollo a la plancha
-              </span>
-              <span class="precio">R$ 25,00</span>
-            </div>
-
-            <div class="plato">
-              <span class="nombre-plato">
-                Mollejas de pollo en salsa
+                Chicken gizzards in sauce
               </span>
               <span class="precio">R$ 26,00</span>
             </div>
 
             <div class="plato">
-              <span class="nombre-plato">
-                Carne de res guisada
-              </span>
+              <span class="numero-plato">05</span>
+              <span class="nombre-plato">Beef stew</span>
               <span class="precio">R$ 29,00</span>
             </div>
 
             <div class="plato">
-              <span class="nombre-plato">
-                Bistec con cebolla
-              </span>
+              <span class="numero-plato">06</span>
+              <span class="nombre-plato">Steak with onions</span>
               <span class="precio">R$ 35,00</span>
             </div>
 
             <div class="plato">
+              <span class="numero-plato">07</span>
               <span class="nombre-plato">
-                Bistec a caballo
+                Steak with fried egg
               </span>
               <span class="precio">R$ 38,00</span>
             </div>
 
             <div class="plato">
-              <span class="nombre-plato">Carne de sol</span>
+              <span class="numero-plato">08</span>
+              <span class="nombre-plato">
+                Carne de sol (sun-dried beef)
+              </span>
               <span class="precio">R$ 39,00</span>
             </div>
+
           </div>
 
           <div class="disponibilidad">
             <p>
-              Algunos platos pueden variar según la preparación del día.
+              Some dishes may vary depending on the day's availability.
             </p>
 
             <a
               class="boton-disponibilidad"
-              href="https://wa.me/5571983163956?text=Hola%2C%20me%20gustaría%20consultar%20qué%20platos%20están%20disponibles%20hoy."
+              href="https://wa.me/5571983163956?text=Hello%2C%20I%20would%20like%20to%20check%20which%20dishes%20are%20available%20today."
               target="_blank"
               rel="noopener noreferrer"
             >
-              ✓ Consultar disponibilidad
+              ✓ Check availability
             </a>
           </div>
         </section>
 
         <section class="seccion">
-          <h2 class="titulo-seccion">Acompañamientos</h2>
+          <h2 class="titulo-seccion">Side dishes</h2>
 
           <div class="caja-opciones">
             <p class="introduccion">
-              Elija una opción de frijoles y una opción de ensalada.
+              Choose one bean option and one salad option.
             </p>
 
             <div class="grupo">
-              <p class="nombre-opcion">Frijoles</p>
+              <p class="nombre-opcion">Beans</p>
 
               <p class="opciones">
-                Frijoles con caldo
-                <span class="o">o</span>
-                frijoles tropeiro
+                Beans in broth
+                <span class="o">or</span>
+                tropeiro beans
               </p>
             </div>
 
             <div class="grupo">
-              <p class="nombre-opcion">Ensalada</p>
+              <p class="nombre-opcion">Salad</p>
 
               <p class="opciones">
-                Vinagreta
-                <span class="o">o</span>
-                ensalada de mayonesa
+                Vinaigrette
+                <span class="o">or</span>
+                mayonnaise salad
               </p>
             </div>
 
             <div class="extras">
-              <strong>Informe al camarero</strong>
+              <strong>Tell our staff</strong>
 
               <p>
-                Díganos si desea <b>picante</b> y <b>farofa</b>.
+                Let us know if you would like
+                <b>chili sauce</b> and <b>farofa</b>.
               </p>
             </div>
           </div>
         </section>
 
         <section class="seccion">
-          <h2 class="titulo-seccion">Para llevar</h2>
+          <h2 class="titulo-seccion">Takeaway</h2>
 
           <div class="envase">
-            <strong>Envase</strong>
+            <strong>Takeaway container</strong>
             <span class="precio">R$ 2,00</span>
           </div>
         </section>
@@ -631,10 +680,10 @@
         <section class="resena">
           <div class="estrellas">★★★★★</div>
 
-          <h2>¿Disfrutó de su experiencia?</h2>
+          <h2>Did you enjoy your experience?</h2>
 
           <p>
-            Su reseña ayuda a más personas a conocer Tropicália.
+            Your review helps more people discover Tropicália.
           </p>
 
           <a
@@ -643,19 +692,19 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            Dejar una reseña en Google
+            Review us on Google
           </a>
         </section>
 
         <aside class="to-know">
-          <p>Descubra Salvador más allá de la playa.</p>
+          <p>Discover Salvador beyond the beach.</p>
 
           <a
             href="https://toknowsalvador.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Ver experiencias →
+            View experiences →
           </a>
 
           <small>To Know Salvador</small>
@@ -663,7 +712,7 @@
 
         <footer class="pie">
           <p>
-            Restaurante Tropicália · Salvador, Bahía
+            Tropicália Restaurant · Salvador, Bahia
           </p>
         </footer>
 
