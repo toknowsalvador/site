@@ -399,17 +399,25 @@
 
     .locations {
       margin-top: 48px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
       gap: 18px;
+      padding: 4px 2px 18px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: var(--lime) rgba(255, 255, 255, 0.12);
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
     }
 
     .location-card {
+      flex: 0 0 clamp(280px, 32vw, 360px);
       min-height: 180px;
       padding: 25px;
       border: 1px solid rgba(255, 255, 255, 0.14);
       border-radius: var(--radius-lg);
       background: rgba(255, 255, 255, 0.08);
+      scroll-snap-align: start;
     }
 
     .location-card .icon { font-size: 1.7rem; }
@@ -519,7 +527,6 @@
       .photo-stack { min-height: 540px; }
       .story-photo-main { height: 460px; }
       .story-photo-small { height: 270px; }
-      .locations { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 620px) {
@@ -536,6 +543,7 @@
       .photo-stack { min-height: 430px; }
       .story-photo-main { width: 88%; height: 350px; }
       .story-photo-small { width: 62%; height: 220px; border-width: 5px; }
+      .location-card { flex-basis: min(84vw, 330px); }
       .service-card { flex-basis: min(84vw, 330px); min-height: 0; }
       .quote { padding: 22px; }
     }
