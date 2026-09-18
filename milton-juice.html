@@ -49,12 +49,12 @@
 
     body.rtl { direction: rtl; }
     body.rtl .brand,
-    body.rtl .language-wrap,
+    body.rtl .language-rail,
     body.rtl .service-link,
     body.rtl .location-row { direction: rtl; }
 
     img { display: block; max-width: 100%; }
-    button, select, a { font: inherit; }
+    button, a { font: inherit; }
     a { color: inherit; }
 
     .container {
@@ -74,10 +74,10 @@
 
     .nav {
       min-height: 72px;
-      display: flex;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
       align-items: center;
-      justify-content: space-between;
-      gap: 18px;
+      gap: 24px;
     }
 
     .brand {
@@ -103,37 +103,55 @@
       font-size: 1.2rem;
     }
 
-    .language-wrap {
+    .language-rail {
+      min-width: 0;
       display: flex;
-      align-items: center;
-      gap: 9px;
+      gap: 8px;
+      padding: 8px 2px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
 
-    .language-wrap label {
-      font-size: 0.84rem;
-      font-weight: 700;
-      opacity: 0.9;
-    }
+    .language-rail::-webkit-scrollbar { display: none; }
 
-    #languageSelect {
-      min-height: 44px;
-      padding: 8px 38px 8px 14px;
-      border: 1px solid rgba(255, 255, 255, 0.34);
+    .language-button {
+      flex: 0 0 auto;
+      min-height: 40px;
+      padding: 8px 15px;
+      border: 1px solid rgba(255, 255, 255, 0.28);
       border-radius: 999px;
       color: var(--white);
-      background-color: rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.1);
+      font-size: 0.9rem;
+      font-weight: 700;
+      white-space: nowrap;
       cursor: pointer;
-      outline: none;
+      scroll-snap-align: start;
+      transition: color 160ms ease, background 160ms ease, border-color 160ms ease;
     }
 
-    #languageSelect option { color: var(--ink); background: var(--white); }
-    #languageSelect:focus { box-shadow: 0 0 0 3px rgba(246, 207, 52, 0.45); }
+    .language-button:hover { background: rgba(255, 255, 255, 0.18); }
+    .language-button.is-active {
+      border-color: var(--yellow);
+      color: var(--green-950);
+      background: var(--yellow);
+    }
+    .language-button:focus-visible { outline: 3px solid rgba(246, 207, 52, 0.5); outline-offset: 2px; }
 
     .hero {
       position: relative;
       isolation: isolate;
       color: var(--white);
-      background: var(--green-800);
+      background-color: var(--green-800);
+      background-image:
+        linear-gradient(90deg, rgba(8, 122, 62, 0.98) 0%, rgba(8, 122, 62, 0.9) 48%, rgba(8, 122, 62, 0.72) 100%),
+        var(--hero-image, none);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
       overflow: hidden;
     }
 
@@ -309,6 +327,18 @@
       list-style: none;
     }
 
+    .sugar-note {
+      width: fit-content;
+      margin: 24px 0 0;
+      padding: 10px 15px;
+      border: 1px solid rgba(146, 91, 0, 0.16);
+      border-radius: 999px;
+      color: #614100;
+      background: #fff0b8;
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
     .fact {
       display: grid;
       grid-template-columns: 48px 1fr;
@@ -391,13 +421,20 @@
 
     .services-grid {
       margin-top: 48px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
       gap: 20px;
+      padding: 4px 2px 22px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: var(--green-500) rgba(8, 122, 62, 0.1);
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
     }
 
     .service-card {
       position: relative;
+      flex: 0 0 clamp(280px, 32vw, 350px);
       min-height: 260px;
       display: flex;
       flex-direction: column;
@@ -406,6 +443,7 @@
       border-radius: var(--radius-lg);
       background: var(--white);
       box-shadow: 0 14px 38px rgba(3, 59, 36, 0.08);
+      scroll-snap-align: start;
       transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     }
 
@@ -481,16 +519,14 @@
       .photo-stack { min-height: 540px; }
       .story-photo-main { height: 460px; }
       .story-photo-small { height: 270px; }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
       .locations { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 620px) {
       .container { width: min(100% - 24px, 1160px); }
-      .nav { min-height: 66px; }
+      .nav { min-height: 66px; grid-template-columns: auto minmax(0, 1fr); gap: 10px; }
       .brand span:last-child { display: none; }
-      .language-wrap label { display: none; }
-      #languageSelect { max-width: 190px; }
+      .language-button { min-height: 38px; padding: 7px 13px; font-size: 0.85rem; }
       .hero-grid { min-height: auto; padding: 52px 0 70px; }
       h1 { font-size: clamp(2.75rem, 15vw, 4.2rem); }
       .hero-image-wrap { min-height: 370px; }
@@ -500,8 +536,7 @@
       .photo-stack { min-height: 430px; }
       .story-photo-main { width: 88%; height: 350px; }
       .story-photo-small { width: 62%; height: 220px; border-width: 5px; }
-      .services-grid { grid-template-columns: 1fr; }
-      .service-card { min-height: 0; }
+      .service-card { flex-basis: min(84vw, 330px); min-height: 0; }
       .quote { padding: 22px; }
     }
 
@@ -518,18 +553,15 @@
         <span class="brand-mark" aria-hidden="true">🥥</span>
         <span>Milton's Juice</span>
       </a>
-      <div class="language-wrap">
-        <label for="languageSelect" data-i18n="languageLabel">Language</label>
-        <select id="languageSelect" aria-label="Choose language">
-          <option value="en">English</option>
-          <option value="pt">Português</option>
-          <option value="es">Español</option>
-          <option value="de">Deutsch</option>
-          <option value="fr">Français</option>
-          <option value="zh">中文</option>
-          <option value="it">Italiano</option>
-          <option value="he">עברית</option>
-        </select>
+      <div class="language-rail" id="languageRail" role="group" aria-label="Choose language">
+        <button class="language-button is-active" type="button" data-language="en">English</button>
+        <button class="language-button" type="button" data-language="pt">Português</button>
+        <button class="language-button" type="button" data-language="es">Español</button>
+        <button class="language-button" type="button" data-language="de">Deutsch</button>
+        <button class="language-button" type="button" data-language="fr">Français</button>
+        <button class="language-button" type="button" data-language="zh">中文</button>
+        <button class="language-button" type="button" data-language="it">Italiano</button>
+        <button class="language-button" type="button" data-language="he">עברית</button>
       </div>
     </div>
   </header>
@@ -543,7 +575,7 @@
           <p class="hero-copy" data-i18n="heroText">A refreshing local drink made by Milton with lime, dried coconut and a little sugar — creamy, citrusy and unlike anything else in the Historic Center.</p>
         </div>
         <div class="hero-image-wrap">
-          <img class="hero-image" src="IMG_8984.webp" alt="Milton's traditional lime and coconut juice" data-i18n-alt="heroImageAlt">
+          <img class="hero-image" data-image-file="IMG_8984.webp" alt="Milton's traditional lime and coconut juice" data-i18n-alt="heroImageAlt">
           <div class="hero-badge" data-i18n="heroBadge">Made by Milton in Salvador's Historic Center</div>
         </div>
       </div>
@@ -552,13 +584,14 @@
     <section class="section" id="story">
       <div class="container story-grid">
         <div class="photo-stack" aria-label="Milton and his juice stand">
-          <img class="story-photo-main" src="IMG_8986.jpeg" alt="Milton at his juice stand in Salvador" data-i18n-alt="miltonImageAlt">
-          <img class="story-photo-small" src="IMG_8988.jpeg" alt="The traditional juice served in Salvador" data-i18n-alt="juiceImageAlt">
+          <img class="story-photo-main" data-image-file="IMG_8986.jpeg" alt="Milton at his juice stand in Salvador" data-i18n-alt="miltonImageAlt">
+          <img class="story-photo-small" data-image-file="IMG_8988.jpeg" alt="The traditional juice served in Salvador" data-i18n-alt="juiceImageAlt">
         </div>
         <div>
           <p class="section-kicker" data-i18n="storyKicker">The story behind the flavor</p>
           <h2 data-i18n="storyTitle">Simple ingredients. A well-kept secret.</h2>
           <p class="lead" data-i18n="storyLead">Milton reveals only the essentials: the drink contains lime, dried coconut and a little sugar. He prepares it himself and keeps it cold in eight-liter thermal bottles.</p>
+          <p class="sugar-note" data-i18n="sugarNotice">Contains sugar.</p>
 
           <ul class="fact-list">
             <li class="fact">
@@ -650,6 +683,17 @@
       { id: "diving", icon: "🤿" }
     ];
 
+    const sugarNotices = {
+      en: "Contains sugar.",
+      pt: "Contém açúcar.",
+      es: "Contiene azúcar.",
+      de: "Enthält Zucker.",
+      fr: "Contient du sucre.",
+      zh: "含糖。",
+      it: "Contiene zucchero.",
+      he: "מכיל סוכר."
+    };
+
     const translations = {
       en: {
         languageLabel: "Language",
@@ -730,7 +774,8 @@
       }
     };
 
-    const languageSelect = document.getElementById("languageSelect");
+    const languageRail = document.getElementById("languageRail");
+    const languageButtons = [...document.querySelectorAll("[data-language]")];
     const servicesGrid = document.getElementById("servicesGrid");
 
     function whatsappUrl(language, serviceName) {
@@ -766,7 +811,8 @@
 
       document.querySelectorAll("[data-i18n]").forEach((element) => {
         const key = element.dataset.i18n;
-        if (copy[key]) element.textContent = copy[key];
+        const translatedValue = key === "sugarNotice" ? sugarNotices[language] : copy[key];
+        if (translatedValue) element.textContent = translatedValue;
       });
 
       document.querySelectorAll("[data-i18n-alt]").forEach((element) => {
@@ -774,24 +820,72 @@
         if (copy[key]) element.alt = copy[key];
       });
 
-      languageSelect.setAttribute("aria-label", copy.languageLabel);
+      languageRail.setAttribute("aria-label", copy.languageLabel);
+      languageButtons.forEach((button) => {
+        const isActive = button.dataset.language === language;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
       document.title = `${copy.heroTitle} | Milton · Salvador`;
       renderServices(language);
-      localStorage.setItem("miltonLanguage", language);
+      try { localStorage.setItem("miltonLanguage", language); } catch (error) { /* storage may be unavailable */ }
     }
 
-    languageSelect.addEventListener("change", (event) => setLanguage(event.target.value));
-
-    document.querySelectorAll("img").forEach((image) => {
-      image.addEventListener("error", () => {
-        image.removeAttribute("src");
-        image.classList.add("image-fallback");
-      }, { once: true });
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setLanguage(button.dataset.language);
+        button.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      });
     });
 
-    const savedLanguage = localStorage.getItem("miltonLanguage");
+    function imageCandidates(fileName) {
+      const pageFolder = new URL(".", document.baseURI);
+      const candidates = [
+        new URL(fileName, pageFolder).href,
+        new URL(`public/${fileName}`, pageFolder).href
+      ];
+      if (/^https?:/.test(window.location.origin)) {
+        candidates.push(
+          new URL(`/${fileName}`, window.location.origin).href,
+          new URL(`/public/${fileName}`, window.location.origin).href
+        );
+      }
+      return [...new Set(candidates)];
+    }
+
+    function testImage(url) {
+      return new Promise((resolve) => {
+        const test = new Image();
+        test.onload = () => resolve(url);
+        test.onerror = () => resolve(null);
+        test.src = url;
+      });
+    }
+
+    async function resolveImagePath(fileName) {
+      for (const candidate of imageCandidates(fileName)) {
+        const validPath = await testImage(candidate);
+        if (validPath) return validPath;
+      }
+      return null;
+    }
+
+    document.querySelectorAll("[data-image-file]").forEach(async (image) => {
+      const resolvedPath = await resolveImagePath(image.dataset.imageFile);
+      if (resolvedPath) {
+        image.src = resolvedPath;
+      } else {
+        image.classList.add("image-fallback");
+      }
+    });
+
+    resolveImagePath("IMG_8988.jpeg").then((resolvedPath) => {
+      if (resolvedPath) document.querySelector(".hero").style.setProperty("--hero-image", `url("${resolvedPath}")`);
+    });
+
+    let savedLanguage = "en";
+    try { savedLanguage = localStorage.getItem("miltonLanguage") || "en"; } catch (error) { /* use English */ }
     const initialLanguage = translations[savedLanguage] ? savedLanguage : "en";
-    languageSelect.value = initialLanguage;
     setLanguage(initialLanguage);
   </script>
 </body>
