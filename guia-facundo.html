@@ -10,117 +10,104 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
+
     :root{
-      --black:#050505;
-      --black-2:#0c0c0d;
-      --soft:#131315;
-      --ivory:#f6f0e4;
-      --white:#fff;
-      --gold:#d4a928;
-      --gold-light:#f3cf5f;
-      --blue:#1548c9;
-      --blue-light:#4d7cff;
-      --yellow:#ffd524;
-      --gray:#b9b4aa;
-      --line:rgba(255,255,255,.13);
+      --black:#07111f;
+      --black-2:#0b1627;
+      --soft:#10213a;
+      --soft-2:#0d1b30;
+      --white:#ffffff;
+      --gold:#cfa23a;
+      --gold-light:#f0cf77;
+      --blue:#1d4fae;
+      --blue-light:#5d88dc;
+      --gray:#c6cfdb;
+      --line:rgba(255,255,255,.14);
     }
 
     *{box-sizing:border-box}
     html{scroll-behavior:smooth;background:var(--black)}
-    body{margin:0;background:var(--black);color:var(--white);font-family:"DM Sans",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    body{margin:0;background:linear-gradient(180deg,#07111f 0%,#0a1730 100%);color:var(--white);font-family:"DM Sans",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
     img{display:block;width:100%}
     a{color:inherit;text-decoration:none}
     .container{width:min(100% - 36px,1080px);margin:auto;position:relative;z-index:2}
-    .eyebrow{margin:0;color:var(--gold-light);font-family:"Syne",sans-serif;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
-    .title{margin:10px 0 0;font:600 clamp(34px,7vw,60px)/1.02 "Fraunces",serif;letter-spacing:-.035em;text-wrap:balance}
-    .lead{max-width:680px;margin:20px auto 0;color:#eee;font-size:clamp(16px,3.5vw,19px);line-height:1.7}
+    .eyebrow{margin:0;color:var(--gold-light);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+    .title{margin:10px 0 0;font:700 clamp(32px,6vw,54px)/1.08 "DM Sans",sans-serif;letter-spacing:-.03em;text-wrap:balance}
+    .lead{max-width:700px;margin:18px auto 0;color:#eef3fb;font-size:clamp(16px,3.2vw,19px);line-height:1.72}
 
     .hero{position:relative;min-height:92svh;display:flex;align-items:flex-end;overflow:hidden;background:#000}
     .hero-slides{position:absolute;inset:0;z-index:0}
-    .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .9s ease, transform 6s ease;transform:scale(1.03)}
-    .hero-slide.active{opacity:1;transform:scale(1)}
-    .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.14),rgba(0,0,0,.18) 40%,rgba(0,0,0,.95));pointer-events:none}
-    .hero:before{content:"";position:absolute;z-index:1;width:260px;height:260px;right:-80px;top:17%;border:28px solid var(--blue);border-radius:50%;opacity:.85;filter:saturate(1.2);transform:rotate(-14deg)}
-    .hero:after{content:"";position:absolute;z-index:1;left:-120px;bottom:-100px;width:420px;height:220px;background:var(--yellow);clip-path:polygon(0 38%,100% 0,72% 100%,0 76%);opacity:.92;mix-blend-mode:screen}
-    .top{position:absolute;z-index:3;top:0;width:100%;padding:calc(20px + env(safe-area-inset-top)) 22px 55px;background:linear-gradient(rgba(0,0,0,.92),transparent)}
-    .logo{width:190px;max-height:78px;margin:auto;object-fit:contain;filter:drop-shadow(0 8px 18px rgba(0,0,0,.35))}
-    .hero-copy{position:relative;z-index:2;width:min(100% - 36px,780px);margin:auto;padding:90px 0 58px;text-align:center}
-    .hero h1{margin:18px 0 0;font:700 clamp(52px,13vw,92px)/.92 "Fraunces",serif;letter-spacing:-.055em;text-shadow:0 10px 38px rgba(0,0,0,.35)}
-    .hero h1 span{display:block;color:var(--gold-light);font-style:italic}
-    .cta{display:inline-flex;min-height:56px;align-items:center;justify-content:center;margin-top:28px;padding:0 27px;border-radius:999px;background:linear-gradient(100deg,var(--yellow),var(--gold-light));color:#080808;font-family:"Syne",sans-serif;font-weight:800;letter-spacing:.01em;box-shadow:0 16px 36px rgba(0,0,0,.32);transition:transform .2s ease,box-shadow .2s ease}
-    .cta:hover{transform:translateY(-2px);box-shadow:0 20px 44px rgba(0,0,0,.38)}
-    .hero-indicators{display:flex;justify-content:center;gap:9px;margin-top:22px}
-    .hero-dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.45);transition:transform .2s ease,background .2s ease}
+    .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.1s ease, transform 6s ease;transform:scale(1.03);filter:saturate(.82) brightness(.60)}
+    .hero-slide.active{opacity:1;transform:scale(1);filter:saturate(.88) brightness(.66)}
+    .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(6,12,22,.74) 0%,rgba(6,12,22,.56) 26%,rgba(7,17,31,.70) 56%,rgba(7,17,31,.92) 80%,rgba(7,17,31,.98) 100%);pointer-events:none}
+    .hero:before,.hero:after,.intro:before,.intro:after,.gallery:before,.gallery:after,.reviews:before,.offers:before,.offers:after,.closing:before,.closing:after,.offer-card:after{content:none !important;display:none !important}
+    .top{position:absolute;z-index:3;top:0;width:100%;padding:calc(18px + env(safe-area-inset-top)) 22px 20px;background:linear-gradient(rgba(3,8,18,.70),transparent)}
+    .hero-watermark{display:block;width:100%;margin:0 auto;text-align:center;font:800 clamp(28px,8vw,72px)/1 "Syne",sans-serif;letter-spacing:.30em;text-transform:uppercase;color:rgba(255,255,255,.11);text-shadow:0 4px 20px rgba(0,0,0,.14);user-select:none}
+    .logo-below{width:170px;max-height:72px;margin:22px auto 0;object-fit:contain;filter:drop-shadow(0 8px 18px rgba(0,0,0,.28));opacity:.95}
+    .hero-copy{position:relative;z-index:2;width:min(100% - 36px,820px);margin:auto;padding:118px 0 58px;text-align:center}
+    .hero-panel{display:inline-block;width:min(100%,760px);padding:28px 28px 34px;border-radius:26px;background:linear-gradient(180deg,rgba(8,15,27,.58),rgba(8,15,27,.40));border:1px solid rgba(240,207,119,.18);backdrop-filter:blur(6px);box-shadow:0 16px 44px rgba(0,0,0,.24)}
+    .hero h1{margin:14px 0 0;font:700 clamp(52px,10vw,84px)/.98 "DM Sans",sans-serif;letter-spacing:-.04em;color:var(--white);text-shadow:0 8px 28px rgba(0,0,0,.34)}
+    .hero h1 span{display:block;color:var(--gold-light);font-style:normal}
+    .hero-kicker{display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:14px;background:rgba(0,0,0,.82);border:1px solid rgba(240,207,119,.18);color:#fff;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;line-height:1.4}
+    .hero-divider{width:92px;height:4px;margin:18px auto 0;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
+    .cta{display:inline-flex;min-height:56px;align-items:center;justify-content:center;margin-top:26px;padding:0 27px;border-radius:999px;background:linear-gradient(100deg,var(--gold),var(--gold-light));color:#08101d;font-size:15px;font-weight:700;letter-spacing:.01em;box-shadow:0 14px 32px rgba(0,0,0,.28);transition:transform .2s ease,box-shadow .2s ease}
+    .cta:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(0,0,0,.34)}
+    .hero-indicators{display:flex;justify-content:center;gap:9px;margin-top:18px}
+    .hero-dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);transition:transform .2s ease,background .2s ease}
     .hero-dot.active{background:var(--gold-light);transform:scale(1.15)}
 
-    section{padding:90px 0;position:relative}
-    .intro{text-align:center;overflow:hidden}
-    .intro:before{content:"";position:absolute;width:110px;height:16px;left:5%;top:18%;background:var(--blue);transform:rotate(-8deg);border-radius:999px}
-    .intro:after{content:"";position:absolute;width:78px;height:78px;right:7%;bottom:16%;border:14px solid var(--gold);transform:rotate(18deg)}
-    .intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:44px}
-    .quality{padding:26px 14px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,#171719,#0c0c0d);position:relative;overflow:hidden}
-    .quality:before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:4px;background:linear-gradient(90deg,var(--blue),var(--yellow),var(--gold))}
-    .quality strong{display:block;color:var(--gold-light);font:600 22px/1.1 "Fraunces",serif}
-    .quality span{display:block;margin-top:8px;color:var(--gray);font-size:13px}
+    section{padding:88px 0;position:relative}
+    .intro,.reviews,.offers,.closing{background:linear-gradient(180deg,var(--black-2),var(--soft-2))}
+    .gallery{background:linear-gradient(180deg,#0b1b31,#102747);color:#fff}
+    .gallery .eyebrow{color:var(--gold-light)}
+    .gallery .lead{color:#eef3fb}
+    .intro{text-align:center;border-top:1px solid rgba(255,255,255,.04)}
+    .intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+    .quality{padding:26px 18px;border:1px solid rgba(240,207,119,.16);border-radius:20px;background:linear-gradient(180deg,#10213a,#0d1b30);overflow:hidden}
+    .quality:before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold-light),var(--blue-light))}
+    .quality strong{display:block;color:var(--white);font:700 22px/1.15 "DM Sans",sans-serif}
+    .quality span{display:block;margin-top:8px;color:var(--gray);font-size:14px;line-height:1.55}
 
-    .gallery{background:var(--ivory);color:#111;overflow:hidden}
-    .gallery:before{content:"";position:absolute;width:180px;height:180px;right:-70px;top:26px;background:var(--blue);border-radius:50%;opacity:.95}
-    .gallery:after{content:"";position:absolute;width:140px;height:24px;left:4%;bottom:36px;background:var(--yellow);transform:rotate(-5deg)}
-    .gallery .eyebrow{color:#6d5310}
-    .gallery .title{max-width:850px}
     .gallery-grid{display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:290px 290px;gap:14px;margin-top:38px;position:relative}
-    .photo{overflow:hidden;border-radius:24px;background:#ddd;margin:0;box-shadow:0 18px 46px rgba(30,24,7,.12)}
+    .photo{overflow:hidden;border-radius:22px;background:#ddd;margin:0;box-shadow:0 12px 30px rgba(0,0,0,.22)}
     .photo:first-child{grid-row:1/3}
     .photo img{height:100%;object-fit:cover;transition:transform .45s,filter .45s}
-    .photo:hover img{transform:scale(1.035);filter:saturate(1.08)}
+    .photo:hover img{transform:scale(1.03);filter:saturate(1.04)}
 
-    .reviews{text-align:center;overflow:hidden;background:radial-gradient(circle at 88% 20%,rgba(21,72,201,.22),transparent 26%),radial-gradient(circle at 6% 80%,rgba(212,169,40,.18),transparent 22%),var(--black)}
-    .reviews:before{content:"";position:absolute;left:-38px;top:50px;width:150px;height:150px;border:20px solid var(--yellow);border-radius:50%;opacity:.9}
+    .reviews{text-align:center}
     .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;text-align:left}
-    .review{display:flex;min-height:100%;flex-direction:column;padding:28px;border:1px solid rgba(243,207,95,.18);border-radius:24px;background:linear-gradient(145deg,rgba(28,28,31,.96),rgba(10,10,11,.96));box-shadow:0 16px 45px rgba(0,0,0,.18)}
-    .review:nth-child(2){transform:translateY(14px);border-color:rgba(77,124,255,.26)}
+    .review{display:flex;min-height:100%;flex-direction:column;padding:28px;border:1px solid rgba(93,136,220,.18);border-radius:22px;background:linear-gradient(180deg,#10213a,#0d1b30);box-shadow:0 12px 30px rgba(0,0,0,.14)}
+    .review:nth-child(2){transform:translateY(10px);border-color:rgba(240,207,119,.22)}
     .stars{color:var(--gold-light);font-size:20px;letter-spacing:3px}
-    .quote{flex:1;margin:17px 0 24px;color:#f0eee9;font:500 16px/1.7 "DM Sans",sans-serif}
-    .author{padding-top:18px;border-top:1px solid var(--line);font-family:"Syne",sans-serif;font-weight:700}
-    .author small{display:block;margin-top:6px;color:var(--gray);font-family:"DM Sans",sans-serif;font-weight:500}
+    .quote{flex:1;margin:17px 0 24px;color:#f4f7fb;font:500 16px/1.75 "DM Sans",sans-serif}
+    .author{padding-top:18px;border-top:1px solid var(--line);font-weight:700}
+    .author small{display:block;margin-top:6px;color:var(--gray);font-weight:500}
     .proof{margin-top:58px;text-align:left}
-    .proof-title{margin:0 0 18px;color:var(--gray);font-family:"Syne",sans-serif;font-size:12px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+    .proof-title{margin:0 0 18px;color:var(--gray);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
     .proof-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,31%);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 18px;scrollbar-width:none}
     .proof-grid::-webkit-scrollbar{display:none}
-    .proof-img{overflow:hidden;border:1px solid var(--line);border-radius:20px;background:#151515;margin:0;scroll-snap-align:start}
+    .proof-img{overflow:hidden;border:1px solid rgba(255,255,255,.10);border-radius:18px;background:#0d1b30;margin:0;scroll-snap-align:start}
     .proof-img img{height:100%;min-height:240px;object-fit:cover}
 
-    .offers{background:#0c0c0e;overflow:hidden}
-    .offers:before{content:"";position:absolute;right:-55px;top:120px;width:180px;height:52px;background:var(--blue);transform:rotate(11deg);border-radius:4px}
-    .offers:after{content:"";position:absolute;left:-45px;bottom:80px;width:150px;height:150px;border:22px solid var(--gold);transform:rotate(22deg)}
     .offers-head{max-width:760px}
-    .offer-feature{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:center;margin-top:42px;padding:20px;border:1px solid rgba(255,213,36,.18);border-radius:28px;background:linear-gradient(145deg,#18181b,#0f0f11);position:relative;overflow:hidden}
-    .offer-feature:after{content:"";position:absolute;width:100px;height:100px;right:-36px;bottom:-36px;background:var(--yellow);border-radius:50%;opacity:.75}
-    .offer-feature img{height:390px;object-fit:cover;border-radius:20px}
-    .offer-feature h3{margin:10px 0 12px;font:600 clamp(29px,5vw,43px)/1.08 "Fraunces",serif;letter-spacing:-.025em}
-    .offer-feature p{color:#cbc7bf;line-height:1.7}
-    .offer-link{display:inline-flex;margin-top:14px;color:var(--gold-light);font-family:"Syne",sans-serif;font-weight:800}
-    .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
-    .offer-card{display:flex;min-height:215px;flex-direction:column;padding:24px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(160deg,#171719,#101012);transition:transform .2s ease,border-color .2s ease,background .2s ease}
-    .offer-card:hover{transform:translateY(-4px);border-color:rgba(243,207,95,.4);background:linear-gradient(160deg,#1d1d20,#111113)}
-    .offer-card:nth-child(3n+2){border-top:3px solid var(--blue)}
-    .offer-card:nth-child(3n+1){border-top:3px solid var(--gold)}
-    .offer-card:nth-child(3n){border-top:3px solid var(--yellow)}
+    .offer-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(270px,32%);gap:16px;margin-top:34px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px 20px 2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+    .offer-grid::-webkit-scrollbar{display:none}
+    .offer-card{display:flex;min-height:245px;flex-direction:column;padding:26px;border:1px solid rgba(240,207,119,.16);border-radius:22px;background:linear-gradient(180deg,#10213a,#0d1b30);transition:transform .2s ease,border-color .2s ease,background .2s ease;scroll-snap-align:start;position:relative;overflow:hidden}
+    .offer-card:hover{transform:translateY(-4px);border-color:rgba(240,207,119,.34);background:linear-gradient(180deg,#13294a,#0e2038)}
+    .offer-card:nth-child(odd){border-color:rgba(93,136,220,.18)}
     .offer-icon{font-size:26px}
-    .offer-card h3{margin:17px 0 8px;font:600 21px/1.25 "Fraunces",serif}
-    .offer-card p{flex:1;margin:0;color:#aaa59c;font-size:14px;line-height:1.6}
-    .offer-card span:last-child{margin-top:18px;color:var(--gold-light);font-family:"Syne",sans-serif;font-weight:800;font-size:13px}
+    .offer-card h3{margin:16px 0 8px;font:700 22px/1.28 "DM Sans",sans-serif;letter-spacing:-.02em}
+    .offer-card p{flex:1;margin:0;color:var(--gray);font-size:14px;line-height:1.66}
+    .offer-card span:last-child{margin-top:18px;color:var(--gold-light);font-weight:700;font-size:14px}
 
-    .closing{padding:96px 0;text-align:center;background:linear-gradient(135deg,#151109,#070707 58%,#09153f);overflow:hidden}
-    .closing:before{content:"";position:absolute;width:170px;height:170px;left:-85px;top:30px;background:var(--yellow);border-radius:50%}
-    .closing:after{content:"";position:absolute;width:230px;height:22px;right:-40px;bottom:55px;background:var(--blue-light);transform:rotate(-15deg)}
-    .closing p{max-width:620px;margin:20px auto 0;color:#d4d0c8;line-height:1.7}
+    .closing{text-align:center;border-top:1px solid rgba(255,255,255,.05)}
+    .closing p{max-width:620px;margin:20px auto 0;color:#dbe4f1;line-height:1.72}
     .closing .cta{margin-top:30px}
 
-    footer{padding:28px 18px;border-top:1px solid var(--line);color:#918d85;font-size:13px;text-align:center}
+    footer{padding:28px 18px;border-top:1px solid rgba(255,255,255,.08);color:#9fb0c8;font-size:13px;text-align:center;background:#07111f}
 
     @media (max-width:760px){
-      section{padding:68px 0}
+      section{padding:66px 0}
       .intro-grid{grid-template-columns:1fr}
       .gallery-grid{grid-template-columns:1fr;grid-template-rows:380px 260px 260px}
       .photo:first-child{grid-row:auto}
@@ -129,15 +116,16 @@
       .review{scroll-snap-align:start}
       .review:nth-child(2){transform:none}
       .proof-grid{grid-auto-columns:82%}
-      .offer-grid{grid-template-columns:1fr}
-      .offer-feature{grid-template-columns:1fr}
-      .offer-feature img{height:290px}
+      .offer-grid{grid-auto-columns:84%}
       .proof-img img{min-height:0;height:auto}
-      .hero h1{font-size:clamp(56px,18vw,82px)}
+      .hero-panel{padding:24px 18px 28px}
+      .hero h1{font-size:clamp(50px,15vw,74px)}
+      .hero-watermark{font-size:clamp(26px,7vw,44px);letter-spacing:.22em}
+      .logo-below{width:138px;margin-top:18px}
       .hero-slide{background-position:34% center}
-      .hero:before{width:180px;height:180px;right:-70px;top:20%;border-width:18px}
-      .hero:after{left:-140px;bottom:-110px;width:300px;height:190px}
+      .hero-kicker{padding:10px 12px;font-size:11px;letter-spacing:.12em}
     }
+
   </style>
 </head>
 <body>
@@ -148,16 +136,21 @@
       <div class="hero-slide" style="background-image:url('/public/7fe8a35b-98ec-445e-be54-3f5491e8ab58.jpeg')"></div>
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="top"><img class="logo" src="/public/E7EAE1FB-BF6E-4FA9-A174-010CE2B2BEE5.png" alt="To Know Salvador"></div>
+    <div class="top"><span class="hero-watermark">FACUNDO</span></div>
     <div class="hero-copy">
-      <h1>Guía <span>Facundo</span></h1>
-      <p class="lead">Recorridos en español por la historia y la cultura de Salvador de Bahía.</p>
-      <a class="cta" href="#opiniones">Conoce su trabajo</a>
-      <div class="hero-indicators" aria-hidden="true">
-        <span class="hero-dot active"></span>
-        <span class="hero-dot"></span>
-        <span class="hero-dot"></span>
+      <div class="hero-panel">
+        <p class="hero-kicker">Recorridos en español en Salvador de Bahía</p>
+        <h1>Guía <span>Facundo</span></h1>
+        <div class="hero-divider" aria-hidden="true"></div>
+        <p class="lead">Recorridos en español por la historia y la cultura de Salvador de Bahía.</p>
+        <a class="cta" href="#opiniones">Conoce su trabajo</a>
+        <div class="hero-indicators" aria-hidden="true">
+          <span class="hero-dot active"></span>
+          <span class="hero-dot"></span>
+          <span class="hero-dot"></span>
+        </div>
       </div>
+      <img class="logo-below" src="/public/E7EAE1FB-BF6E-4FA9-A174-010CE2B2BEE5.png" alt="To Know Salvador">
     </div>
   </header>
 
@@ -218,33 +211,12 @@
           <p class="lead" style="margin-left:0">Además de los recorridos con Facundo, To Know Salvador ofrece experiencias culturales, paseos privados y apoyo local.</p>
         </div>
 
-        <article class="offer-feature" id="afro-tour">
-          <img src="/public/335a32c5-42d1-45a2-9990-ad20365ada86.jpeg" alt="Afro Tour por el Centro Histórico con Facundo">
-          <div>
-            <p class="eyebrow">Experiencia destacada</p>
-            <h3>Afro Tour por el Centro Histórico</h3>
-            <p>Un recorrido por la memoria afrobrasileña en Salvador, con enfoque en historia, cultura, resistencia y vida cotidiana en el Pelourinho y sus alrededores.</p>
-            <p><strong>Ideal para:</strong> viajeros que quieren comprender la ciudad desde una perspectiva histórica y cultural más profunda.</p>
-            <a class="offer-link" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20reservar%20el%20Afro%20Tour%20por%20el%20Centro%20Hist%C3%B3rico." target="_blank" rel="noopener">Consultar disponibilidad →</a>
-          </div>
-        </article>
-
-        <article class="offer-feature" id="show-folclorico">
-          <img src="/public/29C8B64B-96B0-46CB-943C-7C235BD2E46E.png" alt="Espectáculo folclórico de Bahía en el Coliseu">
-          <div>
-            <p class="eyebrow">Jueves y sábado</p>
-            <h3>Cena bahiana y espectáculo folclórico</h3>
-            <p>Una noche en el Coliseu con buffet de comida bahiana, capoeira, samba y danzas vinculadas a las tradiciones afrobrasileñas.</p>
-            <p><strong>18:30–20:00:</strong> cena · <strong>20:00–21:00:</strong> espectáculo</p>
-            <a class="offer-link" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Cena%20Bahiana%20y%20el%20Espect%C3%A1culo%20Folcl%C3%B3rico." target="_blank" rel="noopener">Consultar disponibilidad →</a>
-          </div>
-        </article>
-
-        <div class="offer-grid">
-          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20reservar%20el%20Afro%20Tour%20por%20el%20Centro%20Hist%C3%B3rico." target="_blank" rel="noopener"><span class="offer-icon">🚶🏽</span><h3>Afro Tour por el Centro Histórico</h3><p>Un recorrido por la historia afrobrasileña, el Pelourinho y los principales puntos del centro.</p><span>Consultar →</span></a>
+        <div class="offer-grid" aria-label="Experiencias disponibles">
+          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20reservar%20el%20Afro%20Tour%20por%20el%20Centro%20Hist%C3%B3rico." target="_blank" rel="noopener"><span class="offer-icon">🚶🏽</span><h3>Afro Tour por el Centro Histórico</h3><p>Un recorrido por la memoria afrobrasileña, el Pelourinho y la historia cultural de Salvador.</p><span>Consultar →</span></a>
+          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Cena%20Bahiana%20y%20el%20Espect%C3%A1culo%20Folcl%C3%B3rico." target="_blank" rel="noopener"><span class="offer-icon">🥁</span><h3>Cena bahiana y espectáculo folclórico</h3><p>Buffet de comida bahiana, capoeira, samba y danzas vinculadas a las tradiciones afrobrasileñas.</p><span>Consultar →</span></a>
           <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Praia%20do%20Forte%20privado." target="_blank" rel="noopener"><span class="offer-icon">🏝️</span><h3>Praia do Forte privado</h3><p>Vehículo y conductor privados, con salida desde el hotel y tiempo libre en Praia do Forte.</p><span>Consultar →</span></a>
           <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Tour%20de%20F%C3%BAtbol." target="_blank" rel="noopener"><span class="offer-icon">⚽</span><h3>Tour de Fútbol</h3><p>Un día de partido en la Arena Fonte Nova junto a aficionados locales.</p><span>Próximo partido →</span></a>
-          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20clase%20de%20Capoeira." target="_blank" rel="noopener"><span class="offer-icon">🥁</span><h3>Clase de Capoeira</h3><p>Una primera experiencia práctica con movimiento, música e historia.</p><span>Consultar →</span></a>
+          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20clase%20de%20Capoeira." target="_blank" rel="noopener"><span class="offer-icon">🪘</span><h3>Clase de Capoeira</h3><p>Una primera experiencia práctica con movimiento, música e historia.</p><span>Consultar →</span></a>
           <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Tour%20Gastron%C3%B3mico." target="_blank" rel="noopener"><span class="offer-icon">🍲</span><h3>Tour Gastronómico</h3><p>Sabores locales y platos tradicionales de la cocina bahiana.</p><span>Consultar →</span></a>
           <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Favela%20Tour." target="_blank" rel="noopener"><span class="offer-icon">🏘️</span><h3>Favela Tour con guía local</h3><p>Una visita acompañada y realizada con participación local.</p><span>Consultar →</span></a>
           <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20agendar%20una%20visita%20a%20un%20Terreiro%20de%20Candombl%C3%A9." target="_blank" rel="noopener"><span class="offer-icon">🤍</span><h3>Visita a un Terreiro de Candomblé</h3><p>Visita cultural realizada de acuerdo con las orientaciones y reglas de la casa.</p><span>Consultar fechas →</span></a>
@@ -281,7 +253,7 @@
       setInterval(() => {
         index = (index + 1) % slides.length;
         showSlide(index);
-      }, 3000);
+      }, 4000);
     })();
   </script>
 </body>
