@@ -3,250 +3,1689 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
   <title>Guía Facundo | To Know Salvador</title>
-  <meta name="description" content="Conoce Salvador con Facundo: historia, cultura y recorridos en español por el Centro Histórico.">
+
+  <meta
+    name="description"
+    content="Conoce Salvador con Facundo: historia, cultura y recorridos en español por el Centro Histórico."
+  >
+
   <meta name="theme-color" content="#070707">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <style>
 
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Syne:wght@600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
     :root{
       --black:#07111f;
       --black-2:#0b1627;
       --soft:#10213a;
       --soft-2:#0d1b30;
+
       --white:#ffffff;
+
       --gold:#cfa23a;
       --gold-light:#f0cf77;
+
       --blue:#1d4fae;
       --blue-light:#5d88dc;
+
       --gray:#c6cfdb;
+
       --line:rgba(255,255,255,.14);
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;background:var(--black)}
-    body{margin:0;background:linear-gradient(180deg,#07111f 0%,#0a1730 100%);color:var(--white);font-family:"DM Sans",sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-    img{display:block;width:100%}
-    a{color:inherit;text-decoration:none}
-    .container{width:min(100% - 36px,1080px);margin:auto;position:relative;z-index:2}
-    .eyebrow{margin:0;color:var(--gold-light);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-    .title{margin:10px 0 0;font:700 clamp(32px,6vw,54px)/1.08 "DM Sans",sans-serif;letter-spacing:-.03em;text-wrap:balance}
-    .lead{max-width:700px;margin:18px auto 0;color:#eef3fb;font-size:clamp(16px,3.2vw,19px);line-height:1.72}
-
-    .hero{position:relative;min-height:92svh;display:flex;align-items:flex-end;overflow:hidden;background:#000}
-    .hero-slides{position:absolute;inset:0;z-index:0}
-    .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.1s ease, transform 6s ease;transform:scale(1.03);filter:saturate(.88) brightness(.68)}
-    .hero-slide.active{opacity:1;transform:scale(1);filter:saturate(.92) brightness(.72)}
-    .hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(3,7,14,.68) 0%,rgba(3,7,14,.52) 28%,rgba(5,12,23,.48) 52%,rgba(5,12,23,.72) 78%,rgba(5,12,23,.90) 100%);pointer-events:none}
-    .hero:before,.hero:after,.intro:before,.intro:after,.gallery:before,.gallery:after,.reviews:before,.offers:before,.offers:after,.closing:before,.closing:after,.offer-card:after{content:none !important;display:none !important}
-    .top{position:absolute;z-index:3;top:0;width:100%;padding:calc(14px + env(safe-area-inset-top)) 22px 14px;background:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(74,55,12,.96) 52%,rgba(0,0,0,.96) 100%);border-bottom:1px solid rgba(240,207,119,.22)}
-    .hero-watermark{display:block;width:100%;margin:0 auto;text-align:center;font:800 clamp(28px,8vw,72px)/1 "Syne",sans-serif;letter-spacing:.30em;text-transform:uppercase;color:rgba(255,255,255,.96);text-shadow:0 4px 20px rgba(0,0,0,.24);user-select:none}
-    
-    .hero-copy{position:absolute;z-index:4;top:clamp(62px,7vw,82px);right:0;width:100%;margin:0;padding:0 24px;text-align:right}
-    .hero-panel{display:flex;width:min(100%,1080px);margin:0 auto;padding:0;border-radius:0;background:transparent;border:0;backdrop-filter:none;box-shadow:none;justify-content:flex-end}
-    .hero h1{margin:14px 0 0;font:700 clamp(52px,10vw,84px)/.98 "DM Sans",sans-serif;letter-spacing:-.04em;color:var(--white);text-shadow:0 8px 28px rgba(0,0,0,.34)}
-    .hero h1 span{display:block;color:var(--gold-light);font-style:normal}
-    
-    .hero-divider{width:92px;height:4px;margin:18px auto 0;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
-    .hero-actions{display:flex;flex-direction:column;align-items:flex-end;gap:8px;margin-top:0}.hero-label,.cta{display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:0 24px;border-radius:999px;background:linear-gradient(100deg,var(--gold),var(--gold-light));color:#08101d;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 14px 32px rgba(0,0,0,.28)}.hero-rating{display:inline-block;color:var(--gold-light);font-size:24px;letter-spacing:2px;line-height:1;text-shadow:0 3px 12px rgba(0,0,0,.35)}
-    .cta:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(0,0,0,.34)}
-    .hero-indicators{display:flex;justify-content:center;gap:9px;margin-top:18px}
-    .hero-dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);transition:transform .2s ease,background .2s ease}
-    .hero-dot.active{background:var(--gold-light);transform:scale(1.15)}
-
-    section{padding:88px 0;position:relative}
-    .intro,.reviews,.offers,.closing{background:linear-gradient(180deg,var(--black-2),var(--soft-2))}
-    .gallery{background:linear-gradient(180deg,#0b1b31,#102747);color:#fff}
-    .gallery .eyebrow{color:var(--gold-light)}
-    .gallery .lead{color:#eef3fb}
-    .intro{text-align:center;border-top:0}
-    .intro-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,32%);gap:14px;margin-top:44px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 2px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-    .quality{padding:26px 18px;border:1px solid rgba(240,207,119,.16);border-radius:20px;background:linear-gradient(180deg,#10213a,#0d1b30);overflow:hidden;scroll-snap-align:start}
-    .quality:before{content:"";position:absolute;inset:0 auto auto 0;width:100%;height:3px;background:linear-gradient(90deg,var(--gold-light),var(--blue-light))}
-    .quality strong{display:block;color:var(--white);font:700 22px/1.15 "DM Sans",sans-serif}
-    .quality span{display:block;margin-top:8px;color:var(--gray);font-size:14px;line-height:1.55}
-    .intro-grid::-webkit-scrollbar{display:none}
-
-    .gallery-grid{display:grid;grid-auto-flow:column;grid-auto-columns:100%;gap:0;margin-top:38px;position:relative;overflow-x:auto;scroll-snap-type:x mandatory;padding:0;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-    .photo{overflow:hidden;border-radius:22px;background:#ddd;margin:0;box-shadow:0 12px 30px rgba(0,0,0,.22);height:460px;scroll-snap-align:start;width:100%}
-    .photo:first-child{grid-row:auto}
-    .photo img{height:100%;object-fit:cover;transition:transform .45s,filter .45s}
-    .photo:hover img{transform:scale(1.03);filter:saturate(1.04)}
-    .gallery-grid::-webkit-scrollbar{display:none}
-
-    .hero-services-bar{position:absolute;z-index:5;left:0;right:0;bottom:0;background:linear-gradient(180deg,rgba(3,8,18,.08),rgba(3,8,18,.94));border-top:1px solid rgba(240,207,119,.16);padding:12px 0 calc(12px + env(safe-area-inset-bottom));backdrop-filter:blur(6px)}.gallery-services{display:flex;gap:12px;margin-top:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px 0 4px}.gallery-services::-webkit-scrollbar{display:none}.gallery-service{display:inline-flex;flex:0 0 auto;min-height:44px;align-items:center;justify-content:center;padding:0 19px;border-radius:999px;background:linear-gradient(100deg,var(--gold),var(--gold-light));color:#08101d;font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 10px 24px rgba(0,0,0,.22);transition:transform .2s ease,box-shadow .2s ease}.gallery-service:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.28)}
-
-    .reviews{text-align:center}
-    .review-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,32%);gap:18px;margin-top:40px;text-align:left;align-items:start;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 4px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-    .review{display:grid;grid-template-rows:auto 1fr auto;min-height:360px;padding:18px;border:1px solid rgba(93,136,220,.18);border-radius:22px;background:linear-gradient(180deg,#10213a,#0d1b30);box-shadow:0 12px 30px rgba(0,0,0,.14);aspect-ratio:1/1;overflow:hidden}
-    .review:nth-child(2){transform:none;border-color:rgba(240,207,119,.22)}
-    .stars{color:var(--gold-light);font-size:20px;letter-spacing:3px}
-    .quote{margin:10px 0 12px;color:#f4f7fb;font:500 13px/1.45 "DM Sans",sans-serif;overflow:visible}
-    .author{padding-top:14px;border-top:1px solid var(--line);font-weight:700;font-size:14px}
-    .author small{display:block;margin-top:4px;color:var(--gray);font-weight:500;font-size:12px}
-    .proof{margin-top:22px;text-align:left}
-    .proof-title{margin:0 0 18px;color:var(--gray);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
-    .proof-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,31%);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 6px;scrollbar-width:none}
-    .proof-grid::-webkit-scrollbar{display:none}
-    .proof-img{overflow:hidden;border:1px solid rgba(255,255,255,.10);border-radius:18px;background:#0d1b30;margin:0;scroll-snap-align:start}
-    .proof-img img{height:100%;min-height:220px;object-fit:cover}
-
-    .offers-head{max-width:760px}
-    .offer-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(270px,32%);gap:16px;margin-top:34px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 6px 20px 2px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-    .offer-grid::-webkit-scrollbar{display:none}
-    .offer-card{display:flex;min-height:245px;flex-direction:column;padding:26px;border:1px solid rgba(240,207,119,.16);border-radius:22px;background:linear-gradient(180deg,#10213a,#0d1b30);transition:transform .2s ease,border-color .2s ease,background .2s ease;scroll-snap-align:start;position:relative;overflow:hidden}
-    .offer-card:hover{transform:translateY(-4px);border-color:rgba(240,207,119,.34);background:linear-gradient(180deg,#13294a,#0e2038)}
-    .offer-card:nth-child(odd){border-color:rgba(93,136,220,.18)}
-    .offer-icon{font-size:26px}
-    .offer-card h3{margin:16px 0 8px;font:700 22px/1.28 "DM Sans",sans-serif;letter-spacing:-.02em}
-    .offer-card p{flex:1;margin:0;color:var(--gray);font-size:14px;line-height:1.66}
-    .offer-card span:last-child{margin-top:18px;color:var(--gold-light);font-weight:700;font-size:14px}
-
-    .closing{text-align:center;border-top:1px solid rgba(255,255,255,.05)}
-    .closing p{max-width:620px;margin:20px auto 0;color:#dbe4f1;line-height:1.72}
-    .closing .cta{margin-top:30px}
-
-    footer{padding:28px 18px;border-top:1px solid rgba(255,255,255,.08);color:#9fb0c8;font-size:13px;text-align:center;background:#07111f}
-
-    @media (max-width:760px){
-      section{padding:66px 0}
-      .intro-grid{grid-auto-columns:84%}
-      .gallery-grid{grid-auto-columns:100%}
-      .gallery-services{gap:8px;margin-top:0}.hero-services-bar{padding:9px 0 calc(9px + env(safe-area-inset-bottom))}
-      .gallery-service{min-height:42px;padding:0 16px;font-size:11px}
-      .photo:first-child{grid-row:auto}
-      .review-grid{display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 4px 10px;scrollbar-width:none}
-      .review-grid::-webkit-scrollbar{display:none}
-      .review{scroll-snap-align:start;min-height:340px;aspect-ratio:1/1}
-      .review:nth-child(2){transform:none}
-      .proof-grid{grid-auto-columns:82%}
-      .offer-grid{grid-auto-columns:84%}
-      .proof-img img{min-height:0;height:auto}
-      .hero-panel{padding:18px 8px 24px}
-      .hero h1{font-size:clamp(50px,15vw,74px)}
-      .hero-watermark{font-size:clamp(26px,7vw,44px);letter-spacing:.22em}
-      .logo-below{width:138px;margin-top:18px}
-      .hero-copy{top:50px;padding:0 14px}.hero-panel{justify-content:flex-end;padding:0}.hero-actions{align-items:flex-end;gap:5px}.hero-label,.cta{min-height:38px;padding:0 15px;font-size:11px}.hero-rating{font-size:20px;letter-spacing:1px}.hero-slide{background-position:34% center}
-      .hero-kicker{padding:10px 12px;font-size:11px;letter-spacing:.12em}
+    *{
+      box-sizing:border-box;
     }
 
+    html{
+      scroll-behavior:smooth;
+      background:var(--black);
+    }
+
+    body{
+      margin:0;
+      background:linear-gradient(
+        180deg,
+        #07111f 0%,
+        #0a1730 100%
+      );
+      color:var(--white);
+      font-family:"DM Sans",sans-serif;
+      -webkit-font-smoothing:antialiased;
+      overflow-x:hidden;
+    }
+
+    img{
+      display:block;
+      width:100%;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(100% - 36px,1080px);
+      margin:auto;
+      position:relative;
+      z-index:2;
+    }
+
+    .eyebrow{
+      margin:0;
+      color:var(--gold-light);
+      font-size:12px;
+      font-weight:700;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+    }
+
+    .title{
+      margin:10px 0 0;
+      font:700 clamp(32px,6vw,54px)/1.08 "DM Sans",sans-serif;
+      letter-spacing:-.03em;
+      text-wrap:balance;
+    }
+
+    .lead{
+      max-width:700px;
+      margin:18px auto 0;
+      color:#eef3fb;
+      font-size:clamp(16px,3.2vw,19px);
+      line-height:1.72;
+    }
+
+    /* ==========================
+       TELA INICIAL
+    ========================== */
+
+    .hero{
+      position:relative;
+      min-height:92svh;
+      display:flex;
+      align-items:flex-end;
+      overflow:visible;
+      background:#000;
+    }
+
+    .hero-slides{
+      position:absolute;
+      inset:0;
+      z-index:0;
+    }
+
+    .hero-slide{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      transform:scale(1.03);
+      filter:saturate(.88) brightness(.68);
+    }
+
+    .hero-slide.active{
+      opacity:1;
+      transform:scale(1);
+      filter:saturate(.92) brightness(.72);
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      z-index:1;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(3,7,14,.68) 0%,
+          rgba(3,7,14,.52) 28%,
+          rgba(5,12,23,.48) 52%,
+          rgba(5,12,23,.72) 78%,
+          rgba(5,12,23,.90) 100%
+        );
+      pointer-events:none;
+    }
+
+    .hero:before,
+    .hero:after,
+    .intro:before,
+    .intro:after,
+    .gallery:before,
+    .gallery:after,
+    .reviews:before,
+    .offers:before,
+    .offers:after,
+    .closing:before,
+    .closing:after,
+    .offer-card:after{
+      content:none !important;
+      display:none !important;
+    }
+
+    /* FACUNDO */
+
+    .top{
+      position:absolute;
+      z-index:3;
+      top:0;
+      width:100%;
+
+      padding:
+        calc(14px + env(safe-area-inset-top))
+        22px
+        14px;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,.96) 0%,
+          rgba(74,55,12,.96) 52%,
+          rgba(0,0,0,.96) 100%
+        );
+
+      border-bottom:
+        1px solid rgba(240,207,119,.22);
+    }
+
+    .hero-watermark{
+      display:block;
+      width:100%;
+      margin:0 auto;
+
+      text-align:center;
+
+      font:
+        800 clamp(28px,8vw,72px)/1
+        "Syne",
+        sans-serif;
+
+      letter-spacing:.30em;
+      text-transform:uppercase;
+
+      color:rgba(255,255,255,.96);
+
+      text-shadow:
+        0 4px 20px rgba(0,0,0,.24);
+
+      user-select:none;
+    }
+
+    /* GUIA DE TURISMO */
+
+    .hero-copy{
+      position:absolute;
+      z-index:4;
+
+      top:clamp(62px,7vw,82px);
+      right:0;
+
+      width:100%;
+      margin:0;
+
+      padding:0 24px;
+
+      text-align:right;
+    }
+
+    .hero-panel{
+      display:flex;
+
+      width:min(100%,1080px);
+      margin:0 auto;
+
+      padding:0;
+
+      justify-content:flex-end;
+
+      background:transparent;
+      border:0;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-direction:column;
+
+      align-items:flex-end;
+
+      gap:8px;
+
+      margin-top:0;
+    }
+
+    .hero-label,
+    .cta{
+      display:inline-flex;
+
+      min-height:48px;
+
+      align-items:center;
+      justify-content:center;
+
+      padding:0 24px;
+
+      border-radius:999px;
+
+      background:
+        linear-gradient(
+          100deg,
+          var(--gold),
+          var(--gold-light)
+        );
+
+      color:#08101d;
+
+      font-size:14px;
+      font-weight:700;
+
+      letter-spacing:.08em;
+
+      text-transform:uppercase;
+
+      box-shadow:
+        0 14px 32px rgba(0,0,0,.28);
+    }
+
+    .hero-rating{
+      display:inline-block;
+
+      color:var(--gold-light);
+
+      font-size:24px;
+
+      letter-spacing:2px;
+
+      line-height:1;
+
+      text-shadow:
+        0 3px 12px rgba(0,0,0,.35);
+    }
+
+    .cta:hover{
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 18px 38px rgba(0,0,0,.34);
+    }
+
+    /* ==========================
+       BOTÕES NA DIVISÃO DA FOTO
+    ========================== */
+
+    .hero-services-bar{
+      position:absolute;
+
+      z-index:5;
+
+      left:0;
+      right:0;
+
+      bottom:-28px;
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(3,8,18,.08),
+          rgba(3,8,18,.94)
+        );
+
+      border-top:
+        1px solid rgba(240,207,119,.16);
+
+      padding:
+        12px
+        0
+        calc(12px + env(safe-area-inset-bottom));
+
+      backdrop-filter:blur(6px);
+    }
+
+    .gallery-services{
+      display:flex;
+
+      gap:12px;
+
+      margin-top:0;
+
+      overflow-x:auto;
+
+      scrollbar-width:none;
+
+      -webkit-overflow-scrolling:touch;
+
+      padding:2px 0 4px;
+    }
+
+    .gallery-services::-webkit-scrollbar{
+      display:none;
+    }
+
+    .gallery-service{
+      display:inline-flex;
+
+      flex:0 0 auto;
+
+      min-height:44px;
+
+      align-items:center;
+      justify-content:center;
+
+      padding:0 19px;
+
+      border-radius:999px;
+
+      background:
+        linear-gradient(
+          100deg,
+          var(--gold),
+          var(--gold-light)
+        );
+
+      color:#08101d;
+
+      font-size:13px;
+      font-weight:800;
+
+      letter-spacing:.04em;
+
+      text-transform:uppercase;
+
+      box-shadow:
+        0 10px 24px rgba(0,0,0,.22);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .gallery-service:hover{
+      transform:translateY(-2px);
+
+      box-shadow:
+        0 14px 30px rgba(0,0,0,.28);
+    }
+
+    /* ==========================
+       SEÇÕES
+    ========================== */
+
+    section{
+      padding:88px 0;
+      position:relative;
+    }
+
+    .intro,
+    .reviews,
+    .offers,
+    .closing{
+      background:
+        linear-gradient(
+          180deg,
+          var(--black-2),
+          var(--soft-2)
+        );
+    }
+
+    /* ==========================
+       SOBRE FACUNDO
+    ========================== */
+
+    .intro{
+      text-align:center;
+      border-top:0;
+    }
+
+    .intro-grid{
+      display:grid;
+
+      grid-auto-flow:column;
+
+      grid-auto-columns:
+        minmax(260px,32%);
+
+      gap:14px;
+
+      margin-top:44px;
+
+      overflow-x:auto;
+
+      scroll-snap-type:x mandatory;
+
+      padding:2px 2px 10px;
+
+      scrollbar-width:none;
+
+      -webkit-overflow-scrolling:touch;
+    }
+
+    .intro-grid::-webkit-scrollbar{
+      display:none;
+    }
+
+    .quality{
+      padding:26px 18px;
+
+      border:
+        1px solid rgba(240,207,119,.16);
+
+      border-radius:20px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #10213a,
+          #0d1b30
+        );
+
+      overflow:hidden;
+
+      scroll-snap-align:start;
+    }
+
+    .quality strong{
+      display:block;
+
+      color:var(--white);
+
+      font:
+        700 22px/1.15
+        "DM Sans",
+        sans-serif;
+    }
+
+    .quality span{
+      display:block;
+
+      margin-top:8px;
+
+      color:var(--gray);
+
+      font-size:14px;
+
+      line-height:1.55;
+    }
+
+    /* ==========================
+       FOTOS
+    ========================== */
+
+    .gallery{
+      background:
+        linear-gradient(
+          180deg,
+          #0b1b31,
+          #102747
+        );
+
+      color:#fff;
+    }
+
+    .gallery .eyebrow{
+      color:var(--gold-light);
+    }
+
+    .gallery-grid{
+      display:grid;
+
+      grid-auto-flow:column;
+
+      grid-auto-columns:100%;
+
+      gap:0;
+
+      margin-top:38px;
+
+      position:relative;
+
+      overflow-x:auto;
+
+      scroll-snap-type:x mandatory;
+
+      padding:0;
+
+      scrollbar-width:none;
+
+      -webkit-overflow-scrolling:touch;
+    }
+
+    .gallery-grid::-webkit-scrollbar{
+      display:none;
+    }
+
+    .photo{
+      overflow:hidden;
+
+      border-radius:22px;
+
+      background:#ddd;
+
+      margin:0;
+
+      box-shadow:
+        0 12px 30px rgba(0,0,0,.22);
+
+      height:460px;
+
+      scroll-snap-align:start;
+
+      width:100%;
+    }
+
+    .photo img{
+      height:100%;
+
+      object-fit:cover;
+
+      transition:
+        transform .45s,
+        filter .45s;
+    }
+
+    .photo:hover img{
+      transform:scale(1.03);
+
+      filter:saturate(1.04);
+    }
+
+    /* ==========================
+       REVIEWS
+    ========================== */
+
+    .reviews{
+      text-align:center;
+    }
+
+    .review-grid{
+      display:grid;
+
+      grid-auto-flow:column;
+
+      grid-auto-columns:
+        minmax(280px,32%);
+
+      gap:18px;
+
+      margin-top:40px;
+
+      text-align:left;
+
+      align-items:start;
+
+      overflow-x:auto;
+
+      scroll-snap-type:x mandatory;
+
+      padding:0 4px 10px;
+
+      scrollbar-width:none;
+
+      -webkit-overflow-scrolling:touch;
+    }
+
+    .review-grid::-webkit-scrollbar{
+      display:none;
+    }
+
+    .review{
+      display:grid;
+
+      grid-template-rows:
+        auto
+        1fr
+        auto;
+
+      min-height:360px;
+
+      padding:18px;
+
+      border:
+        1px solid rgba(93,136,220,.18);
+
+      border-radius:22px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #10213a,
+          #0d1b30
+        );
+
+      box-shadow:
+        0 12px 30px rgba(0,0,0,.14);
+
+      aspect-ratio:1/1;
+
+      overflow:hidden;
+
+      scroll-snap-align:start;
+    }
+
+    .review:nth-child(2){
+      border-color:
+        rgba(240,207,119,.22);
+    }
+
+    .stars{
+      color:var(--gold-light);
+
+      font-size:20px;
+
+      letter-spacing:3px;
+    }
+
+    .quote{
+      margin:10px 0 12px;
+
+      color:#f4f7fb;
+
+      font:
+        500 13px/1.45
+        "DM Sans",
+        sans-serif;
+    }
+
+    .author{
+      padding-top:14px;
+
+      border-top:
+        1px solid var(--line);
+
+      font-weight:700;
+
+      font-size:14px;
+    }
+
+    .author small{
+      display:block;
+
+      margin-top:4px;
+
+      color:var(--gray);
+
+      font-weight:500;
+
+      font-size:12px;
+    }
+
+    /* ==========================
+       EXPERIÊNCIAS
+    ========================== */
+
+    .offers-head{
+      max-width:760px;
+    }
+
+    .offer-grid{
+      display:grid;
+
+      grid-auto-flow:column;
+
+      grid-auto-columns:
+        minmax(270px,32%);
+
+      gap:16px;
+
+      margin-top:34px;
+
+      overflow-x:auto;
+
+      scroll-snap-type:x mandatory;
+
+      padding:4px 6px 20px 2px;
+
+      scrollbar-width:none;
+
+      -webkit-overflow-scrolling:touch;
+    }
+
+    .offer-grid::-webkit-scrollbar{
+      display:none;
+    }
+
+    .offer-card{
+      display:flex;
+
+      min-height:245px;
+
+      flex-direction:column;
+
+      padding:26px;
+
+      border:
+        1px solid rgba(240,207,119,.16);
+
+      border-radius:22px;
+
+      background:
+        linear-gradient(
+          180deg,
+          #10213a,
+          #0d1b30
+        );
+
+      transition:
+        transform .2s ease,
+        border-color .2s ease,
+        background .2s ease;
+
+      scroll-snap-align:start;
+
+      position:relative;
+
+      overflow:hidden;
+    }
+
+    .offer-card:hover{
+      transform:translateY(-4px);
+
+      border-color:
+        rgba(240,207,119,.34);
+
+      background:
+        linear-gradient(
+          180deg,
+          #13294a,
+          #0e2038
+        );
+    }
+
+    .offer-card:nth-child(odd){
+      border-color:
+        rgba(93,136,220,.18);
+    }
+
+    .offer-icon{
+      font-size:26px;
+    }
+
+    .offer-card h3{
+      margin:16px 0 8px;
+
+      font:
+        700 22px/1.28
+        "DM Sans",
+        sans-serif;
+
+      letter-spacing:-.02em;
+    }
+
+    .offer-card p{
+      flex:1;
+
+      margin:0;
+
+      color:var(--gray);
+
+      font-size:14px;
+
+      line-height:1.66;
+    }
+
+    .offer-card span:last-child{
+      margin-top:18px;
+
+      color:var(--gold-light);
+
+      font-weight:700;
+
+      font-size:14px;
+    }
+
+    /* ==========================
+       FINAL
+    ========================== */
+
+    .closing{
+      text-align:center;
+
+      border-top:
+        1px solid rgba(255,255,255,.05);
+    }
+
+    .closing p{
+      max-width:620px;
+
+      margin:20px auto 0;
+
+      color:#dbe4f1;
+
+      line-height:1.72;
+    }
+
+    .closing .cta{
+      margin-top:30px;
+    }
+
+    footer{
+      padding:28px 18px;
+
+      border-top:
+        1px solid rgba(255,255,255,.08);
+
+      color:#9fb0c8;
+
+      font-size:13px;
+
+      text-align:center;
+
+      background:#07111f;
+    }
+
+    /* ==========================
+       CELULAR
+    ========================== */
+
+    @media(max-width:760px){
+
+      section{
+        padding:66px 0;
+      }
+
+      .intro-grid{
+        grid-auto-columns:84%;
+      }
+
+      .gallery-grid{
+        grid-auto-columns:100%;
+      }
+
+      .hero-services-bar{
+        bottom:-24px;
+
+        padding:
+          9px
+          0
+          calc(9px + env(safe-area-inset-bottom));
+      }
+
+      .gallery-services{
+        gap:8px;
+      }
+
+      .gallery-service{
+        min-height:42px;
+
+        padding:0 16px;
+
+        font-size:11px;
+      }
+
+      .review-grid{
+        display:grid;
+
+        grid-auto-flow:column;
+
+        grid-auto-columns:86%;
+
+        gap:14px;
+
+        overflow-x:auto;
+
+        scroll-snap-type:x mandatory;
+
+        padding:0 4px 10px;
+
+        scrollbar-width:none;
+      }
+
+      .review-grid::-webkit-scrollbar{
+        display:none;
+      }
+
+      .review{
+        scroll-snap-align:start;
+
+        min-height:340px;
+
+        aspect-ratio:1/1;
+      }
+
+      .offer-grid{
+        grid-auto-columns:84%;
+      }
+
+      .hero-watermark{
+        font-size:
+          clamp(26px,7vw,44px);
+
+        letter-spacing:.22em;
+      }
+
+      .hero-copy{
+        top:50px;
+
+        padding:0 14px;
+      }
+
+      .hero-panel{
+        justify-content:flex-end;
+
+        padding:0;
+      }
+
+      .hero-actions{
+        align-items:flex-end;
+
+        gap:5px;
+      }
+
+      .hero-label,
+      .cta{
+        min-height:38px;
+
+        padding:0 15px;
+
+        font-size:11px;
+      }
+
+      .hero-rating{
+        font-size:20px;
+
+        letter-spacing:1px;
+      }
+
+      .hero-slide{
+        background-position:34% center;
+      }
+    }
   </style>
 </head>
+
 <body>
+
   <header class="hero">
+
     <div class="hero-slides" aria-hidden="true">
-      <div class="hero-slide active" style="background-image:url('/public/7fe8a35b-98ec-445e-be54-3f5491e8ab58.jpeg')"></div>
+      <div
+        class="hero-slide active"
+        style="background-image:url('/public/7fe8a35b-98ec-445e-be54-3f5491e8ab58.jpeg')"
+      ></div>
     </div>
-    <div class="hero-overlay" aria-hidden="true"></div>
-    <div class="top"><span class="hero-watermark">FACUNDO</span></div>
+
+    <div
+      class="hero-overlay"
+      aria-hidden="true"
+    ></div>
+
+    <div class="top">
+      <span class="hero-watermark">
+        FACUNDO
+      </span>
+    </div>
+
     <div class="hero-copy">
       <div class="hero-panel">
+
         <div class="hero-actions">
-          <span class="hero-label">Guia de Turismo</span>
-          <span class="hero-rating" aria-label="5 estrelas">⭐⭐⭐⭐⭐</span>
+
+          <span class="hero-label">
+            Guia de Turismo
+          </span>
+
+          <span
+            class="hero-rating"
+            aria-label="5 estrelas"
+          >
+            ⭐⭐⭐⭐⭐
+          </span>
+
         </div>
+
       </div>
     </div>
-  <div class="hero-services-bar">
-    <div class="container">
-      <div class="gallery-services" aria-label="Opciones de tours">
-        <a class="gallery-service" href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20vi%20la%20opci%C3%B3n%20Free%20Walking%20Tour%20en%20tu%20p%C3%A1gina%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">Free Walking Tour</a>
-        <a class="gallery-service" href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20vi%20la%20opci%C3%B3n%20Tour%20Privativo%20en%20tu%20p%C3%A1gina%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">Tour Privativo</a>
-        <a class="gallery-service" href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20vi%20la%20opci%C3%B3n%20Passeio%20%C3%A0s%20Ilhas%20en%20tu%20p%C3%A1gina%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">Passeio às Ilhas</a>
-        <a class="gallery-service" href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20conocer%20otras%20opciones%20de%20tours%20y%20experiencias%20en%20Salvador." target="_blank" rel="noopener">Outros</a>
+
+    <div class="hero-services-bar">
+
+      <div class="container">
+
+        <div
+          class="gallery-services"
+          aria-label="Opciones de tours"
+        >
+
+          <a
+            class="gallery-service"
+            href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20vi%20la%20opci%C3%B3n%20Free%20Walking%20Tour%20en%20tu%20p%C3%A1gina%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n."
+            target="_blank"
+            rel="noopener"
+          >
+            Free Walking Tour
+          </a>
+
+          <a
+            class="gallery-service"
+            href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20vi%20la%20opci%C3%B3n%20Tour%20Privativo%20en%20tu%20p%C3%A1gina%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n."
+            target="_blank"
+            rel="noopener"
+          >
+            Tour Privativo
+          </a>
+
+          <a
+            class="gallery-service"
+            href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20vi%20la%20opci%C3%B3n%20Passeio%20%C3%A0s%20Ilhas%20en%20tu%20p%C3%A1gina%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n."
+            target="_blank"
+            rel="noopener"
+          >
+            Passeio às Ilhas
+          </a>
+
+          <a
+            class="gallery-service"
+            href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20conocer%20otras%20opciones%20de%20tours%20y%20experiencias%20en%20Salvador."
+            target="_blank"
+            rel="noopener"
+          >
+            Outros
+          </a>
+
+        </div>
+
       </div>
+
     </div>
-  </div>
+
   </header>
 
+
   <main>
+
     <section class="intro">
+
       <div class="container">
-        <h2 class="title">Conoce Salvador con Facundo</h2>
-        <p class="lead">Facundo trabaja en turismo desde hace casi veinte años. Conoce la historia de Salvador, escucha al grupo y explica cada lugar de manera clara y amena.</p>
+
+        <h2 class="title">
+          Conoce Salvador con Facundo
+        </h2>
+
+        <p class="lead">
+          Facundo trabaja en turismo desde hace casi veinte años.
+          Conoce la historia de Salvador, escucha al grupo y explica
+          cada lugar de manera clara y amena.
+        </p>
+
         <div class="intro-grid">
-          <div class="quality"><strong>Casi 20 años</strong><span>de experiencia en turismo</span></div>
-          <div class="quality"><strong>En español</strong><span>explicaciones claras y conversación abierta</span></div>
-          <div class="quality"><strong>En Salvador</strong><span>historia, cultura y vida local</span></div>
+
+          <div class="quality">
+            <strong>
+              Casi 20 años
+            </strong>
+
+            <span>
+              de experiencia en turismo
+            </span>
+          </div>
+
+          <div class="quality">
+            <strong>
+              En español
+            </strong>
+
+            <span>
+              explicaciones claras y conversación abierta
+            </span>
+          </div>
+
+          <div class="quality">
+            <strong>
+              En Salvador
+            </strong>
+
+            <span>
+              historia, cultura y vida local
+            </span>
+          </div>
+
         </div>
+
       </div>
+
     </section>
+
 
     <section class="gallery">
+
       <div class="container">
-        <p class="eyebrow">Facundo con nuestros visitantes</p>
-        <h2 class="title">Encuentros que se convierten en recuerdos</h2>
+
+        <p class="eyebrow">
+          Facundo con nuestros visitantes
+        </p>
+
+        <h2 class="title">
+          Encuentros que se convierten en recuerdos
+        </h2>
+
         <div class="gallery-grid">
-          <figure class="photo"><img src="/public/0598ceb8-076e-4104-bd8e-16f4de0aa397.jpeg" alt="Facundo con visitantes en Salvador"></figure>
-          <figure class="photo"><img src="/public/335a32c5-42d1-45a2-9990-ad20365ada86.jpeg" alt="Facundo guiando un grupo en el Centro Histórico"></figure>
-          <figure class="photo"><img src="/public/7fe8a35b-98ec-445e-be54-3f5491e8ab58.jpeg" alt="Facundo en el Centro Histórico de Salvador"></figure>
+
+          <figure class="photo">
+            <img
+              src="/public/0598ceb8-076e-4104-bd8e-16f4de0aa397.jpeg"
+              alt="Facundo con visitantes en Salvador"
+            >
+          </figure>
+
+          <figure class="photo">
+            <img
+              src="/public/335a32c5-42d1-45a2-9990-ad20365ada86.jpeg"
+              alt="Facundo guiando un grupo en el Centro Histórico"
+            >
+          </figure>
+
+          <figure class="photo">
+            <img
+              src="/public/7fe8a35b-98ec-445e-be54-3f5491e8ab58.jpeg"
+              alt="Facundo en el Centro Histórico de Salvador"
+            >
+          </figure>
+
         </div>
 
       </div>
+
     </section>
 
-    <section class="reviews" id="opiniones">
+
+    <section
+      class="reviews"
+      id="opiniones"
+    >
+
       <div class="container">
-        <p class="eyebrow">Opiniones de viajeros</p>
-        <h2 class="title">Lo que dicen quienes recorrieron Salvador con Facundo</h2>
+
+        <p class="eyebrow">
+          Opiniones de viajeros
+        </p>
+
+        <h2 class="title">
+          Lo que dicen quienes recorrieron Salvador con Facundo
+        </h2>
+
         <div class="review-grid">
-          <article class="review"><div class="stars" aria-label="5 estrellas">★★★★★</div><p class="quote">“Excelente dominio de la información, muy buen comunicador, siempre bien predispuesto a responder las inquietudes del grupo. ¡Muy recomendable!”</p><div class="author">Carola<small>Viajó en grupo · Agosto de 2026</small></div></article>
-          <article class="review"><div class="stars" aria-label="5 estrellas">★★★★★</div><p class="quote">“La experiencia de conocer la ciudad con Facundo fue espectacular. Muy simpático y profesional, hace del recorrido algo muy dinámico y entretenido, con mucho conocimiento histórico. Lo recomiendo totalmente. ¡Mil gracias, Facundo!”</p><div class="author">Eduardo<small>Viajó en pareja · Agosto de 2026</small></div></article>
-          <article class="review"><div class="stars" aria-label="5 estrellas">★★★★★</div><p class="quote">“Sencillamente espectacular. ¡Gracias, Facundo!”</p><div class="author">Hugo<small>Viajó en pareja · Agosto de 2026</small></div></article>
+
+          <article class="review">
+
+            <div
+              class="stars"
+              aria-label="5 estrellas"
+            >
+              ★★★★★
+            </div>
+
+            <p class="quote">
+              “Excelente dominio de la información, muy buen comunicador,
+              siempre bien predispuesto a responder las inquietudes del grupo.
+              ¡Muy recomendable!”
+            </p>
+
+            <div class="author">
+              Carola
+
+              <small>
+                Viajó en grupo · Agosto de 2026
+              </small>
+            </div>
+
+          </article>
+
+
+          <article class="review">
+
+            <div
+              class="stars"
+              aria-label="5 estrellas"
+            >
+              ★★★★★
+            </div>
+
+            <p class="quote">
+              “La experiencia de conocer la ciudad con Facundo fue espectacular.
+              Muy simpático y profesional, hace del recorrido algo muy dinámico
+              y entretenido, con mucho conocimiento histórico.
+              Lo recomiendo totalmente. ¡Mil gracias, Facundo!”
+            </p>
+
+            <div class="author">
+              Eduardo
+
+              <small>
+                Viajó en pareja · Agosto de 2026
+              </small>
+            </div>
+
+          </article>
+
+
+          <article class="review">
+
+            <div
+              class="stars"
+              aria-label="5 estrellas"
+            >
+              ★★★★★
+            </div>
+
+            <p class="quote">
+              “Sencillamente espectacular. ¡Gracias, Facundo!”
+            </p>
+
+            <div class="author">
+              Hugo
+
+              <small>
+                Viajó en pareja · Agosto de 2026
+              </small>
+            </div>
+
+          </article>
+
         </div>
+
       </div>
+
     </section>
 
-    <section class="offers" id="experiencias">
+
+    <section
+      class="offers"
+      id="experiencias"
+    >
+
       <div class="container">
+
         <div class="offers-head">
-          <p class="eyebrow">Otras experiencias</p>
-          <h2 class="title">También podemos ayudarte a organizar tu estadía</h2>
-          <p class="lead" style="margin-left:0">Además de los recorridos con Facundo, To Know Salvador ofrece experiencias culturales, paseos privados y apoyo local.</p>
+
+          <p class="eyebrow">
+            Otras experiencias
+          </p>
+
+          <h2 class="title">
+            También podemos ayudarte a organizar tu estadía
+          </h2>
+
+          <p
+            class="lead"
+            style="margin-left:0"
+          >
+            Además de los recorridos con Facundo,
+            To Know Salvador ofrece experiencias culturales,
+            paseos privados y apoyo local.
+          </p>
+
         </div>
 
-        <div class="offer-grid" aria-label="Experiencias disponibles">
-          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20reservar%20el%20Afro%20Tour%20por%20el%20Centro%20Hist%C3%B3rico." target="_blank" rel="noopener"><span class="offer-icon">🚶🏽</span><h3>Afro Tour por el Centro Histórico</h3><p>Un recorrido por la memoria afrobrasileña, el Pelourinho y la historia cultural de Salvador.</p><span>Consultar →</span></a>
-          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Cena%20Bahiana%20y%20el%20Espect%C3%A1culo%20Folcl%C3%B3rico." target="_blank" rel="noopener"><span class="offer-icon">🥁</span><h3>Cena bahiana y espectáculo folclórico</h3><p>Buffet de comida bahiana, capoeira, samba y danzas vinculadas a las tradiciones afrobrasileñas.</p><span>Consultar →</span></a>
-          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Praia%20do%20Forte%20privado." target="_blank" rel="noopener"><span class="offer-icon">🏝️</span><h3>Praia do Forte privado</h3><p>Vehículo y conductor privados, con salida desde el hotel y tiempo libre en Praia do Forte.</p><span>Consultar →</span></a>
-          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Tour%20de%20F%C3%BAtbol." target="_blank" rel="noopener"><span class="offer-icon">⚽</span><h3>Tour de Fútbol</h3><p>Un día de partido en la Arena Fonte Nova junto a aficionados locales.</p><span>Próximo partido →</span></a>
-          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20clase%20de%20Capoeira." target="_blank" rel="noopener"><span class="offer-icon">🪘</span><h3>Clase de Capoeira</h3><p>Una primera experiencia práctica con movimiento, música e historia.</p><span>Consultar →</span></a>
-          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Tour%20Gastron%C3%B3mico." target="_blank" rel="noopener"><span class="offer-icon">🍲</span><h3>Tour Gastronómico</h3><p>Sabores locales y platos tradicionales de la cocina bahiana.</p><span>Consultar →</span></a>
-          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Favela%20Tour." target="_blank" rel="noopener"><span class="offer-icon">🏘️</span><h3>Favela Tour con guía local</h3><p>Una visita acompañada y realizada con participación local.</p><span>Consultar →</span></a>
-          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20agendar%20una%20visita%20a%20un%20Terreiro%20de%20Candombl%C3%A9." target="_blank" rel="noopener"><span class="offer-icon">🤍</span><h3>Visita a un Terreiro de Candomblé</h3><p>Visita cultural realizada de acuerdo con las orientaciones y reglas de la casa.</p><span>Consultar fechas →</span></a>
-          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20necesito%20apoyo%20local%20para%20un%20grupo%20en%20Salvador." target="_blank" rel="noopener"><span class="offer-icon">🤝</span><h3>Grupos privados y agencias</h3><p>Guías, transporte, reservas, itinerarios y coordinación local en Salvador.</p><span>Solicitar apoyo →</span></a>
-          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20usar%20la%20red%20de%20contactos%20de%20To%20Know%20Salvador%20en%20Brasil." target="_blank" rel="noopener"><span class="offer-icon">🇧🇷</span><h3>Red de apoyo en Brasil</h3><p>Contactos locales de confianza en otros destinos brasileños.</p><span>Consultar destino →</span></a>
+
+        <div
+          class="offer-grid"
+          aria-label="Experiencias disponibles"
+        >
+
+          <a
+            class="offer-card"
+            href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20reservar%20el%20Afro%20Tour%20por%20el%20Centro%20Hist%C3%B3rico."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span class="offer-icon">
+              🚶🏽
+            </span>
+
+            <h3>
+              Afro Tour por el Centro Histórico
+            </h3>
+
+            <p>
+              Un recorrido por la memoria afrobrasileña,
+              el Pelourinho y la historia cultural de Salvador.
+            </p>
+
+            <span>
+              Consultar →
+            </span>
+
+          </a>
+
+
+          <a
+            class="offer-card"
+            href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Cena%20Bahiana%20y%20el%20Espect%C3%A1culo%20Folcl%C3%B3rico."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span class="offer-icon">
+              🥁
+            </span>
+
+            <h3>
+              Cena bahiana y espectáculo folclórico
+            </h3>
+
+            <p>
+              Buffet de comida bahiana, capoeira,
+              samba y danzas vinculadas a las
+              tradiciones afrobrasileñas.
+            </p>
+
+            <span>
+              Consultar →
+            </span>
+
+          </a>
+
+
+          <a
+            class="offer-card"
+            href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Praia%20do%20Forte%20privado."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span class="offer-icon">
+              🏝️
+            </span>
+
+            <h3>
+              Praia do Forte privado
+            </h3>
+
+            <p>
+              Vehículo y conductor privados,
+              con salida desde el hotel y tiempo
+              libre en Praia do Forte.
+            </p>
+
+            <span>
+              Consultar →
+            </span>
+
+          </a>
+
+
+          <a
+            class="offer-card"
+            href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Tour%20de%20F%C3%BAtbol."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span class="offer-icon">
+              ⚽
+            </span>
+
+            <h3>
+              Tour de Fútbol
+            </h3>
+
+            <p>
+              Un día de partido en la Arena Fonte Nova
+              junto a aficionados locales.
+            </p>
+
+            <span>
+              Próximo partido →
+            </span>
+
+          </a>
+
+
+          <a
+            class="offer-card"
+            href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20clase%20de%20Capoeira."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span class="offer-icon">
+              🪘
+            </span>
+
+            <h3>
+              Clase de Capoeira
+            </h3>
+
+            <p>
+              Una primera experiencia práctica
+              con movimiento, música e historia.
+            </p>
+
+            <span>
+              Consultar →
+            </span>
+
+          </a>
+
+
+          <a
+            class="offer-card"
+            href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Tour%20Gastron%C3%B3mico."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span class="offer-icon">
+              🍲
+            </span>
+
+            <h3>
+              Tour Gastronómico
+            </h3>
+
+            <p>
+              Sabores locales y platos tradicionales
+              de la cocina bahiana.
+            </p>
+
+            <span>
+              Consultar →
+            </span>
+
+          </a>
+
+
+          <a
+            class="offer-card"
+            href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Favela%20Tour."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span class="offer-icon">
+              🏘️
+            </span>
+
+            <h3>
+              Favela Tour con guía local
+            </h3>
+
+            <p>
+              Una visita acompañada y realizada
+              con participación local.
+            </p>
+
+            <span>
+              Consultar →
+            </span>
+
+          </a>
+
+
+          <a
+            class="offer-card"
+            href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20agendar%20una%20visita%20a%20un%20Terreiro%20de%20Candombl%C3%A9."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span class="offer-icon">
+              🤍
+            </span>
+
+            <h3>
+              Visita a un Terreiro de Candomblé
+            </h3>
+
+            <p>
+              Visita cultural realizada de acuerdo
+              con las orientaciones y reglas de la casa.
+            </p>
+
+            <span>
+              Consultar fechas →
+            </span>
+
+          </a>
+
+
+          <a
+            class="offer-card"
+            href="https://wa.me/5571992253217?text=Hola%2C%20necesito%20apoyo%20local%20para%20un%20grupo%20en%20Salvador."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span class="offer-icon">
+              🤝
+            </span>
+
+            <h3>
+              Grupos privados y agencias
+            </h3>
+
+            <p>
+              Guías, transporte, reservas,
+              itinerarios y coordinación local
+              en Salvador.
+            </p>
+
+            <span>
+              Solicitar apoyo →
+            </span>
+
+          </a>
+
+
+          <a
+            class="offer-card"
+            href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20usar%20la%20red%20de%20contactos%20de%20To%20Know%20Salvador%20en%20Brasil."
+            target="_blank"
+            rel="noopener"
+          >
+
+            <span class="offer-icon">
+              🇧🇷
+            </span>
+
+            <h3>
+              Red de apoyo en Brasil
+            </h3>
+
+            <p>
+              Contactos locales de confianza
+              en otros destinos brasileños.
+            </p>
+
+            <span>
+              Consultar destino →
+            </span>
+
+          </a>
+
         </div>
+
       </div>
+
     </section>
+
 
     <section class="closing">
+
       <div class="container">
-        <p class="eyebrow">Descubre Salvador</p>
-        <h2 class="title">Recorre Salvador con Facundo</h2>
-        <p>Consulta las próximas fechas y encuentra el recorrido que mejor encaja con tu viaje.</p>
-        <a class="cta" href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20quiero%20consultar%20tu%20disponibilidad%20como%20gu%C3%ADa%20en%20Salvador." target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a>
+
+        <p class="eyebrow">
+          Descubre Salvador
+        </p>
+
+        <h2 class="title">
+          Recorre Salvador con Facundo
+        </h2>
+
+        <p>
+          Consulta las próximas fechas y encuentra
+          el recorrido que mejor encaja con tu viaje.
+        </p>
+
+        <a
+          class="cta"
+          href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20quiero%20consultar%20tu%20disponibilidad%20como%20gu%C3%ADa%20en%20Salvador."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Consultar disponibilidad
+        </a>
+
       </div>
+
     </section>
+
   </main>
 
-  <footer>© 2026 To Know Salvador · Salvador, Bahía, Brasil</footer>
+
+  <footer>
+    © 2026 To Know Salvador · Salvador, Bahía, Brasil
+  </footer>
+
 
   <script>
     (function(){
-      const gallery = document.querySelector('.gallery-grid');
+
+      const gallery =
+        document.querySelector(
+          '.gallery-grid'
+        );
+
       if(gallery){
-        const items = Array.from(gallery.querySelectorAll('.photo'));
+
+        const items =
+          Array.from(
+            gallery.querySelectorAll(
+              '.photo'
+            )
+          );
+
         let current = 0;
+
         setInterval(() => {
-          if(!items.length) return;
-          current = (current + 1) % items.length;
-          gallery.scrollTo({ left: items[current].offsetLeft, behavior: 'smooth' });
-        }, 4000);
+
+          if(!items.length){
+            return;
+          }
+
+          current =
+            (current + 1) %
+            items.length;
+
+          gallery.scrollTo({
+            left:
+              items[current].offsetLeft,
+
+            behavior:
+              'smooth'
+          });
+
+        },4000);
       }
+
     })();
   </script>
+
 </body>
 </html>
