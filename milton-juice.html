@@ -341,13 +341,17 @@
     }
 
     .story-experiences-badge:hover {
-      transform: translateY(calc(-100% - 3px)) rotate(-2deg);
+      transform: rotate(-2deg);
       box-shadow: 0 26px 65px rgba(1, 51, 29, 0.22);
     }
 
     .story-experiences-badge:focus-visible {
       outline: 3px solid var(--green-800);
       outline-offset: 3px;
+    }
+
+    .story-experiences-badge:active {
+      transform: rotate(-2deg);
     }
 
     .story-experiences-badge span {
