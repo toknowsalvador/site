@@ -44,13 +44,13 @@
     .top{position:absolute;z-index:3;top:0;width:100%;padding:calc(14px + env(safe-area-inset-top)) 22px 14px;background:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(74,55,12,.96) 52%,rgba(0,0,0,.96) 100%);border-bottom:1px solid rgba(240,207,119,.22)}
     .hero-watermark{display:block;width:100%;margin:0 auto;text-align:center;font:800 clamp(28px,8vw,72px)/1 "Syne",sans-serif;letter-spacing:.30em;text-transform:uppercase;color:rgba(255,255,255,.96);text-shadow:0 4px 20px rgba(0,0,0,.24);user-select:none}
     
-    .hero-copy{position:relative;z-index:2;width:min(100% - 36px,820px);margin:auto;padding:118px 0 58px;text-align:center}
-    .hero-panel{display:inline-block;width:min(100%,760px);padding:20px 18px 26px;border-radius:0;background:transparent;border:0;backdrop-filter:none;box-shadow:none}
+    .hero-copy{position:relative;z-index:2;width:min(100% - 36px,1080px);margin:auto;padding:96px 0 105px;text-align:center}
+    .hero-panel{display:flex;width:100%;padding:8px 0 26px;border-radius:0;background:transparent;border:0;backdrop-filter:none;box-shadow:none;justify-content:flex-end}
     .hero h1{margin:14px 0 0;font:700 clamp(52px,10vw,84px)/.98 "DM Sans",sans-serif;letter-spacing:-.04em;color:var(--white);text-shadow:0 8px 28px rgba(0,0,0,.34)}
     .hero h1 span{display:block;color:var(--gold-light);font-style:normal}
     
     .hero-divider{width:92px;height:4px;margin:18px auto 0;border-radius:999px;background:linear-gradient(90deg,var(--gold),var(--gold-light))}
-    .hero-actions{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:8px}.hero-label,.cta{display:inline-flex;min-height:56px;align-items:center;justify-content:center;padding:0 27px;border-radius:999px;background:linear-gradient(100deg,var(--gold),var(--gold-light));color:#08101d;font-size:15px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 14px 32px rgba(0,0,0,.28)}.cta-secondary{display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:0 24px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.32);color:#fff;font-size:14px;font-weight:700;letter-spacing:.01em}
+    .hero-actions{display:flex;flex-direction:column;align-items:flex-end;gap:10px;margin-top:0}.hero-label,.cta{display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:0 24px;border-radius:999px;background:linear-gradient(100deg,var(--gold),var(--gold-light));color:#08101d;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;box-shadow:0 14px 32px rgba(0,0,0,.28)}.cta-secondary{display:inline-flex;min-height:46px;align-items:center;justify-content:center;padding:0 22px;border-radius:999px;border:1px solid rgba(255,255,255,.28);background:rgba(0,0,0,.34);color:#fff;font-size:14px;font-weight:700;letter-spacing:.01em}
     .cta:hover,.cta-secondary:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(0,0,0,.34)}
     .hero-indicators{display:flex;justify-content:center;gap:9px;margin-top:18px}
     .hero-dot{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.35);transition:transform .2s ease,background .2s ease}
@@ -77,10 +77,10 @@
 
     .reviews{text-align:center}
     .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;text-align:left;align-items:start}
-    .review{display:flex;min-height:0;flex-direction:column;justify-content:space-between;padding:20px;border:1px solid rgba(93,136,220,.18);border-radius:22px;background:linear-gradient(180deg,#10213a,#0d1b30);box-shadow:0 12px 30px rgba(0,0,0,.14);aspect-ratio:1/1;overflow:hidden}
+    .review{display:grid;grid-template-rows:auto 1fr auto;min-height:360px;padding:22px;border:1px solid rgba(93,136,220,.18);border-radius:22px;background:linear-gradient(180deg,#10213a,#0d1b30);box-shadow:0 12px 30px rgba(0,0,0,.14);aspect-ratio:1/1;overflow:hidden}
     .review:nth-child(2){transform:none;border-color:rgba(240,207,119,.22)}
     .stars{color:var(--gold-light);font-size:20px;letter-spacing:3px}
-    .quote{flex:1;margin:12px 0 14px;color:#f4f7fb;font:500 14px/1.5 "DM Sans",sans-serif;overflow:hidden}
+    .quote{margin:12px 0 14px;color:#f4f7fb;font:500 14px/1.55 "DM Sans",sans-serif;overflow:visible}
     .author{padding-top:18px;border-top:1px solid var(--line);font-weight:700}
     .author small{display:block;margin-top:6px;color:var(--gray);font-weight:500}
     .proof{margin-top:22px;text-align:left}
@@ -114,7 +114,7 @@
       .photo:first-child{grid-row:auto}
       .review-grid{display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 4px 10px;scrollbar-width:none}
       .review-grid::-webkit-scrollbar{display:none}
-      .review{scroll-snap-align:start}
+      .review{scroll-snap-align:start;min-height:340px;aspect-ratio:1/1}
       .review:nth-child(2){transform:none}
       .proof-grid{grid-auto-columns:82%}
       .offer-grid{grid-auto-columns:84%}
@@ -123,7 +123,7 @@
       .hero h1{font-size:clamp(50px,15vw,74px)}
       .hero-watermark{font-size:clamp(26px,7vw,44px);letter-spacing:.22em}
       .logo-below{width:138px;margin-top:18px}
-      .hero-slide{background-position:34% center}
+      .hero-copy{padding:88px 0 92px}.hero-panel{justify-content:flex-end}.hero-actions{align-items:flex-end;gap:8px}.hero-label,.cta{min-height:42px;padding:0 18px;font-size:12px}.cta-secondary{min-height:42px;padding:0 18px;font-size:13px}.hero-slide{background-position:34% center}
       .hero-kicker{padding:10px 12px;font-size:11px;letter-spacing:.12em}
     }
 
@@ -133,8 +133,6 @@
   <header class="hero">
     <div class="hero-slides" aria-hidden="true">
       <div class="hero-slide active" style="background-image:url('/public/0598ceb8-076e-4104-bd8e-16f4de0aa397.jpeg')"></div>
-      <div class="hero-slide" style="background-image:url('/public/335a32c5-42d1-45a2-9990-ad20365ada86.jpeg')"></div>
-      <div class="hero-slide" style="background-image:url('/public/7fe8a35b-98ec-445e-be54-3f5491e8ab58.jpeg')"></div>
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="top"><span class="hero-watermark">FACUNDO</span></div>
@@ -223,33 +221,16 @@
 
   <script>
     (function(){
-      const slides = Array.from(document.querySelectorAll('.hero-slide'));
-      const dots = Array.from(document.querySelectorAll('.hero-dot'));
-      if(slides.length){
-        let index = 0;
-        function showSlide(i){
-          slides.forEach((slide, idx) => slide.classList.toggle('active', idx === i));
-          dots.forEach((dot, idx) => dot.classList.toggle('active', idx === i));
-        }
-        setInterval(() => {
-          index = (index + 1) % slides.length;
-          showSlide(index);
-        }, 4000);
-      }
-
-      function autoScrollStrip(selector, itemSelector){
-        const strip = document.querySelector(selector);
-        if(!strip) return;
-        const items = Array.from(strip.querySelectorAll(itemSelector));
-        if(!items.length) return;
+      const gallery = document.querySelector('.gallery-grid');
+      if(gallery){
+        const items = Array.from(gallery.querySelectorAll('.photo'));
         let current = 0;
         setInterval(() => {
+          if(!items.length) return;
           current = (current + 1) % items.length;
-          strip.scrollTo({ left: items[current].offsetLeft, behavior: 'smooth' });
+          gallery.scrollTo({ left: items[current].offsetLeft, behavior: 'smooth' });
         }, 4000);
       }
-
-      autoScrollStrip('.gallery-grid', '.photo');
     })();
   </script>
 </body>
