@@ -17,7 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Syne:wght@600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
     rel="stylesheet"
   >
 
@@ -110,7 +110,7 @@
 
     .hero{
       position:relative;
-      min-height:92svh;
+      min-height:96vh;
       display:flex;
       align-items:flex-end;
       overflow:visible;
@@ -129,7 +129,7 @@
       background-size:cover;
       background-position:center;
       opacity:0;
-      transform:scale(1.03);
+      transform:scale(1.02);
       filter:saturate(.88) brightness(.68);
     }
 
@@ -149,33 +149,19 @@
           rgba(3,7,14,.68) 0%,
           rgba(3,7,14,.52) 28%,
           rgba(5,12,23,.48) 52%,
-          rgba(5,12,23,.72) 78%,
-          rgba(5,12,23,.90) 100%
+          rgba(5,12,23,.70) 78%,
+          rgba(5,12,23,.84) 100%
         );
       pointer-events:none;
     }
 
-    .hero:before,
-    .hero:after,
-    .intro:before,
-    .intro:after,
-    .gallery:before,
-    .gallery:after,
-    .reviews:before,
-    .offers:before,
-    .offers:after,
-    .closing:before,
-    .closing:after,
-    .offer-card:after{
-      content:none !important;
-      display:none !important;
-    }
-
-    /* FACUNDO */
+    /* ==========================
+       FACUNDO NO TOPO
+    ========================== */
 
     .top{
       position:absolute;
-      z-index:3;
+      z-index:4;
       top:0;
       width:100%;
 
@@ -200,7 +186,6 @@
       display:block;
       width:100%;
       margin:0 auto;
-
       text-align:center;
 
       font:
@@ -219,17 +204,18 @@
       user-select:none;
     }
 
-    /* GUIA DE TURISMO */
+    /* ==========================
+       GUIA DE TURISMO
+    ========================== */
 
     .hero-copy{
       position:absolute;
-      z-index:4;
+      z-index:5;
 
-      top:clamp(62px,7vw,82px);
+      top:clamp(58px,6vw,72px);
       right:0;
 
       width:100%;
-      margin:0;
 
       padding:0 24px;
 
@@ -238,39 +224,28 @@
 
     .hero-panel{
       display:flex;
-
       width:min(100%,1080px);
       margin:0 auto;
-
       padding:0;
-
       justify-content:flex-end;
-
-      background:transparent;
-      border:0;
     }
 
     .hero-actions{
       display:flex;
       flex-direction:column;
-
       align-items:flex-end;
-
-      gap:8px;
-
-      margin-top:0;
+      gap:6px;
     }
 
-    .hero-label,
-    .cta{
+    .hero-label{
       display:inline-flex;
 
-      min-height:48px;
+      min-height:44px;
 
       align-items:center;
       justify-content:center;
 
-      padding:0 24px;
+      padding:0 22px;
 
       border-radius:999px;
 
@@ -283,75 +258,62 @@
 
       color:#08101d;
 
-      font-size:14px;
-      font-weight:700;
+      font-size:13px;
+      font-weight:800;
 
       letter-spacing:.08em;
-
       text-transform:uppercase;
 
       box-shadow:
-        0 14px 32px rgba(0,0,0,.28);
+        0 12px 28px rgba(0,0,0,.28);
     }
 
     .hero-rating{
       display:inline-block;
-
       color:var(--gold-light);
-
-      font-size:24px;
-
-      letter-spacing:2px;
-
+      font-size:23px;
+      letter-spacing:1px;
       line-height:1;
-
       text-shadow:
         0 3px 12px rgba(0,0,0,.35);
     }
 
-    .cta:hover{
-      transform:translateY(-2px);
-
-      box-shadow:
-        0 18px 38px rgba(0,0,0,.34);
-    }
-
     /* ==========================
-       BOTÕES NA DIVISÃO DA FOTO
+       BOTÕES NA TRANSIÇÃO
     ========================== */
 
     .hero-services-bar{
       position:absolute;
 
-      z-index:5;
+      z-index:6;
 
       left:0;
       right:0;
 
-      bottom:-28px;
+      bottom:-44px;
+
+      padding:
+        10px
+        0
+        calc(10px + env(safe-area-inset-bottom));
 
       background:
         linear-gradient(
           180deg,
-          rgba(3,8,18,.08),
-          rgba(3,8,18,.94)
+          rgba(4,9,18,.08),
+          rgba(7,17,31,.88)
         );
 
+      backdrop-filter:blur(5px);
+
       border-top:
-        1px solid rgba(240,207,119,.16);
-
-      padding:
-        12px
-        0
-        calc(12px + env(safe-area-inset-bottom));
-
-      backdrop-filter:blur(6px);
+        1px solid rgba(240,207,119,.12);
     }
 
     .gallery-services{
       display:flex;
 
-      gap:12px;
+      gap:10px;
 
       margin-top:0;
 
@@ -391,7 +353,7 @@
 
       color:#08101d;
 
-      font-size:13px;
+      font-size:12px;
       font-weight:800;
 
       letter-spacing:.04em;
@@ -400,17 +362,6 @@
 
       box-shadow:
         0 10px 24px rgba(0,0,0,.22);
-
-      transition:
-        transform .2s ease,
-        box-shadow .2s ease;
-    }
-
-    .gallery-service:hover{
-      transform:translateY(-2px);
-
-      box-shadow:
-        0 14px 30px rgba(0,0,0,.28);
     }
 
     /* ==========================
@@ -418,7 +369,7 @@
     ========================== */
 
     section{
-      padding:88px 0;
+      padding:72px 0;
       position:relative;
     }
 
@@ -435,12 +386,12 @@
     }
 
     /* ==========================
-       SOBRE FACUNDO
+       INTRO
     ========================== */
 
     .intro{
       text-align:center;
-      border-top:0;
+      padding-top:62px;
     }
 
     .intro-grid{
@@ -453,7 +404,7 @@
 
       gap:14px;
 
-      margin-top:44px;
+      margin-top:34px;
 
       overflow-x:auto;
 
@@ -471,7 +422,7 @@
     }
 
     .quality{
-      padding:26px 18px;
+      padding:24px 18px;
 
       border:
         1px solid rgba(240,207,119,.16);
@@ -484,8 +435,6 @@
           #10213a,
           #0d1b30
         );
-
-      overflow:hidden;
 
       scroll-snap-align:start;
     }
@@ -503,18 +452,14 @@
 
     .quality span{
       display:block;
-
       margin-top:8px;
-
       color:var(--gray);
-
       font-size:14px;
-
       line-height:1.55;
     }
 
     /* ==========================
-       FOTOS
+       GALERIA
     ========================== */
 
     .gallery{
@@ -541,15 +486,11 @@
 
       gap:0;
 
-      margin-top:38px;
-
-      position:relative;
+      margin-top:34px;
 
       overflow-x:auto;
 
       scroll-snap-type:x mandatory;
-
-      padding:0;
 
       scrollbar-width:none;
 
@@ -569,30 +510,19 @@
 
       margin:0;
 
-      box-shadow:
-        0 12px 30px rgba(0,0,0,.22);
-
       height:460px;
 
       scroll-snap-align:start;
 
       width:100%;
+
+      box-shadow:
+        0 12px 30px rgba(0,0,0,.22);
     }
 
     .photo img{
       height:100%;
-
       object-fit:cover;
-
-      transition:
-        transform .45s,
-        filter .45s;
-    }
-
-    .photo:hover img{
-      transform:scale(1.03);
-
-      filter:saturate(1.04);
     }
 
     /* ==========================
@@ -613,11 +543,9 @@
 
       gap:18px;
 
-      margin-top:40px;
+      margin-top:36px;
 
       text-align:left;
-
-      align-items:start;
 
       overflow-x:auto;
 
@@ -675,17 +603,13 @@
 
     .stars{
       color:var(--gold-light);
-
       font-size:20px;
-
       letter-spacing:3px;
     }
 
     .quote{
       margin:10px 0 12px;
-
       color:#f4f7fb;
-
       font:
         500 13px/1.45
         "DM Sans",
@@ -699,19 +623,14 @@
         1px solid var(--line);
 
       font-weight:700;
-
       font-size:14px;
     }
 
     .author small{
       display:block;
-
       margin-top:4px;
-
       color:var(--gray);
-
       font-weight:500;
-
       font-size:12px;
     }
 
@@ -771,35 +690,7 @@
           #0d1b30
         );
 
-      transition:
-        transform .2s ease,
-        border-color .2s ease,
-        background .2s ease;
-
       scroll-snap-align:start;
-
-      position:relative;
-
-      overflow:hidden;
-    }
-
-    .offer-card:hover{
-      transform:translateY(-4px);
-
-      border-color:
-        rgba(240,207,119,.34);
-
-      background:
-        linear-gradient(
-          180deg,
-          #13294a,
-          #0e2038
-        );
-    }
-
-    .offer-card:nth-child(odd){
-      border-color:
-        rgba(93,136,220,.18);
     }
 
     .offer-icon{
@@ -860,6 +751,34 @@
       line-height:1.72;
     }
 
+    .cta{
+      display:inline-flex;
+
+      min-height:56px;
+
+      align-items:center;
+      justify-content:center;
+
+      padding:0 27px;
+
+      border-radius:999px;
+
+      background:
+        linear-gradient(
+          100deg,
+          var(--gold),
+          var(--gold-light)
+        );
+
+      color:#08101d;
+
+      font-size:15px;
+      font-weight:700;
+
+      box-shadow:
+        0 14px 32px rgba(0,0,0,.28);
+    }
+
     .closing .cta{
       margin-top:30px;
     }
@@ -885,71 +804,13 @@
 
     @media(max-width:760px){
 
-      section{
-        padding:66px 0;
+      .hero{
+        min-height:94vh;
+        height:94vh;
       }
 
-      .intro-grid{
-        grid-auto-columns:84%;
-      }
-
-      .gallery-grid{
-        grid-auto-columns:100%;
-      }
-
-      .hero-services-bar{
-        bottom:-24px;
-
-        padding:
-          9px
-          0
-          calc(9px + env(safe-area-inset-bottom));
-      }
-
-      .gallery-services{
-        gap:8px;
-      }
-
-      .gallery-service{
-        min-height:42px;
-
-        padding:0 16px;
-
-        font-size:11px;
-      }
-
-      .review-grid{
-        display:grid;
-
-        grid-auto-flow:column;
-
-        grid-auto-columns:86%;
-
-        gap:14px;
-
-        overflow-x:auto;
-
-        scroll-snap-type:x mandatory;
-
-        padding:0 4px 10px;
-
-        scrollbar-width:none;
-      }
-
-      .review-grid::-webkit-scrollbar{
-        display:none;
-      }
-
-      .review{
-        scroll-snap-align:start;
-
-        min-height:340px;
-
-        aspect-ratio:1/1;
-      }
-
-      .offer-grid{
-        grid-auto-columns:84%;
+      .hero-slide{
+        background-position:34% center;
       }
 
       .hero-watermark{
@@ -960,41 +821,81 @@
       }
 
       .hero-copy{
-        top:50px;
+        top:48px;
 
         padding:0 14px;
       }
 
-      .hero-panel{
-        justify-content:flex-end;
-
-        padding:0;
-      }
-
       .hero-actions{
-        align-items:flex-end;
-
-        gap:5px;
+        gap:4px;
       }
 
-      .hero-label,
-      .cta{
-        min-height:38px;
+      .hero-label{
+        min-height:36px;
 
-        padding:0 15px;
+        padding:0 14px;
 
-        font-size:11px;
+        font-size:10px;
       }
 
       .hero-rating{
-        font-size:20px;
-
-        letter-spacing:1px;
+        font-size:19px;
       }
 
-      .hero-slide{
-        background-position:34% center;
+      .hero-services-bar{
+        bottom:-38px;
+
+        padding:
+          8px
+          0
+          calc(8px + env(safe-area-inset-bottom));
       }
+
+      .gallery-services{
+        gap:8px;
+      }
+
+      .gallery-service{
+        min-height:40px;
+
+        padding:0 15px;
+
+        font-size:10px;
+      }
+
+      section{
+        padding:60px 0;
+      }
+
+      .intro{
+        padding-top:54px;
+      }
+
+      .intro-grid{
+        grid-auto-columns:84%;
+      }
+
+      .gallery-grid{
+        grid-auto-columns:100%;
+      }
+
+      .photo{
+        height:420px;
+      }
+
+      .review-grid{
+        grid-auto-columns:86%;
+      }
+
+      .review{
+        min-height:340px;
+        aspect-ratio:1/1;
+      }
+
+      .offer-grid{
+        grid-auto-columns:84%;
+      }
+
     }
   </style>
 </head>
@@ -1004,10 +905,12 @@
   <header class="hero">
 
     <div class="hero-slides" aria-hidden="true">
+
       <div
         class="hero-slide active"
         style="background-image:url('/public/7fe8a35b-98ec-445e-be54-3f5491e8ab58.jpeg')"
       ></div>
+
     </div>
 
     <div
@@ -1016,12 +919,15 @@
     ></div>
 
     <div class="top">
+
       <span class="hero-watermark">
         FACUNDO
       </span>
+
     </div>
 
     <div class="hero-copy">
+
       <div class="hero-panel">
 
         <div class="hero-actions">
@@ -1040,6 +946,7 @@
         </div>
 
       </div>
+
     </div>
 
     <div class="hero-services-bar">
@@ -1115,6 +1022,7 @@
         <div class="intro-grid">
 
           <div class="quality">
+
             <strong>
               Casi 20 años
             </strong>
@@ -1122,9 +1030,11 @@
             <span>
               de experiencia en turismo
             </span>
+
           </div>
 
           <div class="quality">
+
             <strong>
               En español
             </strong>
@@ -1132,9 +1042,11 @@
             <span>
               explicaciones claras y conversación abierta
             </span>
+
           </div>
 
           <div class="quality">
+
             <strong>
               En Salvador
             </strong>
@@ -1142,6 +1054,7 @@
             <span>
               historia, cultura y vida local
             </span>
+
           </div>
 
         </div>
@@ -1166,24 +1079,30 @@
         <div class="gallery-grid">
 
           <figure class="photo">
+
             <img
               src="/public/0598ceb8-076e-4104-bd8e-16f4de0aa397.jpeg"
               alt="Facundo con visitantes en Salvador"
             >
+
           </figure>
 
           <figure class="photo">
+
             <img
               src="/public/335a32c5-42d1-45a2-9990-ad20365ada86.jpeg"
               alt="Facundo guiando un grupo en el Centro Histórico"
             >
+
           </figure>
 
           <figure class="photo">
+
             <img
               src="/public/7fe8a35b-98ec-445e-be54-3f5491e8ab58.jpeg"
               alt="Facundo en el Centro Histórico de Salvador"
             >
+
           </figure>
 
         </div>
@@ -1226,11 +1145,13 @@
             </p>
 
             <div class="author">
+
               Carola
 
               <small>
                 Viajó en grupo · Agosto de 2026
               </small>
+
             </div>
 
           </article>
@@ -1253,11 +1174,13 @@
             </p>
 
             <div class="author">
+
               Eduardo
 
               <small>
                 Viajó en pareja · Agosto de 2026
               </small>
+
             </div>
 
           </article>
@@ -1277,11 +1200,13 @@
             </p>
 
             <div class="author">
+
               Hugo
 
               <small>
                 Viajó en pareja · Agosto de 2026
               </small>
+
             </div>
 
           </article>
@@ -1648,17 +1573,13 @@
     (function(){
 
       const gallery =
-        document.querySelector(
-          '.gallery-grid'
-        );
+        document.querySelector('.gallery-grid');
 
       if(gallery){
 
         const items =
           Array.from(
-            gallery.querySelectorAll(
-              '.photo'
-            )
+            gallery.querySelectorAll('.photo')
           );
 
         let current = 0;
@@ -1674,11 +1595,8 @@
             items.length;
 
           gallery.scrollTo({
-            left:
-              items[current].offsetLeft,
-
-            behavior:
-              'smooth'
+            left:items[current].offsetLeft,
+            behavior:'smooth'
           });
 
         },4000);
