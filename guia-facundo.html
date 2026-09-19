@@ -76,8 +76,10 @@
     .photo:hover img{transform:scale(1.03);filter:saturate(1.04)}
     .gallery-grid::-webkit-scrollbar{display:none}
 
+    .hero-services-bar{background:#081321;border-bottom:1px solid rgba(240,207,119,.14);padding:14px 0}.gallery-services{display:flex;gap:12px;margin-top:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding:2px 0 6px}.gallery-services::-webkit-scrollbar{display:none}.gallery-service{display:inline-flex;flex:0 0 auto;min-height:46px;align-items:center;justify-content:center;padding:0 20px;border-radius:999px;background:linear-gradient(100deg,var(--gold),var(--gold-light));color:#08101d;font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 10px 24px rgba(0,0,0,.22);transition:transform .2s ease,box-shadow .2s ease}.gallery-service:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.28)}
+
     .reviews{text-align:center}
-    .review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;text-align:left;align-items:start}
+    .review-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(280px,32%);gap:18px;margin-top:40px;text-align:left;align-items:start;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 4px 10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
     .review{display:grid;grid-template-rows:auto 1fr auto;min-height:360px;padding:18px;border:1px solid rgba(93,136,220,.18);border-radius:22px;background:linear-gradient(180deg,#10213a,#0d1b30);box-shadow:0 12px 30px rgba(0,0,0,.14);aspect-ratio:1/1;overflow:hidden}
     .review:nth-child(2){transform:none;border-color:rgba(240,207,119,.22)}
     .stars{color:var(--gold-light);font-size:20px;letter-spacing:3px}
@@ -112,6 +114,8 @@
       section{padding:66px 0}
       .intro-grid{grid-auto-columns:84%}
       .gallery-grid{grid-auto-columns:100%}
+      .gallery-services{gap:9px;margin-top:0}.hero-services-bar{padding:12px 0}
+      .gallery-service{min-height:42px;padding:0 16px;font-size:11px}
       .photo:first-child{grid-row:auto}
       .review-grid{display:grid;grid-auto-flow:column;grid-auto-columns:86%;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 4px 10px;scrollbar-width:none}
       .review-grid::-webkit-scrollbar{display:none}
@@ -147,6 +151,17 @@
     </div>
   </header>
 
+  <div class="hero-services-bar">
+    <div class="container">
+      <div class="gallery-services" aria-label="Opciones de tours">
+        <a class="gallery-service" href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20vi%20la%20opci%C3%B3n%20Free%20Walking%20Tour%20en%20tu%20p%C3%A1gina%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">Free Walking Tour</a>
+        <a class="gallery-service" href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20vi%20la%20opci%C3%B3n%20Tour%20Privativo%20en%20tu%20p%C3%A1gina%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">Tour Privativo</a>
+        <a class="gallery-service" href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20vi%20la%20opci%C3%B3n%20Passeio%20%C3%A0s%20Ilhas%20en%20tu%20p%C3%A1gina%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">Passeio às Ilhas</a>
+        <a class="gallery-service" href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20conocer%20otras%20opciones%20de%20tours%20y%20experiencias%20en%20Salvador." target="_blank" rel="noopener">Outros</a>
+      </div>
+    </div>
+  </div>
+
   <main>
     <section class="intro">
       <div class="container">
@@ -169,6 +184,7 @@
           <figure class="photo"><img src="/public/335a32c5-42d1-45a2-9990-ad20365ada86.jpeg" alt="Facundo guiando un grupo en el Centro Histórico"></figure>
           <figure class="photo"><img src="/public/7fe8a35b-98ec-445e-be54-3f5491e8ab58.jpeg" alt="Facundo en el Centro Histórico de Salvador"></figure>
         </div>
+
       </div>
     </section>
 
