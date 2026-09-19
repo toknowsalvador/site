@@ -44,8 +44,8 @@
     .top{position:absolute;z-index:3;top:0;width:100%;padding:calc(14px + env(safe-area-inset-top)) 22px 14px;background:linear-gradient(90deg,rgba(0,0,0,.96) 0%,rgba(74,55,12,.96) 52%,rgba(0,0,0,.96) 100%);border-bottom:1px solid rgba(240,207,119,.22)}
     .hero-watermark{display:block;width:100%;margin:0 auto;text-align:center;font:800 clamp(28px,8vw,72px)/1 "Syne",sans-serif;letter-spacing:.30em;text-transform:uppercase;color:rgba(255,255,255,.96);text-shadow:0 4px 20px rgba(0,0,0,.24);user-select:none}
     
-    .hero-copy{position:relative;z-index:2;width:min(100% - 36px,1080px);margin:auto;padding:96px 0 105px;text-align:center}
-    .hero-panel{display:flex;width:100%;padding:8px 0 26px;border-radius:0;background:transparent;border:0;backdrop-filter:none;box-shadow:none;justify-content:flex-end}
+    .hero-copy{position:absolute;z-index:4;top:clamp(62px,7vw,82px);right:0;width:100%;margin:0;padding:0 24px;text-align:right}
+    .hero-panel{display:flex;width:min(100%,1080px);margin:0 auto;padding:0;border-radius:0;background:transparent;border:0;backdrop-filter:none;box-shadow:none;justify-content:flex-end}
     .hero h1{margin:14px 0 0;font:700 clamp(52px,10vw,84px)/.98 "DM Sans",sans-serif;letter-spacing:-.04em;color:var(--white);text-shadow:0 8px 28px rgba(0,0,0,.34)}
     .hero h1 span{display:block;color:var(--gold-light);font-style:normal}
     
@@ -123,7 +123,7 @@
       .hero h1{font-size:clamp(50px,15vw,74px)}
       .hero-watermark{font-size:clamp(26px,7vw,44px);letter-spacing:.22em}
       .logo-below{width:138px;margin-top:18px}
-      .hero-copy{padding:88px 0 92px}.hero-panel{justify-content:flex-end}.hero-actions{align-items:flex-end;gap:8px}.hero-label,.cta{min-height:42px;padding:0 18px;font-size:12px}.cta-secondary{min-height:42px;padding:0 18px;font-size:13px}.hero-slide{background-position:34% center}
+      .hero-copy{top:50px;padding:0 14px}.hero-panel{justify-content:flex-end;padding:0}.hero-actions{align-items:flex-end;gap:6px}.hero-label,.cta{min-height:38px;padding:0 15px;font-size:11px}.cta-secondary{min-height:38px;padding:0 15px;font-size:12px}.hero-slide{background-position:34% center}
       .hero-kicker{padding:10px 12px;font-size:11px;letter-spacing:.12em}
     }
 
@@ -132,7 +132,7 @@
 <body>
   <header class="hero">
     <div class="hero-slides" aria-hidden="true">
-      <div class="hero-slide active" style="background-image:url('/public/0598ceb8-076e-4104-bd8e-16f4de0aa397.jpeg')"></div>
+      <div class="hero-slide active" style="background-image:url('/public/335a32c5-42d1-45a2-9990-ad20365ada86.jpeg')"></div>
     </div>
     <div class="hero-overlay" aria-hidden="true"></div>
     <div class="top"><span class="hero-watermark">FACUNDO</span></div>
@@ -193,16 +193,16 @@
         </div>
 
         <div class="offer-grid" aria-label="Experiencias disponibles">
-          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20reservar%20el%20Afro%20Tour%20por%20el%20Centro%20Hist%C3%B3rico." target="_blank" rel="noopener"><span class="offer-icon">🚶🏽</span><h3>Afro Tour por el Centro Histórico</h3><p>Un recorrido por la memoria afrobrasileña, el Pelourinho y la historia cultural de Salvador.</p><span>Consultar →</span></a>
-          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Cena%20Bahiana%20y%20el%20Espect%C3%A1culo%20Folcl%C3%B3rico." target="_blank" rel="noopener"><span class="offer-icon">🥁</span><h3>Cena bahiana y espectáculo folclórico</h3><p>Buffet de comida bahiana, capoeira, samba y danzas vinculadas a las tradiciones afrobrasileñas.</p><span>Consultar →</span></a>
-          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Praia%20do%20Forte%20privado." target="_blank" rel="noopener"><span class="offer-icon">🏝️</span><h3>Praia do Forte privado</h3><p>Vehículo y conductor privados, con salida desde el hotel y tiempo libre en Praia do Forte.</p><span>Consultar →</span></a>
-          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Tour%20de%20F%C3%BAtbol." target="_blank" rel="noopener"><span class="offer-icon">⚽</span><h3>Tour de Fútbol</h3><p>Un día de partido en la Arena Fonte Nova junto a aficionados locales.</p><span>Próximo partido →</span></a>
-          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20clase%20de%20Capoeira." target="_blank" rel="noopener"><span class="offer-icon">🪘</span><h3>Clase de Capoeira</h3><p>Una primera experiencia práctica con movimiento, música e historia.</p><span>Consultar →</span></a>
-          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Tour%20Gastron%C3%B3mico." target="_blank" rel="noopener"><span class="offer-icon">🍲</span><h3>Tour Gastronómico</h3><p>Sabores locales y platos tradicionales de la cocina bahiana.</p><span>Consultar →</span></a>
-          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Favela%20Tour." target="_blank" rel="noopener"><span class="offer-icon">🏘️</span><h3>Favela Tour con guía local</h3><p>Una visita acompañada y realizada con participación local.</p><span>Consultar →</span></a>
-          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20agendar%20una%20visita%20a%20un%20Terreiro%20de%20Candombl%C3%A9." target="_blank" rel="noopener"><span class="offer-icon">🤍</span><h3>Visita a un Terreiro de Candomblé</h3><p>Visita cultural realizada de acuerdo con las orientaciones y reglas de la casa.</p><span>Consultar fechas →</span></a>
-          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20necesito%20apoyo%20local%20para%20un%20grupo%20en%20Salvador." target="_blank" rel="noopener"><span class="offer-icon">🤝</span><h3>Grupos privados y agencias</h3><p>Guías, transporte, reservas, itinerarios y coordinación local en Salvador.</p><span>Solicitar apoyo →</span></a>
-          <a class="offer-card" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20usar%20la%20red%20de%20contactos%20de%20To%20Know%20Salvador%20en%20Brasil." target="_blank" rel="noopener"><span class="offer-icon">🇧🇷</span><h3>Red de apoyo en Brasil</h3><p>Contactos locales de confianza en otros destinos brasileños.</p><span>Consultar destino →</span></a>
+          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20reservar%20el%20Afro%20Tour%20por%20el%20Centro%20Hist%C3%B3rico." target="_blank" rel="noopener"><span class="offer-icon">🚶🏽</span><h3>Afro Tour por el Centro Histórico</h3><p>Un recorrido por la memoria afrobrasileña, el Pelourinho y la historia cultural de Salvador.</p><span>Consultar →</span></a>
+          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20Cena%20Bahiana%20y%20el%20Espect%C3%A1culo%20Folcl%C3%B3rico." target="_blank" rel="noopener"><span class="offer-icon">🥁</span><h3>Cena bahiana y espectáculo folclórico</h3><p>Buffet de comida bahiana, capoeira, samba y danzas vinculadas a las tradiciones afrobrasileñas.</p><span>Consultar →</span></a>
+          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Praia%20do%20Forte%20privado." target="_blank" rel="noopener"><span class="offer-icon">🏝️</span><h3>Praia do Forte privado</h3><p>Vehículo y conductor privados, con salida desde el hotel y tiempo libre en Praia do Forte.</p><span>Consultar →</span></a>
+          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Tour%20de%20F%C3%BAtbol." target="_blank" rel="noopener"><span class="offer-icon">⚽</span><h3>Tour de Fútbol</h3><p>Un día de partido en la Arena Fonte Nova junto a aficionados locales.</p><span>Próximo partido →</span></a>
+          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20clase%20de%20Capoeira." target="_blank" rel="noopener"><span class="offer-icon">🪘</span><h3>Clase de Capoeira</h3><p>Una primera experiencia práctica con movimiento, música e historia.</p><span>Consultar →</span></a>
+          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Tour%20Gastron%C3%B3mico." target="_blank" rel="noopener"><span class="offer-icon">🍲</span><h3>Tour Gastronómico</h3><p>Sabores locales y platos tradicionales de la cocina bahiana.</p><span>Consultar →</span></a>
+          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20Favela%20Tour." target="_blank" rel="noopener"><span class="offer-icon">🏘️</span><h3>Favela Tour con guía local</h3><p>Una visita acompañada y realizada con participación local.</p><span>Consultar →</span></a>
+          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20agendar%20una%20visita%20a%20un%20Terreiro%20de%20Candombl%C3%A9." target="_blank" rel="noopener"><span class="offer-icon">🤍</span><h3>Visita a un Terreiro de Candomblé</h3><p>Visita cultural realizada de acuerdo con las orientaciones y reglas de la casa.</p><span>Consultar fechas →</span></a>
+          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20necesito%20apoyo%20local%20para%20un%20grupo%20en%20Salvador." target="_blank" rel="noopener"><span class="offer-icon">🤝</span><h3>Grupos privados y agencias</h3><p>Guías, transporte, reservas, itinerarios y coordinación local en Salvador.</p><span>Solicitar apoyo →</span></a>
+          <a class="offer-card" href="https://wa.me/5571992253217?text=Hola%2C%20quiero%20usar%20la%20red%20de%20contactos%20de%20To%20Know%20Salvador%20en%20Brasil." target="_blank" rel="noopener"><span class="offer-icon">🇧🇷</span><h3>Red de apoyo en Brasil</h3><p>Contactos locales de confianza en otros destinos brasileños.</p><span>Consultar destino →</span></a>
         </div>
       </div>
     </section>
@@ -212,7 +212,7 @@
         <p class="eyebrow">Descubre Salvador</p>
         <h2 class="title">Recorre Salvador con Facundo</h2>
         <p>Consulta las próximas fechas y encuentra el recorrido que mejor encaja con tu viaje.</p>
-        <a class="cta" href="https://wa.me/5571993719791?text=Hola%2C%20quiero%20consultar%20la%20disponibilidad%20del%20gu%C3%ADa%20Facundo." target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a>
+        <a class="cta" href="https://wa.me/5571992253217?text=Hola%20Facundo%2C%20quiero%20consultar%20tu%20disponibilidad%20como%20gu%C3%ADa%20en%20Salvador." target="_blank" rel="noopener noreferrer">Consultar disponibilidad</a>
       </div>
     </section>
   </main>
