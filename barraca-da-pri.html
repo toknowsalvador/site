@@ -352,6 +352,126 @@ body{
   margin-right:5px;
 }
 
+
+/* =========================
+   NUMERAÇÃO DOS ITENS
+========================= */
+.menu-item{
+  display:grid;
+  grid-template-columns:38px minmax(0,1fr) auto;
+  gap:11px;
+  align-items:start;
+}
+.item-code{
+  display:inline-flex;
+  width:34px;
+  height:34px;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  background:#eee8dd;
+  color:var(--charcoal);
+  border:1px solid #d9cfbe;
+  font-size:12px;
+  font-weight:800;
+  line-height:1;
+}
+.item-info{min-width:0}
+
+/* =========================
+   EXPERIÊNCIAS — FORMATO SUTIL
+========================= */
+.experiences{
+  margin:38px 0 18px;
+  scroll-margin-top:120px;
+}
+.experience-heading{
+  margin:0 0 6px;
+  color:var(--charcoal);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:25px;
+  font-weight:500;
+  text-align:center;
+}
+.experience-subtitle{
+  margin:0 auto 15px;
+  max-width:620px;
+  color:#777;
+  font-size:12px;
+  line-height:1.5;
+  text-align:center;
+}
+.experience-scroll{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding:3px 2px 14px;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:thin;
+  scrollbar-color:#b9ad99 transparent;
+}
+.experience-card{
+  display:flex;
+  flex:0 0 min(78vw,285px);
+  min-height:245px;
+  flex-direction:column;
+  padding:18px 16px 16px;
+  border:1px solid #ded7cb;
+  border-radius:12px;
+  background:#fff;
+  box-shadow:0 6px 18px rgba(0,0,0,.07);
+  scroll-snap-align:start;
+}
+.experience-icon{font-size:30px;line-height:1;margin-bottom:9px}
+.experience-card h3{
+  margin:0 0 8px;
+  color:var(--charcoal);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:20px;
+  line-height:1.16;
+}
+.experience-card p{
+  margin:0 0 12px;
+  color:#777;
+  font-size:12px;
+  line-height:1.5;
+}
+.experience-price{
+  margin-top:auto;
+  color:var(--black);
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:19px;
+  font-weight:bold;
+}
+.experience-price small{
+  display:block;
+  margin-top:2px;
+  color:#777;
+  font-family:Arial,sans-serif;
+  font-size:11px;
+  font-weight:normal;
+}
+.experience-action{
+  display:block;
+  margin-top:13px;
+  padding:10px 12px;
+  border:1px solid #d6ccbc;
+  border-radius:30px;
+  background:#f3eee5;
+  color:var(--charcoal);
+  font-size:12px;
+  font-weight:700;
+  text-align:center;
+  text-decoration:none;
+}
+.experience-action:hover{background:var(--charcoal);color:#fff}
+.experience-swipe{
+  margin:0;
+  color:#8a8176;
+  font-size:11px;
+  text-align:center;
+}
+
 /* =========================
    MOBILE
 ========================= */
@@ -392,12 +512,7 @@ body{
 <section class="hero">
 
   <h1>BARRACA DA PRI</h1>
-
-  <div class="hero-decoration">
-    〜 〜 〜
-  </div>
-
-  <p data-i18n="subtitle">
+<p data-i18n="subtitle">
     Praia, sabores e experiência local em Salvador
   </p>
 
@@ -505,9 +620,9 @@ data-i18n="navBeach">
 🏖️ Praia
 </a>
 
-<a class="category-link offer" href="#ilhas">
-🏝️ <span data-i18n="navIslands">
-Passeio às Ilhas · 20% OFF
+<a class="category-link offer" href="#experiencias">
+🏝️ <span data-i18n="navExperiences">
+Experiências em Salvador
 </span>
 </a>
 
@@ -532,26 +647,31 @@ Bebidas sem álcool
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">01</span>
 <span>Coca-Cola</span>
 <span class="price">R$ 12,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">02</span>
 <span>Guaraná</span>
 <span class="price">R$ 12,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">03</span>
 <span data-i18n="water">Água</span>
 <span class="price">R$ 8,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">04</span>
 <span data-i18n="sparklingWater">Água com gás</span>
 <span class="price">R$ 12,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">05</span>
 <span data-i18n="coconut">Coco</span>
 <span class="price">R$ 12,00</span>
 </div>
@@ -571,26 +691,31 @@ Cervejas
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">06</span>
 <span>Heineken</span>
 <span class="price">R$ 18,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">07</span>
 <span>Budweiser</span>
 <span class="price">R$ 18,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">08</span>
 <span>Corona</span>
 <span class="price">R$ 18,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">09</span>
 <span>Stella</span>
 <span class="price">R$ 18,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">10</span>
 <span>Amstel</span>
 <span class="price">R$ 12,00</span>
 </div>
@@ -610,41 +735,49 @@ Sucos 500ml
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">11</span>
 <span data-i18n="lemon">Limão</span>
 <span class="price">R$ 30,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">12</span>
 <span data-i18n="strawberry">Morango</span>
 <span class="price">R$ 35,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">13</span>
 <span>Caju</span>
 <span class="price">R$ 30,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">14</span>
 <span>Kiwi</span>
 <span class="price">R$ 30,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">15</span>
 <span>Siriguela</span>
 <span class="price">R$ 35,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">16</span>
 <span data-i18n="pineapple">Abacaxi</span>
 <span class="price">R$ 30,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">17</span>
 <span>Pitaia</span>
 <span class="price">R$ 35,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">18</span>
 <span>Acerola</span>
 <span class="price">R$ 30,00</span>
 </div>
@@ -664,41 +797,49 @@ Caipiroska
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">19</span>
 <span data-i18n="lemon">Limão</span>
 <span class="price">R$ 40,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">20</span>
 <span data-i18n="strawberry">Morango</span>
 <span class="price">R$ 45,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">21</span>
 <span>Caju</span>
 <span class="price">R$ 45,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">22</span>
 <span>Kiwi</span>
 <span class="price">R$ 40,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">23</span>
 <span>Siriguela</span>
 <span class="price">R$ 45,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">24</span>
 <span data-i18n="pineapple">Abacaxi</span>
 <span class="price">R$ 40,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">25</span>
 <span>Pitaia</span>
 <span class="price">R$ 45,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">26</span>
 <span>Acerola</span>
 <span class="price">R$ 40,00</span>
 </div>
@@ -718,41 +859,49 @@ Caipirinha
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">27</span>
 <span data-i18n="lemon">Limão</span>
 <span class="price">R$ 35,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">28</span>
 <span data-i18n="strawberry">Morango</span>
 <span class="price">R$ 40,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">29</span>
 <span>Caju</span>
 <span class="price">R$ 40,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">30</span>
 <span>Kiwi</span>
 <span class="price">R$ 40,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">31</span>
 <span>Siriguela</span>
 <span class="price">R$ 40,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">32</span>
 <span data-i18n="pineapple">Abacaxi</span>
 <span class="price">R$ 35,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">33</span>
 <span>Pitaia</span>
 <span class="price">R$ 40,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">34</span>
 <span>Acerola</span>
 <span class="price">R$ 35,00</span>
 </div>
@@ -772,46 +921,55 @@ Petiscos
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">35</span>
 <span data-i18n="fishBait">Isca de peixe</span>
 <span class="price">R$ 135,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">36</span>
 <span data-i18n="chickenBait">Isca de frango</span>
 <span class="price">R$ 125,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">37</span>
 <span data-i18n="sunDriedBeef">Carne do sol</span>
 <span class="price">R$ 135,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">38</span>
 <span data-i18n="garlicShrimp">Camarão alho e óleo</span>
 <span class="price">R$ 135,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">39</span>
 <span data-i18n="breadedShrimp">Camarão empanado</span>
 <span class="price">R$ 145,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">40</span>
 <span data-i18n="lobster">Lagosta grelhada</span>
 <span class="price">R$ 280,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">41</span>
 <span data-i18n="friedChicken">Frango a passarinho</span>
 <span class="price">R$ 125,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">42</span>
 <span>Pititinga</span>
 <span class="price">R$ 80,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">43</span>
 <span data-i18n="fries">Batata frita</span>
 <span class="price">R$ 55,00</span>
 </div>
@@ -831,26 +989,31 @@ Bolinhos
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">44</span>
 <span>Kibe</span>
 <span class="price">R$ 60,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">45</span>
 <span data-i18n="cheese">Queijo</span>
 <span class="price">R$ 60,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">46</span>
 <span data-i18n="shrimp">Camarão</span>
 <span class="price">R$ 60,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">47</span>
 <span data-i18n="cod">Bacalhau</span>
 <span class="price">R$ 60,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">48</span>
 <span data-i18n="jerkedBeef">Charque</span>
 <span class="price">R$ 60,00</span>
 </div>
@@ -870,6 +1033,7 @@ Almoço Executivo
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">49</span>
 <span data-i18n="friedFishComplete">
 Peixe frito completo
 </span>
@@ -877,6 +1041,7 @@ Peixe frito completo
 </div>
 
 <div class="menu-item">
+<span class="item-code">50</span>
 <span data-i18n="grilledFish">
 Peixe grelhado
 </span>
@@ -884,6 +1049,7 @@ Peixe grelhado
 </div>
 
 <div class="menu-item">
+<span class="item-code">51</span>
 
 <div class="item-info">
 
@@ -907,6 +1073,7 @@ R$ 250,00
 
 
 <div class="menu-item">
+<span class="item-code">52</span>
 <span data-i18n="shrimpMoqueca">
 Moqueca de camarão
 </span>
@@ -914,6 +1081,7 @@ Moqueca de camarão
 </div>
 
 <div class="menu-item">
+<span class="item-code">53</span>
 <span data-i18n="fishMoqueca">
 Moqueca de peixe
 </span>
@@ -921,6 +1089,7 @@ Moqueca de peixe
 </div>
 
 <div class="menu-item">
+<span class="item-code">54</span>
 <span data-i18n="lobsterMoqueca">
 Moqueca de lagosta
 </span>
@@ -928,6 +1097,7 @@ Moqueca de lagosta
 </div>
 
 <div class="menu-item">
+<span class="item-code">55</span>
 <span data-i18n="completeSunDriedBeef">
 Carne do sol completa
 </span>
@@ -935,6 +1105,7 @@ Carne do sol completa
 </div>
 
 <div class="menu-item">
+<span class="item-code">56</span>
 <span data-i18n="hake">
 Peixe grelhado – merluza
 </span>
@@ -956,26 +1127,31 @@ Porções
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">57</span>
 <span data-i18n="rice">Arroz</span>
 <span class="price">R$ 20,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">58</span>
 <span data-i18n="beans">Feijão</span>
 <span class="price">R$ 20,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">59</span>
 <span data-i18n="salad">Salada mista</span>
 <span class="price">R$ 20,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">60</span>
 <span>Farofa</span>
 <span class="price">R$ 20,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">61</span>
 <span data-i18n="olives">Azeitonas</span>
 <span class="price">R$ 25,00</span>
 </div>
@@ -995,16 +1171,19 @@ Espetinhos
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">62</span>
 <span data-i18n="chicken">Frango</span>
 <span class="price">R$ 25,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">63</span>
 <span data-i18n="beef">Carne</span>
 <span class="price">R$ 30,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">64</span>
 <span data-i18n="shrimp">Camarão</span>
 <span class="price">R$ 35,00</span>
 </div>
@@ -1024,6 +1203,7 @@ Pratos
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">65</span>
 <span data-i18n="chickenFillet">
 Filé de frango
 </span>
@@ -1031,6 +1211,7 @@ Filé de frango
 </div>
 
 <div class="menu-item">
+<span class="item-code">66</span>
 <span data-i18n="beefSteak">
 Bife de contra-filé
 </span>
@@ -1038,6 +1219,7 @@ Bife de contra-filé
 </div>
 
 <div class="menu-item">
+<span class="item-code">67</span>
 <span data-i18n="hakeFillet">
 Filé de merluza
 </span>
@@ -1059,16 +1241,19 @@ Caldos
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">68</span>
 <span>Sururu</span>
 <span class="price">R$ 55,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">69</span>
 <span data-i18n="shrimp">Camarão</span>
 <span class="price">R$ 60,00</span>
 </div>
 
 <div class="menu-item">
+<span class="item-code">70</span>
 <span data-i18n="beans">Feijão</span>
 <span class="price">R$ 45,00</span>
 </div>
@@ -1089,6 +1274,7 @@ Equipamentos de Praia
 <div class="menu-items">
 
 <div class="menu-item">
+<span class="item-code">71</span>
 <span data-i18n="chair">
 Cadeira
 </span>
@@ -1096,6 +1282,7 @@ Cadeira
 </div>
 
 <div class="menu-item">
+<span class="item-code">72</span>
 <span data-i18n="smallUmbrella">
 Sombreiro pequeno
 </span>
@@ -1103,6 +1290,7 @@ Sombreiro pequeno
 </div>
 
 <div class="menu-item">
+<span class="item-code">73</span>
 <span data-i18n="largeUmbrella">
 Sombreiro grande
 </span>
@@ -1144,96 +1332,82 @@ Pagamentos com cartão possuem taxa de 10%.
 
 
 
-<!-- OFERTA FINAL -->
+<!-- EXPERIÊNCIAS -->
+<section class="experiences" id="experiencias">
+  <h2 class="experience-heading" data-i18n="experiencesTitle">Experiências em Salvador</h2>
+  <p class="experience-subtitle" data-i18n="experiencesSubtitle">Opções recomendadas pela Barraca da Pri. Deslize para o lado para ver mais.</p>
 
-<section class="islands-offer" id="ilhas">
+  <div class="experience-scroll">
+    <article class="experience-card">
+      <div class="experience-icon">🏝️</div>
+      <h3 data-i18n="islandsTitle">Ilha dos Frades</h3>
+      <p data-i18n="islandsDescription">Um dia entre águas cristalinas e paisagens inesquecíveis.</p>
+      <div class="experience-price" data-i18n="islandsPrice">R$ 130,00 por pessoa</div>
+      <a class="experience-action" data-whatsapp="islandsMessage" href="#" target="_blank" rel="noopener"><span data-i18n="whatsappAction">WhatsApp</span></a>
+    </article>
 
-<div class="offer-top"
-data-i18n="exclusiveOffer">
+    <article class="experience-card">
+      <div class="experience-icon">🌊</div>
+      <h3>Morro de São Paulo</h3>
+      <p data-i18n="morroDescription">Bate-volta para um dos destinos mais desejados da Bahia.</p>
+      <div class="experience-price" data-i18n="morroPrice">R$ 250,00 • ida e volta inclusas</div>
+      <a class="experience-action" data-whatsapp="morroMessage" href="#" target="_blank" rel="noopener"><span data-i18n="whatsappAction">WhatsApp</span></a>
+    </article>
 
-OFERTA ESPECIAL · 20% OFF
+    <article class="experience-card">
+      <div class="experience-icon">🐢</div>
+      <h3 data-i18n="forteTitle">Praia do Forte + Guarajuba</h3>
+      <p data-i18n="forteDescription">Natureza, vila charmosa e praias incríveis.</p>
+      <div class="experience-price" data-i18n="fortePrice">R$ 100,00 por pessoa</div>
+      <a class="experience-action" data-whatsapp="forteMessage" href="#" target="_blank" rel="noopener"><span data-i18n="whatsappAction">WhatsApp</span></a>
+    </article>
 
-</div>
+    <article class="experience-card">
+      <div class="experience-icon">🤿</div>
+      <h3 data-i18n="divingTitle">Mergulho</h3>
+      <p data-i18n="divingDescription">Veja Salvador por uma nova perspectiva, debaixo d'água.</p>
+      <a class="experience-action" data-whatsapp="divingMessage" href="#" target="_blank" rel="noopener"><span data-i18n="whatsappAction">WhatsApp</span></a>
+    </article>
 
+    <article class="experience-card">
+      <div class="experience-icon">⚽</div>
+      <h3>Arena Fonte Nova</h3>
+      <p data-i18n="arenaDescription">Viva a emoção de assistir a um jogo em Salvador.</p>
+      <a class="experience-action" data-whatsapp="arenaMessage" href="#" target="_blank" rel="noopener"><span data-i18n="whatsappAction">WhatsApp</span></a>
+    </article>
 
-<div class="offer-content">
+    <article class="experience-card">
+      <div class="experience-icon">🚶</div>
+      <h3>Free Walking Tour</h3>
+      <p data-i18n="tourDescription">Centro Histórico • segunda a sábado • 09:30 e 14:00.</p>
+      <a class="experience-action" href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit" target="_blank" rel="noopener"><span data-i18n="formAction">Abrir formulário</span></a>
+    </article>
 
-<div class="offer-icon">
-🏝️
-</div>
+    <article class="experience-card">
+      <div class="experience-icon">🎥</div>
+      <h3 data-i18n="vloggerTitle">Influencer ou Vlogger?</h3>
+      <p data-i18n="vloggerDescription">Visite Salvador em parceria por divulgação e produção de conteúdo.</p>
+      <a class="experience-action" data-whatsapp="vloggerMessage" href="#" target="_blank" rel="noopener"><span data-i18n="whatsappAction">WhatsApp</span></a>
+    </article>
 
-<h2 data-i18n="islandTitle">
+    <article class="experience-card">
+      <div class="experience-icon">🥁</div>
+      <h3>Bahia Night</h3>
+      <p data-i18n="nightDescription">Quinta e sábado • espetáculo cultural com comida baiana.</p>
+      <div class="experience-price" data-i18n="nightPrice">R$ 250,00 por pessoa</div>
+      <a class="experience-action" data-whatsapp="nightMessage" href="#" target="_blank" rel="noopener"><span data-i18n="whatsappAction">WhatsApp</span></a>
+    </article>
 
-Ilha de Itaparica<br>
-+ Ilha dos Frades
+    <article class="experience-card">
+      <div class="experience-icon">🚐</div>
+      <h3 data-i18n="transportTitle">Van e veículos grandes</h3>
+      <p data-i18n="transportDescription">Transporte para grupos particulares. Consulte opções e disponibilidade.</p>
+      <a class="experience-action" data-whatsapp="transportMessage" href="#" target="_blank" rel="noopener"><span data-i18n="whatsappAction">WhatsApp</span></a>
+    </article>
+  </div>
 
-</h2>
-
-
-<p class="offer-subtitle"
-data-i18n="islandSubtitle">
-
-Passeio de dia inteiro pelas ilhas da Baía de Todos-os-Santos
-
-</p>
-
-
-<div class="offer-price">
-R$ 150
-<small data-i18n="perPerson">
-por pessoa
-</small>
-</div>
-
-
-<div class="offer-included">
-
-<p>
-✓
-<span data-i18n="hotelPickup">
-Busca no hotel
-</span>
-</p>
-
-<p>
-✓
-<span data-i18n="terminalIncluded">
-Transfer até o terminal incluso
-</span>
-</p>
-
-<p>
-✓
-<span data-i18n="twoIslands">
-Visita às duas ilhas
-</span>
-</p>
-
-</div>
-
-
-<a
-id="whatsappButton"
-class="whatsapp-button"
-target="_blank"
-rel="noopener"
-href="#"
->
-
-<span class="whatsapp-icon">
-💬
-</span>
-
-<span data-i18n="reserveWhatsApp">
-Reservar pelo WhatsApp
-</span>
-
-</a>
-
-</div>
-
+  <p class="experience-swipe" data-i18n="experienceSwipe">← Deslize para ver mais opções →</p>
 </section>
-
 
 </main>
 
@@ -1859,6 +2033,129 @@ whatsappMessage:
 
 
 
+
+
+const experienceTranslations = {
+  pt:{
+    navExperiences:"Experiências em Salvador",
+    experiencesTitle:"Experiências em Salvador",
+    experiencesSubtitle:"Opções recomendadas pela Barraca da Pri. Deslize para o lado para ver mais.",
+    islandsTitle:"Ilha dos Frades", islandsDescription:"Um dia entre águas cristalinas e paisagens inesquecíveis.", islandsPrice:"R$ 130,00 por pessoa",
+    morroDescription:"Bate-volta para um dos destinos mais desejados da Bahia.", morroPrice:"R$ 250,00 • ida e volta inclusas",
+    forteTitle:"Praia do Forte + Guarajuba", forteDescription:"Natureza, vila charmosa e praias incríveis.", fortePrice:"R$ 100,00 por pessoa",
+    divingTitle:"Mergulho", divingDescription:"Veja Salvador por uma nova perspectiva, debaixo d'água.",
+    arenaDescription:"Viva a emoção de assistir a um jogo em Salvador.",
+    tourDescription:"Centro Histórico • segunda a sábado • 09:30 e 14:00.",
+    vloggerTitle:"Influencer ou Vlogger?", vloggerDescription:"Visite Salvador em parceria por divulgação e produção de conteúdo.",
+    nightDescription:"Quinta e sábado • espetáculo cultural com comida baiana.", nightPrice:"R$ 250,00 por pessoa",
+    transportTitle:"Van e veículos grandes", transportDescription:"Transporte para grupos particulares. Consulte opções e disponibilidade.",
+    whatsappAction:"Falar pelo WhatsApp", formAction:"Abrir formulário", experienceSwipe:"← Deslize para ver mais opções →",
+    islandsMessage:"Olá! Estou na Barraca da Pri e tenho interesse no passeio para a Ilha dos Frades por R$ 130,00 por pessoa. Gostaria de mais informações e de reservar.",
+    morroMessage:"Olá! Estou na Barraca da Pri e tenho interesse no bate-volta para Morro de São Paulo por R$ 250,00, com ida e volta inclusas. Gostaria de reservar.",
+    forteMessage:"Olá! Estou na Barraca da Pri e tenho interesse no passeio para Praia do Forte + Guarajuba por R$ 100,00 por pessoa. Gostaria de mais informações e de reservar.",
+    divingMessage:"Olá! Estou na Barraca da Pri e quero mais informações sobre a experiência de mergulho.",
+    arenaMessage:"Olá! Estou na Barraca da Pri e quero mais informações sobre a experiência para assistir a um jogo na Arena Fonte Nova.",
+    vloggerMessage:"Olá! Estou na Barraca da Pri. Sou influencer/vlogger e tenho interesse em conhecer Salvador em parceria por divulgação e produção de conteúdo. Gostaria de saber como funciona.",
+    nightMessage:"Olá! Estou na Barraca da Pri e tenho interesse na Bahia Night de quinta ou sábado, com espetáculo cultural e comida baiana, por R$ 250,00 por pessoa. Gostaria de reservar.",
+    transportMessage:"Olá! Estou na Barraca da Pri e preciso de van ou veículo grande para um grupo particular. Gostaria de informações sobre opções, capacidade e disponibilidade."
+  },
+  en:{
+    navExperiences:"Experiences in Salvador",
+    experiencesTitle:"Experiences in Salvador",
+    experiencesSubtitle:"Options recommended by Barraca da Pri. Swipe sideways to see more.",
+    islandsTitle:"Frades Island", islandsDescription:"A day among crystal-clear waters and unforgettable scenery.", islandsPrice:"R$ 130.00 per person",
+    morroDescription:"Round trip to one of Bahia's most desired destinations.", morroPrice:"R$ 250.00 • round trip included",
+    forteTitle:"Praia do Forte + Guarajuba", forteDescription:"Nature, a charming village and amazing beaches.", fortePrice:"R$ 100.00 per person",
+    divingTitle:"Diving", divingDescription:"See Salvador from a new perspective, underwater.",
+    arenaDescription:"Experience the excitement of watching a match in Salvador.",
+    tourDescription:"Historic Center • Monday to Saturday • 09:30 and 14:00.",
+    vloggerTitle:"Influencer or Vlogger?", vloggerDescription:"Visit Salvador through a content and publicity partnership.",
+    nightDescription:"Thursday and Saturday • cultural show with Bahian food.", nightPrice:"R$ 250.00 per person",
+    transportTitle:"Vans and large vehicles", transportDescription:"Transportation for private groups. Ask about options and availability.",
+    whatsappAction:"Contact on WhatsApp", formAction:"Open form", experienceSwipe:"← Swipe to see more options →",
+    islandsMessage:"Hello! I am at Barraca da Pri and I am interested in the Frades Island tour for R$ 130.00 per person. I would like more information and to book.",
+    morroMessage:"Hello! I am at Barraca da Pri and I am interested in the Morro de São Paulo round trip for R$ 250.00, with outbound and return transportation included. I would like to book.",
+    forteMessage:"Hello! I am at Barraca da Pri and I am interested in the Praia do Forte + Guarajuba tour for R$ 100.00 per person. I would like more information and to book.",
+    divingMessage:"Hello! I am at Barraca da Pri and would like more information about the diving experience.",
+    arenaMessage:"Hello! I am at Barraca da Pri and would like more information about the Arena Fonte Nova match experience.",
+    vloggerMessage:"Hello! I am at Barraca da Pri. I am an influencer/vlogger and I am interested in visiting Salvador through a content and publicity partnership. How does it work?",
+    nightMessage:"Hello! I am at Barraca da Pri and I am interested in Bahia Night on Thursday or Saturday, with a cultural show and Bahian food, for R$ 250.00 per person. I would like to book.",
+    transportMessage:"Hello! I am at Barraca da Pri and I need a van or large vehicle for a private group. I would like information about options, capacity and availability."
+  },
+  es:{
+    navExperiences:"Experiencias en Salvador",
+    experiencesTitle:"Experiencias en Salvador",
+    experiencesSubtitle:"Opciones recomendadas por Barraca da Pri. Desliza hacia los lados para ver más.",
+    islandsTitle:"Isla dos Frades", islandsDescription:"Un día entre aguas cristalinas y paisajes inolvidables.", islandsPrice:"R$ 130,00 por persona",
+    morroDescription:"Ida y vuelta a uno de los destinos más deseados de Bahía.", morroPrice:"R$ 250,00 • ida y vuelta incluidas",
+    forteTitle:"Praia do Forte + Guarajuba", forteDescription:"Naturaleza, pueblo encantador y playas increíbles.", fortePrice:"R$ 100,00 por persona",
+    divingTitle:"Buceo", divingDescription:"Vea Salvador desde una nueva perspectiva, bajo el agua.",
+    arenaDescription:"Viva la emoción de ver un partido en Salvador.",
+    tourDescription:"Centro Histórico • lunes a sábado • 09:30 y 14:00.",
+    vloggerTitle:"¿Influencer o Vlogger?", vloggerDescription:"Visita Salvador mediante una colaboración de difusión y creación de contenido.",
+    nightDescription:"Jueves y sábado • espectáculo cultural con comida bahiana.", nightPrice:"R$ 250,00 por persona",
+    transportTitle:"Vans y vehículos grandes", transportDescription:"Transporte para grupos privados. Consulta opciones y disponibilidad.",
+    whatsappAction:"Hablar por WhatsApp", formAction:"Abrir formulario", experienceSwipe:"← Desliza para ver más opciones →",
+    islandsMessage:"¡Hola! Estoy en Barraca da Pri y me interesa el paseo a Ilha dos Frades por R$ 130,00 por persona. Quisiera más información y reservar.",
+    morroMessage:"¡Hola! Estoy en Barraca da Pri y me interesa la excursión de ida y vuelta a Morro de São Paulo por R$ 250,00, con ida y regreso incluidos. Quisiera reservar.",
+    forteMessage:"¡Hola! Estoy en Barraca da Pri y me interesa el paseo Praia do Forte + Guarajuba por R$ 100,00 por persona. Quisiera más información y reservar.",
+    divingMessage:"¡Hola! Estoy en Barraca da Pri y quisiera más información sobre la experiencia de buceo.",
+    arenaMessage:"¡Hola! Estoy en Barraca da Pri y quisiera más información sobre la experiencia para ver un partido en Arena Fonte Nova.",
+    vloggerMessage:"¡Hola! Estoy en Barraca da Pri. Soy influencer/vlogger y me interesa visitar Salvador mediante una colaboración de difusión y creación de contenido. Quisiera saber cómo funciona.",
+    nightMessage:"¡Hola! Estoy en Barraca da Pri y me interesa Bahia Night el jueves o sábado, con espectáculo cultural y comida bahiana, por R$ 250,00 por persona. Quisiera reservar.",
+    transportMessage:"¡Hola! Estoy en Barraca da Pri y necesito una van o un vehículo grande para un grupo privado. Quisiera información sobre opciones, capacidad y disponibilidad."
+  },
+  it:{
+    navExperiences:"Esperienze a Salvador",
+    experiencesTitle:"Esperienze a Salvador",
+    experiencesSubtitle:"Opzioni consigliate da Barraca da Pri. Scorri lateralmente per vedere altro.",
+    islandsTitle:"Isola dos Frades", islandsDescription:"Una giornata tra acque cristalline e paesaggi indimenticabili.", islandsPrice:"R$ 130,00 a persona",
+    morroDescription:"Andata e ritorno verso una delle destinazioni più amate di Bahia.", morroPrice:"R$ 250,00 • andata e ritorno inclusi",
+    forteTitle:"Praia do Forte + Guarajuba", forteDescription:"Natura, borgo incantevole e spiagge incredibili.", fortePrice:"R$ 100,00 a persona",
+    divingTitle:"Immersione", divingDescription:"Guarda Salvador da una nuova prospettiva, sott'acqua.",
+    arenaDescription:"Vivi l'emozione di assistere a una partita a Salvador.",
+    tourDescription:"Centro Storico • dal lunedì al sabato • 09:30 e 14:00.",
+    vloggerTitle:"Influencer o Vlogger?", vloggerDescription:"Visita Salvador con una collaborazione di promozione e creazione di contenuti.",
+    nightDescription:"Giovedì e sabato • spettacolo culturale con cucina bahiana.", nightPrice:"R$ 250,00 a persona",
+    transportTitle:"Van e veicoli grandi", transportDescription:"Trasporto per gruppi privati. Chiedi opzioni e disponibilità.",
+    whatsappAction:"Contatta su WhatsApp", formAction:"Apri il modulo", experienceSwipe:"← Scorri per vedere altre opzioni →",
+    islandsMessage:"Ciao! Sono alla Barraca da Pri e mi interessa l'escursione a Ilha dos Frades per R$ 130,00 a persona. Vorrei maggiori informazioni e prenotare.",
+    morroMessage:"Ciao! Sono alla Barraca da Pri e mi interessa l'andata e ritorno a Morro de São Paulo per R$ 250,00, con trasporto di andata e ritorno incluso. Vorrei prenotare.",
+    forteMessage:"Ciao! Sono alla Barraca da Pri e mi interessa l'escursione Praia do Forte + Guarajuba per R$ 100,00 a persona. Vorrei maggiori informazioni e prenotare.",
+    divingMessage:"Ciao! Sono alla Barraca da Pri e vorrei maggiori informazioni sull'esperienza di immersione.",
+    arenaMessage:"Ciao! Sono alla Barraca da Pri e vorrei maggiori informazioni sull'esperienza per assistere a una partita all'Arena Fonte Nova.",
+    vloggerMessage:"Ciao! Sono alla Barraca da Pri. Sono influencer/vlogger e mi interessa visitare Salvador con una collaborazione di promozione e creazione di contenuti. Come funziona?",
+    nightMessage:"Ciao! Sono alla Barraca da Pri e mi interessa Bahia Night il giovedì o sabato, con spettacolo culturale e cucina bahiana, per R$ 250,00 a persona. Vorrei prenotare.",
+    transportMessage:"Ciao! Sono alla Barraca da Pri e ho bisogno di un van o di un veicolo grande per un gruppo privato. Vorrei informazioni su opzioni, capacità e disponibilità."
+  },
+  fr:{
+    navExperiences:"Expériences à Salvador",
+    experiencesTitle:"Expériences à Salvador",
+    experiencesSubtitle:"Options recommandées par Barraca da Pri. Faites glisser pour en voir plus.",
+    islandsTitle:"Île dos Frades", islandsDescription:"Une journée entre eaux cristallines et paysages inoubliables.", islandsPrice:"R$ 130,00 par personne",
+    morroDescription:"Aller-retour vers l'une des destinations les plus prisées de Bahia.", morroPrice:"R$ 250,00 • aller-retour inclus",
+    forteTitle:"Praia do Forte + Guarajuba", forteDescription:"Nature, village charmant et plages magnifiques.", fortePrice:"R$ 100,00 par personne",
+    divingTitle:"Plongée", divingDescription:"Découvrez Salvador sous un nouvel angle, sous l'eau.",
+    arenaDescription:"Vivez l'émotion d'un match à Salvador.",
+    tourDescription:"Centre historique • du lundi au samedi • 09:30 et 14:00.",
+    vloggerTitle:"Influenceur ou Vlogger ?", vloggerDescription:"Visitez Salvador dans le cadre d'un partenariat de visibilité et de création de contenu.",
+    nightDescription:"Jeudi et samedi • spectacle culturel avec cuisine bahianaise.", nightPrice:"R$ 250,00 par personne",
+    transportTitle:"Vans et grands véhicules", transportDescription:"Transport pour groupes privés. Demandez les options et disponibilités.",
+    whatsappAction:"Contacter sur WhatsApp", formAction:"Ouvrir le formulaire", experienceSwipe:"← Faites glisser pour plus d'options →",
+    islandsMessage:"Bonjour ! Je suis à Barraca da Pri et l'excursion à l'Île dos Frades à R$ 130,00 par personne m'intéresse. Je voudrais plus d'informations et réserver.",
+    morroMessage:"Bonjour ! Je suis à Barraca da Pri et l'aller-retour à Morro de São Paulo à R$ 250,00, transport aller et retour inclus, m'intéresse. Je voudrais réserver.",
+    forteMessage:"Bonjour ! Je suis à Barraca da Pri et l'excursion Praia do Forte + Guarajuba à R$ 100,00 par personne m'intéresse. Je voudrais plus d'informations et réserver.",
+    divingMessage:"Bonjour ! Je suis à Barraca da Pri et je voudrais plus d'informations sur l'expérience de plongée.",
+    arenaMessage:"Bonjour ! Je suis à Barraca da Pri et je voudrais plus d'informations sur l'expérience de match à l'Arena Fonte Nova.",
+    vloggerMessage:"Bonjour ! Je suis à Barraca da Pri. Je suis influenceur/vlogger et je souhaite visiter Salvador dans le cadre d'un partenariat de visibilité et de création de contenu. Comment cela fonctionne-t-il ?",
+    nightMessage:"Bonjour ! Je suis à Barraca da Pri et Bahia Night du jeudi ou du samedi m'intéresse, avec spectacle culturel et cuisine bahianaise, à R$ 250,00 par personne. Je voudrais réserver.",
+    transportMessage:"Bonjour ! Je suis à Barraca da Pri et j'ai besoin d'un van ou d'un grand véhicule pour un groupe privé. Je voudrais connaître les options, la capacité et les disponibilités."
+  }
+};
+
+Object.keys(experienceTranslations).forEach(code=>Object.assign(translations[code],experienceTranslations[code]));
+
+
 function changeLanguage(language,button){
 
 currentLanguage = language;
@@ -1900,23 +2197,15 @@ updateWhatsApp();
 
 
 function updateWhatsApp(){
-
-const phone =
-"5571993719791";
-
-const message =
-translations[currentLanguage].whatsappMessage;
-
-const url =
-"https://wa.me/" +
-phone +
-"?text=" +
-encodeURIComponent(message);
-
-document
-.getElementById("whatsappButton")
-.href = url;
-
+  const phone="5571993719791";
+  const lang=translations[currentLanguage];
+  document.querySelectorAll("[data-whatsapp]").forEach(link=>{
+    const key=link.getAttribute("data-whatsapp");
+    const message=lang[key];
+    if(message){
+      link.href="https://wa.me/"+phone+"?text="+encodeURIComponent(message);
+    }
+  });
 }
 
 
