@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
 
@@ -84,6 +84,30 @@ line-height:1.8;
 
 .info strong{
 color:#7d1111;
+}
+
+.info{
+  min-height:112px;
+  display:flex;
+  align-items:center;
+  transition:opacity .25s ease;
+}
+.info > div, .info > a{width:100%;}
+.info-promo-link{
+  display:block;
+  color:#5d3500;
+  text-decoration:none;
+  cursor:pointer;
+}
+.info-promo-link strong{
+  display:block;
+  color:#7d1111;
+  font-size:18px;
+  margin-bottom:5px;
+}
+.info-promo-link span{
+  text-decoration:underline;
+  font-weight:bold;
 }
 
 .category{
@@ -440,13 +464,15 @@ html[dir="rtl"] .experience-card{text-align:right;direction:rtl}
 <div class="container">
 
 <div class="language-menu">
-<button class="active" onclick="changeLanguage('pt',this)">Português</button>
-<button onclick="changeLanguage('en',this)">English</button>
+<button class="active" onclick="changeLanguage('en',this)">English</button>
+<button onclick="changeLanguage('pt',this)">Português</button>
 <button onclick="changeLanguage('es',this)">Español</button>
 <button onclick="changeLanguage('fr',this)">Français</button>
 <button onclick="changeLanguage('it',this)">Italiano</button>
+<button onclick="changeLanguage('de',this)">Deutsch</button>
 <button onclick="changeLanguage('ru',this)">Русский</button>
 <button onclick="changeLanguage('he',this)">עברית</button>
+<button onclick="changeLanguage('zh',this)">中文</button>
 
 <a class="menu-action islands" href="#experiencias">
 <span data-i18n="navIslands">Passeios</span>&nbsp;•&nbsp;<span data-i18n="navRedeem">Resgate agora</span>
@@ -461,15 +487,7 @@ Afro Tour
 
 <div class="line"></div>
 
-<div class="info">
-
-<strong data-i18n="artisan">Massa artesanal.</strong><br>
-
-<span data-i18n="noCorn">✔ Não contém amido de milho.</span><br>
-
-<span data-i18n="noPreservatives">✔ Não contém conservantes.</span>
-
-</div>
+<div class="info" id="rotatingInfo" aria-live="polite"></div>
 
 <div class="category" data-i18n="catSweet">DOCES</div>
 
@@ -899,43 +917,50 @@ Afro Tour
 <div class="experiences-scroll">
 <article class="experience-card">
 <div class="experience-icon">🏝️</div>
-<h2 data-i18n="islandsTitle">Ilha dos Frades + Ilha de Itaparica</h2>
-<p data-i18n="islandsDescription">Passeio de dia inteiro pela Baía de Todos-os-Santos.</p>
-<div class="experience-price">R$ 150,00 <small data-i18n="perPerson">por pessoa</small></div>
-<a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="whatsapp">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+<h2 data-i18n="islandsTitle">Frades Island</h2>
+<p data-i18n="islandsDescription">Full-day experience at Frades Island.</p>
+<div class="experience-price">R$ 130,00 <small data-i18n="perPerson">per person</small></div>
+<a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="whatsapp">💬 <span data-i18n="redeemWhatsapp">Redeem via WhatsApp</span></a>
 </article>
 
 <article class="experience-card">
 <div class="experience-icon">🌴</div>
-<div class="experience-badge">20% OFF</div>
 <h2>Morro de São Paulo</h2>
-<p data-i18n="morroDescription">Um dos destinos mais desejados da Bahia.</p>
-<div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
-<a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="morroWhatsapp">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+<p data-i18n="morroDescription">One of Bahia's most sought-after destinations.</p>
+<div class="experience-price">R$ 250,00 <small data-i18n="roundTripIncluded">round trip included</small></div>
+<a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="morroWhatsapp">💬 <span data-i18n="redeemWhatsapp">Redeem via WhatsApp</span></a>
 </article>
 
 <article class="experience-card">
 <div class="experience-icon">🐢</div>
-<h2>Praia do Forte</h2>
-<p data-i18n="forteDescription">Descubra uma das praias mais famosas do litoral norte da Bahia.</p>
-<div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
-<a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="forteWhatsapp">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+<h2 data-i18n="forteTitle">Praia do Forte + Guarajuba</h2>
+<p data-i18n="forteDescription">Discover Praia do Forte and Guarajuba on Bahia's northern coast.</p>
+<div class="experience-price">R$ 100,00 <small data-i18n="perPerson">per person</small></div>
+<a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="forteWhatsapp">💬 <span data-i18n="redeemWhatsapp">Redeem via WhatsApp</span></a>
+</article>
+
+<article class="experience-card">
+<div class="experience-icon">🎥</div>
+<h2 data-i18n="creatorTitle">Influencer or Vlogger?</h2>
+<p data-i18n="creatorDescription">Visit Salvador through a promotional partnership and create content about the city.</p>
+<div class="experience-price"><small data-i18n="creatorPrice">Partnership opportunity</small></div>
+<a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="creatorWhatsapp">💬 <span data-i18n="creatorCta">Ask about the partnership</span></a>
 </article>
 
 <article class="experience-card">
 <div class="experience-icon">⚽</div>
 <h2>Arena Fonte Nova</h2>
-<p data-i18n="arenaDescription">Viva a emoção de assistir a um jogo na Arena Fonte Nova.</p>
-<div class="experience-price"><small data-i18n="askPrice">Consulte o valor</small></div>
-<a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="arenaWhatsapp">💬 <span data-i18n="redeemWhatsapp">Resgatar pelo WhatsApp</span></a>
+<p data-i18n="arenaDescription">Experience the excitement of watching a match at Arena Fonte Nova.</p>
+<div class="experience-price"><small data-i18n="askPrice">Ask for the price</small></div>
+<a class="experience-action" href="#" target="_blank" rel="noopener" data-whatsapp-key="arenaWhatsapp">💬 <span data-i18n="redeemWhatsapp">Redeem via WhatsApp</span></a>
 </article>
 
 <article class="experience-card">
 <div class="experience-icon">🚶🏽</div>
 <h2>Free Walking Tour</h2>
-<p data-i18n="walkingDescription">Conheça Salvador a pé com um guia local.</p>
-<div class="experience-price"><small data-i18n="freeContribution">Contribuição livre</small></div>
-<a class="experience-action" href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit" target="_blank" rel="noopener">📝 <span data-i18n="openForm">Abrir formulário</span></a>
+<p data-i18n="walkingDescription">Explore Salvador on foot with a local guide.</p>
+<div class="experience-price"><small data-i18n="freeContribution">Pay what you want</small></div>
+<a class="experience-action" href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit" target="_blank" rel="noopener">📝 <span data-i18n="openForm">Open form</span></a>
 </article>
 </div>
 </section>
@@ -956,7 +981,7 @@ Tapioca & Crepioca da Praça
 
 
 <script>
-let currentLanguage = "pt";
+let currentLanguage = "en";
 const translations = {
   "pt": {
     "title": "TAPIOCA & CREPIOCA DA PRAÇA",
@@ -1693,76 +1718,228 @@ const translations = {
 };
 
 Object.assign(translations.pt, {
-  navIslands:"Passeios", navRedeem:"Resgate agora", redeemPayLater:"Resgate agora e pague depois.", paymentMethods:"Crédito, débito, Pix ou espécie.",
-  morroDescription:"Um dos destinos mais desejados da Bahia.", forteDescription:"Descubra uma das praias mais famosas do litoral norte da Bahia.", arenaDescription:"Viva a emoção de assistir a um jogo na Arena Fonte Nova.", walkingDescription:"Conheça Salvador a pé com um guia local.",
-  askPrice:"Consulte o valor", freeContribution:"Contribuição livre", openForm:"Abrir formulário", redeemWhatsapp:"Resgatar pelo WhatsApp",
-  whatsapp:"Olá! Estou na barraca Tapioca & Crepioca da Praça e quero resgatar o passeio para a Ilha dos Frades + Ilha de Itaparica.",
-  morroWhatsapp:"Olá! Estou na barraca Tapioca & Crepioca da Praça e quero resgatar a oferta de 20% OFF para Morro de São Paulo.",
-  forteWhatsapp:"Olá! Estou na barraca Tapioca & Crepioca da Praça e quero resgatar o passeio para a Praia do Forte.",
-  arenaWhatsapp:"Olá! Estou na barraca Tapioca & Crepioca da Praça e quero resgatar a experiência de assistir a um jogo na Arena Fonte Nova."
+  "navIslands": "Passeios",
+  "navRedeem": "Resgate agora",
+  "redeemPayLater": "Resgate agora e pague depois.",
+  "paymentMethods": "Crédito, débito, Pix ou espécie.",
+  "islandsTitle": "Ilha dos Frades",
+  "islandsDescription": "Passeio de dia inteiro para a Ilha dos Frades.",
+  "perPerson": "por pessoa",
+  "morroDescription": "Um dos destinos mais desejados da Bahia. Ida e volta inclusas.",
+  "roundTripIncluded": "ida e volta inclusas",
+  "forteTitle": "Praia do Forte + Guarajuba",
+  "forteDescription": "Conheça Praia do Forte e Guarajuba no litoral norte da Bahia.",
+  "arenaDescription": "Viva a emoção de assistir a um jogo na Arena Fonte Nova.",
+  "walkingDescription": "Conheça Salvador a pé com um guia local.",
+  "askPrice": "Consulte o valor",
+  "freeContribution": "Contribuição livre",
+  "openForm": "Abrir formulário",
+  "redeemWhatsapp": "Resgatar pelo WhatsApp",
+  "promoTitle": "Experiências em Salvador recomendadas pela Tapioca da Praça",
+  "promoCta": "Clique aqui para conhecer",
+  "creatorTitle": "Influencer ou Vlogger?",
+  "creatorDescription": "Visite Salvador com parceria por divulgação e produza conteúdo sobre a cidade.",
+  "creatorPrice": "Oportunidade de parceria",
+  "creatorCta": "Consultar parceria",
+  "whatsapp": "Olá! Estou na Tapioca & Crepioca da Praça e tenho interesse em reservar a Ilha dos Frades por R$ 130,00 por pessoa. Gostaria de mais informações.",
+  "morroWhatsapp": "Olá! Estou na Tapioca & Crepioca da Praça e tenho interesse em reservar Morro de São Paulo por R$ 250,00, com ida e volta inclusas. Gostaria de mais informações.",
+  "forteWhatsapp": "Olá! Estou na Tapioca & Crepioca da Praça e tenho interesse em reservar Praia do Forte + Guarajuba por R$ 100,00 por pessoa. Gostaria de mais informações.",
+  "arenaWhatsapp": "Olá! Estou na Tapioca & Crepioca da Praça e gostaria de mais informações sobre a experiência na Arena Fonte Nova.",
+  "creatorWhatsapp": "Olá! Estou na Tapioca & Crepioca da Praça. Sou influencer/vlogger e vi a opção de visitar Salvador em parceria por divulgação. Gostaria de saber como funciona a parceria."
 });
 
 Object.assign(translations.en, {
-  navIslands:"Tours", navRedeem:"Redeem now", redeemPayLater:"Redeem now and pay later.", paymentMethods:"Credit card, debit card, Pix or cash.",
-  morroDescription:"One of Bahia's most sought-after destinations.", forteDescription:"Discover one of the most famous beaches on Bahia's northern coast.", arenaDescription:"Experience the excitement of watching a match at Arena Fonte Nova.", walkingDescription:"Explore Salvador on foot with a local guide.",
-  askPrice:"Ask for the price", freeContribution:"Pay what you want", openForm:"Open form", redeemWhatsapp:"Redeem via WhatsApp",
-  whatsapp:"Hello! I am at the Tapioca & Crepioca da Praça stand and would like to redeem the Frades Island + Itaparica Island tour.",
-  morroWhatsapp:"Hello! I am at the Tapioca & Crepioca da Praça stand and would like to redeem the 20% OFF offer for Morro de São Paulo.",
-  forteWhatsapp:"Hello! I am at the Tapioca & Crepioca da Praça stand and would like to redeem the Praia do Forte tour.",
-  arenaWhatsapp:"Hello! I am at the Tapioca & Crepioca da Praça stand and would like to redeem the experience of watching a match at Arena Fonte Nova."
+  "navIslands": "Tours",
+  "navRedeem": "Redeem now",
+  "redeemPayLater": "Redeem now and pay later.",
+  "paymentMethods": "Credit card, debit card, Pix or cash.",
+  "islandsTitle": "Frades Island",
+  "islandsDescription": "Full-day experience at Frades Island.",
+  "perPerson": "per person",
+  "morroDescription": "One of Bahia's most sought-after destinations. Round trip included.",
+  "roundTripIncluded": "round trip included",
+  "forteTitle": "Praia do Forte + Guarajuba",
+  "forteDescription": "Discover Praia do Forte and Guarajuba on Bahia's northern coast.",
+  "arenaDescription": "Experience the excitement of watching a match at Arena Fonte Nova.",
+  "walkingDescription": "Explore Salvador on foot with a local guide.",
+  "askPrice": "Ask for the price",
+  "freeContribution": "Pay what you want",
+  "openForm": "Open form",
+  "redeemWhatsapp": "Redeem via WhatsApp",
+  "promoTitle": "Salvador experiences recommended by Tapioca da Praça",
+  "promoCta": "Click here to explore",
+  "creatorTitle": "Influencer or Vlogger?",
+  "creatorDescription": "Visit Salvador through a promotional partnership and create content about the city.",
+  "creatorPrice": "Partnership opportunity",
+  "creatorCta": "Ask about the partnership",
+  "whatsapp": "Hello! I am at Tapioca & Crepioca da Praça and I am interested in booking Frades Island for R$ 130.00 per person. I would like more information.",
+  "morroWhatsapp": "Hello! I am at Tapioca & Crepioca da Praça and I am interested in booking Morro de São Paulo for R$ 250.00, with round trip included. I would like more information.",
+  "forteWhatsapp": "Hello! I am at Tapioca & Crepioca da Praça and I am interested in booking Praia do Forte + Guarajuba for R$ 100.00 per person. I would like more information.",
+  "arenaWhatsapp": "Hello! I am at Tapioca & Crepioca da Praça and I would like more information about the Arena Fonte Nova experience.",
+  "creatorWhatsapp": "Hello! I am at Tapioca & Crepioca da Praça. I am an influencer/vlogger and saw the option to visit Salvador through a promotional partnership. I would like to know how the partnership works."
 });
 
 Object.assign(translations.es, {
-  navIslands:"Paseos", navRedeem:"Canjea ahora", redeemPayLater:"Canjea ahora y paga después.", paymentMethods:"Crédito, débito, Pix o efectivo.",
-  morroDescription:"Uno de los destinos más deseados de Bahía.", forteDescription:"Descubre una de las playas más famosas del litoral norte de Bahía.", arenaDescription:"Vive la emoción de ver un partido en la Arena Fonte Nova.", walkingDescription:"Conoce Salvador a pie con un guía local.",
-  askPrice:"Consulta el precio", freeContribution:"Contribución libre", openForm:"Abrir formulario", redeemWhatsapp:"Canjear por WhatsApp",
-  whatsapp:"¡Hola! Estoy en el puesto Tapioca & Crepioca da Praça y quiero canjear el paseo a la Isla de los Frailes + Isla de Itaparica.",
-  morroWhatsapp:"¡Hola! Estoy en el puesto Tapioca & Crepioca da Praça y quiero canjear la oferta de 20% OFF para Morro de São Paulo.",
-  forteWhatsapp:"¡Hola! Estoy en el puesto Tapioca & Crepioca da Praça y quiero canjear el paseo a Praia do Forte.",
-  arenaWhatsapp:"¡Hola! Estoy en el puesto Tapioca & Crepioca da Praça y quiero canjear la experiencia de ver un partido en la Arena Fonte Nova."
+  "navIslands": "Paseos",
+  "navRedeem": "Canjea ahora",
+  "redeemPayLater": "Canjea ahora y paga después.",
+  "paymentMethods": "Crédito, débito, Pix o efectivo.",
+  "islandsTitle": "Isla de los Frailes",
+  "islandsDescription": "Paseo de día completo a la Isla de los Frailes.",
+  "perPerson": "por persona",
+  "morroDescription": "Uno de los destinos más deseados de Bahía. Ida y vuelta incluidas.",
+  "roundTripIncluded": "ida y vuelta incluidas",
+  "forteTitle": "Praia do Forte + Guarajuba",
+  "forteDescription": "Descubre Praia do Forte y Guarajuba en el litoral norte de Bahía.",
+  "arenaDescription": "Vive la emoción de ver un partido en la Arena Fonte Nova.",
+  "walkingDescription": "Conoce Salvador a pie con un guía local.",
+  "askPrice": "Consulta el precio",
+  "freeContribution": "Contribución libre",
+  "openForm": "Abrir formulario",
+  "redeemWhatsapp": "Canjear por WhatsApp",
+  "promoTitle": "Experiencias en Salvador recomendadas por Tapioca da Praça",
+  "promoCta": "Haz clic aquí para conocerlas",
+  "creatorTitle": "¿Influencer o Vlogger?",
+  "creatorDescription": "Visita Salvador mediante una colaboración por difusión y crea contenido sobre la ciudad.",
+  "creatorPrice": "Oportunidad de colaboración",
+  "creatorCta": "Consultar colaboración",
+  "whatsapp": "¡Hola! Estoy en Tapioca & Crepioca da Praça y me interesa reservar la Isla de los Frailes por R$ 130,00 por persona. Quisiera más información.",
+  "morroWhatsapp": "¡Hola! Estoy en Tapioca & Crepioca da Praça y me interesa reservar Morro de São Paulo por R$ 250,00, con ida y vuelta incluidas. Quisiera más información.",
+  "forteWhatsapp": "¡Hola! Estoy en Tapioca & Crepioca da Praça y me interesa reservar Praia do Forte + Guarajuba por R$ 100,00 por persona. Quisiera más información.",
+  "arenaWhatsapp": "¡Hola! Estoy en Tapioca & Crepioca da Praça y quisiera más información sobre la experiencia en Arena Fonte Nova.",
+  "creatorWhatsapp": "¡Hola! Estoy en Tapioca & Crepioca da Praça. Soy influencer/vlogger y vi la opción de visitar Salvador mediante una colaboración por difusión. Quisiera saber cómo funciona la colaboración."
 });
 
 Object.assign(translations.fr, {
-  navIslands:"Excursions", navRedeem:"Profitez-en", redeemPayLater:"Profitez-en maintenant et payez plus tard.", paymentMethods:"Crédit, débit, Pix ou espèces.",
-  morroDescription:"L'une des destinations les plus prisées de Bahia.", forteDescription:"Découvrez l'une des plages les plus célèbres de la côte nord de Bahia.", arenaDescription:"Vivez l'émotion d'un match à l'Arena Fonte Nova.", walkingDescription:"Découvrez Salvador à pied avec un guide local.",
-  askPrice:"Demandez le tarif", freeContribution:"Participation libre", openForm:"Ouvrir le formulaire", redeemWhatsapp:"Profiter via WhatsApp",
-  whatsapp:"Bonjour ! Je suis au stand Tapioca & Crepioca da Praça et je souhaite profiter de l'excursion à l'île de Frades + l'île d'Itaparica.",
-  morroWhatsapp:"Bonjour ! Je suis au stand Tapioca & Crepioca da Praça et je souhaite profiter de l'offre de 20 % pour Morro de São Paulo.",
-  forteWhatsapp:"Bonjour ! Je suis au stand Tapioca & Crepioca da Praça et je souhaite profiter de l'excursion à Praia do Forte.",
-  arenaWhatsapp:"Bonjour ! Je suis au stand Tapioca & Crepioca da Praça et je souhaite profiter de l'expérience d'un match à l'Arena Fonte Nova."
+  "navIslands": "Excursions",
+  "navRedeem": "Profitez-en",
+  "redeemPayLater": "Profitez-en maintenant et payez plus tard.",
+  "paymentMethods": "Crédit, débit, Pix ou espèces.",
+  "islandsTitle": "Île de Frades",
+  "islandsDescription": "Excursion d’une journée à l’île de Frades.",
+  "perPerson": "par personne",
+  "morroDescription": "L’une des destinations les plus prisées de Bahia. Aller-retour inclus.",
+  "roundTripIncluded": "aller-retour inclus",
+  "forteTitle": "Praia do Forte + Guarajuba",
+  "forteDescription": "Découvrez Praia do Forte et Guarajuba sur la côte nord de Bahia.",
+  "arenaDescription": "Vivez l’émotion d’un match à l’Arena Fonte Nova.",
+  "walkingDescription": "Découvrez Salvador à pied avec un guide local.",
+  "askPrice": "Demandez le tarif",
+  "freeContribution": "Participation libre",
+  "openForm": "Ouvrir le formulaire",
+  "redeemWhatsapp": "Profiter via WhatsApp",
+  "promoTitle": "Expériences à Salvador recommandées par Tapioca da Praça",
+  "promoCta": "Cliquez ici pour les découvrir",
+  "creatorTitle": "Influenceur ou Vlogueur ?",
+  "creatorDescription": "Visitez Salvador grâce à un partenariat de visibilité et créez du contenu sur la ville.",
+  "creatorPrice": "Opportunité de partenariat",
+  "creatorCta": "Demander le partenariat",
+  "whatsapp": "Bonjour ! Je suis à Tapioca & Crepioca da Praça et je souhaite réserver l’île de Frades pour R$ 130,00 par personne. Je voudrais plus d’informations.",
+  "morroWhatsapp": "Bonjour ! Je suis à Tapioca & Crepioca da Praça et je souhaite réserver Morro de São Paulo pour R$ 250,00, aller-retour inclus. Je voudrais plus d’informations.",
+  "forteWhatsapp": "Bonjour ! Je suis à Tapioca & Crepioca da Praça et je souhaite réserver Praia do Forte + Guarajuba pour R$ 100,00 par personne. Je voudrais plus d’informations.",
+  "arenaWhatsapp": "Bonjour ! Je suis à Tapioca & Crepioca da Praça et je voudrais plus d’informations sur l’expérience à l’Arena Fonte Nova.",
+  "creatorWhatsapp": "Bonjour ! Je suis à Tapioca & Crepioca da Praça. Je suis influenceur/vlogueur et j’ai vu l’option de visiter Salvador dans le cadre d’un partenariat de visibilité. Je voudrais savoir comment fonctionne ce partenariat."
 });
 
 Object.assign(translations.it, {
-  navIslands:"Tour", navRedeem:"Riscatta ora", redeemPayLater:"Riscatta ora e paga dopo.", paymentMethods:"Credito, debito, Pix o contanti.",
-  morroDescription:"Una delle destinazioni più desiderate di Bahia.", forteDescription:"Scopri una delle spiagge più famose della costa nord di Bahia.", arenaDescription:"Vivi l'emozione di assistere a una partita all'Arena Fonte Nova.", walkingDescription:"Scopri Salvador a piedi con una guida locale.",
-  askPrice:"Chiedi il prezzo", freeContribution:"Contributo libero", openForm:"Apri il modulo", redeemWhatsapp:"Riscatta su WhatsApp",
-  whatsapp:"Ciao! Sono alla bancarella Tapioca & Crepioca da Praça e vorrei riscattare il tour Isola dos Frades + Isola di Itaparica.",
-  morroWhatsapp:"Ciao! Sono alla bancarella Tapioca & Crepioca da Praça e vorrei riscattare l'offerta del 20% OFF per Morro de São Paulo.",
-  forteWhatsapp:"Ciao! Sono alla bancarella Tapioca & Crepioca da Praça e vorrei riscattare il tour di Praia do Forte.",
-  arenaWhatsapp:"Ciao! Sono alla bancarella Tapioca & Crepioca da Praça e vorrei riscattare l'esperienza di assistere a una partita all'Arena Fonte Nova."
+  "navIslands": "Tour",
+  "navRedeem": "Riscatta ora",
+  "redeemPayLater": "Riscatta ora e paga dopo.",
+  "paymentMethods": "Credito, debito, Pix o contanti.",
+  "islandsTitle": "Isola dos Frades",
+  "islandsDescription": "Escursione di un’intera giornata all’Isola dos Frades.",
+  "perPerson": "a persona",
+  "morroDescription": "Una delle destinazioni più desiderate di Bahia. Andata e ritorno inclusi.",
+  "roundTripIncluded": "andata e ritorno inclusi",
+  "forteTitle": "Praia do Forte + Guarajuba",
+  "forteDescription": "Scopri Praia do Forte e Guarajuba sulla costa nord di Bahia.",
+  "arenaDescription": "Vivi l’emozione di assistere a una partita all’Arena Fonte Nova.",
+  "walkingDescription": "Scopri Salvador a piedi con una guida locale.",
+  "askPrice": "Chiedi il prezzo",
+  "freeContribution": "Contributo libero",
+  "openForm": "Apri il modulo",
+  "redeemWhatsapp": "Riscatta su WhatsApp",
+  "promoTitle": "Esperienze a Salvador consigliate da Tapioca da Praça",
+  "promoCta": "Clicca qui per scoprirle",
+  "creatorTitle": "Influencer o Vlogger?",
+  "creatorDescription": "Visita Salvador con una partnership promozionale e crea contenuti sulla città.",
+  "creatorPrice": "Opportunità di partnership",
+  "creatorCta": "Chiedi della partnership",
+  "whatsapp": "Ciao! Sono da Tapioca & Crepioca da Praça e sono interessato/a a prenotare Isola dos Frades per R$ 130,00 a persona. Vorrei maggiori informazioni.",
+  "morroWhatsapp": "Ciao! Sono da Tapioca & Crepioca da Praça e sono interessato/a a prenotare Morro de São Paulo per R$ 250,00, con andata e ritorno inclusi. Vorrei maggiori informazioni.",
+  "forteWhatsapp": "Ciao! Sono da Tapioca & Crepioca da Praça e sono interessato/a a prenotare Praia do Forte + Guarajuba per R$ 100,00 a persona. Vorrei maggiori informazioni.",
+  "arenaWhatsapp": "Ciao! Sono da Tapioca & Crepioca da Praça e vorrei maggiori informazioni sull’esperienza all’Arena Fonte Nova.",
+  "creatorWhatsapp": "Ciao! Sono da Tapioca & Crepioca da Praça. Sono influencer/vlogger e ho visto l’opzione di visitare Salvador tramite una partnership promozionale. Vorrei sapere come funziona."
 });
 
 Object.assign(translations.he, {
-  navIslands:"סיורים", navRedeem:"למימוש עכשיו", redeemPayLater:"ממשו עכשיו ושלמו אחר כך.", paymentMethods:"אשראי, חיוב, Pix או מזומן.",
-  morroDescription:"אחד היעדים המבוקשים ביותר בבאהיה.", forteDescription:"גלו את אחד החופים המפורסמים ביותר בחוף הצפוני של באהיה.", arenaDescription:"חוו את ההתרגשות של צפייה במשחק בארנה פונטה נובה.", walkingDescription:"גלו את סלבדור ברגל עם מדריך מקומי.",
-  askPrice:"בירור מחיר", freeContribution:"תשלום לפי רצונכם", openForm:"פתיחת הטופס", redeemWhatsapp:"מימוש דרך WhatsApp",
-  whatsapp:"שלום! אני בדוכן Tapioca & Crepioca da Praça ורוצה לממש את הסיור לאי פראדס + האי איטפריקה.",
-  morroWhatsapp:"שלום! אני בדוכן Tapioca & Crepioca da Praça ורוצה לממש את הנחת 20% לסיור במורו דה סאו פאולו.",
-  forteWhatsapp:"שלום! אני בדוכן Tapioca & Crepioca da Praça ורוצה לממש את הסיור לפראיה דו פורטה.",
-  arenaWhatsapp:"שלום! אני בדוכן Tapioca & Crepioca da Praça ורוצה לממש את החוויה של צפייה במשחק בארנה פונטה נובה."
+  "navIslands": "סיורים",
+  "navRedeem": "למימוש עכשיו",
+  "redeemPayLater": "ממשו עכשיו ושלמו אחר כך.",
+  "paymentMethods": "אשראי, חיוב, Pix או מזומן.",
+  "islandsTitle": "האי פראדס",
+  "islandsDescription": "טיול יום מלא לאי פראדס.",
+  "perPerson": "לאדם",
+  "morroDescription": "אחד היעדים המבוקשים ביותר בבאהיה. הלוך ושוב כלולים.",
+  "roundTripIncluded": "הלוך ושוב כלולים",
+  "forteTitle": "Praia do Forte + Guarajuba",
+  "forteDescription": "גלו את Praia do Forte ואת Guarajuba בחוף הצפוני של באהיה.",
+  "arenaDescription": "חוו את ההתרגשות של צפייה במשחק בארנה פונטה נובה.",
+  "walkingDescription": "גלו את סלבדור ברגל עם מדריך מקומי.",
+  "askPrice": "בירור מחיר",
+  "freeContribution": "תשלום לפי רצונכם",
+  "openForm": "פתיחת הטופס",
+  "redeemWhatsapp": "מימוש דרך WhatsApp",
+  "promoTitle": "חוויות בסלבדור המומלצות על ידי Tapioca da Praça",
+  "promoCta": "לחצו כאן כדי לגלות",
+  "creatorTitle": "משפיען או וולוגר?",
+  "creatorDescription": "בקרו בסלבדור במסגרת שיתוף פעולה לקידום וצרו תוכן על העיר.",
+  "creatorPrice": "הזדמנות לשיתוף פעולה",
+  "creatorCta": "בירור על שיתוף הפעולה",
+  "whatsapp": "שלום! אני ב-Tapioca & Crepioca da Praça ומעוניין/ת להזמין את האי פראדס במחיר R$ 130,00 לאדם. אשמח לפרטים נוספים.",
+  "morroWhatsapp": "שלום! אני ב-Tapioca & Crepioca da Praça ומעוניין/ת להזמין את Morro de São Paulo במחיר R$ 250,00, כולל הלוך ושוב. אשמח לפרטים נוספים.",
+  "forteWhatsapp": "שלום! אני ב-Tapioca & Crepioca da Praça ומעוניין/ת להזמין את Praia do Forte + Guarajuba במחיר R$ 100,00 לאדם. אשמח לפרטים נוספים.",
+  "arenaWhatsapp": "שלום! אני ב-Tapioca & Crepioca da Praça ואשמח לפרטים נוספים על החוויה ב-Arena Fonte Nova.",
+  "creatorWhatsapp": "שלום! אני ב-Tapioca & Crepioca da Praça. אני משפיען/ית או וולוגר/ית וראיתי את האפשרות לבקר בסלבדור במסגרת שיתוף פעולה לקידום. אשמח לדעת איך זה עובד."
 });
 
 translations.ru = {
-  title:"ТАПИОКА И КРЕПИОКА НА ПЛОЩАДИ", artisan:"Тесто ручной работы.", noCorn:"✔ Без кукурузного крахмала.", noPreservatives:"✔ Без консервантов.",
-  catSweet:"СЛАДКИЕ", catMixed:"СЛАДКИЕ И СОЛЁНЫЕ", catVegetarian:"ВЕГЕТАРИАНСКИЕ", catSavory:"СОЛЁНЫЕ",
-  navIslands:"Экскурсии", navRedeem:"Получить сейчас", redeemPayLater:"Получите сейчас, оплатите позже.", paymentMethods:"Кредитная карта, дебетовая карта, Pix или наличные.",
-  islandsTitle:"Остров Фрадес + остров Итапарика", islandsDescription:"Экскурсия на целый день по заливу Всех Святых.", perPerson:"с человека",
-  morroDescription:"Одно из самых популярных направлений Баии.", forteDescription:"Откройте для себя один из самых известных пляжей северного побережья Баии.", arenaDescription:"Почувствуйте атмосферу футбольного матча на стадионе Арена Фонте-Нова.", walkingDescription:"Познакомьтесь с Салвадором пешком с местным гидом.",
-  askPrice:"Уточнить стоимость", freeContribution:"Свободная оплата", openForm:"Открыть форму", redeemWhatsapp:"Получить через WhatsApp",
-  whatsapp:"Здравствуйте! Я нахожусь у стойки Tapioca & Crepioca da Praça и хочу получить экскурсию на остров Фрадес + остров Итапарика.",
-  morroWhatsapp:"Здравствуйте! Я нахожусь у стойки Tapioca & Crepioca da Praça и хочу получить скидку 20% на поездку в Морру-ди-Сан-Паулу.",
-  forteWhatsapp:"Здравствуйте! Я нахожусь у стойки Tapioca & Crepioca da Praça и хочу получить экскурсию в Прайя-ду-Форте.",
-  arenaWhatsapp:"Здравствуйте! Я нахожусь у стойки Tapioca & Crepioca da Praça и хочу получить предложение на посещение матча на Арене Фонте-Нова."
+  "title": "ТАПИОКА И КРЕПИОКА НА ПЛОЩАДИ",
+  "artisan": "Тесто ручной работы.",
+  "noCorn": "✔ Без кукурузного крахмала.",
+  "noPreservatives": "✔ Без консервантов.",
+  "catSweet": "СЛАДКИЕ",
+  "catMixed": "СЛАДКИЕ И СОЛЁНЫЕ",
+  "catVegetarian": "ВЕГЕТАРИАНСКИЕ",
+  "catSavory": "СОЛЁНЫЕ",
+  "navIslands": "Экскурсии",
+  "navRedeem": "Получить сейчас",
+  "redeemPayLater": "Получите сейчас, оплатите позже.",
+  "paymentMethods": "Кредитная карта, дебетовая карта, Pix или наличные.",
+  "islandsTitle": "Остров Фрадес",
+  "islandsDescription": "Экскурсия на целый день на остров Фрадес.",
+  "perPerson": "с человека",
+  "morroDescription": "Одно из самых популярных направлений Баии. Поездка туда и обратно включена.",
+  "roundTripIncluded": "поездка туда и обратно включена",
+  "forteTitle": "Praia do Forte + Guarajuba",
+  "forteDescription": "Откройте для себя Praia do Forte и Guarajuba на северном побережье Баии.",
+  "arenaDescription": "Почувствуйте атмосферу футбольного матча на стадионе Арена Фонте-Нова.",
+  "walkingDescription": "Познакомьтесь с Салвадором пешком с местным гидом.",
+  "askPrice": "Уточнить стоимость",
+  "freeContribution": "Свободная оплата",
+  "openForm": "Открыть форму",
+  "redeemWhatsapp": "Получить через WhatsApp",
+  "promoTitle": "Впечатления в Салвадоре, рекомендованные Tapioca da Praça",
+  "promoCta": "Нажмите здесь, чтобы посмотреть",
+  "creatorTitle": "Инфлюенсер или влогер?",
+  "creatorDescription": "Посетите Салвадор в рамках рекламного партнёрства и создайте контент о городе.",
+  "creatorPrice": "Возможность партнёрства",
+  "creatorCta": "Узнать о партнёрстве",
+  "whatsapp": "Здравствуйте! Я нахожусь в Tapioca & Crepioca da Praça и хочу забронировать поездку на остров Фрадес за R$ 130,00 с человека. Хотел(а) бы узнать подробности.",
+  "morroWhatsapp": "Здравствуйте! Я нахожусь в Tapioca & Crepioca da Praça и хочу забронировать Morro de São Paulo за R$ 250,00, включая поездку туда и обратно. Хотел(а) бы узнать подробности.",
+  "forteWhatsapp": "Здравствуйте! Я нахожусь в Tapioca & Crepioca da Praça и хочу забронировать Praia do Forte + Guarajuba за R$ 100,00 с человека. Хотел(а) бы узнать подробности.",
+  "arenaWhatsapp": "Здравствуйте! Я нахожусь в Tapioca & Crepioca da Praça и хотел(а) бы узнать больше о посещении Arena Fonte Nova.",
+  "creatorWhatsapp": "Здравствуйте! Я нахожусь в Tapioca & Crepioca da Praça. Я инфлюенсер/влогер и увидел(а) возможность посетить Салвадор в рамках рекламного партнёрства. Хотел(а) бы узнать, как это работает."
 };
 
 const russianItems = [
@@ -1775,6 +1952,286 @@ const russianDescriptions = [
 
 russianItems.forEach((value, index) => translations.ru["item" + (index + 1)] = value);
 russianDescriptions.forEach((value, index) => translations.ru["desc" + (index + 1)] = value);
+
+translations.de = {
+  "title": "TAPIOCA & CREPIOCA DA PRAÇA",
+  "artisan": "Handgemachter Teig.",
+  "noCorn": "✔ Ohne Maisstärke.",
+  "noPreservatives": "✔ Ohne Konservierungsstoffe.",
+  "catSweet": "SÜSS",
+  "catMixed": "SÜSS & HERZHAFT",
+  "catVegetarian": "VEGETARISCH",
+  "catSavory": "HERZHAFT",
+  "navIslands": "Touren",
+  "navRedeem": "Jetzt einlösen",
+  "redeemPayLater": "Jetzt einlösen und später bezahlen.",
+  "paymentMethods": "Kreditkarte, Debitkarte, Pix oder Bargeld.",
+  "islandsTitle": "Ilha dos Frades",
+  "islandsDescription": "Ganztägiger Ausflug zur Ilha dos Frades.",
+  "perPerson": "pro Person",
+  "morroDescription": "Eines der beliebtesten Reiseziele Bahias. Hin- und Rückfahrt inklusive.",
+  "roundTripIncluded": "Hin- und Rückfahrt inklusive",
+  "forteTitle": "Praia do Forte + Guarajuba",
+  "forteDescription": "Entdecken Sie Praia do Forte und Guarajuba an Bahias Nordküste.",
+  "arenaDescription": "Erleben Sie die Atmosphäre eines Spiels in der Arena Fonte Nova.",
+  "walkingDescription": "Entdecken Sie Salvador zu Fuß mit einem lokalen Guide.",
+  "askPrice": "Preis erfragen",
+  "freeContribution": "Freier Beitrag",
+  "openForm": "Formular öffnen",
+  "redeemWhatsapp": "Über WhatsApp einlösen",
+  "promoTitle": "Salvador-Erlebnisse empfohlen von Tapioca da Praça",
+  "promoCta": "Hier klicken und entdecken",
+  "creatorTitle": "Influencer oder Vlogger?",
+  "creatorDescription": "Besuchen Sie Salvador im Rahmen einer Werbepartnerschaft und erstellen Sie Inhalte über die Stadt.",
+  "creatorPrice": "Partnerschaftsmöglichkeit",
+  "creatorCta": "Partnerschaft anfragen",
+  "whatsapp": "Hallo! Ich bin bei Tapioca & Crepioca da Praça und möchte Ilha dos Frades für R$ 130,00 pro Person buchen. Ich hätte gern weitere Informationen.",
+  "morroWhatsapp": "Hallo! Ich bin bei Tapioca & Crepioca da Praça und möchte Morro de São Paulo für R$ 250,00 buchen, Hin- und Rückfahrt inklusive. Ich hätte gern weitere Informationen.",
+  "forteWhatsapp": "Hallo! Ich bin bei Tapioca & Crepioca da Praça und möchte Praia do Forte + Guarajuba für R$ 100,00 pro Person buchen. Ich hätte gern weitere Informationen.",
+  "arenaWhatsapp": "Hallo! Ich bin bei Tapioca & Crepioca da Praça und hätte gern weitere Informationen zum Erlebnis in der Arena Fonte Nova.",
+  "creatorWhatsapp": "Hallo! Ich bin bei Tapioca & Crepioca da Praça. Ich bin Influencer/Vlogger und habe die Möglichkeit gesehen, Salvador im Rahmen einer Werbepartnerschaft zu besuchen. Ich möchte gern wissen, wie die Partnerschaft funktioniert.",
+  "item1": "Kondensmilch mit Kokos",
+  "item2": "Banane mit Schokolade",
+  "item3": "Prestígio",
+  "item4": "Dulce de Leche mit Schokolade",
+  "item5": "Dulce de Leche mit Kokos",
+  "item6": "Guavenpaste mit Kokos",
+  "item7": "Dulce de Leche mit Banane",
+  "item8": "Brigadeiro",
+  "item9": "Nutella mit Erdbeere",
+  "item10": "Nutella",
+  "item11": "Couscous",
+  "item12": "Romeo und Julia",
+  "item13": "Kondensmilch mit Käse",
+  "item14": "Dulce de Leche mit Käse",
+  "item15": "Banane mit Käse und Zimt",
+  "item16": "Schinken und Käse",
+  "item17": "Kondensmilch mit Coalho-Käse",
+  "item18": "Kokos, Käse und Guavenpaste",
+  "item19": "Erdbeere mit Schokolade",
+  "item20": "Getrocknete Tomate mit Käse",
+  "item21": "Getrocknete Tomate mit Oliven",
+  "item22": "Getrocknete Tomate mit Rucola",
+  "item23": "Oliven mit Mais",
+  "item24": "Rucola mit Oliven",
+  "item25": "Ei mit Käse",
+  "item26": "Ei mit Schinken",
+  "item27": "Tapioca-Pizza",
+  "item28": "Coalho-Käse",
+  "item29": "Vier Käse",
+  "item30": "Calabresa-Wurst mit Käse",
+  "item31": "Calabresa-Wurst mit Catupiry",
+  "item32": "Carne de Sol mit Käse",
+  "item33": "Carne de Sol mit Catupiry",
+  "item34": "Carne de Sol mit Maniok",
+  "item35": "Charque mit Maniok",
+  "item36": "Charque mit Käse",
+  "item37": "Calabresa, Charque und Käse",
+  "item38": "Calabresa, Charque und Maniok",
+  "item39": "Calabresa, Charque und Catupiry",
+  "item40": "Hähnchen mit Käse",
+  "item41": "Hähnchen mit Catupiry",
+  "item42": "Speck mit Käse",
+  "item43": "Putenbrust mit Käse",
+  "item44": "Putenbrust mit Catupiry",
+  "item45": "Garnelen mit Käse",
+  "item46": "Garnelen mit Catupiry",
+  "item47": "Thunfisch mit Käse",
+  "item48": "Salami mit Käse",
+  "item49": "Salami mit Catupiry",
+  "item50": "Schweinelende mit Käse",
+  "item51": "Schweinelende mit Catupiry",
+  "item52": "Kochbanane, Carne de Sol und Käse",
+  "desc1": "Kondensmilch + Kokos.",
+  "desc2": "Banane + Schokolade.",
+  "desc3": "Kokos + Schokolade.",
+  "desc4": "Dulce de Leche + Schokolade.",
+  "desc5": "Dulce de Leche + Kokos.",
+  "desc6": "Guavenpaste + Kokos.",
+  "desc7": "Dulce de Leche + Banane.",
+  "desc8": "Schokostreusel + Schokolade.",
+  "desc9": "Guavenpaste + Käse.",
+  "desc10": "Kondensmilch + Käse.",
+  "desc11": "Dulce de Leche + Käse.",
+  "desc12": "Banane + Käse + Zimt.",
+  "desc13": "Schinken + Käse.",
+  "desc14": "Kondensmilch + Coalho-Käse.",
+  "desc15": "Kokos + Käse + Guavenpaste.",
+  "desc16": "Erdbeere + Schokolade.",
+  "desc17": "Getrocknete Tomate + Käse.",
+  "desc18": "Getrocknete Tomate + Oliven.",
+  "desc19": "Getrocknete Tomate + Rucola.",
+  "desc20": "Oliven + Mais.",
+  "desc21": "Rucola + Oliven.",
+  "desc22": "Ei + Käse.",
+  "desc23": "Ei + Schinken.",
+  "desc24": "Tomate + Käse + Oregano.",
+  "desc25": "Coalho-Käse.",
+  "desc26": "Coalho-Käse + Mozzarella + Cheddar.",
+  "desc27": "Calabresa + Käse.",
+  "desc28": "Calabresa + Catupiry.",
+  "desc29": "Carne de Sol + Käse.",
+  "desc30": "Carne de Sol + Catupiry.",
+  "desc31": "Carne de Sol + Maniok.",
+  "desc32": "Charque + Maniok.",
+  "desc33": "Charque + Käse.",
+  "desc34": "Calabresa + Charque + Käse.",
+  "desc35": "Calabresa + Charque + Maniok.",
+  "desc36": "Calabresa + Charque + Catupiry.",
+  "desc37": "Hähnchen + Käse.",
+  "desc38": "Hähnchen + Catupiry.",
+  "desc39": "Speck + Käse.",
+  "desc40": "Putenbrust + Käse.",
+  "desc41": "Putenbrust + Catupiry.",
+  "desc42": "Garnelen + Käse.",
+  "desc43": "Garnelen + Catupiry.",
+  "desc44": "Thunfisch + Käse.",
+  "desc45": "Salami + Käse.",
+  "desc46": "Salami + Catupiry.",
+  "desc47": "Schweinelende + Käse.",
+  "desc48": "Schweinelende + Catupiry.",
+  "desc49": "Kochbanane + Carne de Sol + Käse."
+};
+
+translations.zh = {
+  "title": "TAPIOCA & CREPIOCA DA PRAÇA",
+  "artisan": "手工制作面糊。",
+  "noCorn": "✔ 不含玉米淀粉。",
+  "noPreservatives": "✔ 不含防腐剂。",
+  "catSweet": "甜味",
+  "catMixed": "甜味与咸味",
+  "catVegetarian": "素食",
+  "catSavory": "咸味",
+  "navIslands": "旅游体验",
+  "navRedeem": "立即领取",
+  "redeemPayLater": "立即领取，之后付款。",
+  "paymentMethods": "信用卡、借记卡、Pix 或现金。",
+  "islandsTitle": "弗拉德斯岛",
+  "islandsDescription": "弗拉德斯岛全天体验。",
+  "perPerson": "每人",
+  "morroDescription": "巴伊亚最受欢迎的目的地之一，包含往返交通。",
+  "roundTripIncluded": "包含往返交通",
+  "forteTitle": "Praia do Forte + Guarajuba",
+  "forteDescription": "探索巴伊亚北海岸的 Praia do Forte 和 Guarajuba。",
+  "arenaDescription": "在 Arena Fonte Nova 感受现场足球比赛的激情。",
+  "walkingDescription": "跟随当地导游步行探索萨尔瓦多。",
+  "askPrice": "咨询价格",
+  "freeContribution": "自由支付",
+  "openForm": "打开表单",
+  "redeemWhatsapp": "通过 WhatsApp 领取",
+  "promoTitle": "Tapioca da Praça 推荐的萨尔瓦多体验",
+  "promoCta": "点击这里查看",
+  "creatorTitle": "你是博主或视频创作者吗？",
+  "creatorDescription": "通过宣传合作游览萨尔瓦多，并创作关于这座城市的内容。",
+  "creatorPrice": "合作机会",
+  "creatorCta": "咨询合作",
+  "whatsapp": "你好！我现在在 Tapioca & Crepioca da Praça，对每人 R$ 130,00 的弗拉德斯岛行程感兴趣。想了解更多信息。",
+  "morroWhatsapp": "你好！我现在在 Tapioca & Crepioca da Praça，对 R$ 250,00 的 Morro de São Paulo 行程感兴趣，包含往返交通。想了解更多信息。",
+  "forteWhatsapp": "你好！我现在在 Tapioca & Crepioca da Praça，对每人 R$ 100,00 的 Praia do Forte + Guarajuba 行程感兴趣。想了解更多信息。",
+  "arenaWhatsapp": "你好！我现在在 Tapioca & Crepioca da Praça，想了解更多 Arena Fonte Nova 体验的信息。",
+  "creatorWhatsapp": "你好！我现在在 Tapioca & Crepioca da Praça。我是博主/视频创作者，看到了通过宣传合作游览萨尔瓦多的选项。想了解合作方式。",
+  "item1": "炼乳配椰子",
+  "item2": "香蕉配巧克力",
+  "item3": "Prestígio",
+  "item4": "焦糖牛奶酱配巧克力",
+  "item5": "焦糖牛奶酱配椰子",
+  "item6": "番石榴酱配椰子",
+  "item7": "焦糖牛奶酱配香蕉",
+  "item8": "Brigadeiro 巧克力球",
+  "item9": "Nutella 配草莓",
+  "item10": "Nutella",
+  "item11": "库斯库斯",
+  "item12": "罗密欧与朱丽叶",
+  "item13": "炼乳配奶酪",
+  "item14": "焦糖牛奶酱配奶酪",
+  "item15": "香蕉配奶酪和肉桂",
+  "item16": "火腿和奶酪",
+  "item17": "炼乳配 Coalho 奶酪",
+  "item18": "椰子、奶酪和番石榴酱",
+  "item19": "草莓配巧克力",
+  "item20": "风干番茄配奶酪",
+  "item21": "风干番茄配橄榄",
+  "item22": "风干番茄配芝麻菜",
+  "item23": "橄榄配玉米",
+  "item24": "芝麻菜配橄榄",
+  "item25": "鸡蛋配奶酪",
+  "item26": "鸡蛋配火腿",
+  "item27": "木薯粉披萨",
+  "item28": "Coalho 奶酪",
+  "item29": "四种奶酪",
+  "item30": "Calabresa 香肠配奶酪",
+  "item31": "Calabresa 香肠配 Catupiry",
+  "item32": "巴西晒干牛肉配奶酪",
+  "item33": "巴西晒干牛肉配 Catupiry",
+  "item34": "巴西晒干牛肉配木薯",
+  "item35": "Charque 咸牛肉配木薯",
+  "item36": "Charque 咸牛肉配奶酪",
+  "item37": "Calabresa、Charque 和奶酪",
+  "item38": "Calabresa、Charque 和木薯",
+  "item39": "Calabresa、Charque 和 Catupiry",
+  "item40": "鸡肉配奶酪",
+  "item41": "鸡肉配 Catupiry",
+  "item42": "培根配奶酪",
+  "item43": "火鸡胸肉配奶酪",
+  "item44": "火鸡胸肉配 Catupiry",
+  "item45": "虾配奶酪",
+  "item46": "虾配 Catupiry",
+  "item47": "金枪鱼配奶酪",
+  "item48": "萨拉米配奶酪",
+  "item49": "萨拉米配 Catupiry",
+  "item50": "猪里脊配奶酪",
+  "item51": "猪里脊配 Catupiry",
+  "item52": "大蕉、巴西晒干牛肉和奶酪",
+  "desc1": "炼乳 + 椰子。",
+  "desc2": "香蕉 + 巧克力。",
+  "desc3": "椰子 + 巧克力。",
+  "desc4": "焦糖牛奶酱 + 巧克力。",
+  "desc5": "焦糖牛奶酱 + 椰子。",
+  "desc6": "番石榴酱 + 椰子。",
+  "desc7": "焦糖牛奶酱 + 香蕉。",
+  "desc8": "巧克力糖针 + 巧克力。",
+  "desc9": "番石榴酱 + 奶酪。",
+  "desc10": "炼乳 + 奶酪。",
+  "desc11": "焦糖牛奶酱 + 奶酪。",
+  "desc12": "香蕉 + 奶酪 + 肉桂。",
+  "desc13": "火腿 + 奶酪。",
+  "desc14": "炼乳 + Coalho 奶酪。",
+  "desc15": "椰子 + 奶酪 + 番石榴酱。",
+  "desc16": "草莓 + 巧克力。",
+  "desc17": "风干番茄 + 奶酪。",
+  "desc18": "风干番茄 + 橄榄。",
+  "desc19": "风干番茄 + 芝麻菜。",
+  "desc20": "橄榄 + 玉米。",
+  "desc21": "芝麻菜 + 橄榄。",
+  "desc22": "鸡蛋 + 奶酪。",
+  "desc23": "鸡蛋 + 火腿。",
+  "desc24": "番茄 + 奶酪 + 牛至。",
+  "desc25": "Coalho 奶酪。",
+  "desc26": "Coalho 奶酪 + 马苏里拉 + 切达。",
+  "desc27": "Calabresa + 奶酪。",
+  "desc28": "Calabresa + Catupiry。",
+  "desc29": "巴西晒干牛肉 + 奶酪。",
+  "desc30": "巴西晒干牛肉 + Catupiry。",
+  "desc31": "巴西晒干牛肉 + 木薯。",
+  "desc32": "Charque + 木薯。",
+  "desc33": "Charque + 奶酪。",
+  "desc34": "Calabresa + Charque + 奶酪。",
+  "desc35": "Calabresa + Charque + 木薯。",
+  "desc36": "Calabresa + Charque + Catupiry。",
+  "desc37": "鸡肉 + 奶酪。",
+  "desc38": "鸡肉 + Catupiry。",
+  "desc39": "培根 + 奶酪。",
+  "desc40": "火鸡胸肉 + 奶酪。",
+  "desc41": "火鸡胸肉 + Catupiry。",
+  "desc42": "虾 + 奶酪。",
+  "desc43": "虾 + Catupiry。",
+  "desc44": "金枪鱼 + 奶酪。",
+  "desc45": "萨拉米 + 奶酪。",
+  "desc46": "萨拉米 + Catupiry。",
+  "desc47": "猪里脊 + 奶酪。",
+  "desc48": "猪里脊 + Catupiry。",
+  "desc49": "大蕉 + 巴西晒干牛肉 + 奶酪。"
+};
 
 function changeLanguage(language, button){
   currentLanguage = language;
@@ -1791,17 +2248,34 @@ function changeLanguage(language, button){
   document.querySelectorAll(".language-menu button").forEach(btn=>btn.classList.remove("active"));
   button.classList.add("active");
   updateWhatsAppLinks();
+  renderInfoCard();
 }
 
 function updateWhatsAppLinks(){
   const phone = "5571993719791";
-
   document.querySelectorAll("[data-whatsapp-key]").forEach(link=>{
     const key = link.getAttribute("data-whatsapp-key");
-    const message = translations[currentLanguage][key];
+    const message = translations[currentLanguage]?.[key] || translations.en[key] || "";
     link.href = "https://wa.me/" + phone + "?text=" + encodeURIComponent(message);
   });
 }
+
+let infoMode = 0;
+function renderInfoCard(){
+  const box = document.getElementById("rotatingInfo");
+  if(!box) return;
+  const t = translations[currentLanguage] || translations.en;
+  if(infoMode === 0){
+    box.innerHTML = `<div><strong>${t.artisan}</strong><br><span>${t.noCorn}</span><br><span>${t.noPreservatives}</span></div>`;
+  } else {
+    box.innerHTML = `<a class="info-promo-link" href="#experiencias"><strong>${t.promoTitle}</strong><span>${t.promoCta} →</span></a>`;
+  }
+}
+
+setInterval(()=>{
+  infoMode = infoMode === 0 ? 1 : 0;
+  renderInfoCard();
+}, 6000);
 
 function addItemNumbers(){
   document.querySelectorAll(".item").forEach((item,index)=>{
@@ -1816,7 +2290,7 @@ function addItemNumbers(){
 }
 
 addItemNumbers();
-changeLanguage("pt",document.querySelector(".language-menu button"));
+changeLanguage("en",document.querySelector(".language-menu button"));
 </script>
 
 </body>
