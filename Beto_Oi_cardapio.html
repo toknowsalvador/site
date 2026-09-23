@@ -303,6 +303,25 @@ main{
   background:linear-gradient(155deg,#7c42ad,#3d1d6c);
 }
 
+.experience:nth-child(7){
+  background:linear-gradient(155deg,#b04a7a,#6c2449);
+}
+
+.experience:nth-child(8){
+  background:linear-gradient(155deg,#9a5b18,#5f360b);
+}
+
+.experience:nth-child(9){
+  background:linear-gradient(155deg,#435d75,#20394f);
+}
+
+.experience-price{
+  margin:0 0 14px;
+  font-weight:800;
+  font-size:1.08rem;
+  color:#fff6b2;
+}
+
 .experience .emoji{
   font-size:42px;
 }
@@ -448,123 +467,69 @@ footer p{
 
       <article class="experience">
         <span class="emoji">🏝️</span>
-
-        <h3 data-t="islands">
-          Ilha de Itaparica + Ilha dos Frades
-        </h3>
-
-        <p data-t="islandsText">
-          Um dia entre águas cristalinas e paisagens inesquecíveis.
-        </p>
-
-        <a
-          data-wa="islandsMsg"
-          target="_blank"
-          rel="noopener"
-          data-t="redeem"
-        >
-          Resgate agora
-        </a>
+        <h3 data-t="islands">Ilha dos Frades</h3>
+        <p data-t="islandsText">Um dia entre águas cristalinas e paisagens inesquecíveis.</p>
+        <div class="experience-price" data-t="islandsPrice">R$ 130,00 por pessoa</div>
+        <a data-wa="islandsMsg" target="_blank" rel="noopener" data-t="redeem">Resgate agora</a>
       </article>
 
       <article class="experience">
         <span class="emoji">🌊</span>
-        <span class="offer">20% OFF</span>
-
         <h3>Morro de São Paulo</h3>
-
-        <p data-t="morroText">
-          Descubra um dos destinos mais desejados da Bahia.
-        </p>
-
-        <a
-          data-wa="morroMsg"
-          target="_blank"
-          rel="noopener"
-          data-t="redeem"
-        >
-          Resgate agora
-        </a>
+        <p data-t="morroText">Bate-volta para um dos destinos mais desejados da Bahia.</p>
+        <div class="experience-price" data-t="morroPrice">R$ 250,00 • ida e volta inclusas</div>
+        <a data-wa="morroMsg" target="_blank" rel="noopener" data-t="redeem">Resgate agora</a>
       </article>
 
       <article class="experience">
         <span class="emoji">🐢</span>
-
-        <h3 data-t="forte">
-          Praia do Forte
-        </h3>
-
-        <p data-t="forteText">
-          Natureza, vila charmosa e praias incríveis.
-        </p>
-
-        <a
-          data-wa="forteMsg"
-          target="_blank"
-          rel="noopener"
-          data-t="redeem"
-        >
-          Resgate agora
-        </a>
+        <h3 data-t="forte">Praia do Forte + Guarajuba</h3>
+        <p data-t="forteText">Natureza, vila charmosa e praias incríveis.</p>
+        <div class="experience-price" data-t="fortePrice">R$ 100,00 por pessoa</div>
+        <a data-wa="forteMsg" target="_blank" rel="noopener" data-t="redeem">Resgate agora</a>
       </article>
 
       <article class="experience">
         <span class="emoji">🤿</span>
-
-        <h3 data-t="dive">
-          Mergulho
-        </h3>
-
-        <p data-t="diveText">
-          Veja Salvador por uma nova perspectiva, debaixo d’água.
-        </p>
-
-        <a
-          data-wa="diveMsg"
-          target="_blank"
-          rel="noopener"
-          data-t="redeem"
-        >
-          Resgate agora
-        </a>
+        <h3 data-t="dive">Mergulho</h3>
+        <p data-t="diveText">Veja Salvador por uma nova perspectiva, debaixo d’água.</p>
+        <a data-wa="diveMsg" target="_blank" rel="noopener" data-t="redeem">Resgate agora</a>
       </article>
 
       <article class="experience">
         <span class="emoji">⚽</span>
-
         <h3>Arena Fonte Nova</h3>
-
-        <p data-t="arenaText">
-          Viva a emoção de assistir a um jogo em Salvador.
-        </p>
-
-        <a
-          data-wa="arenaMsg"
-          target="_blank"
-          rel="noopener"
-          data-t="redeem"
-        >
-          Resgate agora
-        </a>
+        <p data-t="arenaText">Viva a emoção de assistir a um jogo em Salvador.</p>
+        <a data-wa="arenaMsg" target="_blank" rel="noopener" data-t="redeem">Resgate agora</a>
       </article>
 
       <article class="experience">
         <span class="emoji">🚶</span>
-
         <h3>Free Walking Tour</h3>
+        <p data-t="tourText">Centro Histórico • segunda a sábado • 09:30 e 14:00.</p>
+        <a href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit" target="_blank" rel="noopener" data-t="form">Abrir formulário</a>
+      </article>
 
-        <p data-t="tourText">
-          Conheça a história e a cultura do Centro Histórico.
-        </p>
+      <article class="experience">
+        <span class="emoji">🎥</span>
+        <h3 data-t="vloggerTitle">Influencer ou Vlogger?</h3>
+        <p data-t="vloggerText">Visite Salvador em parceria por divulgação e produção de conteúdo.</p>
+        <a data-wa="vloggerMsg" target="_blank" rel="noopener" data-t="contactUs">Falar pelo WhatsApp</a>
+      </article>
 
-        <a
-          href="https://docs.google.com/forms/d/1ngJbFVPQSczovVrjHvlneqaK1pG6dBrepmCZRUaJ878/edit"
-          target="_blank"
-          rel="noopener"
-          data-t="form"
-        >
-          Abrir formulário
-        </a>
+      <article class="experience">
+        <span class="emoji">🥁</span>
+        <h3 data-t="nightTitle">Bahia Night</h3>
+        <p data-t="nightText">Quinta e sábado • espetáculo cultural com comida baiana.</p>
+        <div class="experience-price" data-t="nightPrice">R$ 250,00 por pessoa</div>
+        <a data-wa="nightMsg" target="_blank" rel="noopener" data-t="redeem">Resgate agora</a>
+      </article>
+
+      <article class="experience">
+        <span class="emoji">🚐</span>
+        <h3 data-t="transportTitle">Van e veículos grandes</h3>
+        <p data-t="transportText">Transporte para grupos particulares. Consulte opções e disponibilidade.</p>
+        <a data-wa="transportMsg" target="_blank" rel="noopener" data-t="contactUs">Falar pelo WhatsApp</a>
       </article>
 
     </div>
@@ -1053,6 +1018,215 @@ const T = {
   }
 };
 
+// Atualizações das experiências em todos os idiomas disponíveis
+const experienceUpdates = {
+  pt:{
+    islands:"Ilha dos Frades",
+    islandsText:"Um dia entre águas cristalinas e paisagens inesquecíveis.",
+    islandsPrice:"R$ 130,00 por pessoa",
+    morroText:"Bate-volta para um dos destinos mais desejados da Bahia.",
+    morroPrice:"R$ 250,00 • ida e volta inclusas",
+    forte:"Praia do Forte + Guarajuba",
+    forteText:"Natureza, vila charmosa e praias incríveis.",
+    fortePrice:"R$ 100,00 por pessoa",
+    tourText:"Conheça a história e a cultura do Centro Histórico. Segunda a sábado, às 09:30 e 14:00.",
+    vloggerTitle:"Influencer ou Vlogger?",
+    vloggerText:"Visite Salvador em parceria por divulgação e produção de conteúdo.",
+    nightTitle:"Bahia Night",
+    nightText:"Quinta e sábado • espetáculo cultural com comida baiana.",
+    nightPrice:"R$ 250,00 por pessoa",
+    transportTitle:"Van e veículos grandes",
+    transportText:"Transporte para grupos particulares. Consulte opções e disponibilidade.",
+    contactUs:"Falar pelo WhatsApp",
+    msgs:[
+      "Olá! Estou na barraca Beto Oi e tenho interesse no passeio para a Ilha dos Frades por R$ 130,00 por pessoa. Gostaria de mais informações e de reservar.",
+      "Olá! Estou na barraca Beto Oi e tenho interesse no bate-volta para Morro de São Paulo por R$ 250,00, com ida e volta inclusas. Gostaria de reservar.",
+      "Olá! Estou na barraca Beto Oi e tenho interesse no passeio para Praia do Forte + Guarajuba por R$ 100,00 por pessoa. Gostaria de mais informações e de reservar.",
+      "Olá! Estou na barraca Beto Oi e quero mais informações sobre a experiência de mergulho.",
+      "Olá! Estou na barraca Beto Oi e quero mais informações sobre a experiência para assistir a um jogo na Arena Fonte Nova.",
+      "Olá! Estou na barraca Beto Oi. Sou influencer/vlogger e tenho interesse em conhecer Salvador em parceria por divulgação e produção de conteúdo. Gostaria de saber como funciona.",
+      "Olá! Estou na barraca Beto Oi e tenho interesse na Bahia Night de quinta ou sábado, com espetáculo cultural e comida baiana, por R$ 250,00 por pessoa. Gostaria de reservar.",
+      "Olá! Estou na barraca Beto Oi e preciso de van ou veículo grande para um grupo particular. Gostaria de informações sobre opções, capacidade e disponibilidade."
+    ]
+  },
+  en:{
+    islands:"Frades Island",
+    islandsText:"A day among crystal-clear waters and unforgettable scenery.",
+    islandsPrice:"R$ 130.00 per person",
+    morroText:"Round trip to one of Bahia’s most desired destinations.",
+    morroPrice:"R$ 250.00 • round trip included",
+    forte:"Praia do Forte + Guarajuba",
+    forteText:"Nature, a charming village and amazing beaches.",
+    fortePrice:"R$ 100.00 per person",
+    tourText:"Discover the history and culture of the Historic Center. Monday to Saturday at 09:30 and 14:00.",
+    vloggerTitle:"Influencer or Vlogger?",
+    vloggerText:"Visit Salvador through a content and publicity partnership.",
+    nightTitle:"Bahia Night",
+    nightText:"Thursday and Saturday • cultural show with Bahian food.",
+    nightPrice:"R$ 250.00 per person",
+    transportTitle:"Vans and large vehicles",
+    transportText:"Transportation for private groups. Ask about options and availability.",
+    contactUs:"Contact us on WhatsApp",
+    msgs:[
+      "Hello! I am at the Beto Oi beach stand and I am interested in the Frades Island tour for R$ 130.00 per person. I would like more information and to book.",
+      "Hello! I am at the Beto Oi beach stand and I am interested in the Morro de São Paulo round trip for R$ 250.00, with outbound and return transportation included. I would like to book.",
+      "Hello! I am at the Beto Oi beach stand and I am interested in the Praia do Forte + Guarajuba tour for R$ 100.00 per person. I would like more information and to book.",
+      "Hello! I am at the Beto Oi beach stand and would like more information about the scuba diving experience.",
+      "Hello! I am at the Beto Oi beach stand and would like more information about the Arena Fonte Nova match experience.",
+      "Hello! I am at the Beto Oi beach stand. I am an influencer/vlogger and I am interested in visiting Salvador through a content and publicity partnership. How does it work?",
+      "Hello! I am at the Beto Oi beach stand and I am interested in Bahia Night on Thursday or Saturday, with a cultural show and Bahian food, for R$ 250.00 per person. I would like to book.",
+      "Hello! I am at the Beto Oi beach stand and I need a van or large vehicle for a private group. I would like information about options, capacity and availability."
+    ]
+  },
+  es:{
+    islands:"Isla dos Frades",
+    islandsText:"Un día entre aguas cristalinas y paisajes inolvidables.",
+    islandsPrice:"R$ 130,00 por persona",
+    morroText:"Ida y vuelta a uno de los destinos más deseados de Bahía.",
+    morroPrice:"R$ 250,00 • ida y vuelta incluidas",
+    forte:"Praia do Forte + Guarajuba",
+    forteText:"Naturaleza, pueblo encantador y playas increíbles.",
+    fortePrice:"R$ 100,00 por persona",
+    tourText:"Conozca la historia y la cultura del Centro Histórico. De lunes a sábado a las 09:30 y 14:00.",
+    vloggerTitle:"¿Influencer o Vlogger?",
+    vloggerText:"Visite Salvador mediante una colaboración de difusión y creación de contenido.",
+    nightTitle:"Bahia Night",
+    nightText:"Jueves y sábado • espectáculo cultural con comida bahiana.",
+    nightPrice:"R$ 250,00 por persona",
+    transportTitle:"Vans y vehículos grandes",
+    transportText:"Transporte para grupos privados. Consulte opciones y disponibilidad.",
+    contactUs:"Hablar por WhatsApp",
+    msgs:[
+      "¡Hola! Estoy en el puesto de playa Beto Oi y me interesa el paseo a Ilha dos Frades por R$ 130,00 por persona. Quisiera más información y reservar.",
+      "¡Hola! Estoy en el puesto de playa Beto Oi y me interesa la excursión de ida y vuelta a Morro de São Paulo por R$ 250,00, con ida y regreso incluidos. Quisiera reservar.",
+      "¡Hola! Estoy en el puesto de playa Beto Oi y me interesa el paseo a Praia do Forte + Guarajuba por R$ 100,00 por persona. Quisiera más información y reservar.",
+      "¡Hola! Estoy en el puesto de playa Beto Oi y quisiera más información sobre la experiencia de buceo.",
+      "¡Hola! Estoy en el puesto de playa Beto Oi y quisiera más información sobre la experiencia para ver un partido en Arena Fonte Nova.",
+      "¡Hola! Estoy en el puesto de playa Beto Oi. Soy influencer/vlogger y me interesa visitar Salvador mediante una colaboración de difusión y creación de contenido. Quisiera saber cómo funciona.",
+      "¡Hola! Estoy en el puesto de playa Beto Oi y me interesa Bahia Night el jueves o sábado, con espectáculo cultural y comida bahiana, por R$ 250,00 por persona. Quisiera reservar.",
+      "¡Hola! Estoy en el puesto de playa Beto Oi y necesito una van o un vehículo grande para un grupo privado. Quisiera información sobre opciones, capacidad y disponibilidad."
+    ]
+  },
+  fr:{
+    islands:"Île dos Frades",
+    islandsText:"Une journée entre eaux cristallines et paysages inoubliables.",
+    islandsPrice:"R$ 130,00 par personne",
+    morroText:"Aller-retour vers l’une des destinations les plus prisées de Bahia.",
+    morroPrice:"R$ 250,00 • aller-retour inclus",
+    forte:"Praia do Forte + Guarajuba",
+    forteText:"Nature, village charmant et plages magnifiques.",
+    fortePrice:"R$ 100,00 par personne",
+    tourText:"Découvrez l’histoire et la culture du Centre historique. Du lundi au samedi à 09:30 et 14:00.",
+    vloggerTitle:"Influenceur ou Vlogger ?",
+    vloggerText:"Visitez Salvador dans le cadre d’un partenariat de visibilité et de création de contenu.",
+    nightTitle:"Bahia Night",
+    nightText:"Jeudi et samedi • spectacle culturel avec cuisine bahianaise.",
+    nightPrice:"R$ 250,00 par personne",
+    transportTitle:"Vans et grands véhicules",
+    transportText:"Transport pour groupes privés. Demandez les options et disponibilités.",
+    contactUs:"Nous contacter sur WhatsApp",
+    msgs:[
+      "Bonjour ! Je suis à la paillote Beto Oi et l’excursion à l’Île dos Frades à R$ 130,00 par personne m’intéresse. Je voudrais plus d’informations et réserver.",
+      "Bonjour ! Je suis à la paillote Beto Oi et l’aller-retour à Morro de São Paulo à R$ 250,00, transport aller et retour inclus, m’intéresse. Je voudrais réserver.",
+      "Bonjour ! Je suis à la paillote Beto Oi et l’excursion Praia do Forte + Guarajuba à R$ 100,00 par personne m’intéresse. Je voudrais plus d’informations et réserver.",
+      "Bonjour ! Je suis à la paillote Beto Oi et je voudrais plus d’informations sur l’expérience de plongée.",
+      "Bonjour ! Je suis à la paillote Beto Oi et je voudrais plus d’informations sur l’expérience de match à l’Arena Fonte Nova.",
+      "Bonjour ! Je suis à la paillote Beto Oi. Je suis influenceur/vlogger et je souhaite visiter Salvador dans le cadre d’un partenariat de visibilité et de création de contenu. Comment cela fonctionne-t-il ?",
+      "Bonjour ! Je suis à la paillote Beto Oi et Bahia Night du jeudi ou du samedi m’intéresse, avec spectacle culturel et cuisine bahianaise, à R$ 250,00 par personne. Je voudrais réserver.",
+      "Bonjour ! Je suis à la paillote Beto Oi et j’ai besoin d’un van ou d’un grand véhicule pour un groupe privé. Je voudrais connaître les options, la capacité et les disponibilités."
+    ]
+  },
+  it:{
+    islands:"Isola dos Frades",
+    islandsText:"Una giornata tra acque cristalline e paesaggi indimenticabili.",
+    islandsPrice:"R$ 130,00 a persona",
+    morroText:"Andata e ritorno verso una delle destinazioni più amate di Bahia.",
+    morroPrice:"R$ 250,00 • andata e ritorno inclusi",
+    forte:"Praia do Forte + Guarajuba",
+    forteText:"Natura, borgo incantevole e spiagge incredibili.",
+    fortePrice:"R$ 100,00 a persona",
+    tourText:"Scopri la storia e la cultura del Centro Storico. Dal lunedì al sabato alle 09:30 e 14:00.",
+    vloggerTitle:"Influencer o Vlogger?",
+    vloggerText:"Visita Salvador con una collaborazione di promozione e creazione di contenuti.",
+    nightTitle:"Bahia Night",
+    nightText:"Giovedì e sabato • spettacolo culturale con cucina bahiana.",
+    nightPrice:"R$ 250,00 a persona",
+    transportTitle:"Van e veicoli grandi",
+    transportText:"Trasporto per gruppi privati. Chiedi opzioni e disponibilità.",
+    contactUs:"Contattaci su WhatsApp",
+    msgs:[
+      "Ciao! Sono al chiosco Beto Oi e mi interessa l’escursione a Ilha dos Frades per R$ 130,00 a persona. Vorrei maggiori informazioni e prenotare.",
+      "Ciao! Sono al chiosco Beto Oi e mi interessa l’andata e ritorno a Morro de São Paulo per R$ 250,00, con trasporto di andata e ritorno incluso. Vorrei prenotare.",
+      "Ciao! Sono al chiosco Beto Oi e mi interessa l’escursione Praia do Forte + Guarajuba per R$ 100,00 a persona. Vorrei maggiori informazioni e prenotare.",
+      "Ciao! Sono al chiosco Beto Oi e vorrei maggiori informazioni sull’esperienza di immersione.",
+      "Ciao! Sono al chiosco Beto Oi e vorrei maggiori informazioni sull’esperienza per assistere a una partita all’Arena Fonte Nova.",
+      "Ciao! Sono al chiosco Beto Oi. Sono influencer/vlogger e mi interessa visitare Salvador con una collaborazione di promozione e creazione di contenuti. Come funziona?",
+      "Ciao! Sono al chiosco Beto Oi e mi interessa Bahia Night il giovedì o sabato, con spettacolo culturale e cucina bahiana, per R$ 250,00 a persona. Vorrei prenotare.",
+      "Ciao! Sono al chiosco Beto Oi e ho bisogno di un van o di un veicolo grande per un gruppo privato. Vorrei informazioni su opzioni, capacità e disponibilità."
+    ]
+  },
+  ru:{
+    islands:"Остров Фрадес",
+    islandsText:"День среди кристально чистой воды и незабываемых пейзажей.",
+    islandsPrice:"R$ 130,00 с человека",
+    morroText:"Поездка туда и обратно в одно из самых популярных мест Баии.",
+    morroPrice:"R$ 250,00 • дорога туда и обратно включена",
+    forte:"Praia do Forte + Guarajuba",
+    forteText:"Природа, очаровательная деревня и прекрасные пляжи.",
+    fortePrice:"R$ 100,00 с человека",
+    tourText:"Познакомьтесь с историей и культурой Исторического центра. С понедельника по субботу в 09:30 и 14:00.",
+    vloggerTitle:"Инфлюенсер или влогер?",
+    vloggerText:"Посетите Салвадор в рамках партнёрства по продвижению и созданию контента.",
+    nightTitle:"Bahia Night",
+    nightText:"Четверг и суббота • культурное шоу с баийской кухней.",
+    nightPrice:"R$ 250,00 с человека",
+    transportTitle:"Микроавтобусы и большие автомобили",
+    transportText:"Транспорт для частных групп. Уточните варианты и наличие.",
+    contactUs:"Написать в WhatsApp",
+    msgs:[
+      "Здравствуйте! Я нахожусь в пляжном киоске Beto Oi и интересуюсь поездкой на остров Фрадес за R$ 130,00 с человека. Хотел(а) бы получить дополнительную информацию и забронировать.",
+      "Здравствуйте! Я нахожусь в пляжном киоске Beto Oi и интересуюсь поездкой туда и обратно в Morro de São Paulo за R$ 250,00, включая транспорт в обе стороны. Хотел(а) бы забронировать.",
+      "Здравствуйте! Я нахожусь в пляжном киоске Beto Oi и интересуюсь поездкой Praia do Forte + Guarajuba за R$ 100,00 с человека. Хотел(а) бы получить дополнительную информацию и забронировать.",
+      "Здравствуйте! Я нахожусь в пляжном киоске Beto Oi и хотел(а) бы получить дополнительную информацию о дайвинге.",
+      "Здравствуйте! Я нахожусь в пляжном киоске Beto Oi и хотел(а) бы получить дополнительную информацию о посещении матча на Arena Fonte Nova.",
+      "Здравствуйте! Я нахожусь в пляжном киоске Beto Oi. Я инфлюенсер/влогер и интересуюсь посещением Салвадора в рамках партнёрства по продвижению и созданию контента. Как это работает?",
+      "Здравствуйте! Я нахожусь в пляжном киоске Beto Oi и интересуюсь Bahia Night в четверг или субботу: культурное шоу и баийская кухня за R$ 250,00 с человека. Хотел(а) бы забронировать.",
+      "Здравствуйте! Я нахожусь в пляжном киоске Beto Oi и мне нужен микроавтобус или большой автомобиль для частной группы. Хотел(а) бы узнать варианты, вместимость и наличие."
+    ]
+  },
+  he:{
+    islands:"האי פרדס",
+    islandsText:"יום בין מים צלולים ונופים בלתי נשכחים.",
+    islandsPrice:"R$ 130,00 לאדם",
+    morroText:"נסיעה הלוך ושוב לאחד היעדים המבוקשים ביותר בבאהיה.",
+    morroPrice:"R$ 250,00 • הלוך ושוב כלולים",
+    forte:"Praia do Forte + Guarajuba",
+    forteText:"טבע, כפר מקסים וחופים מדהימים.",
+    fortePrice:"R$ 100,00 לאדם",
+    tourText:"הכירו את ההיסטוריה והתרבות של המרכז ההיסטורי. שני עד שבת בשעות 09:30 ו-14:00.",
+    vloggerTitle:"משפיען או וולוגר?",
+    vloggerText:"בקרו בסלבדור במסגרת שיתוף פעולה לפרסום ויצירת תוכן.",
+    nightTitle:"Bahia Night",
+    nightText:"חמישי ושבת • מופע תרבותי עם אוכל באהיאני.",
+    nightPrice:"R$ 250,00 לאדם",
+    transportTitle:"ואנים וכלי רכב גדולים",
+    transportText:"הסעות לקבוצות פרטיות. שאלו על אפשרויות וזמינות.",
+    contactUs:"דברו איתנו ב-WhatsApp",
+    msgs:[
+      "שלום! אני בדוכן החוף Beto Oi ומתעניין/ת בטיול לאי פרדס במחיר R$ 130,00 לאדם. אשמח לקבל מידע נוסף ולהזמין.",
+      "שלום! אני בדוכן החוף Beto Oi ומתעניין/ת בנסיעה הלוך ושוב ל-Morro de São Paulo במחיר R$ 250,00, כולל תחבורה לשני הכיוונים. אשמח להזמין.",
+      "שלום! אני בדוכן החוף Beto Oi ומתעניין/ת בטיול Praia do Forte + Guarajuba במחיר R$ 100,00 לאדם. אשמח לקבל מידע נוסף ולהזמין.",
+      "שלום! אני בדוכן החוף Beto Oi ואשמח לקבל מידע נוסף על חוויית הצלילה.",
+      "שלום! אני בדוכן החוף Beto Oi ואשמח לקבל מידע נוסף על חוויית המשחק ב-Arena Fonte Nova.",
+      "שלום! אני בדוכן החוף Beto Oi. אני משפיען/וולוגר ומתעניין/ת בביקור בסלבדור במסגרת שיתוף פעולה לפרסום ויצירת תוכן. אשמח לדעת איך זה עובד.",
+      "שלום! אני בדוכן החוף Beto Oi ומתעניין/ת ב-Bahia Night ביום חמישי או שבת, עם מופע תרבותי ואוכל באהיאני, במחיר R$ 250,00 לאדם. אשמח להזמין.",
+      "שלום! אני בדוכן החוף Beto Oi וזקוק/ה לוואן או רכב גדול עבור קבוצה פרטית. אשמח למידע על אפשרויות, קיבולת וזמינות."
+    ]
+  }
+};
+
+Object.keys(experienceUpdates).forEach(code => Object.assign(T[code], experienceUpdates[code]));
+
 const names = {
   en:[
     "Fish strips",
@@ -1420,7 +1594,10 @@ function applyLanguage(){
     "morroMsg",
     "forteMsg",
     "diveMsg",
-    "arenaMsg"
+    "arenaMsg",
+    "vloggerMsg",
+    "nightMsg",
+    "transportMsg"
   ];
 
   whatsappKeys.forEach((key,index) => {
