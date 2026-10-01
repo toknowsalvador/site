@@ -35,6 +35,7 @@
     body{
       margin:0;
       color:var(--ink);
+
       background:
         radial-gradient(
           circle at 8% 8%,
@@ -68,17 +69,16 @@
       cursor:pointer;
     }
 
-    /* =========================
-       TOPO
-    ========================== */
-
     .top-shell{
       position:sticky;
       top:0;
       z-index:50;
 
-      background:rgba(246,200,0,.96);
-      backdrop-filter:blur(12px);
+      background:
+        rgba(246,200,0,.96);
+
+      backdrop-filter:
+        blur(12px);
 
       box-shadow:
         0 6px 20px rgba(66,46,0,.10);
@@ -97,6 +97,7 @@
         8px;
 
       display:flex;
+
       align-items:center;
       justify-content:space-between;
 
@@ -107,6 +108,7 @@
       min-width:0;
 
       font-weight:1000;
+
       letter-spacing:-.03em;
 
       color:var(--blue);
@@ -122,20 +124,19 @@
 
     .brand-icons{
       font-size:1.55rem;
+
       white-space:nowrap;
     }
 
-    /* =========================
-       ROLAGEM HORIZONTAL
-    ========================== */
-
     .scroll-row{
       display:flex;
+
       gap:8px;
 
       overflow-x:auto;
 
-      overscroll-behavior-inline:contain;
+      overscroll-behavior-inline:
+        contain;
 
       scrollbar-width:none;
 
@@ -145,9 +146,13 @@
         12px;
 
       max-width:1100px;
+
       margin:auto;
 
-      -webkit-overflow-scrolling:touch;
+      -webkit-overflow-scrolling:
+        touch;
+
+      direction:ltr;
     }
 
     .scroll-row::-webkit-scrollbar{
@@ -155,10 +160,11 @@
     }
 
     .lang-btn,
-    .filter-btn{
+    .nav-btn{
       flex:0 0 auto;
 
       border:0;
+
       border-radius:999px;
 
       padding:
@@ -166,17 +172,15 @@
         14px;
 
       font-weight:900;
+
       white-space:nowrap;
 
       transition:.18s ease;
     }
 
-    /* =========================
-       IDIOMAS
-    ========================== */
-
     .lang-btn{
       background:#fff8cf;
+
       color:#47346f;
 
       box-shadow:
@@ -185,40 +189,16 @@
 
     .lang-btn.active{
       background:var(--purple);
+
       color:#fff;
 
       box-shadow:
         0 5px 12px rgba(90,59,145,.24);
     }
 
-    /* =========================
-       CATEGORIAS
-    ========================== */
-
-    .filters-shell{
-      max-width:1100px;
-      margin:16px auto 0;
-    }
-
-    .filter-btn{
-      background:#fff;
-      color:var(--purple);
-
-      box-shadow:
-        0 4px 14px rgba(62,45,0,.08);
-    }
-
-    .filter-btn.active{
-      background:var(--red);
-      color:#fff;
-    }
-
-    /* =========================
-       ESTRUTURA
-    ========================== */
-
     main{
       max-width:1100px;
+
       margin:auto;
 
       padding:
@@ -227,14 +207,11 @@
         56px;
     }
 
-    /* =========================
-       CAPA
-    ========================== */
-
     .hero{
       margin-top:18px;
 
       position:relative;
+
       overflow:hidden;
 
       border-radius:32px;
@@ -255,7 +232,8 @@
           var(--yellow)
         );
 
-      box-shadow:var(--shadow);
+      box-shadow:
+        var(--shadow);
 
       border:
         1px solid rgba(112,76,0,.15);
@@ -267,11 +245,13 @@
       position:absolute;
 
       left:-8px;
+
       top:-14px;
 
       font-size:5.5rem;
 
-      transform:rotate(-10deg);
+      transform:
+        rotate(-10deg);
 
       opacity:.95;
     }
@@ -282,6 +262,7 @@
       position:absolute;
 
       right:12px;
+
       top:8px;
 
       font-size:4.2rem;
@@ -291,6 +272,7 @@
 
     .hero-content{
       position:relative;
+
       z-index:2;
 
       text-align:center;
@@ -303,6 +285,7 @@
         clamp(2.45rem,10vw,5.4rem);
 
       line-height:.92;
+
       letter-spacing:-.055em;
 
       color:var(--blue);
@@ -340,10 +323,6 @@
 
       color:#5c4688;
     }
-
-    /* =========================
-       INFORMAÇÕES
-    ========================== */
 
     .info-grid{
       margin-top:16px;
@@ -408,9 +387,82 @@
       opacity:.78;
     }
 
-    /* =========================
-       CARDÁPIO
-    ========================== */
+    .pix-card{
+      grid-column:1/-1;
+    }
+
+    .pix-actions{
+      margin-top:12px;
+
+      display:flex;
+
+      flex-wrap:wrap;
+
+      gap:8px;
+
+      align-items:center;
+    }
+
+    .copy-btn{
+      border:0;
+
+      border-radius:999px;
+
+      padding:
+        10px
+        14px;
+
+      background:
+        var(--purple);
+
+      color:#fff;
+
+      font-weight:1000;
+
+      box-shadow:
+        0 5px 12px rgba(90,59,145,.20);
+    }
+
+    .copy-status{
+      min-height:1.2em;
+
+      font-size:.86rem;
+
+      font-weight:900;
+
+      color:#14804a;
+    }
+
+    .category-shell{
+      margin:
+        16px
+        -16px
+        0;
+
+      background:
+        rgba(255,253,245,.65);
+
+      border-block:
+        1px solid rgba(80,54,0,.08);
+    }
+
+    .nav-btn{
+      background:#fff;
+
+      color:var(--purple);
+
+      box-shadow:
+        0 4px 14px rgba(62,45,0,.08);
+    }
+
+    .nav-btn:hover,
+    .nav-btn:focus-visible{
+      background:var(--red);
+
+      color:#fff;
+
+      outline:none;
+    }
 
     #menu{
       display:grid;
@@ -434,6 +486,8 @@
 
       border:
         1px solid rgba(80,54,0,.10);
+
+      scroll-margin-top:125px;
     }
 
     .section-head{
@@ -503,10 +557,11 @@
       display:grid;
 
       grid-template-columns:
+        auto
         minmax(0,1fr)
         auto;
 
-      gap:14px;
+      gap:11px;
 
       align-items:start;
 
@@ -520,6 +575,37 @@
 
     .menu-item:last-child{
       border-bottom:0;
+    }
+
+    .item-number{
+      min-width:35px;
+
+      height:31px;
+
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      border-radius:9px;
+
+      background:
+        var(--yellow);
+
+      color:#4e347f;
+
+      font-size:.83rem;
+
+      font-weight:1000;
+
+      border:
+        1px solid rgba(80,54,0,.13);
+
+      box-shadow:
+        0 2px 0 rgba(0,0,0,.08);
+
+      direction:ltr;
     }
 
     .item-name{
@@ -562,11 +648,152 @@
 
       box-shadow:
         0 2px 0 rgba(0,0,0,.16);
+
+      direction:ltr;
     }
 
-    /* =========================
-       RODAPÉ
-    ========================== */
+    .tours-section{
+      margin-top:18px;
+
+      scroll-margin-top:125px;
+
+      overflow:hidden;
+
+      background:
+        rgba(255,253,245,.95);
+
+      border-radius:
+        var(--radius);
+
+      box-shadow:
+        var(--shadow);
+
+      border:
+        1px solid rgba(80,54,0,.10);
+    }
+
+    .tours-intro{
+      padding:
+        12px
+        18px
+        0;
+
+      font-weight:800;
+
+      color:#645675;
+    }
+
+    .tour-scroll{
+      display:flex;
+
+      gap:14px;
+
+      overflow-x:auto;
+
+      scrollbar-width:none;
+
+      padding:
+        16px
+        18px
+        20px;
+
+      -webkit-overflow-scrolling:
+        touch;
+
+      scroll-snap-type:
+        x proximity;
+
+      direction:ltr;
+    }
+
+    .tour-scroll::-webkit-scrollbar{
+      display:none;
+    }
+
+    .tour-card{
+      flex:
+        0 0 min(82vw,310px);
+
+      scroll-snap-align:start;
+
+      min-height:215px;
+
+      display:flex;
+
+      flex-direction:column;
+
+      justify-content:space-between;
+
+      gap:16px;
+
+      padding:18px;
+
+      border-radius:22px;
+
+      background:
+        radial-gradient(
+          circle at 90% 10%,
+          rgba(255,255,255,.35),
+          transparent 7rem
+        ),
+        linear-gradient(
+          145deg,
+          #fff7cf,
+          #ffe168
+        );
+
+      border:
+        1px solid rgba(112,76,0,.14);
+
+      box-shadow:
+        0 8px 20px rgba(66,46,0,.10);
+    }
+
+    .tour-card .tour-icon{
+      font-size:2rem;
+    }
+
+    .tour-card h3{
+      margin:
+        7px
+        0
+        0;
+
+      color:#4e347f;
+
+      font-size:1.2rem;
+
+      line-height:1.15;
+    }
+
+    .tour-cta{
+      display:inline-flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      text-decoration:none;
+
+      border-radius:999px;
+
+      padding:
+        11px
+        14px;
+
+      background:#25D366;
+
+      color:#083e1d;
+
+      font-weight:1000;
+
+      box-shadow:
+        0 5px 12px rgba(37,211,102,.22);
+    }
+
+    .bottom-info{
+      margin-top:18px;
+    }
 
     .footer{
       margin-top:22px;
@@ -588,7 +815,8 @@
 
       color:#fff;
 
-      box-shadow:var(--shadow);
+      box-shadow:
+        var(--shadow);
     }
 
     .footer strong{
@@ -604,26 +832,19 @@
       font-weight:700;
     }
 
-    /* =========================
-       HEBRAICO
-    ========================== */
-
     [dir="rtl"] .menu-item,
     [dir="rtl"] .section-head,
-    [dir="rtl"] .info-card{
+    [dir="rtl"] .info-card,
+    [dir="rtl"] .tour-card{
       text-align:right;
     }
-
-    /* =========================
-       DESKTOP
-    ========================== */
 
     @media (min-width:760px){
 
       .info-grid{
         grid-template-columns:
           repeat(
-            3,
+            2,
             minmax(0,1fr)
           );
       }
@@ -642,10 +863,6 @@
         grid-column:1/-1;
       }
     }
-
-    /* =========================
-       CELULAR
-    ========================== */
 
     @media (max-width:520px){
 
@@ -673,15 +890,10 @@
           14px;
       }
     }
-
   </style>
 </head>
 
 <body>
-
-  <!-- =========================
-       TOPO + IDIOMAS
-  ========================== -->
 
   <div class="top-shell">
 
@@ -707,10 +919,6 @@
 
 
   <main>
-
-    <!-- =========================
-         CAPA
-    ========================== -->
 
     <section class="hero">
 
@@ -741,24 +949,15 @@
     </section>
 
 
-    <!-- =========================
-         INFORMAÇÕES
-    ========================== -->
+    <!-- PIX / CONTATO NO INÍCIO -->
 
     <section class="info-grid">
 
-      <div class="info-card">
+      <div class="info-card pix-card">
 
         <strong id="pixLabel">
           Pix / Contato
         </strong>
-
-        <!--
-        Na fotografia,
-        este número aparece identificado como PIX.
-
-        Não há indicação explícita de WhatsApp.
-        -->
 
         <span class="big">
           (71) 99267-0738
@@ -768,8 +967,87 @@
           Geisa Borges
         </span>
 
+        <div class="pix-actions">
+
+          <button
+            class="copy-btn"
+            id="copyPixBtn"
+            type="button">
+
+            Copiar número
+
+          </button>
+
+          <span
+            class="copy-status"
+            id="copyStatus"
+            aria-live="polite">
+          </span>
+
+        </div>
+
       </div>
 
+    </section>
+
+
+    <!-- CATEGORIAS: TODAS CONTINUAM VISÍVEIS -->
+
+    <nav
+      class="category-shell"
+      aria-label="Categorias do cardápio">
+
+      <div
+        class="scroll-row"
+        id="categoryNav">
+      </div>
+
+    </nav>
+
+
+    <!-- TODO O CARDÁPIO -->
+
+    <section id="menu"></section>
+
+
+    <!-- PASSEIOS -->
+
+    <section
+      class="tours-section"
+      id="section-tours">
+
+      <div class="section-head">
+
+        <h2
+          class="section-title"
+          id="toursTitle">
+
+          Passeios
+
+        </h2>
+
+        <div class="section-icon">
+          🌴
+        </div>
+
+      </div>
+
+      <div
+        class="tours-intro"
+        id="toursIntro">
+      </div>
+
+      <div
+        class="tour-scroll"
+        id="tourScroll">
+      </div>
+
+    </section>
+
+
+    <!-- PAGAMENTO E MOEDA NO FINAL -->
+
+    <section class="info-grid bottom-info">
 
       <div class="info-card">
 
@@ -807,41 +1085,13 @@
     </section>
 
 
-    <!-- =========================
-         FILTROS
-    ========================== -->
-
-    <div class="filters-shell">
-
-      <div
-        class="scroll-row"
-        id="filters"
-        aria-label="Menu filters">
-      </div>
-
-    </div>
-
-
-    <!-- =========================
-         ITENS DO CARDÁPIO
-    ========================== -->
-
-    <section id="menu"></section>
-
-
-    <!-- =========================
-         RODAPÉ
-    ========================== -->
-
     <footer class="footer">
 
       <strong id="footerTitle">
         Barraca da Fofinha ☀️
       </strong>
 
-      <p id="footerText">
-        Escolha seu idioma no topo e deslize as categorias para navegar pelo cardápio.
-      </p>
+      <p id="footerText"></p>
 
     </footer>
 
@@ -874,328 +1124,556 @@ const LANGS = [
 
 
 /* =========================================================
-   TEXTOS DA INTERFACE
+   TEXTOS
 ========================================================= */
 
 const UI = {
 
   pt:{
+
     heroSub:'Cardápio',
 
-    heroNote:'Comida, petiscos e bebidas à beira-mar.',
+    heroNote:
+      'Comida, petiscos e bebidas à beira-mar.',
 
-    pix:'Pix / Contato',
+    pix:
+      'Pix / Contato',
 
-    payment:'Pagamento',
+    copy:
+      'Copiar número',
 
-    cards:'Aceitamos cartões 💳',
+    copied:
+      'Número copiado!',
 
-    currency:'Moeda',
+    copyFail:
+      'Selecione e copie: +55 71 99267-0738',
 
-    currencyText:'R$ — Real brasileiro',
+    payment:
+      'Pagamento',
 
-    footerTitle:'Barraca da Fofinha ☀️',
+    cards:
+      'Aceitamos cartões 💳',
+
+    currency:
+      'Moeda',
+
+    currencyText:
+      'R$ — Real brasileiro',
+
+    footerTitle:
+      'Barraca da Fofinha ☀️',
 
     footer:
-      'Escolha seu idioma no topo e deslize as categorias para navegar pelo cardápio.',
+      'Escolha seu idioma no topo e toque em uma categoria para ir direto até ela.',
 
-    all:'Tudo',
+    meals:
+      'Refeições',
 
-    meals:'Refeições',
+    snacks:
+      'Tira-gostos',
 
-    snacks:'Tira-gostos',
+    soups:
+      'Caldos',
 
-    soups:'Caldos',
+    soft:
+      'Sem álcool',
 
-    soft:'Sem álcool',
+    beers:
+      'Cervejas',
 
-    beers:'Cervejas',
+    drinks:
+      'Drinks & doses',
 
-    drinks:'Drinks & doses',
+    tours:
+      'Passeios',
+
+    toursIntro:
+      'Deslize para o lado para ver os passeios disponíveis.',
+
+    redeem:
+      'Resgate agora',
 
     served1:
       'Todos os pratos acima são acompanhados de arroz, farofa e salada.',
 
     served2:
-      'A moqueca acompanha arroz, farofa e pirão.'
+      'A moqueca acompanha arroz, farofa e pirão.',
+
+    whatsapp:
+      'Olá! Tenho interesse no passeio "{tour}". Gostaria de receber mais informações e disponibilidade.'
+
   },
 
 
   en:{
-    heroSub:'Menu',
+
+    heroSub:
+      'Menu',
 
     heroNote:
       'Meals, snacks and drinks by the sea.',
 
-    pix:'Pix / Contact',
+    pix:
+      'Pix / Contact',
 
-    payment:'Payment',
+    copy:
+      'Copy number',
 
-    cards:'Cards accepted 💳',
+    copied:
+      'Number copied!',
 
-    currency:'Currency',
+    copyFail:
+      'Select and copy: +55 71 99267-0738',
 
-    currencyText:'R$ — Brazilian real',
+    payment:
+      'Payment',
+
+    cards:
+      'Cards accepted 💳',
+
+    currency:
+      'Currency',
+
+    currencyText:
+      'R$ — Brazilian real',
 
     footerTitle:
       'Barraca da Fofinha ☀️',
 
     footer:
-      'Choose your language at the top and swipe the categories to browse the menu.',
+      'Choose your language at the top and tap a category to jump directly to it.',
 
-    all:'All',
+    meals:
+      'Meals',
 
-    meals:'Meals',
+    snacks:
+      'Appetizers',
 
-    snacks:'Appetizers',
+    soups:
+      'Broths',
 
-    soups:'Broths',
+    soft:
+      'Non-alcoholic',
 
-    soft:'Non-alcoholic',
+    beers:
+      'Beers',
 
-    beers:'Beers',
+    drinks:
+      'Drinks & shots',
 
-    drinks:'Drinks & shots',
+    tours:
+      'Tours',
+
+    toursIntro:
+      'Swipe sideways to see the available tours.',
+
+    redeem:
+      'Book now',
 
     served1:
       'All dishes above are served with rice, farofa and salad.',
 
     served2:
-      'The moqueca is served with rice, farofa and pirão.'
+      'The moqueca is served with rice, farofa and pirão.',
+
+    whatsapp:
+      'Hello! I am interested in the "{tour}" tour. I would like more information and availability.'
+
   },
 
 
   es:{
-    heroSub:'Menú',
+
+    heroSub:
+      'Menú',
 
     heroNote:
       'Comidas, aperitivos y bebidas junto al mar.',
 
-    pix:'Pix / Contacto',
+    pix:
+      'Pix / Contacto',
 
-    payment:'Pago',
+    copy:
+      'Copiar número',
 
-    cards:'Aceptamos tarjetas 💳',
+    copied:
+      '¡Número copiado!',
 
-    currency:'Moneda',
+    copyFail:
+      'Selecciona y copia: +55 71 99267-0738',
 
-    currencyText:'R$ — Real brasileño',
+    payment:
+      'Pago',
+
+    cards:
+      'Aceptamos tarjetas 💳',
+
+    currency:
+      'Moneda',
+
+    currencyText:
+      'R$ — Real brasileño',
 
     footerTitle:
       'Barraca da Fofinha ☀️',
 
     footer:
-      'Elige tu idioma arriba y desliza las categorías para navegar por el menú.',
+      'Elige tu idioma arriba y toca una categoría para ir directamente a ella.',
 
-    all:'Todo',
+    meals:
+      'Comidas',
 
-    meals:'Comidas',
+    snacks:
+      'Aperitivos',
 
-    snacks:'Aperitivos',
+    soups:
+      'Caldos',
 
-    soups:'Caldos',
+    soft:
+      'Sin alcohol',
 
-    soft:'Sin alcohol',
+    beers:
+      'Cervezas',
 
-    beers:'Cervezas',
+    drinks:
+      'Cócteles y dosis',
 
-    drinks:'Cócteles y dosis',
+    tours:
+      'Paseos',
+
+    toursIntro:
+      'Desliza hacia un lado para ver los paseos disponibles.',
+
+    redeem:
+      'Reservar ahora',
 
     served1:
       'Todos los platos de arriba vienen con arroz, farofa y ensalada.',
 
     served2:
-      'La moqueca viene con arroz, farofa y pirão.'
+      'La moqueca viene con arroz, farofa y pirão.',
+
+    whatsapp:
+      '¡Hola! Estoy interesado/a en el paseo "{tour}". Me gustaría recibir más información y disponibilidad.'
+
   },
 
 
   fr:{
-    heroSub:'Menu',
+
+    heroSub:
+      'Menu',
 
     heroNote:
       'Plats, en-cas et boissons au bord de la mer.',
 
-    pix:'Pix / Contact',
+    pix:
+      'Pix / Contact',
 
-    payment:'Paiement',
+    copy:
+      'Copier le numéro',
 
-    cards:'Cartes acceptées 💳',
+    copied:
+      'Numéro copié !',
 
-    currency:'Devise',
+    copyFail:
+      'Sélectionnez et copiez : +55 71 99267-0738',
 
-    currencyText:'R$ — Réal brésilien',
+    payment:
+      'Paiement',
+
+    cards:
+      'Cartes acceptées 💳',
+
+    currency:
+      'Devise',
+
+    currencyText:
+      'R$ — Réal brésilien',
 
     footerTitle:
       'Barraca da Fofinha ☀️',
 
     footer:
-      'Choisissez votre langue en haut et faites défiler les catégories pour parcourir le menu.',
+      'Choisissez votre langue en haut et touchez une catégorie pour y accéder directement.',
 
-    all:'Tout',
+    meals:
+      'Plats',
 
-    meals:'Plats',
+    snacks:
+      'En-cas',
 
-    snacks:'En-cas',
+    soups:
+      'Bouillons',
 
-    soups:'Bouillons',
+    soft:
+      'Sans alcool',
 
-    soft:'Sans alcool',
+    beers:
+      'Bières',
 
-    beers:'Bières',
+    drinks:
+      'Cocktails & doses',
 
-    drinks:'Cocktails & doses',
+    tours:
+      'Excursions',
+
+    toursIntro:
+      'Faites glisser horizontalement pour voir les excursions disponibles.',
+
+    redeem:
+      'Réserver maintenant',
 
     served1:
       'Tous les plats ci-dessus sont accompagnés de riz, farofa et salade.',
 
     served2:
-      'La moqueca est accompagnée de riz, farofa et pirão.'
+      'La moqueca est accompagnée de riz, farofa et pirão.',
+
+    whatsapp:
+      'Bonjour ! Je suis intéressé(e) par l’excursion "{tour}". Je voudrais recevoir plus d’informations et connaître les disponibilités.'
+
   },
 
 
   it:{
-    heroSub:'Menù',
+
+    heroSub:
+      'Menù',
 
     heroNote:
       'Piatti, stuzzichini e bevande sul mare.',
 
-    pix:'Pix / Contatto',
+    pix:
+      'Pix / Contatto',
 
-    payment:'Pagamento',
+    copy:
+      'Copia numero',
 
-    cards:'Accettiamo carte 💳',
+    copied:
+      'Numero copiato!',
 
-    currency:'Valuta',
+    copyFail:
+      'Seleziona e copia: +55 71 99267-0738',
 
-    currencyText:'R$ — Real brasiliano',
+    payment:
+      'Pagamento',
+
+    cards:
+      'Accettiamo carte 💳',
+
+    currency:
+      'Valuta',
+
+    currencyText:
+      'R$ — Real brasiliano',
 
     footerTitle:
       'Barraca da Fofinha ☀️',
 
     footer:
-      'Scegli la lingua in alto e scorri le categorie per esplorare il menù.',
+      'Scegli la lingua in alto e tocca una categoria per raggiungerla direttamente.',
 
-    all:'Tutto',
+    meals:
+      'Piatti',
 
-    meals:'Piatti',
+    snacks:
+      'Stuzzichini',
 
-    snacks:'Stuzzichini',
+    soups:
+      'Brodi',
 
-    soups:'Brodi',
+    soft:
+      'Analcolici',
 
-    soft:'Analcolici',
+    beers:
+      'Birre',
 
-    beers:'Birre',
+    drinks:
+      'Cocktail & dosi',
 
-    drinks:'Cocktail & dosi',
+    tours:
+      'Tour',
+
+    toursIntro:
+      'Scorri lateralmente per vedere i tour disponibili.',
+
+    redeem:
+      'Prenota ora',
 
     served1:
       'Tutti i piatti sopra sono serviti con riso, farofa e insalata.',
 
     served2:
-      'La moqueca è servita con riso, farofa e pirão.'
+      'La moqueca è servita con riso, farofa e pirão.',
+
+    whatsapp:
+      'Ciao! Sono interessato/a al tour "{tour}". Vorrei ricevere maggiori informazioni e conoscere la disponibilità.'
+
   },
 
 
   ru:{
-    heroSub:'Меню',
+
+    heroSub:
+      'Меню',
 
     heroNote:
       'Блюда, закуски и напитки у моря.',
 
-    pix:'Pix / Контакт',
+    pix:
+      'Pix / Контакт',
 
-    payment:'Оплата',
+    copy:
+      'Скопировать номер',
 
-    cards:'Принимаем карты 💳',
+    copied:
+      'Номер скопирован!',
 
-    currency:'Валюта',
+    copyFail:
+      'Выберите и скопируйте: +55 71 99267-0738',
 
-    currencyText:'R$ — Бразильский реал',
+    payment:
+      'Оплата',
+
+    cards:
+      'Принимаем карты 💳',
+
+    currency:
+      'Валюта',
+
+    currencyText:
+      'R$ — Бразильский реал',
 
     footerTitle:
       'Barraca da Fofinha ☀️',
 
     footer:
-      'Выберите язык сверху и листайте категории, чтобы просмотреть меню.',
+      'Выберите язык сверху и нажмите на категорию, чтобы перейти прямо к ней.',
 
-    all:'Всё',
+    meals:
+      'Основные блюда',
 
-    meals:'Основные блюда',
+    snacks:
+      'Закуски',
 
-    snacks:'Закуски',
+    soups:
+      'Бульоны',
 
-    soups:'Бульоны',
+    soft:
+      'Без алкоголя',
 
-    soft:'Без алкоголя',
+    beers:
+      'Пиво',
 
-    beers:'Пиво',
+    drinks:
+      'Коктейли и порции',
 
-    drinks:'Коктейли и порции',
+    tours:
+      'Экскурсии',
+
+    toursIntro:
+      'Листайте в сторону, чтобы посмотреть доступные экскурсии.',
+
+    redeem:
+      'Забронировать',
 
     served1:
       'Все блюда выше подаются с рисом, фарофой и салатом.',
 
     served2:
-      'Мокека подаётся с рисом, фарофой и пирао.'
+      'Мокека подаётся с рисом, фарофой и пирао.',
+
+    whatsapp:
+      'Здравствуйте! Меня интересует экскурсия "{tour}". Я хотел(а) бы получить дополнительную информацию и узнать о доступности.'
+
   },
 
 
   he:{
-    heroSub:'תפריט',
+
+    heroSub:
+      'תפריט',
 
     heroNote:
       'מנות, נשנושים ומשקאות על שפת הים.',
 
-    pix:'Pix / יצירת קשר',
+    pix:
+      'Pix / יצירת קשר',
 
-    payment:'תשלום',
+    copy:
+      'העתקת המספר',
 
-    cards:'מקבלים כרטיסי אשראי 💳',
+    copied:
+      'המספר הועתק!',
 
-    currency:'מטבע',
+    copyFail:
+      'בחרו והעתיקו: +55 71 99267-0738',
 
-    currencyText:'R$ — ריאל ברזילאי',
+    payment:
+      'תשלום',
+
+    cards:
+      'מקבלים כרטיסי אשראי 💳',
+
+    currency:
+      'מטבע',
+
+    currencyText:
+      'R$ — ריאל ברזילאי',
 
     footerTitle:
       'Barraca da Fofinha ☀️',
 
     footer:
-      'בחרו שפה למעלה והחליקו בין הקטגוריות כדי לעיין בתפריט.',
+      'בחרו שפה למעלה ולחצו על קטגוריה כדי לעבור ישירות אליה.',
 
-    all:'הכול',
+    meals:
+      'מנות',
 
-    meals:'מנות',
+    snacks:
+      'נשנושים',
 
-    snacks:'נשנושים',
+    soups:
+      'מרקים',
 
-    soups:'מרקים',
+    soft:
+      'ללא אלכוהול',
 
-    soft:'ללא אלכוהול',
+    beers:
+      'בירות',
 
-    beers:'בירות',
+    drinks:
+      'קוקטיילים ומנות אלכוהול',
 
-    drinks:'קוקטיילים ומנות אלכוהול',
+    tours:
+      'סיורים',
+
+    toursIntro:
+      'החליקו לצד כדי לראות את הסיורים הזמינים.',
+
+    redeem:
+      'להזמין עכשיו',
 
     served1:
       'כל המנות שלמעלה מוגשות עם אורז, פארופה וסלט.',
 
     served2:
-      'המוקקה מוגשת עם אורז, פארופה ופיראו.'
+      'המוקקה מוגשת עם אורז, פארופה ופיראו.',
+
+    whatsapp:
+      'שלום! אני מתעניין/ת בסיור "{tour}". אשמח לקבל מידע נוסף ולבדוק זמינות.'
+
   }
 
 };
 
 
 /* =========================================================
-   CARDÁPIO COMPLETO
+   CARDÁPIO
 ========================================================= */
 
 const MENU = [
-
-  /* =======================================================
-     REFEIÇÕES
-  ======================================================== */
 
   {
     cat:'meals',
@@ -1208,202 +1686,118 @@ const MENU = [
 
       [
         'Peixe Vermelho (Grande)',
-
         'Red snapper (Large)',
-
         'Pargo rojo (Grande)',
-
         'Vivaneau rouge (Grand)',
-
         'Dentice rosso (Grande)',
-
         'Красный луциан (большой)',
-
         'דג סנאפר אדום (גדול)',
-
         230
       ],
 
-
       [
         'Peixe Corvina (Grande)',
-
         'Corvina fish (Large)',
-
         'Corvina (Grande)',
-
         'Corvina (Grande)',
-
         'Corvina (Grande)',
-
         'Корвина (большая)',
-
         'דג קורבינה (גדול)',
-
         200
       ],
 
-
       [
         'Peixe Vermelho grelhado com legumes',
-
         'Grilled red snapper with vegetables',
-
         'Pargo rojo a la parrilla con verduras',
-
         'Vivaneau rouge grillé avec légumes',
-
         'Dentice rosso alla griglia con verdure',
-
         'Красный луциан на гриле с овощами',
-
         'סנאפר אדום על הגריל עם ירקות',
-
         260
       ],
 
-
       [
         'Frango a passarinha',
-
         'Brazilian-style fried chicken bites',
-
         'Pollo frito al estilo brasileño',
-
         'Morceaux de poulet frit à la brésilienne',
-
         'Bocconcini di pollo fritto alla brasiliana',
-
         'Жареные кусочки курицы по-бразильски',
-
         'נתחי עוף מטוגנים בסגנון ברזילאי',
-
         140
       ],
 
-
       [
         'Filé de frango à milanesa',
-
         'Breaded chicken fillet',
-
         'Filete de pollo empanado',
-
         'Filet de poulet pané',
-
         'Filetto di pollo impanato',
-
         'Куриное филе в панировке',
-
         'פילה עוף מצופה פירורים',
-
         150
       ],
 
-
       [
         'Filé de frango grelhado',
-
         'Grilled chicken fillet',
-
         'Filete de pollo a la parrilla',
-
         'Filet de poulet grillé',
-
         'Filetto di pollo alla griglia',
-
         'Куриное филе на гриле',
-
         'פילה עוף על הגריל',
-
         160
       ],
-
 
       [
         'Carne do sol',
-
         'Sun-dried beef',
-
         'Carne de sol',
-
         'Bœuf séché au soleil',
-
         'Manzo essiccato al sole',
-
         'Вяленая говядина carne do sol',
-
         'בקר מיובש בסגנון carne do sol',
-
         160
       ],
 
-
       [
         'Moqueca de peixe (Vermelho ou Pescada Amarela)',
-
         'Fish moqueca (red snapper or yellow croaker)',
-
         'Moqueca de pescado (pargo rojo o pescada amarilla)',
-
         'Moqueca de poisson (vivaneau rouge ou pescada amarela)',
-
         'Moqueca di pesce (dentice rosso o pescada amarela)',
-
         'Рыбная мокека (красный луциан или pescada amarela)',
-
         'מוקקת דגים (סנאפר אדום או pescada amarela)',
-
         350,
-
         'served2'
       ],
 
-
       [
         'Mariscada (Peixe, Siri, Camarão)',
-
         'Seafood stew (fish, crab, shrimp)',
-
         'Mariscada (pescado, cangrejo, camarón)',
-
         'Ragoût de fruits de mer (poisson, crabe, crevettes)',
-
         'Zuppa di mare (pesce, granchio, gamberi)',
-
         'Морское рагу (рыба, краб, креветки)',
-
         'תבשיל פירות ים (דג, סרטן, שרימפס)',
-
         380
       ],
 
-
       [
         'Lagosta à Provençal',
-
         'Lobster Provençal',
-
         'Langosta a la provenzal',
-
         'Langouste à la provençale',
-
         'Aragosta alla provenzale',
-
         'Лобстер по-провансальски',
-
         'לובסטר בסגנון פרובנס',
-
         380
       ]
 
     ]
   },
 
-
-  /* =======================================================
-     TIRA-GOSTOS / PETISCOS
-  ======================================================== */
 
   {
     cat:'snacks',
@@ -1414,314 +1808,183 @@ const MENU = [
 
       [
         'Camarão empanado com molho tártaro',
-
         'Breaded shrimp with tartar sauce',
-
         'Camarón empanado con salsa tártara',
-
         'Crevettes panées avec sauce tartare',
-
         'Gamberi impanati con salsa tartara',
-
         'Креветки в панировке с соусом тартар',
-
         'שרימפס מצופה עם רוטב טרטר',
-
         150
       ],
 
-
       [
         'Camarão ao alho e óleo',
-
         'Shrimp with garlic and oil',
-
         'Camarón al ajo y aceite',
-
         'Crevettes à l’ail et à l’huile',
-
         'Gamberi aglio e olio',
-
         'Креветки с чесноком и маслом',
-
         'שרימפס עם שום ושמן',
-
         130
       ],
-
 
       [
         'Anéis de lula empanados',
-
         'Breaded calamari rings',
-
         'Aros de calamar empanados',
-
         'Anneaux de calamar panés',
-
         'Anelli di calamaro impanati',
-
         'Кольца кальмара в панировке',
-
         'טבעות קלמרי מצופות',
-
         130
       ],
 
-
       [
         'Isca de peixe (filé de merluza)',
-
         'Fish strips (hake fillet)',
-
         'Tiras de pescado (filete de merluza)',
-
         'Lamelles de poisson (filet de merlu)',
-
         'Strisce di pesce (filetto di nasello)',
-
         'Рыбные полоски (филе хека)',
-
         'רצועות דג (פילה הייק)',
-
         140
       ],
-
 
       [
         'Pititinga',
-
         'Pititinga (small fried fish)',
-
         'Pititinga (pescaditos fritos)',
-
         'Pititinga (petits poissons frits)',
-
         'Pititinga (piccoli pesci fritti)',
-
         'Пититинга (мелкая жареная рыба)',
-
         'פיטיטינגה (דגים קטנים מטוגנים)',
-
         100
       ],
 
-
       [
         'Casquinha de siri',
-
         'Crab meat served in the shell',
-
         'Carne de cangrejo servida en su concha',
-
         'Chair de crabe servie dans sa coquille',
-
         'Polpa di granchio servita nel guscio',
-
         'Крабовое мясо в раковине',
-
         'בשר סרטן מוגש בקונכייה',
-
         90
       ],
-
 
       [
         'Lambreta',
-
         'Lambreta (local shellfish)',
-
         'Lambreta (marisco local)',
-
         'Lambreta (coquillage local)',
-
         'Lambreta (mollusco locale)',
-
         'Ламбрета (местный моллюск)',
-
         'למברטה (רכיכה מקומית)',
-
         80
       ],
-
 
       [
         'Bolinho de bacalhau (8 unidades)',
-
         'Codfish fritters (8 pieces)',
-
         'Buñuelos de bacalao (8 unidades)',
-
         'Beignets de morue (8 pièces)',
-
         'Crocchette di baccalà (8 pezzi)',
-
         'Крокеты из трески (8 шт.)',
-
         'כדורי בקלה (8 יחידות)',
-
         65
       ],
 
-
       [
         'Bolinho de camarão (6 unidades)',
-
         'Shrimp fritters (6 pieces)',
-
         'Buñuelos de camarón (6 unidades)',
-
         'Beignets de crevettes (6 pièces)',
-
         'Crocchette di gamberi (6 pezzi)',
-
         'Крокеты с креветками (6 шт.)',
-
         'כדורי שרימפס (6 יחידות)',
-
         75
       ],
 
-
       [
         'Carne do sol com fritas',
-
         'Sun-dried beef with fries',
-
         'Carne de sol con papas fritas',
-
         'Bœuf séché avec frites',
-
         'Carne do sol con patatine fritte',
-
         'Вяленая говядина с картофелем фри',
-
         'בקר מיובש עם צ׳יפס',
-
         140
       ],
-
 
       [
         'Carne do sol com aipim frito',
-
         'Sun-dried beef with fried cassava',
-
         'Carne de sol con yuca frita',
-
         'Bœuf séché avec manioc frit',
-
         'Carne do sol con manioca fritta',
-
         'Вяленая говядина с жареной маниокой',
-
         'בקר מיובש עם קסאווה מטוגנת',
-
         140
       ],
-
 
       [
         'Prato de frutas',
-
         'Fruit platter',
-
         'Plato de frutas',
-
         'Assiette de fruits',
-
         'Piatto di frutta',
-
         'Фруктовая тарелка',
-
         'צלחת פירות',
-
         80
       ],
 
-
       [
         'Isca de frango',
-
         'Chicken strips',
-
         'Tiras de pollo',
-
         'Lamelles de poulet',
-
         'Strisce di pollo',
-
         'Куриные полоски',
-
         'רצועות עוף',
-
         140
       ],
 
-
       [
         'Tábua de frios',
-
         'Cold cuts board',
-
         'Tabla de fiambres',
-
         'Planche de charcuterie',
-
         'Tagliere di salumi',
-
         'Ассорти мясных закусок',
-
         'מגש נקניקים וגבינות',
-
         90
       ],
 
-
       [
         'Porção de batata frita',
-
         'French fries',
-
         'Porción de papas fritas',
-
         'Portion de frites',
-
         'Porzione di patatine fritte',
-
         'Картофель фри',
-
         'מנת צ׳יפס',
-
         60
       ],
 
-
       [
         'Porção de aipim frito',
-
         'Fried cassava',
-
         'Porción de yuca frita',
-
         'Portion de manioc frit',
-
         'Porzione di manioca fritta',
-
         'Жареная маниока',
-
         'מנת קסאווה מטוגנת',
-
         70
       ]
 
     ]
   },
 
-
-  /* =======================================================
-     CALDOS
-  ======================================================== */
 
   {
     cat:'soups',
@@ -1732,67 +1995,40 @@ const MENU = [
 
       [
         'Caldo de sururu',
-
         'Sururu shellfish broth',
-
         'Caldo de sururu',
-
         'Bouillon de sururu',
-
         'Brodo di sururu',
-
         'Бульон из сурруру',
-
         'מרק סורורו',
-
         50
       ],
 
-
       [
         'Caldo de camarão',
-
         'Shrimp broth',
-
         'Caldo de camarón',
-
         'Bouillon de crevettes',
-
         'Brodo di gamberi',
-
         'Креветочный бульон',
-
         'מרק שרימפס',
-
         60
       ],
 
-
       [
         'Caldo de polvo',
-
         'Octopus broth',
-
         'Caldo de pulpo',
-
         'Bouillon de poulpe',
-
         'Brodo di polpo',
-
         'Бульон из осьминога',
-
         'מרק תמנון',
-
         60
       ]
 
     ]
   },
 
-
-  /* =======================================================
-     SEM ÁLCOOL
-  ======================================================== */
 
   {
     cat:'soft',
@@ -1803,162 +2039,95 @@ const MENU = [
 
       [
         'Refrigerante lata',
-
         'Canned soft drink',
-
         'Refresco en lata',
-
         'Soda en canette',
-
         'Bibita in lattina',
-
         'Газировка в банке',
-
         'משקה קל בפחית',
-
         10
       ],
-
 
       [
         'Refrigerante litro',
-
         '1-liter soft drink',
-
         'Refresco de 1 litro',
-
         'Soda 1 litre',
-
         'Bibita da 1 litro',
-
         'Газировка 1 л',
-
         'משקה קל 1 ליטר',
-
         20
       ],
 
-
       [
         'H2O',
-
         'H2O',
-
         'H2O',
-
         'H2O',
-
         'H2O',
-
         'H2O',
-
         'H2O',
-
         10
       ],
-
 
       [
         'Água com gás',
-
         'Sparkling water',
-
         'Agua con gas',
-
         'Eau gazeuse',
-
         'Acqua frizzante',
-
         'Газированная вода',
-
         'מים מוגזים',
-
         10
       ],
-
 
       [
         'Água sem gás',
-
         'Still water',
-
         'Agua sin gas',
-
         'Eau plate',
-
         'Acqua naturale',
-
         'Негазированная вода',
-
         'מים ללא גז',
-
         7
       ],
 
-
       [
         'Água de coco',
-
         'Coconut water',
-
         'Agua de coco',
-
         'Eau de coco',
-
         'Acqua di cocco',
-
         'Кокосовая вода',
-
         'מי קוקוס',
-
         10
       ],
 
-
       [
         'Suco natural da fruta',
-
         'Fresh fruit juice',
-
         'Jugo natural de fruta',
-
         'Jus de fruit frais',
-
         'Succo di frutta fresco',
-
         'Свежий фруктовый сок',
-
         'מיץ פירות טבעי',
-
         35
       ],
 
-
       [
         'Red Bull 250 ml',
-
         'Red Bull 250 ml',
-
         'Red Bull 250 ml',
-
         'Red Bull 250 ml',
-
         'Red Bull 250 ml',
-
         'Red Bull 250 мл',
-
         'Red Bull 250 מ״ל',
-
         20
       ]
 
     ]
   },
 
-
-  /* =======================================================
-     CERVEJAS
-  ======================================================== */
 
   {
     cat:'beers',
@@ -1969,219 +2138,128 @@ const MENU = [
 
       [
         'Stella Artois Long Neck',
-
         'Stella Artois Long Neck',
-
         'Stella Artois Long Neck',
-
         'Stella Artois Long Neck',
-
         'Stella Artois Long Neck',
-
         'Stella Artois Long Neck',
-
         'Stella Artois Long Neck',
-
         20
       ],
-
 
       [
         'Corona Long Neck',
-
         'Corona Long Neck',
-
         'Corona Long Neck',
-
         'Corona Long Neck',
-
         'Corona Long Neck',
-
         'Corona Long Neck',
-
         'Corona Long Neck',
-
         20
       ],
-
 
       [
         'Skol Latão 473 ml',
-
         'Skol 473 ml can',
-
         'Skol lata 473 ml',
-
         'Skol canette 473 ml',
-
         'Skol lattina 473 ml',
-
         'Skol 473 мл',
-
         'Skol 473 מ״ל',
-
         14
       ],
-
 
       [
         'Itaipava Latão 473 ml',
-
         'Itaipava 473 ml can',
-
         'Itaipava lata 473 ml',
-
         'Itaipava canette 473 ml',
-
         'Itaipava lattina 473 ml',
-
         'Itaipava 473 мл',
-
         'Itaipava 473 מ״ל',
-
         13
       ],
 
-
       [
         'Brahma Chopp 473 ml',
-
         'Brahma Chopp 473 ml',
-
         'Brahma Chopp 473 ml',
-
         'Brahma Chopp 473 ml',
-
         'Brahma Chopp 473 ml',
-
         'Brahma Chopp 473 мл',
-
         'Brahma Chopp 473 מ״ל',
-
         14
       ],
 
-
       [
         'Brahma Duplo Malte 350 ml',
-
         'Brahma Duplo Malte 350 ml',
-
         'Brahma Duplo Malte 350 ml',
-
         'Brahma Duplo Malte 350 ml',
-
         'Brahma Duplo Malte 350 ml',
-
         'Brahma Duplo Malte 350 мл',
-
         'Brahma Duplo Malte 350 מ״ל',
-
         12
       ],
 
-
       [
         'Devassa 350 ml',
-
         'Devassa 350 ml',
-
         'Devassa 350 ml',
-
         'Devassa 350 ml',
-
         'Devassa 350 ml',
-
         'Devassa 350 мл',
-
         'Devassa 350 מ״ל',
-
         12
       ],
 
-
       [
         'Amstel 350 ml',
-
         'Amstel 350 ml',
-
         'Amstel 350 ml',
-
         'Amstel 350 ml',
-
         'Amstel 350 ml',
-
         'Amstel 350 мл',
-
         'Amstel 350 מ״ל',
-
         13
       ],
 
-
       [
         'Heineken Long Neck 330 ml',
-
         'Heineken Long Neck 330 ml',
-
         'Heineken Long Neck 330 ml',
-
         'Heineken Long Neck 330 ml',
-
         'Heineken Long Neck 330 ml',
-
         'Heineken Long Neck 330 мл',
-
         'Heineken Long Neck 330 מ״ל',
-
         20
       ],
 
-
       [
         'Eisenbahn Long Neck',
-
         'Eisenbahn Long Neck',
-
         'Eisenbahn Long Neck',
-
         'Eisenbahn Long Neck',
-
         'Eisenbahn Long Neck',
-
         'Eisenbahn Long Neck',
-
         'Eisenbahn Long Neck',
-
         20
       ],
 
-
       [
         'Budweiser Long Neck',
-
         'Budweiser Long Neck',
-
         'Budweiser Long Neck',
-
         'Budweiser Long Neck',
-
         'Budweiser Long Neck',
-
         'Budweiser Long Neck',
-
         'Budweiser Long Neck',
-
         20
       ]
 
     ]
   },
 
-
-  /* =======================================================
-     DRINKS E DOSES
-  ======================================================== */
 
   {
     cat:'drinks',
@@ -2192,304 +2270,177 @@ const MENU = [
 
       [
         'Smirnoff Ice',
-
         'Smirnoff Ice',
-
         'Smirnoff Ice',
-
         'Smirnoff Ice',
-
         'Smirnoff Ice',
-
         'Smirnoff Ice',
-
         'Smirnoff Ice',
-
         18
       ],
 
-
       [
         'Skol Beats',
-
         'Skol Beats',
-
         'Skol Beats',
-
         'Skol Beats',
-
         'Skol Beats',
-
         'Skol Beats',
-
         'Skol Beats',
-
         16
       ],
 
-
       [
         'Piña Colada',
-
         'Piña Colada',
-
         'Piña Colada',
-
         'Piña Colada',
-
         'Piña Colada',
-
         'Пина колада',
-
         'פינה קולדה',
-
         80
       ],
 
-
       [
         'Campari',
-
         'Campari',
-
         'Campari',
-
         'Campari',
-
         'Campari',
-
         'Кампари',
-
         'קמפרי',
-
         30
       ],
 
-
       [
         'Whisky Red Label',
-
         'Whisky Red Label',
-
         'Whisky Red Label',
-
         'Whisky Red Label',
-
         'Whisky Red Label',
-
         'Виски Red Label',
-
         'וויסקי Red Label',
-
         50
       ],
 
-
       [
         'Whisky Black Label',
-
         'Whisky Black Label',
-
         'Whisky Black Label',
-
         'Whisky Black Label',
-
         'Whisky Black Label',
-
         'Виски Black Label',
-
         'וויסקי Black Label',
-
         65
       ],
 
-
       [
         'Whisky Teacher’s',
-
         'Whisky Teacher’s',
-
         'Whisky Teacher’s',
-
         'Whisky Teacher’s',
-
         'Whisky Teacher’s',
-
         'Виски Teacher’s',
-
         'וויסקי Teacher’s',
-
         50
       ],
 
-
       [
         'Vodka Slova',
-
         'Vodka Slova',
-
         'Vodka Slova',
-
         'Vodka Slova',
-
         'Vodka Slova',
-
         'Водка Slova',
-
         'וודקה Slova',
-
         10
       ],
 
-
       [
         'Vodka Smirnoff ou Orloff',
-
         'Vodka Smirnoff or Orloff',
-
         'Vodka Smirnoff u Orloff',
-
         'Vodka Smirnoff ou Orloff',
-
         'Vodka Smirnoff o Orloff',
-
         'Водка Smirnoff или Orloff',
-
         'וודקה Smirnoff או Orloff',
-
         15
       ],
 
-
       [
         'Cachaça 51',
-
         'Cachaça 51',
-
         'Cachaça 51',
-
         'Cachaça 51',
-
         'Cachaça 51',
-
         'Кашаса 51',
-
         'קשאסה 51',
-
         10
       ],
 
-
       [
         'Velho Barreiro',
-
         'Velho Barreiro',
-
         'Velho Barreiro',
-
         'Velho Barreiro',
-
         'Velho Barreiro',
-
         'Velho Barreiro',
-
         'Velho Barreiro',
-
         15
       ],
 
-
       [
         'Cachaça Ipioca',
-
         'Cachaça Ipioca',
-
         'Cachaça Ipioca',
-
         'Cachaça Ipioca',
-
         'Cachaça Ipioca',
-
         'Кашаса Ipioca',
-
         'קשאסה Ipioca',
-
         15
       ],
-
 
       [
         'Caipirosca Smirnoff ou Orloff',
-
         'Caipiroska with Smirnoff or Orloff',
-
         'Caipiroska con Smirnoff u Orloff',
-
         'Caipiroska avec Smirnoff ou Orloff',
-
         'Caipiroska con Smirnoff o Orloff',
-
         'Кайпироска со Smirnoff или Orloff',
-
         'קאיפירוסקה עם Smirnoff או Orloff',
-
         45
       ],
 
-
       [
         'Caipirosca Slova',
-
         'Caipiroska with Slova',
-
         'Caipiroska con Slova',
-
         'Caipiroska avec Slova',
-
         'Caipiroska con Slova',
-
         'Кайпироска со Slova',
-
         'קאיפירוסקה עם Slova',
-
         35
       ],
 
-
       [
         'Caipirinha 51',
-
         'Caipirinha with Cachaça 51',
-
         'Caipirinha con Cachaça 51',
-
         'Caipirinha avec Cachaça 51',
-
         'Caipirinha con Cachaça 51',
-
         'Кайпиринья с Cachaça 51',
-
         'קאיפיריניה עם Cachaça 51',
-
         40
       ],
 
-
       [
         'Caipirinha Velho Barreiro',
-
         'Caipirinha with Velho Barreiro',
-
         'Caipirinha con Velho Barreiro',
-
         'Caipirinha avec Velho Barreiro',
-
         'Caipirinha con Velho Barreiro',
-
         'Кайпиринья с Velho Barreiro',
-
         'קאיפיריניה עם Velho Barreiro',
-
         40
       ]
 
@@ -2500,12 +2451,229 @@ const MENU = [
 
 
 /* =========================================================
+   PASSEIOS
+========================================================= */
+
+const TOURS = [
+
+  {
+    icon:'🥁',
+
+    names:{
+
+      pt:
+        'Pelourinho Afro Tour',
+
+      en:
+        'Pelourinho Afro Tour',
+
+      es:
+        'Tour Afro por Pelourinho',
+
+      fr:
+        'Tour afro de Pelourinho',
+
+      it:
+        'Tour Afro di Pelourinho',
+
+      ru:
+        'Афро-тур по Пелоуриньо',
+
+      he:
+        'סיור אפרו בפלוריניו'
+
+    }
+  },
+
+
+  {
+    icon:'🏝️',
+
+    names:{
+
+      pt:
+        'Ilha dos Frades',
+
+      en:
+        'Ilha dos Frades',
+
+      es:
+        'Ilha dos Frades',
+
+      fr:
+        'Ilha dos Frades',
+
+      it:
+        'Ilha dos Frades',
+
+      ru:
+        'Остров Илья-дус-Фрадис',
+
+      he:
+        'אילה דוס פראדס'
+
+    }
+  },
+
+
+  {
+    icon:'🏖️',
+
+    names:{
+
+      pt:
+        'Praia do Forte',
+
+      en:
+        'Praia do Forte',
+
+      es:
+        'Praia do Forte',
+
+      fr:
+        'Praia do Forte',
+
+      it:
+        'Praia do Forte',
+
+      ru:
+        'Прайя-ду-Форте',
+
+      he:
+        'פראיה דו פורטה'
+
+    }
+  },
+
+
+  {
+    icon:'🚶',
+
+    names:{
+
+      pt:
+        'Centro Histórico Free Walking Tour',
+
+      en:
+        'Historic Center Free Walking Tour',
+
+      es:
+        'Free Walking Tour por el Centro Histórico',
+
+      fr:
+        'Free Walking Tour du Centre Historique',
+
+      it:
+        'Free Walking Tour del Centro Storico',
+
+      ru:
+        'Бесплатная пешеходная экскурсия по историческому центру',
+
+      he:
+        'סיור רגלי חינמי במרכז ההיסטורי'
+
+    }
+  },
+
+
+  {
+    icon:'🌊',
+
+    names:{
+
+      pt:
+        'Morro de São Paulo',
+
+      en:
+        'Morro de São Paulo',
+
+      es:
+        'Morro de São Paulo',
+
+      fr:
+        'Morro de São Paulo',
+
+      it:
+        'Morro de São Paulo',
+
+      ru:
+        'Морру-ди-Сан-Паулу',
+
+      he:
+        'מורו דה סאו פאולו'
+
+    }
+  },
+
+
+  {
+    icon:'🚐',
+
+    names:{
+
+      pt:
+        'Transfer Chapada Diamantina',
+
+      en:
+        'Chapada Diamantina Transfer',
+
+      es:
+        'Transfer a Chapada Diamantina',
+
+      fr:
+        'Transfert vers Chapada Diamantina',
+
+      it:
+        'Transfer per Chapada Diamantina',
+
+      ru:
+        'Трансфер в Шапада-Диамантина',
+
+      he:
+        'הסעה לשפאדה דיאמנטינה'
+
+    }
+  },
+
+
+  {
+    icon:'🚁',
+
+    names:{
+
+      pt:
+        'Passeio de Helicóptero',
+
+      en:
+        'Helicopter Tour',
+
+      es:
+        'Paseo en Helicóptero',
+
+      fr:
+        'Tour en Hélicoptère',
+
+      it:
+        'Tour in Elicottero',
+
+      ru:
+        'Вертолётная экскурсия',
+
+      he:
+        'סיור במסוק'
+
+    }
+  }
+
+];
+
+
+/* =========================================================
    CONFIGURAÇÃO
 ========================================================= */
 
-let currentLang = 'pt';
-
-let currentFilter = 'all';
+let currentLang =
+  'pt';
 
 
 const langIndex = {
@@ -2525,6 +2693,18 @@ const langIndex = {
   he:6
 
 };
+
+
+/* Número do Pix / contato */
+
+const PIX_COPY_NUMBER =
+  '+5571992670738';
+
+
+/* WhatsApp dos passeios */
+
+const TOUR_WHATSAPP =
+  '5571993719791';
 
 
 /* =========================================================
@@ -2555,7 +2735,8 @@ function buildLanguages(){
 
       <button
         class="lang-btn ${code === currentLang ? 'active' : ''}"
-        data-lang="${code}">
+        data-lang="${code}"
+        type="button">
 
         ${label}
 
@@ -2597,18 +2778,17 @@ function buildLanguages(){
 
 
 /* =========================================================
-   FILTROS
+   NAVEGAÇÃO DO CARDÁPIO
+   NÃO REMOVE NENHUMA SEÇÃO
 ========================================================= */
 
-function buildFilters(){
+function buildCategoryNav(){
 
   const t =
     UI[currentLang];
 
 
-  const filters = [
-
-    'all',
+  const categories = [
 
     'meals',
 
@@ -2620,21 +2800,24 @@ function buildFilters(){
 
     'beers',
 
-    'drinks'
+    'drinks',
+
+    'tours'
 
   ];
 
 
   const element =
-    document.getElementById('filters');
+    document.getElementById('categoryNav');
 
 
   element.innerHTML =
-    filters.map(category => `
+    categories.map(category => `
 
       <button
-        class="filter-btn ${category === currentFilter ? 'active' : ''}"
-        data-filter="${category}">
+        class="nav-btn"
+        data-target="section-${category}"
+        type="button">
 
         ${t[category]}
 
@@ -2651,13 +2834,23 @@ function buildFilters(){
         'click',
         () => {
 
-          currentFilter =
-            button.dataset.filter;
+          const target =
+            document.getElementById(
+              button.dataset.target
+            );
 
 
-          renderMenu();
+          if(target){
 
-          buildFilters();
+            target.scrollIntoView({
+
+              behavior:'smooth',
+
+              block:'start'
+
+            });
+
+          }
 
         }
       );
@@ -2681,34 +2874,44 @@ function renderMenu(){
     langIndex[currentLang];
 
 
-  const visibleSections =
-    MENU.filter(section =>
+  /*
+    A numeração é única e permanece a mesma
+    independentemente do idioma escolhido.
+  */
 
-      currentFilter === 'all'
-
-      ||
-
-      section.cat === currentFilter
-
-    );
+  let number =
+    0;
 
 
-  document.getElementById('menu').innerHTML =
-    visibleSections.map(section => {
+  document
+    .getElementById('menu')
+    .innerHTML =
+
+    MENU.map(section => {
 
 
       const note =
         section.note
+
         ? `
           <div class="section-note">
             ${t[section.note]}
           </div>
         `
+
         : '';
 
 
       const items =
         section.items.map(item => {
+
+
+          number += 1;
+
+
+          const code =
+            String(number)
+              .padStart(2,'0');
 
 
           const extraNote =
@@ -2727,6 +2930,16 @@ function renderMenu(){
 
             <div class="menu-item">
 
+
+              <span
+                class="item-number"
+                aria-label="Item ${code}">
+
+                ${code}
+
+              </span>
+
+
               <div class="item-name">
 
                 ${item[index]}
@@ -2742,6 +2955,7 @@ function renderMenu(){
 
               </div>
 
+
             </div>
 
           `;
@@ -2752,10 +2966,12 @@ function renderMenu(){
       return `
 
         <article
+          id="section-${section.cat}"
           class="section-card ${section.cat === 'meals' ? 'full' : ''}">
 
 
           <div class="section-head">
+
 
             <h2 class="section-title">
 
@@ -2770,6 +2986,7 @@ function renderMenu(){
 
             </div>
 
+
           </div>
 
 
@@ -2782,6 +2999,7 @@ function renderMenu(){
 
           </div>
 
+
         </article>
 
       `;
@@ -2792,7 +3010,196 @@ function renderMenu(){
 
 
 /* =========================================================
-   RENDERIZAÇÃO GERAL
+   PASSEIOS
+========================================================= */
+
+function renderTours(){
+
+  const t =
+    UI[currentLang];
+
+
+  document
+    .getElementById('toursTitle')
+    .textContent =
+    t.tours;
+
+
+  document
+    .getElementById('toursIntro')
+    .textContent =
+    t.toursIntro;
+
+
+  document
+    .getElementById('tourScroll')
+    .innerHTML =
+
+    TOURS.map(tour => {
+
+
+      const tourName =
+        tour.names[currentLang]
+        ||
+        tour.names.pt;
+
+
+      const message =
+        t.whatsapp.replace(
+          '{tour}',
+          tourName
+        );
+
+
+      const url =
+        `https://wa.me/${TOUR_WHATSAPP}?text=${encodeURIComponent(message)}`;
+
+
+      return `
+
+        <article class="tour-card">
+
+
+          <div>
+
+
+            <div class="tour-icon">
+
+              ${tour.icon}
+
+            </div>
+
+
+            <h3>
+
+              ${tourName}
+
+            </h3>
+
+
+          </div>
+
+
+          <a
+            class="tour-cta"
+            href="${url}"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            ${t.redeem} · WhatsApp
+
+          </a>
+
+
+        </article>
+
+      `;
+
+    }).join('');
+
+}
+
+
+/* =========================================================
+   COPIAR PIX / CONTATO
+========================================================= */
+
+async function copyPix(){
+
+  const t =
+    UI[currentLang];
+
+
+  const status =
+    document.getElementById('copyStatus');
+
+
+  try{
+
+
+    if(
+      navigator.clipboard
+      &&
+      window.isSecureContext
+    ){
+
+      await navigator.clipboard.writeText(
+        PIX_COPY_NUMBER
+      );
+
+    }
+
+    else{
+
+
+      const input =
+        document.createElement('textarea');
+
+
+      input.value =
+        PIX_COPY_NUMBER;
+
+
+      input.setAttribute(
+        'readonly',
+        ''
+      );
+
+
+      input.style.position =
+        'fixed';
+
+
+      input.style.opacity =
+        '0';
+
+
+      document.body.appendChild(
+        input
+      );
+
+
+      input.select();
+
+
+      document.execCommand(
+        'copy'
+      );
+
+
+      input.remove();
+
+    }
+
+
+    status.textContent =
+      t.copied;
+
+
+    setTimeout(
+      () => {
+
+        status.textContent =
+          '';
+
+      },
+      2200
+    );
+
+  }
+
+  catch(error){
+
+    status.textContent =
+      t.copyFail;
+
+  }
+
+}
+
+
+/* =========================================================
+   RENDERIZAÇÃO
 ========================================================= */
 
 function render(){
@@ -2817,6 +3224,12 @@ function render(){
     .getElementById('pixLabel')
     .textContent =
     t.pix;
+
+
+  document
+    .getElementById('copyPixBtn')
+    .textContent =
+    t.copy;
 
 
   document
@@ -2855,13 +3268,33 @@ function render(){
     t.footer;
 
 
+  document
+    .getElementById('copyStatus')
+    .textContent =
+    '';
+
+
   buildLanguages();
 
-  buildFilters();
+  buildCategoryNav();
 
   renderMenu();
 
+  renderTours();
+
 }
+
+
+/* =========================================================
+   BOTÃO COPIAR
+========================================================= */
+
+document
+  .getElementById('copyPixBtn')
+  .addEventListener(
+    'click',
+    copyPix
+  );
 
 
 /* =========================================================
