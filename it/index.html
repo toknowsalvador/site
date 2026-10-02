@@ -3602,6 +3602,67 @@
   }
 </style>
 
+<style id="original-hero-button-colors">
+.hero-actions > #openOldTownReservation {
+  width: min(100%, 430px);
+  background: linear-gradient(180deg, #e4c15f 0%, #d4ad3f 100%);
+  color: #111111;
+  border: 1px solid rgba(255, 226, 139, 0.72);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+.hero-actions > #openOldTownReservation:hover {
+  background: linear-gradient(180deg, #e8c96e 0%, #d7b24b 100%);
+}
+.hero-actions > #freeWalkingAccessButton {
+  width: min(100%, 430px);
+  background: rgba(5, 5, 5, 0.84);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.hero-actions > #freeWalkingAccessButton:hover {
+  background: rgba(8, 8, 8, 0.92);
+}
+.hero-actions > .hero-offer > #dayUseFradesButton {
+  background: linear-gradient(135deg, rgba(53, 39, 16, 0.9), rgba(20, 16, 10, 0.94));
+  color: #ead59d;
+  border: 1px solid rgba(234, 213, 157, 0.64);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.hero-actions > .hero-offer > #dayUseFradesButton:hover {
+  background: linear-gradient(135deg, rgba(64, 47, 19, 0.94), rgba(25, 19, 11, 0.96));
+}
+</style>
+<style id="description-and-form-update">
+.free-walking-access a { border-bottom: 0; }
+html { scrollbar-gutter: stable; }
+#freeWalkingDescription, #afroTourDescription {
+  background: linear-gradient(rgba(244,240,232,.83), rgba(244,240,232,.88)), url('/public/IMG_3058.png') center 38% / cover no-repeat;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+#bahiaNightDescription {
+  background: linear-gradient(rgba(244,240,232,.82), rgba(244,240,232,.88)), url('/public/589C6347-9AA5-4747-8438-6E1BA57E74AB.png') center / cover no-repeat;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+#freeWalkingDescription .reservation-dialog,
+#afroTourDescription .reservation-dialog,
+#bahiaNightDescription .reservation-dialog {
+  background: transparent; color: #111111; box-shadow: none;
+  line-height: 1.75; overflow-y: auto;
+}
+#freeWalkingDescription .bahia-night-kicker,
+#afroTourDescription .bahia-night-kicker,
+#bahiaNightDescription .bahia-night-kicker { color: #8b6d29; }
+#freeWalkingDescription .reservation-close,
+#afroTourDescription .reservation-close,
+#bahiaNightDescription .reservation-close { color: #111111; border-color: rgba(17,17,17,.22); }
+.reservation-modal, .old-town-modal, .reservation-dialog, .old-town-dialog,
+.reservation-form, .old-town-form {
+  animation: none !important; transition: none !important;
+  transform: none !important; scroll-behavior: auto;
+}
+.reservation-dialog, .old-town-dialog { scrollbar-gutter: stable; }
+</style>
 </head>
 <body>
 <!-- HERO -->
@@ -3612,37 +3673,12 @@
 <div class="hero-content">
 <div class="hero-actions hero-offers">
 
-<details class="hero-offer">
-<summary class="free-tour-button">MORRO DE SÃO PAULO</summary>
-<div class="hero-offer-info">
-<p><strong>US$60 a persona · Day Use.</strong></p>
-<p><strong>Due orari indipendenti di partenza / prelievo in hotel: 05:20 oppure 09:30.</strong></p>
-<p>Il prelievo in hotel/alloggio è incluso per <strong>entrambi gli orari</strong>.</p>
-<p><strong>Tariffe del Terminal Marittimo di Salvador incluse.</strong></p>
-<p><strong>La tassa ambientale di R$70 non è inclusa.</strong></p>
-<p>Conferma immediata della prenotazione dopo il pagamento.</p>
-<div class="hero-offer-actions">
-<button class="hero-offer-cta excursion-book-button" data-tour="morro" type="button">PRENOTA ORA</button>
-<a aria-label="Richiedi un'opzione privata per Morro de São Paulo su WhatsApp" class="hero-offer-cta hero-private-cta" href="https://wa.me/5571993719791?text=Ciao%21%20Sono%20interessato%20a%20un%27opzione%20privata%20per%20Morro%20de%20S%C3%A3o%20Paulo.%20Potresti%20inviarmi%20disponibilit%C3%A0%20e%20dettagli%3F" rel="noopener noreferrer" target="_blank">OPZIONE PRIVATA</a>
-</div>
-</div>
-</details>
+<button class="free-tour-button" id="openOldTownReservation" type="button">AFRO TOUR OLD TOWN</button>
+
+<a class="free-tour-button" id="freeWalkingAccessButton" href="#freeWalkingDescription" data-description="freeWalkingDescription">Accedi al Free Walking Tour</a>
 
 <details class="hero-offer">
-<summary class="free-tour-button">PRAIA DO FORTE + GUARAJUBA</summary>
-<div class="hero-offer-info">
-<p><strong>US$30 a persona · Day Use.</strong></p>
-<p>Prelievo in hotel/alloggio alle <strong>07:00</strong>.</p>
-<p>Conferma immediata della prenotazione dopo il pagamento.</p>
-<div class="hero-offer-actions">
-<button class="hero-offer-cta excursion-book-button" data-tour="praia" type="button">PRENOTA ORA</button>
-<a aria-label="Richiedi un'opzione privata per Praia do Forte e Guarajuba su WhatsApp" class="hero-offer-cta hero-private-cta" href="https://wa.me/5571993719791?text=Ciao%21%20Sono%20interessato%20a%20un%27opzione%20privata%20per%20Praia%20do%20Forte%20%2B%20Guarajuba.%20Potresti%20inviarmi%20disponibilit%C3%A0%20e%20dettagli%3F" rel="noopener noreferrer" target="_blank">OPZIONE PRIVATA</a>
-</div>
-</div>
-</details>
-
-<details class="hero-offer">
-<summary class="free-tour-button">ILHA DE ITAPARICA + ILHA DOS FRADES</summary>
+<summary class="free-tour-button" id="dayUseFradesButton">DAY USE ILHA DOS FRADES</summary>
 <div class="hero-offer-info">
 <p><strong>US$30 a persona · Day Use.</strong></p>
 <p>Prelievo in hotel/alloggio alle <strong>07:00</strong>.</p>
@@ -3650,7 +3686,6 @@
 <p>Conferma immediata della prenotazione dopo il pagamento.</p>
 <div class="hero-offer-actions">
 <button class="hero-offer-cta excursion-book-button" data-tour="ilhas" type="button">PRENOTA ORA</button>
-<a aria-label="Richiedi un'opzione privata per Itaparica e Ilha dos Frades su WhatsApp" class="hero-offer-cta hero-private-cta" href="https://wa.me/5571993719791?text=Ciao%21%20Sono%20interessato%20a%20un%27opzione%20privata%20per%20Itaparica%20%2B%20Ilha%20dos%20Frades.%20Potresti%20inviarmi%20disponibilit%C3%A0%20e%20dettagli%3F" rel="noopener noreferrer" target="_blank">OPZIONE PRIVATA</a>
 </div>
 </div>
 </details>
@@ -3694,19 +3729,30 @@
 <a class="language-button" href="/he/">🇮🇱 Ebraico</a>
 </nav>
 <div class="afro-tour-minimal">
-<button class="afro-tour-minimal-button" id="openOldTownReservation" type="button">AFRO TOUR OLD TOWN</button>
+<details class="hero-offer">
+<summary class="afro-tour-minimal-button" style="border-bottom:0">MORRO DE SÃO PAULO</summary>
+<div class="hero-offer-info">
+<p><strong>US$60 a persona · Day Use.</strong></p>
+<p><strong>Due orari indipendenti di partenza / prelievo in hotel: 05:20 oppure 09:30.</strong></p>
+<p>Il prelievo in hotel/alloggio è incluso per <strong>entrambi gli orari</strong>.</p>
+<p><strong>Tariffe del Terminal Marittimo di Salvador incluse.</strong></p>
+<p><strong>La tassa ambientale di R$70 non è inclusa.</strong></p>
+<p>Conferma immediata della prenotazione dopo il pagamento.</p>
+<div class="hero-offer-actions">
+<button class="hero-offer-cta excursion-book-button" data-tour="morro" type="button">PRENOTA ORA</button>
+</div>
+</div>
+</details>
 </div>
 </div>
 </section>
 <div class="free-walking-access">
 <div class="container">
-<a aria-label="Modulo di accesso al Free Walking Tour" href="https://docs.google.com/forms/d/e/1FAIpQLSeNEuT8lhgCT6F2dMunEJ8a64QnLSmTa0v5uKMLwRiynwehXg/viewform?usp=header" rel="noopener noreferrer" target="_blank">
-        Accedi al Free Walking Tour
-      </a>
+<a href="https://wa.me/5571993719791" target="_blank" rel="noopener noreferrer">PARLA SU WHATSAPP</a>
 </div>
 </div>
 
-<!-- PRENOTAZIONE ESCURSIONI — MORRO / PRAIA DO FORTE + GUARAJUBA / ITAPARICA + FRADES / BOIPEBA -->
+<!-- PRENOTAZIONI ESCURSIONI -->
 <div class="reservation-modal" hidden="" id="excursionModal">
 <div aria-labelledby="excursionReservationTitle" aria-modal="true" class="reservation-dialog" role="dialog">
 <div class="reservation-dialog-header">
@@ -3860,7 +3906,7 @@ Il link PayPal per questa escursione non è ancora stato collegato.
       paypalUrl: ""
     },
     ilhas: {
-      name: "Ilha de Itaparica + Ilha dos Frades",
+      name: "Ilha dos Frades — Escursione giornaliera",
       price: 30,
       currency: "US$",
       type: "Day Use",
@@ -3990,7 +4036,7 @@ Il link PayPal per questa escursione non è ancora stato collegato.
     modal.hidden = false;
     document.body.style.overflow = "hidden";
     if (dialog) dialog.scrollTop = 0;
-    setTimeout(() => document.getElementById("excursionHotel")?.focus(), 0);
+    setTimeout(() => document.getElementById("excursionHotel")?.focus({preventScroll:true}), 0);
   }
 
   function closeModal() {
@@ -4025,14 +4071,14 @@ Il link PayPal per questa escursione non è ancora stato collegato.
     if (!validWhatsApp(phoneInput.value)) {
       errorBox.textContent = "Inserisci un numero WhatsApp valido con prefisso internazionale.";
       errorBox.hidden = false;
-      phoneInput.focus();
+      phoneInput.focus({preventScroll:true});
       return;
     }
 
     if (selectedTour?.name === "Morro de São Paulo" && !departureSelect.value) {
       errorBox.textContent = "Scegli l'orario di partenza / prelievo in hotel per Morro de São Paulo: 05:20 oppure 09:30.";
       errorBox.hidden = false;
-      departureSelect.focus();
+      departureSelect.focus({preventScroll:true});
       return;
     }
 
@@ -4122,9 +4168,7 @@ Il link PayPal per questa escursione non è ancora stato collegato.
 <span>✅ Prenota ora per assicurarti il posto.</span>
 </div>
 <div class="bahia-night-actions">
-<button class="bahia-night-book" id="openBahiaNightReservation" type="button">
-            PRENOTA ORA — ASSICURATI IL POSTO
-          </button>
+<button class="bahia-night-book" data-description="bahiaNightDescription" type="button">Che cos’è Bahia Night?</button>
 <details class="bahia-night-buffet">
 <summary>🍽️ Vedi il Buffet</summary>
 <div class="bahia-night-buffet-menu">
@@ -4141,6 +4185,18 @@ Il link PayPal per questa escursione non è ancora stato collegato.
 </div>
 </section>
 <!-- BAHIA NIGHT RESERVATION -->
+<div class="reservation-modal" hidden id="freeWalkingDescription"><div class="reservation-dialog" role="dialog" aria-modal="true" aria-label="Free Walking Tour" tabindex="-1" style="width:100%;height:100%;max-height:100%;border-radius:0"><div class="reservation-dialog-header"><p class="bahia-night-kicker">Free Walking Tour</p><button class="reservation-close" type="button" data-close-description aria-label="Chiudi">×</button></div><h2>Descrizione completa</h2><p>Scopri il cuore del Brasile con un’esperienza culturale guidata attraverso il Centro Storico di Salvador e la cucina tradizionale bahiana.</p>
+<p>Visita luoghi iconici come l’Elevador Lacerda, la prima strada del Brasile, il Monumento alla Croce Caduta, la prima Facoltà di Medicina del paese e l’imponente Chiesa di São Francisco, conosciuta come la «Chiesa d’Oro».</p>
+<p>Incontra la tua guida nella Praça Castro Alves, dove potrai ammirare splendide viste sulla Baia di Tutti i Santi e sulle sue isole. Prosegui lungo Rua Chile, la prima strada del Brasile, e fermati al Pau da Bandeira per goderti uno dei panorami più belli di Salvador.</p>
+<p>Esplora la Praça Thomé de Souza, che ospitava la prima sede del governo nel Brasile coloniale, e ammira l’Elevador Lacerda, che collega la Città Alta alla Città Bassa. Continua verso la Praça da Sé, dove scoprirai l’antica Cattedrale di Salvador, il Monumento alla Croce Caduta, il primo vescovo del Brasile e Zumbi dos Palmares, uno dei maggiori simboli della resistenza alla schiavitù.</p>
+<p>Passeggia nel Terreiro de Jesus, scopri la prima Facoltà di Medicina del Brasile e ammira le importanti chiese che hanno contribuito a plasmare la storia della città. Visita il Largo do Cruzeiro de São Francisco e la magnifica Chiesa d’Oro prima di passare davanti alla sede di Olodum e alla famosa Ladeira do Pelourinho, dove Michael Jackson girò parte del video di «They Don’t Care About Us».</p>
+<p>Scopri la Confraternita degli Uomini Neri, la resistenza afrobrasiliana, la religione, la cultura e il ruolo di Salvador nella formazione del Brasile.</p><a class="bahia-night-book" href="https://docs.google.com/forms/d/e/1FAIpQLSeNEuT8lhgCT6F2dMunEJ8a64QnLSmTa0v5uKMLwRiynwehXg/viewform?usp=header" rel="noopener noreferrer" target="_blank">COMPILA IL MODULO</a></div></div><div class="reservation-modal" hidden id="bahiaNightDescription"><div class="reservation-dialog" role="dialog" aria-modal="true" aria-label="Bahia Night" tabindex="-1" style="width:100%;height:100%;max-height:100%;border-radius:0"><div class="reservation-dialog-header"><p class="bahia-night-kicker">Bahia Night</p><button class="reservation-close" type="button" data-close-description aria-label="Chiudi">×</button></div><h2>Lo spettacolo culturale</h2><p>Lo spettacolo artistico è affidato al tradizionale <strong>Balé Folclórico Topázio</strong>, un gruppo con oltre 40 anni di storia che porta in scena circa 16–25 artisti, tra ballerini, musicisti, cantanti e capoeiristi. Lo spettacolo è un’immersione nelle radici ancestrali e nella mitologia afrobahiana, con:</p>
+<ul><li><strong>Danze degli Orixás:</strong> Rappresentazioni sceniche delle divinità del Candomblé, come Iansã, Xangô e Iemanjá, con costumi suggestivi e coreografie mistiche.</li>
+<li><strong>Capoeira e Maculelê:</strong> Esibizioni elettrizzanti che uniscono lotta, danza e il suono ritmico dei berimbau e dei tamburi atabaque.</li>
+<li><strong>Puxada de Rede e Samba de Roda:</strong> Manifestazioni del folclore popolare e costiero che celebrano la vita quotidiana dei pescatori e l’allegria del Nordest brasiliano.</li></ul>
+<p><strong>Inclusi:</strong> prelievo e rientro in hotel, cena a buffet e spettacolo culturale. Trasporto in un veicolo con aria condizionata e autista autorizzato.</p><button class="bahia-night-book" id="openBahiaNightReservation" type="button">PRENOTA ORA — ASSICURATI IL TUO POSTO</button></div></div><div class="reservation-modal" hidden id="afroTourDescription"><div class="reservation-dialog" role="dialog" aria-modal="true" aria-label="Afro Tour Old Town" tabindex="-1" style="width:100%;height:100%;max-height:100%;border-radius:0"><div class="reservation-dialog-header"><p class="bahia-night-kicker">Afro Tour Old Town</p><button class="reservation-close" type="button" data-close-description aria-label="Chiudi">×</button></div><h2>Scopri il patrimonio africano di Salvador</h2><p>Scopri le profonde influenze africane che hanno plasmato l’identità di Salvador attraverso un viaggio storico nel Pelourinho e nel Centro Storico della città, che ospitano uno dei più grandi e straordinari complessi di architettura coloniale dell’America Latina.</p>
+<p>Passeggiando tra strade secolari, chiese, piazze ed edifici colorati, esplora le storie, le tradizioni, i simboli e le espressioni culturali legati al patrimonio afrobrasiliano di Salvador. Scopri come i popoli africani e i loro discendenti abbiano profondamente influenzato la religione, la musica, la cucina, la lingua, l’arte, i movimenti di resistenza e la vita quotidiana della città.</p>
+<p>Più di una visita ai monumenti storici, questa esperienza offre una comprensione più profonda di Salvador attraverso l’eredità africana che continua a definirne la cultura e l’identità ancora oggi.</p><button class="bahia-night-book" id="afroDescriptionBook" type="button">PRENOTA ORA</button></div></div>
 <div class="reservation-modal" hidden="" id="bahiaNightModal">
 <div aria-labelledby="bahiaNightReservationTitle" aria-modal="true" class="reservation-dialog" role="dialog">
 <div class="reservation-dialog-header">
@@ -4325,7 +4381,7 @@ Il link PayPal per questa escursione non è ancora stato collegato.
 <p class="boipeba-copy">
 Un'opzione semplice per chi desidera raggiungere Boipeba senza aggiungere troppe informazioni alla schermata iniziale. I dettagli di partenza e ritorno vengono forniti con la conferma della prenotazione.
 </p>
-<button class="boipeba-book excursion-book-button" data-tour="boipeba" type="button">PRENOTA ORA</button>
+<a class="boipeba-book" href="https://wa.me/5571993719791" target="_blank" rel="noopener noreferrer">PRENOTA ORA</a>
 </article>
 </div>
 </section>
@@ -5006,7 +5062,7 @@ Rendiamo chiara la struttura operativa prima della conferma, affinché agenzie e
         updateTotal();
         modal.hidden = false;
         document.body.style.overflow = "hidden";
-        setTimeout(() => document.getElementById("bahiaNightNome")?.focus(), 0);
+        setTimeout(() => document.getElementById("bahiaNightNome")?.focus({preventScroll:true}), 0);
       }
 
       function hideModal() {
@@ -5038,7 +5094,7 @@ Rendiamo chiara la struttura operativa prima della conferma, affinché agenzie e
         if (!isThursdayOrSaturday(dateInput.value)) {
           errorBox.textContent = "Bahia Night è disponibile solo il giovedì e il sabato. Seleziona uno di questi giorni.";
           errorBox.hidden = false;
-          dateInput.focus();
+          dateInput.focus({preventScroll:true});
           return;
         }
 
@@ -5231,7 +5287,7 @@ Apri il punto d'incontro sulla mappa
         updateOldTownTotal();
         modal.hidden = false;
         document.body.style.overflow = "hidden";
-        setTimeout(() => document.getElementById("oldTownNome")?.focus(), 0);
+        setTimeout(() => document.getElementById("oldTownNome")?.focus({preventScroll:true}), 0);
       }
 
       function hideModal() {
@@ -5289,7 +5345,7 @@ Apri il punto d'incontro sulla mappa
         if (!isMondayToSaturday(dateInput.value)) {
           errorBox.textContent = "Afro Tour Old Town è disponibile dal lunedì al sabato. Scegli una data valida.";
           errorBox.hidden = false;
-          dateInput.focus();
+          dateInput.focus({preventScroll:true});
           return;
         }
 
@@ -5339,7 +5395,7 @@ Apri il punto d'incontro sulla mappa
       function openModal() {
         modal.hidden = false;
         document.body.style.overflow = "hidden";
-        setTimeout(() => document.getElementById("creatorNome")?.focus(), 0);
+        setTimeout(() => document.getElementById("creatorNome")?.focus({preventScroll:true}), 0);
       }
 
       function closeModal() {
@@ -5648,6 +5704,57 @@ Apri il punto d'incontro sulla mappa
     if(!document.hidden && leftWhilePaymentScreenWasOpen){ leftWhilePaymentScreenWasOpen=false; returnToNormalSite(); }
   });
   window.addEventListener("pageshow",(event)=>{ if(event.persisted) returnToNormalSite(); });
+})();
+</script>
+<script>
+(() => {
+ let active = null, trigger = null, previousOverflow = '', booking = false;
+ const afroButton = document.getElementById('openOldTownReservation');
+ function close(restoreFocus = true) {
+  if (!active) return;
+  active.hidden = true; active = null;
+  document.body.style.overflow = previousOverflow;
+  if (restoreFocus) trigger?.focus({preventScroll:true});
+ }
+ function open(id, button) {
+  trigger = button; previousOverflow = document.body.style.overflow;
+  active = document.getElementById(id); active.hidden = false;
+  document.body.style.overflow = 'hidden';
+  const dialog = active.querySelector('[role="dialog"]');
+  dialog.scrollTop = 0; dialog.focus({preventScroll:true});
+ }
+ document.querySelectorAll('[data-description]').forEach(button => button.addEventListener('click', event => {
+  event.preventDefault(); open(button.dataset.description, button);
+ }));
+ afroButton.addEventListener('click', event => {
+  if (booking) return;
+  event.preventDefault(); event.stopImmediatePropagation();
+  open('afroTourDescription', afroButton);
+ }, true);
+ document.getElementById('afroDescriptionBook').addEventListener('click', () => {
+  close(false); booking = true; afroButton.click(); booking = false;
+ });
+ document.getElementById('openBahiaNightReservation').addEventListener('click', () => {
+  if (active) { active.hidden = true; active = null; }
+ });
+ document.querySelectorAll('[data-close-description]').forEach(button => button.addEventListener('click', () => close()));
+ document.addEventListener('keydown', event => {
+  if (!active) return;
+  if (event.key === 'Escape') { event.preventDefault(); close(); }
+  if (event.key === 'Tab') {
+   const items = [...active.querySelectorAll('a[href], button')];
+   const first = items[0], last = items[items.length-1];
+   if (event.shiftKey && (document.activeElement === first || document.activeElement === active.querySelector('[role="dialog"]'))) { event.preventDefault(); last.focus(); }
+   else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  }
+ });
+ const nav = document.querySelector('.language-switcher');
+ if (nav) {
+  const reveal = link => nav.scrollTo({left:Math.max(0, link.offsetLeft-nav.offsetLeft-(nav.clientWidth-link.offsetWidth)/2),behavior:'auto'});
+  nav.querySelectorAll('.language-button').forEach(link => link.addEventListener('click', () => reveal(link)));
+  const selected = nav.querySelector('[aria-current="page"], .active');
+  if (selected) { requestAnimationFrame(() => reveal(selected)); window.addEventListener('load', () => reveal(selected)); }
+ }
 })();
 </script>
 </body>
