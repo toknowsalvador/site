@@ -3595,6 +3595,67 @@ html[dir="rtl"] .inline-answer {
 
 </style>
 
+<style id="original-hero-button-colors">
+.hero-actions > #openOldTownReservation {
+  width: min(100%, 430px);
+  background: linear-gradient(180deg, #e4c15f 0%, #d4ad3f 100%);
+  color: #111111;
+  border: 1px solid rgba(255, 226, 139, 0.72);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+.hero-actions > #openOldTownReservation:hover {
+  background: linear-gradient(180deg, #e8c96e 0%, #d7b24b 100%);
+}
+.hero-actions > #freeWalkingAccessButton {
+  width: min(100%, 430px);
+  background: rgba(5, 5, 5, 0.84);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.58);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+.hero-actions > #freeWalkingAccessButton:hover {
+  background: rgba(8, 8, 8, 0.92);
+}
+.hero-actions > .hero-offer > #dayUseFradesButton {
+  background: linear-gradient(135deg, rgba(53, 39, 16, 0.9), rgba(20, 16, 10, 0.94));
+  color: #ead59d;
+  border: 1px solid rgba(234, 213, 157, 0.64);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.hero-actions > .hero-offer > #dayUseFradesButton:hover {
+  background: linear-gradient(135deg, rgba(64, 47, 19, 0.94), rgba(25, 19, 11, 0.96));
+}
+</style>
+<style id="description-and-form-update">
+.free-walking-access a { border-bottom: 0; }
+html { scrollbar-gutter: stable; }
+#freeWalkingDescription, #afroTourDescription {
+  background: linear-gradient(rgba(244,240,232,.83), rgba(244,240,232,.88)), url('/public/IMG_3058.png') center 38% / cover no-repeat;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+#bahiaNightDescription {
+  background: linear-gradient(rgba(244,240,232,.82), rgba(244,240,232,.88)), url('/public/589C6347-9AA5-4747-8438-6E1BA57E74AB.png') center / cover no-repeat;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+#freeWalkingDescription .reservation-dialog,
+#afroTourDescription .reservation-dialog,
+#bahiaNightDescription .reservation-dialog {
+  background: transparent; color: #111111; box-shadow: none;
+  line-height: 1.75; overflow-y: auto;
+}
+#freeWalkingDescription .bahia-night-kicker,
+#afroTourDescription .bahia-night-kicker,
+#bahiaNightDescription .bahia-night-kicker { color: #8b6d29; }
+#freeWalkingDescription .reservation-close,
+#afroTourDescription .reservation-close,
+#bahiaNightDescription .reservation-close { color: #111111; border-color: rgba(17,17,17,.22); }
+.reservation-modal, .old-town-modal, .reservation-dialog, .old-town-dialog,
+.reservation-form, .old-town-form {
+  animation: none !important; transition: none !important;
+  transform: none !important; scroll-behavior: auto;
+}
+.reservation-dialog, .old-town-dialog { scrollbar-gutter: stable; }
+</style>
 </head>
 <body>
 <!-- HERO -->
@@ -3605,37 +3666,12 @@ html[dir="rtl"] .inline-answer {
 <div class="hero-content">
 <div class="hero-actions hero-offers">
 
-<details class="hero-offer">
-<summary class="free-tour-button">MORRO DE SÃO PAULO</summary>
-<div class="hero-offer-info">
-<p><strong><bdi dir="ltr">US$60</bdi> לאדם · טיול יום.</strong></p>
-<p><strong>שתי אפשרויות עצמאיות ליציאה ולאיסוף מהמלון: <bdi dir="ltr">05:20</bdi> או <bdi dir="ltr">09:30</bdi>.</strong></p>
-<p>האיסוף מהמלון/מקום הלינה כלול <strong>בשני מועדי היציאה</strong>.</p>
-<p><strong>דמי הטרמינל הימי של סלבדור כלולים.</strong></p>
-<p><strong>היטל הסביבה בסך <bdi dir="ltr">R$70</bdi> אינו כלול.</strong></p>
-<p>אישור ההזמנה מיידי לאחר השלמת התשלום.</p>
-<div class="hero-offer-actions">
-<button class="hero-offer-cta excursion-book-button" data-tour="morro" type="button">להזמין עכשיו</button>
-<a aria-label="בירור על אפשרות פרטית ל-Morro de São Paulo ב-WhatsApp" class="hero-offer-cta hero-private-cta" href="https://wa.me/5571993719791?text=%D7%A9%D7%9C%D7%95%D7%9D%21%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%90%D7%A4%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%A8%D7%98%D7%99%D7%AA%20%D7%9C-Morro%20de%20S%C3%A3o%20Paulo.%20%D7%90%D7%A4%D7%A9%D7%A8%20%D7%9C%D7%A9%D7%9C%D7%95%D7%97%20%D7%9C%D7%99%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%A4%D7%A8%D7%98%D7%99%D7%9D%3F" rel="noopener noreferrer" target="_blank">אפשרות פרטית</a>
-</div>
-</div>
-</details>
+<button class="free-tour-button" id="openOldTownReservation" type="button">AFRO TOUR OLD TOWN</button>
+
+<a class="free-tour-button" id="freeWalkingAccessButton" href="#freeWalkingDescription" data-description="freeWalkingDescription">גישה לסיור ההליכה החינמי</a>
 
 <details class="hero-offer">
-<summary class="free-tour-button">PRAIA DO FORTE + GUARAJUBA</summary>
-<div class="hero-offer-info">
-<p><strong><bdi dir="ltr">US$30</bdi> לאדם · טיול יום.</strong></p>
-<p>איסוף מהמלון/מקום הלינה בשעה <strong><bdi dir="ltr">07:00</bdi></strong>.</p>
-<p>אישור ההזמנה מיידי לאחר השלמת התשלום.</p>
-<div class="hero-offer-actions">
-<button class="hero-offer-cta excursion-book-button" data-tour="praia" type="button">להזמין עכשיו</button>
-<a aria-label="בירור על אפשרות פרטית ל-Praia do Forte ו-Guarajuba ב-WhatsApp" class="hero-offer-cta hero-private-cta" href="https://wa.me/5571993719791?text=%D7%A9%D7%9C%D7%95%D7%9D%21%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%90%D7%A4%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%A8%D7%98%D7%99%D7%AA%20%D7%9C-Praia%20do%20Forte%20%2B%20Guarajuba.%20%D7%90%D7%A4%D7%A9%D7%A8%20%D7%9C%D7%A9%D7%9C%D7%95%D7%97%20%D7%9C%D7%99%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%A4%D7%A8%D7%98%D7%99%D7%9D%3F" rel="noopener noreferrer" target="_blank">אפשרות פרטית</a>
-</div>
-</div>
-</details>
-
-<details class="hero-offer">
-<summary class="free-tour-button">ILHA DE ITAPARICA + ILHA DOS FRADES</summary>
+<summary class="free-tour-button" id="dayUseFradesButton">בילוי יומי באיליה דוס פראדס</summary>
 <div class="hero-offer-info">
 <p><strong><bdi dir="ltr">US$30</bdi> לאדם · טיול יום.</strong></p>
 <p>איסוף מהמלון/מקום הלינה בשעה <strong><bdi dir="ltr">07:00</bdi></strong>.</p>
@@ -3643,7 +3679,6 @@ html[dir="rtl"] .inline-answer {
 <p>אישור ההזמנה מיידי לאחר השלמת התשלום.</p>
 <div class="hero-offer-actions">
 <button class="hero-offer-cta excursion-book-button" data-tour="ilhas" type="button">להזמין עכשיו</button>
-<a aria-label="בירור על אפשרות פרטית ל-Itaparica ו-Ilha dos Frades ב-WhatsApp" class="hero-offer-cta hero-private-cta" href="https://wa.me/5571993719791?text=%D7%A9%D7%9C%D7%95%D7%9D%21%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%90%D7%A4%D7%A9%D7%A8%D7%95%D7%AA%20%D7%A4%D7%A8%D7%98%D7%99%D7%AA%20%D7%9C-Itaparica%20%2B%20Ilha%20dos%20Frades.%20%D7%90%D7%A4%D7%A9%D7%A8%20%D7%9C%D7%A9%D7%9C%D7%95%D7%97%20%D7%9C%D7%99%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA%20%D7%95%D7%A4%D7%A8%D7%98%D7%99%D7%9D%3F" rel="noopener noreferrer" target="_blank">אפשרות פרטית</a>
 </div>
 </div>
 </details>
@@ -3682,19 +3717,30 @@ html[dir="rtl"] .inline-answer {
 <a aria-current="page" class="language-button active" href="/he/">🇮🇱 עברית</a>
 </nav>
 <div class="afro-tour-minimal">
-<button class="afro-tour-minimal-button" id="openOldTownReservation" type="button">AFRO TOUR OLD TOWN</button>
+<details class="hero-offer">
+<summary class="afro-tour-minimal-button" style="border-bottom:0">MORRO DE SÃO PAULO</summary>
+<div class="hero-offer-info">
+<p><strong><bdi dir="ltr">US$60</bdi> לאדם · טיול יום.</strong></p>
+<p><strong>שתי אפשרויות עצמאיות ליציאה ולאיסוף מהמלון: <bdi dir="ltr">05:20</bdi> או <bdi dir="ltr">09:30</bdi>.</strong></p>
+<p>האיסוף מהמלון/מקום הלינה כלול <strong>בשני מועדי היציאה</strong>.</p>
+<p><strong>דמי הטרמינל הימי של סלבדור כלולים.</strong></p>
+<p><strong>היטל הסביבה בסך <bdi dir="ltr">R$70</bdi> אינו כלול.</strong></p>
+<p>אישור ההזמנה מיידי לאחר השלמת התשלום.</p>
+<div class="hero-offer-actions">
+<button class="hero-offer-cta excursion-book-button" data-tour="morro" type="button">להזמין עכשיו</button>
+</div>
+</div>
+</details>
 </div>
 </div>
 </section>
 <div class="free-walking-access">
 <div class="container">
-<a aria-label="טופס גישה ל-Free Walking Tour" href="https://docs.google.com/forms/d/e/1FAIpQLSeNEuT8lhgCT6F2dMunEJ8a64QnLSmTa0v5uKMLwRiynwehXg/viewform?usp=header" rel="noopener noreferrer" target="_blank">
-        כניסה ל-Free Walking Tour
-      </a>
+<a href="https://wa.me/5571993719791" target="_blank" rel="noopener noreferrer">דברו איתנו בוואטסאפ</a>
 </div>
 </div>
 
-<!-- הזמנת טיולים — MORRO / PRAIA DO FORTE + GUARAJUBA / ITAPARICA + FRADES / BOIPEBA -->
+<!-- הזמנת טיולים -->
 <div class="reservation-modal" hidden="" id="excursionModal">
 <div aria-labelledby="excursionReservationTitle" aria-modal="true" class="reservation-dialog" role="dialog">
 <div class="reservation-dialog-header">
@@ -3841,7 +3887,7 @@ html[dir="rtl"] .inline-answer {
       paypalUrl: ""
     },
     ilhas: {
-      name: "Ilha de Itaparica + Ilha dos Frades",
+      name: "איליה דוס פראדס — טיול יומי",
       price: 30,
       currency: "US$",
       type: "טיול יום",
@@ -3965,7 +4011,7 @@ html[dir="rtl"] .inline-answer {
     modal.hidden = false;
     document.body.style.overflow = "hidden";
     if (dialog) dialog.scrollTop = 0;
-    setTimeout(() => document.getElementById("excursionHotel")?.focus(), 0);
+    setTimeout(() => document.getElementById("excursionHotel")?.focus({preventScroll:true}), 0);
   }
 
   function closeModal() {
@@ -4000,14 +4046,14 @@ html[dir="rtl"] .inline-answer {
     if (!validWhatsApp(phoneInput.value)) {
       errorBox.textContent = "הזינו מספר WhatsApp תקין כולל קידומת מדינה.";
       errorBox.hidden = false;
-      phoneInput.focus();
+      phoneInput.focus({preventScroll:true});
       return;
     }
 
     if (selectedTour?.name === "Morro de São Paulo" && !departureSelect.value) {
       errorBox.textContent = "בחרו שעת יציאה / איסוף מהמלון ל-Morro de São Paulo: 05:20 או 09:30.";
       errorBox.hidden = false;
-      departureSelect.focus();
+      departureSelect.focus({preventScroll:true});
       return;
     }
 
@@ -4093,9 +4139,7 @@ html[dir="rtl"] .inline-answer {
 <span>✅ הזמינו עכשיו כדי להבטיח מקום.</span>
 </div>
 <div class="bahia-night-actions">
-<button class="bahia-night-book" id="openBahiaNightReservation" type="button">
-            להזמין עכשיו — להבטיח מקום
-          </button>
+<button class="bahia-night-book" data-description="bahiaNightDescription" type="button">מהו Bahia Night?</button>
 <details class="bahia-night-buffet">
 <summary>🍽️ לצפייה בבופה</summary>
 <div class="bahia-night-buffet-menu">
@@ -4112,6 +4156,18 @@ html[dir="rtl"] .inline-answer {
 </div>
 </section>
 <!-- BAHIA NIGHT RESERVATION -->
+<div class="reservation-modal" hidden id="freeWalkingDescription"><div class="reservation-dialog" role="dialog" aria-modal="true" aria-label="Free Walking Tour" tabindex="-1" style="width:100%;height:100%;max-height:100%;border-radius:0"><div class="reservation-dialog-header"><p class="bahia-night-kicker">Free Walking Tour</p><button class="reservation-close" type="button" data-close-description aria-label="סגירה">×</button></div><h2>תיאור מלא</h2><p>גלו את לב ברזיל בחוויה תרבותית מודרכת במרכז ההיסטורי של סלבדור ובהיכרות עם המטבח המסורתי של באהיה.</p>
+<p>בקרו באתרים איקוניים כמו מעלית לסרדה, הרחוב הראשון בברזיל, אנדרטת הצלב שנפל, הפקולטה הראשונה לרפואה במדינה וכנסיית סאו פרנסיסקו המרשימה, הידועה בשם ״כנסיית הזהב״.</p>
+<p>פגשו את המדריך בכיכר קסטרו אלבס, שם תוכלו ליהנות מנופים מרהיבים של מפרץ כל הקדושים והאיים שבו. המשיכו לאורך רואה צ׳ילה, הרחוב הראשון בברזיל, ועצרו בפאו דה בנדיירה כדי להתפעל מאחד הנופים הפנורמיים היפים ביותר של סלבדור.</p>
+<p>סיירו בכיכר תומה דה סוזה, שבה שכן מושב הממשלה הראשון בברזיל הקולוניאלית, והתפעלו ממעלית לסרדה, המחברת בין העיר העליונה לעיר התחתונה. המשיכו לכיכר סה, שם תלמדו על הקתדרלה הישנה של סלבדור, אנדרטת הצלב שנפל, הבישוף הראשון של ברזיל וזומבי דוס פלמארס, אחד הסמלים הגדולים של ההתנגדות לעבדות.</p>
+<p>טיילו בטריירו דה ז׳זוס, הכירו את הפקולטה הראשונה לרפואה בברזיל והתפעלו מהכנסיות הבולטות שעזרו לעצב את תולדות העיר. בקרו בלארגו דו קרוזיירו דה סאו פרנסיסקו ובכנסיית הזהב המפוארת, לפני שתעברו ליד מטה אולודום ובמדרון המפורסם של פלוריניו, שבו צילם מייקל ג׳קסון חלק מהקליפ לשיר ״They Don’t Care About Us״.</p>
+<p>למדו על אחוות הגברים השחורים, ההתנגדות האפרו־ברזילאית, הדת, התרבות והתפקיד שמילאה סלבדור בעיצוב ברזיל.</p><a class="bahia-night-book" href="https://docs.google.com/forms/d/e/1FAIpQLSeNEuT8lhgCT6F2dMunEJ8a64QnLSmTa0v5uKMLwRiynwehXg/viewform?usp=header" rel="noopener noreferrer" target="_blank">מילוי הטופס</a></div></div><div class="reservation-modal" hidden id="bahiaNightDescription"><div class="reservation-dialog" role="dialog" aria-modal="true" aria-label="Bahia Night" tabindex="-1" style="width:100%;height:100%;max-height:100%;border-radius:0"><div class="reservation-dialog-header"><p class="bahia-night-kicker">Bahia Night</p><button class="reservation-close" type="button" data-close-description aria-label="סגירה">×</button></div><h2>המופע התרבותי</h2><p>המופע האמנותי מוצג על ידי להקת <strong>Balé Folclórico Topázio</strong> המסורתית, בעלת היסטוריה של יותר מ־40 שנה. על הבמה מופיעים כ־16 עד 25 אמנים, ובהם רקדנים, מוזיקאים, זמרים ואמני קפוארה. המופע מזמין אתכם לחוויה מעמיקה של שורשי המורשת והמיתולוגיה האפרו־באהיאנית, עם:</p>
+<ul><li><strong>ריקודי האורישות:</strong> קטעים בימתיים המתארים אלוהויות של הקנדומבלה, כגון איאנסה, שאנגו וימאנז׳ה, עם תלבושות מרשימות וכוריאוגרפיה מיסטית.</li>
+<li><strong>קפוארה ומקוללה:</strong> מופעים סוחפים המשלבים לחימה, ריקוד וצלילים קצביים של בירימבאו ותופי אטבאקה.</li>
+<li><strong>פושדה דה רדה וסמבה דה רודה:</strong> מסורות פולקלור עממיות של אזור החוף, החוגגות את חיי היומיום של הדייגים ואת שמחת החיים של צפון־מזרח ברזיל.</li></ul>
+<p><strong>כלול:</strong> איסוף מהמלון והחזרה אליו, ארוחת ערב בסגנון בופה ומופע תרבותי. הסעה ברכב ממוזג עם נהג מורשה.</p><button class="bahia-night-book" id="openBahiaNightReservation" type="button">הזמינו עכשיו — הבטיחו את מקומכם</button></div></div><div class="reservation-modal" hidden id="afroTourDescription"><div class="reservation-dialog" role="dialog" aria-modal="true" aria-label="Afro Tour Old Town" tabindex="-1" style="width:100%;height:100%;max-height:100%;border-radius:0"><div class="reservation-dialog-header"><p class="bahia-night-kicker">Afro Tour Old Town</p><button class="reservation-close" type="button" data-close-description aria-label="סגירה">×</button></div><h2>גלו את המורשת האפריקאית של סלבדור</h2><p>גלו את ההשפעות האפריקאיות העמוקות שעיצבו את זהותה של סלבדור במסע היסטורי בפלוריניו ובמרכז ההיסטורי של העיר, שבו נמצא אחד המכלולים הגדולים והמרשימים ביותר של אדריכלות קולוניאלית באמריקה הלטינית.</p>
+<p>במהלך ההליכה ברחובות בני מאות שנים, בין כנסיות, כיכרות ומבנים צבעוניים, גלו את הסיפורים, המסורות, הסמלים והביטויים התרבותיים הקשורים למורשת האפרו־ברזילאית של סלבדור. למדו כיצד העמים האפריקאיים וצאצאיהם השפיעו עמוקות על הדת, המוזיקה, המטבח, השפה, האמנות, תנועות ההתנגדות וחיי היומיום בעיר.</p>
+<p>מעבר לביקור במונומנטים היסטוריים, החוויה מציעה הבנה עמוקה יותר של סלבדור דרך המורשת האפריקאית שממשיכה לעצב את התרבות והזהות שלה גם כיום.</p><button class="bahia-night-book" id="afroDescriptionBook" type="button">הזמינו עכשיו</button></div></div>
 <div class="reservation-modal" hidden="" id="bahiaNightModal">
 <div aria-labelledby="bahiaNightReservationTitle" aria-modal="true" class="reservation-dialog" role="dialog">
 <div class="reservation-dialog-header">
@@ -4295,7 +4351,7 @@ html[dir="rtl"] .inline-answer {
 <p class="boipeba-copy">
 אפשרות פשוטה למי שרוצה להגיע ל-Boipeba בלי להעמיס מידע נוסף על המסך הראשוני. פרטי היציאה והחזרה נמסרים עם אישור ההזמנה.
 </p>
-<button class="boipeba-book excursion-book-button" data-tour="boipeba" type="button">להזמין עכשיו</button>
+<a class="boipeba-book" href="https://wa.me/5571993719791" target="_blank" rel="noopener noreferrer">הזמינו עכשיו</a>
 </article>
 </div>
 </section>
@@ -4953,7 +5009,7 @@ html[dir="rtl"] .inline-answer {
       function showModal() {
         modal.hidden = false;
         document.body.style.overflow = "hidden";
-        setTimeout(() => document.getElementById("bahiaNightName")?.focus(), 0);
+        setTimeout(() => document.getElementById("bahiaNightName")?.focus({preventScroll:true}), 0);
       }
 
       function hideModal() {
@@ -4983,7 +5039,7 @@ html[dir="rtl"] .inline-answer {
         if (!isThursdayOrSaturday(dateInput.value)) {
           errorBox.textContent = "Bahia Night זמין רק בימי חמישי ושבת. אנא בחרו אחד מהימים האלה.";
           errorBox.hidden = false;
-          dateInput.focus();
+          dateInput.focus({preventScroll:true});
           return;
         }
 
@@ -5154,7 +5210,7 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
       function showModal() {
         modal.hidden = false;
         document.body.style.overflow = "hidden";
-        setTimeout(() => document.getElementById("oldTownName")?.focus(), 0);
+        setTimeout(() => document.getElementById("oldTownName")?.focus({preventScroll:true}), 0);
       }
 
       function hideModal() {
@@ -5220,7 +5276,7 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
         if (!isMondayToSaturday(dateInput.value)) {
           errorBox.textContent = "Afro Tour Old Town זמין מיום שני עד שבת. אנא בחרו תאריך תקין.";
           errorBox.hidden = false;
-          dateInput.focus();
+          dateInput.focus({preventScroll:true});
           return;
         }
 
@@ -5267,7 +5323,7 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
       function openModal() {
         modal.hidden = false;
         document.body.style.overflow = "hidden";
-        setTimeout(() => document.getElementById("creatorName")?.focus(), 0);
+        setTimeout(() => document.getElementById("creatorName")?.focus({preventScroll:true}), 0);
       }
 
       function closeModal() {
@@ -5551,5 +5607,56 @@ Cine Glauber Rocha / Praça Castro Alves.<br/>
       startAuto();
     })();
   </script>
+<script>
+(() => {
+ let active = null, trigger = null, previousOverflow = '', booking = false;
+ const afroButton = document.getElementById('openOldTownReservation');
+ function close(restoreFocus = true) {
+  if (!active) return;
+  active.hidden = true; active = null;
+  document.body.style.overflow = previousOverflow;
+  if (restoreFocus) trigger?.focus({preventScroll:true});
+ }
+ function open(id, button) {
+  trigger = button; previousOverflow = document.body.style.overflow;
+  active = document.getElementById(id); active.hidden = false;
+  document.body.style.overflow = 'hidden';
+  const dialog = active.querySelector('[role="dialog"]');
+  dialog.scrollTop = 0; dialog.focus({preventScroll:true});
+ }
+ document.querySelectorAll('[data-description]').forEach(button => button.addEventListener('click', event => {
+  event.preventDefault(); open(button.dataset.description, button);
+ }));
+ afroButton.addEventListener('click', event => {
+  if (booking) return;
+  event.preventDefault(); event.stopImmediatePropagation();
+  open('afroTourDescription', afroButton);
+ }, true);
+ document.getElementById('afroDescriptionBook').addEventListener('click', () => {
+  close(false); booking = true; afroButton.click(); booking = false;
+ });
+ document.getElementById('openBahiaNightReservation').addEventListener('click', () => {
+  if (active) { active.hidden = true; active = null; }
+ });
+ document.querySelectorAll('[data-close-description]').forEach(button => button.addEventListener('click', () => close()));
+ document.addEventListener('keydown', event => {
+  if (!active) return;
+  if (event.key === 'Escape') { event.preventDefault(); close(); }
+  if (event.key === 'Tab') {
+   const items = [...active.querySelectorAll('a[href], button')];
+   const first = items[0], last = items[items.length-1];
+   if (event.shiftKey && (document.activeElement === first || document.activeElement === active.querySelector('[role="dialog"]'))) { event.preventDefault(); last.focus(); }
+   else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  }
+ });
+ const nav = document.querySelector('.language-switcher');
+ if (nav) {
+  const reveal = link => { const n=nav.getBoundingClientRect(), l=link.getBoundingClientRect(); nav.scrollTo({left:nav.scrollLeft+(l.left+l.width/2)-(n.left+n.width/2),behavior:'auto'}); };
+  nav.querySelectorAll('.language-button').forEach(link => link.addEventListener('click', () => reveal(link)));
+  const selected = nav.querySelector('[aria-current="page"], .active');
+  if (selected) { requestAnimationFrame(() => reveal(selected)); window.addEventListener('load', () => reveal(selected)); }
+ }
+})();
+</script>
 </body>
 </html>
