@@ -3618,6 +3618,36 @@
   background: linear-gradient(135deg, rgba(64, 47, 19, 0.94), rgba(25, 19, 11, 0.96));
 }
 </style>
+<style id="description-and-form-update">
+.free-walking-access a { border-bottom: 0; }
+html { scrollbar-gutter: stable; }
+#freeWalkingDescription, #afroTourDescription {
+  background: linear-gradient(rgba(244,240,232,.83), rgba(244,240,232,.88)), url('/public/IMG_3058.png') center 38% / cover no-repeat;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+#bahiaNightDescription {
+  background: linear-gradient(rgba(244,240,232,.82), rgba(244,240,232,.88)), url('/public/589C6347-9AA5-4747-8438-6E1BA57E74AB.png') center / cover no-repeat;
+  backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+#freeWalkingDescription .reservation-dialog,
+#afroTourDescription .reservation-dialog,
+#bahiaNightDescription .reservation-dialog {
+  background: transparent; color: #111111; box-shadow: none;
+  line-height: 1.75; overflow-y: auto;
+}
+#freeWalkingDescription .bahia-night-kicker,
+#afroTourDescription .bahia-night-kicker,
+#bahiaNightDescription .bahia-night-kicker { color: #8b6d29; }
+#freeWalkingDescription .reservation-close,
+#afroTourDescription .reservation-close,
+#bahiaNightDescription .reservation-close { color: #111111; border-color: rgba(17,17,17,.22); }
+.reservation-modal, .old-town-modal, .reservation-dialog, .old-town-dialog,
+.reservation-form, .old-town-form {
+  animation: none !important; transition: none !important;
+  transform: none !important; scroll-behavior: auto;
+}
+.reservation-dialog, .old-town-dialog { scrollbar-gutter: stable; }
+</style>
 </head>
 <body>
 <!-- HERO -->
@@ -3707,18 +3737,7 @@
 </section>
 <div class="free-walking-access">
 <div class="container">
-<details class="hero-offer">
-<summary class="afro-tour-minimal-button">PRAIA DO FORTE + GUARAJUBA</summary>
-<div class="hero-offer-info">
-<p><strong>US$30 per person · Day Use.</strong></p>
-<p>Hotel/accommodation pickup at <strong>07:00</strong>.</p>
-<p>Instant booking confirmation after payment.</p>
-<div class="hero-offer-actions">
-<button class="hero-offer-cta excursion-book-button" data-tour="praia" type="button">BOOK NOW</button>
-<a aria-label="Ask about a private Praia do Forte and Guarajuba experience on WhatsApp" class="hero-offer-cta hero-private-cta" href="https://wa.me/5571993719791?text=Hello%21%20I%27m%20interested%20in%20a%20private%20Praia%20do%20Forte%20%2B%20Guarajuba%20experience.%20Could%20you%20send%20me%20availability%20and%20details%3F" rel="noopener noreferrer" target="_blank">PRIVATE OPTION</a>
-</div>
-</div>
-</details>
+<a href="https://wa.me/5571993719791" target="_blank" rel="noopener noreferrer">CHAT ON WHATSAPP</a>
 </div>
 </div>
 
@@ -4006,7 +4025,7 @@ The PayPal payment link for this trip has not been connected yet.
     modal.hidden = false;
     document.body.style.overflow = "hidden";
     if (dialog) dialog.scrollTop = 0;
-    setTimeout(() => document.getElementById("excursionHotel")?.focus(), 0);
+    setTimeout(() => document.getElementById("excursionHotel")?.focus({preventScroll:true}), 0);
   }
 
   function closeModal() {
@@ -4041,14 +4060,14 @@ The PayPal payment link for this trip has not been connected yet.
     if (!validWhatsApp(phoneInput.value)) {
       errorBox.textContent = "Enter a valid WhatsApp number with area/country code.";
       errorBox.hidden = false;
-      phoneInput.focus();
+      phoneInput.focus({preventScroll:true});
       return;
     }
 
     if (selectedTour?.name === "Morro de São Paulo" && !departureSelect.value) {
       errorBox.textContent = "Choose the Morro de São Paulo departure / hotel pickup time: 05:20 or 09:30.";
       errorBox.hidden = false;
-      departureSelect.focus();
+      departureSelect.focus({preventScroll:true});
       return;
     }
 
@@ -5031,7 +5050,7 @@ We make the operating structure clear before confirmation, so agencies and priva
         modal.hidden = false;
         document.body.style.overflow = "hidden";
         if (dialog) dialog.scrollTop = 0;
-        setTimeout(() => document.getElementById("bahiaNightName")?.focus(), 0);
+        setTimeout(() => document.getElementById("bahiaNightName")?.focus({preventScroll:true}), 0);
       }
 
       function hideModal() {
@@ -5063,7 +5082,7 @@ We make the operating structure clear before confirmation, so agencies and priva
         if (!isThursdayOrSaturday(dateInput.value)) {
           errorBox.textContent = "Bahia Night is available only on Thursdays and Saturdays. Please choose one of those days.";
           errorBox.hidden = false;
-          dateInput.focus();
+          dateInput.focus({preventScroll:true});
           return;
         }
 
@@ -5262,7 +5281,7 @@ Open the meeting point on the map
         modal.hidden = false;
         document.body.style.overflow = "hidden";
         if (dialog) dialog.scrollTop = 0;
-        setTimeout(() => document.getElementById("oldTownName")?.focus(), 0);
+        setTimeout(() => document.getElementById("oldTownName")?.focus({preventScroll:true}), 0);
       }
 
       function hideModal() {
@@ -5320,7 +5339,7 @@ Open the meeting point on the map
         if (!isMondayToSaturday(dateInput.value)) {
           errorBox.textContent = "Afro Tour Old Town is available Monday to Saturday. Please choose a valid date.";
           errorBox.hidden = false;
-          dateInput.focus();
+          dateInput.focus({preventScroll:true});
           return;
         }
 
@@ -5368,7 +5387,7 @@ Open the meeting point on the map
       function openModal() {
         modal.hidden = false;
         document.body.style.overflow = "hidden";
-        setTimeout(() => document.getElementById("creatorName")?.focus(), 0);
+        setTimeout(() => document.getElementById("creatorName")?.focus({preventScroll:true}), 0);
       }
 
       function closeModal() {
@@ -5709,14 +5728,14 @@ Open the meeting point on the map
   active.hidden = true;
   document.body.style.overflow = previousOverflow;
   active = null;
-  if (restoreFocus) trigger?.focus();
+  if (restoreFocus) trigger?.focus({preventScroll:true});
  };
  document.querySelectorAll('[data-description]').forEach(button => button.addEventListener('click', event => {
   event.preventDefault(); trigger = button;
   active = document.getElementById(button.dataset.description);
   previousOverflow = document.body.style.overflow;
   active.hidden = false; document.body.style.overflow = 'hidden';
-  active.querySelector('[role="dialog"]').focus();
+  active.querySelector('[role="dialog"]').focus({preventScroll:true});
  }));
  document.querySelectorAll('[data-close-description]').forEach(button => button.addEventListener('click', () => close()));
  document.getElementById('openBahiaNightReservation').addEventListener('click', () => {
@@ -5728,8 +5747,8 @@ Open the meeting point on the map
   if (event.key === 'Tab') {
    const items = [...active.querySelectorAll('a[href], button')];
    const first = items[0], last = items[items.length - 1];
-   if (event.shiftKey && (document.activeElement === first || document.activeElement === active.querySelector('[role="dialog"]'))) { event.preventDefault(); last.focus(); }
-   else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+   if (event.shiftKey && (document.activeElement === first || document.activeElement === active.querySelector('[role="dialog"]'))) { event.preventDefault(); last.focus({preventScroll:true}); }
+   else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus({preventScroll:true}); }
   }
  });
 })();
@@ -5739,20 +5758,6 @@ Open the meeting point on the map
   document.querySelectorAll('summary.afro-tour-minimal-button').forEach(summary => {
     if (summary.textContent.includes('MORRO')) summary.style.borderBottom = '0';
   });
-  const islands = document.getElementById('dayUseFradesButton');
-  if (islands) {
-    const original = getComputedStyle(islands);
-    const link = document.createElement('a');
-    link.className = 'free-tour-button';
-    link.href = 'https://wa.me/5571993719791';
-    link.target = '_blank';
-    link.rel = 'noopener noreferrer';
-    link.textContent = 'CHAT ON WHATSAPP';
-    ['background', 'color', 'border', 'boxShadow', 'width'].forEach(property => {
-      link.style[property] = original[property];
-    });
-    islands.closest('details').replaceWith(link);
-  }
   function translateDescription(id, title, html, actionLabel) {
     const dialog = document.querySelector('#' + id + ' .reservation-dialog');
     if (!dialog) return;
@@ -5770,6 +5775,55 @@ Open the meeting point on the map
   translateDescription('bahiaNightDescription', 'The Cultural Show', "<p>The artistic performance is presented by the traditional <strong>Balé Folclórico Topázio</strong>, a group with more than 40 years of history, featuring around 16 to 25 performers on stage, including dancers, musicians, singers and capoeira artists. The show immerses you in Afro-Bahian ancestry and mythology, featuring:</p>\n<ul><li><strong>Dances of the Orixás:</strong> Scenes portraying Candomblé deities such as Iansã, Xangô and Iemanjá, with striking costumes and mystical choreography.</li>\n<li><strong>Capoeira and Maculelê:</strong> Thrilling performances combining martial arts, dance and the rhythmic sounds of berimbaus and atabaque drums.</li>\n<li><strong>Puxada de Rede and Samba de Roda:</strong> Coastal and popular folk traditions celebrating fishermen’s daily lives and the joy of northeastern Brazil.</li></ul>\n<p><strong>Included:</strong> hotel pickup and drop-off, buffet dinner and the cultural show. Transportation in an air-conditioned vehicle with a licensed driver.</p>", 'BOOK NOW - SECURE YOUR SPOT');
   document.querySelector('[data-description="bahiaNightDescription"]').textContent = 'What is Bahia Night?';
   document.querySelectorAll('[data-close-description]').forEach(button => button.setAttribute('aria-label', 'Close'));
+})();
+</script>
+<div class="reservation-modal" hidden id="afroTourDescription">
+<div class="reservation-dialog" role="dialog" aria-modal="true" aria-labelledby="afroDescriptionTitle" tabindex="-1" style="width:100%;height:100%;max-height:100%;border-radius:0">
+<div class="reservation-dialog-header"><p class="bahia-night-kicker">Afro Tour Old Town</p><button class="reservation-close" id="closeAfroDescription" aria-label="Close" type="button">×</button></div>
+<h2 id="afroDescriptionTitle">Discover Salvador’s African Heritage</h2>
+<p>Discover the deep African influences that have shaped Salvador’s identity on a historical journey through the Pelourinho and the city’s Historic Center, home to one of the largest and most remarkable collections of colonial architecture in Latin America.</p>
+<p>As you walk through centuries-old streets, churches, squares, and colorful buildings, explore the stories, traditions, symbols, and cultural expressions connected to Salvador’s Afro-Brazilian heritage. Learn how African peoples and their descendants profoundly influenced the city’s religion, music, cuisine, language, art, resistance movements, and everyday life.</p>
+<p>More than a visit to historic monuments, this experience offers a deeper understanding of Salvador through the African legacy that continues to define the city’s culture and identity today.</p>
+<button class="bahia-night-book" id="afroDescriptionBook" type="button">BOOK NOW</button>
+</div></div>
+<script>
+(() => {
+ const trigger = document.getElementById('openOldTownReservation');
+ const modal = document.getElementById('afroTourDescription');
+ let booking = false, previousOverflow = '';
+ function close(restoreFocus = true) {
+  modal.hidden = true; document.body.style.overflow = previousOverflow;
+  if (restoreFocus) trigger.focus({preventScroll:true});
+ }
+ trigger.addEventListener('click', event => {
+  if (booking) return;
+  event.preventDefault(); event.stopImmediatePropagation();
+  previousOverflow = document.body.style.overflow;
+  modal.hidden = false; document.body.style.overflow = 'hidden';
+  const dialog = modal.querySelector('.reservation-dialog'); dialog.scrollTop = 0;
+  dialog.focus({preventScroll:true});
+ }, true);
+ document.getElementById('closeAfroDescription').addEventListener('click', () => close());
+ document.getElementById('afroDescriptionBook').addEventListener('click', () => {
+  close(false); booking = true; trigger.click(); booking = false;
+ });
+ modal.addEventListener('keydown', event => {
+  if (event.key === 'Escape') { event.preventDefault(); close(); }
+  if (event.key === 'Tab') {
+   const first = document.getElementById('closeAfroDescription'), last = document.getElementById('afroDescriptionBook');
+   if (event.shiftKey && (document.activeElement === first || document.activeElement === modal.querySelector('.reservation-dialog'))) { event.preventDefault(); last.focus(); }
+   else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+  }
+ });
+ const nav = document.querySelector('.language-switcher');
+ if (nav) {
+  function reveal(link) {
+   nav.scrollTo({left: Math.max(0, link.offsetLeft - nav.offsetLeft - (nav.clientWidth - link.offsetWidth) / 2), behavior:'auto'});
+  }
+  nav.querySelectorAll('.language-button').forEach(link => link.addEventListener('click', () => reveal(link)));
+  const selected = nav.querySelector('[aria-current="page"], .active');
+  if (selected) { requestAnimationFrame(() => reveal(selected)); window.addEventListener('load', () => reveal(selected)); }
+ }
 })();
 </script>
 </body>
