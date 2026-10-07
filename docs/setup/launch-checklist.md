@@ -17,14 +17,14 @@
 3. Admin → Eventos → marcar `generate_lead` como evento-chave.
 
 ## 3. Google Ads
-1. Criar conta (modo especialista, sem criar campanha ainda).
-2. Metas → Conversões → Nova → Site → `plan.toknowsalvador.com` → criar manualmente: nome **"TKS Lead"**, categoria "Enviar formulário de lead", valor: não usar, contagem: uma. Esta é a única conversão primária: **não** importe o evento `generate_lead` do GA4 como primária (contaria cada lead duas vezes).
-3. Em "Configuração da tag" → "Instalar você mesmo" → copiar `AW-XXXXXXX` → `adsId` e `AW-XXXXXXX/YYYY` → `adsConversion`.
-4. Vincular GA4 ↔ Google Ads (Admin GA4 → Vinculações de produtos).
-5. Criar a campanha seguindo `marketing/ads/campaign-plan.md` → deixar **pausada**.
+1. ads.google.com → criar conta **sem campanha** ("Não quer criar campanha? Configure apenas sua conta"). País Brasil, fuso (GMT-03:00) Bahia, moeda **BRL** (não muda depois). Destino dos anúncios: **seu site** `https://plan.toknowsalvador.com` (nunca o Perfil da Empresa).
+2. Vincular a propriedade GA4 **TKS Plan** (métricas e públicos ativados).
+3. Metas → Conversões → fonte **Conversões em um site** → categoria **Enviar formulário de lead** → evento do GA4 **`generate_lead`** → nome **"TKS Lead"**, valor **não usar**, contagem **Uma**, janela 90 dias. É a **única** conversão de lead primária: o `config.mjs` mantém `adsId` e `adsConversion` **vazios** (senão cada lead conta duas vezes).
+4. GA4 → Administrador → Coleta de dados → ativar **"Coleta de dados fornecidos pelo usuário"** (conversões aprimoradas com o telefone do lead).
+5. Google Ads → Administrador → Configurações da conta → **Codificação automática ativada** (coloca o `gclid` na URL).
+6. Criar a campanha seguindo `marketing/ads/campaign-plan.md` → deixar **pausada** até o teste final.
 
 ### Vendas de volta para o Google Ads (conversões offline + enhanced conversions)
-6. Metas → Conversões → "TKS Lead" → Configurações → **Enhanced conversions for leads** → ativar, método **Google tag**. A página já envia o WhatsApp do lead criptografado no envio do formulário.
 7. Metas → Conversões → Nova → **Importação** → "CRMs, arquivos ou outras fontes" → "Rastrear conversões de cliques". Nome **"TKS Sale"**, categoria Compra, valor "usar valores diferentes", contagem "uma", janela de 90 dias. Deixe como **secundária** por enquanto: com poucas vendas por mês, o lance continua otimizando por lead, e a venda serve para medir custo por venda por palavra-chave.
 8. Metas → Uploads → **Agendamentos** → fonte **Google Sheets** → a planilha "TKS Leads", aba **"Google Ads import"** → frequência diária.
 9. Antes de agendar, baixe o modelo de importação que o Google Ads oferece na mesma tela e compare os nomes das colunas com a aba gerada (`Google Click ID`, `Phone Number`, `Conversion Name`, `Conversion Time`, `Conversion Value`, `Conversion Currency`). Se o Google tiver mudado algum nome, ajuste `buildImportRows` em `Code.gs`.

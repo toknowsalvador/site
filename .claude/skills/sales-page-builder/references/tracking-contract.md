@@ -8,8 +8,8 @@ Changing anything here requires updating `plan/js/lead.mjs`, `plan/js/app.mjs`, 
 |---|---|---|
 | `whatsappNumber` | `5571993719791` | never empty |
 | `ga4Id` | `G-ABC123XYZ` | gtag not loaded; events are no-ops |
-| `adsId` | `AW-123456789` | Ads tag not configured |
-| `adsConversion` | `AW-123456789/AbCdEf` | conversion not sent |
+| `adsId` | `AW-123456789` | Ads tag not configured — **keep empty**: the lead conversion is the GA4 `generate_lead` imported into Google Ads |
+| `adsConversion` | `AW-123456789/AbCdEf` | conversion not sent — **keep empty** (setting it would count every lead twice) |
 | `leadEndpoint` | Apps Script `/exec` URL | lead not posted; WhatsApp still opens |
 | `clarityId` | Microsoft Clarity project ID | Clarity not loaded |
 
@@ -22,7 +22,7 @@ Changing anything here requires updating `plan/js/lead.mjs`, `plan/js/app.mjs`, 
 | `generate_lead` | step 2 validated, before redirect | `lead_id` |
 | `whatsapp_click` | right before redirect | `lead_id` |
 
-Google Ads conversion: `gtag('event', 'conversion', { send_to: CONFIG.adsConversion, transaction_id: lead_id, event_callback })`.
+Google Ads lead conversion: "TKS Lead" in Google Ads is the GA4 `generate_lead` event (linked property TKS Plan, G-2RZLNYF4ZG). The tag-based `conversion` event in `app.mjs` only fires if `adsConversion` is set — leave it empty.
 
 ## Lead payload / sheet columns (in order)
 
@@ -30,7 +30,7 @@ Google Ads conversion: `gtag('event', 'conversion', { send_to: CONFIG.adsConvers
 
 ## Enhanced conversions and offline sales
 
-- On submit, before the conversion events: `gtag('set', 'user_data', userDataFor(payload))` — the E.164 WhatsApp number; Google hashes it on the device and only sends it with `ad_user_data` consent. The Ads tag is configured with `allow_enhanced_conversions: true`.
+- On submit, before the conversion events: `gtag('set', 'user_data', userDataFor(payload))` — the E.164 WhatsApp number; Google hashes it on the device and only sends it with `ad_user_data` consent. GA4 must have **"User-provided data collection"** turned on (Admin → Data collection) for it to reach Google Ads.
 - Sales go back to Google Ads through the "Google Ads import" tab built by `refreshAdsImport()` in `Code.gs`: `gclid` + SHA-256 of the phone, conversion "TKS Sale", noon of `data_venda` (America/Bahia), `valor` in BRL.
 
 ## Audience parameter

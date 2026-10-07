@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-07 — Lead conversion comes from GA4
+- Google Ads "TKS Lead" is the GA4 key event `generate_lead` (property TKS Plan, G-2RZLNYF4ZG) imported into Google Ads; no Ads tag on the page (`adsId`/`adsConversion` empty). **Why:** Google Ads' new conversion setup only offered GA4-based web conversions for this site; with this volume the few hours of import delay don't matter. **Cost:** slightly less precise for visitors who refuse cookies.
+
 ## 2026-10-07 — Copy v5 and ads v2 approved
 - Family/group subtitle (`landing-v5.md`) and the Family & group trips ad group (`ads-v2.md`, campaign plan v2) approved by the team.
 
