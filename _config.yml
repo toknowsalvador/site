@@ -1,0 +1,12 @@
+# GitHub Pages (toknowsalvador.com) — publish only the main site.
+# The campaign landing in plan/ is deployed separately by Cloudflare Pages to plan.toknowsalvador.com.
+# Dot-folders (.claude, .superpowers) are already excluded by Jekyll.
+exclude:
+  - plan
+  - marketing
+  - docs
+  - tests
+  - tools
+  - integrations
+  - node_modules
+  - CLAUDE.md

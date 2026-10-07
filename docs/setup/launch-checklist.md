@@ -42,6 +42,11 @@
 3. Custom domains → `plan.toknowsalvador.com` → seguir instrução de DNS (CNAME `plan` → `<projeto>.pages.dev` no provedor de DNS atual).
 4. Commitar `config.mjs` preenchido → push → conferir deploy.
 
+## 4b. Depois do merge no `main` (site principal)
+1. Aguarde o deploy do GitHub Pages (aba Actions → "pages build and deployment" verde).
+2. Abra `https://toknowsalvador.com/plan/` e `https://toknowsalvador.com/marketing/brief.md` → os dois devem dar **404**. Se abrirem, o `_config.yml` não foi aplicado (verifique em Settings → Pages se o modo é "Deploy from a branch").
+3. Abra `https://toknowsalvador.com/` e `/pt/` → o site principal continua igual.
+
 ## 5. Teste final em produção
 1. Abrir `https://plan.toknowsalvador.com/?utm_source=test&gclid=TEST123` no celular.
 2. Aceitar cookies, preencher o formulário, enviar.
