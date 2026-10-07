@@ -66,3 +66,8 @@ test('all referenced local assets exist and images are ≤ 250KB', () => {
 test('form posts (never GETs personal data into the URL) if JS fails', () => {
   assert.match(html, /<form id="lead-form"[^>]*method="post"/);
 });
+
+test('form grid cells can shrink so date inputs never overflow narrow phones', () => {
+  assert.match(html, /\.row > \*, \.row-phone > \* \{ min-width: 0; \}/);
+  assert.match(html, /@media \(max-width: 479px\) \{ \.row \{ grid-template-columns: 1fr; \} \}/);
+});

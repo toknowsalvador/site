@@ -184,8 +184,10 @@
   .field { display: grid; gap: 6px; margin-bottom: 18px; font-weight: 600; font-size: 16px; }
   .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .row-phone { display: grid; grid-template-columns: 130px 1fr; gap: 12px; }
+  .row > *, .row-phone > * { min-width: 0; }
+  @media (max-width: 479px) { .row { grid-template-columns: 1fr; } }
   input[type="date"], input[type="number"], input[type="text"], input[type="tel"], select {
-    width: 100%; min-height: 52px; padding: 12px 14px; border: 1.5px solid #8B909B; border-radius: 12px;
+    width: 100%; min-width: 0; min-height: 52px; padding: 12px 14px; border: 1.5px solid #8B909B; border-radius: 12px;
     background: #fff; color: var(--ink); font: 400 17px/1.2 var(--body);
   }
   input:focus-visible, select:focus-visible { outline: 3px solid var(--cta); outline-offset: 1px; }
