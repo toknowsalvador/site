@@ -25,7 +25,7 @@
 - Lighthouse mobile: performance ≥ 90, accessibility ≥ 90.
 - `marketing/data/` contents (personal data) are never committed.
 - No build step; Cloudflare Pages serves `plan/` as-is. Assets used by the page must live inside `plan/`.
-- Tests run with `node --test tests/` from the repo root.
+- Tests run with `node --test 'tests/*.test.mjs'` from the repo root.
 
 ## Review Focus
 
@@ -154,7 +154,7 @@ Talk to the team in Portuguese. Customer-facing assets are in English.
 
 ## Tests
 
-`node --test tests/`
+`node --test 'tests/*.test.mjs'`
 ```
 
 `marketing/brief.md`:
@@ -676,7 +676,7 @@ When a `campaign-analyst` report recommends a copy change, write a new version (
 
 - [ ] **Step 7: Run tests + GREEN pressure scenario**
 
-Run: `node --test tests/`
+Run: `node --test 'tests/*.test.mjs'`
 Expected: PASS.
 Repeat Step 5's prompt with a fresh subagent told to read and follow `.claude/skills/offer-copywriter/SKILL.md`. Expected: (a)–(e) present. Tighten wording where missing and rerun.
 
@@ -787,7 +787,7 @@ Invoke `frontend-design:frontend-design` for the aesthetic direction, constraine
 
 ## Verify before claiming done
 
-1. `node --test tests/` → all pass.
+1. `node --test 'tests/*.test.mjs'` → all pass.
 2. Serve: `npx --yes http-server plan -p 4173 -c-1` and run Lighthouse (mobile) via chrome-devtools MCP → performance ≥ 90, accessibility ≥ 90.
 3. Screenshots at 390×844 and 1440×900; check hero, sticky CTA, form both steps.
 4. Submit the form with `leadEndpoint` pointed at an unreachable URL → WhatsApp URL still opens with `Ref: TKS-XXXX`.
@@ -1024,7 +1024,7 @@ Summarize to the team in Portuguese, in 5 lines or fewer, before the details.
 
 - [ ] **Step 5: Run tests + GREEN pressure scenario**
 
-Run: `node --test tests/`
+Run: `node --test 'tests/*.test.mjs'`
 Expected: PASS (including `all five campaign skills exist`).
 Repeat Step 3 with a fresh subagent told to follow the skill. Expected: (a)–(f) present.
 
@@ -1909,7 +1909,7 @@ Copy `public/toknowsalvador-icon.png` to `plan/assets/icon.png` (via optimizer i
 
 - [ ] **Step 7: Run tests to verify they pass**
 
-Run: `node --test tests/`
+Run: `node --test 'tests/*.test.mjs'`
 Expected: all PASS. (`page.test.mjs` treats `./` in privacy.html as fine because it only scans `index.html`.)
 
 - [ ] **Step 8: Commit**
@@ -1933,7 +1933,7 @@ Run (background): `npx --yes http-server plan -p 4173 -c-1`
 - [ ] **Step 2: Lighthouse**
 
 Use chrome-devtools MCP `lighthouse_audit` on `http://localhost:4173/` with mobile emulation.
-Expected: performance ≥ 90, accessibility ≥ 90. If below, fix (image sizes, CSS, font weights) and re-run `node --test tests/`.
+Expected: performance ≥ 90, accessibility ≥ 90. If below, fix (image sizes, CSS, font weights) and re-run `node --test 'tests/*.test.mjs'`.
 
 - [ ] **Step 3: Screenshots**
 
@@ -2009,7 +2009,7 @@ Invoke the skill; it writes `marketing/ads/campaign-plan.md` using `ads-v1`. Val
 
 - [ ] **Step 3: Run all tests**
 
-Run: `node --test tests/`
+Run: `node --test 'tests/*.test.mjs'`
 Expected: all PASS.
 
 - [ ] **Step 4: Commit**

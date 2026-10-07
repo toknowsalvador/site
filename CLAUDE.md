@@ -12,4 +12,4 @@ Talk to the team in Portuguese. Customer-facing assets are in English.
 
 ## Tests
 
-`node --test tests/`
+`node --test 'tests/*.test.mjs'`
