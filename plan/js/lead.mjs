@@ -132,3 +132,8 @@ export function buildWhatsAppUrl(number, text) {
   const safe = String(text).replace(/[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/g, '');
   return `https://wa.me/${number}?text=${encodeURIComponent(safe)}`;
 }
+
+// Enhanced conversions for leads: Google hashes this on the device before sending (only with ad_user_data consent).
+export function userDataFor(payload) {
+  return /^\+\d{8,15}$/.test(payload.whatsapp || '') ? { phone_number: payload.whatsapp } : null;
+}

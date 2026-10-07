@@ -2,7 +2,7 @@
 import { CONFIG } from './config.mjs';
 import {
   generateLeadId, loadAttribution, validateStep, validateAll, buildLeadPayload, buildWhatsAppText, buildWhatsAppUrl,
-  upcomingMonths,
+  upcomingMonths, userDataFor,
 } from './lead.mjs';
 
 const CONSENT_KEY = 'tks_consent';
@@ -24,7 +24,7 @@ function loadGtag() {
   document.head.appendChild(s);
   window.gtag('js', new Date());
   if (CONFIG.ga4Id) window.gtag('config', CONFIG.ga4Id);
-  if (CONFIG.adsId) window.gtag('config', CONFIG.adsId);
+  if (CONFIG.adsId) window.gtag('config', CONFIG.adsId, { allow_enhanced_conversions: true });
 }
 
 function loadClarity() {
@@ -170,6 +170,8 @@ function setupForm(attribution) {
     const go = () => { if (!navigated) { navigated = true; window.location.href = url; } };
 
     sendLead(payload);
+    const userData = userDataFor(payload);
+    try { if (userData && typeof window.gtag === 'function') window.gtag('set', 'user_data', userData); } catch { /* never block the redirect */ }
     track('generate_lead', { lead_id: leadId });
     track('whatsapp_click', { lead_id: leadId });
     if (CONFIG.adsConversion) {

@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-07 — Sales go back to Google Ads (no email field)
+- Offline conversion "TKS Sale" imported daily from the sheet's "Google Ads import" tab (`gclid` + hashed phone, `valor`, `data_venda`), plus enhanced conversions for leads with the WhatsApp number at form submit. No email field. **Why:** the phone (E.164) already works as the match key when `gclid` is lost; an extra required field would cost conversions. Revisit an optional email if Google's match rate is low. "TKS Sale" stays secondary until ~30 sales/month.
+
 ## 2026-10-07 — Longer lead reference
 - `Ref` is now `TKS-` + 6 characters from `ABCDEFGHJKMNPQRSTUVWXYZ23456789` (no 0/O, 1/I/L), e.g. `TKS-7KQ2MX`. Replaces the 4-hex format from the spec. **Why:** 4 hex gave ~26% chance of a duplicate at 200 leads/year; duplicates break the sheet ↔ WhatsApp match and Google Ads dedupes on it.
 

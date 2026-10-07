@@ -20,10 +20,10 @@ test('brief has all required sections', () => {
   }
 });
 
-test('skill backlog has five entries, each with trigger and status', () => {
+test('skill backlog has four entries, each with trigger and status', () => {
   const backlog = read('marketing/skill-backlog.md');
   const entries = backlog.split(/^## /m).slice(1);
-  assert.equal(entries.length, 5);
+  assert.equal(entries.length, 4);
   for (const e of entries) {
     assert.match(e, /\*\*Trigger:\*\*/);
     assert.match(e, /\*\*Status:\*\*/);

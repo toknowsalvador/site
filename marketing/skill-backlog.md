@@ -21,8 +21,3 @@ Candidate skills detected by growth-orchestrator. A skill is created only when i
 - **Gap:** non-English markets.
 - **Trigger:** cost per lead stable for 2 consecutive months in English.
 - **Status:** waiting
-
-## offline-conversion-importer
-- **Gap:** Google Ads optimizes for leads, not sales.
-- **Trigger:** ≥ 10 sales recorded with `gclid` in the leads sheet.
-- **Status:** waiting

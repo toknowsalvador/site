@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   generateLeadId, readAttribution, loadAttribution, normalizePhone, validateStep, validateAll,
-  upcomingMonths, monthLabel, DURATIONS,
+  upcomingMonths, monthLabel, DURATIONS, userDataFor,
   buildLeadPayload, buildWhatsAppText, buildWhatsAppUrl,
 } from '../plan/js/lead.mjs';
 
@@ -159,4 +159,14 @@ test('validateAll checks both steps so a lead never goes out with 0 travelers', 
 test('buildWhatsAppUrl survives a lone surrogate from a truncated emoji', () => {
   const url = buildWhatsAppUrl('5571993719791', 'Maya \uD83C');
   assert.ok(url.startsWith('https://wa.me/5571993719791?text=Maya'));
+});
+
+test('userDataFor sends the E.164 WhatsApp number for enhanced conversions', () => {
+  const p = buildLeadPayload(base, {}, 'TKS-AAAAAA', new Date(), 'u');
+  assert.deepEqual(userDataFor(p), { phone_number: '+15551234567' });
+});
+
+test('userDataFor returns null when there is no valid number', () => {
+  assert.equal(userDataFor({ whatsapp: '' }), null);
+  assert.equal(userDataFor({ whatsapp: '5551234567' }), null);
 });
