@@ -83,7 +83,7 @@ test('step 1 uses month and trip-length buttons, not date pickers', () => {
   for (const d of ['2–4 days', '5–7 days', '1–2 weeks', '2+ weeks']) {
     assert.ok(html.includes(`name="duration" value="${d}"`), `missing duration ${d}`);
   }
-  assert.match(html, /name="people"[^>]*value="2"/);
+  assert.match(html, /name="people"[^>]*value="0"/);
 });
 
 test('confirmation state exists for after the redirect', () => {

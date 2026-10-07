@@ -120,7 +120,7 @@ function setupForm(attribution) {
 
   const people = form.querySelector('[name="people"]');
   form.querySelectorAll('[data-step-people]').forEach((btn) => btn.addEventListener('click', () => {
-    const next = Math.min(99, Math.max(1, (Number(people.value) || 0) + Number(btn.dataset.stepPeople)));
+    const next = Math.min(99, Math.max(0, (Number(people.value) || 0) + Number(btn.dataset.stepPeople)));
     people.value = String(next);
   }));
 
