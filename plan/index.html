@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero.webp" imagesrcset="assets/hero-900.webp 900w, assets/hero.webp 1600w" imagesizes="100vw" fetchpriority="high">
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -75,6 +75,12 @@
   #hero .photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 35%; }
   #hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,7,7,0) 20%, rgba(7,7,7,.55) 48%, rgba(7,7,7,.96) 78%); }
   #hero .wrap { position: relative; z-index: 1; padding-top: 140px; padding-bottom: 40px; }
+  @media (max-width: 899px) {
+    #hero { display: block; min-height: 0; }
+    #hero .photo { position: relative; height: 44svh; min-height: 300px; object-position: 22% 30%; }
+    #hero::after { bottom: auto; height: max(44svh, 300px); background: linear-gradient(180deg, rgba(7,7,7,.35) 0%, rgba(7,7,7,0) 25%, rgba(7,7,7,0) 70%, var(--night) 100%); }
+    #hero .wrap { padding-top: 0; margin-top: -28px; }
+  }
   .brand { position: absolute; top: 20px; left: var(--gutter); z-index: 1; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
   .brand img { width: 36px; height: 36px; border-radius: 50%; }
   #hero h1 { font-size: clamp(40px, 10.5vw, 84px); max-width: 13ch; }
@@ -190,11 +196,20 @@
   #consent-banner p { grid-column: 1 / -1; font-size: 15px; }
   #consent-banner button { min-height: 44px; border-radius: 999px; border: 1.5px solid var(--ink); background: transparent; color: var(--ink); font: 700 15px/1 var(--sans); cursor: pointer; }
   #consent-banner [data-consent="accept"] { background: var(--ink); color: var(--sand); }
+  /* Desktop hero: text column on the dark left, photo on the right */
+  @media (min-width: 900px) {
+    #hero { align-items: center; }
+    #hero .photo { left: 40%; width: 60%; object-position: 30% 40%; }
+    #hero::after { background: linear-gradient(90deg, var(--night) 40%, rgba(7,7,7,0) 56%), linear-gradient(0deg, var(--night) 0%, rgba(7,7,7,0) 22%); }
+    #hero .wrap { max-width: none; margin: 0; padding: 120px 0 80px 6vw; }
+    #hero .wrap > * { max-width: 33vw; }
+    #hero h1 { font-size: clamp(44px, 4.4vw, 66px); }
+  }
 </style>
 </head>
 <body>
 <header id="hero">
-  <img class="photo" src="assets/hero.webp" width="1600" height="900" fetchpriority="high" alt="A To Know Salvador guide with a smiling group of travelers in Pelourinho square">
+  <img class="photo" src="assets/hero.webp" srcset="assets/hero-900.webp 900w, assets/hero.webp 1600w" sizes="100vw" width="1600" height="900" fetchpriority="high" alt="A To Know Salvador guide with a smiling group of travelers in Pelourinho square">
   <div class="brand"><img src="assets/icon.png" width="36" height="36" alt=""> Salvador Trip Concierge</div>
   <div class="wrap">
     <h1>Your Salvador trip, planned and booked by locals</h1>
