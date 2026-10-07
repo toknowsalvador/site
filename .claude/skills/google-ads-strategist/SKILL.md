@@ -16,9 +16,10 @@ Small budget, high intent. With ≤ R$ 1.000/month (~R$ 33/day) every wasted cli
 | Locations | Brazil, option **"Presence or interest"** | reaches foreigners researching Brazil from abroad and those already here |
 | Languages | English | filters to English-speaking users |
 | Budget | R$ 33/day | ≤ R$ 1.000/month |
-| Bidding | Maximize Clicks with max CPC cap R$ 3,00 → switch to Maximize Conversions after 15–30 recorded conversions | no conversion history at start |
+| Bidding | Maximize Clicks with max CPC cap R$ 6,00 → switch to Maximize Conversions after 15–30 recorded conversions | no conversion history at start; English travel searches usually cost R$ 3–8 per click — confirm in Keyword Planner and lower the cap only if impressions are not limited |
 | Ad schedule | all hours at first; revisit after 4 weeks of data | not enough data to cut |
 | Auto-apply recommendations | **off** | Google's suggestions widen targeting |
+| Final URL expansion / automatically created assets | **off** | keeps traffic on the page and copy under our control |
 | Conversion | `generate_lead` (Ads conversion from the site tag) as **primary**; nothing else primary | optimize for the real goal |
 | Final URL | `https://plan.toknowsalvador.com/?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}` via tracking template | analyst needs keyword per lead |
 
@@ -34,7 +35,17 @@ Each group's ads come from the matching block in the approved `marketing/copy/ad
 
 ## Negative keywords (campaign level, from day one)
 
-free, jobs, job, salary, work, map, maps, weather, flight, flights, cheap flights, airline, pdf, wikipedia, history of, el salvador, san salvador, salvador dali, salvador sobral, crime, news, portuguese, translation, real estate, apartment for sale, university, carnival 20xx dates (add the current year), plus every irrelevant term found by `campaign-analyst`.
+- **El Salvador / other Salvadors:** el salvador, san salvador, salvadoran, bukele, santa ana, san miguel, el tunco, salvador dali, dali, salvador sobral.
+- **Low intent:** free, jobs, job, salary, work, map, maps, weather, flight, flights, cheap flights, airline, pdf, wikipedia, history of, crime, news, portuguese, translation, real estate, apartment for sale, university, bahia fc.
+- Plus every irrelevant term found by `campaign-analyst`.
+
+Review the search terms report every 2–3 days in weeks 1–3, then weekly: at this budget a few junk clicks a day are a large share of spend.
+
+## Assets
+
+- Sitelinks to page anchors: How it works (`#how`), What we handle (`#handle`), FAQ (`#faq`), Get a free quote (`#plan`).
+- Callouts: Free quote, Reply on WhatsApp, Local partners, English support (only claims true per brief).
+- Structured snippet "Services": tours, airport transfers, hotels, restaurants, cultural shows.
 
 ## Output: `marketing/ads/campaign-plan.md`
 
@@ -46,7 +57,7 @@ Copy: ads-v{n}
 ## Ad groups       (name, keywords with match type, final URL)
 ## Negatives       (list)
 ## Setup steps     (numbered clicks in the Google Ads UI)
-## Expectations    (clicks/month = budget / expected CPC; leads at 5% and 10% CVR)
+## Expectations    (clicks/month = budget / CPC at R$ 3, 5 and 8; leads at 5% and 10% CVR — never present the optimistic case alone)
 ## Change log      (date — change — reason — EXP id)
 ```
 
