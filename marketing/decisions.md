@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-07 — Landing has its own visual identity
+- The campaign page must not use `toknowsalvador.com` as a base for anything (colors, fonts, layout). It gets a new identity aimed at top conversion and visual quality; direction approved by the team is recorded in `marketing/design.md`. **Why:** the page is separate on purpose. **Supersedes:** first build, which reused the main site's dark base and DM Sans + Playfair.
+
 ## 2026-10-07 — Copy v1 approved
 - `marketing/copy/landing-v1.md` and `marketing/copy/ads-v1.md` approved by the team. "Who we are" is provisional and will be revisited. **Why:** brief complete enough to launch; all claims verified.
 

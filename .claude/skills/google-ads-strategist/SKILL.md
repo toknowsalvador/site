@@ -20,8 +20,9 @@ Small budget, high intent. With ≤ R$ 1.000/month (~R$ 33/day) every wasted cli
 | Ad schedule | all hours at first; revisit after 4 weeks of data | not enough data to cut |
 | Auto-apply recommendations | **off** | Google's suggestions widen targeting |
 | Final URL expansion / automatically created assets | **off** | keeps traffic on the page and copy under our control |
-| Conversion | `generate_lead` (Ads conversion from the site tag) as **primary**; nothing else primary | optimize for the real goal |
-| Final URL | `https://plan.toknowsalvador.com/?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}` via tracking template | analyst needs keyword per lead |
+| Conversion | Google Ads conversion action **"TKS Lead"** (from the site tag, `send_to` = `CONFIG.adsConversion`) as **primary**. Never import the GA4 `generate_lead` key event as a second primary — every lead would count twice | optimize for the real goal |
+| Final URL | bare `https://plan.toknowsalvador.com/` | parameters go in the tracking template, never in the Final URL |
+| Tracking template (campaign) | `{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}` | analyst needs keyword per lead |
 
 ## Ad groups and keywords
 

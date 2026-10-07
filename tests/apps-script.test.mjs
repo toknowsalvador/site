@@ -66,3 +66,17 @@ test('doPost rejects invalid JSON without throwing', () => {
   assert.equal(out.text, 'error');
   assert.equal(sheetRows.length, 0);
 });
+
+test('sanitizeCell also neutralizes tab and carriage-return prefixes', () => {
+  const { ctx } = load();
+  assert.equal(ctx.sanitizeCell('\t=1+1'), "'\t=1+1");
+  assert.equal(ctx.sanitizeCell('\r=1+1'), "'\r=1+1");
+});
+
+test('doPost rejects JSON that is not an object', () => {
+  for (const body of ['null', '42', '"x"', '[1]']) {
+    const { ctx, sheetRows } = load();
+    assert.equal(ctx.doPost({ postData: { contents: body } }).text, 'error', body);
+    assert.equal(sheetRows.length, 0);
+  }
+});

@@ -24,7 +24,7 @@ Google Ads CSVs start with 2 title lines; skip them. Compute numbers with a shor
 |---|---|---|
 | Impressions | | |
 | Clicks | | CTR |
-| Leads (sheet rows with utm_source=google) | | CVR = leads / clicks |
+| Leads (sheet rows with utm_source=google OR a non-empty gclid) | | CVR = leads / clicks |
 | Responded | | |
 | Quotes sent | | |
 | Sales (`fechou`) | | close rate = sales / quotes |
@@ -52,5 +52,7 @@ Always say how many clicks/leads a verdict is based on.
 ## 4. Output
 
 Write `marketing/reports/YYYY-MM-DD.md`: funnel table, waste list, verdicts, and **max 3 actions**, each with owner skill (`google-ads-strategist`, `offer-copywriter`, `sales-page-builder`) or person. Close or update `EXP` entries in `marketing/experiments.md`. Check backlog triggers in `marketing/skill-backlog.md` and report any that are met to `growth-orchestrator`.
+
+Reports are committed to a public repo: **never write names, phone numbers or any lead text into them** — refer to leads by `lead_id` (Ref) only. Exports in `marketing/data/` stay git-ignored; open them with a script, not Excel/LibreOffice (cells from the public endpoint may contain formulas).
 
 Summarize to the team in Portuguese, in 5 lines or fewer, before the details.

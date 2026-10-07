@@ -73,7 +73,7 @@ plan/                      landing page (HTML estático)
 
 ### 4.3 sales-page-builder
 - **Ativa quando:** construir/alterar a landing page, implementar tracking, aplicar experimento na página.
-- **Faz:** consome copy aprovada (não reescreve; sinaliza problemas à offer-copywriter); aplica checklist de CRO; invoca `/frontend-design` para direção visual coerente com a marca (DM Sans + Playfair Display, tom escuro); implementa tracking conforme §5.4; verifica com Lighthouse e capturas mobile/desktop.
+- **Faz:** consome copy aprovada (não reescreve; sinaliza problemas à offer-copywriter); aplica checklist de CRO; invoca `/frontend-design` para uma identidade visual própria, independente do site principal (direção aprovada em `marketing/design.md`); implementa tracking conforme §5.4; verifica com Lighthouse e capturas mobile/desktop.
 - **Checklist de CRO:** CTA acima da dobra no mobile; sem navegação de saída; formulário curto e progressivo; prova social perto dos CTAs; mensagem do anúncio refletida no hero; LCP < 2,5 s; CTA fixo no mobile.
 - **Saída:** arquivos em `plan/` + entrada em `experiments.md` quando a mudança é teste.
 - **Guardrails:** único dono do HTML; uma mudança relevante por vez.

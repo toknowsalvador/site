@@ -19,7 +19,7 @@ Copy: ads-v1
 | Auto-apply recommendations | Off (all items) |
 | Final URL expansion | Off |
 | Automatically created assets | Off |
-| Primary conversion | `generate_lead` (Google Ads conversion from the site tag); every other conversion action Secondary |
+| Primary conversion | "TKS Lead" (Google Ads conversion from the site tag); every other action Secondary — never import GA4 `generate_lead` as primary |
 | Final URL | `https://plan.toknowsalvador.com/` |
 | Tracking template (campaign level) | `{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}` |
 
@@ -66,7 +66,7 @@ Search terms review: every 2–3 days in weeks 1–3, then weekly (via `campaign
 
 ## Setup steps
 
-1. Goals → Conversions: confirm the `generate_lead` action shows "Recording conversions" (after the launch-checklist test). Set it Primary; set any other action Secondary.
+1. Goals → Conversions: confirm the "TKS Lead" action shows "Recording conversions" (after the launch-checklist test). Set it Primary; set any other action Secondary.
 2. Tools → Shared library → Negative keyword lists → + → name "TKS negatives" → paste the list above → Save.
 3. Campaigns → + New campaign → Objective **Leads** → Type **Search** → select the `generate_lead` goal → Continue.
 4. Name: `TKS – Search – EN – v1`. Untick **Google Search Partners** and **Google Display Network**.

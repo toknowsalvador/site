@@ -1,7 +1,7 @@
 // DOM wiring for the landing page: form steps, consent, tracking, lead submit and WhatsApp redirect.
 import { CONFIG } from './config.mjs';
 import {
-  generateLeadId, loadAttribution, validateStep, buildLeadPayload, buildWhatsAppText, buildWhatsAppUrl,
+  generateLeadId, loadAttribution, validateStep, validateAll, buildLeadPayload, buildWhatsAppText, buildWhatsAppUrl,
 } from './lead.mjs';
 
 const CONSENT_KEY = 'tks_consent';
@@ -15,13 +15,14 @@ function track(name, params = {}) {
 }
 
 function loadGtag() {
-  if (!CONFIG.ga4Id) return;
+  const tagId = CONFIG.ga4Id || CONFIG.adsId;
+  if (!tagId) return;
   const s = document.createElement('script');
   s.async = true;
-  s.src = `https://www.googletagmanager.com/gtag/js?id=${CONFIG.ga4Id}`;
+  s.src = `https://www.googletagmanager.com/gtag/js?id=${tagId}`;
   document.head.appendChild(s);
   window.gtag('js', new Date());
-  window.gtag('config', CONFIG.ga4Id);
+  if (CONFIG.ga4Id) window.gtag('config', CONFIG.ga4Id);
   if (CONFIG.adsId) window.gtag('config', CONFIG.adsId);
 }
 
@@ -88,6 +89,7 @@ function setupForm(attribution) {
   const submit = form.querySelector('button[type="submit"]');
   let started = false;
   let submitted = false;
+  let whatsappUrl = '';
 
   form.addEventListener('focusin', () => {
     if (!started) { started = true; track('form_start'); }
@@ -97,7 +99,7 @@ function setupForm(attribution) {
     for (const n of ['arrival', 'departure']) form.querySelector(`[name="${n}"]`).disabled = e.target.checked;
   });
 
-  form.querySelector('[data-next]').addEventListener('click', () => {
+  const goToStep2 = () => {
     const data = readForm(form);
     const { valid, errors } = validateStep(1, data);
     showErrors(form, errors);
@@ -106,7 +108,8 @@ function setupForm(attribution) {
     step2.hidden = false;
     step2.querySelector('input, select')?.focus();
     track('form_step_2', { people: Number(data.people) });
-  });
+  };
+  form.querySelector('[data-next]').addEventListener('click', goToStep2);
 
   form.querySelector('[data-back]').addEventListener('click', () => {
     step2.hidden = true;
@@ -116,9 +119,13 @@ function setupForm(attribution) {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    if (submitted) return;
+    // Enter pressed while step 1 is showing: behave like "Continue".
+    if (!step1.hidden) { goToStep2(); return; }
+    // Already sent (e.g. came back from the wa.me page): reopen WhatsApp, never a second lead.
+    if (submitted) { if (whatsappUrl) window.location.href = whatsappUrl; return; }
     const data = readForm(form);
-    const { valid, errors } = validateStep(2, data);
+    const { valid, errors } = validateAll(data);
+    if (errors.people || errors.arrival || errors.departure) { step2.hidden = true; step1.hidden = false; }
     showErrors(form, errors);
     if (!valid) return;
     submitted = true;
@@ -127,6 +134,7 @@ function setupForm(attribution) {
     const leadId = generateLeadId();
     const payload = buildLeadPayload(data, attribution, leadId, new Date(), location.href);
     const url = buildWhatsAppUrl(CONFIG.whatsappNumber, buildWhatsAppText(payload));
+    whatsappUrl = url;
     let navigated = false;
     const go = () => { if (!navigated) { navigated = true; window.location.href = url; } };
 
@@ -137,6 +145,11 @@ function setupForm(attribution) {
       track('conversion', { send_to: CONFIG.adsConversion, transaction_id: leadId, event_callback: go });
     }
     setTimeout(go, 800);
+  });
+
+  // Restored from the back/forward cache after the redirect: let the visitor reopen WhatsApp.
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted && submitted) submit.disabled = false;
   });
 }
 

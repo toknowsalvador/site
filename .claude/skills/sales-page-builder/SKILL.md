@@ -26,7 +26,7 @@ Sole owner of `plan/`. Turns approved copy into a fast, focused page whose only 
 
 ## Visual design
 
-Invoke `frontend-design:frontend-design` for the aesthetic direction, constrained to the brand: DM Sans (body) + Playfair Display (headings), dark base like `toknowsalvador.com`, warm Bahia accent. Conversion beats ornament: contrast ≥ 4.5:1, tap targets ≥ 44px, CTA color used for nothing else.
+The landing page has its **own visual identity, independent of `toknowsalvador.com`** — never reuse the main site's colors, fonts or layout as a base. The approved direction lives in `marketing/design.md`; follow it. If it does not exist or a change goes beyond it, invoke `frontend-design:frontend-design`, show the team 2–3 rendered options (screenshots) and get approval **before** building. Conversion beats ornament: contrast ≥ 4.5:1, tap targets ≥ 44px, CTA color used for nothing else.
 
 ## Performance
 

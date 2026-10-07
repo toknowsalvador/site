@@ -32,10 +32,13 @@ export function loadAttribution(storage, search) {
 
 export function normalizePhone(countryCode, phone) {
   const raw = String(phone || '').trim();
+  const international = raw.startsWith('+') || raw.startsWith('00');
   let digits;
-  if (countryCode === 'other') {
-    if (!raw.startsWith('+')) return null;
-    digits = raw.replace(/\D/g, '');
+  if (international) {
+    // Typed with its own country code: the selector must not be prepended again.
+    digits = raw.replace(/\D/g, '').replace(/^00/, '');
+  } else if (countryCode === 'other') {
+    return null;
   } else {
     digits = String(countryCode).replace(/\D/g, '') + raw.replace(/\D/g, '').replace(/^0+/, '');
   }
@@ -64,6 +67,13 @@ export function validateStep(step, data) {
       errors.phone = 'Please enter a valid WhatsApp number with country code.';
     }
   }
+  return { valid: Object.keys(errors).length === 0, errors };
+}
+
+export function validateAll(data) {
+  const one = validateStep(1, data);
+  const two = validateStep(2, data);
+  const errors = { ...one.errors, ...two.errors };
   return { valid: Object.keys(errors).length === 0, errors };
 }
 
@@ -101,5 +111,7 @@ export function buildWhatsAppText(p) {
 }
 
 export function buildWhatsAppUrl(number, text) {
-  return `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
+  // A lone surrogate (e.g. an emoji cut in half by maxlength) makes encodeURIComponent throw.
+  const safe = String(text).replace(/[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/g, '');
+  return `https://wa.me/${number}?text=${encodeURIComponent(safe)}`;
 }

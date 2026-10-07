@@ -5,7 +5,7 @@
 2. Extensões → Apps Script → colar `integrations/apps-script/Code.gs` → Salvar.
 3. Implantar → Nova implantação → Tipo: App da Web → Executar como: Eu → Quem pode acessar: Qualquer pessoa → Implantar → autorizar.
 4. Copiar a URL `/exec` → colar em `plan/js/config.mjs` → `leadEndpoint`.
-5. Teste: `curl -L -X POST -H 'Content-Type: text/plain' -d '{"lead_id":"TKS-TEST","name":"Teste"}' '<URL>'` → resposta `ok` e linha na aba "Leads". Apagar a linha de teste.
+5. Teste: `curl -L -H 'Content-Type: text/plain' -d '{"lead_id":"TKS-TEST","name":"Teste"}' '<URL>'` → resposta `ok` e linha na aba "Leads". Apagar a linha de teste.
 6. Na coluna `status`, criar validação de dados (lista): novo, respondeu, orçamento enviado, fechou, perdido.
 
 ## 2. Google Analytics 4
@@ -15,7 +15,7 @@
 
 ## 3. Google Ads
 1. Criar conta (modo especialista, sem criar campanha ainda).
-2. Metas → Conversões → Nova → Site → `plan.toknowsalvador.com` → criar manualmente: categoria "Enviar formulário de lead", valor: não usar, contagem: uma.
+2. Metas → Conversões → Nova → Site → `plan.toknowsalvador.com` → criar manualmente: nome **"TKS Lead"**, categoria "Enviar formulário de lead", valor: não usar, contagem: uma. Esta é a única conversão primária: **não** importe o evento `generate_lead` do GA4 como primária (contaria cada lead duas vezes).
 3. Em "Configuração da tag" → "Instalar você mesmo" → copiar `AW-XXXXXXX` → `adsId` e `AW-XXXXXXX/YYYY` → `adsConversion`.
 4. Vincular GA4 ↔ Google Ads (Admin GA4 → Vinculações de produtos).
 5. Criar a campanha seguindo `marketing/ads/campaign-plan.md` → deixar **pausada**.

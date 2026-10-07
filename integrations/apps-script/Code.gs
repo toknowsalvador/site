@@ -12,7 +12,7 @@ var HEADERS = [
 function sanitizeCell(value) {
   if (value === null || value === undefined) return '';
   var s = String(value).slice(0, 500);
-  if (/^[=+\-@]/.test(s)) s = "'" + s;
+  if (/^[=+\-@\t\r]/.test(s)) s = "'" + s;
   return s.slice(0, 500);
 }
 
@@ -29,6 +29,9 @@ function doPost(e) {
   try {
     data = JSON.parse(e.postData.contents);
   } catch (err) {
+    return ContentService.createTextOutput('error');
+  }
+  if (!data || typeof data !== 'object' || Array.isArray(data)) {
     return ContentService.createTextOutput('error');
   }
   var lock = LockService.getScriptLock();

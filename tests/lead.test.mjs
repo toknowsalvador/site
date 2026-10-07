@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
-  generateLeadId, readAttribution, loadAttribution, normalizePhone, validateStep,
+  generateLeadId, readAttribution, loadAttribution, normalizePhone, validateStep, validateAll,
   buildLeadPayload, buildWhatsAppText, buildWhatsAppUrl,
 } from '../plan/js/lead.mjs';
 
@@ -113,4 +113,23 @@ test('buildWhatsAppUrl encodes special characters', () => {
   const url = buildWhatsAppUrl('5571993719791', text);
   assert.ok(url.startsWith('https://wa.me/5571993719791?text='));
   assert.equal(new URL(url).searchParams.get('text'), text);
+});
+
+test('normalizePhone ignores the selector when the number is already international', () => {
+  assert.equal(normalizePhone('44', '+44 7700 900123'), '+447700900123');
+  assert.equal(normalizePhone('1', '+1 415 555 0100'), '+14155550100');
+  assert.equal(normalizePhone('44', '0044 7700 900123'), '+447700900123');
+});
+
+test('validateAll checks both steps so a lead never goes out with 0 travelers', () => {
+  const r = validateAll({ ...base, people: '' });
+  assert.equal(r.valid, false);
+  assert.ok(r.errors.people);
+  assert.equal(validateAll(base).valid, true);
+  assert.ok(validateAll({ ...base, name: '' }).errors.name);
+});
+
+test('buildWhatsAppUrl survives a lone surrogate from a truncated emoji', () => {
+  const url = buildWhatsAppUrl('5571993719791', 'Maya \uD83C');
+  assert.ok(url.startsWith('https://wa.me/5571993719791?text=Maya'));
 });

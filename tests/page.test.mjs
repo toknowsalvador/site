@@ -62,3 +62,7 @@ test('all referenced local assets exist and images are ≤ 250KB', () => {
     assert.ok(statSync(new URL(`../plan/assets/${f}`, import.meta.url)).size <= 250 * 1024, `${f} too big`);
   }
 });
+
+test('form posts (never GETs personal data into the URL) if JS fails', () => {
+  assert.match(html, /<form id="lead-form"[^>]*method="post"/);
+});
