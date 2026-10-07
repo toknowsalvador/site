@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-07 — Copy v1 approved
+- `marketing/copy/landing-v1.md` and `marketing/copy/ads-v1.md` approved by the team. "Who we are" is provisional and will be revisited. **Why:** brief complete enough to launch; all claims verified.
+
 ## 2026-10-07 — Partners stay anonymous
 - Partners are never named or linked on the page or in ads; the client deals only with To Know Salvador. Restaurants/events may be named later (on hold). **Why:** keep the relationship centralized with us.
 

@@ -55,8 +55,10 @@ test('validateStep 1 accepts valid data', () => {
   assert.deepEqual(validateStep(1, base), { valid: true, errors: {} });
 });
 
-test('validateStep 1 requires people between 1 and 20', () => {
-  for (const people of ['', '0', '21', 'abc', '2.5']) {
+test('validateStep 1 requires people between 1 and 99', () => {
+  assert.equal(validateStep(1, { ...base, people: '21' }).valid, true);
+  assert.equal(validateStep(1, { ...base, people: '99' }).valid, true);
+  for (const people of ['', '0', '100', 'abc', '2.5']) {
     const r = validateStep(1, { ...base, people });
     assert.equal(r.valid, false, people);
     assert.ok(r.errors.people);
@@ -95,7 +97,7 @@ test('buildLeadPayload has exactly the contract columns', () => {
 test('buildWhatsAppText includes trip details and ends with Ref', () => {
   const p = buildLeadPayload(base, {}, 'TKS-ABCD', new Date(), 'u');
   const t = buildWhatsAppText(p);
-  assert.match(t, /Maya/);
+  assert.match(t, /^Hi! I'm Maya\. I'd like a quote for my Salvador trip\.$/m);
   assert.match(t, /2 people/);
   assert.match(t, /2026-12-20 to 2026-12-28/);
   assert.match(t, /tours, shows/);

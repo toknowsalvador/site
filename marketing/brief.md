@@ -6,6 +6,7 @@
 - Service name (customer-facing): Salvador Trip Concierge, by To Know Salvador (ads still use "trip planner" search terms in headlines)
 - Pricing model: no fixed price and no separate planning fee. Each trip gets a custom quote on WhatsApp after we understand what the traveler needs; we then provide everything that was approved (not just a plan). Never show a price on the page or in ads.
 - What the quote can include: tours, transport/transfers, hotel booking, Airbnb/rentals, restaurant reservations, cultural shows.
+- Confirmed extras: airport pickup on request; day trips to islands/beaches near Salvador (Boipeba, Praia do Forte, etc.); WhatsApp support during the whole trip.
 - What the client pays separately to partners: nothing — the client pays everything to To Know Salvador, which pays the partners (one payment, one point of contact).
 - Payment terms: 50% deposit when the quote is approved (to secure bookings), remaining 50% on arrival in Salvador. Payment method: PayPal.
 - Risk reversal / guarantee: Free quote on WhatsApp — the client only pays after approving the plan.

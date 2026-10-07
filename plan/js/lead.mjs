@@ -46,8 +46,8 @@ export function validateStep(step, data) {
   const errors = {};
   if (step === 1) {
     const people = String(data.people || '').trim();
-    if (!/^\d+$/.test(people) || Number(people) < 1 || Number(people) > 20) {
-      errors.people = 'Please enter how many travelers (1–20).';
+    if (!/^\d+$/.test(people) || Number(people) < 1 || Number(people) > 99) {
+      errors.people = 'Please enter how many travelers (1–99).';
     }
     if (!data.datesUnknown) {
       if (!ISO_DATE.test(data.arrival || '')) errors.arrival = 'Add your arrival date, or tick "Not sure yet".';
@@ -93,7 +93,7 @@ export function buildLeadPayload(data, attribution, leadId, now, landingUrl) {
 export function buildWhatsAppText(p) {
   const who = `${p.people} ${p.people === 1 ? 'person' : 'people'}`;
   const when = p.dates_unknown || !p.arrival ? 'dates not decided yet' : `${p.arrival} to ${p.departure}`;
-  const lines = [`Hi! I'm ${p.name}. I'd like help planning my trip to Salvador.`, `${who}, ${when}.`];
+  const lines = [`Hi! I'm ${p.name}. I'd like a quote for my Salvador trip.`, `${who}, ${when}.`];
   if (p.interests) lines.push(`I'm interested in: ${p.interests}.`);
   if (p.budget) lines.push(`Budget: ${p.budget}.`);
   lines.push(`Ref: ${p.lead_id}`);
