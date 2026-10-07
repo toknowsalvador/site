@@ -2,6 +2,12 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-07 — Partners stay anonymous
+- Partners are never named or linked on the page or in ads; the client deals only with To Know Salvador. Restaurants/events may be named later (on hold). **Why:** keep the relationship centralized with us.
+
+## 2026-10-07 — Pricing: custom quote, no fixed fee
+- No fixed planning fee. Price depends on what each traveler needs; the quote is built on WhatsApp and covers the services we provide (we deliver the trip, not only a plan). Page and ads never show a price; the offer is "free custom quote, pay only after you approve". **Why:** needs vary too much for a fixed price; understanding them requires a conversation. **Supersedes:** spec assumption of a separate planning fee.
+
 ## 2026-10-07 — Initial campaign setup
 - Conversion = 2-step qualification form → Google Sheets → WhatsApp with prefilled text. Sales (quote + payment) happen on WhatsApp. **Why:** quote before charging; reliable Lead event for Google Ads; filters bad leads.
 - English only. **Why:** validate the offer before multiplying cost.
