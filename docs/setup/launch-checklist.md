@@ -61,5 +61,5 @@ O código continua só no GitHub; o Cloudflare Pages apenas publica a pasta `pla
 
 ## 7. Rotina
 - Lead na planilha sem mensagem no WhatsApp depois de 1 hora (status `novo`): **vocês escrevem primeiro** para o número da planilha, citando o `Ref`.
-- Toda conversa no WhatsApp: atualizar `status` do lead pelo `Ref`. Ao fechar: `status` = fechou, `valor` em R$ e `data_venda`. A venda vai sozinha para o Google Ads no dia seguinte.
+- Toda conversa no WhatsApp: atualizar `status` do lead pelo `Ref`. Ao fechar: `status` = fechou, `valor` em R$ (o que o cliente pagou), `data_venda` e `lucro` em R$ (o que ficou com vocês depois do guia/parceiros). A venda vai sozinha para o Google Ads no dia seguinte.
 - Toda segunda-feira: exportar CSVs (ver skill `campaign-analyst`) e rodar a revisão com o `growth-orchestrator`.

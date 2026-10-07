@@ -35,7 +35,7 @@ const payload = {
 
 test('HEADERS matches tracking contract plus status and valor', () => {
   const { ctx } = load();
-  assert.deepEqual(Array.from(ctx.HEADERS), [...Object.keys(payload), 'status', 'valor', 'data_venda']);
+  assert.deepEqual(Array.from(ctx.HEADERS), [...Object.keys(payload), 'status', 'valor', 'data_venda', 'lucro']);
 });
 
 test('buildRow orders values and defaults status to novo', () => {
@@ -43,9 +43,8 @@ test('buildRow orders values and defaults status to novo', () => {
   const row = Array.from(ctx.buildRow(payload));
   assert.equal(row[1], 'TKS-ABCD');
   assert.equal(row[4], '2');
-  assert.equal(row.at(-3), 'novo');
-  assert.equal(row.at(-2), '');
-  assert.equal(row.at(-1), '');
+  assert.equal(row.at(-4), 'novo');
+  assert.deepEqual(row.slice(-3), ['', '', '']);
 });
 
 test('sanitizeCell neutralizes formulas', () => {

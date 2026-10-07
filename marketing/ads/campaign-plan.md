@@ -1,8 +1,8 @@
 Status: draft
-Version: v1
-Copy: ads-v1
+Version: v2
+Copy: ads-v2
 
-# Google Ads campaign plan v1 — Salvador Trip Concierge
+# Google Ads campaign plan v2 — Salvador Trip Concierge
 
 ## Settings
 
@@ -21,11 +21,11 @@ Copy: ads-v1
 | Automatically created assets | Off |
 | Primary conversion | "TKS Lead" (Google Ads conversion from the site tag); every other action Secondary — never import GA4 `generate_lead` as primary |
 | Final URL | `https://plan.toknowsalvador.com/` |
-| Tracking template (campaign level) | `{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}` |
+| Final URL suffix (campaign level) | `utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}` — no tracking template (a `{lpurl}?…` template breaks URLs that already have `?audience=`) |
 
 ## Ad groups
 
-Final URL for all: `https://plan.toknowsalvador.com/`. Ads: the matching block in `marketing/copy/ads-v1.md`.
+Final URL for all: `https://plan.toknowsalvador.com/`. Ads: the matching block in `marketing/copy/ads-v2.md`.
 
 ### 1. Trip planner — live from day 1
 - "salvador trip planner"
@@ -48,6 +48,22 @@ Final URL for all: `https://plan.toknowsalvador.com/`. Ads: the matching block i
 - "salvador bahia day trips"
 - "day trip from salvador brazil"
 - "where to stay in salvador brazil"
+
+### 4. Family & group trips — live from day 1
+Priority audience: per-person pricing makes groups of 3+ profitable (see brief, unit economics).
+- "salvador brazil family vacation"
+- "family trip to salvador brazil"
+- "family vacation salvador bahia"
+- "salvador bahia with kids"
+- "salvador with kids"
+- "salvador group tour"
+- "group trip to salvador brazil"
+- "salvador bahia group travel"
+
+Ad group **Final URL suffix** (overrides the campaign one, so it repeats the UTMs): `utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}&audience=family` — the page then shows the family/group subtitle.
+
+### Audience observation (campaign level)
+Audiences, keywords and content → Demographics → **Parental status: Parents** → **Observation** (no targeting). After ≥ 300 clicks, compare CVR and lead size; only then consider a bid adjustment.
 
 ## Negatives
 
@@ -75,10 +91,12 @@ Search terms review: every 2–3 days in weeks 1–3, then weekly (via `campaign
 7. Turn off **Final URL expansion** / **Automatically created assets** if offered.
 8. Budget: **R$ 33,00** daily.
 9. Bidding: **Clicks** → tick "Set a maximum cost per click bid limit" → **R$ 6,00**.
-10. Campaign URL options → Tracking template → paste the template above → Save.
-11. Ad group "Trip planner": paste its keywords exactly (with quotes/brackets) → RSA: final URL, the 12 headlines, 4 descriptions and 2 paths from `ads-v1.md`.
+10. Campaign URL options → **Final URL suffix** → paste `utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}` → leave Tracking template empty → Save.
+11. Ad group "Trip planner": paste its keywords exactly (with quotes/brackets) → RSA: final URL, the 12 headlines, 4 descriptions and 2 paths from `ads-v2.md`.
 12. Ad group "Things to do": same with its block.
 13. Ad group "Tours & transfers": same, then **pause** the ad group.
+13b. Ad group "Family & group trips": keywords, RSA from `ads-v2.md`, then Ad group settings → Ad group URL options → **Final URL suffix** → `utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}&audience=family`.
+13c. Audiences → Demographics → Parental status → Parents → **Observation**.
 14. Campaign → Keywords → Negative keywords → apply list "TKS negatives".
 15. Assets: add the sitelinks, callouts and structured snippet above at campaign level.
 16. Recommendations → Auto-apply → turn every item **off**.
@@ -99,3 +117,4 @@ At ~10 leads/month, the 15–30 conversions needed to switch bidding arrive in m
 ## Change log
 
 - 2026-10-07 — v1 drafted from ads-v1 — initial setup — no EXP
+- 2026-10-07 — v2: Family & group trips ad group, parental-status observation, UTMs moved from tracking template to Final URL suffix — groups of 3+ are the profitable sales (brief unit economics); template broke `?audience=` URLs — no EXP (pre-launch)

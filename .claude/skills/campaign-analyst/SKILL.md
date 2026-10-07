@@ -14,7 +14,7 @@ Ask the team (Portuguese) to drop these into `marketing/data/` (git-ignored), na
 1. Google Ads → Campaigns report (date range = since last report).
 2. Google Ads → Search terms report.
 3. Google Ads → Keywords report.
-4. Leads sheet → File → Download → CSV. Before exporting, the team must update `status` (`novo`, `respondeu`, `orçamento enviado`, `fechou`, `perdido`) for every lead, plus `valor` (R$) and `data_venda` for every `fechou`.
+4. Leads sheet → File → Download → CSV. Before exporting, the team must update `status` (`novo`, `respondeu`, `orçamento enviado`, `fechou`, `perdido`) for every lead, plus `valor` (R$, what the client paid), `data_venda` and `lucro` (R$, what stayed with us after partners/guide) for every `fechou`.
 5. Google Ads → Conversions report segmented by conversion action (shows "TKS Sale" imported from the sheet).
 
 Google Ads CSVs start with 2 title lines; skip them. Compute numbers with a short script (node or python), never by eye, and show the table. First check that totals reconcile across exports (same date range, same spend/clicks); if they do not, say so and ask for matching exports before concluding.
@@ -37,13 +37,23 @@ Then: spend, CPC, **cost per lead**, **cost per sale**, revenue (`valor` sum), R
 - Every `fechou` row with `valor` and `data_venda` should appear as a "TKS Sale" conversion in Google Ads (by conversion date). Fewer in Ads than in the sheet → check the "Google Ads import" tab, the upload schedule history and the conversion's Diagnostics (match rate). Missing `data_venda`/`valor` rows are never exported — list them for the team by `lead_id`.
 - Use "TKS Sale" by keyword/search term for cost per sale; keep bidding on "TKS Lead" until there are ~30 sales/month.
 
-## 3. Waste (always actionable)
+## 3. Group size (pricing is per person)
+
+Split leads, sales, close rate and **profit per sale** by `people` (1, 2, 3, 4, 5+), and by `utm_content` = the Family & group trips ad group. Compare profit per sale with the unit-economics table in `marketing/brief.md` and with the real cost per sale:
+
+- profit per sale ≥ 2× cost per sale → healthy; reinvestment compounds.
+- between 1× and 2× → pays for itself; push packages (transfer + tours + shows) on WhatsApp.
+- below 1× for a group size → that segment loses money; flag it to `google-ads-strategist` (keywords/ad group that bring it) and `offer-copywriter` (ads that attract it).
+
+Never conclude from fewer than ~10 sales per segment; say so.
+
+## 4. Waste (always actionable)
 
 - Search terms irrelevant to the offer → negative keywords list (exact text).
 - Keyword with spend > R$ 60 and 0 leads → pause.
 - Keyword with leads but 0 responses after ≥ 5 leads → lead quality problem → flag for `offer-copywriter` (expectation mismatch).
 
-## 4. Decision rules for small samples
+## 5. Decision rules for small samples
 
 | Situation | Verdict |
 |---|---|
@@ -55,7 +65,7 @@ Then: spend, CPC, **cost per lead**, **cost per sale**, revenue (`valor` sum), R
 
 Always say how many clicks/leads a verdict is based on.
 
-## 5. Output
+## 6. Output
 
 Write `marketing/reports/YYYY-MM-DD.md`: funnel table, waste list, verdicts, and **max 3 actions**, each with owner skill (`google-ads-strategist`, `offer-copywriter`, `sales-page-builder`) or person. Close or update `EXP` entries in `marketing/experiments.md`. Check backlog triggers in `marketing/skill-backlog.md` and report any that are met to `growth-orchestrator`.
 

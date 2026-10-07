@@ -26,12 +26,16 @@ Google Ads conversion: `gtag('event', 'conversion', { send_to: CONFIG.adsConvers
 
 ## Lead payload / sheet columns (in order)
 
-`timestamp, lead_id, name, whatsapp, people, month, duration, interests, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid, landing_url` (`month` = `YYYY-MM` or `not-sure`; `duration` = one of `DURATIONS` in `lead.mjs` or empty) — the sheet adds `status` (default `novo`), `valor` and `data_venda` (filled by the team).
+`timestamp, lead_id, name, whatsapp, people, month, duration, interests, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid, landing_url` (`month` = `YYYY-MM` or `not-sure`; `duration` = one of `DURATIONS` in `lead.mjs` or empty) — the sheet adds `status` (default `novo`), `valor`, `data_venda` and `lucro` (filled by the team).
 
 ## Enhanced conversions and offline sales
 
 - On submit, before the conversion events: `gtag('set', 'user_data', userDataFor(payload))` — the E.164 WhatsApp number; Google hashes it on the device and only sends it with `ad_user_data` consent. The Ads tag is configured with `allow_enhanced_conversions: true`.
 - Sales go back to Google Ads through the "Google Ads import" tab built by `refreshAdsImport()` in `Code.gs`: `gclid` + SHA-256 of the phone, conversion "TKS Sale", noon of `data_venda` (America/Bahia), `valor` in BRL.
+
+## Audience parameter
+
+`?audience=family` (set by the Family & group trips ad group's Final URL suffix) shows the `[data-audience="family"]` subtitle in the form card. Allowed values live in `AUDIENCES` in `lead.mjs`.
 
 ## Lead reference
 

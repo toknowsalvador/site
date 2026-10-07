@@ -21,8 +21,8 @@ Small budget, high intent. With ≤ R$ 1.000/month (~R$ 33/day) every wasted cli
 | Auto-apply recommendations | **off** | Google's suggestions widen targeting |
 | Final URL expansion / automatically created assets | **off** | keeps traffic on the page and copy under our control |
 | Conversion | Google Ads conversion action **"TKS Lead"** (from the site tag, `send_to` = `CONFIG.adsConversion`) as **primary**. Never import the GA4 `generate_lead` key event as a second primary — every lead would count twice. **"TKS Sale"** (offline import from the sheet, enhanced conversions for leads) stays **secondary** until ~30 sales/month | optimize for the real goal; measure cost per sale |
-| Final URL | bare `https://plan.toknowsalvador.com/` | parameters go in the tracking template, never in the Final URL |
-| Tracking template (campaign) | `{lpurl}?utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}` | analyst needs keyword per lead |
+| Final URL | bare `https://plan.toknowsalvador.com/` | parameters go in the Final URL suffix, never in the Final URL |
+| Final URL suffix (campaign) | `utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}` | analyst needs keyword per lead. Do **not** use a `{lpurl}?…` tracking template: it breaks URLs with `?audience=`. An ad group suffix overrides the campaign one, so it must repeat the UTMs |
 
 ## Ad groups and keywords
 
@@ -33,6 +33,10 @@ Phrase `"..."` and exact `[...]` only. Start with 2–3 tightly themed groups, 5
 3. **Logistics** (only if budget allows after week 2) — `"salvador airport transfer"`, `"where to stay in salvador brazil"`.
 
 Each group's ads come from the matching block in the approved `marketing/copy/ads-v{n}.md`. Validate with `node tools/check-ad-copy.mjs` before anything goes live.
+
+4. **Family & group trips** — family/group keywords (`"salvador brazil family vacation"`, `"salvador with kids"`, `"salvador group tour"`…). Ad group Final URL suffix = campaign suffix + `&audience=family` (the page shows a family subtitle). Pricing is per person, so groups of 3+ are the profitable sales — see the unit economics in `marketing/brief.md` before shifting budget away from this group.
+
+Demographics: keep **Parental status** in **Observation** until ≥ 300 clicks; adjust bids only with data.
 
 ## Negative keywords (campaign level, from day one)
 

@@ -2,7 +2,7 @@
 import { CONFIG } from './config.mjs';
 import {
   generateLeadId, loadAttribution, validateStep, validateAll, buildLeadPayload, buildWhatsAppText, buildWhatsAppUrl,
-  upcomingMonths, userDataFor,
+  upcomingMonths, userDataFor, audienceFrom,
 } from './lead.mjs';
 
 const CONSENT_KEY = 'tks_consent';
@@ -199,6 +199,8 @@ function setupStickyCta() {
 }
 
 const attribution = loadAttribution(safeStorage('sessionStorage'), location.search);
+const audience = audienceFrom(location.search);
+if (audience) document.querySelector(`[data-audience="${audience}"]`)?.removeAttribute('hidden');
 setupConsent();
 loadGtag();
 loadClarity();

@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   generateLeadId, readAttribution, loadAttribution, normalizePhone, validateStep, validateAll,
-  upcomingMonths, monthLabel, DURATIONS, userDataFor,
+  upcomingMonths, monthLabel, DURATIONS, userDataFor, audienceFrom,
   buildLeadPayload, buildWhatsAppText, buildWhatsAppUrl,
 } from '../plan/js/lead.mjs';
 
@@ -175,4 +175,11 @@ test('travelers left at 0 blocks step 1', () => {
   const r = validateStep(1, { ...base, people: '0' });
   assert.equal(r.valid, false);
   assert.match(r.errors.people, /how many travelers/);
+});
+
+test('audienceFrom recognises the family ad group parameter', () => {
+  assert.equal(audienceFrom('?audience=family&gclid=x'), 'family');
+  assert.equal(audienceFrom('?audience=FAMILY'), 'family');
+  assert.equal(audienceFrom('?audience=other'), null);
+  assert.equal(audienceFrom(''), null);
 });

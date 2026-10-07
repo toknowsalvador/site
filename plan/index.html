@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="copy-version" content="v4">
+<meta name="copy-version" content="v5">
 <title>Your Salvador trip, planned and booked by locals | To Know Salvador</title>
 <meta name="description" content="Tell us your dates and what you love. We arrange your tours, transfers, stay, restaurants and shows — so you land in Salvador and just enjoy it.">
 <meta name="theme-color" content="#ffffff">
@@ -96,6 +96,8 @@
   #hero h1 { font-size: clamp(34px, 9.4vw, 72px); max-width: 14ch; }
   .strip { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 12px; font-size: 15px; color: var(--ink-2); }
   .strip b { color: var(--ink); }
+  .audience-line { margin-top: 6px; font-size: 15px; line-height: 1.4; color: var(--ink-2); max-width: 52ch; }
+  .audience-line[hidden] { display: none; }
   .micro { margin-top: 10px; font-size: 14px; color: var(--ink-2); max-width: 46ch; }
   .proof-line { margin-top: 18px; font-size: 15px; color: var(--ink-2); max-width: 50ch; }
   .proof-line strong { color: var(--ink); }
@@ -265,6 +267,7 @@
       <p class="strip"><span><b>5.0</b> TripAdvisor</span> <span><b>5.0</b> Google</span> <span><b>800+</b> reviews</span></p>
       <div class="card" id="plan">
           <h2>Get your free trip quote</h2>
+          <p class="audience-line" data-audience="family" hidden>Traveling as a family or group? One plan, one payment and one local contact for everyone.</p>
           <form id="lead-form" method="post" novalidate>
           <fieldset data-step="1">
             <legend>When are you coming?</legend>

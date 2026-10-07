@@ -6,7 +6,7 @@ var SHEET_NAME = 'Leads';
 var HEADERS = [
   'timestamp', 'lead_id', 'name', 'whatsapp', 'people', 'month', 'duration',
   'interests', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
-  'gclid', 'landing_url', 'status', 'valor', 'data_venda'
+  'gclid', 'landing_url', 'status', 'valor', 'data_venda', 'lucro'
 ];
 var IMPORT_SHEET_NAME = 'Google Ads import';
 var SALE_CONVERSION_NAME = 'TKS Sale';
@@ -21,7 +21,7 @@ function sanitizeCell(value) {
 function buildRow(data) {
   return HEADERS.map(function (h) {
     if (h === 'status') return 'novo';
-    if (h === 'valor' || h === 'data_venda') return '';
+    if (h === 'valor' || h === 'data_venda' || h === 'lucro') return '';
     return sanitizeCell(data[h]);
   });
 }

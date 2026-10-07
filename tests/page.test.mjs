@@ -99,3 +99,7 @@ test('no budget question anywhere (team found it too invasive)', () => {
   assert.doesNotMatch(html, /name="budget"/);
   assert.doesNotMatch(html, /Budget per person/);
 });
+
+test('family line exists, hidden by default, for the family ad group', () => {
+  assert.match(html, /<p class="audience-line" data-audience="family" hidden>/);
+});

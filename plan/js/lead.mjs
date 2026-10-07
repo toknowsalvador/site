@@ -137,3 +137,10 @@ export function buildWhatsAppUrl(number, text) {
 export function userDataFor(payload) {
   return /^\+\d{8,15}$/.test(payload.whatsapp || '') ? { phone_number: payload.whatsapp } : null;
 }
+
+// Ad groups can add ?audience=… to the final URL so the page speaks to that audience.
+const AUDIENCES = ['family'];
+export function audienceFrom(search) {
+  const value = (new URLSearchParams(search).get('audience') || '').trim().toLowerCase();
+  return AUDIENCES.includes(value) ? value : null;
+}
