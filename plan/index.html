@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="copy-version" content="v1">
+<title>Your Salvador trip, planned and booked by locals | To Know Salvador</title>
+<meta name="description" content="Tell us your dates and what you love. We arrange your tours, transfers, stay, restaurants and shows — so you land in Salvador and just enjoy it.">
+<meta name="theme-color" content="#070707">
+<link rel="icon" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied',
+    region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IS','IE','IT','LV','LI','LT','LU','MT','NL','NO','PL','PT','RO','SK','SI','ES','SE','GB','CH'],
+    wait_for_update: 500
+  });
+  gtag('consent', 'default', {
+    ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted', analytics_storage: 'granted'
+  });
+</script>
+<style>
+  :root {
+    --night: #070707;
+    --sand: #F5EFE6;
+    --muted: #B8AFA3;
+    --ink: #1C1712;
+    --ink-soft: #5A5048;
+    --dende: #FF9F2E;
+    --dende-press: #F08A10;
+    --azul: #7FB2DE;
+    --amarelo: #F0D060;
+    --rosa: #EBA7BA;
+    --verde: #86C9A8;
+    --lilas: #C3B3E8;
+    --cal: #EDE6DA;
+    --error: #B3261E;
+    --serif: 'Playfair Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --gutter: clamp(16px, 5vw, 48px);
+    --max: 1120px;
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--night); color: var(--sand); font: 400 17px/1.6 var(--sans); }
+  img { display: block; max-width: 100%; height: auto; }
+  h1, h2, h3 { font-family: var(--serif); font-weight: 700; line-height: 1.12; margin: 0; letter-spacing: -0.01em; }
+  h2 { font-size: clamp(30px, 6vw, 46px); max-width: 18ch; }
+  h3 { font-size: 22px; }
+  p { margin: 0; }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--dende); outline-offset: 3px; }
+  .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .band { padding: clamp(64px, 10vw, 112px) 0; }
+  .lead { color: var(--muted); font-size: 18px; max-width: 60ch; margin-top: 16px; }
+
+  /* CTA — the only place --dende is used */
+  .cta {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 56px; padding: 0 28px; border: 0; border-radius: 999px;
+    background: var(--dende); color: var(--night);
+    font: 700 18px/1 var(--sans); text-decoration: none; cursor: pointer;
+  }
+  .cta:hover { background: var(--dende-press); }
+
+  /* Hero */
+  #hero { position: relative; min-height: min(92svh, 860px); display: flex; align-items: flex-end; overflow: hidden; }
+  #hero .photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 40% 35%; }
+  #hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7,7,7,0) 20%, rgba(7,7,7,.55) 48%, rgba(7,7,7,.96) 78%); }
+  #hero .wrap { position: relative; z-index: 1; padding-top: 140px; padding-bottom: 40px; }
+  .brand { position: absolute; top: 20px; left: var(--gutter); z-index: 1; display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 15px; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+  .brand img { width: 36px; height: 36px; border-radius: 50%; }
+  #hero h1 { font-size: clamp(40px, 10.5vw, 84px); max-width: 13ch; }
+  #hero .sub { margin-top: 18px; font-size: clamp(18px, 2.4vw, 21px); max-width: 46ch; color: var(--sand); }
+  .hero-actions { margin-top: 28px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .micro { font-size: 15px; color: var(--muted); }
+  .proof-line { margin-top: 26px; padding-top: 18px; border-top: 1px solid rgba(245,239,230,.18); font-size: 15px; color: var(--muted); max-width: 52ch; }
+  .proof-line strong { color: var(--sand); }
+
+  /* Problem */
+  .pains { list-style: none; padding: 0; margin: 36px 0 0; display: grid; gap: 14px; max-width: 64ch; }
+  .pains li { padding-left: 22px; position: relative; font-size: 19px; }
+  .pains li::before { content: ''; position: absolute; left: 0; top: .62em; width: 10px; height: 10px; border-radius: 50%; background: var(--muted); }
+
+  /* How it works — a real sequence, so numbered */
+  .steps { list-style: none; padding: 0; margin: 40px 0 0; display: grid; gap: 28px; counter-reset: step; }
+  .steps li { counter-increment: step; display: grid; grid-template-columns: 56px 1fr; gap: 16px; align-items: start; }
+  .steps li::before { content: counter(step); font: 700 48px/1 var(--serif); color: var(--muted); }
+  .steps h3 { margin-bottom: 6px; }
+  .steps p { color: var(--muted); }
+  @media (min-width: 900px) { .steps { grid-template-columns: repeat(3, 1fr); gap: 40px; } .steps li { grid-template-columns: 1fr; } }
+
+  /* What we handle — the row of Pelourinho façades */
+  .facades { list-style: none; padding: 0; margin: 44px 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .facades li { color: var(--ink); padding: 56px 16px 20px; border-radius: 999px 999px 6px 6px; min-height: 230px; display: flex; flex-direction: column; justify-content: flex-end; }
+  .facades li:nth-child(1) { background: var(--azul); }
+  .facades li:nth-child(2) { background: var(--amarelo); }
+  .facades li:nth-child(3) { background: var(--rosa); }
+  .facades li:nth-child(4) { background: var(--verde); }
+  .facades li:nth-child(5) { background: var(--lilas); }
+  .facades li:nth-child(6) { background: var(--cal); }
+  .facades h3 { font-size: 21px; margin-bottom: 6px; }
+  .facades p { font-size: 15px; line-height: 1.45; }
+  @media (min-width: 900px) { .facades { grid-template-columns: repeat(6, 1fr); } .facades li { min-height: 300px; } }
+  .note { margin-top: 20px; color: var(--muted); }
+  .mosaic { margin-top: 28px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .mosaic img { width: 100%; height: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 6px; }
+  @media (min-width: 900px) { .mosaic { grid-template-columns: repeat(4, 1fr); } }
+
+  /* Who we are */
+  .about { display: grid; gap: 32px; align-items: center; }
+  .about img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 999px 999px 6px 6px; max-width: 420px; }
+  .about p { font-size: 19px; margin-top: 18px; max-width: 54ch; }
+  @media (min-width: 900px) { .about { grid-template-columns: 5fr 7fr; gap: 64px; } }
+
+  /* Proof */
+  .ratings { list-style: none; padding: 0; margin: 36px 0 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(245,239,230,.18); border: 1px solid rgba(245,239,230,.18); border-radius: 6px; overflow: hidden; }
+  .ratings li { background: var(--night); padding: 20px 18px; }
+  .ratings b { display: block; font: 700 36px/1 var(--serif); }
+  .ratings span { color: var(--muted); font-size: 15px; }
+  @media (min-width: 900px) { .ratings { grid-template-columns: repeat(4, 1fr); } }
+  .caption { margin-top: 12px; color: var(--muted); font-size: 15px; }
+  blockquote { margin: 44px 0 0; max-width: 60ch; }
+  blockquote p { font: 700 clamp(22px, 3.4vw, 30px)/1.35 var(--serif); }
+  blockquote footer { margin-top: 14px; color: var(--muted); }
+
+  /* Offer — light section */
+  .light { background: var(--sand); color: var(--ink); }
+  .light .lead, .light .note { color: var(--ink-soft); }
+  .offer-list { list-style: none; padding: 0; margin: 32px 0 36px; display: grid; gap: 14px; max-width: 60ch; }
+  .offer-list li { font-size: 19px; padding-left: 34px; position: relative; }
+  .offer-list li::before { content: ''; position: absolute; left: 0; top: .35em; width: 20px; height: 11px; border-left: 3px solid var(--ink); border-bottom: 3px solid var(--ink); transform: rotate(-45deg); }
+
+  /* FAQ */
+  .faq { margin-top: 32px; max-width: 760px; }
+  details { border-top: 1px solid rgba(245,239,230,.18); }
+  details:last-child { border-bottom: 1px solid rgba(245,239,230,.18); }
+  summary { cursor: pointer; list-style: none; padding: 20px 40px 20px 0; position: relative; font-weight: 700; font-size: 18px; min-height: 44px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; position: absolute; right: 4px; top: 14px; font: 400 28px/1 var(--sans); color: var(--muted); }
+  details[open] summary::after { content: '–'; }
+  details p { padding: 0 0 22px; color: var(--muted); max-width: 64ch; }
+
+  /* Form */
+  #plan .card { background: var(--sand); color: var(--ink); border-radius: 18px; padding: clamp(24px, 5vw, 48px); max-width: 680px; }
+  #plan h2 { color: var(--ink); }
+  #plan .lead { color: var(--ink-soft); }
+  form { margin-top: 28px; }
+  fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+  fieldset[hidden] { display: none; }
+  legend { font: 700 22px/1.2 var(--serif); padding: 0; margin-bottom: 18px; }
+  .field { display: grid; gap: 6px; margin-bottom: 18px; font-weight: 500; font-size: 16px; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .row-phone { display: grid; grid-template-columns: 130px 1fr; gap: 12px; }
+  input[type="date"], input[type="number"], input[type="text"], input[type="tel"], select {
+    width: 100%; min-height: 52px; padding: 12px 14px; border: 1.5px solid #8C8178; border-radius: 10px;
+    background: #fff; color: var(--ink); font: 400 17px/1.2 var(--sans);
+  }
+  input:disabled { background: #E8E1D6; color: var(--ink-soft); }
+  [aria-invalid="true"] { border-color: var(--error); box-shadow: 0 0 0 1px var(--error); }
+  .check { display: flex; align-items: center; gap: 10px; min-height: 44px; font-weight: 500; }
+  .check input { width: 22px; height: 22px; accent-color: var(--ink); margin: 0; }
+  .interests { margin: 6px 0 22px; }
+  .interests legend { font: 500 16px/1.4 var(--sans); margin-bottom: 6px; }
+  .chips { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+  .help { font-weight: 400; font-size: 14px; color: var(--ink-soft); }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 8px; }
+  .back { min-height: 52px; padding: 0 20px; border: 1.5px solid var(--ink); border-radius: 999px; background: transparent; color: var(--ink); font: 700 16px/1 var(--sans); cursor: pointer; }
+  .actions .cta { flex: 1 1 240px; }
+  .cta:disabled { opacity: .7; cursor: wait; }
+  #form-error { margin-top: 14px; color: var(--error); font-weight: 500; min-height: 1.6em; }
+
+  footer.site { padding: 40px 0 120px; color: var(--muted); font-size: 15px; }
+
+  /* Sticky CTA — mobile only */
+  .sticky-cta { position: fixed; left: 16px; right: 16px; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 20; box-shadow: 0 8px 28px rgba(0,0,0,.45); }
+  .sticky-cta[hidden] { display: none; }
+  @media (min-width: 900px) { .sticky-cta { display: none !important; } }
+
+  /* Consent */
+  #consent-banner { position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 30; max-width: 460px; background: var(--sand); color: var(--ink); border-radius: 14px; padding: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+  #consent-banner[hidden] { display: none; }
+  #consent-banner p { grid-column: 1 / -1; font-size: 15px; }
+  #consent-banner button { min-height: 44px; border-radius: 999px; border: 1.5px solid var(--ink); background: transparent; color: var(--ink); font: 700 15px/1 var(--sans); cursor: pointer; }
+  #consent-banner [data-consent="accept"] { background: var(--ink); color: var(--sand); }
+</style>
+</head>
+<body>
+<header id="hero">
+  <img class="photo" src="assets/hero.webp" width="1600" height="900" fetchpriority="high" alt="A To Know Salvador guide with a smiling group of travelers in Pelourinho square">
+  <div class="brand"><img src="assets/icon.png" width="36" height="36" alt=""> Salvador Trip Concierge</div>
+  <div class="wrap">
+    <h1>Your Salvador trip, planned and booked by locals</h1>
+    <p class="sub">Tell us your dates and what you love. We arrange your tours, transfers, stay, restaurants and shows — so you land in Salvador and just enjoy it.</p>
+    <div class="hero-actions">
+      <a class="cta" href="#plan">Get my free trip quote</a>
+      <p class="micro">Free custom quote on WhatsApp within 24h. Pay nothing until you approve it.</p>
+    </div>
+    <p class="proof-line">From the team behind Salvador's 5-star walking tour, with <strong>800+ reviews</strong>.</p>
+  </div>
+</header>
+
+<main>
+  <section id="problem" class="band">
+    <div class="wrap">
+      <h2>Salvador is incredible. Planning it from abroad isn't.</h2>
+      <ul class="pains">
+        <li>Hours of research, and you still don't know which tours are worth your time.</li>
+        <li>Drivers, hosts and restaurants mostly speak Portuguese.</li>
+        <li>Without local prices, every booking feels like a guess.</li>
+        <li>A dozen vendors to book and pay, and one missed transfer can cost you a day.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="how" class="band">
+    <div class="wrap">
+      <h2>Three steps. Then it's vacation.</h2>
+      <ol class="steps">
+        <li><div><h3>Tell us about your trip.</h3><p>Dates, who's coming, what you love. It takes a minute.</p></div></li>
+        <li><div><h3>Get your plan and quote on WhatsApp.</h3><p>Within 24 hours, in English or Spanish. We adjust it until it's right.</p></div></li>
+        <li><div><h3>Arrive and enjoy.</h3><p>Everything is booked, and you have one local contact for the whole trip.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="handle" class="band">
+    <div class="wrap">
+      <h2>Everything you need, arranged by one local team</h2>
+      <ul class="facades">
+        <li><h3>Tours &amp; day trips</h3><p>Pelourinho, Afro-Bahian heritage, islands and beaches near Salvador.</p></li>
+        <li><h3>Transfers</h3><p>Airport pickup if you want it, and every ride in between.</p></li>
+        <li><h3>Hotels</h3><p>In the right neighborhood for the trip you want.</p></li>
+        <li><h3>Airbnb &amp; rentals</h3><p>Places we'd send our own friends to.</p></li>
+        <li><h3>Restaurants</h3><p>Tables at the local spots worth the trip.</p></li>
+        <li><h3>Cultural shows</h3><p>Afro-Bahian dance, music and capoeira.</p></li>
+      </ul>
+      <p class="note">Traveling with a big group? We plan for any size.</p>
+      <div class="mosaic">
+        <img src="assets/exp-tour.webp" width="900" height="1600" loading="lazy" alt="Colorful colonial houses and churches in Pelourinho">
+        <img src="assets/exp-food.webp" width="900" height="810" loading="lazy" alt="Moqueca and Bahian side dishes on a restaurant table">
+        <img src="assets/exp-culture.webp" width="1200" height="703" loading="lazy" alt="Travelers celebrating with baianas in traditional dress">
+        <img src="assets/exp-bay.webp" width="1200" height="800" loading="lazy" alt="Sunset over the Bay of All Saints from the Lacerda Elevator">
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="band">
+    <div class="wrap about">
+      <img src="assets/about.webp" width="900" height="1600" loading="lazy" alt="Adriano, guide at To Know Salvador, with two travelers in Pelourinho">
+      <div>
+        <h2>Locals who already know everyone</h2>
+        <p>Adriano moved to Salvador from São Paulo eight years ago and has spent the last five guiding travelers through the city, in English and Spanish. Together with Facundo and David, he runs the walking tour behind 800+ reviews. Now we plan the rest of your trip the same way.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="proof" class="band">
+    <div class="wrap">
+      <h2>Rated by the travelers we've already guided</h2>
+      <ul class="ratings">
+        <li><b>5.0</b><span>TripAdvisor, 153 reviews</span></li>
+        <li><b>5.0</b><span>Google, 31 reviews</span></li>
+        <li><b>4.96</b><span>GetYourGuide, 55 reviews</span></li>
+        <li><b>4.74</b><span>GuruWalk, 577 reviews</span></li>
+      </ul>
+      <p class="caption">800+ reviews of our walking tour across four platforms.</p>
+      <blockquote>
+        <p>“Adriano is very welcoming, he is very knowledgeable about all the places he took us. He answered all our questions. I would recommend him to anyone coming to Salvador who wants to learn about and understand the history.”</p>
+        <footer>Sonya, on GuruWalk</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <section id="offer" class="band light">
+    <div class="wrap">
+      <h2>No fixed fees. No surprises.</h2>
+      <ul class="offer-list">
+        <li>Every trip is different, so every quote is made for you.</li>
+        <li>Your quote is free, and you pay nothing until you approve it.</li>
+        <li>Approve it, pay a 50% deposit by PayPal to secure your bookings, and pay the rest when you arrive.</li>
+        <li>One payment covers everything. You never deal with a dozen vendors.</li>
+      </ul>
+      <a class="cta" href="#plan">Get my free trip quote</a>
+    </div>
+  </section>
+
+  <section id="faq" class="band">
+    <div class="wrap">
+      <h2>Questions travelers ask us</h2>
+      <div class="faq">
+        <details><summary>How much does it cost?</summary><p>It depends on what you want: days, group size, the experiences you choose. You get a free custom quote and see the full price before you pay anything.</p></details>
+        <details><summary>How do I pay?</summary><p>By PayPal. A 50% deposit after you approve the quote secures your bookings, and you pay the rest when you arrive in Salvador.</p></details>
+        <details><summary>Do I pay hotels, guides and drivers separately?</summary><p>No. You pay us once, and we take care of every partner.</p></details>
+        <details><summary>How fast will I get my quote?</summary><p>Within 24 hours on WhatsApp.</p></details>
+        <details><summary>I don't speak Portuguese. Is that a problem?</summary><p>Not at all. We speak English and Spanish and handle every booking and conversation in Portuguese for you.</p></details>
+        <details><summary>Is Salvador safe for visitors?</summary><p>Like any big city, it's about knowing where to go and when. We plan your days around the places and times we'd choose ourselves, and you have our WhatsApp the whole trip.</p></details>
+        <details><summary>What if my plans change?</summary><p>Message us and we'll rework your plan. Partners have their own cancellation rules, and we tell you exactly what applies before you approve anything.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="plan" class="band">
+    <div class="wrap">
+      <div class="card">
+        <h2>Tell us about your trip</h2>
+        <p class="lead">Two quick steps. Your free quote arrives on WhatsApp within 24 hours.</p>
+        <form id="lead-form" novalidate>
+          <fieldset data-step="1">
+            <legend>Your trip</legend>
+            <div class="row">
+              <label class="field">Arrival <input type="date" name="arrival"></label>
+              <label class="field">Departure <input type="date" name="departure"></label>
+            </div>
+            <label class="check"><input type="checkbox" name="datesUnknown"> Not sure yet</label>
+            <label class="field">Travelers <input type="number" name="people" min="1" max="99" inputmode="numeric" required></label>
+            <fieldset class="interests">
+              <legend>What should we handle?</legend>
+              <div class="chips">
+                <label class="check"><input type="checkbox" name="interests" value="tours"> Tours &amp; day trips</label>
+                <label class="check"><input type="checkbox" name="interests" value="transfers"> Transfers</label>
+                <label class="check"><input type="checkbox" name="interests" value="hotel"> Hotel</label>
+                <label class="check"><input type="checkbox" name="interests" value="rental"> Airbnb / rental</label>
+                <label class="check"><input type="checkbox" name="interests" value="restaurants"> Restaurants</label>
+                <label class="check"><input type="checkbox" name="interests" value="shows"> Cultural shows</label>
+              </div>
+            </fieldset>
+            <div class="actions"><button class="cta" type="button" data-next>Continue</button></div>
+          </fieldset>
+          <fieldset data-step="2" hidden>
+            <legend>Where should we send your quote?</legend>
+            <label class="field">Your name <input type="text" name="name" autocomplete="name" required maxlength="80"></label>
+            <div class="row-phone">
+              <label class="field">Country code
+                <select name="countryCode" autocomplete="tel-country-code">
+                  <option value="1">🇺🇸🇨🇦 +1</option><option value="44">🇬🇧 +44</option>
+                  <option value="61">🇦🇺 +61</option><option value="353">🇮🇪 +353</option>
+                  <option value="64">🇳🇿 +64</option><option value="49">🇩🇪 +49</option>
+                  <option value="33">🇫🇷 +33</option><option value="31">🇳🇱 +31</option>
+                  <option value="34">🇪🇸 +34</option><option value="39">🇮🇹 +39</option>
+                  <option value="55">🇧🇷 +55</option><option value="other">Other (type +code)</option>
+                </select>
+              </label>
+              <label class="field">WhatsApp number <input type="tel" name="phone" autocomplete="tel-national" inputmode="tel" required aria-describedby="phone-help"></label>
+            </div>
+            <p class="help" id="phone-help">We'll only use it to send your quote.</p>
+            <label class="field" style="margin-top:18px">Budget per person (optional)
+              <select name="budget">
+                <option value="">Prefer not to say</option>
+                <option>Under US$1,000</option><option>US$1,000–3,000</option>
+                <option>US$3,000–6,000</option><option>US$6,000+</option>
+              </select>
+            </label>
+            <div class="actions">
+              <button class="back" type="button" data-back>Back</button>
+              <button class="cta" type="submit">Get my quote on WhatsApp</button>
+            </div>
+          </fieldset>
+          <p id="form-error" role="alert" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site"><div class="wrap"><a href="privacy.html">Privacy</a> · © To Know Salvador</div></footer>
+<a class="cta sticky-cta" href="#plan" hidden>Get my free trip quote</a>
+<div id="consent-banner" hidden role="dialog" aria-label="Cookie consent">
+  <p>We use cookies to measure our ads. <a href="privacy.html">Privacy</a></p>
+  <button type="button" data-consent="decline">Decline</button>
+  <button type="button" data-consent="accept">Accept</button>
+</div>
+<script type="module" src="js/app.mjs"></script>
+</body>
+</html>
