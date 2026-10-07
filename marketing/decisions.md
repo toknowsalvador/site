@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-07 — Copy v5 and ads v2 approved
+- Family/group subtitle (`landing-v5.md`) and the Family & group trips ad group (`ads-v2.md`, campaign plan v2) approved by the team.
+
 ## 2026-10-07 — Tilt toward families, groups and multi-service trips; no minimum
 - Pricing is per person; a solo US$ 60 tour leaves only US$ 21 profit, below the estimated cost per sale (~R$ 500). Strategy: attract families/groups and multi-service trips (ad group, copy, landing line) without excluding anyone; no minimum order. **Why:** profit per sale must be ≥ ~2× cost per sale for reinvestment to compound; group size and number of services drive it. **Next:** measure leads and sales by travelers count before any harder targeting.
 

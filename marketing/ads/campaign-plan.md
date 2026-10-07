@@ -1,4 +1,4 @@
-Status: draft
+Status: approved
 Version: v2
 Copy: ads-v2
 

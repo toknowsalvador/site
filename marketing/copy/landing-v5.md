@@ -1,4 +1,4 @@
-Status: draft
+Status: approved
 Version: v5
 Based on: landing-v4 — family/group line for the "Family & group trips" ad group, 2026-10-07
 

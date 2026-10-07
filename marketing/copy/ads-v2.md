@@ -1,4 +1,4 @@
-Status: draft
+Status: approved
 Version: v2
 Based on: ads-v1 + Family & group trips ad group (landing-v5), 2026-10-07
 
