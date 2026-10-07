@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-07 — Tilt toward families, groups and multi-service trips; no minimum
+- Pricing is per person; a solo US$ 60 tour leaves only US$ 21 profit, below the estimated cost per sale (~R$ 500). Strategy: attract families/groups and multi-service trips (ad group, copy, landing line) without excluding anyone; no minimum order. **Why:** profit per sale must be ≥ ~2× cost per sale for reinvestment to compound; group size and number of services drive it. **Next:** measure leads and sales by travelers count before any harder targeting.
+
 ## 2026-10-07 — Travelers start at 0
 - The travelers field starts at 0; Continue requires at least 1. Copy `landing-v4.md`. **Why:** a pre-filled 2 let people continue without choosing, sending a number they never picked. **Cost:** one extra tap for the most common case (couples).
 

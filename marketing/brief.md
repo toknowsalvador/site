@@ -6,6 +6,16 @@
 - Service name (customer-facing): Salvador Trip Concierge, by To Know Salvador (ads still use "trip planner" search terms in headlines)
 - Pricing model: no fixed price and no separate planning fee. Each trip gets a custom quote on WhatsApp after we understand what the traveler needs; we then provide everything that was approved (not just a plan). Never show a price on the page or in ads.
 - What the quote can include: tours, transport/transfers, hotel booking, Airbnb/rentals, restaurant reservations, cultural shows.
+- Unit economics (team, 2026-10-07): pricing is per person. Lowest-priced offer: walking tour at US$ 60 per person; a single-person tour sale leaves US$ 21 profit (35%). Margin grows with group size. Walking tour economics (only cost = guide payout, R$; revenue US$ 60/person at the implied ~R$ 5,13/US$; PayPal fees not included):
+  | People | Revenue | Guide payout | Profit | Margin |
+  |---|---|---|---|---|
+  | 1 | R$ 308 | R$ 200 | R$ 108 | 35% |
+  | 2 | R$ 615 | R$ 300 | R$ 315 | 51% |
+  | 3 | R$ 923 | R$ 350 | R$ 573 | 62% |
+  | 4 | R$ 1.231 | R$ 500 | R$ 731 | 59% |
+  | 5 | R$ 1.538 | R$ 600 | R$ 938 | 61% |
+  Guide payout for 6+ people: [UNKNOWN — decide by 2026-10-21]. PayPal fees per sale: [UNKNOWN — decide by 2026-10-21]. Typical multi-service package price/profit per person: [UNKNOWN — decide by 2026-10-21].
+- No minimum order (team decision 2026-10-07): solo travelers and single-service requests are welcome; WhatsApp prioritizes larger groups and multi-service trips.
 - Confirmed extras: airport pickup on request; day trips to islands/beaches near Salvador (Boipeba, Praia do Forte, etc.); WhatsApp support during the whole trip.
 - What the client pays separately to partners: nothing — the client pays everything to To Know Salvador, which pays the partners (one payment, one point of contact).
 - Payment terms: 50% deposit when the quote is approved (to secure bookings), remaining 50% on arrival in Salvador. Payment method: PayPal.
