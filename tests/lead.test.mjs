@@ -8,7 +8,7 @@ import {
 
 const base = {
   month: '2026-12', duration: '5–7 days', people: '2',
-  interests: ['tours', 'shows'], name: 'Maya', countryCode: '1', phone: '(555) 123-4567', budget: '',
+  interests: ['tours', 'shows'], name: 'Maya', countryCode: '1', phone: '(555) 123-4567',
 };
 
 test('generateLeadId format', () => {
@@ -103,7 +103,7 @@ test('buildLeadPayload has exactly the contract columns', () => {
   const p = buildLeadPayload(base, { utm_source: 'google', gclid: 'g1' }, 'TKS-ABCD',
     new Date('2026-10-07T12:00:00Z'), 'https://plan.toknowsalvador.com/?gclid=g1');
   assert.deepEqual(Object.keys(p), ['timestamp', 'lead_id', 'name', 'whatsapp', 'people', 'month',
-    'duration', 'interests', 'budget', 'utm_source', 'utm_medium', 'utm_campaign',
+    'duration', 'interests', 'utm_source', 'utm_medium', 'utm_campaign',
     'utm_term', 'utm_content', 'gclid', 'landing_url']);
   assert.equal(p.timestamp, '2026-10-07T12:00:00.000Z');
   assert.equal(p.whatsapp, '+15551234567');

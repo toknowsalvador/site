@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-07 — No budget question
+- Removed "Budget per person" from the form and the `budget` sheet column; budget is discussed on WhatsApp. Copy `landing-v3.md`. **Why:** the team found asking about money right after name and WhatsApp too invasive; a shorter step 2 also lowers friction. **Cost:** no spend signal before the first conversation.
+
 ## 2026-10-07 — Landing v2 (pre-launch CRO audit)
 - Form moves into the hero; step 1 asks month + trip length (buttons) + travelers instead of exact dates; confirmation state after submit; compact cookie bar; copy `landing-v2.md` approved with the design. Sheet columns `arrival`/`departure`/`dates_unknown` become `month`/`duration`. **Why:** the form sat 8.3 screens down; date pickers were the main friction; the cookie banner hid the CTA on small phones. Applied before launch, so no EXP entry.
 

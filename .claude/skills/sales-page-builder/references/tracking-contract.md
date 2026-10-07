@@ -26,7 +26,7 @@ Google Ads conversion: `gtag('event', 'conversion', { send_to: CONFIG.adsConvers
 
 ## Lead payload / sheet columns (in order)
 
-`timestamp, lead_id, name, whatsapp, people, month, duration, interests, budget, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid, landing_url` (`month` = `YYYY-MM` or `not-sure`; `duration` = one of `DURATIONS` in `lead.mjs` or empty) — the sheet adds `status` (default `novo`) and `valor`.
+`timestamp, lead_id, name, whatsapp, people, month, duration, interests, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid, landing_url` (`month` = `YYYY-MM` or `not-sure`; `duration` = one of `DURATIONS` in `lead.mjs` or empty) — the sheet adds `status` (default `novo`) and `valor`.
 
 ## Invariants
 

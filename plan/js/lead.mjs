@@ -104,7 +104,6 @@ export function buildLeadPayload(data, attribution, leadId, now, landingUrl) {
     month: data.month || '',
     duration: data.duration || '',
     interests: (data.interests || []).join(', '),
-    budget: data.budget || '',
     utm_source: attribution.utm_source || '',
     utm_medium: attribution.utm_medium || '',
     utm_campaign: attribution.utm_campaign || '',
@@ -120,7 +119,6 @@ export function buildWhatsAppText(p) {
   const trip = [who, monthLabel(p.month), p.duration].filter(Boolean).join(', ');
   const lines = [`Hi! I'm ${p.name}. I'd like a quote for my Salvador trip.`, `${trip}.`];
   if (p.interests) lines.push(`I'm interested in: ${p.interests}.`);
-  if (p.budget) lines.push(`Budget: ${p.budget}.`);
   lines.push(`Ref: ${p.lead_id}`);
   return lines.join('\n');
 }

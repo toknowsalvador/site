@@ -24,7 +24,7 @@ test('form has both steps and all contract fields', () => {
   assert.match(html, /<form id="lead-form"[^>]*novalidate/);
   assert.match(html, /<fieldset data-step="1"/);
   assert.match(html, /<fieldset data-step="2"[^>]*hidden/);
-  for (const name of ['month', 'duration', 'people', 'interests', 'name', 'countryCode', 'phone', 'budget']) {
+  for (const name of ['month', 'duration', 'people', 'interests', 'name', 'countryCode', 'phone']) {
     assert.match(html, new RegExp(`name="${name}"`), `missing field ${name}`);
   }
   for (const sel of ['data-next', 'data-back', 'id="form-error"', 'id="consent-banner"',
@@ -93,4 +93,9 @@ test('confirmation state exists for after the redirect', () => {
 
 test('hero grid columns can shrink so the scrolling month row never widens the page', () => {
   assert.match(html, /\.hero-grid > \* \{ min-width: 0; \}/);
+});
+
+test('no budget question anywhere (team found it too invasive)', () => {
+  assert.doesNotMatch(html, /name="budget"/);
+  assert.doesNotMatch(html, /Budget per person/);
 });

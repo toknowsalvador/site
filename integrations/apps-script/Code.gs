@@ -5,7 +5,7 @@
 var SHEET_NAME = 'Leads';
 var HEADERS = [
   'timestamp', 'lead_id', 'name', 'whatsapp', 'people', 'month', 'duration',
-  'interests', 'budget', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
+  'interests', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content',
   'gclid', 'landing_url', 'status', 'valor'
 ];
 

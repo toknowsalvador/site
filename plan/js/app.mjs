@@ -72,7 +72,6 @@ function readForm(form) {
     name: fd.get('name') || '',
     countryCode: fd.get('countryCode') || '',
     phone: fd.get('phone') || '',
-    budget: fd.get('budget') || '',
   };
 }
 
