@@ -34,3 +34,10 @@ for (const dir of skills) {
     }
   });
 }
+
+test('all five campaign skills exist', () => {
+  for (const s of ['growth-orchestrator', 'offer-copywriter', 'sales-page-builder',
+    'google-ads-strategist', 'campaign-analyst']) {
+    assert.ok(skills.includes(s), `missing skill ${s}`);
+  }
+});
