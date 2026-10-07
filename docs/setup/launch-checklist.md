@@ -36,11 +36,14 @@
 3. Settings → Cookies → ativar "Cookie consent required" (o Clarity grava sem cookies até o visitante clicar em Accept).
 4. Settings → Masking → modo "Strict" (esconde nome e telefone digitados nas gravações).
 
-## 4. Deploy (Cloudflare Pages)
-1. dash.cloudflare.com → Workers & Pages → Criar → Pages → Conectar ao Git → este repositório.
-2. Branch de produção: `main`. Comando de build: (vazio). Diretório de saída: `plan`.
-3. Custom domains → `plan.toknowsalvador.com` → seguir instrução de DNS (CNAME `plan` → `<projeto>.pages.dev` no provedor de DNS atual).
-4. Commitar `config.mjs` preenchido → push → conferir deploy.
+## 4. Deploy (Cloudflare Pages + DNS na Hostinger)
+O código continua só no GitHub; o Cloudflare Pages apenas publica a pasta `plan/` no subdomínio. O domínio e o DNS continuam na Hostinger (não precisa transferir nem trocar nameservers).
+1. dash.cloudflare.com → criar conta grátis → Workers & Pages → Criar → Pages → Conectar ao Git → autorizar o GitHub → repositório `toknowsalvador/site`.
+2. Branch de produção: `main`. Framework: nenhum. Comando de build: (vazio). Diretório de saída: `plan`. Salvar e implantar → anotar o endereço gerado (ex.: `toknowsalvador-plan.pages.dev`) e abrir para conferir a página.
+3. No projeto → Custom domains → Set up a custom domain → `plan.toknowsalvador.com` → escolher a opção de **CNAME em outro provedor de DNS**.
+4. Hostinger → hPanel → Domínios → `toknowsalvador.com` → DNS / Nameservers → Gerenciar registros DNS → Adicionar registro: Tipo **CNAME**, Nome **`plan`**, Aponta para **o endereço `.pages.dev` do passo 2**, TTL padrão → Adicionar. Não mexa nos registros existentes (são os do site principal no GitHub Pages).
+5. Voltar ao Cloudflare e aguardar o domínio ficar **Active** (de minutos até algumas horas) — o HTTPS é emitido automaticamente.
+6. Commitar o `config.mjs` preenchido (seções 1–3b) → push no `main` → os dois sites atualizam sozinhos.
 
 ## 4b. Depois do merge no `main` (site principal)
 1. Aguarde o deploy do GitHub Pages (aba Actions → "pages build and deployment" verde).
