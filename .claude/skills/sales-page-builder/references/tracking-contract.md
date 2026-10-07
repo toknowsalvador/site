@@ -28,6 +28,10 @@ Google Ads conversion: `gtag('event', 'conversion', { send_to: CONFIG.adsConvers
 
 `timestamp, lead_id, name, whatsapp, people, month, duration, interests, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid, landing_url` (`month` = `YYYY-MM` or `not-sure`; `duration` = one of `DURATIONS` in `lead.mjs` or empty) — the sheet adds `status` (default `novo`) and `valor`.
 
+## Lead reference
+
+`lead_id` = `TKS-` + 6 characters from `ABCDEFGHJKMNPQRSTUVWXYZ23456789` (`generateLeadId` in `plan/js/lead.mjs`). Same value in the sheet, the WhatsApp prefill (`Ref:`), the confirmation screen, GA4 `lead_id` and the Ads `transaction_id`.
+
 ## Invariants
 
 - Redirect to WhatsApp happens exactly once per submit, within 1 s, whatever happens to gtag or the endpoint.

@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-07 — Longer lead reference
+- `Ref` is now `TKS-` + 6 characters from `ABCDEFGHJKMNPQRSTUVWXYZ23456789` (no 0/O, 1/I/L), e.g. `TKS-7KQ2MX`. Replaces the 4-hex format from the spec. **Why:** 4 hex gave ~26% chance of a duplicate at 200 leads/year; duplicates break the sheet ↔ WhatsApp match and Google Ads dedupes on it.
+
 ## 2026-10-07 — No budget question
 - Removed "Budget per person" from the form and the `budget` sheet column; budget is discussed on WhatsApp. Copy `landing-v3.md`. **Why:** the team found asking about money right after name and WhatsApp too invasive; a shorter step 2 also lowers friction. **Cost:** no spend signal before the first conversation.
 

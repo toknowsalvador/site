@@ -22,9 +22,13 @@ export function monthLabel(value) {
   return `${MONTHS[Number(month) - 1]} ${year}`;
 }
 
+// No 0/O, 1/I/L: easy to read aloud on WhatsApp. 31^6 ≈ 887M combinations.
+const ID_ALPHABET = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+
 export function generateLeadId(rand = Math.random) {
-  const n = Math.min(0xffff, Math.floor(rand() * 0x10000));
-  return `TKS-${n.toString(16).toUpperCase().padStart(4, '0')}`;
+  let id = '';
+  for (let i = 0; i < 6; i += 1) id += ID_ALPHABET[Math.min(ID_ALPHABET.length - 1, Math.floor(rand() * ID_ALPHABET.length))];
+  return `TKS-${id}`;
 }
 
 export function readAttribution(search) {

@@ -11,10 +11,19 @@ const base = {
   interests: ['tours', 'shows'], name: 'Maya', countryCode: '1', phone: '(555) 123-4567',
 };
 
-test('generateLeadId format', () => {
-  assert.match(generateLeadId(), /^TKS-[0-9A-F]{4}$/);
-  assert.equal(generateLeadId(() => 0), 'TKS-0000');
-  assert.equal(generateLeadId(() => 0.999999), 'TKS-FFFF');
+test('generateLeadId: 6 unambiguous characters', () => {
+  assert.match(generateLeadId(), /^TKS-[A-HJKMNP-Z2-9]{6}$/);
+  assert.equal(generateLeadId(() => 0), 'TKS-AAAAAA');
+  assert.equal(generateLeadId(() => 0.999999), 'TKS-999999');
+});
+
+test('generateLeadId never uses look-alike characters', () => {
+  for (let i = 0; i < 2000; i += 1) assert.doesNotMatch(generateLeadId(), /[01IOL]/);
+});
+
+test('generateLeadId does not repeat across many leads', () => {
+  const ids = new Set(Array.from({ length: 5000 }, () => generateLeadId()));
+  assert.equal(ids.size, 5000);
 });
 
 test('readAttribution keeps only known keys, trims and truncates', () => {
