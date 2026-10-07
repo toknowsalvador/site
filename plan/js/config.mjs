@@ -4,6 +4,6 @@ export const CONFIG = {
   ga4Id: '',
   adsId: '',
   adsConversion: '',
-  leadEndpoint: '',
+  leadEndpoint: 'https://script.google.com/macros/s/AKfycbwhEV3LOk_nSHZhNbrmOj5y466MjpWfr6oK9PPY-KN3AwVsYQq5-k3tsu-Pb9h_VxUOig/exec',
   clarityId: '',
 };
