@@ -2,11 +2,12 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   generateLeadId, readAttribution, loadAttribution, normalizePhone, validateStep, validateAll,
+  upcomingMonths, monthLabel, DURATIONS,
   buildLeadPayload, buildWhatsAppText, buildWhatsAppUrl,
 } from '../plan/js/lead.mjs';
 
 const base = {
-  arrival: '2026-12-20', departure: '2026-12-28', datesUnknown: false, people: '2',
+  month: '2026-12', duration: '5–7 days', people: '2',
   interests: ['tours', 'shows'], name: 'Maya', countryCode: '1', phone: '(555) 123-4567', budget: '',
 };
 
@@ -65,12 +66,30 @@ test('validateStep 1 requires people between 1 and 99', () => {
   }
 });
 
-test('validateStep 1 dates: unknown is fine, departure before arrival is not', () => {
-  assert.equal(validateStep(1, { ...base, arrival: '', departure: '', datesUnknown: true }).valid, true);
-  const r = validateStep(1, { ...base, arrival: '2026-12-28', departure: '2026-12-20' });
-  assert.ok(r.errors.departure);
-  const r2 = validateStep(1, { ...base, arrival: '', departure: '' });
-  assert.ok(r2.errors.arrival);
+test('validateStep 1 month: a month or not-sure is required', () => {
+  assert.equal(validateStep(1, { ...base, month: 'not-sure' }).valid, true);
+  assert.ok(validateStep(1, { ...base, month: '' }).errors.month);
+  assert.ok(validateStep(1, { ...base, month: 'December' }).errors.month);
+});
+
+test('validateStep 1 duration: optional, but only known values', () => {
+  assert.equal(validateStep(1, { ...base, duration: '' }).valid, true);
+  for (const d of DURATIONS) assert.equal(validateStep(1, { ...base, duration: d }).valid, true, d);
+  assert.ok(validateStep(1, { ...base, duration: '3 nights' }).errors.duration);
+});
+
+test('upcomingMonths starts at the current month and lists 12', () => {
+  const m = upcomingMonths(new Date(2026, 9, 7));
+  assert.equal(m.length, 12);
+  assert.deepEqual(m[0], { value: '2026-10', label: 'Oct 2026' });
+  assert.deepEqual(m[3], { value: '2027-01', label: 'Jan 2027' });
+  assert.deepEqual(m[11], { value: '2027-09', label: 'Sep 2027' });
+});
+
+test('monthLabel spells the month out for the WhatsApp message', () => {
+  assert.equal(monthLabel('2026-12'), 'December 2026');
+  assert.equal(monthLabel('not-sure'), 'dates not decided yet');
+  assert.equal(monthLabel(''), 'dates not decided yet');
 });
 
 test('validateStep 2 requires name and valid WhatsApp', () => {
@@ -83,28 +102,27 @@ test('validateStep 2 requires name and valid WhatsApp', () => {
 test('buildLeadPayload has exactly the contract columns', () => {
   const p = buildLeadPayload(base, { utm_source: 'google', gclid: 'g1' }, 'TKS-ABCD',
     new Date('2026-10-07T12:00:00Z'), 'https://plan.toknowsalvador.com/?gclid=g1');
-  assert.deepEqual(Object.keys(p), ['timestamp', 'lead_id', 'name', 'whatsapp', 'people', 'arrival',
-    'departure', 'dates_unknown', 'interests', 'budget', 'utm_source', 'utm_medium', 'utm_campaign',
+  assert.deepEqual(Object.keys(p), ['timestamp', 'lead_id', 'name', 'whatsapp', 'people', 'month',
+    'duration', 'interests', 'budget', 'utm_source', 'utm_medium', 'utm_campaign',
     'utm_term', 'utm_content', 'gclid', 'landing_url']);
   assert.equal(p.timestamp, '2026-10-07T12:00:00.000Z');
   assert.equal(p.whatsapp, '+15551234567');
   assert.equal(p.people, 2);
   assert.equal(p.interests, 'tours, shows');
   assert.equal(p.utm_medium, '');
-  assert.equal(p.dates_unknown, false);
+  assert.equal(p.month, '2026-12');
+  assert.equal(p.duration, '5–7 days');
 });
 
 test('buildWhatsAppText includes trip details and ends with Ref', () => {
   const p = buildLeadPayload(base, {}, 'TKS-ABCD', new Date(), 'u');
   const t = buildWhatsAppText(p);
   assert.match(t, /^Hi! I'm Maya\. I'd like a quote for my Salvador trip\.$/m);
-  assert.match(t, /2 people/);
-  assert.match(t, /2026-12-20 to 2026-12-28/);
+  assert.match(t, /^2 people, December 2026, 5–7 days\.$/m);
   assert.match(t, /tours, shows/);
   assert.match(t, /Ref: TKS-ABCD$/);
-  const unknown = buildWhatsAppText(buildLeadPayload({ ...base, datesUnknown: true, arrival: '', departure: '', people: '1', interests: [] }, {}, 'TKS-0001', new Date(), 'u'));
-  assert.match(unknown, /dates not decided yet/);
-  assert.match(unknown, /1 person/);
+  const unknown = buildWhatsAppText(buildLeadPayload({ ...base, month: 'not-sure', duration: '', people: '1', interests: [] }, {}, 'TKS-0001', new Date(), 'u'));
+  assert.match(unknown, /^1 person, dates not decided yet\.$/m);
   assert.doesNotMatch(unknown, /interested in/);
 });
 

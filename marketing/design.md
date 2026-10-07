@@ -30,8 +30,11 @@ The colored ribbons of Senhor do Bonfim — the most recognizable small object o
 
 Nowhere else. Numbers only in "How it works" (a real sequence).
 
-## Layout
+## Layout (v2)
 
-- Mobile: ribbons → rounded photo card → headline → sub → CTA → microcopy → proof line. CTA above the fold at 390×844.
-- Desktop: ribbons across the top; text column left, rounded photo right.
-- Radii: photos 22px, cards 16px, buttons 14px.
+- Mobile: ribbons → photo (16:9, ≤ 32svh) → headline → rating strip → form card (step 1: month buttons in a horizontal scroll row, trip length buttons, travelers − / +). First action visible on a 375×667 screen.
+- Desktop: ribbons across the top; copy + form card left (7fr), photo right (5fr, sticky); all of step 1 above the fold at 1440×900.
+- After the FAQ, a final CTA scrolls back to the form. The sticky mobile CTA shows only when the hero/form is off screen.
+- Cookie bar: one line at the bottom on mobile; small card bottom-right on desktop.
+- Grid children that contain scrolling rows need `min-width: 0` (a nowrap row otherwise widens the whole page).
+- Radii: photos 22px, cards 16–20px, buttons 12–14px.

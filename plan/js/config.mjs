@@ -5,4 +5,5 @@ export const CONFIG = {
   adsId: '',
   adsConversion: '',
   leadEndpoint: '',
+  clarityId: '',
 };

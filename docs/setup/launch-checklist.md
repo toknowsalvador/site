@@ -20,6 +20,12 @@
 4. Vincular GA4 ↔ Google Ads (Admin GA4 → Vinculações de produtos).
 5. Criar a campanha seguindo `marketing/ads/campaign-plan.md` → deixar **pausada**.
 
+## 3b. Microsoft Clarity (gravações e mapa de calor, grátis)
+1. clarity.microsoft.com → New project → site `https://plan.toknowsalvador.com`.
+2. Settings → Setup → copiar o Project ID → `config.mjs` → `clarityId`.
+3. Settings → Cookies → ativar "Cookie consent required" (o Clarity grava sem cookies até o visitante clicar em Accept).
+4. Settings → Masking → modo "Strict" (esconde nome e telefone digitados nas gravações).
+
 ## 4. Deploy (Cloudflare Pages)
 1. dash.cloudflare.com → Workers & Pages → Criar → Pages → Conectar ao Git → este repositório.
 2. Branch de produção: `main`. Comando de build: (vazio). Diretório de saída: `plan`.
@@ -36,5 +42,6 @@
 1. No WhatsApp Business: Ferramentas comerciais → Mensagem de saudação → ativar, com algo como: "Hi! Thanks for reaching out to To Know Salvador. We got your trip details and will send your quote within 24 hours."
 
 ## 7. Rotina
+- Lead na planilha sem mensagem no WhatsApp depois de 1 hora (status `novo`): **vocês escrevem primeiro** para o número da planilha, citando o `Ref`.
 - Toda conversa no WhatsApp: atualizar `status` e `valor` do lead pelo `Ref`.
 - Toda segunda-feira: exportar CSVs (ver skill `campaign-analyst`) e rodar a revisão com o `growth-orchestrator`.

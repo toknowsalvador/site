@@ -2,6 +2,7 @@
 import { CONFIG } from './config.mjs';
 import {
   generateLeadId, loadAttribution, validateStep, validateAll, buildLeadPayload, buildWhatsAppText, buildWhatsAppUrl,
+  upcomingMonths,
 } from './lead.mjs';
 
 const CONSENT_KEY = 'tks_consent';
@@ -26,6 +27,16 @@ function loadGtag() {
   if (CONFIG.adsId) window.gtag('config', CONFIG.adsId);
 }
 
+function loadClarity() {
+  if (!CONFIG.clarityId) return;
+  /* Microsoft Clarity loader; runs cookieless until consent is granted (project setting). */
+  window.clarity = window.clarity || function clarity(...args) { (window.clarity.q = window.clarity.q || []).push(args); };
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = `https://www.clarity.ms/tag/${CONFIG.clarityId}`;
+  document.head.appendChild(s);
+}
+
 function setupConsent() {
   const banner = document.getElementById('consent-banner');
   const local = safeStorage('localStorage');
@@ -37,6 +48,7 @@ function setupConsent() {
       window.gtag('consent', 'update', {
         ad_storage: v, ad_user_data: v, ad_personalization: v, analytics_storage: v,
       });
+      if (choice === 'accept' && typeof window.clarity === 'function') window.clarity('consent');
     } catch { /* ignore */ }
   };
   if (saved) { apply(saved); return; }
@@ -53,9 +65,8 @@ function setupConsent() {
 function readForm(form) {
   const fd = new FormData(form);
   return {
-    arrival: fd.get('arrival') || '',
-    departure: fd.get('departure') || '',
-    datesUnknown: fd.get('datesUnknown') === 'on',
+    month: fd.get('month') || '',
+    duration: fd.get('duration') || '',
     people: fd.get('people') || '',
     interests: fd.getAll('interests'),
     name: fd.get('name') || '',
@@ -68,7 +79,11 @@ function readForm(form) {
 function showErrors(form, errors) {
   form.querySelectorAll('[aria-invalid]').forEach((el) => el.removeAttribute('aria-invalid'));
   const fields = Object.keys(errors);
-  for (const name of fields) form.querySelector(`[name="${name}"]`)?.setAttribute('aria-invalid', 'true');
+  for (const name of fields) {
+    const el = form.querySelector(`[name="${name}"]`);
+    // Radio groups: mark the whole group so every option shows the error.
+    (el?.type === 'radio' ? el.closest('.options') : el)?.setAttribute('aria-invalid', 'true');
+  }
   document.getElementById('form-error').textContent = fields.map((f) => errors[f]).join(' ');
   if (fields.length) form.querySelector(`[name="${fields[0]}"]`)?.focus();
 }
@@ -95,9 +110,20 @@ function setupForm(attribution) {
     if (!started) { started = true; track('form_start'); }
   });
 
-  form.querySelector('[name="datesUnknown"]').addEventListener('change', (e) => {
-    for (const n of ['arrival', 'departure']) form.querySelector(`[name="${n}"]`).disabled = e.target.checked;
-  });
+  const months = form.querySelector('#month-options');
+  for (const m of upcomingMonths(new Date())) {
+    const label = document.createElement('label');
+    label.innerHTML = '<input type="radio" name="month"><span></span>';
+    label.querySelector('input').value = m.value;
+    label.querySelector('span').textContent = m.label;
+    months.appendChild(label);
+  }
+
+  const people = form.querySelector('[name="people"]');
+  form.querySelectorAll('[data-step-people]').forEach((btn) => btn.addEventListener('click', () => {
+    const next = Math.min(99, Math.max(1, (Number(people.value) || 0) + Number(btn.dataset.stepPeople)));
+    people.value = String(next);
+  }));
 
   const goToStep2 = () => {
     const data = readForm(form);
@@ -125,7 +151,7 @@ function setupForm(attribution) {
     if (submitted) { if (whatsappUrl) window.location.href = whatsappUrl; return; }
     const data = readForm(form);
     const { valid, errors } = validateAll(data);
-    if (errors.people || errors.arrival || errors.departure) { step2.hidden = true; step1.hidden = false; }
+    if (errors.people || errors.month || errors.duration) { step2.hidden = true; step1.hidden = false; }
     showErrors(form, errors);
     if (!valid) return;
     submitted = true;
@@ -135,6 +161,12 @@ function setupForm(attribution) {
     const payload = buildLeadPayload(data, attribution, leadId, new Date(), location.href);
     const url = buildWhatsAppUrl(CONFIG.whatsappNumber, buildWhatsAppText(payload));
     whatsappUrl = url;
+    form.hidden = true;
+    form.closest('.card').querySelector(':scope > h2').hidden = true;
+    const done = document.getElementById('form-done');
+    done.querySelector('#done-ref').textContent = leadId;
+    done.querySelector('#open-whatsapp').href = url;
+    done.hidden = false;
     let navigated = false;
     const go = () => { if (!navigated) { navigated = true; window.location.href = url; } };
 
@@ -168,5 +200,6 @@ function setupStickyCta() {
 const attribution = loadAttribution(safeStorage('sessionStorage'), location.search);
 setupConsent();
 loadGtag();
+loadClarity();
 setupForm(attribution);
 setupStickyCta();

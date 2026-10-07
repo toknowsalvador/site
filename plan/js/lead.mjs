@@ -2,7 +2,25 @@
 
 export const ATTRIBUTION_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'gclid'];
 const STORAGE_KEY = 'tks_attr';
-const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
+const YEAR_MONTH = /^\d{4}-(0[1-9]|1[0-2])$/;
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+export const DURATIONS = ['2–4 days', '5–7 days', '1–2 weeks', '2+ weeks'];
+
+export function upcomingMonths(now = new Date(), count = 12) {
+  const out = [];
+  for (let i = 0; i < count; i += 1) {
+    const d = new Date(now.getFullYear(), now.getMonth() + i, 1);
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    out.push({ value: `${d.getFullYear()}-${month}`, label: `${MONTHS[d.getMonth()].slice(0, 3)} ${d.getFullYear()}` });
+  }
+  return out;
+}
+
+export function monthLabel(value) {
+  if (!YEAR_MONTH.test(value || '')) return 'dates not decided yet';
+  const [year, month] = value.split('-');
+  return `${MONTHS[Number(month) - 1]} ${year}`;
+}
 
 export function generateLeadId(rand = Math.random) {
   const n = Math.min(0xffff, Math.floor(rand() * 0x10000));
@@ -52,12 +70,11 @@ export function validateStep(step, data) {
     if (!/^\d+$/.test(people) || Number(people) < 1 || Number(people) > 99) {
       errors.people = 'Please enter how many travelers (1–99).';
     }
-    if (!data.datesUnknown) {
-      if (!ISO_DATE.test(data.arrival || '')) errors.arrival = 'Add your arrival date, or tick "Not sure yet".';
-      if (!ISO_DATE.test(data.departure || '')) errors.departure = 'Add your departure date, or tick "Not sure yet".';
-      else if (ISO_DATE.test(data.arrival || '') && data.departure < data.arrival) {
-        errors.departure = 'Departure must be after arrival.';
-      }
+    if (data.month !== 'not-sure' && !YEAR_MONTH.test(data.month || '')) {
+      errors.month = "Pick when you're coming, or Not sure.";
+    }
+    if (data.duration && !DURATIONS.includes(data.duration)) {
+      errors.duration = 'Pick how long your trip is.';
     }
   }
   if (step === 2) {
@@ -78,16 +95,14 @@ export function validateAll(data) {
 }
 
 export function buildLeadPayload(data, attribution, leadId, now, landingUrl) {
-  const unknown = Boolean(data.datesUnknown);
   return {
     timestamp: now.toISOString(),
     lead_id: leadId,
     name: String(data.name || '').trim(),
     whatsapp: normalizePhone(data.countryCode, data.phone) || '',
     people: Number(data.people),
-    arrival: unknown ? '' : data.arrival || '',
-    departure: unknown ? '' : data.departure || '',
-    dates_unknown: unknown,
+    month: data.month || '',
+    duration: data.duration || '',
     interests: (data.interests || []).join(', '),
     budget: data.budget || '',
     utm_source: attribution.utm_source || '',
@@ -102,8 +117,8 @@ export function buildLeadPayload(data, attribution, leadId, now, landingUrl) {
 
 export function buildWhatsAppText(p) {
   const who = `${p.people} ${p.people === 1 ? 'person' : 'people'}`;
-  const when = p.dates_unknown || !p.arrival ? 'dates not decided yet' : `${p.arrival} to ${p.departure}`;
-  const lines = [`Hi! I'm ${p.name}. I'd like a quote for my Salvador trip.`, `${who}, ${when}.`];
+  const trip = [who, monthLabel(p.month), p.duration].filter(Boolean).join(', ');
+  const lines = [`Hi! I'm ${p.name}. I'd like a quote for my Salvador trip.`, `${trip}.`];
   if (p.interests) lines.push(`I'm interested in: ${p.interests}.`);
   if (p.budget) lines.push(`Budget: ${p.budget}.`);
   lines.push(`Ref: ${p.lead_id}`);

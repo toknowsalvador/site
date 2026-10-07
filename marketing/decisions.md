@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-07 — Landing v2 (pre-launch CRO audit)
+- Form moves into the hero; step 1 asks month + trip length (buttons) + travelers instead of exact dates; confirmation state after submit; compact cookie bar; copy `landing-v2.md` approved with the design. Sheet columns `arrival`/`departure`/`dates_unknown` become `month`/`duration`. **Why:** the form sat 8.3 screens down; date pickers were the main friction; the cookie banner hid the CTA on small phones. Applied before launch, so no EXP entry.
+
 ## 2026-10-07 — Landing has its own visual identity
 - The campaign page must not use `toknowsalvador.com` as a base for anything (colors, fonts, layout). It gets a new identity aimed at top conversion and visual quality; direction approved by the team is recorded in `marketing/design.md`. **Why:** the page is separate on purpose. **Supersedes:** first build, which reused the main site's dark base and DM Sans + Playfair.
 

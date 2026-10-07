@@ -22,7 +22,7 @@ function load(sheetRows = []) {
 
 const payload = {
   timestamp: '2026-10-07T12:00:00.000Z', lead_id: 'TKS-ABCD', name: 'Maya', whatsapp: '+15551234567',
-  people: 2, arrival: '2026-12-20', departure: '2026-12-28', dates_unknown: false, interests: 'tours, shows',
+  people: 2, month: '2026-12', duration: '5–7 days', interests: 'tours, shows',
   budget: '', utm_source: 'google', utm_medium: 'cpc', utm_campaign: '123', utm_term: 'salvador trip planner',
   utm_content: '456', gclid: 'g1', landing_url: 'https://plan.toknowsalvador.com/',
 };

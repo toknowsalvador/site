@@ -11,6 +11,7 @@ Changing anything here requires updating `plan/js/lead.mjs`, `plan/js/app.mjs`, 
 | `adsId` | `AW-123456789` | Ads tag not configured |
 | `adsConversion` | `AW-123456789/AbCdEf` | conversion not sent |
 | `leadEndpoint` | Apps Script `/exec` URL | lead not posted; WhatsApp still opens |
+| `clarityId` | Microsoft Clarity project ID | Clarity not loaded |
 
 ## GA4 events
 
@@ -25,7 +26,7 @@ Google Ads conversion: `gtag('event', 'conversion', { send_to: CONFIG.adsConvers
 
 ## Lead payload / sheet columns (in order)
 
-`timestamp, lead_id, name, whatsapp, people, arrival, departure, dates_unknown, interests, budget, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid, landing_url` — the sheet adds `status` (default `novo`) and `valor`.
+`timestamp, lead_id, name, whatsapp, people, month, duration, interests, budget, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid, landing_url` (`month` = `YYYY-MM` or `not-sure`; `duration` = one of `DURATIONS` in `lead.mjs` or empty) — the sheet adds `status` (default `novo`) and `valor`.
 
 ## Invariants
 
