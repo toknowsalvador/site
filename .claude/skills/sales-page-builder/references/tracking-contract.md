@@ -33,6 +33,10 @@ Google Ads lead conversion: "TKS Lead" in Google Ads is the GA4 `generate_lead` 
 - On submit, before the conversion events: `gtag('set', 'user_data', userDataFor(payload))` — the E.164 WhatsApp number; Google hashes it on the device and only sends it with `ad_user_data` consent. GA4 must have **"User-provided data collection"** turned on (Admin → Data collection) for it to reach Google Ads.
 - Sales go back to Google Ads through the "Google Ads import" tab built by `refreshAdsImport()` in `Code.gs`: `gclid` + SHA-256 of the phone, conversion "TKS Sale", noon of `data_venda` (America/Bahia), `valor` in BRL.
 
+## Phone field
+
+`countryCode` holds an ISO country (`US`, `CA`, `GB`… or `other`). `normalizePhone` uses libphonenumber-js once `setPhoneLibrary` received it (real per-country validation, repeated country code fixed, `+`/`00` input wins over the selector) and falls back to `FALLBACK_COUNTRIES` calling codes before it loads. The sheet always receives E.164 (`+14155550100`).
+
 ## Audience parameter
 
 `?audience=family` (set by the Family & group trips ad group's Final URL suffix) shows the `[data-audience="family"]` subtitle in the form card. Allowed values live in `AUDIENCES` in `lead.mjs`.

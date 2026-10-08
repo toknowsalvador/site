@@ -103,3 +103,11 @@ test('no budget question anywhere (team found it too invasive)', () => {
 test('family line exists, hidden by default, for the family ad group', () => {
   assert.match(html, /<p class="audience-line" data-audience="family" hidden>/);
 });
+
+test('country selector stores ISO countries and the phone library is not loaded up front', () => {
+  for (const iso of ['US', 'CA', 'GB', 'AU', 'BR']) assert.match(html, new RegExp(`<option value="${iso}"`), iso);
+  assert.doesNotMatch(html, /vendor\/libphonenumber/, 'the library must be loaded lazily by app.mjs, not by the page');
+  assert.ok(existsSync(new URL('../plan/js/vendor/libphonenumber-min.js', import.meta.url)));
+  assert.ok(existsSync(new URL('../plan/js/vendor/libphonenumber-js.LICENSE.txt', import.meta.url)));
+  assert.match(html, /id="phone-help"/);
+});

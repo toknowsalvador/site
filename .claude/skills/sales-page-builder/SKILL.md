@@ -31,7 +31,7 @@ The landing page has its **own visual identity, independent of `toknowsalvador.c
 ## Performance
 
 - Images: run `tools/optimize-images.mjs` (WebP, max 1600px, quality 72) and use `width`/`height`, `loading="lazy"` except the hero image (`fetchpriority="high"`).
-- No frameworks, no CSS/JS libraries. Critical CSS inline in `<head>`.
+- No frameworks, no CSS/JS libraries — **one approved exception:** `libphonenumber-js` (vendored in `plan/js/vendor/`, MIT), loaded by `app.mjs` only on the first interaction with the form, never in the initial page load. Any new library needs a `decisions.md` entry and must load lazily. Critical CSS inline in `<head>`.
 - Fonts: `display=swap`, only the weights used.
 - Videos: never autoplay above the fold; poster image + click to load.
 

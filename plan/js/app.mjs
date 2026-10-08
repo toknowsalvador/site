@@ -2,7 +2,7 @@
 import { CONFIG } from './config.mjs';
 import {
   generateLeadId, loadAttribution, validateStep, validateAll, buildLeadPayload, buildWhatsAppText, buildWhatsAppUrl,
-  upcomingMonths, userDataFor, audienceFrom,
+  upcomingMonths, userDataFor, audienceFrom, setPhoneLibrary, phonePreview, countryFromLocale, FALLBACK_COUNTRIES,
 } from './lead.mjs';
 
 const CONSENT_KEY = 'tks_consent';
@@ -96,6 +96,64 @@ function sendLead(payload) {
   } catch { /* the WhatsApp message still carries the lead */ }
 }
 
+// Safari doesn't focus radios/checkboxes/buttons on tap, so "focusin" alone misses the first interaction.
+function onFirstInteraction(el, fn) {
+  const events = ['pointerdown', 'focusin', 'change', 'keydown'];
+  const handler = () => {
+    events.forEach((type) => el.removeEventListener(type, handler, true));
+    fn();
+  };
+  events.forEach((type) => el.addEventListener(type, handler, true));
+}
+
+const PHONE_HELP = "We'll only use it to send your quote.";
+let phoneLibRequested = false;
+
+// libphonenumber-js (~43 KB gzipped) loads only once the visitor starts the form; until then the fallback rules apply.
+function loadPhoneLibrary(onReady) {
+  if (phoneLibRequested) return;
+  phoneLibRequested = true;
+  const s = document.createElement('script');
+  s.src = 'js/vendor/libphonenumber-min.js';
+  s.async = true;
+  s.onload = () => {
+    if (!window.libphonenumber) return;
+    setPhoneLibrary(window.libphonenumber);
+    onReady(window.libphonenumber);
+  };
+  document.head.appendChild(s);
+}
+
+function upgradeCountrySelect(select, lib) {
+  let names;
+  try { names = new Intl.DisplayNames(['en'], { type: 'region' }); } catch { return; }
+  const current = select.value;
+  const countries = lib.getCountries()
+    .map((iso) => ({ iso, name: names.of(iso) || iso, code: lib.getCountryCallingCode(iso) }))
+    .sort((a, b) => a.name.localeCompare(b.name));
+  const other = select.querySelector('option[value="other"]');
+  select.replaceChildren(...countries.map((c) => new Option(`${c.name} +${c.code}`, c.iso)), other);
+  const fromLocale = countryFromLocale(navigator.language, countries.map((c) => c.iso));
+  // Respect a manual choice; otherwise use the browser's country (now that every country is available).
+  select.value = select.dataset.touched || !fromLocale ? current : fromLocale;
+}
+
+function setupPhone(form) {
+  const select = form.querySelector('[name="countryCode"]');
+  const phone = form.querySelector('[name="phone"]');
+  const help = form.querySelector('#phone-help');
+  const fromLocale = countryFromLocale(navigator.language, FALLBACK_COUNTRIES.map(([iso]) => iso));
+  if (fromLocale) select.value = fromLocale;
+  const preview = () => {
+    const shown = phone.value.trim() ? phonePreview(select.value, phone.value) : null;
+    help.textContent = shown ? `We'll message you at ${shown}` : PHONE_HELP;
+    help.classList.toggle('ok', Boolean(shown));
+  };
+  phone.addEventListener('input', preview);
+  select.addEventListener('change', () => { select.dataset.touched = '1'; preview(); });
+  onFirstInteraction(form, () => loadPhoneLibrary((lib) => { upgradeCountrySelect(select, lib); preview(); }));
+}
+
 function setupForm(attribution) {
   const form = document.getElementById('lead-form');
   const step1 = form.querySelector('fieldset[data-step="1"]');
@@ -105,9 +163,10 @@ function setupForm(attribution) {
   let submitted = false;
   let whatsappUrl = '';
 
-  form.addEventListener('focusin', () => {
+  onFirstInteraction(form, () => {
     if (!started) { started = true; track('form_start'); }
   });
+  setupPhone(form);
 
   const months = form.querySelector('#month-options');
   for (const m of upcomingMonths(new Date())) {

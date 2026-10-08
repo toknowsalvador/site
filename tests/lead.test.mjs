@@ -8,7 +8,7 @@ import {
 
 const base = {
   month: '2026-12', duration: '5–7 days', people: '2',
-  interests: ['tours', 'shows'], name: 'Maya', countryCode: '1', phone: '(555) 123-4567',
+  interests: ['tours', 'shows'], name: 'Maya', countryCode: 'US', phone: '(555) 123-4567',
 };
 
 test('generateLeadId: 6 unambiguous characters', () => {
@@ -53,12 +53,12 @@ test('loadAttribution ignores corrupt stored JSON', () => {
 });
 
 test('normalizePhone', () => {
-  assert.equal(normalizePhone('1', '(555) 123-4567'), '+15551234567');
-  assert.equal(normalizePhone('44', '07700 900123'), '+447700900123'); // strips trunk 0
+  assert.equal(normalizePhone('US', '(555) 123-4567'), '+15551234567');
+  assert.equal(normalizePhone('GB', '07700 900123'), '+447700900123'); // strips trunk 0
   assert.equal(normalizePhone('other', '+61 412 345 678'), '+61412345678');
   assert.equal(normalizePhone('other', '412 345 678'), null);
-  assert.equal(normalizePhone('1', '123'), null);
-  assert.equal(normalizePhone('1', '1'.repeat(20)), null);
+  assert.equal(normalizePhone('US', '123'), null);
+  assert.equal(normalizePhone('US', '1'.repeat(20)), null);
 });
 
 test('validateStep 1 accepts valid data', () => {
@@ -143,9 +143,9 @@ test('buildWhatsAppUrl encodes special characters', () => {
 });
 
 test('normalizePhone ignores the selector when the number is already international', () => {
-  assert.equal(normalizePhone('44', '+44 7700 900123'), '+447700900123');
-  assert.equal(normalizePhone('1', '+1 415 555 0100'), '+14155550100');
-  assert.equal(normalizePhone('44', '0044 7700 900123'), '+447700900123');
+  assert.equal(normalizePhone('GB', '+44 7700 900123'), '+447700900123');
+  assert.equal(normalizePhone('US', '+1 415 555 0100'), '+14155550100');
+  assert.equal(normalizePhone('GB', '0044 7700 900123'), '+447700900123');
 });
 
 test('validateAll checks both steps so a lead never goes out with 0 travelers', () => {

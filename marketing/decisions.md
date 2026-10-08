@@ -2,6 +2,10 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-07 — Phone validation with libphonenumber-js
+- The WhatsApp field validates with Google's libphonenumber rules (libphonenumber-js 1.13.14, min bundle, ~43 KB gzipped, vendored, MIT), loaded lazily on the first form interaction; full country list (246) with the browser's country preselected; live preview "We'll message you at +1 415 555 0100"; fallback to calling-code rules if it fails to load. First JS library on the page — exception recorded in the sales-page-builder skill. **Why:** wrong numbers make a lead unreachable when the visitor doesn't send the WhatsApp message.
+- Fix found while testing: the first form interaction is now detected on tap/click/change too (Safari doesn't focus radios on tap), so `form_start` is no longer undercounted on iPhone.
+
 ## 2026-10-07 — Lead conversion comes from GA4
 - Google Ads "TKS Lead" is the GA4 key event `generate_lead` (property TKS Plan, G-2RZLNYF4ZG) imported into Google Ads; no Ads tag on the page (`adsId`/`adsConversion` empty). **Why:** Google Ads' new conversion setup only offered GA4-based web conversions for this site; with this volume the few hours of import delay don't matter. **Cost:** slightly less precise for visitors who refuse cookies.
 

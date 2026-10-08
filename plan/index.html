@@ -186,7 +186,9 @@
   fieldset[hidden] { display: none; }
   legend { font: 800 24px/1.15 var(--head); letter-spacing: -0.01em; padding: 0; margin-bottom: 18px; }
   .field { display: grid; gap: 6px; margin-bottom: 18px; font-weight: 600; font-size: 16px; }
-  .row-phone { display: grid; grid-template-columns: 130px 1fr; gap: 12px; }
+  .row-phone { display: grid; grid-template-columns: 1fr; gap: 0 12px; }
+  @media (min-width: 480px) { .row-phone { grid-template-columns: 220px 1fr; } }
+  #phone-help.ok { color: var(--ink); font-weight: 600; }
   .row-phone > * { min-width: 0; }
   input[type="number"], input[type="text"], input[type="tel"], select {
     width: 100%; min-width: 0; min-height: 52px; padding: 12px 14px; border: 1.5px solid #8B909B; border-radius: 12px;
@@ -311,13 +313,14 @@
             <label class="field">Your name <input type="text" name="name" autocomplete="name" required maxlength="80"></label>
             <div class="row-phone">
               <label class="field">Country code
-                <select name="countryCode" autocomplete="tel-country-code">
-                  <option value="1">🇺🇸🇨🇦 +1</option><option value="44">🇬🇧 +44</option>
-                  <option value="61">🇦🇺 +61</option><option value="353">🇮🇪 +353</option>
-                  <option value="64">🇳🇿 +64</option><option value="49">🇩🇪 +49</option>
-                  <option value="33">🇫🇷 +33</option><option value="31">🇳🇱 +31</option>
-                  <option value="34">🇪🇸 +34</option><option value="39">🇮🇹 +39</option>
-                  <option value="55">🇧🇷 +55</option><option value="other">Other (type +code)</option>
+                <select name="countryCode" autocomplete="country">
+                  <option value="US">🇺🇸 United States +1</option><option value="CA">🇨🇦 Canada +1</option>
+                  <option value="GB">🇬🇧 United Kingdom +44</option><option value="AU">🇦🇺 Australia +61</option>
+                  <option value="IE">🇮🇪 Ireland +353</option><option value="NZ">🇳🇿 New Zealand +64</option>
+                  <option value="DE">🇩🇪 Germany +49</option><option value="FR">🇫🇷 France +33</option>
+                  <option value="NL">🇳🇱 Netherlands +31</option><option value="ES">🇪🇸 Spain +34</option>
+                  <option value="IT">🇮🇹 Italy +39</option><option value="BR">🇧🇷 Brazil +55</option>
+                  <option value="other">Other (type +code)</option>
                 </select>
               </label>
               <label class="field">WhatsApp number <input type="tel" name="phone" autocomplete="tel-national" inputmode="tel" required aria-describedby="phone-help"></label>

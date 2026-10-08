@@ -52,19 +52,55 @@ export function loadAttribution(storage, search) {
   return merged;
 }
 
-export function normalizePhone(countryCode, phone) {
+// Phone numbers: real per-country rules come from libphonenumber-js (vendor/), loaded lazily by app.mjs.
+// Until it loads (or if it fails), a simple calling-code fallback keeps the form working.
+export const FALLBACK_COUNTRIES = [
+  ['US', '1'], ['CA', '1'], ['GB', '44'], ['AU', '61'], ['IE', '353'], ['NZ', '64'],
+  ['DE', '49'], ['FR', '33'], ['NL', '31'], ['ES', '34'], ['IT', '39'], ['BR', '55'],
+];
+const FALLBACK_CODES = Object.fromEntries(FALLBACK_COUNTRIES);
+let phoneLib = null;
+
+export function setPhoneLibrary(lib) {
+  phoneLib = lib || null;
+}
+
+function parseWithLibrary(country, phone) {
+  try {
+    const raw = String(phone || '').trim().replace(/^00/, '+');
+    const parsed = phoneLib.parsePhoneNumberFromString(raw, country && country !== 'other' ? country : undefined);
+    return parsed && parsed.isValid() ? parsed : null;
+  } catch {
+    return null;
+  }
+}
+
+export function normalizePhone(country, phone) {
+  if (phoneLib) return parseWithLibrary(country, phone)?.number || null;
   const raw = String(phone || '').trim();
   const international = raw.startsWith('+') || raw.startsWith('00');
   let digits;
   if (international) {
     // Typed with its own country code: the selector must not be prepended again.
     digits = raw.replace(/\D/g, '').replace(/^00/, '');
-  } else if (countryCode === 'other') {
+  } else if (!FALLBACK_CODES[country]) {
     return null;
   } else {
-    digits = String(countryCode).replace(/\D/g, '') + raw.replace(/\D/g, '').replace(/^0+/, '');
+    digits = FALLBACK_CODES[country] + raw.replace(/\D/g, '').replace(/^0+/, '');
   }
   return digits.length >= 8 && digits.length <= 15 ? `+${digits}` : null;
+}
+
+// What we show under the field: "+1 415 555 0100" with the library, E.164 without it.
+export function phonePreview(country, phone) {
+  if (phoneLib) return parseWithLibrary(country, phone)?.formatInternational() || null;
+  return normalizePhone(country, phone);
+}
+
+export function countryFromLocale(language, allowed) {
+  const region = String(language || '').split('-')[1];
+  const iso = region ? region.toUpperCase() : '';
+  return allowed.includes(iso) ? iso : null;
 }
 
 export function validateStep(step, data) {
