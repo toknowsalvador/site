@@ -122,3 +122,47 @@ function installImportTrigger() {
   });
   ScriptApp.newTrigger('refreshAdsImport').timeBased().everyHours(1).create();
 }
+
+// ---- Sheet layout (run setupLeadsSheet once from the editor) ---------------------------------
+// Only the columns the team fills by hand get validation; form columns stay free so leads are never rejected.
+
+var STATUS_VALUES = ['novo', 'respondeu', 'orçamento enviado', 'fechou', 'perdido'];
+
+function sheetLayout(headers) {
+  var col = function (h) { return headers.indexOf(h) + 1; };
+  return {
+    list: { column: col('status'), values: STATUS_VALUES },
+    dates: [col('data_venda')],
+    money: [col('valor'), col('lucro')],
+    teamColumns: [col('status'), col('valor'), col('data_venda'), col('lucro')]
+  };
+}
+
+function setupLeadsSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
+  if (sheet.getLastRow() === 0) sheet.appendRow(HEADERS);
+  if (sheet.getMaxRows() < 5000) sheet.insertRowsAfter(sheet.getMaxRows(), 5000 - sheet.getMaxRows());
+  var rows = sheet.getMaxRows() - 1;
+  var layout = sheetLayout(HEADERS);
+
+  sheet.setFrozenRows(1);
+  sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
+
+  sheet.getRange(2, layout.list.column, rows, 1).setDataValidation(
+    SpreadsheetApp.newDataValidation().requireValueInList(layout.list.values, true).setAllowInvalid(false).build()
+  );
+  layout.dates.forEach(function (c) {
+    sheet.getRange(2, c, rows, 1)
+      .setDataValidation(SpreadsheetApp.newDataValidation().requireDate().setAllowInvalid(false).build())
+      .setNumberFormat('dd/mm/yyyy');
+  });
+  layout.money.forEach(function (c) {
+    sheet.getRange(2, c, rows, 1)
+      .setDataValidation(SpreadsheetApp.newDataValidation().requireNumberGreaterThanOrEqualTo(0).setAllowInvalid(false).build())
+      .setNumberFormat('"R$" #,##0.00');
+  });
+  layout.teamColumns.forEach(function (c) {
+    sheet.getRange(1, c, 1, 1).setBackground('#FFF4CC');
+  });
+}

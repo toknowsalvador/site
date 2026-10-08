@@ -133,3 +133,20 @@ test('buildImportRows exports only closed sales with a date, value and a match k
     ['', sha('+447700900123'), 'TKS Sale', '2026-10-21 12:00:00', 400, 'BRL'],
   ]);
 });
+
+test('sheetLayout: team-filled columns get a dropdown, a date and money formats', () => {
+  const { ctx } = load();
+  const layout = JSON.parse(JSON.stringify(ctx.sheetLayout(Array.from(ctx.HEADERS))));
+  const col = (h) => Array.from(ctx.HEADERS).indexOf(h) + 1;
+  assert.deepEqual(layout.list, { column: col('status'), values: ['novo', 'respondeu', 'orçamento enviado', 'fechou', 'perdido'] });
+  assert.deepEqual(layout.dates, [col('data_venda')]);
+  assert.deepEqual(layout.money, [col('valor'), col('lucro')]);
+  assert.deepEqual(layout.teamColumns, [col('status'), col('valor'), col('data_venda'), col('lucro')]);
+});
+
+test('sheetLayout status list includes the value doPost writes for new leads', () => {
+  const { ctx } = load();
+  const statusIndex = Array.from(ctx.HEADERS).indexOf('status');
+  const newRow = Array.from(ctx.buildRow({ lead_id: 'TKS-AAAAAA' }));
+  assert.ok(Array.from(ctx.sheetLayout(Array.from(ctx.HEADERS)).list.values).includes(newRow[statusIndex]));
+});
