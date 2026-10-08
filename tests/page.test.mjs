@@ -111,3 +111,17 @@ test('country selector stores ISO countries and the phone library is not loaded 
   assert.ok(existsSync(new URL('../plan/js/vendor/libphonenumber-js.LICENSE.txt', import.meta.url)));
   assert.match(html, /id="phone-help"/);
 });
+
+test('proof shows a wall of real group photos and never counts Viator twice', () => {
+  const proof = html.slice(html.indexOf('<section id="proof"'), html.indexOf('<section id="offer"'));
+  const imgs = [...proof.matchAll(/<img [^>]*>/g)].map((m) => m[0]);
+  assert.ok(imgs.length >= 6, 'expected a photo wall in #proof');
+  for (const img of imgs) {
+    assert.match(img, /loading="lazy"/);
+    assert.match(img, /width="\d+" height="\d+"/);
+    assert.match(img, /alt="[^"]+"/);
+  }
+  assert.match(proof, /TripAdvisor &amp; Viator, 161 reviews/);
+  assert.doesNotMatch(proof, /153 reviews/, 'Tripadvisor is merged into the Viator total');
+  assert.doesNotMatch(proof, /\b9\d\d\+|1,?000\+/, 'never add Viator into a review total');
+});

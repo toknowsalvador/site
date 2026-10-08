@@ -2,6 +2,10 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-08 — Proof section: group photo wall + Viator (copy v6)
+- Proof opens with 7 real group photos (option A of 3 rendered; team chose it), then the ratings. TripAdvisor and Viator are one rating, "5.0 · TripAdvisor & Viator, 161 reviews", because Viator labels its 161 as combined Viator + Tripadvisor totals; "800+" stays the total (Viator never added). **Why:** the team found the proof weak (numbers and one quote, no faces); families and groups are the priority audience. Pre-launch, so no EXP.
+- Google Ads: payment method added to take the R$ 1.200 → R$ 2.400 credit offer; tax info accepted (2026-10-07).
+
 ## 2026-10-07 — Phone validation with libphonenumber-js
 - The WhatsApp field validates with Google's libphonenumber rules (libphonenumber-js 1.13.14, min bundle, ~43 KB gzipped, vendored, MIT), loaded lazily on the first form interaction; full country list (246) with the browser's country preselected; live preview "We'll message you at +1 415 555 0100"; fallback to calling-code rules if it fails to load. First JS library on the page — exception recorded in the sales-page-builder skill. **Why:** wrong numbers make a lead unreachable when the visitor doesn't send the WhatsApp message.
 - Fix found while testing: the first form interaction is now detected on tap/click/change too (Safari doesn't focus radios on tap), so `form_start` is no longer undercounted on iPhone.

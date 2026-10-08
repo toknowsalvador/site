@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="copy-version" content="v5">
+<meta name="copy-version" content="v6">
 <title>Your Salvador trip, planned and booked by locals | To Know Salvador</title>
 <meta name="description" content="Tell us your dates and what you love. We arrange your tours, transfers, stay, restaurants and shows — so you land in Salvador and just enjoy it.">
 <meta name="theme-color" content="#ffffff">
@@ -158,6 +158,17 @@
   .ratings span { color: var(--ink-2); font-size: 15px; }
   @media (min-width: 900px) { .ratings { grid-template-columns: repeat(4, 1fr); } }
   .caption { margin-top: 12px; color: var(--ink-2); font-size: 15px; }
+  .wall { display: grid; gap: 8px; margin-top: 32px; grid-template-columns: repeat(2, 1fr); grid-auto-rows: 120px; }
+  .wall img { width: 100%; height: 100%; object-fit: cover; border-radius: 14px; display: block; }
+  .wall img:first-child { grid-column: span 2; grid-row: span 2; }
+  .wall img:nth-child(n+6) { display: none; }
+  @media (min-width: 900px) {
+    .wall { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 170px; gap: 10px; }
+    .wall img:nth-child(n+6) { display: block; }
+    .wall img:nth-child(3) { grid-row: span 2; }
+    .wall img:nth-child(7) { grid-column: span 2; }
+  }
+  .wall + .caption { margin-top: 10px; }
   blockquote { margin: 44px 0 0; max-width: 62ch; }
   blockquote p { font: 800 clamp(22px, 3.2vw, 30px)/1.25 var(--head); letter-spacing: -0.01em; }
   blockquote footer { margin-top: 14px; color: var(--ink-2); }
@@ -402,13 +413,23 @@
   <section id="proof" class="band">
     <div class="wrap">
       <h2>Rated by the travelers we've already guided</h2>
+      <div class="wall">
+        <img src="assets/group-1.webp" width="900" height="506" alt="Our guide with a group of travelers in Pelourinho" loading="lazy" decoding="async">
+        <img src="assets/group-2.webp" width="900" height="506" alt="A group of travelers of different ages with our guide in the historic center" loading="lazy" decoding="async">
+        <img src="assets/group-3.webp" width="900" height="1184" alt="A big group of travelers cheering at a football match in Salvador" loading="lazy" decoding="async">
+        <img src="assets/group-7.webp" width="900" height="1193" alt="Our guide and two travelers raising a toast" loading="lazy" decoding="async">
+        <img src="assets/group-5.webp" width="900" height="666" alt="Travelers in team shirts at a football match with our guide" loading="lazy" decoding="async">
+        <img src="assets/group-6.webp" width="900" height="1600" alt="Our guide with two travelers in Pelourinho" loading="lazy" decoding="async">
+        <img src="assets/group-4.webp" width="900" height="506" alt="Our guide with a group of travelers on a street of the historic center" loading="lazy" decoding="async">
+      </div>
+      <p class="caption">Some of the groups we've guided around Salvador.</p>
       <ul class="ratings">
-        <li><b>5.0</b><span>TripAdvisor, 153 reviews</span></li>
+        <li><b>5.0</b><span>TripAdvisor &amp; Viator, 161 reviews</span></li>
         <li><b>5.0</b><span>Google, 31 reviews</span></li>
         <li><b>4.96</b><span>GetYourGuide, 55 reviews</span></li>
         <li><b>4.74</b><span>GuruWalk, 577 reviews</span></li>
       </ul>
-      <p class="caption">800+ reviews of our walking tour across four platforms.</p>
+      <p class="caption">800+ reviews of our walking tour.</p>
       <blockquote>
         <p>“Adriano is very welcoming, he is very knowledgeable about all the places he took us. He answered all our questions. I would recommend him to anyone coming to Salvador who wants to learn about and understand the history.”</p>
         <footer>Sonya, on GuruWalk</footer>
