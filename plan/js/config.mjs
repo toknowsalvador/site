@@ -5,5 +5,5 @@ export const CONFIG = {
   adsId: '',
   adsConversion: '',
   leadEndpoint: 'https://script.google.com/macros/s/AKfycbwhEV3LOk_nSHZhNbrmOj5y466MjpWfr6oK9PPY-KN3AwVsYQq5-k3tsu-Pb9h_VxUOig/exec',
-  clarityId: '',
+  clarityId: 'yu9wxyk3yy',
 };
