@@ -19,6 +19,7 @@ Copy: ads-v2
 | Auto-apply recommendations | Off (all items) |
 | Final URL expansion | Off |
 | Automatically created assets | Off |
+| Campaign goals | **Only "Submit lead form" (TKS Lead)**. Never add the "Purchase" goal — "TKS Sale" is a primary action inside the non-default "Purchase" goal (Google locked the secondary option), so it stays out of bidding only while that goal is not used by the campaign |
 | Primary conversion | "TKS Lead" (Google Ads conversion from the site tag); every other action Secondary — never import GA4 `generate_lead` as primary |
 | Final URL | `https://plan.toknowsalvador.com/` |
 | Final URL suffix (campaign level) | `utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}` — no tracking template (a `{lpurl}?…` template breaks URLs that already have `?audience=`) |
