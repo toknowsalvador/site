@@ -2,7 +2,7 @@
 
 Atualizado em 2026-10-08. `[x]` = feito e conferido · `[ ]` = falta · ⏳ = depende de algo que ainda não aconteceu.
 
-**Status geral:** medição completa e no ar. Falta criar a campanha, o teste final com clique de anúncio e ativar — **até ~31/10** para cumprir a oferta de crédito (gastar R$ 1.200 até 06/12/2026).
+**Status geral:** medição completa e no ar. Falta criar a campanha, o teste final com clique de anúncio e ativar — **até 29/10** para cumprir a oferta de crédito já aceita (gastar R$ 1.200 até 06/12/2026).
 
 ## 1. Planilha de leads ✅
 - [x] Google Sheet "TKS Leads" criada (conta `toknowsalvador@gmail.com`).
@@ -29,7 +29,8 @@ Atualizado em 2026-10-08. `[x]` = feito e conferido · `[ ]` = falta · ⏳ = de
 - [x] **Codificação automática** ativada.
 - [ ] ⏳ "TKS Lead" sair de **"Requer atenção"** (até 24–48 h após o primeiro `generate_lead`).
 - [ ] Declaração do anunciante / **verificação do anunciante** (nome do anunciante): resolver antes de veicular para não pausar anúncios.
-- [ ] Decidir sobre a **oferta R$ 1.200 → R$ 2.400** (exige forma de pagamento; prazo 06/12/2026).
+- [x] **Oferta R$ 1.200 → R$ 2.400** aceita: forma de pagamento cadastrada. Meta: gastar R$ 1.200 até 06/12/2026.
+- [ ] ⏳ Acompanhar o gasto da oferta: a R$ 33/dia, ativar **até 29/10** dá folga (~R$ 1.250 até 06/12). Se o gasto diário ficar abaixo de R$ 33 (limite de CPC R$ 6 segurando), liberar o grupo "Tours & transfers" antes de mexer no CPC.
 - [ ] **Criar a campanha** seguindo `marketing/ads/campaign-plan.md` (v2, 4 grupos de anúncios) com **data de início futura**. Metas da campanha: **só "Envios de formulários de lead"** — nunca "Compras".
 
 ### Vendas de volta para o Google Ads
