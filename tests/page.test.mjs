@@ -125,3 +125,8 @@ test('proof shows a wall of real group photos and never counts Viator twice', ()
   assert.doesNotMatch(proof, /153 reviews/, 'Tripadvisor is merged into the Viator total');
   assert.doesNotMatch(proof, /\b9\d\d\+|1,?000\+/, 'never add Viator into a review total');
 });
+
+test('proof is the first section after the hero', () => {
+  const afterHero = html.slice(html.indexOf('</header>'));
+  assert.match(afterHero, /^<\/header>\s*<main>\s*<section id="proof"/);
+});

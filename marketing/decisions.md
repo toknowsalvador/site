@@ -4,6 +4,7 @@ Newest first. To reverse a decision, add a new entry citing the evidence.
 
 ## 2026-10-08 — Proof section: group photo wall + Viator (copy v6)
 - Proof opens with 7 real group photos (option A of 3 rendered; team chose it), then the ratings. TripAdvisor and Viator are one rating, "5.0 · TripAdvisor & Viator, 161 reviews", because Viator labels its 161 as combined Viator + Tripadvisor totals; "800+" stays the total (Viator never added). **Why:** the team found the proof weak (numbers and one quote, no faces); families and groups are the priority audience. Pre-launch, so no EXP.
+- Same day: proof moved to right after the hero (mist background) and the wall's last photo replaced with the current hero photo (the hero gets a new photo). **Why:** visitors who scroll past the form are deciding whether to trust us; faces and ratings answer that before the explanation sections.
 - Google Ads: payment method added to take the R$ 1.200 → R$ 2.400 credit offer; tax info accepted (2026-10-07).
 
 ## 2026-10-07 — Phone validation with libphonenumber-js
