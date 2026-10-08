@@ -1,3 +1,4 @@
 node_modules/
 marketing/data/*
 !marketing/data/.gitkeep
+.local
