@@ -4,7 +4,7 @@ Based on: landing-v5 — group photo wall + Viator in the proof section, 2026-10
 
 # Landing copy v6 — Salvador Trip Concierge
 
-Change from v5: the proof section opens with a wall of 7 real group photos (option A, chosen by the team on 2026-10-08) and TripAdvisor + Viator become one rating, because Viator's 161 reviews are combined Viator + Tripadvisor totals. The proof section moves to right after the hero, and the hero photo becomes the team's own photo of drummers in front of São Francisco Church, Pelourinho (alt: "Drummers playing in front of São Francisco Church in Pelourinho, Salvador"); the old hero photo joins the wall. Everything else is v5 unchanged.
+Change from v5: the proof section opens with a wall of 7 real group photos (option A, chosen by the team on 2026-10-08) and TripAdvisor + Viator become one rating, because Viator's 161 reviews are combined Viator + Tripadvisor totals. The proof section moves to right after the hero, and the hero photo becomes the travelers celebrating with baianas (alt: "Travelers celebrating with baianas in traditional dress in Salvador"), and the Culture card shows the team's photo of drummers in front of São Francisco Church; the old hero photo joins the wall. Everything else is v5 unchanged.
 
 Changes from v1 (pre-launch CRO audit): form moves into the hero; subheadline removed from the hero; rating strip under the headline; step 1 uses month + trip length buttons instead of dates; confirmation state after submit; "You'll talk to Adriano" next to the submit button; compact cookie bar.
 
