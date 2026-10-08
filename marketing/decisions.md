@@ -5,6 +5,7 @@ Newest first. To reverse a decision, add a new entry citing the evidence.
 ## 2026-10-08 — Fix: Adriano's photo is really Adriano
 - The guide in most group photos is **Facundo**, not Adriano; the "Who we are" photo and the WhatsApp avatar next to "You'll talk to Adriano" showed Facundo. Both now use `public/adriano.avif` (Adriano, confirmed by the team). `public/happy-tour.avif` (a group with Adriano) replaced the weakest wall photo (a two-person selfie). **Why:** the visitor must see the face of the person who will answer on WhatsApp.
 - Same day: avatar and "Who we are" switched to the team's photo of Adriano in the To Know Salvador T-shirt (`public/adriano-toknow.png`). **Why:** the branded shirt and badge read as an official guide; face fills the avatar. Low resolution (720×480) — replace with the original file when the team finds it.
+- The team's photo of Adriano with a family (`public/adriano/adriano-with-family-01.JPG`) leads the proof wall; the two-person stadium selfie left the wall. **Why:** first real family photo, and families/groups are the priority audience.
 - Rule: name a person in alt text or copy only when the team has confirmed who is in the photo; otherwise write "our guide".
 
 ## 2026-10-08 — Proof section: group photo wall + Viator (copy v6)
