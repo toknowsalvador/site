@@ -12,7 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="assets/hero.webp" imagesrcset="assets/hero-900.webp 900w, assets/hero.webp 1600w" imagesizes="(min-width: 900px) 50vw, 100vw" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero-mobile.webp" media="(max-width: 899px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 900px)" fetchpriority="high">
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -91,7 +92,8 @@
   .hero-grid > * { min-width: 0; }
   .brand { position: absolute; top: 18px; right: max(var(--gutter), calc((100% - var(--max)) / 2 + var(--gutter))); font-weight: 700; font-size: 15px; }
   .hero-photo { margin-top: 14px; border-radius: 22px; overflow: hidden; aspect-ratio: 16 / 9; max-height: 32svh; width: 100%; }
-  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 22% 30%; }
+  .hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 50%; }
+  .hero-photo picture { display: contents; }
   .hero-copy { padding-top: 24px; }
   #hero h1 { font-size: clamp(34px, 9.4vw, 72px); max-width: 14ch; }
   .strip { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 12px; font-size: 15px; color: var(--ink-2); }
@@ -273,7 +275,10 @@
   <div class="wrap hero-grid">
     <div class="brand">Salvador Trip Concierge</div>
     <div class="hero-photo">
-      <img src="assets/hero.webp" srcset="assets/hero-900.webp 900w, assets/hero.webp 1600w" sizes="(min-width: 900px) 50vw, 100vw" width="1600" height="900" fetchpriority="high" alt="A To Know Salvador guide with a smiling group of travelers in Pelourinho square">
+      <picture>
+        <source media="(min-width: 900px)" srcset="assets/hero.webp" width="720" height="900">
+        <img src="assets/hero-mobile.webp" width="720" height="405" fetchpriority="high" alt="Drummers playing in front of São Francisco Church in Pelourinho, Salvador">
+      </picture>
     </div>
     <div class="hero-copy">
       <h1>Your Salvador trip, planned and booked by locals</h1>
