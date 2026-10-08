@@ -70,7 +70,7 @@ Changes from v1 (pre-launch CRO audit): form moves into the hero; subheadline re
 
 ## 6. Proof
 
-- **Photo wall:** 7 photos of real groups with our guides, led by Adriano with a family in the historic center (Pelourinho, historic center, football match). Alt texts describe each scene.
+- **Photo wall:** 7 photos of real travelers with our team: Adriano with a family (lead), a group at the Lacerda Elevator overlook, a traveler buying acarajé from a baiana, and group photos in Pelourinho and Terreiro de Jesus. Alt texts describe each scene.
 - **Photo caption:** Some of the groups we've guided around Salvador.
 - **Ratings strip:** TripAdvisor & Viator 5.0 (161) · Google 5.0 (31) · GetYourGuide 4.96 (55) · GuruWalk 4.74 (577)
 - **Caption:** 800+ reviews of our walking tour.
