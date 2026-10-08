@@ -1,65 +1,75 @@
 # Checklist de lançamento — plan.toknowsalvador.com
 
-## 1. Planilha de leads
-1. Criar Google Sheet "TKS Leads".
-2. Extensões → Apps Script → colar `integrations/apps-script/Code.gs` → Salvar.
-3. Implantar → Nova implantação → Tipo: App da Web → Executar como: Eu → Quem pode acessar: Qualquer pessoa → Implantar → autorizar.
-4. Copiar a URL `/exec` → colar em `plan/js/config.mjs` → `leadEndpoint`.
-5. Teste: `curl -L -H 'Content-Type: text/plain' -d '{"lead_id":"TKS-TEST","name":"Teste"}' '<URL>'` → resposta `ok` e linha na aba "Leads". Apagar a linha de teste.
-6. Na coluna `status`, criar validação de dados (lista): novo, respondeu, orçamento enviado, fechou, perdido.
-7. Na coluna `data_venda`, formato Data (dd/mm/aaaa).
-8. Apps Script → Configurações do projeto → Fuso horário: **(GMT-03:00) Bahia**.
-9. Apps Script → selecionar a função `installImportTrigger` → Executar (uma vez) → autorizar. Ela cria a aba **"Google Ads import"** e a atualiza a cada hora com as vendas fechadas.
+Atualizado em 2026-10-08. `[x]` = feito e conferido · `[ ]` = falta · ⏳ = depende de algo que ainda não aconteceu.
 
-## 2. Google Analytics 4
-1. analytics.google.com → Admin → Criar propriedade "TKS Plan" → Fluxo Web `https://plan.toknowsalvador.com`.
-2. Copiar o ID `G-...` → `config.mjs` → `ga4Id`.
-3. Admin → Eventos → marcar `generate_lead` como evento-chave.
+**Status geral:** medição completa e no ar. Falta criar a campanha, o teste final com clique de anúncio e ativar — **até ~31/10** para cumprir a oferta de crédito (gastar R$ 1.200 até 06/12/2026).
+
+## 1. Planilha de leads ✅
+- [x] Google Sheet "TKS Leads" criada (conta `toknowsalvador@gmail.com`).
+- [x] Apps Script com `integrations/apps-script/Code.gs`, fuso **(GMT-03:00) Bahia**.
+- [x] Implantado como App da Web (Executar como: Eu · Qualquer pessoa). URL `/exec` no `config.mjs` (`leadEndpoint`).
+- [x] Teste direto no endpoint → `ok` e linha criada na aba "Leads" (apagada).
+- [x] Teste pelo site real → linha completa com UTM e `gclid` (apagada).
+- [x] `installImportTrigger` executado → acionador `refreshAdsImport` a cada hora (a aba "Google Ads import" aparece com a primeira venda).
+- [x] `setupLeadsSheet` executado → lista em `status`, data em `data_venda`, R$ em `valor`/`lucro`, cabeçalho congelado.
+- Se o `Code.gs` mudar: colar o novo código e, só se o `doPost` mudar, **Implantar → Gerenciar implantações → editar → Nova versão** (mantém a mesma URL).
+
+## 2. Google Analytics 4 ✅
+- [x] Propriedade **TKS Plan**, fluxo Web `plan.toknowsalvador.com`, ID **`G-2RZLNYF4ZG`** no `config.mjs`.
+- [x] Medição otimizada ativa, com **"Interações com formulários" desligada** (evita `form_start` em dobro).
+- [x] `generate_lead` criado como **evento principal** (sem valor padrão, uma vez por sessão).
+- [x] Tempo real recebendo visitas e o `generate_lead` (lead de teste do celular).
+- [x] **Coleta de dados fornecidos pelo usuário** ativada.
 
 ## 3. Google Ads
-1. ads.google.com → criar conta **sem campanha** ("Não quer criar campanha? Configure apenas sua conta"). País Brasil, fuso (GMT-03:00) Bahia, moeda **BRL** (não muda depois). Destino dos anúncios: **seu site** `https://plan.toknowsalvador.com` (nunca o Perfil da Empresa).
-2. Vincular a propriedade GA4 **TKS Plan** (métricas e públicos ativados).
-3. Metas → Conversões → fonte **Conversões em um site** → categoria **Enviar formulário de lead** → evento do GA4 **`generate_lead`** → nome **"TKS Lead"**, valor **não usar**, contagem **Uma**, janela 90 dias. É a **única** conversão de lead primária: o `config.mjs` mantém `adsId` e `adsConversion` **vazios** (senão cada lead conta duas vezes).
-4. GA4 → Administrador → Coleta de dados → ativar **"Coleta de dados fornecidos pelo usuário"** (conversões aprimoradas com o telefone do lead).
-5. Google Ads → Administrador → Configurações da conta → **Codificação automática ativada** (coloca o `gclid` na URL).
-6. Criar a campanha seguindo `marketing/ads/campaign-plan.md` → deixar **pausada** até o teste final.
+- [x] Conta criada sem campanha: Brasil · (GMT-03:00) Bahia · **BRL**. ID da conta `472-265-1874`.
+- [x] Propriedade GA4 TKS Plan vinculada (métricas e públicos).
+- [x] Conversão **"TKS Lead"** = evento GA4 `generate_lead` (Enviar formulário de lead, sem valor, contagem Uma, 90 dias). `adsId`/`adsConversion` **vazios** no `config.mjs` (senão o lead conta em dobro).
+- [x] Termos de dados do cliente aceitos; **conversões otimizadas para leads** e **conversões otimizadas (Web)** ativas pela tag do Google.
+- [x] **Codificação automática** ativada.
+- [ ] ⏳ "TKS Lead" sair de **"Requer atenção"** (até 24–48 h após o primeiro `generate_lead`).
+- [ ] Declaração do anunciante / **verificação do anunciante** (nome do anunciante): resolver antes de veicular para não pausar anúncios.
+- [ ] Decidir sobre a **oferta R$ 1.200 → R$ 2.400** (exige forma de pagamento; prazo 06/12/2026).
+- [ ] **Criar a campanha** seguindo `marketing/ads/campaign-plan.md` (v2, 4 grupos de anúncios) com **data de início futura**. Metas da campanha: **só "Envios de formulários de lead"** — nunca "Compras".
 
-### Vendas de volta para o Google Ads (conversões offline + enhanced conversions)
-7. Metas → Conversões → Nova → **Importação** → "CRMs, arquivos ou outras fontes" → "Rastrear conversões de cliques". Nome **"TKS Sale"**, categoria Compra, valor "usar valores diferentes", contagem "uma", janela de 90 dias. Deixe como **secundária** por enquanto: com poucas vendas por mês, o lance continua otimizando por lead, e a venda serve para medir custo por venda por palavra-chave.
-8. Metas → Uploads → **Agendamentos** → fonte **Google Sheets** → a planilha "TKS Leads", aba **"Google Ads import"** → frequência diária.
-9. Antes de agendar, baixe o modelo de importação que o Google Ads oferece na mesma tela e compare os nomes das colunas com a aba gerada (`Google Click ID`, `Phone Number`, `Conversion Name`, `Conversion Time`, `Conversion Value`, `Conversion Currency`). Se o Google tiver mudado algum nome, ajuste `buildImportRows` em `Code.gs`.
-10. Depois da primeira venda importada: Metas → Conversões → "TKS Sale" → Diagnóstico. Confira se a venda apareceu e a taxa de correspondência.
+### Vendas de volta para o Google Ads
+- [x] Conversão **"TKS Sale"** criada (Compra, valores diferentes, R$ 0 padrão, contagem Uma, 90 dias, atribuição Google Ads). O Google bloqueou a opção "secundária": ela fica fora dos lances **enquanto a campanha não usar a meta "Compras"**.
+- [ ] ⏳ **Depois da primeira venda** (`status` = fechou + `valor` + `data_venda` + `lucro`): a aba "Google Ads import" aparece em até 1 h → TKS Sale → **Fonte de dados → Google Sheets → conexão direta → "TKS Leads" / aba "Google Ads import"**, agendamento diário. Não usar API Data Manager / Google Ads API / Zapier.
+- [ ] ⏳ Antes de agendar: comparar os nomes das colunas com o modelo do Google (`Google Click ID`, `Phone Number`, `Conversion Name`, `Conversion Time`, `Conversion Value`, `Conversion Currency`); se mudaram, ajustar `buildImportRows` em `Code.gs`.
+- [ ] ⏳ Depois da primeira venda importada: TKS Sale → **Diagnóstico** (venda apareceu? taxa de correspondência?).
 
-## 3b. Microsoft Clarity (gravações e mapa de calor, grátis)
-1. clarity.microsoft.com → New project → site `https://plan.toknowsalvador.com`.
-2. Settings → Setup → copiar o Project ID → `config.mjs` → `clarityId`.
-3. Settings → Cookies → ativar "Cookie consent required" (o Clarity grava sem cookies até o visitante clicar em Accept).
-4. Settings → Masking → modo "Strict" (esconde nome e telefone digitados nas gravações).
+## 3b. Microsoft Clarity
+- [x] Projeto **TKS Plan**, ID **`yu9wxyk3yy`** no `config.mjs`; envio de dados conferido no site real.
+- [x] Gravações aparecendo.
+- [ ] Confirmar **Settings → Masking → Strict** (esconde nome e WhatsApp nas gravações).
+- [ ] Confirmar **Settings → Cookies → consentimento obrigatório**.
+- [ ] ⏳ Mapa de calor: aparece com mais visitas (horas de processamento; útil depois de algumas dezenas de sessões).
 
-## 4. Deploy (Cloudflare Pages + DNS na Hostinger)
-O código continua só no GitHub; o Cloudflare Pages apenas publica a pasta `plan/` no subdomínio. O domínio e o DNS continuam na Hostinger (não precisa transferir nem trocar nameservers).
-1. dash.cloudflare.com → criar conta grátis → Workers & Pages → Criar → Pages → Conectar ao Git → autorizar o GitHub → repositório `toknowsalvador/site`.
-2. Branch de produção: `main`. Framework: nenhum. Comando de build: (vazio). Diretório de saída: `plan`. Salvar e implantar → anotar o endereço gerado (ex.: `toknowsalvador-plan.pages.dev`) e abrir para conferir a página.
-3. No projeto → Custom domains → Set up a custom domain → `plan.toknowsalvador.com` → escolher a opção de **CNAME em outro provedor de DNS**.
-4. Hostinger → hPanel → Domínios → `toknowsalvador.com` → DNS / Nameservers → Gerenciar registros DNS → Adicionar registro: Tipo **CNAME**, Nome **`plan`**, Aponta para **o endereço `.pages.dev` do passo 2**, TTL padrão → Adicionar. Não mexa nos registros existentes (são os do site principal no GitHub Pages).
-5. Voltar ao Cloudflare e aguardar o domínio ficar **Active** (de minutos até algumas horas) — o HTTPS é emitido automaticamente.
-6. Commitar o `config.mjs` preenchido (seções 1–3b) → push no `main` → os dois sites atualizam sozinhos.
+## 4. Deploy (Cloudflare Pages + DNS na Hostinger) ✅
+- [x] Cloudflare Pages `toknowsalvador-plan` ligado ao GitHub (`main`, saída `plan`, sem build).
+- [x] Domínio `plan.toknowsalvador.com` ativo com HTTPS; CNAME `plan` → `toknowsalvador-plan.pages.dev` na Hostinger (nameservers `dns-parking.com`). Registros do site principal intactos.
+- [x] Cada push no `main` atualiza os dois sites sozinhos.
 
-## 4b. Depois do merge no `main` (site principal)
-1. Aguarde o deploy do GitHub Pages (aba Actions → "pages build and deployment" verde).
-2. Abra `https://toknowsalvador.com/plan/` e `https://toknowsalvador.com/marketing/brief.md` → os dois devem dar **404**. Se abrirem, o `_config.yml` não foi aplicado (verifique em Settings → Pages se o modo é "Deploy from a branch").
-3. Abra `https://toknowsalvador.com/` e `/pt/` → o site principal continua igual.
+## 4b. Site principal depois do merge ✅
+- [x] `toknowsalvador.com/plan/`, `/marketing/brief.md`, `/docs/…`, `/CLAUDE.md` → **404** (o `_config.yml` funcionou).
+- [x] `toknowsalvador.com/` e `/pt/` → 200, sem mudanças.
 
 ## 5. Teste final em produção
-1. Abrir `https://plan.toknowsalvador.com/?utm_source=test&gclid=TEST123` no celular.
-2. Aceitar cookies, preencher o formulário, enviar.
-3. Conferir: WhatsApp abre com `Ref: TKS-…`; linha na planilha com `gclid=TEST123`; GA4 → Tempo real mostra `generate_lead`; Google Ads → conversão "não verificada" passa a "registrando conversões" em até 24h.
-4. Apagar a linha de teste. Ativar a campanha.
+- [x] Formulário no site real → planilha, GA4 e WhatsApp com `Ref` (celular).
+- [x] Validação de telefone (libphonenumber) testada no ar, inclusive no motor WebKit/Safari simulando iPhone.
+- [ ] Com a campanha criada: clicar no **próprio anúncio** pela visualização de anúncios (ou abrir `https://plan.toknowsalvador.com/?utm_source=test&gclid=TEST123`), enviar o formulário e conferir `gclid` na planilha.
+- [ ] Apagar as linhas de teste e **ativar a campanha** (ou deixar a data de início chegar).
 
-## 6. Antes de ativar: WhatsApp
-1. No WhatsApp Business: Ferramentas comerciais → Mensagem de saudação → ativar, com algo como: "Hi! Thanks for reaching out to To Know Salvador. We got your trip details and will send your quote within 24 hours."
+## 6. WhatsApp
+- [ ] WhatsApp Business → Ferramentas comerciais → **Mensagem de saudação** ativada, ex.: "Hi! Thanks for reaching out to To Know Salvador. We got your trip details and will send your quote within 24 hours."
 
-## 7. Rotina
+## 7. Decisões pendentes (não bloqueiam o lançamento)
+- [ ] Escopo do consentimento de cookies (recomendado: manter o regional e ajustar o texto do banner e da privacidade).
+- [ ] Depoimentos de viagens completas (não só do walking tour).
+- [ ] Preço e lucro por pessoa de um **pacote típico**; repasse ao guia com **6+ pessoas**; taxa real do **PayPal** por venda.
+- [ ] Seção "Who we are" (provisória: Adriano, Facundo, David).
+
+## 8. Rotina (depois de ativar)
 - Lead na planilha sem mensagem no WhatsApp depois de 1 hora (status `novo`): **vocês escrevem primeiro** para o número da planilha, citando o `Ref`.
-- Toda conversa no WhatsApp: atualizar `status` do lead pelo `Ref`. Ao fechar: `status` = fechou, `valor` em R$ (o que o cliente pagou), `data_venda` e `lucro` em R$ (o que ficou com vocês depois do guia/parceiros). A venda vai sozinha para o Google Ads no dia seguinte.
-- Toda segunda-feira: exportar CSVs (ver skill `campaign-analyst`) e rodar a revisão com o `growth-orchestrator`.
+- Toda conversa no WhatsApp: atualizar `status` pelo `Ref`. Ao fechar: `status` = fechou, `valor` em R$ (o que o cliente pagou), `data_venda` e `lucro` em R$ (o que ficou com vocês). A venda vai sozinha para o Google Ads.
+- Semanas 1–3: revisar termos de busca a cada 2–3 dias (negativas). Depois, toda segunda-feira: exportar CSVs (skill `campaign-analyst`) e rodar a revisão com o `growth-orchestrator`.
