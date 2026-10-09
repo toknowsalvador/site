@@ -60,7 +60,7 @@ Policy: never name or link partners on the page or in ads — the client deals o
   - Facundo: guide (named in many TripAdvisor reviews). Details [UNKNOWN — decide by 2026-10-14].
   - David: team member. Role/details [UNKNOWN — decide by 2026-10-14].
   - The team is larger; show only Adriano, Facundo and David for now.
-  - Who is in the photos (confirmed 2026-10-08): **Adriano** = `public/adriano-toknow.png` (green To Know Salvador T-shirt, used on the page; 720px — swap for the original when available), `public/adriano.avif` (light-blue T-shirt) and the man in the orange shirt in `public/happy-tour.avif`. Also `public/adriano/adriano-with-family-01.JPG` (black polo, badge). **Facundo** = the guide with cap and sunglasses in most group selfies (`public/0598…`, `a638…`, `aa25…`, `a45a…`, `7fe8…`). Never label a photo with a name unless it is listed here.
+  - Who is in the photos (confirmed 2026-10-08): **Adriano** = `public/adriano-toknow.png` (green To Know Salvador T-shirt, used on the page; 720px — swap for the original when available), `public/adriano.avif` (light-blue T-shirt) and the man in the orange shirt in `public/happy-tour.avif`. Also `public/adriano/adriano-with-family-01.JPG` (black polo, badge). Also `public/adriano/adriano-with-group-01.jpg` (black T-shirt and badge, night in Pelourinho). **Facundo** = the guide with cap and sunglasses in most group selfies (`public/0598…`, `a638…`, `aa25…`, `a45a…`, `7fe8…`). Never label a photo with a name unless it is listed here.
 
 ## Voice
 - Warm, local, calm, confident. Short sentences. Concrete over clever.
