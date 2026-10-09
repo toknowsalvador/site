@@ -1,4 +1,4 @@
-Status: approved
+Status: live (scheduled to start 2026-10-11)
 Version: v2
 Copy: ads-v2
 
@@ -20,7 +20,7 @@ Copy: ads-v2
 | Final URL expansion | Off |
 | Automatically created assets | Off |
 | Campaign goals | **Only "Submit lead form" (TKS Lead)**. Never add the "Purchase" goal — "TKS Sale" is a primary action inside the non-default "Purchase" goal (Google locked the secondary option), so it stays out of bidding only while that goal is not used by the campaign |
-| Primary conversion | "TKS Lead" (Google Ads conversion from the site tag); every other action Secondary — never import GA4 `generate_lead` as primary |
+| Primary conversion | "TKS Lead" = GA4 key event `generate_lead` imported into Google Ads (no Ads tag on the page; `adsId`/`adsConversion` stay empty) |
 | Final URL | `https://plan.toknowsalvador.com/` |
 | Final URL suffix (campaign level) | `utm_source=google&utm_medium=cpc&utm_campaign={campaignid}&utm_term={keyword}&utm_content={adgroupid}` — no tracking template (a `{lpurl}?…` template breaks URLs that already have `?audience=`) |
 
@@ -79,11 +79,11 @@ Search terms review: every 2–3 days in weeks 1–3, then weekly (via `campaign
 
 - **Sitelinks:** How it works → `https://plan.toknowsalvador.com/#how` · What we handle → `#handle` · Questions → `#faq` · Get a free quote → `#plan`
 - **Callouts:** Free custom quote · Reply on WhatsApp · Local team · English & Spanish · Airport pickup available
-- **Structured snippet — Services:** Tours, Airport transfers, Hotels, Restaurants, Cultural shows
+- **Structured snippet — "Service catalog"** (the English header list has no "Services"): Tours, Airport transfers, Hotels, Restaurants, Cultural shows
 
 ## Setup steps
 
-1. Goals → Conversions: confirm the "TKS Lead" action shows "Recording conversions" (after the launch-checklist test). Set it Primary; set any other action Secondary.
+1. Goals → Conversions: confirm "TKS Lead" (GA4 `generate_lead`) is Primary and no longer shows "Needs attention".
 2. Tools → Shared library → Negative keyword lists → + → name "TKS negatives" → paste the list above → Save.
 3. Campaigns → + New campaign → Objective **Leads** → Type **Search** → select the `generate_lead` goal → Continue.
 4. Name: `TKS – Search – EN – v1`. Untick **Google Search Partners** and **Google Display Network**.
@@ -119,3 +119,4 @@ At ~10 leads/month, the 15–30 conversions needed to switch bidding arrive in m
 
 - 2026-10-07 — v1 drafted from ads-v1 — initial setup — no EXP
 - 2026-10-07 — v2: Family & group trips ad group, parental-status observation, UTMs moved from tracking template to Final URL suffix — groups of 3+ are the profitable sales (brief unit economics); template broke `?audience=` URLs — no EXP (pre-launch)
+- 2026-10-08 — Campaign created in Google Ads (account 472-265-1874), start date 2026-10-11, 4 ad groups (Tours & transfers paused), negatives list applied, sitelinks/callouts/snippet at campaign level, auto-apply off. Account-level call asset ((71) 99371-9791) removed — calls skip the form, lead tracking and the Ref. At launch Google marked all 5 phrase keywords of "Trip planner" as "Low search volume" (only the two exact "itinerary" keywords eligible); expect most traffic from Things to do and Family & group trips — no EXP

@@ -2,7 +2,7 @@
 
 Atualizado em 2026-10-08. `[x]` = feito e conferido · `[ ]` = falta · ⏳ = depende de algo que ainda não aconteceu.
 
-**Status geral:** medição completa e no ar. Falta criar a campanha, o teste final com clique de anúncio e ativar — **até 29/10** para cumprir a oferta de crédito já aceita (gastar R$ 1.200 até 06/12/2026).
+**Status geral:** campanha criada e agendada para **11/10/2026**; teste final aprovado. A R$ 33/dia, os R$ 1.200 da oferta de crédito são gastos por volta de meados de novembro (prazo 06/12/2026).
 
 ## 1. Planilha de leads ✅
 - [x] Google Sheet "TKS Leads" criada (conta `toknowsalvador@gmail.com`).
@@ -31,7 +31,7 @@ Atualizado em 2026-10-08. `[x]` = feito e conferido · `[ ]` = falta · ⏳ = de
 - [ ] Declaração do anunciante / **verificação do anunciante** (nome do anunciante): resolver antes de veicular para não pausar anúncios.
 - [x] **Oferta R$ 1.200 → R$ 2.400** aceita: forma de pagamento cadastrada. Meta: gastar R$ 1.200 até 06/12/2026.
 - [ ] ⏳ Acompanhar o gasto da oferta: a R$ 33/dia, ativar **até 29/10** dá folga (~R$ 1.250 até 06/12). Se o gasto diário ficar abaixo de R$ 33 (limite de CPC R$ 6 segurando), liberar o grupo "Tours & transfers" antes de mexer no CPC.
-- [ ] **Criar a campanha** seguindo `marketing/ads/campaign-plan.md` (v2, 4 grupos de anúncios) com **data de início futura**. Metas da campanha: **só "Envios de formulários de lead"** — nunca "Compras".
+- [x] **Campanha criada** (`TKS – Search – EN – v1`, início **11/10/2026**): meta só "Envios de formulários de lead", só Rede de Pesquisa, Brasil com "Presença ou interesse", inglês, Maximizar cliques (CPC máx. R$ 6), R$ 33/dia, IA Max desligada, sufixo de URL na campanha (Family com `&audience=family`), 4 grupos (Tours & transfers pausado), lista `TKS negatives` aplicada, sitelinks/frases/snippet, recurso de ligação da conta removido, aplicação automática desligada.
 
 ### Vendas de volta para o Google Ads
 - [x] Conversão **"TKS Sale"** criada (Compra, valores diferentes, R$ 0 padrão, contagem Uma, 90 dias, atribuição Google Ads). O Google bloqueou a opção "secundária": ela fica fora dos lances **enquanto a campanha não usar a meta "Compras"**.
@@ -42,8 +42,8 @@ Atualizado em 2026-10-08. `[x]` = feito e conferido · `[ ]` = falta · ⏳ = de
 ## 3b. Microsoft Clarity
 - [x] Projeto **TKS Plan**, ID **`yu9wxyk3yy`** no `config.mjs`; envio de dados conferido no site real.
 - [x] Gravações aparecendo.
-- [ ] Confirmar **Settings → Masking → Strict** (esconde nome e WhatsApp nas gravações).
-- [ ] Confirmar **Settings → Cookies → consentimento obrigatório**.
+- [x] Masking **Equilibrado** confere: nome e WhatsApp aparecem como asteriscos nas gravações (checado 08/10).
+- [x] **Settings → Setup → Cookies desligado**: o Clarity roda sem cookies até o visitante aceitar o banner (a página chama `clarity('consent')`).
 - [ ] ⏳ Mapa de calor: aparece com mais visitas (horas de processamento; útil depois de algumas dezenas de sessões).
 
 ## 4. Deploy (Cloudflare Pages + DNS na Hostinger) ✅
@@ -58,8 +58,8 @@ Atualizado em 2026-10-08. `[x]` = feito e conferido · `[ ]` = falta · ⏳ = de
 ## 5. Teste final em produção
 - [x] Formulário no site real → planilha, GA4 e WhatsApp com `Ref` (celular).
 - [x] Validação de telefone (libphonenumber) testada no ar, inclusive no motor WebKit/Safari simulando iPhone.
-- [ ] Com a campanha criada: clicar no **próprio anúncio** pela visualização de anúncios (ou abrir `https://plan.toknowsalvador.com/?utm_source=test&gclid=TEST123`), enviar o formulário e conferir `gclid` na planilha.
-- [ ] Apagar as linhas de teste e **ativar a campanha** (ou deixar a data de início chegar).
+- [x] Teste final (08/10): URL com UTMs + `gclid=TEST123` → linha completa na planilha (apagada); `&audience=family` mostra a frase para famílias.
+- [ ] ⏳ **11/10:** campanha começa sozinha. Conferir anúncios "Qualificado" (não "Reprovado") e palavras-chave sem "Página de destino não funciona" ou "Abaixo do lance da primeira página".
 
 ## 6. WhatsApp
 - [ ] WhatsApp Business → Ferramentas comerciais → **Mensagem de saudação** ativada, ex.: "Hi! Thanks for reaching out to To Know Salvador. We got your trip details and will send your quote within 24 hours."
