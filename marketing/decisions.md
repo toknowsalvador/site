@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-09 — Headline: "arranged" instead of "booked" (copy v7)
+- Hero headline is now "Your Salvador trip, planned and arranged by locals". **Why:** Adriano asked to drop "booked"; "organized" repeated "planned", "arranged" keeps the done-for-you promise and matches the ad headline "Salvador Trip, All Arranged". Ads still say "We book…"/"Booked for You" — revisit if the reason was to avoid promising bookings.
+
 ## 2026-10-08 — Fix: Adriano's photo is really Adriano
 - The guide in most group photos is **Facundo**, not Adriano; the "Who we are" photo and the WhatsApp avatar next to "You'll talk to Adriano" showed Facundo. Both now use `public/adriano.avif` (Adriano, confirmed by the team). `public/happy-tour.avif` (a group with Adriano) replaced the weakest wall photo (a two-person selfie). **Why:** the visitor must see the face of the person who will answer on WhatsApp.
 - Same day: avatar and "Who we are" switched to the team's photo of Adriano in the To Know Salvador T-shirt (`public/adriano-toknow.png`). **Why:** the branded shirt and badge read as an official guide; face fills the avatar. Low resolution (720×480) — replace with the original file when the team finds it.
