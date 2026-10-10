@@ -1,4 +1,4 @@
-Status: live (scheduled to start 2026-10-11)
+Status: live (since 2026-10-10)
 Version: v2
 Copy: ads-v2
 
@@ -120,3 +120,4 @@ At ~10 leads/month, the 15–30 conversions needed to switch bidding arrive in m
 - 2026-10-07 — v1 drafted from ads-v1 — initial setup — no EXP
 - 2026-10-07 — v2: Family & group trips ad group, parental-status observation, UTMs moved from tracking template to Final URL suffix — groups of 3+ are the profitable sales (brief unit economics); template broke `?audience=` URLs — no EXP (pre-launch)
 - 2026-10-08 — Campaign created in Google Ads (account 472-265-1874), start date 2026-10-11, 4 ad groups (Tours & transfers paused), negatives list applied, sitelinks/callouts/snippet at campaign level, auto-apply off. Account-level call asset ((71) 99371-9791) removed — calls skip the form, lead tracking and the Ref. At launch Google marked all 5 phrase keywords of "Trip planner" as "Low search volume" (only the two exact "itinerary" keywords eligible); expect most traffic from Things to do and Family & group trips — no EXP
+- 2026-10-10 — Start date moved from 2026-10-11 to 2026-10-10 (ads approved early); status "Eligible (learning)". Ads v4 live — no EXP

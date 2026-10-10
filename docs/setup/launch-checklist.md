@@ -2,7 +2,7 @@
 
 Atualizado em 2026-10-08. `[x]` = feito e conferido · `[ ]` = falta · ⏳ = depende de algo que ainda não aconteceu.
 
-**Status geral:** campanha criada e agendada para **11/10/2026**; teste final aprovado. A R$ 33/dia, os R$ 1.200 da oferta de crédito são gastos por volta de meados de novembro (prazo 06/12/2026).
+**Status geral:** campanha **no ar desde 10/10/2026** (antecipada de 11/10), em fase de aprendizado. A R$ 33/dia, os R$ 1.200 da oferta de crédito são gastos por volta de meados de novembro (prazo 06/12/2026).
 
 ## 1. Planilha de leads ✅
 - [x] Google Sheet "TKS Leads" criada (conta `toknowsalvador@gmail.com`).
@@ -59,7 +59,8 @@ Atualizado em 2026-10-08. `[x]` = feito e conferido · `[ ]` = falta · ⏳ = de
 - [x] Formulário no site real → planilha, GA4 e WhatsApp com `Ref` (celular).
 - [x] Validação de telefone (libphonenumber) testada no ar, inclusive no motor WebKit/Safari simulando iPhone.
 - [x] Teste final (08/10): URL com UTMs + `gclid=TEST123` → linha completa na planilha (apagada); `&audience=family` mostra a frase para famílias.
-- [ ] ⏳ **11/10:** campanha começa sozinha. Conferir anúncios "Qualificado" (não "Reprovado") e palavras-chave sem "Página de destino não funciona" ou "Abaixo do lance da primeira página".
+- [x] Campanha ativada em **10/10** (status "Qualificada (aprendizado)").
+- [ ] Primeiros dias: Conferir anúncios "Qualificado" (não "Reprovado") e palavras-chave sem "Página de destino não funciona" ou "Abaixo do lance da primeira página".
 
 ## 6. WhatsApp
 - [ ] WhatsApp Business → Ferramentas comerciais → **Mensagem de saudação** ativada, ex.: "Hi! Thanks for reaching out to To Know Salvador. We got your trip details and will send your quote within 24 hours."
