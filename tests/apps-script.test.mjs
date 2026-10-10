@@ -172,3 +172,10 @@ test('dashboard cut lines fall back to estimates until there is enough data', ()
   assert.match(cut.closeRate, /\$F\$12>=20/);
   assert.match(cut.cvr, /\$D\$12>=100/);
 });
+
+test('formulas are localized to ; for spreadsheets that use it (pt-BR)', () => {
+  const { ctx } = load();
+  assert.equal(ctx.localizeFormula('=IFERROR(B13/F13,"")', ';'), '=IFERROR(B13/F13;"")');
+  assert.equal(ctx.localizeFormula('=IF(A1="a, b",1,2)', ';'), '=IF(A1="a, b";1;2)', 'commas inside text stay');
+  assert.equal(ctx.localizeFormula('=SUM(A1,B1)', ','), '=SUM(A1,B1)');
+});

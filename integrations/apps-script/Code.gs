@@ -216,10 +216,33 @@ function dashboardCutLines() {
   };
 }
 
+// Spreadsheets in comma-decimal locales (pt-BR) take ';' between arguments, also via setFormula.
+function localizeFormula(f, sep) {
+  if (sep === ',') return f;
+  var out = '', inText = false;
+  for (var i = 0; i < f.length; i++) {
+    var ch = f.charAt(i);
+    if (ch === '"') inText = !inText;
+    out += (ch === ',' && !inText) ? sep : ch;
+  }
+  return out;
+}
+
+function argumentSeparator(sh) {
+  var probe = sh.getRange('Z1');
+  probe.setFormula('=SUM(1,2)');
+  SpreadsheetApp.flush();
+  var ok = probe.getValue() === 3;
+  probe.clear();
+  return ok ? ',' : ';';
+}
+
 function setupDashboard() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sh = ss.getSheetByName(DASHBOARD_SHEET_NAME) || ss.insertSheet(DASHBOARD_SHEET_NAME);
   sh.clear();
+  var sep = argumentSeparator(sh);
+  var L = function (rows) { return rows.map(function (row) { return row.map(function (f) { return localizeFormula(f, sep); }); }); };
   var yellow = '#FFF4CC';
   var last = DASHBOARD_FIRST_WEEK + DASHBOARD_WEEKS - 1;
   var cut = dashboardCutLines();
@@ -238,12 +261,12 @@ function setupDashboard() {
 
   sh.getRange('D3:F3').setValues([['Linhas de corte', 'Valor', 'Fonte']]).setFontWeight('bold');
   sh.getRange('D4:D9').setValues([['Lucro médio usado'], ['Fechamento usado'], ['Conversão usada'], ['CPA máximo'], ['CPL máximo'], ['CPC máximo']]);
-  sh.getRange('E4:E9').setFormulas([[cut.profit], [cut.closeRate], [cut.cvr], ['=E4/B7'], ['=E7*E5'], ['=E8*E6']]);
-  sh.getRange('F4:F6').setFormulas([
+  sh.getRange('E4:E9').setFormulas(L([[cut.profit], [cut.closeRate], [cut.cvr], ['=E4/B7'], ['=E7*E5'], ['=E8*E6']]));
+  sh.getRange('F4:F6').setFormulas(L([
     ['=IF($H$12>0,"real","estimativa")'],
     ['=IF($F$12>=20,"real","estimativa (menos de 20 leads)")'],
     ['=IF($D$12>=100,"real","estimativa (menos de 100 cliques)")']
-  ]);
+  ]));
 
   var headers = ['Semana (início)', 'Custo', 'Impressões', 'Cliques', 'Conv. Google Ads', 'Leads (planilha)',
     'Pessoas por lead', 'Vendas', 'Lucro', 'CTR', 'CPC', 'Conversão', 'CPL', 'Fechamento', 'CPA', 'ROI', 'Situação'];
@@ -251,19 +274,19 @@ function setupDashboard() {
 
   var span = function (c) { return c + DASHBOARD_FIRST_WEEK + ':' + c + last; };
   sh.getRange('A12').setValue('TOTAL').setFontWeight('bold');
-  sh.getRange('B12:I12').setFormulas([[
+  sh.getRange('B12:I12').setFormulas(L([[
     '=SUM(' + span('B') + ')', '=SUM(' + span('C') + ')', '=SUM(' + span('D') + ')', '=SUM(' + span('E') + ')',
     '=SUM(' + span('F') + ')', '=IFERROR(SUMPRODUCT(' + span('F') + ',' + span('G') + ')/F12,"")',
     '=SUM(' + span('H') + ')', '=SUM(' + span('I') + ')'
-  ]]);
+  ]]));
   var total = dashboardWeekRow(12);
-  sh.getRange('J12:Q12').setFormulas([total.slice(9)]);
+  sh.getRange('J12:Q12').setFormulas(L([total.slice(9)]));
   sh.getRange('A12:Q12').setBackground('#EEF2FF').setFontWeight('bold');
 
   sh.getRange('A' + DASHBOARD_FIRST_WEEK).setValue(new Date(2026, 9, 11));
   for (var r = DASHBOARD_FIRST_WEEK; r <= last; r++) {
     if (r > DASHBOARD_FIRST_WEEK) sh.getRange('A' + r).setFormula('=A' + (r - 1) + '+7');
-    sh.getRange(r, 6, 1, 12).setFormulas([dashboardWeekRow(r).slice(5)]);
+    sh.getRange(r, 6, 1, 12).setFormulas(L([dashboardWeekRow(r).slice(5)]));
   }
   sh.getRange('B' + DASHBOARD_FIRST_WEEK + ':E' + last).setBackground(yellow);
 
