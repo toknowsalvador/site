@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-10 — "Our guides" instead of "we book" (copy v10, ads v4 draft)
+- Tours, day trips and transfers are run by people working under the To Know Salvador name, so page and ads say our guides/team lead them; "booked" (which sounds like reselling someone else's tour) is replaced by "arranged" for partner services. New ad headlines in the 3 live groups: "Tours Led by Our Local Guides", "Planned & Arranged by Locals". **Why:** delivering the tours ourselves is the main difference from an agency.
+
 ## 2026-10-09 — Proof names only Tripadvisor (copy v9, ads v3 draft)
 - Page and ads show only "5.0 on Tripadvisor, 153 reviews"; GuruWalk, GetYourGuide, Google and Viator are no longer named and "800+ reviews" is gone (it only exists as a cross-platform sum). No "#1" claim — no verified ranking. Sonya's GuruWalk quote is replaced by three review cards with original-English Tripadvisor reviews (Sarah, with family; Jordi, solo; Marvin, with family) (name, city, date; neutral dots instead of Tripadvisor's logo/bubbles; no screenshots — unreadable on mobile and uses another brand). **Why:** Adriano — naming free-tour platforms teaches visitors there is a free alternative. **Cost:** weaker volume signal (153 vs 800+ reviews).
 

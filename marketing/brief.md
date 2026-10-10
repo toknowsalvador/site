@@ -30,6 +30,9 @@
 - Likely fears (validate with real WhatsApp conversations): language barrier, safety, being overcharged or scammed, logistics between places, wasting vacation hours on research.
 - Desired outcome: land in Salvador with everything booked and just enjoy.
 
+## Delivered by our own team (team, 2026-10-10)
+- Tours in Salvador, day trips and transfers (incl. airport pickup) are delivered by people working under the To Know Salvador name — copy may say "our guides", "our local team", "our drivers". Hotels, Airbnb/rentals, restaurants and cultural shows are partners — copy says "arrange", never "our own".
+
 ## Partner network
 Policy: never name or link partners on the page or in ads — the client deals only with To Know Salvador (one point of contact). Copy may say "trusted local partners" without numbers until counts are confirmed. Restaurants and cultural events may be named in the future (on hold).
 
