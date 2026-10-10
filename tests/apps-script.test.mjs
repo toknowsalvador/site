@@ -150,3 +150,25 @@ test('sheetLayout status list includes the value doPost writes for new leads', (
   const newRow = Array.from(ctx.buildRow({ lead_id: 'TKS-AAAAAA' }));
   assert.ok(Array.from(ctx.sheetLayout(Array.from(ctx.HEADERS)).list.values).includes(newRow[statusIndex]));
 });
+
+test('dashboard week row reads the right Leads columns and computes the funnel', () => {
+  const { ctx } = load();
+  const row = Array.from(ctx.dashboardWeekRow(13));
+  assert.equal(row.length, 17);
+  const leads = row[5];
+  assert.match(leads, /Leads!\$A\$2:\$A/, 'timestamp column');
+  assert.match(leads, /Leads!\$I\$2:\$I="google"/, 'utm_source column');
+  assert.match(leads, /Leads!\$N\$2:\$N<>""/, 'gclid column');
+  assert.match(row[7], /Leads!\$P\$2:\$P="fechou"/, 'sales use status');
+  assert.match(row[8], /Leads!\$S\$2:\$S/, 'profit uses lucro');
+  assert.equal(row[12], '=IFERROR(B13/F13,"")', 'CPL = cost / leads');
+  assert.equal(row[15], '=IFERROR((I13-B13)/B13,"")', 'ROI on profit');
+});
+
+test('dashboard cut lines fall back to estimates until there is enough data', () => {
+  const { ctx } = load();
+  const cut = ctx.dashboardCutLines();
+  assert.match(cut.profit, /^=IF\(\$H\$12>0,\$I\$12\/\$H\$12,\$B\$4\)$/);
+  assert.match(cut.closeRate, /\$F\$12>=20/);
+  assert.match(cut.cvr, /\$D\$12>=100/);
+});

@@ -70,6 +70,11 @@ Atualizado em 2026-10-08. `[x]` = feito e conferido · `[ ]` = falta · ⏳ = de
 - [ ] Preço e lucro por pessoa de um **pacote típico**; repasse ao guia com **6+ pessoas**; taxa real do **PayPal** por venda.
 - [ ] Seção "Who we are" (provisória: Adriano, Facundo, David).
 
+## 7b. Aba "Acompanhamento" (painel de resultados)
+- [ ] Colar o `Code.gs` novo no Apps Script (só a parte nova muda; **não precisa reimplantar**) → executar **`setupDashboard`** uma vez.
+- [ ] Toda semana: preencher as células amarelas (Custo, Impressões, Cliques, Conv. Google Ads) com os números do Google Ads daquela semana (domingo a sábado, a partir de 11/10). Leads, vendas, lucro, CPL, CPA, ROI e linhas de corte calculam sozinhos.
+- [ ] Na primeira semana com leads: conferir se "Leads (planilha)" bate com a contagem manual da aba Leads.
+
 ## 8. Rotina (depois de ativar)
 - Lead na planilha sem mensagem no WhatsApp depois de 1 hora (status `novo`): **vocês escrevem primeiro** para o número da planilha, citando o `Ref`.
 - Toda conversa no WhatsApp: atualizar `status` pelo `Ref`. Ao fechar: `status` = fechou, `valor` em R$ (o que o cliente pagou), `data_venda` e `lucro` em R$ (o que ficou com vocês). A venda vai sozinha para o Google Ads.

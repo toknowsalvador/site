@@ -166,3 +166,118 @@ function setupLeadsSheet() {
     sheet.getRange(1, c, 1, 1).setBackground('#FFF4CC');
   });
 }
+
+// ---- Campaign dashboard (run setupDashboard once from the editor) -----------------------------
+// Tab "Acompanhamento": the team types each week's Google Ads numbers (yellow cells); leads, sales and
+// profit come from the "Leads" tab by the week the lead arrived, so late sales count for the right week.
+
+var DASHBOARD_SHEET_NAME = 'Acompanhamento';
+var DASHBOARD_FIRST_WEEK = 13;
+var DASHBOARD_WEEKS = 52;
+
+function leadsRange(header) {
+  var n = HEADERS.indexOf(header) + 1;
+  var letter = '';
+  while (n > 0) { var m = (n - 1) % 26; letter = String.fromCharCode(65 + m) + letter; n = Math.floor((n - 1) / 26); }
+  return SHEET_NAME + '!$' + letter + '$2:$' + letter;
+}
+
+function dashboardWeekRow(r) {
+  var ts = leadsRange('timestamp');
+  var inWeek = 'ARRAYFORMULA(LET(t,' + ts + ',d,IF(ISNUMBER(t),INT(t),IFERROR(DATEVALUE(LEFT(t,10)),0)),' +
+    'g,((' + leadsRange('utm_source') + '="google")+(' + leadsRange('gclid') + '<>""))>0,' +
+    '(d>=$A' + r + ')*(d<$A' + r + '+7)*g))';
+  var sold = '(' + leadsRange('status') + '="fechou")';
+  var people = 'ARRAYFORMULA(IFERROR(VALUE(' + leadsRange('people') + '),0))';
+  var profit = 'ARRAYFORMULA(IFERROR(' + leadsRange('lucro') + '*1,0))';
+  var ifWeek = function (f) { return '=IF($A' + r + '="","",' + f + ')'; };
+  return [
+    null, null, null, null, null,
+    ifWeek('SUMPRODUCT(' + inWeek + ')'),
+    '=IFERROR(SUMPRODUCT(' + inWeek + '*' + people + ')/F' + r + ',"")',
+    ifWeek('SUMPRODUCT(' + inWeek + '*' + sold + ')'),
+    ifWeek('SUMPRODUCT(' + inWeek + '*' + sold + '*' + profit + ')'),
+    '=IFERROR(D' + r + '/C' + r + ',"")',
+    '=IFERROR(B' + r + '/D' + r + ',"")',
+    '=IFERROR(F' + r + '/D' + r + ',"")',
+    '=IFERROR(B' + r + '/F' + r + ',"")',
+    '=IFERROR(H' + r + '/F' + r + ',"")',
+    '=IFERROR(B' + r + '/H' + r + ',"")',
+    '=IFERROR((I' + r + '-B' + r + ')/B' + r + ',"")',
+    '=IF(OR(B' + r + '="",F' + r + '=0),"",IF(M' + r + '<=$E$8,"dentro do corte","CPL acima do corte"))'
+  ];
+}
+
+function dashboardCutLines() {
+  return {
+    profit: '=IF($H$12>0,$I$12/$H$12,$B$4)',
+    closeRate: '=IF($F$12>=20,$H$12/$F$12,$B$5)',
+    cvr: '=IF($D$12>=100,$F$12/$D$12,$B$6)'
+  };
+}
+
+function setupDashboard() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sh = ss.getSheetByName(DASHBOARD_SHEET_NAME) || ss.insertSheet(DASHBOARD_SHEET_NAME);
+  sh.clear();
+  var yellow = '#FFF4CC';
+  var last = DASHBOARD_FIRST_WEEK + DASHBOARD_WEEKS - 1;
+  var cut = dashboardCutLines();
+
+  sh.getRange('A1').setValue('Acompanhamento da campanha').setFontWeight('bold').setFontSize(14);
+  sh.getRange('A2').setValue('Preencha só as células amarelas. Leads, vendas e lucro vêm da aba Leads, pela semana em que o lead chegou.');
+
+  sh.getRange('A3:B3').setValues([['Premissas (troque quando tiver dados)', '']]).setFontWeight('bold');
+  sh.getRange('A4:B7').setValues([
+    ['Lucro médio por venda (estimativa)', 500],
+    ['Taxa de fechamento (estimativa)', 0.2],
+    ['Taxa de conversão da página (estimativa)', 0.06],
+    ['Meta: lucro ÷ custo por venda', 2]
+  ]);
+  sh.getRange('B4:B7').setBackground(yellow);
+
+  sh.getRange('D3:F3').setValues([['Linhas de corte', 'Valor', 'Fonte']]).setFontWeight('bold');
+  sh.getRange('D4:D9').setValues([['Lucro médio usado'], ['Fechamento usado'], ['Conversão usada'], ['CPA máximo'], ['CPL máximo'], ['CPC máximo']]);
+  sh.getRange('E4:E9').setFormulas([[cut.profit], [cut.closeRate], [cut.cvr], ['=E4/B7'], ['=E7*E5'], ['=E8*E6']]);
+  sh.getRange('F4:F6').setFormulas([
+    ['=IF($H$12>0,"real","estimativa")'],
+    ['=IF($F$12>=20,"real","estimativa (menos de 20 leads)")'],
+    ['=IF($D$12>=100,"real","estimativa (menos de 100 cliques)")']
+  ]);
+
+  var headers = ['Semana (início)', 'Custo', 'Impressões', 'Cliques', 'Conv. Google Ads', 'Leads (planilha)',
+    'Pessoas por lead', 'Vendas', 'Lucro', 'CTR', 'CPC', 'Conversão', 'CPL', 'Fechamento', 'CPA', 'ROI', 'Situação'];
+  sh.getRange(11, 1, 1, headers.length).setValues([headers]).setFontWeight('bold').setWrap(true);
+
+  var span = function (c) { return c + DASHBOARD_FIRST_WEEK + ':' + c + last; };
+  sh.getRange('A12').setValue('TOTAL').setFontWeight('bold');
+  sh.getRange('B12:I12').setFormulas([[
+    '=SUM(' + span('B') + ')', '=SUM(' + span('C') + ')', '=SUM(' + span('D') + ')', '=SUM(' + span('E') + ')',
+    '=SUM(' + span('F') + ')', '=IFERROR(SUMPRODUCT(' + span('F') + ',' + span('G') + ')/F12,"")',
+    '=SUM(' + span('H') + ')', '=SUM(' + span('I') + ')'
+  ]]);
+  var total = dashboardWeekRow(12);
+  sh.getRange('J12:Q12').setFormulas([total.slice(9)]);
+  sh.getRange('A12:Q12').setBackground('#EEF2FF').setFontWeight('bold');
+
+  sh.getRange('A' + DASHBOARD_FIRST_WEEK).setValue(new Date(2026, 9, 11));
+  for (var r = DASHBOARD_FIRST_WEEK; r <= last; r++) {
+    if (r > DASHBOARD_FIRST_WEEK) sh.getRange('A' + r).setFormula('=A' + (r - 1) + '+7');
+    sh.getRange(r, 6, 1, 12).setFormulas([dashboardWeekRow(r).slice(5)]);
+  }
+  sh.getRange('B' + DASHBOARD_FIRST_WEEK + ':E' + last).setBackground(yellow);
+
+  var money = '"R$" #,##0.00', pct = '0.0%';
+  sh.getRange('A' + DASHBOARD_FIRST_WEEK + ':A' + last).setNumberFormat('dd/mm/yyyy');
+  ['B', 'I', 'K', 'M', 'O'].forEach(function (c) { sh.getRange(c + '12:' + c + last).setNumberFormat(money); });
+  ['J', 'L', 'N', 'P'].forEach(function (c) { sh.getRange(c + '12:' + c + last).setNumberFormat(pct); });
+  sh.getRange('G12:G' + last).setNumberFormat('0.0');
+  sh.getRange('B4').setNumberFormat(money);
+  sh.getRange('B5:B6').setNumberFormat(pct);
+  sh.getRange('E4').setNumberFormat(money);
+  sh.getRange('E5:E6').setNumberFormat(pct);
+  sh.getRange('E7:E9').setNumberFormat(money);
+  sh.setFrozenRows(11);
+  sh.setColumnWidth(1, 260);
+  sh.setColumnWidth(4, 160);
+}
