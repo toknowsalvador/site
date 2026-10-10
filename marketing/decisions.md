@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-09 — Team, not Adriano, at the center (copy v8)
+- Adriano asked not to be the center of the page. Form host line → "You'll talk to our local team on WhatsApp" (face kept, no name); "Who we are" rewritten about the team (no unconfirmed traveler count) (photo of Adriano in the team shirt kept for now — the team-shirt group photo did not look good); wall alt texts say "our guide". Sonya's GuruWalk quote kept — it is a real review. **Why:** the brand is To Know Salvador; a real face near the submit button still builds trust.
+
 ## 2026-10-09 — Headline: "arranged" instead of "booked" (copy v7)
 - Hero headline is now "Your Salvador trip, planned and arranged by locals". **Why:** Adriano asked to drop "booked"; "organized" repeated "planned", "arranged" keeps the done-for-you promise and matches the ad headline "Salvador Trip, All Arranged". Ads still say "We book…"/"Booked for You" — revisit if the reason was to avoid promising bookings.
 
