@@ -112,8 +112,8 @@ test('country selector stores ISO countries and the phone library is not loaded 
   assert.match(html, /id="phone-help"/);
 });
 
-test('proof shows a wall of real group photos and never counts Viator twice', () => {
-  const proof = html.slice(html.indexOf('<section id="proof"'), html.indexOf('<section id="offer"'));
+test('proof shows a wall of real group photos and only the Tripadvisor rating', () => {
+  const proof = html.slice(html.indexOf('<section id="proof"'), html.indexOf('<section id="problem"'));
   const imgs = [...proof.matchAll(/<img [^>]*>/g)].map((m) => m[0]);
   assert.ok(imgs.length >= 6, 'expected a photo wall in #proof');
   for (const img of imgs) {
@@ -121,12 +121,26 @@ test('proof shows a wall of real group photos and never counts Viator twice', ()
     assert.match(img, /width="\d+" height="\d+"/);
     assert.match(img, /alt="[^"]+"/);
   }
-  assert.match(proof, /TripAdvisor &amp; Viator, 161 reviews/);
-  assert.doesNotMatch(proof, /153 reviews/, 'Tripadvisor is merged into the Viator total');
-  assert.doesNotMatch(proof, /\b9\d\d\+|1,?000\+/, 'never add Viator into a review total');
+  assert.match(proof, /Tripadvisor/);
+  assert.match(proof, /153 reviews/);
+});
+
+test('no review platform other than Tripadvisor is named, and no cross-platform totals (team decision)', () => {
+  const visible = html.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<link[^>]*>/g, '');
+  for (const name of ['GuruWalk', 'GetYourGuide', 'Viator', 'Google,', '> Google<', '800+']) {
+    assert.ok(!visible.includes(name), `page still mentions ${name}`);
+  }
 });
 
 test('proof is the first section after the hero', () => {
   const afterHero = html.slice(html.indexOf('</header>'));
   assert.match(afterHero, /^<\/header>\s*<main>\s*<section id="proof"/);
+});
+
+test('the featured review is an original-English Tripadvisor review with name, place and date', () => {
+  const proof = html.slice(html.indexOf('<section id="proof"'), html.indexOf('<section id="problem"'));
+  assert.match(proof, /<figure class="review"/);
+  assert.match(proof, /5\/5 on Tripadvisor/);
+  assert.match(proof, /<b>Jordi<\/b> Traveled solo · September 2026/);
+  assert.doesNotMatch(proof, /Sonya/);
 });
