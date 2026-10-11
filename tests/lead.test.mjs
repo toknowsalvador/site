@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   generateLeadId, readAttribution, loadAttribution, normalizePhone, validateStep, validateAll,
-  upcomingMonths, monthLabel, DURATIONS, userDataFor, audienceFrom,
+  upcomingMonths, monthLabel, DURATIONS, userDataFor, audienceFrom, clarityTags,
   buildLeadPayload, buildWhatsAppText, buildWhatsAppUrl,
 } from '../plan/js/lead.mjs';
 
@@ -182,4 +182,16 @@ test('audienceFrom recognises the family ad group parameter', () => {
   assert.equal(audienceFrom('?audience=FAMILY'), 'family');
   assert.equal(audienceFrom('?audience=other'), null);
   assert.equal(audienceFrom(''), null);
+});
+
+test('clarityTags segments recordings by campaign without sending the click ID', () => {
+  const tags = clarityTags({ utm_source: 'google', utm_term: 'salvador trip planner', utm_content: '123', utm_campaign: '987', gclid: 'abc' }, 'family');
+  assert.deepEqual(tags, {
+    source: 'google', utm_term: 'salvador trip planner', utm_content: '123', utm_campaign: '987', gclid: 'yes', audience: 'family',
+  });
+  assert.ok(!Object.values(tags).includes('abc'));
+});
+
+test('clarityTags marks direct visits and skips empty values', () => {
+  assert.deepEqual(clarityTags({}, null), { source: 'direct', gclid: 'no' });
 });

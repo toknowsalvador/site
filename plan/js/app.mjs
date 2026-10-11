@@ -2,7 +2,7 @@
 import { CONFIG } from './config.mjs';
 import {
   generateLeadId, loadAttribution, validateStep, validateAll, buildLeadPayload, buildWhatsAppText, buildWhatsAppUrl,
-  upcomingMonths, userDataFor, audienceFrom, setPhoneLibrary, phonePreview, countryFromLocale, FALLBACK_COUNTRIES,
+  upcomingMonths, userDataFor, audienceFrom, clarityTags, setPhoneLibrary, phonePreview, countryFromLocale, FALLBACK_COUNTRIES,
 } from './lead.mjs';
 
 const CONSENT_KEY = 'tks_consent';
@@ -13,6 +13,7 @@ function safeStorage(kind) {
 
 function track(name, params = {}) {
   try { if (typeof window.gtag === 'function') window.gtag('event', name, params); } catch { /* tracking must never break the page */ }
+  try { if (typeof window.clarity === 'function') window.clarity('event', name); } catch { /* same */ }
 }
 
 function loadGtag() {
@@ -27,7 +28,7 @@ function loadGtag() {
   if (CONFIG.adsId) window.gtag('config', CONFIG.adsId, { allow_enhanced_conversions: true });
 }
 
-function loadClarity() {
+function loadClarity(tags) {
   if (!CONFIG.clarityId) return;
   /* Microsoft Clarity loader; runs cookieless until consent is granted (project setting). */
   window.clarity = window.clarity || function clarity(...args) { (window.clarity.q = window.clarity.q || []).push(args); };
@@ -35,6 +36,7 @@ function loadClarity() {
   s.async = true;
   s.src = `https://www.clarity.ms/tag/${CONFIG.clarityId}`;
   document.head.appendChild(s);
+  for (const [key, value] of Object.entries(tags)) window.clarity('set', key, value);
 }
 
 function setupConsent() {
@@ -192,6 +194,7 @@ function setupForm(attribution) {
     step2.hidden = false;
     step2.querySelector('input, select')?.focus();
     track('form_step_2', { people: Number(data.people) });
+    try { if (typeof window.clarity === 'function') window.clarity('set', 'people', String(data.people)); } catch { /* ignore */ }
   };
   form.querySelector('[data-next]').addEventListener('click', goToStep2);
 
@@ -262,6 +265,6 @@ const audience = audienceFrom(location.search);
 if (audience) document.querySelector(`[data-audience="${audience}"]`)?.removeAttribute('hidden');
 setupConsent();
 loadGtag();
-loadClarity();
+loadClarity(clarityTags(attribution, audience));
 setupForm(attribution);
 setupStickyCta();

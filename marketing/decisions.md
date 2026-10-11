@@ -2,6 +2,9 @@
 
 Newest first. To reverse a decision, add a new entry citing the evidence.
 
+## 2026-10-11 — Clarity receives funnel events and campaign tags
+- The four GA4 funnel events (`form_start`, `form_step_2`, `generate_lead`, `whatsapp_click`) are also sent to Clarity as custom events, and each visit gets tags `source`, `utm_term`, `utm_content`, `utm_campaign`, `gclid` (yes/no only), `audience`, plus `people` at step 2. No name, phone or `lead_id` goes to Clarity. **Why:** with ~100 sessions the analysis depends on watching the right recordings (started the form but did not finish, by ad group); without events Clarity could not filter them. No visible change on the page, so not an EXP.
+
 ## 2026-10-10 — "Our guides" instead of "we book" (copy v10, ads v4 draft)
 - Tours, day trips and transfers are run by people working under the To Know Salvador name, so page and ads say our guides/team lead them; "booked" (which sounds like reselling someone else's tour) is replaced by "arranged" for partner services. New ad headlines in the 3 live groups: "Tours Led by Our Local Guides", "Planned & Arranged by Locals". **Why:** delivering the tours ourselves is the main difference from an agency.
 

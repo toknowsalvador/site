@@ -24,6 +24,12 @@ Changing anything here requires updating `plan/js/lead.mjs`, `plan/js/app.mjs`, 
 
 Google Ads lead conversion: "TKS Lead" in Google Ads is the GA4 `generate_lead` event (linked property TKS Plan, G-2RZLNYF4ZG). The tag-based `conversion` event in `app.mjs` only fires if `adsConversion` is set — leave it empty.
 
+## Microsoft Clarity
+
+- Every GA4 event above is also sent as a Clarity custom event with the same name (`clarity('event', name)`, no params), so recordings and heatmaps can be filtered by funnel stage.
+- Custom tags set on load by `clarityTags()` in `lead.mjs`: `source` (`utm_source` or `direct`), `utm_term`, `utm_content` (ad group ID), `utm_campaign` (only when present), `gclid` (`yes`/`no` — never the ID itself), `audience` (when set). On `form_step_2`: tag `people`.
+- Never send name, phone or `lead_id` to Clarity.
+
 ## Lead payload / sheet columns (in order)
 
 `timestamp, lead_id, name, whatsapp, people, month, duration, interests, utm_source, utm_medium, utm_campaign, utm_term, utm_content, gclid, landing_url` (`month` = `YYYY-MM` or `not-sure`; `duration` = one of `DURATIONS` in `lead.mjs` or empty) — the sheet adds `status` (default `novo`), `valor`, `data_venda` and `lucro` (filled by the team).

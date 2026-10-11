@@ -180,3 +180,13 @@ export function audienceFrom(search) {
   const value = (new URLSearchParams(search).get('audience') || '').trim().toLowerCase();
   return AUDIENCES.includes(value) ? value : null;
 }
+
+// Microsoft Clarity custom tags, so recordings and heatmaps can be filtered by ad group, keyword and audience.
+// Only says whether a gclid exists — the click ID itself stays out of Clarity.
+export function clarityTags(attribution, audience) {
+  const tags = { source: attribution.utm_source || 'direct' };
+  for (const key of ['utm_term', 'utm_content', 'utm_campaign']) if (attribution[key]) tags[key] = attribution[key];
+  tags.gclid = attribution.gclid ? 'yes' : 'no';
+  if (audience) tags.audience = audience;
+  return tags;
+}
