@@ -29,6 +29,7 @@ Google Ads lead conversion: "TKS Lead" in Google Ads is the GA4 `generate_lead` 
 - Every GA4 event above is also sent as a Clarity custom event with the same name (`clarity('event', name)`, no params), so recordings and heatmaps can be filtered by funnel stage.
 - Custom tags set on load by `clarityTags()` in `lead.mjs`: `source` (`utm_source` or `direct`), `utm_term`, `utm_content` (ad group ID), `utm_campaign` (only when present), `gclid` (`yes`/`no` — never the ID itself), `audience` (when set). On `form_step_2`: tag `people`.
 - Never send name, phone or `lead_id` to Clarity.
+- Known limit (measured 2026-10-11, clarity.js 0.8.72): Clarity uploads in batches with a delay that grows by ~1 s per batch (max 30 s) and sends nothing pending on page exit. The WhatsApp redirect leaves after 0.8 s, so `generate_lead`, `whatsapp_click` and the final click usually never reach Clarity — confirmed in headless tests and in the team's phone test (`clarity('upgrade')` does not change this). Count leads in GA4/the sheet; use Clarity for behaviour up to step 2. Lengthening the redirect to fix this trades conversions for analytics — only with a team decision.
 
 ## Lead payload / sheet columns (in order)
 
