@@ -72,6 +72,7 @@ Campaign-level list "TKS negatives", broad match, from day 1:
 
 - **Other Salvadors:** el salvador, san salvador, salvadoran, bukele, santa ana, san miguel, el tunco, salvador dali, dali, salvador sobral
 - **Low intent:** free, jobs, job, salary, work, map, maps, weather, flight, flights, cheap flights, airline, pdf, wikipedia, history of, crime, news, portuguese, translation, real estate, apartment for sale, university, bahia fc
+- **Portuguese searches** (added 2026-10-11): em, fazer, hoje, pontos, passeio, passeios, roteiro, praias — Portuguese-only words, so Spanish searches still match
 
 Search terms review: every 2–3 days in weeks 1–3, then weekly (via `campaign-analyst`).
 
@@ -121,3 +122,4 @@ At ~10 leads/month, the 15–30 conversions needed to switch bidding arrive in m
 - 2026-10-07 — v2: Family & group trips ad group, parental-status observation, UTMs moved from tracking template to Final URL suffix — groups of 3+ are the profitable sales (brief unit economics); template broke `?audience=` URLs — no EXP (pre-launch)
 - 2026-10-08 — Campaign created in Google Ads (account 472-265-1874), start date 2026-10-11, 4 ad groups (Tours & transfers paused), negatives list applied, sitelinks/callouts/snippet at campaign level, auto-apply off. Account-level call asset ((71) 99371-9791) removed — calls skip the form, lead tracking and the Ref. At launch Google marked all 5 phrase keywords of "Trip planner" as "Low search volume" (only the two exact "itinerary" keywords eligible); expect most traffic from Things to do and Family & group trips — no EXP
 - 2026-10-10 — Start date moved from 2026-10-11 to 2026-10-10 (ads approved early); status "Eligible (learning)". Ads v4 live — no EXP
+- 2026-10-11 — Negatives for Portuguese searches added to "TKS negatives" (em, fazer, hoje, pontos, passeio, passeios, roteiro, praias) — first 2 days: 5 of the 6 clicks with a visible search term came from Portuguese queries matched as close variants ("o que fazer em salvador hoje", "pontos turisticos salvador"…), ~R$ 15,75 of R$ 41,29; 13 clicks, CTR 3,96%, CPC R$ 3,18, all from Things to do; Family & group: 4 keywords eligible, 4 low search volume, 0 impressions — no EXP
