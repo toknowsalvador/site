@@ -5,6 +5,7 @@ Candidate skills detected by growth-orchestrator. A skill is created only when i
 ## whatsapp-closer
 - **Gap:** no owner for lead response speed, follow-up and quote conversion on WhatsApp. No automatic first reply yet (team plans to add one; WhatsApp Business greeting message is the cheapest start).
 - **Trigger:** more than 20% of leads in a month with status `novo` after 24h, or quote→sale rate below 20% with ≥ 10 quotes.
+- **Evidence (2026-10-24):** 4 quotes, 0 sales — all 4 stopped answering after the quote; 1 more lead never answered. Below the 10-quote threshold.
 - **Status:** waiting
 
 ## testimonial-collector

@@ -27,6 +27,7 @@
 ## Ideal customer
 - Language: English (campaign v1).
 - Who: foreign traveler planning a trip to Salvador, Bahia, or already in Brazil and heading there.
+- Focus (team, 2026-10-20): travelers who pay in USD, EUR or GBP; searches in Portuguese and Spanish are excluded in Google Ads.
 - Likely fears (validate with real WhatsApp conversations): language barrier, safety, being overcharged or scammed, logistics between places, wasting vacation hours on research.
 - Desired outcome: land in Salvador with everything booked and just enjoy.
 
