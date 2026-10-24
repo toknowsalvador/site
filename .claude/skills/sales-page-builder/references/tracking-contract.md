@@ -17,7 +17,7 @@ Changing anything here requires updating `plan/js/lead.mjs`, `plan/js/app.mjs`, 
 
 | Event | When | Params |
 |---|---|---|
-| `form_start` | first focus inside the form (once per page view) | — |
+| `form_start` | first click, focus, change or key press inside the form (once per page view; not `pointerdown`, which also fires when a finger only scrolls the page) | — |
 | `form_step_2` | step 1 validated, step 2 shown | `people` |
 | `generate_lead` | step 2 validated, before redirect | `lead_id` |
 | `whatsapp_click` | right before redirect | `lead_id` |

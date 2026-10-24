@@ -99,14 +99,17 @@ function sendLead(payload) {
 }
 
 // Safari doesn't focus radios/checkboxes/buttons on tap, so "focusin" alone misses the first interaction.
-function onFirstInteraction(el, fn) {
-  const events = ['pointerdown', 'focusin', 'change', 'keydown'];
+function onFirstInteraction(el, fn, events = ['pointerdown', 'focusin', 'change', 'keydown']) {
   const handler = () => {
     events.forEach((type) => el.removeEventListener(type, handler, true));
     fn();
   };
   events.forEach((type) => el.addEventListener(type, handler, true));
 }
+
+// The form sits in the hero, so on phones a finger often lands on it just to scroll: pointerdown would count that as
+// a form start. A tap that picks an option fires click (no click when the touch scrolls), which still covers Safari.
+const INTENT_EVENTS = ['click', 'focusin', 'change', 'keydown'];
 
 const PHONE_HELP = "We'll only use it to send your quote.";
 let phoneLibRequested = false;
@@ -167,7 +170,7 @@ function setupForm(attribution) {
 
   onFirstInteraction(form, () => {
     if (!started) { started = true; track('form_start'); }
-  });
+  }, INTENT_EVENTS);
   setupPhone(form);
 
   const months = form.querySelector('#month-options');

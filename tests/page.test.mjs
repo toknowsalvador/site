@@ -144,3 +144,14 @@ test('the featured review is an original-English Tripadvisor review with name, p
   assert.match(proof, /<b>Jordi<\/b> Traveled solo · September 2026/);
   assert.doesNotMatch(proof, /Sonya/);
 });
+
+test('form_start fires on a real interaction, not on a touch that only scrolls the page', () => {
+  const app = read('plan/js/app.mjs');
+  const call = app.match(/onFirstInteraction\(form, \(\) => \{\s*if \(!started\) \{ started = true; track\('form_start'\); \}\s*\}(, [^)]*)?\)/);
+  assert.ok(call, 'form_start must be tracked through onFirstInteraction');
+  assert.match(call[1] || '', /INTENT_EVENTS/, 'form_start must use the intent events');
+  const intent = app.match(/const INTENT_EVENTS = \[([^\]]*)\]/);
+  assert.ok(intent, 'INTENT_EVENTS must be defined');
+  assert.doesNotMatch(intent[1], /pointerdown|touchstart/, 'a finger on the form while scrolling is not a form start');
+  assert.match(intent[1], /'click'/, 'Safari: tapping a radio label fires click, not focus');
+});
